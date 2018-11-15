@@ -1,0 +1,88 @@
+body {
+    text-align: center;
+    background-color: grey
+}
+div {
+    border: 1px black
+}
+
+.itemslot {
+    height: 50px;
+    width: 50px;
+    background-size: cover 
+}
+
+#belt {
+    background-image: url("/assets//images/belt.png")
+}
+
+#bracers {
+    background-image: url("/assets//images/bracers.png")
+}
+
+#cloak {
+    background-image: url("/assets//images/cloak.png")
+}
+
+#ring {
+    background-image: url("/assets//images/ring.png")
+}
+
+#gloves {
+    background-image: url("/assets//images/gloves.png")
+}
+
+#head {
+    background-image: url("/assets//images/head.png")
+}
+
+#legs {
+    background-image: url("/assets//images/legs.png")
+}
+
+#mainhand {
+    background-image: url("/assets//images/mainhand.png")
+}
+
+#offhand {
+    background-image: url("/assets//images/offhand.png")
+}
+
+#ranged {
+    background-image: url("/assets//images/ranged.png")
+}
+
+#shoulders {
+    background-image: url("/assets//images/shoulders.png")
+}
+#tabard {
+    background-image: url("/assets//images/tabard.png")
+}
+#trinket {
+    background-image: url("/assets//images/trinket.png")
+}
+
+#neck {
+    background-image: url("/assets//images/neck.png")
+}
+
+#chest {
+    background-image: url("/assets//images/chest.png")
+}
+
+#shirt {
+    background-image: url("/assets//images/shirt.png")
+}
+
+#pants {
+    background-image: url("/assets//images/pants.png")
+}
+
+#boots {
+    background-image: url("/assets//images/boots.png")
+}
+
+.not-enchantable {
+    background-color: red;
+    opacity: 0.5;
+}
