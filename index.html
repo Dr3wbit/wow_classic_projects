@@ -16,6 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="enchants.js"></script>
     <script src="main.js"></script>
 
 </head>
@@ -40,14 +41,14 @@
                     <div class="col">
                         <div class="row">
                             <div class="col-2">
-                                <div class="itemslot" id="head"></div>
+                                <div class="itemslot not-enchantable" id="head"></div>
                                 <div class="itemslot not-enchantable" id="neck"></div>
-                                <div class="itemslot" id="shoulders"></div>
-                                <div class="itemslot" id="cloak"></div>
-                                <div class="itemslot" id="chest"></div>
+                                <div class="itemslot not-enchantable" id="shoulders"></div>
+                                <div class="itemslot enchantable" id="cloak"  ></div>
+                                <div class="itemslot enchantable" id="chest"  ></div>
                                 <div class="itemslot not-enchantable" id="shirt"></div>
                                 <div class="itemslot not-enchantable" id="tabard"></div>
-                                <div class="itemslot" id="bracers"></div>
+                                <div class="itemslot enchantable" id="bracers"  ></div>
                             </div>
                             <div class="col-8">
                                 <div class="row">
@@ -57,10 +58,10 @@
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="itemslot" id="gloves"></div>
-                                <div class="itemslot" id="belt"></div>
-                                <div class="itemslot" id="pants"></div>
-                                <div class="itemslot" id="boots"></div>
+                                <div class="itemslot enchantable" id="gloves"  ></div>
+                                <div class="itemslot not-enchantable" id="belt"></div>
+                                <div class="itemslot not-enchantable" id="pants"></div>
+                                <div class="itemslot enchantable" id="boots"  ></div>
                                 <div class="itemslot not-enchantable" id="ring"></div>
                                 <div class="itemslot not-enchantable" id="ring"></div>
                                 <div class="itemslot not-enchantable" id="trinket"></div>
@@ -70,13 +71,13 @@
                         <div class="row">
                             <div class="col"></div>
                             <div class="col-2">
-                                    <div class="itemslot" id="mainhand"></div>
+                                    <div class="itemslot enchantable" id="mainhand"  ></div>
                             </div>
                             <div class="col-2">
-                                    <div class="itemslot" id="offhand"></div>
+                                    <div class="itemslot enchantable" id="offhand"  ></div>
                             </div>
                             <div class="col-2">
-                                    <div class="itemslot" id="ranged"></div>
+                                    <div class="itemslot not-enchantable" id="ranged"  ></div>
                             </div>
                             <div class="col"></div>
                         </div>
