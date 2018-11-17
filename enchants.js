@@ -280,7 +280,7 @@ const enchants = {
 
         crusader: {
             name: 'Crusader',
-            effect: '+100 Str Proc Chance',
+            effect: '+100 Str Proc',
             materials: {
                 large_brilliant_shard: 4,
                 righteous_orb: 2

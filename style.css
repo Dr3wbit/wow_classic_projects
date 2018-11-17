@@ -13,17 +13,30 @@ div {
     background-size: cover;
 }
 
+.results {
+    background-color: antiquewhite;
+    min-height:  60px;
+    margin: 20px;
+    overflow-y: auto;
+}
+
+.rightSideBar, .leftSideBar{
+    border: 3px black solid
+}
+
 .enchantOption {
     font-size: 80%;
     height: 50px;
     width: 50px;
     color: white;
     margin-top: 20px;
-    padding-top: 5px;
+    padding-top: 10px;
     margin: 10px;
     cursor: pointer;
     border: 2px black solid;
     background-color: black;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .enchant-slot-title {

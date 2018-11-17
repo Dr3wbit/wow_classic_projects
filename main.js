@@ -1,6 +1,6 @@
 
 
-var materialArray = [];
+let materialArray = [];
 
 $(document).ready(initializeApp)
 
@@ -12,13 +12,13 @@ function initializeApp() {
 function applyClickHandlers() {
     $(".enchantable").on({
         click: e => {
-        $(".enchantable").removeClass('focus')
-        $(".rightSideBar").empty()
-        const clickedSlot = $(e.target)
-        clickedSlot.addClass('focus')
-        findSlot(clickedSlot)
+            $(".enchantable").removeClass('focus')
+            $(".rightSideBar").empty()
+            const clickedSlot = $(e.target)
+            clickedSlot.addClass('focus')
+            findSlot(clickedSlot)
         },
-   })
+    })
 }
 
 function findSlot(selection) {
@@ -27,7 +27,7 @@ function findSlot(selection) {
     const dataKeys = Object.keys(enchants[slot])
     enchantData = getenchantData(dataObject, dataKeys, slot)
     $('.rightSideBar').append($('<div/>', {
-        text: slot,
+        text: slot.toUpperCase(),
         class: 'enchant-slot-title'
     }))
     $('.rightSideBar').append(enchantData)
@@ -35,16 +35,16 @@ function findSlot(selection) {
 
 }
 
-function getenchantData(dataObject, dataKeys, slot){
+function getenchantData(dataObject, dataKeys, slot) {
     slotEnchants = null
     enchantToAppend = []
-    for (let i=0; i < dataKeys.length; i++){
+    for (let i = 0; i < dataKeys.length; i++) {
         slotEnchants = $('<div/>', {
             class: 'enchantOption',
             text: dataObject[dataKeys[i]].name,
             'data-toggle': "tooltip",
             title: dataObject[dataKeys[i]].effect,
-            'data-placement' : "right"
+            'data-placement': "top"
         }).on({
             click: e => {
                 $('.enchantOption').removeClass('focus')
@@ -58,28 +58,12 @@ function getenchantData(dataObject, dataKeys, slot){
                 const enchantMaterials = dataObject[dataKeys[i]].materials
 
                 const materialKeys = Object.getOwnPropertyNames(enchantMaterials);
-                for(let j =0; j< materialKeys.length; j++){
+                for (let j = 0; j < materialKeys.length; j++) {
                     const materialAmmount = dataObject[dataKeys[i]].materials[materialKeys[j]]
-                    for(let x = 0; x < materialAmmount; x++){
+                    for (let x = 0; x < materialAmmount; x++) {
                         materialArray.push(materialKeys[j])
                     }
                 }
-                console.log(materialArray)
-                
-
-
-
-
-
-
-                // for (let prop in enchantMaterials) {
-                //     if (enchantMaterials.hasOwnProperty(prop)) {
-                //       let innerObj = {};
-                //       innerObj[prop] = enchantMaterials[prop];
-                //       materialArray.push(innerObj)
-                //     }
-                //   }
-                //   console.log(materialArray);
             }
         })
         enchantToAppend.push(slotEnchants)
@@ -95,9 +79,17 @@ function clearData() {
     materialArray = []
 }
 
-function calculateData(){
+function calculateData() {
+    let materialsToAppend = []
     let counts = {};
-    materialArray.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
-    console.log(JSON.stringify(counts))
-    $('.results').text(JSON.stringify(counts))
+    materialArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+    let material = Object.keys(counts)
+    for (let i = 0; i < material.length; i++) {
+        let totalMaterialCount = $('<div/>', {
+            class: 'totalMaterials',
+            text: material[i].replace(/_/g, " ") + ": " + counts[material[i]]
+        })
+        materialsToAppend.push(totalMaterialCount)
+    }
+    $('.results').append(materialsToAppend)
 }
