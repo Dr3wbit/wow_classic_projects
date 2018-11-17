@@ -35,56 +35,70 @@
         </nav>
         <div class="row"></div>
         <div class="row">
-            <div class="col"></div>
-            <div class="col-6">Select Your Enchants
+            <div class="col leftSideBar"></div>
+            <div class="col-6 mainDisplay">Select Your Enchants
                 <div class="row">
                     <div class="col">
                         <div class="row">
                             <div class="col-2">
-                                <div class="itemslot not-enchantable" id="head"></div>
-                                <div class="itemslot not-enchantable" id="neck"></div>
-                                <div class="itemslot not-enchantable" id="shoulders"></div>
-                                <div class="itemslot enchantable" id="cloak"  ></div>
-                                <div class="itemslot enchantable" id="chest"  ></div>
-                                <div class="itemslot not-enchantable" id="shirt"></div>
-                                <div class="itemslot not-enchantable" id="tabard"></div>
-                                <div class="itemslot enchantable" id="bracers"  ></div>
+                                <div class="itemslot not-enchantable" id="head" data-toggle="tooltip" data-placement="left" title="Head"></div>
+                                <div class="itemslot not-enchantable" id="neck" data-toggle="tooltip" data-placement="left" data-placement="left" title="Neck"></div>
+                                <div class="itemslot not-enchantable" id="shoulders" data-toggle="tooltip" data-placement="left" title="Shoulders"></div>
+                                <div class="itemslot enchantable" id="cloak" data-toggle="tooltip" data-placement="left" title="Cloak"></div>
+                                <div class="itemslot enchantable" id="chest" data-toggle="tooltip" data-placement="left" title="Chest"></div>
+                                <div class="itemslot not-enchantable" id="shirt" data-toggle="tooltip" data-placement="left" title="Shirt"></div>
+                                <div class="itemslot not-enchantable" id="tabard" data-toggle="tooltip" data-placement="left" title="Tabard"></div>
+                                <div class="itemslot enchantable" id="bracers" data-toggle="tooltip" data-placement="left" title="Shirt"></div>
                             </div>
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col"></div>
-                                    <div class="col-8 selected-enchant">selected enchant</div>
+                                    <div class="col-8 selected-enchant"></div>
                                     <div class="col"></div>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="itemslot enchantable" id="gloves"  ></div>
-                                <div class="itemslot not-enchantable" id="belt"></div>
-                                <div class="itemslot not-enchantable" id="pants"></div>
-                                <div class="itemslot enchantable" id="boots"  ></div>
-                                <div class="itemslot not-enchantable" id="ring"></div>
-                                <div class="itemslot not-enchantable" id="ring"></div>
-                                <div class="itemslot not-enchantable" id="trinket"></div>
-                                <div class="itemslot not-enchantable" id="trinket"></div>
+                                <div class="itemslot enchantable" id="gloves" data-toggle="tooltip" data-placement="left" title="Gloves"></div>
+                                <div class="itemslot not-enchantable" id="belt" data-toggle="tooltip" data-placement="left" title="Belt"></div>
+                                <div class="itemslot not-enchantable" id="pants" data-toggle="tooltip" data-placement="left" title="Pants"></div>
+                                <div class="itemslot enchantable" id="boots" data-toggle="tooltip" data-placement="left" title="Boots"></div>
+                                <div class="itemslot not-enchantable" id="ring" data-toggle="tooltip" data-placement="left" title="Ring"></div>
+                                <div class="itemslot not-enchantable" id="ring" data-toggle="tooltip" data-placement="left" title="Ring"></div>
+                                <div class="itemslot not-enchantable" id="trinket" data-toggle="tooltip" data-placement="left" title="Trinket"></div>
+                                <div class="itemslot not-enchantable" id="trinket" data-toggle="tooltip" data-placement="left" title="Trinket"></div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col"></div>
                             <div class="col-2">
-                                    <div class="itemslot enchantable" id="mainhand"  ></div>
+                                    <div class="itemslot enchantable" id="mainhand" data-toggle="tooltip" data-placement="left" title="Main Hand"></div>
                             </div>
                             <div class="col-2">
-                                    <div class="itemslot enchantable" id="offhand"  ></div>
+                                    <div class="itemslot enchantable" id="offhand" data-toggle="tooltip" data-placement="left" title="Off Hand"></div>
                             </div>
                             <div class="col-2">
-                                    <div class="itemslot not-enchantable" id="ranged"  ></div>
+                                    <div class="itemslot not-enchantable" id="ranged" data-toggle="tooltip" data-placement="left" title="Ranged"></div>
                             </div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="mt-5"></div>
+                        <div class="row">
+                                <div class="col">
+                                        <button class="btn btn-dark" type="button" onclick="clearData()">Reset All</button>
+                                </div>
+                                <div class="col">
+                                        <button class="btn btn-dark" type="button" onclick="calculateData()">Calculate</button>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"></div>
+                            <div class="col results"></div>
                             <div class="col"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col"></div>
+            <div class="col rightSideBar"></div>
         </div>
     </div>
 </body>

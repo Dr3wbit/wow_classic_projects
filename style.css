@@ -1,15 +1,53 @@
 body {
     text-align: center;
-    background-color: grey
+    background-color: grey;
+    font-size: 100%;
 }
 div {
     border: 1px black
 }
 
 .itemslot {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+}
+
+.enchantOption {
+    font-size: 80%;
     height: 50px;
     width: 50px;
-    background-size: cover 
+    color: white;
+    margin-top: 20px;
+    padding-top: 5px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px black solid;
+    background-color: black;
+}
+
+.enchant-slot-title {
+    font-size: 120%;
+    width: 50px;
+    font-style: bold;
+    margin: 10px;
+}
+
+.mainDisplay {
+    min-width: 400px;
+    max-width: 400px;
+}
+
+.selected-enchant {
+    padding-top: 10px;
+}
+
+.enchantable {
+    cursor: pointer;
+}
+
+.focus {
+    border: 3px greenyellow solid
 }
 
 #belt {
@@ -83,6 +121,5 @@ div {
 }
 
 .not-enchantable {
-    background-color: red;
     opacity: 0.5;
 }
