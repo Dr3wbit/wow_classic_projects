@@ -74,7 +74,7 @@ const enchants = {
             name: 'Superior Stamina',
             effect: '+9 Stamina',
             materials: {
-                illusion_dust: 10,
+                illusion_dust: 15,
             }
         },
 

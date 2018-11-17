@@ -13,7 +13,7 @@ function applyClickHandlers() {
     $(".enchantable").on({
         click: e => {
             $(".enchantable").removeClass('focus')
-            $(".rightSideBar").empty()
+            $(".rightContainer").empty()
             const clickedSlot = $(e.target)
             clickedSlot.addClass('focus')
             findSlot(clickedSlot)
@@ -26,11 +26,11 @@ function findSlot(selection) {
     const dataObject = enchants[slot]
     const dataKeys = Object.keys(enchants[slot])
     enchantData = getenchantData(dataObject, dataKeys, slot)
-    $('.rightSideBar').append($('<div/>', {
+    $('.rightContainer').append($('<div/>', {
         text: slot.toUpperCase(),
         class: 'enchant-slot-title'
     }))
-    $('.rightSideBar').append(enchantData)
+    $('.rightContainer').append(enchantData)
     $('[data-toggle="tooltip"]').tooltip()
 
 }
@@ -52,7 +52,7 @@ function getenchantData(dataObject, dataKeys, slot) {
                 clickedEnchant.addClass('focus')
                 $('<div/>', {
                     class: 'enchantInfo',
-                    text: slot.toUpperCase() + ": " + dataObject[dataKeys[i]].effect
+                    text: slot.toUpperCase() + " : " + dataObject[dataKeys[i]].effect
                 }).appendTo('.selected-enchant')
 
                 const enchantMaterials = dataObject[dataKeys[i]].materials
@@ -72,7 +72,7 @@ function getenchantData(dataObject, dataKeys, slot) {
 }
 
 function clearData() {
-    $(".rightSideBar").empty()
+    $(".rightContainer").empty()
     $(".selected-enchant").empty()
     $('.results').empty()
     $(".enchantable").removeClass('focus')
