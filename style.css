@@ -1,10 +1,11 @@
 body {
+    height: 100vh;
     text-align: center;
     background-color: grey;
-    font-size: 100%;
-}
-div {
-    border: 1px black
+    font-size: 0;
+    background-image: url("assets/images/alterac_background.png");
+    background-size: cover;
+    background-repeat: no-repeat
 }
 
 .itemslot {
@@ -14,36 +15,42 @@ div {
 }
 
 .results {
+    font-size: .9rem;
     background-color: antiquewhite;
-    min-height:  60px;
+    min-height:  100px;
+    max-height: 100px;
     margin: 20px;
-    overflow-y: auto;
+    overflow-y: scroll
 }
 
-.rightSideBar, .leftSideBar{
-    border: 3px black solid
+.navbar {
+    opacity: .8;
 }
 
 .enchantOption {
-    font-size: 80%;
-    height: 50px;
-    width: 50px;
+    font-size: .9rem;
+    height: 55px;
+    width: 55px;
     color: white;
     margin-top: 20px;
     padding-top: 10px;
-    margin: 10px;
+    margin: 5px;
     cursor: pointer;
     border: 2px black solid;
     background-color: black;
     display: inline-block;
     vertical-align: top;
+    text-overflow: ellipsis;
+    border-radius: 4px
 }
 
 .enchant-slot-title {
-    font-size: 120%;
-    width: 50px;
+    font-size: 1rem;
     font-style: bold;
     margin: 10px;
+    padding: 2px;
+    background-color: azure;
+    border-radius: 2px
 }
 
 .mainDisplay {
@@ -53,6 +60,14 @@ div {
 
 .selected-enchant {
     padding-top: 10px;
+}
+
+.enchantInfo {
+    font-size: .9rem;
+    padding: 1px;
+    margin: 2px;
+    background-color: azure;
+    border-radius: 2px
 }
 
 .enchantable {

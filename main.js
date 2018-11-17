@@ -52,7 +52,7 @@ function getenchantData(dataObject, dataKeys, slot) {
                 clickedEnchant.addClass('focus')
                 $('<div/>', {
                     class: 'enchantInfo',
-                    text: slot + ": " + dataObject[dataKeys[i]].effect
+                    text: slot.toUpperCase() + ": " + dataObject[dataKeys[i]].effect
                 }).appendTo('.selected-enchant')
 
                 const enchantMaterials = dataObject[dataKeys[i]].materials
@@ -80,6 +80,7 @@ function clearData() {
 }
 
 function calculateData() {
+    $('.results').empty()
     let materialsToAppend = []
     let counts = {};
     materialArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
