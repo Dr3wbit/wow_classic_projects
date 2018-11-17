@@ -64,73 +64,73 @@ div {
 }
 
 #belt {
-    background-image: url("/assets/images/belt.png")
+    background-image: url("assets/images/belt.png")
 }
 
 #bracers {
-    background-image: url("/assets/images/bracers.png")
+    background-image: url("assets/images/bracers.png")
 }
 
 #cloak {
-    background-image: url("/assets/images/cloak.png")
+    background-image: url("assets/images/cloak.png")
 }
 
 #ring {
-    background-image: url("/assets/images/ring.png")
+    background-image: url("assets/images/ring.png")
 }
 
 #gloves {
-    background-image: url("/assets/images/gloves.png")
+    background-image: url("assets/images/gloves.png")
 }
 
 #head {
-    background-image: url("/assets/images/head.png")
+    background-image: url("assets/images/head.png")
 }
 
 #legs {
-    background-image: url("/assets/images/legs.png")
+    background-image: url("assets/images/legs.png")
 }
 
 #mainhand {
-    background-image: url("/assets/images/mainhand.png")
+    background-image: url("assets/images/mainhand.png")
 }
 
 #offhand {
-    background-image: url("/assets/images/offhand.png")
+    background-image: url("assets/images/offhand.png")
 }
 
 #ranged {
-    background-image: url("/assets/images/ranged.png")
+    background-image: url("assets/images/ranged.png")
 }
 
 #shoulders {
-    background-image: url("/assets/images/shoulders.png")
+    background-image: url("assets/images/shoulders.png")
 }
 #tabard {
-    background-image: url("/assets/images/tabard.png")
+    background-image: url("assets/images/tabard.png")
 }
 #trinket {
-    background-image: url("/assets/images/trinket.png")
+    background-image: url("assets/images/trinket.png")
 }
 
 #neck {
-    background-image: url("/assets/images/neck.png")
+    background-image: url("assets/images/neck.png")
 }
 
 #chest {
-    background-image: url("/assets/images/chest.png")
+    background-image: url("assets/images/chest.png")
 }
 
 #shirt {
-    background-image: url("/assets/images/shirt.png")
+    background-image: url("assets/images/shirt.png")
 }
 
 #pants {
-    background-image: url("/assets/images/pants.png")
+    background-image: url("assets/images/pants.png")
 }
 
 #boots {
-    background-image: url("/assets/images/boots.png")
+    background-image: url("assets/images/boots.png")
 }
 
 .not-enchantable {
