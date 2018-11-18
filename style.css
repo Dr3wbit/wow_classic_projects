@@ -24,8 +24,8 @@ body {
 }
 
 .bookImg {
-    background-image: url("assets/images/enchant_book.png");
-    background-size: contain;
+    background-image: url("assets/images/enchanted_book_2.png");
+    background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
     min-height: 246px;
