@@ -302,6 +302,7 @@ const enchants = {
             name: 'Greater Stamina',
             effect: '+7 Stamina',
             materials: {
+                dream_dust: 10
             }
         },
     },

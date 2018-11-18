@@ -18,29 +18,30 @@ body {
 .rightContainer {
     background-image: url("assets/images/textured_background.png");
     background-size: cover;
-    padding: 10px;
     border-radius: 5px;
     border: 2px #100007 solid;
-    min-height: 200px;
+    min-height: 250px;
 }
 
-/* .leftContainer {
-    background-image: url("assets/images/textured_background.png");
+.bookImg {
+    background-image: url("assets/images/enchant_book.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 5px;
+    min-height: 246px;
+}
+
+ .leftContainer {
+    background-image: url("assets/images/textured_background_white.png");
     background-size: cover;
     padding: 10px;
     border-radius: 5px;
     border: 2px black solid;
-} */
+    min-height: 250px;
+} 
 
 .results {
     font-size: 100%;
-    background-color: antiquewhite;
-    border: 1px black solid;
-    min-height:  100px;
-    max-height: 100px;
-    margin: 20px;
-    padding: 10px;
-    overflow-y: scroll;
     text-align: left;
 }
 
@@ -64,6 +65,17 @@ body {
 
 .enchantOption:hover {
     background-color: grey;
+}
+
+.totalTitle {
+    font-size: 100%;
+    font-style: bold;
+    margin: 10px;
+    padding: 2px;
+    background-color: black;
+    border-radius: 2px;
+    border: 1px azure solid;
+    color: azure;
 }
 
 .enchant-slot-title {
