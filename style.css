@@ -1,8 +1,8 @@
 body {
     height: 100vh;
     text-align: center;
+    font-size: 100%;
     background-color: grey;
-    font-size: 0;
     background-image: url("assets/images/alterac_background.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -33,13 +33,15 @@ body {
 } */
 
 .results {
-    font-size: .9rem;
+    font-size: 100%;
     background-color: antiquewhite;
     border: 1px black solid;
     min-height:  100px;
     max-height: 100px;
     margin: 20px;
-    overflow-y: scroll
+    padding: 10px;
+    overflow-y: scroll;
+    text-align: left;
 }
 
 .navbar {
@@ -47,9 +49,7 @@ body {
 }
 
 .enchantOption {
-    font-size: .9rem;
-    height: 55px;
-    width: 55px;
+    font-size: 100%;
     color: white;
     margin-top: 20px;
     padding-top: 10px;
@@ -57,14 +57,18 @@ body {
     cursor: pointer;
     border: 2px black solid;
     background-color: black;
-    display: inline-block;
-    vertical-align: top;
+    display: block;
     text-overflow: ellipsis;
-    border-radius: 4px
+    border-radius: 4px;
+    align-items: center;
+}
+
+.enchantOption:hover {
+    background-color: grey;
 }
 
 .enchant-slot-title {
-    font-size: 1rem;
+    font-size: 100%;
     font-style: bold;
     margin: 10px;
     padding: 2px;
@@ -83,7 +87,7 @@ body {
 }
 
 .enchantInfo {
-    font-size: .9rem;
+    font-size: 100%;
     padding: 1px;
     margin: 2px;
     background-color: azure;

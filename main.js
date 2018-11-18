@@ -41,10 +41,7 @@ function getenchantData(dataObject, dataKeys, slot) {
     for (let i = 0; i < dataKeys.length; i++) {
         slotEnchants = $('<div/>', {
             class: 'enchantOption',
-            text: dataObject[dataKeys[i]].name,
-            'data-toggle': "tooltip",
-            title: dataObject[dataKeys[i]].effect,
-            'data-placement': "top"
+            text: dataObject[dataKeys[i]].name + " : " + dataObject[dataKeys[i]].effect,
         }).on({
             click: e => {
                 $('.enchantOption').removeClass('focus')
@@ -52,7 +49,7 @@ function getenchantData(dataObject, dataKeys, slot) {
                 clickedEnchant.addClass('focus')
                 $('<div/>', {
                     class: 'enchantInfo',
-                    text: slot.toUpperCase() + " : " + dataObject[dataKeys[i]].effect
+                    text: slot.toUpperCase() + " : " + dataObject[dataKeys[i]].effect,
                 }).appendTo('.selected-enchant')
 
                 const enchantMaterials = dataObject[dataKeys[i]].materials
