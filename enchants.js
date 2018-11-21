@@ -17,8 +17,6 @@ const enchants = {
         },
     },
 
-
-
     boots: {
 
         minor_speed: {
@@ -464,7 +462,7 @@ const enchants = {
                 small_brilliant_shard: 4,
                 essence_of_water: 2,
                 essence_of_air: 1,
-                icecap: 1.
+                icecap: 1
             }
         },
     },
