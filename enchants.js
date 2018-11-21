@@ -97,7 +97,7 @@ const enchants = {
 
         greater_strenght: {
             name: 'Greater Strength',
-            effect: '+7 Strenght',
+            effect: '+7 Strength',
             materials: {
                 greater_eternal_essence: 4,
                 illusion_dust: 4
@@ -191,7 +191,7 @@ const enchants = {
 
         greater_strenght: {
             name: 'Greater Strength',
-            effect: '+7 Strenght',
+            effect: '+7 Strength',
             materials: {
                 greater_eternal_essence: 4,
                 illusion_dust: 4
@@ -219,12 +219,12 @@ const enchants = {
 
     head: {
 
-        arcanum_of_focus : {
+        arcanum_of_focus: {
             name: 'Arcanum of Focus',
             effect: '+8 spell DMG & HEAL',
             materials: {
-                libram_of_focus : 1,
-                pristine_black_diamond : 1,
+                libram_of_focus: 1,
+                pristine_black_diamond: 1,
                 large_brilliant_shard: 4,
                 skin_of_shadows: 2
             }
@@ -281,12 +281,12 @@ const enchants = {
 
     legs: {
 
-        arcanum_of_focus : {
+        arcanum_of_focus: {
             name: 'Arcanum of Focus',
             effect: '+8 spell DMG & HEAL',
             materials: {
-                libram_of_focus : 1,
-                pristine_black_diamond : 1,
+                libram_of_focus: 1,
+                pristine_black_diamond: 1,
                 large_brilliant_shard: 4,
                 skin_of_shadows: 2
             }
@@ -398,10 +398,28 @@ const enchants = {
             }
         },
 
+        fiery_weapon: {
+            name: 'Fiery Weapon',
+            effect: 'chance 40 fire DMG',
+            materials: {
+                small_radiant_shard: 4,
+                essence_of_fire: 2
+            }
+        },
+
+        icy_chill: {
+            name: 'Icy Chill',
+            effect: 'slows target',
+            materials: {
+                small_brilliant_shard: 4,
+                essence_of_water: 2,
+                essence_of_air: 1,
+                icecap: 1.
+            }
+        },
     },
 
     offhand: {
-
         crusader: {
             name: 'Crusader',
             effect: '+100 Str Proc',
@@ -427,6 +445,26 @@ const enchants = {
             effect: '+7 Stamina',
             materials: {
                 dream_dust: 10
+            }
+        },
+
+        fiery_weapon: {
+            name: 'Fiery Weapon',
+            effect: 'chance 40 fire DMG',
+            materials: {
+                small_radiant_shard: 4,
+                essence_of_fire: 2
+            }
+        },
+
+        icy_chill: {
+            name: 'Icy Chill',
+            effect: 'slows target',
+            materials: {
+                small_brilliant_shard: 4,
+                essence_of_water: 2,
+                essence_of_air: 1,
+                icecap: 1.
             }
         },
     },
