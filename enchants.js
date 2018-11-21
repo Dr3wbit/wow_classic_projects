@@ -96,7 +96,7 @@ const enchants = {
         },
 
         greater_strenght: {
-            name: 'Greater Strenght',
+            name: 'Greater Strength',
             effect: '+7 Strenght',
             materials: {
                 greater_eternal_essence: 4,
@@ -190,7 +190,7 @@ const enchants = {
         },
 
         greater_strenght: {
-            name: 'Greater Strenght',
+            name: 'Greater Strength',
             effect: '+7 Strenght',
             materials: {
                 greater_eternal_essence: 4,
@@ -213,6 +213,130 @@ const enchants = {
             materials: {
                 vision_dust: 1,
                 green_whelp_scale: 3
+            }
+        },
+    },
+
+    head: {
+
+        arcanum_of_focus : {
+            name: 'Arcanum of Focus',
+            effect: '+8 spell DMG & HEAL',
+            materials: {
+                libram_of_focus : 1,
+                pristine_black_diamond : 1,
+                large_brilliant_shard: 4,
+                skin_of_shadows: 2
+            }
+        },
+
+        lesser_arcanum_of_constitution: {
+            name: 'Arcanum of Constitution',
+            effect: '+100 Health',
+            materials: {
+                black_diamond: 1,
+                lung_juice_cocktail: 1,
+                libram_of_constitution: 1,
+                night_dragons_breath: 4,
+                gold: 30
+            }
+        },
+
+        lesser_arcanum_of_rumination: {
+            name: 'Arcanum of Rumination',
+            effect: '+150 Mana',
+            materials: {
+                black_diamond: 1,
+                black_blood_of_the_tormented: 1,
+                gizzard_gum: 1,
+                libram_of_rumination: 1,
+                gold: 30,
+            }
+        },
+
+        lesser_arcanum_of_voracity: {
+            name: 'Arcanum of Voracity',
+            effect: '+8 to single stat',
+            materials: {
+                black_diamond: 1,
+                libram_of_voracity: 1,
+                whipper_root_tuber: 4,
+                crystal_force: 4,
+                gold: 30
+            }
+        },
+
+        lesser_arcanum_of_resilience: {
+            name: 'Arcanum of Resilience',
+            effect: '+20 fire Res',
+            materials: {
+                black_diamond: 1,
+                crystal_spire: 4,
+                burning_essence: 1,
+                libram_of_resilience: 1,
+                gold: 30
+            }
+        },
+    },
+
+    legs: {
+
+        arcanum_of_focus : {
+            name: 'Arcanum of Focus',
+            effect: '+8 spell DMG & HEAL',
+            materials: {
+                libram_of_focus : 1,
+                pristine_black_diamond : 1,
+                large_brilliant_shard: 4,
+                skin_of_shadows: 2
+            }
+        },
+
+        lesser_arcanum_of_constitution: {
+            name: 'Arcanum of Constitution',
+            effect: '+100 Health',
+            materials: {
+                black_diamond: 1,
+                lung_juice_cocktail: 1,
+                libram_of_constitution: 1,
+                night_dragons_breath: 4,
+                gold: 30
+            }
+        },
+
+        lesser_arcanum_of_rumination: {
+            name: 'Arcanum of Rumination',
+            effect: '+150 Mana',
+            materials: {
+                black_diamond: 1,
+                black_blood_of_the_tormented: 1,
+                gizzard_gum: 1,
+                libram_of_rumination: 1,
+                gold: 30,
+            }
+        },
+
+        lesser_arcanum_of_voracity: {
+            name: 'Arcanum of Voracity',
+            effect: '+8 to single stat',
+            materials: {
+                black_diamond: 1,
+                libram_of_voracity: 1,
+                whipper_root_tuber: 4,
+                crystal_force: 4,
+                gold: 30
+            }
+        },
+
+        lesser_arcanum_of_resilience: {
+            name: 'Arcanum of Resilience',
+            effect: '+20 fire Res',
+            materials: {
+                black_diamond: 1,
+                crystal_spire: 4,
+                burning_essence: 1,
+                libram_of_resilience: 1,
+                gold: 30
             }
         },
     },

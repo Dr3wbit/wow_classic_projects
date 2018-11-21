@@ -10,8 +10,8 @@ body {
 }
 
 .itemslot {
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     background-size: cover;
 }
 
@@ -21,6 +21,8 @@ body {
     border-radius: 5px;
     border: 2px #100007 solid;
     min-height: 250px;
+    min-width: 300px;
+    max-width: 450px;
 }
 
 .bookImg {
@@ -38,11 +40,15 @@ body {
     border-radius: 5px;
     border: 2px black solid;
     min-height: 250px;
+    min-width: 300px;
+    max-width: 450px;
 } 
 
 .results {
     font-size: 100%;
     text-align: left;
+    background-color: azure;
+    padding-left: 5px;
 }
 
 .navbar {
@@ -90,7 +96,8 @@ body {
 
 .mainDisplay {
     min-width: 400px;
-    max-width: 400px;
+    max-width: 450px;
+
 }
 
 .selected-enchant {
