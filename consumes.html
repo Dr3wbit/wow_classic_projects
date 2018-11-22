@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enchant Calc</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="consumeStyle.css">
+    <script src="consumes.js"></script>
+    <script src="consumeMain.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/Trump Spin.png" width="35" height="35" alt="">
+                Raid-Ready</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Enchant Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consumes.html">Consumable Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row pt-5 class-selection">
+            <div class="class-filter">All Consumes</div>
+            <div class="class-filter">Warrior</div>
+            <div class="class-filter">Mage</div>
+            <div class="class-filter">Druid</div>
+            <div class="class-filter">Paladin</div>
+            <div class="class-filter">Shaman</div>
+            <div class="class-filter">Warlock</div>
+            <div class="class-filter">Priest</div>
+            <div class="class-filter">Hunter</div>
+            <div class="class-filter">Rogue</div>
+        </div>
+        <div class="row">
+            <div class="col-9 consume-container">
+                <div class="row">
+                    <form class="consume-form col">
+                        <div class="consume-block ">
+                            <img class="consume-img" src="assets/images/ring.png" alt="">
+                            <div class="consume-title">Sapper Charge
+                                <input class="consume-input" type="text" maxlength="3" name="" placeholder="Amount" id="">
+                            </div>
+                        </div>
+                        <div class="consume-block ">
+                            <img class="consume-img" src="assets/images/spell_fire_selfdestruct.jpg" alt="">
+                            <div class="consume-title">Sapper Charge
+                                <input class="consume-input" type="text" maxlength="3" name="" placeholder="Amount" id="">
+                            </div>
+                        </div>
+                        <div class="consume-block ">
+                            <img class="consume-img" src="assets/images/inv_potion_46.jpg" alt="">
+                            <div class="consume-title">Elixir of Shadow Power
+                                <input class="consume-input" type="text" maxlength="3" name="" placeholder="Amount" id="">
+                            </div>
+                        </div>
+                        <div class="consume-block ">
+                            <img class="consume-img" src="assets/images/ring.png" alt="">
+                            <div class="consume-title">Sapper Charge
+                                <input class="consume-input" type="text" maxlength="3" name="" placeholder="Amount" id="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-3 total-container"></div>
+        </div>
+    </div>
+</body>
+
+</html>

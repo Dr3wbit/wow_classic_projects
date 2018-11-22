@@ -15,7 +15,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="enchantStyle.css">
     <script src="enchants.js"></script>
     <script src="main.js"></script>
 
@@ -24,13 +24,23 @@
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Enchanter</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/Trump Spin.png" width="35" height="35" alt="">
+                Raid-Ready</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Enchant Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consumes.html">Consumable Calculator</a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <div class="row"></div>
@@ -66,7 +76,14 @@
                             </div>
                             <div class="col-6">
                                 <div class="row">
-
+                                    <div class="col">
+                                        <button class="btn btn-dark" type="button" onclick="clearData()">Reset All</button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-dark" type="button" onclick="calculateData()">Calculate</button>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col selected-enchant"></div>
 
                                 </div>

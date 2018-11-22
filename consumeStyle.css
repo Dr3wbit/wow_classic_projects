@@ -1,0 +1,92 @@
+body {
+    height: 100vh;
+    text-align: center;
+    font-size: 100%;
+    background-color: grey;
+    background-image: url("assets/images/alterac_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.consume-container {
+    background-image: url("assets/images/textured_background.png");
+    background-size: cover;
+    border-radius: 5px;
+    border: 2px #100007 solid;
+    min-height: 60vh;
+    padding: 10px;
+}
+
+.total-container {
+    background-image: url("assets/images/textured_background_white.png");
+    background-size: cover;
+    border-radius: 5px;
+    border: 2px #100007 solid;
+    min-height: 60vh;
+}
+
+.class-filter {
+    color: azure;
+    padding: 5px;
+    font-size: 120%;
+    border-right: 2px solid  #100007 ;
+    border-left: 2px solid  #100007 ;
+    border-top: 2px solid  #100007 ;
+    margin-left: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #16000ae1;
+    cursor: pointer;
+}
+
+.class-filter:hover {
+    color: black;
+    padding: 5px;
+    font-size: 120%;
+    border-right: 2px solid  #100007 ;
+    border-left: 2px solid  #100007 ;
+    border-top: 2px solid  #100007 ;
+    margin-left: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: azure;
+}
+
+.consume-input {
+    display: block;
+    background-color: rgba(240, 240, 240, 0.87);
+    text-align: center;
+}
+
+.consume-block {
+    display: inline-block;
+    background-color: #100007;
+    border: 1px solid azure;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.consume-form {
+    color: azure;
+}
+
+.consume-img {
+    height: 40px;
+    width: 40px;
+    vertical-align: top;
+}
+
+.consume-title {
+    display: inline-block;
+}
+
+.selected {
+    color: black;
+    background-color: azure;
+}
+
+.navbar {
+    opacity: .95;
+}
+
