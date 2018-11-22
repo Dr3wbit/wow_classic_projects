@@ -10,7 +10,7 @@ body {
 }
 
 .consume-container {
-    background-image: url("assets/images/textured_background.png");
+    background-image: url("assets/images/alch_table_transparent.png");
     background-size: cover;
     border-radius: 5px;
     border: 2px #100007 solid;
@@ -64,6 +64,7 @@ body {
     background-color: #100007;
     border: 1px solid azure;
     padding: 5px;
+    margin: 5px;
     border-radius: 5px;
 }
 
@@ -90,3 +91,20 @@ body {
     opacity: .95;
 }
 
+.total-materials {
+    font-size: 100%;
+    text-align: left;
+    background-color: azure;
+    padding-left: 5px;
+}
+
+.totalTitle {
+    font-size: 100%;
+    font-style: bold;
+    margin: 10px;
+    padding: 2px;
+    background-color: black;
+    border-radius: 2px;
+    border: 1px azure solid;
+    color: azure;
+}

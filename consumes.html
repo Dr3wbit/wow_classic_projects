@@ -44,49 +44,28 @@
             </div>
         </nav>
         <div class="row pt-5 class-selection">
-            <div class="class-filter">All Consumes</div>
-            <div class="class-filter">Warrior</div>
-            <div class="class-filter">Mage</div>
-            <div class="class-filter">Druid</div>
-            <div class="class-filter">Paladin</div>
-            <div class="class-filter">Shaman</div>
-            <div class="class-filter">Warlock</div>
-            <div class="class-filter">Priest</div>
-            <div class="class-filter">Hunter</div>
-            <div class="class-filter">Rogue</div>
+            <div class="class-filter" id="all">All Consumes</div>
+            <div class="class-filter" id="warrior">Warrior</div>
+            <div class="class-filter" id="mage">Mage</div>
+            <div class="class-filter" id="druid">Druid</div>
+            <div class="class-filter" id="paladin">Paladin</div>
+            <div class="class-filter" id="shaman">Shaman</div>
+            <div class="class-filter" id="warlock">Warlock</div>
+            <div class="class-filter" id="priest">Priest</div>
+            <div class="class-filter" id="hunter">Hunter</div>
+            <div class="class-filter" id="rogue">Rogue</div>
         </div>
         <div class="row">
             <div class="col-9 consume-container">
                 <div class="row">
-                    <form class="consume-form col">
-                        <div class="consume-block ">
-                            <img class="consume-img" src="assets/images/ring.png" alt="">
-                            <div class="consume-title">Sapper Charge
-                                <input class="consume-input" type="text" maxlength="3" name="" placeholder="Amount" id="">
-                            </div>
-                        </div>
-                        <div class="consume-block ">
-                            <img class="consume-img" src="assets/images/spell_fire_selfdestruct.jpg" alt="">
-                            <div class="consume-title">Sapper Charge
-                                <input class="consume-input" type="text" maxlength="3" name="" placeholder="Amount" id="">
-                            </div>
-                        </div>
-                        <div class="consume-block ">
-                            <img class="consume-img" src="assets/images/inv_potion_46.jpg" alt="">
-                            <div class="consume-title">Elixir of Shadow Power
-                                <input class="consume-input" type="text" maxlength="3" name="" placeholder="Amount" id="">
-                            </div>
-                        </div>
-                        <div class="consume-block ">
-                            <img class="consume-img" src="assets/images/ring.png" alt="">
-                            <div class="consume-title">Sapper Charge
-                                <input class="consume-input" type="text" maxlength="3" name="" placeholder="Amount" id="">
-                            </div>
-                        </div>
+                    <form class="consume-form col" onsubmit="getMaterials()">
                     </form>
                 </div>
             </div>
-            <div class="col-3 total-container"></div>
+            <div class="col-3 total-container">
+                <div class="totalTitle">Totals</div>
+                <div class="results"></div>
+            </div>
         </div>
     </div>
 </body>
