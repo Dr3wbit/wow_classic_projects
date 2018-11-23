@@ -29,9 +29,8 @@ function applyClickHandlers() {
 
 
 function getData(clickedID){
-    console.log(defaultData)
+    $('.consume-form').empty()
     defaultData = clickedID
-    console.log(defaultData)
     const dataObject = consumes[defaultData]
     const dataKeys = Object.keys(dataObject)
     const consumeData = getConsumeData(dataObject, dataKeys)
