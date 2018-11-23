@@ -25,7 +25,7 @@ function findSlot(selection) {
     const slot = selection.attr("id");
     const dataObject = enchants[slot]
     const dataKeys = Object.keys(enchants[slot])
-    enchantData = getenchantData(dataObject, dataKeys, slot)
+    const enchantData = getenchantData(dataObject, dataKeys, slot)
     $('.enchantHolder').append($('<div/>', {
         text: slot.toUpperCase(),
         class: 'enchant-slot-title'
@@ -36,8 +36,8 @@ function findSlot(selection) {
 }
 
 function getenchantData(dataObject, dataKeys, slot) {
-    slotEnchants = null
-    enchantToAppend = []
+    let slotEnchants = null
+    let enchantToAppend = []
     for (let i = 0; i < dataKeys.length; i++) {
         slotEnchants = $('<div/>', {
             class: 'enchantOption',

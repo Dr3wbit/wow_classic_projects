@@ -1,5 +1,6 @@
 
 let materialArray = []
+let defaultData = ""
 
 $(document).ready(initializeApp)
 
@@ -8,8 +9,7 @@ function initializeApp() {
         e.preventDefault();
       });
     applyClickHandlers();
-    getInitialData();
-    getMaterials();
+    // getInitialData();
     $(".consume-form").on('keyup', ()=> {
         $('.consume-form').submit()
     })
@@ -21,15 +21,22 @@ function applyClickHandlers() {
             $('.class-filter').removeClass('selected')
             const clickedFilter = $(e.target)
             clickedFilter.addClass('selected')
+            const clickedID = clickedFilter[0].id
+            getData(clickedID)
         },
     })
 }
-function getInitialData() {
-    const defaultData = 'example'
+
+
+function getData(clickedID){
+    console.log(defaultData)
+    defaultData = clickedID
+    console.log(defaultData)
     const dataObject = consumes[defaultData]
     const dataKeys = Object.keys(dataObject)
-    consumeData = getConsumeData(dataObject, dataKeys)
+    const consumeData = getConsumeData(dataObject, dataKeys)
     $('.consume-form').append(consumeData)
+    getMaterials();
 }
 
 
@@ -64,7 +71,6 @@ function getConsumeData(dataObject, dataKeys) {
 
 function  getMaterials() {
     materialArray = []
-    const defaultData = 'example'
     const dataObject = consumes[defaultData]
     const dataKeys = Object.keys(dataObject)
     const formValues = $('.consume-input')
