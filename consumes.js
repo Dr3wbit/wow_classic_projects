@@ -1,7 +1,7 @@
 
 const consumes = {
 
-    example: {
+    all: {
 
         example: {
             name: 'Example',

@@ -1,16 +1,15 @@
 
 let materialArray = []
-let defaultData = ""
+let selectedData = null
 
 $(document).ready(initializeApp)
 
 function initializeApp() {
-    $(".consume-form").submit(function(e){
+    $(".consume-form").submit(function (e) {
         e.preventDefault();
-      });
+    });
     applyClickHandlers();
-    // getInitialData();
-    $(".consume-form").on('keyup', ()=> {
+    $(".consume-form").on('keyup', () => {
         $('.consume-form').submit()
     })
 }
@@ -22,24 +21,26 @@ function applyClickHandlers() {
             const clickedFilter = $(e.target)
             clickedFilter.addClass('selected')
             const clickedID = clickedFilter[0].id
-            getData(clickedID)
+            selectedData = { ...consumes[clickedID], ...consumes['all'] }
+            clearForm()
+            getData()
         },
     })
 }
 
-
-function getData(clickedID){
+function clearForm() {
     $('.consume-form').empty()
-    defaultData = clickedID
-    const dataObject = consumes[defaultData]
-    const dataKeys = Object.keys(dataObject)
-    const consumeData = getConsumeData(dataObject, dataKeys)
-    $('.consume-form').append(consumeData)
-    getMaterials();
 }
 
 
-function getConsumeData(dataObject, dataKeys) {
+function getData() {
+    const dataObject = selectedData
+    const dataKeys = Object.keys(dataObject)
+    const consumeData = createConsumeBlocks(dataObject, dataKeys)
+    $('.consume-form').append(consumeData)
+}
+
+function createConsumeBlocks(dataObject, dataKeys) {
     let consumeBlock = null
     let consumesToAppend = []
     for (let i = 0; i < dataKeys.length; i++) {
@@ -56,8 +57,8 @@ function getConsumeData(dataObject, dataKeys) {
             }).append(
                 consumeInput = $('<input/>', {
                     class: 'consume-input',
-                    name : dataKeys[i],
-                    type : 'text',
+                    name: dataKeys[i],
+                    type: 'text',
                     placeholder: 'Amount',
                     maxlength: 3,
                 }),
@@ -68,20 +69,20 @@ function getConsumeData(dataObject, dataKeys) {
     return consumesToAppend
 }
 
-function  getMaterials() {
+function getMaterials() {
     materialArray = []
-    const dataObject = consumes[defaultData]
+    const dataObject = selectedData
     const dataKeys = Object.keys(dataObject)
     const formValues = $('.consume-input')
-    for(let i = 0; i < formValues.length; i++){
+    for (let i = 0; i < formValues.length; i++) {
         const consumeMaterials = dataObject[dataKeys[i]].materials
         const materialKeys = Object.getOwnPropertyNames(consumeMaterials);
-                for (let j = 0; j < materialKeys.length; j++) {
-                    const materialAmmount = dataObject[dataKeys[i]].materials[materialKeys[j]] * formValues[i].value
-                    for (let x = 0; x < materialAmmount; x++) {
-                        materialArray.push(materialKeys[j])
-                    }
-                }
+        for (let j = 0; j < materialKeys.length; j++) {
+            const materialAmmount = dataObject[dataKeys[i]].materials[materialKeys[j]] * formValues[i].value
+            for (let x = 0; x < materialAmmount; x++) {
+                materialArray.push(materialKeys[j])
+            }
+        }
     }
     calculateData();
 }
