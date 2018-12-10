@@ -23,26 +23,37 @@
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="topBar"></div>
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">
-                <img src="assets/images/Trump Spin.png" width="35" height="35" alt="">
-                Raid-Ready</a>
+                <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
+                Ony Buff</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto justify-content-around w-100">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Enchant Calculator</a>
+                        <a class="nav-link" href="#">Class Guide</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="consumes.html">Consumable Calculator</a>
+                        <a class="nav-link" href="index.html">Enchant Tool</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consumes.html">Consumable Tool</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
                     </li>
                 </ul>
             </div>
         </nav>
+    </div>
+    <div class="container mainBody">
         <div class="row pt-5 class-selection">
             <div class="class-filter" id="all">All Consumes</div>
             <div class="class-filter" id="warrior">Warrior</div>
@@ -67,6 +78,11 @@
                 <div class="results"></div>
             </div>
         </div>
+    </div>
+    <div class="container">
+        <footer class="footer">
+            <span class="text-muted">this is a footer</span>
+        </footer>
     </div>
 </body>
 

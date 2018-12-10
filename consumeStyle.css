@@ -7,6 +7,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: Quattro;
 }
 
 .consume-container {
@@ -36,7 +37,7 @@ body {
     margin-left: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: #16000ae1;
+    background-color: #030001e1;
     cursor: pointer;
 }
 
@@ -70,7 +71,7 @@ input:focus {
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    font-size: 95%;
+    font-size: 100%;
 }
 
 .consume-form {
@@ -117,3 +118,58 @@ input:focus {
     border: 1px azure solid;
     color: azure;
 }
+
+.footer {
+    width: 100%;
+    height: 3vh;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+}
+
+.topBar {
+    width: 100%;
+    height: 3vh;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+
+@font-face {
+    font-family: 'MetalMacabre';
+    src: url('/assets/fonts/MetalMacabre.ttf');
+}
+
+@font-face {
+    font-family: 'Quattro';
+    src: url('/assets/fonts/Quattrocento-Regular.ttf');
+}
+
+.navbar-brand {
+    font-family: MetalMacabre;
+    font-size: 200%;
+    color: rgb(255, 54, 4) !important
+}
+
+
+.container {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.navbar {
+    background-color: black;
+}
+
+.mainBody {
+    height: 100vh;
+   }
+
+.nav-link {
+    background-color: #030001e1;
+    font-size: 120%;
+    border: 1px solid azure; 
+    border-radius: 5px;
+    min-width: 165px;
+    color: azure !important;
+    font-family: Quattro
+   }
