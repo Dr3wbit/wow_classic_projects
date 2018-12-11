@@ -49,8 +49,8 @@ function createConsumeBlocks(dataObject, dataKeys) {
         }).append(
             consumeImg = $('<img/>', {
                 class: 'consume-img',
-                src: dataObject[dataKeys[i]].img,
-            }),
+                src: '/assets/images/icon_border_2.png',
+            }).css("background-image", 'url('+ dataObject[dataKeys[i]].img +')'),
             consumeName = $('<div/>', {
                 class: 'consume-title',
                 text: dataObject[dataKeys[i]].name

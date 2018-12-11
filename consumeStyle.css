@@ -15,7 +15,7 @@ body {
     background-size: cover;
     border-radius: 5px;
     border: 2px #100007 solid;
-    min-height: 60vh;
+    min-height: 58vh;
     padding: 10px;
 }
 
@@ -24,7 +24,15 @@ body {
     background-size: cover;
     border-radius: 5px;
     border: 2px #100007 solid;
-    min-height: 60vh;
+    min-height: 100%;
+}
+
+.breakdown-container {
+    background-image: url("assets/images/textured_background_white.png");
+    background-size: cover;
+    border-radius: 5px;
+    border: 2px #100007 solid;
+    min-height: 15vh;
 }
 
 .class-filter {
@@ -58,6 +66,7 @@ body {
     display: block;
     background-color: rgba(240, 240, 240, 0.87);
     text-align: center;
+    width: 150px;
 }
 
 input:focus {
@@ -79,17 +88,20 @@ input:focus {
 }
 
 .consume-img {
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
     vertical-align: top;
+    background-size: contain;
 }
 
 .consume-title {
     display: inline-block;
-    max-width: 142px;
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-left: 5px;
+    margin-right: 1px;
+    width: 150px;
 }
 
 .selected {
@@ -160,10 +172,6 @@ input:focus {
     background-color: black;
 }
 
-.mainBody {
-    height: 100vh;
-   }
-
 .nav-link {
     background-color: #030001e1;
     font-size: 120%;
@@ -173,3 +181,17 @@ input:focus {
     color: azure !important;
     font-family: Quattro
    }
+
+.nav-link:hover {
+    background-color: azure;
+    border: 1px solid #030001e1; 
+    color: #030001e1 !important;
+    font-family: Quattro
+   }
+
+.page-title {
+    font-family: MetalMacabre;
+    font-size: 200%;
+    color: azure;
+    padding-top: 15px
+}

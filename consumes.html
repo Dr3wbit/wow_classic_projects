@@ -26,35 +26,40 @@
         <div class="topBar"></div>
     </div>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
-                Ony Buff</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-dark col-12">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
+                    Ony Buff</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto justify-content-around w-100">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Class Guide</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Enchant Tool</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="consumes.html">Consumable Tool</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto justify-content-around w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Class Guide</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Enchant Tool</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="consumes.html">Consumable Tool</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
-    <div class="container mainBody">
-        <div class="row pt-5 class-selection">
+    <div class="container">
+        <div class="page-title">Consumable Tool</div>
+    </div>
+    <div class="container">
+        <div class="row class-selection">
             <div class="class-filter" id="all">All Consumes</div>
             <div class="class-filter" id="warrior">Warrior</div>
             <div class="class-filter" id="mage">Mage</div>
@@ -67,22 +72,34 @@
             <div class="class-filter" id="rogue">Rogue</div>
         </div>
         <div class="row">
-            <div class="col-9 consume-container">
+            <div class="col-xl-10 consume-container">
                 <div class="row">
                     <form class="consume-form col" onsubmit="getMaterials()">
                     </form>
                 </div>
             </div>
-            <div class="col-3 total-container">
+            <div class="col-2 d-none d-xl-block total-container">
                 <div class="totalTitle">Totals</div>
                 <div class="results"></div>
             </div>
         </div>
+        <div class="row">
+            <div class="d-xl-none col-12 total-container">
+                <div class="totalTitle">Totals</div>
+                <div class="results"></div>
+            </div>
+            <div class="breakdown-container col-12">
+                <div class="totalTitle">Total Breakdown</div>
+                <div class="breakdown-results"></div>
+            </div>
+        </div>
     </div>
     <div class="container">
-        <footer class="footer">
-            <span class="text-muted">this is a footer</span>
-        </footer>
+        <div class="row">
+            <footer class="footer">
+                <span class="text-muted">this is a footer</span>
+            </footer>
+        </div>
     </div>
 </body>
 

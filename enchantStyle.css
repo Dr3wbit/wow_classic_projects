@@ -250,3 +250,17 @@ body {
     color: azure !important;
     font-family: Quattro
    }
+
+.nav-link:hover {
+    background-color: azure;
+    border: 1px solid #030001e1; 
+    color: #030001e1 !important;
+    font-family: Quattro
+   }
+
+.page-title {
+    font-family: MetalMacabre;
+    font-size: 200%;
+    color: azure;
+    padding-top: 15px
+}
