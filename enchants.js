@@ -219,7 +219,7 @@ const enchants = {
 
         arcanum_of_focus: {
             name: 'Arcanum of Focus',
-            effect: '+8 spell DMG & HEAL',
+            effect: '+8 spell DMG/HEAL',
             materials: {
                 libram_of_focus: 1,
                 pristine_black_diamond: 1,
@@ -281,7 +281,7 @@ const enchants = {
 
         arcanum_of_focus: {
             name: 'Arcanum of Focus',
-            effect: '+8 spell DMG & HEAL',
+            effect: '+8 spell DMG/HEAL',
             materials: {
                 libram_of_focus: 1,
                 pristine_black_diamond: 1,
@@ -398,7 +398,7 @@ const enchants = {
 
         fiery_weapon: {
             name: 'Fiery Weapon',
-            effect: 'chance 40 fire DMG',
+            effect: '40 fire DMG proc',
             materials: {
                 small_radiant_shard: 4,
                 essence_of_fire: 2
@@ -448,7 +448,7 @@ const enchants = {
 
         fiery_weapon: {
             name: 'Fiery Weapon',
-            effect: 'chance 40 fire DMG',
+            effect: '40 fire DMG proc',
             materials: {
                 small_radiant_shard: 4,
                 essence_of_fire: 2
