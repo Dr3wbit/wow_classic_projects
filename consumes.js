@@ -31,8 +31,8 @@ const consumes = {
             effect: 'Use: Inflicts 340 to 461 Fire damage in a 5 yard radius. (cooldown 1 min)',
             img: 'assets/images/dense_dynamite.jpg',
             materials: {
-                dense_blasting_powder: 2,
-                runecloth: 3,
+                dense_blasting_powder: 1,
+                runecloth: 1.5,
             },
         },
 
@@ -42,10 +42,10 @@ const consumes = {
             effect: 'Use: Restores 2550 health over 30 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 25 Stamina for 15 min.',
             img: 'assets/images/dirges_kickin_chimaerok_chops.jpg',
             materials: {
-                hot_spices: 1,
-                goblin_rocket_fuel: 1,
-                deeprock_salt: 1,
-                Chimaerok_tenderloin: 1,
+                hot_spices: 0.2,
+                goblin_rocket_fuel: 0.2,
+                deeprock_salt: 0.2,
+                Chimaerok_tenderloin: 0.2,
             },
         },
 
@@ -127,9 +127,9 @@ const consumes = {
             effect: 'Use: Inflicts 132 to 219 Fire damage and stuns targets for 3 sec in a 3 yard radius. Any damage will break the effect. (cooldown 1 min)',
             img: 'assets/images/iron_grenade.jpg',
             materials: {
-                iron_bar: 1,
-                heavy_blasting_powder: 1,
-                silk_cloth: 1,
+                iron_bar: 0.5,
+                heavy_blasting_powder: 0.5,
+                silk_cloth: 0.5,
             },
         },
 
@@ -161,7 +161,7 @@ const consumes = {
             img: 'assets/images/major_healing_potion.jpg',
             materials: {
                 golden_sansam: 2,
-                moutain_silversage: 1,
+                mountain_silversage: 1,
                 crystal_vial: 1,
             },
         },
@@ -340,4 +340,1106 @@ const consumes = {
         },
     },
 
+    rogue: {
+
+        elixir_of_the_mongoose: {
+            name: 'Elixir of the Mongoose',
+            effect: 'Use: Increases Agility by 25 and chance to get a critical hit by 2% for 1 hr.',
+            img: 'assets/images/elixir_of_the_mongoose.jpg',
+            materials: {
+                mountain_silversage: 2,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        juju_flurry: {
+            name: 'Juju Flurry',
+            effect: 'Use: Increases the target\'s attack speed by 3% for 20 sec. (cooldown 1 min)',
+            img: 'assets/images/juju_flurry.jpg',
+            materials: {
+                'frostsaber_e\'ko': 3
+            },
+        },
+
+        juju_might: {
+            name: 'Juju Might',
+            effect: 'Use: Increases attack power by 40 for 10 min. (cooldown 1 min)',
+            img: 'assets/images/juju_might.jpg',
+            materials: {
+                'frosmaul_e\'ko': 3
+            },
+        },
+
+        juju_power: {
+            name: 'Juju Power',
+            effect: 'Use: Increases the target\'s Strength by 30 for 30 min. (cooldown 1 min)',
+            img: 'assets/images/juju_power.jpg',
+            materials: {
+                'winterfall_e\'ko': 3
+            },
+        },
+
+        grilled_squid: {
+            name: 'Grilled Squid',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. If you eat for 10 seconds will also increase your Agility by 162 for 10 min. ',
+            img: 'assets/images/grilled_squid.jpg',
+            materials: {
+                winter_squid: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        ground_scorpok_assay: {
+            name: 'Ground Scorpok Assay',
+            effect: 'Use: Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/ground_scorpok_assay.jpg',
+            materials: {
+                scorpok_pincer: 3,
+                vulture_gizzard: 2,
+                blasted_boar_lung: 1
+            },
+        },
+    },
+
+    hunter: {
+
+        elixir_of_the_mongoose: {
+            name: 'Elixir of the Mongoose',
+            effect: 'Use: Increases Agility by 25 and chance to get a critical hit by 2% for 1 hr.',
+            img: 'assets/images/elixir_of_the_mongoose.jpg',
+            materials: {
+                mountain_silversage: 2,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        juju_flurry: {
+            name: 'Juju Flurry',
+            effect: 'Use: Increases the target\'s attack speed by 3% for 20 sec. (cooldown 1 min)',
+            img: 'assets/images/juju_flurry.jpg',
+            materials: {
+                'frostsaber_e\'ko': 3
+            },
+        },
+
+        juju_might: {
+            name: 'Juju Might',
+            effect: 'Use: Increases attack power by 40 for 10 min. (cooldown 1 min)',
+            img: 'assets/images/juju_might.jpg',
+            materials: {
+                'frosmaul_e\'ko': 3
+            },
+        },
+
+        juju_power: {
+            name: 'Juju Power',
+            effect: 'Use: Increases the target\'s Strength by 30 for 30 min. (cooldown 1 min)',
+            img: 'assets/images/juju_power.jpg',
+            materials: {
+                'winterfall_e\'ko': 3
+            },
+        },
+
+        grilled_squid: {
+            name: 'Grilled Squid',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. If you eat for 10 seconds will also increase your Agility by 162 for 10 min. ',
+            img: 'assets/images/grilled_squid.jpg',
+            materials: {
+                winter_squid: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        ground_scorpok_assay: {
+            name: 'Ground Scorpok Assay',
+            effect: 'Use: Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/ground_scorpok_assay.jpg',
+            materials: {
+                scorpok_pincer: 3,
+                vulture_gizzard: 2,
+                blasted_boar_lung: 1
+            },
+        },
+
+        sagefish_delight: {
+            name: 'Sagefish Delight',
+            effect: 'Use: Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.',
+            img: 'assets/images/sagefish_delight.jpg',
+            materials: {
+                raw_greater_sagefish: 1,
+                hot_spices: 1,
+            },
+        },
+
+        major_rejuvenation_potion: {
+            name: 'Major Rejuvenation Potion',
+            effect: 'Use: Restores 1440 to 1761 mana and health. (cooldown 2 min)',
+            img: 'assets/images/major_rejuvenation_potion.jpg',
+            materials: {
+                heart_of_the_wild: 1,
+                golden_sansam: 4,
+                dreamfoil: 4,
+                imbued_vial: 1,
+            },
+        },
+
+        major_mana_potion: {
+            name: 'Major Mana Potion',
+            effect: 'Use: Restores 1350 to 2251 mana. (cooldown 2 min)',
+            img: 'assets/images/major_mana_potion.jpg',
+            materials: {
+                dreamfoil: 3,
+                icecap: 2,
+                crystal_vial: 1
+            },
+        },
+    },
+
+    priest: {
+
+        sagefish_delight: {
+            name: 'Sagefish Delight',
+            effect: 'Use: Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.',
+            img: 'assets/images/sagefish_delight.jpg',
+            materials: {
+                raw_greater_sagefish: 1,
+                hot_spices: 1,
+            },
+        },
+
+        major_rejuvenation_potion: {
+            name: 'Major Rejuvenation Potion',
+            effect: 'Use: Restores 1440 to 1761 mana and health. (cooldown 2 min)',
+            img: 'assets/images/major_rejuvenation_potion.jpg',
+            materials: {
+                heart_of_the_wild: 1,
+                golden_sansam: 4,
+                dreamfoil: 4,
+                imbued_vial: 1,
+            },
+        },
+
+        major_mana_potion: {
+            name: 'Major Mana Potion',
+            effect: 'Use: Restores 1350 to 2251 mana. (cooldown 2 min)',
+            img: 'assets/images/major_mana_potion.jpg',
+            materials: {
+                dreamfoil: 3,
+                icecap: 2,
+                crystal_vial: 1
+            },
+        },
+
+        nightfin_soup: {
+            name: 'Nightfin Soup',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 162 Mana every 5 seconds for 10 min.',
+            img: 'assets/images/nightfin_soup.jpg',
+            materials: {
+                raw_nightfin_snapper: 1,
+                refreshing_spring_water: 1,
+            },
+        },
+
+        flask_of_supreme_power: {
+            name: 'Flask of Supreme Power',
+            effect: 'Use: Increases damage done by magical spells and effects by up to 150 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_supreme_power.jpg',
+            materials: {
+                dreamfoil: 30,
+                mountain_silversage: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        flask_of_distilled_wisdom: {
+            name: 'Flask of Distilled Wisdom',
+            effect: 'Use: Increases the player\'s maximum mana by 2000 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_distilled_wisdom.jpg',
+            materials: {
+                dreamfoil: 30,
+                icecap: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        cerebral_cortex_compound: {
+            name: 'Cerebral Cortex Compound',
+            effect: 'Use: Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/cerebral_cortex_compound.jpg',
+            materials: {
+                basilisk_brain: 10,
+                vulture_gizzard: 2,
+            },
+        },
+
+        runn_tum_tuber_surprise: {
+            name: 'Runn Tum Tuber Surprise',
+            effect: 'Use: Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Intellect by 358 for 10 min.',
+            img: 'assets/images/runn_tum_tuber_surprise.jpg',
+            materials: {
+                runn_tum_tuber: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        elixir_of_the_sages: {
+            name: 'Elixir of the Sages',
+            effect: 'Increases Intellect and Spirit by 18 for 1 hr.',
+            img: 'assets/images/elixir_of_the_sages.jpg',
+            materials: {
+                dreamfoil: 1,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        elixir_of_shadow_power: {
+            name: 'Elixir of Shadow Power',
+            effect: 'Use: Increases spell shadow damage by up to 40 for 30 min.',
+            img: 'assets/images/elixir_of_shadow_power.jpg',
+            materials: {
+                ghost_mushroom: 3,
+                crystal_vial: 1
+            },
+        },
+
+        greater_arcane_elixir: {
+            name: 'Greater Arcane Elixir',
+            effect: 'Use: Increases spell damage by up to 35 for 1 hr.',
+            img: 'assets/images/greater_arcane_elixir.jpg',
+            materials: {
+                dreamfoil: 2,
+                mountain_silversage: 1,
+                crystal_vial: 1
+            },
+        },
+    },
+
+    warlock: {
+
+        sagefish_delight: {
+            name: 'Sagefish Delight',
+            effect: 'Use: Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.',
+            img: 'assets/images/sagefish_delight.jpg',
+            materials: {
+                raw_greater_sagefish: 1,
+                hot_spices: 1,
+            },
+        },
+
+        major_rejuvenation_potion: {
+            name: 'Major Rejuvenation Potion',
+            effect: 'Use: Restores 1440 to 1761 mana and health. (cooldown 2 min)',
+            img: 'assets/images/major_rejuvenation_potion.jpg',
+            materials: {
+                heart_of_the_wild: 1,
+                golden_sansam: 4,
+                dreamfoil: 4,
+                imbued_vial: 1,
+            },
+        },
+
+        major_mana_potion: {
+            name: 'Major Mana Potion',
+            effect: 'Use: Restores 1350 to 2251 mana. (cooldown 2 min)',
+            img: 'assets/images/major_mana_potion.jpg',
+            materials: {
+                dreamfoil: 3,
+                icecap: 2,
+                crystal_vial: 1
+            },
+        },
+
+        nightfin_soup: {
+            name: 'Nightfin Soup',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 162 Mana every 5 seconds for 10 min.',
+            img: 'assets/images/nightfin_soup.jpg',
+            materials: {
+                raw_nightfin_snapper: 1,
+                refreshing_spring_water: 1,
+            },
+        },
+
+        flask_of_supreme_power: {
+            name: 'Flask of Supreme Power',
+            effect: 'Use: Increases damage done by magical spells and effects by up to 150 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_supreme_power.jpg',
+            materials: {
+                dreamfoil: 30,
+                mountain_silversage: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        cerebral_cortex_compound: {
+            name: 'Cerebral Cortex Compound',
+            effect: 'Use: Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/cerebral_cortex_compound.jpg',
+            materials: {
+                basilisk_brain: 10,
+                vulture_gizzard: 2,
+            },
+        },
+
+        runn_tum_tuber_surprise: {
+            name: 'Runn Tum Tuber Surprise',
+            effect: 'Use: Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Intellect by 358 for 10 min.',
+            img: 'assets/images/runn_tum_tuber_surprise.jpg',
+            materials: {
+                runn_tum_tuber: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        elixir_of_shadow_power: {
+            name: 'Elixir of Shadow Power',
+            effect: 'Use: Increases spell shadow damage by up to 40 for 30 min.',
+            img: 'assets/images/elixir_of_shadow_power.jpg',
+            materials: {
+                ghost_mushroom: 3,
+                crystal_vial: 1
+            },
+        },
+
+        greater_arcane_elixir: {
+            name: 'Greater Arcane Elixir',
+            effect: 'Use: Increases spell damage by up to 35 for 1 hr.',
+            img: 'assets/images/greater_arcane_elixir.jpg',
+            materials: {
+                dreamfoil: 2,
+                mountain_silversage: 1,
+                crystal_vial: 1
+            },
+        },
+    },
+
+    mage: {
+
+        sagefish_delight: {
+            name: 'Sagefish Delight',
+            effect: 'Use: Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.',
+            img: 'assets/images/sagefish_delight.jpg',
+            materials: {
+                raw_greater_sagefish: 1,
+                hot_spices: 1,
+            },
+        },
+
+        major_rejuvenation_potion: {
+            name: 'Major Rejuvenation Potion',
+            effect: 'Use: Restores 1440 to 1761 mana and health. (cooldown 2 min)',
+            img: 'assets/images/major_rejuvenation_potion.jpg',
+            materials: {
+                heart_of_the_wild: 1,
+                golden_sansam: 4,
+                dreamfoil: 4,
+                imbued_vial: 1,
+            },
+        },
+
+        major_mana_potion: {
+            name: 'Major Mana Potion',
+            effect: 'Use: Restores 1350 to 2251 mana. (cooldown 2 min)',
+            img: 'assets/images/major_mana_potion.jpg',
+            materials: {
+                dreamfoil: 3,
+                icecap: 2,
+                crystal_vial: 1
+            },
+        },
+
+        nightfin_soup: {
+            name: 'Nightfin Soup',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 162 Mana every 5 seconds for 10 min.',
+            img: 'assets/images/nightfin_soup.jpg',
+            materials: {
+                raw_nightfin_snapper: 1,
+                refreshing_spring_water: 1,
+            },
+        },
+
+        flask_of_supreme_power: {
+            name: 'Flask of Supreme Power',
+            effect: 'Use: Increases damage done by magical spells and effects by up to 150 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_supreme_power.jpg',
+            materials: {
+                dreamfoil: 30,
+                mountain_silversage: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        cerebral_cortex_compound: {
+            name: 'Cerebral Cortex Compound',
+            effect: 'Use: Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/cerebral_cortex_compound.jpg',
+            materials: {
+                basilisk_brain: 10,
+                vulture_gizzard: 2,
+            },
+        },
+
+        runn_tum_tuber_surprise: {
+            name: 'Runn Tum Tuber Surprise',
+            effect: 'Use: Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Intellect by 358 for 10 min.',
+            img: 'assets/images/runn_tum_tuber_surprise.jpg',
+            materials: {
+                runn_tum_tuber: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        elixir_of_frost_power: {
+            name: 'Elixir of Frost Power',
+            effect: 'Use: Increases spell frost damage by up to 15 for 30 min.',
+            img: 'assets/images/elixir_of_frost_power.jpg',
+            materials: {
+                wintersbite: 2,
+                'khadgar\'s_whisker': 1,
+                leaded_vial: 1
+            },
+        },
+
+        greater_arcane_elixir: {
+            name: 'Greater Arcane Elixir',
+            effect: 'Use: Increases spell damage by up to 35 for 1 hr.',
+            img: 'assets/images/greater_arcane_elixir.jpg',
+            materials: {
+                dreamfoil: 2,
+                mountain_silversage: 1,
+                crystal_vial: 1
+            },
+        },
+    },
+
+    druid: {
+
+        elixir_of_the_mongoose: {
+            name: 'Elixir of the Mongoose',
+            effect: 'Use: Increases Agility by 25 and chance to get a critical hit by 2% for 1 hr.',
+            img: 'assets/images/elixir_of_the_mongoose.jpg',
+            materials: {
+                mountain_silversage: 2,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        juju_flurry: {
+            name: 'Juju Flurry',
+            effect: 'Use: Increases the target\'s attack speed by 3% for 20 sec. (cooldown 1 min)',
+            img: 'assets/images/juju_flurry.jpg',
+            materials: {
+                'frostsaber_e\'ko': 3
+            },
+        },
+
+        juju_might: {
+            name: 'Juju Might',
+            effect: 'Use: Increases attack power by 40 for 10 min. (cooldown 1 min)',
+            img: 'assets/images/juju_might.jpg',
+            materials: {
+                'frosmaul_e\'ko': 3
+            },
+        },
+
+        juju_power: {
+            name: 'Juju Power',
+            effect: 'Use: Increases the target\'s Strength by 30 for 30 min. (cooldown 1 min)',
+            img: 'assets/images/juju_power.jpg',
+            materials: {
+                'winterfall_e\'ko': 3
+            },
+        },
+
+        grilled_squid: {
+            name: 'Grilled Squid',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. If you eat for 10 seconds will also increase your Agility by 162 for 10 min. ',
+            img: 'assets/images/grilled_squid.jpg',
+            materials: {
+                winter_squid: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        ground_scorpok_assay: {
+            name: 'Ground Scorpok Assay',
+            effect: 'Use: Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/ground_scorpok_assay.jpg',
+            materials: {
+                scorpok_pincer: 3,
+                vulture_gizzard: 2,
+                blasted_boar_lung: 1
+            },
+        },
+
+        elemental_sharpening_stone: {
+            name: 'Elemental Sharpening Stone',
+            effect: 'Use: Increase critical chance on a melee weapon by 2% for 30 minutes.',
+            img: 'assets/images/elemental_sharpening_stone.jpg',
+            materials: {
+                elemental_earth: 2,
+                dense_stone: 3
+            },
+        },
+
+        sagefish_delight: {
+            name: 'Sagefish Delight',
+            effect: 'Use: Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.',
+            img: 'assets/images/sagefish_delight.jpg',
+            materials: {
+                raw_greater_sagefish: 1,
+                hot_spices: 1,
+            },
+        },
+
+        major_rejuvenation_potion: {
+            name: 'Major Rejuvenation Potion',
+            effect: 'Use: Restores 1440 to 1761 mana and health. (cooldown 2 min)',
+            img: 'assets/images/major_rejuvenation_potion.jpg',
+            materials: {
+                heart_of_the_wild: 1,
+                golden_sansam: 4,
+                dreamfoil: 4,
+                imbued_vial: 1,
+            },
+        },
+
+        major_mana_potion: {
+            name: 'Major Mana Potion',
+            effect: 'Use: Restores 1350 to 2251 mana. (cooldown 2 min)',
+            img: 'assets/images/major_mana_potion.jpg',
+            materials: {
+                dreamfoil: 3,
+                icecap: 2,
+                crystal_vial: 1
+            },
+        },
+
+        nightfin_soup: {
+            name: 'Nightfin Soup',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 162 Mana every 5 seconds for 10 min.',
+            img: 'assets/images/nightfin_soup.jpg',
+            materials: {
+                raw_nightfin_snapper: 1,
+                refreshing_spring_water: 1,
+            },
+        },
+
+        flask_of_supreme_power: {
+            name: 'Flask of Supreme Power',
+            effect: 'Use: Increases damage done by magical spells and effects by up to 150 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_supreme_power.jpg',
+            materials: {
+                dreamfoil: 30,
+                mountain_silversage: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        flask_of_distilled_wisdom: {
+            name: 'Flask of Distilled Wisdom',
+            effect: 'Use: Increases the player\'s maximum mana by 2000 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_distilled_wisdom.jpg',
+            materials: {
+                dreamfoil: 30,
+                icecap: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        cerebral_cortex_compound: {
+            name: 'Cerebral Cortex Compound',
+            effect: 'Use: Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/cerebral_cortex_compound.jpg',
+            materials: {
+                basilisk_brain: 10,
+                vulture_gizzard: 2,
+            },
+        },
+
+        runn_tum_tuber_surprise: {
+            name: 'Runn Tum Tuber Surprise',
+            effect: 'Use: Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Intellect by 358 for 10 min.',
+            img: 'assets/images/runn_tum_tuber_surprise.jpg',
+            materials: {
+                runn_tum_tuber: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        elixir_of_the_sages: {
+            name: 'Elixir of the Sages',
+            effect: 'Increases Intellect and Spirit by 18 for 1 hr.',
+            img: 'assets/images/elixir_of_the_sages.jpg',
+            materials: {
+                dreamfoil: 1,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        greater_arcane_elixir: {
+            name: 'Greater Arcane Elixir',
+            effect: 'Use: Increases spell damage by up to 35 for 1 hr.',
+            img: 'assets/images/greater_arcane_elixir.jpg',
+            materials: {
+                dreamfoil: 2,
+                mountain_silversage: 1,
+                crystal_vial: 1
+            },
+        },
+    },
+
+    paladin: {
+
+        dense_sharpening_stone: {
+            name: 'Dense Sharpening Stone',
+            effect: 'Use: Increase sharp weapon damage by 8 for 30 minutes.',
+            img: 'assets/images/dense_sharpening_stone.jpg',
+            materials: {
+                dense_stone: 1
+            },
+        },
+
+        dense_weightstone: {
+            name: 'Dense Weightstone',
+            effect: 'Use: Increase the damage of a blunt weapon by 8 for 30 minutes.',
+            img: 'assets/images/dense_weightstone.jpg',
+            materials: {
+                dense_stone: 1,
+                runecloth: 1
+            },
+        },
+
+        elemental_sharpening_stone: {
+            name: 'Elemental Sharpening Stone',
+            effect: 'Use: Increase critical chance on a melee weapon by 2% for 30 minutes.',
+            img: 'assets/images/elemental_sharpening_stone.jpg',
+            materials: {
+                elemental_earth: 2,
+                dense_stone: 3
+            },
+        },
+
+        elixir_of_the_mongoose: {
+            name: 'Elixir of the Mongoose',
+            effect: 'Use: Increases Agility by 25 and chance to get a critical hit by 2% for 1 hr.',
+            img: 'assets/images/elixir_of_the_mongoose.jpg',
+            materials: {
+                mountain_silversage: 2,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        elixir_of_superior_defense: {
+            name: 'Elixir of Superior Defense',
+            effect: 'Use: Increases armor by 450 for 1 hr.',
+            img: 'assets/images/elixir_of_superior_defense.jpg',
+            materials: {
+                stonescale_oil: 2,
+                sungrass: 1,
+                crystal_vial: 1
+            },
+        },
+
+        greater_stoneshield_potion: {
+            name: 'Greater Stoneshield Potion',
+            effect: 'Use: Increases armor by 2000 for 2 min. (cooldown 2 min)',
+            img: 'assets/images/greater_stoneshield_potion.jpg',
+            materials: {
+                stonescale_oil: 3,
+                thorium_ore: 1,
+                crystal_vial: 1
+            },
+        },
+
+        juju_flurry: {
+            name: 'Juju Flurry',
+            effect: 'Use: Increases the target\'s attack speed by 3% for 20 sec. (cooldown 1 min)',
+            img: 'assets/images/juju_flurry.jpg',
+            materials: {
+                'frostsaber_e\'ko': 3
+            },
+        },
+
+        juju_might: {
+            name: 'Juju Might',
+            effect: 'Use: Increases attack power by 40 for 10 min. (cooldown 1 min)',
+            img: 'assets/images/juju_might.jpg',
+            materials: {
+                'frosmaul_e\'ko': 3
+            },
+        },
+
+        juju_power: {
+            name: 'Juju Power',
+            effect: 'Use: Increases the target\'s Strength by 30 for 30 min. (cooldown 1 min)',
+            img: 'assets/images/juju_power.jpg',
+            materials: {
+                'winterfall_e\'ko': 3
+            },
+        },
+
+        'R.O.I.D.S.': {
+            name: 'R.O.I.D.S.',
+            effect: 'Use: Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/R.O.I.D.S..jpg',
+            materials: {
+                snickerfang_jowl: 3,
+                blasted_boar_lung: 2,
+                scorpid_pincer: 1
+            },
+        },
+
+        smoked_desert_dumplings: {
+            name: 'Smoked Desert Dumplings',
+            effect: 'Use: Restores 2148 health over 30 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 20 Strength for 15 min.',
+            img: 'assets/images/smoked_desert_dumplings.jpg',
+            materials: {
+                sandworm_meat: 1,
+                soothing_spices: 1
+            },
+        },
+
+        sagefish_delight: {
+            name: 'Sagefish Delight',
+            effect: 'Use: Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.',
+            img: 'assets/images/sagefish_delight.jpg',
+            materials: {
+                raw_greater_sagefish: 1,
+                hot_spices: 1,
+            },
+        },
+
+        major_rejuvenation_potion: {
+            name: 'Major Rejuvenation Potion',
+            effect: 'Use: Restores 1440 to 1761 mana and health. (cooldown 2 min)',
+            img: 'assets/images/major_rejuvenation_potion.jpg',
+            materials: {
+                heart_of_the_wild: 1,
+                golden_sansam: 4,
+                dreamfoil: 4,
+                imbued_vial: 1,
+            },
+        },
+
+        major_mana_potion: {
+            name: 'Major Mana Potion',
+            effect: 'Use: Restores 1350 to 2251 mana. (cooldown 2 min)',
+            img: 'assets/images/major_mana_potion.jpg',
+            materials: {
+                dreamfoil: 3,
+                icecap: 2,
+                crystal_vial: 1
+            },
+        },
+
+        nightfin_soup: {
+            name: 'Nightfin Soup',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 162 Mana every 5 seconds for 10 min.',
+            img: 'assets/images/nightfin_soup.jpg',
+            materials: {
+                raw_nightfin_snapper: 1,
+                refreshing_spring_water: 1,
+            },
+        },
+
+        flask_of_supreme_power: {
+            name: 'Flask of Supreme Power',
+            effect: 'Use: Increases damage done by magical spells and effects by up to 150 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_supreme_power.jpg',
+            materials: {
+                dreamfoil: 30,
+                mountain_silversage: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        flask_of_distilled_wisdom: {
+            name: 'Flask of Distilled Wisdom',
+            effect: 'Use: Increases the player\'s maximum mana by 2000 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_distilled_wisdom.jpg',
+            materials: {
+                dreamfoil: 30,
+                icecap: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        cerebral_cortex_compound: {
+            name: 'Cerebral Cortex Compound',
+            effect: 'Use: Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/cerebral_cortex_compound.jpg',
+            materials: {
+                basilisk_brain: 10,
+                vulture_gizzard: 2,
+            },
+        },
+
+        runn_tum_tuber_surprise: {
+            name: 'Runn Tum Tuber Surprise',
+            effect: 'Use: Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Intellect by 358 for 10 min.',
+            img: 'assets/images/runn_tum_tuber_surprise.jpg',
+            materials: {
+                runn_tum_tuber: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        elixir_of_the_sages: {
+            name: 'Elixir of the Sages',
+            effect: 'Increases Intellect and Spirit by 18 for 1 hr.',
+            img: 'assets/images/elixir_of_the_sages.jpg',
+            materials: {
+                dreamfoil: 1,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        greater_arcane_elixir: {
+            name: 'Greater Arcane Elixir',
+            effect: 'Use: Increases spell damage by up to 35 for 1 hr.',
+            img: 'assets/images/greater_arcane_elixir.jpg',
+            materials: {
+                dreamfoil: 2,
+                mountain_silversage: 1,
+                crystal_vial: 1
+            },
+        },
+    },
+
+    shaman: {
+
+        dense_sharpening_stone: {
+            name: 'Dense Sharpening Stone',
+            effect: 'Use: Increase sharp weapon damage by 8 for 30 minutes.',
+            img: 'assets/images/dense_sharpening_stone.jpg',
+            materials: {
+                dense_stone: 1
+            },
+        },
+
+        dense_weightstone: {
+            name: 'Dense Weightstone',
+            effect: 'Use: Increase the damage of a blunt weapon by 8 for 30 minutes.',
+            img: 'assets/images/dense_weightstone.jpg',
+            materials: {
+                dense_stone: 1,
+                runecloth: 1
+            },
+        },
+
+        elemental_sharpening_stone: {
+            name: 'Elemental Sharpening Stone',
+            effect: 'Use: Increase critical chance on a melee weapon by 2% for 30 minutes.',
+            img: 'assets/images/elemental_sharpening_stone.jpg',
+            materials: {
+                elemental_earth: 2,
+                dense_stone: 3
+            },
+        },
+
+        elixir_of_the_mongoose: {
+            name: 'Elixir of the Mongoose',
+            effect: 'Use: Increases Agility by 25 and chance to get a critical hit by 2% for 1 hr.',
+            img: 'assets/images/elixir_of_the_mongoose.jpg',
+            materials: {
+                mountain_silversage: 2,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        elixir_of_superior_defense: {
+            name: 'Elixir of Superior Defense',
+            effect: 'Use: Increases armor by 450 for 1 hr.',
+            img: 'assets/images/elixir_of_superior_defense.jpg',
+            materials: {
+                stonescale_oil: 2,
+                sungrass: 1,
+                crystal_vial: 1
+            },
+        },
+
+        greater_stoneshield_potion: {
+            name: 'Greater Stoneshield Potion',
+            effect: 'Use: Increases armor by 2000 for 2 min. (cooldown 2 min)',
+            img: 'assets/images/greater_stoneshield_potion.jpg',
+            materials: {
+                stonescale_oil: 3,
+                thorium_ore: 1,
+                crystal_vial: 1
+            },
+        },
+
+        juju_flurry: {
+            name: 'Juju Flurry',
+            effect: 'Use: Increases the target\'s attack speed by 3% for 20 sec. (cooldown 1 min)',
+            img: 'assets/images/juju_flurry.jpg',
+            materials: {
+                'frostsaber_e\'ko': 3
+            },
+        },
+
+        juju_might: {
+            name: 'Juju Might',
+            effect: 'Use: Increases attack power by 40 for 10 min. (cooldown 1 min)',
+            img: 'assets/images/juju_might.jpg',
+            materials: {
+                'frosmaul_e\'ko': 3
+            },
+        },
+
+        juju_power: {
+            name: 'Juju Power',
+            effect: 'Use: Increases the target\'s Strength by 30 for 30 min. (cooldown 1 min)',
+            img: 'assets/images/juju_power.jpg',
+            materials: {
+                'winterfall_e\'ko': 3
+            },
+        },
+
+        'R.O.I.D.S.': {
+            name: 'R.O.I.D.S.',
+            effect: 'Use: Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/R.O.I.D.S..jpg',
+            materials: {
+                snickerfang_jowl: 3,
+                blasted_boar_lung: 2,
+                scorpid_pincer: 1
+            },
+        },
+
+        smoked_desert_dumplings: {
+            name: 'Smoked Desert Dumplings',
+            effect: 'Use: Restores 2148 health over 30 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 20 Strength for 15 min.',
+            img: 'assets/images/smoked_desert_dumplings.jpg',
+            materials: {
+                sandworm_meat: 1,
+                soothing_spices: 1
+            },
+        },
+
+        sagefish_delight: {
+            name: 'Sagefish Delight',
+            effect: 'Use: Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.',
+            img: 'assets/images/sagefish_delight.jpg',
+            materials: {
+                raw_greater_sagefish: 1,
+                hot_spices: 1,
+            },
+        },
+
+        major_rejuvenation_potion: {
+            name: 'Major Rejuvenation Potion',
+            effect: 'Use: Restores 1440 to 1761 mana and health. (cooldown 2 min)',
+            img: 'assets/images/major_rejuvenation_potion.jpg',
+            materials: {
+                heart_of_the_wild: 1,
+                golden_sansam: 4,
+                dreamfoil: 4,
+                imbued_vial: 1,
+            },
+        },
+
+        major_mana_potion: {
+            name: 'Major Mana Potion',
+            effect: 'Use: Restores 1350 to 2251 mana. (cooldown 2 min)',
+            img: 'assets/images/major_mana_potion.jpg',
+            materials: {
+                dreamfoil: 3,
+                icecap: 2,
+                crystal_vial: 1
+            },
+        },
+
+        nightfin_soup: {
+            name: 'Nightfin Soup',
+            effect: 'Use: Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 162 Mana every 5 seconds for 10 min.',
+            img: 'assets/images/nightfin_soup.jpg',
+            materials: {
+                raw_nightfin_snapper: 1,
+                refreshing_spring_water: 1,
+            },
+        },
+
+        flask_of_supreme_power: {
+            name: 'Flask of Supreme Power',
+            effect: 'Use: Increases damage done by magical spells and effects by up to 150 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_supreme_power.jpg',
+            materials: {
+                dreamfoil: 30,
+                mountain_silversage: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        flask_of_distilled_wisdom: {
+            name: 'Flask of Distilled Wisdom',
+            effect: 'Use: Increases the player\'s maximum mana by 2000 for 2 hr. You can only have the effect of one flask at a time. This effect persists through death.',
+            img: 'assets/images/flask_of_distilled_wisdom.jpg',
+            materials: {
+                dreamfoil: 30,
+                icecap: 10,
+                black_lotus: 1,
+                crystal_vial: 1,
+            },
+        },
+
+        cerebral_cortex_compound: {
+            name: 'Cerebral Cortex Compound',
+            effect: 'Use: Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
+            img: 'assets/images/cerebral_cortex_compound.jpg',
+            materials: {
+                basilisk_brain: 10,
+                vulture_gizzard: 2,
+            },
+        },
+
+        runn_tum_tuber_surprise: {
+            name: 'Runn Tum Tuber Surprise',
+            effect: 'Use: Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Intellect by 358 for 10 min.',
+            img: 'assets/images/runn_tum_tuber_surprise.jpg',
+            materials: {
+                runn_tum_tuber: 1,
+                soothing_spices: 1,
+            },
+        },
+
+        elixir_of_the_sages: {
+            name: 'Elixir of the Sages',
+            effect: 'Increases Intellect and Spirit by 18 for 1 hr.',
+            img: 'assets/images/elixir_of_the_sages.jpg',
+            materials: {
+                dreamfoil: 1,
+                plaguebloom: 2,
+                crystal_vial: 1
+            },
+        },
+
+        greater_arcane_elixir: {
+            name: 'Greater Arcane Elixir',
+            effect: 'Use: Increases spell damage by up to 35 for 1 hr.',
+            img: 'assets/images/greater_arcane_elixir.jpg',
+            materials: {
+                dreamfoil: 2,
+                mountain_silversage: 1,
+                crystal_vial: 1
+            },
+        },
+    },
 }

@@ -24,14 +24,6 @@ body {
     background-size: cover;
     border-radius: 5px;
     border: 2px #100007 solid;
-    min-height: 100%;
-}
-
-.breakdown-container {
-    background-image: url("assets/images/textured_background_white.png");
-    background-size: cover;
-    border-radius: 5px;
-    border: 2px #100007 solid;
     min-height: 15vh;
 }
 
@@ -66,7 +58,7 @@ body {
     display: block;
     background-color: rgba(240, 240, 240, 0.87);
     text-align: center;
-    width: 150px;
+    width: 100%;
 }
 
 input:focus {
@@ -101,7 +93,7 @@ input:focus {
     text-overflow: ellipsis;
     margin-left: 5px;
     margin-right: 1px;
-    width: 150px;
+    width: 134px;
 }
 
 .selected {
@@ -135,14 +127,6 @@ input:focus {
     width: 100%;
     height: 3vh;
     bottom: 0;
-    left: 0;
-    background-color: black;
-}
-
-.topBar {
-    width: 100%;
-    height: 3vh;
-    top: 0;
     left: 0;
     background-color: black;
 }

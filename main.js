@@ -22,7 +22,7 @@ function applyClickHandlers() {
 }
 
 function findSlot(selection) {
-    const slot = selection.attr("id");
+    const slot = selection.attr("id")
     const dataObject = enchants[slot]
     const dataKeys = Object.keys(enchants[slot])
     const enchantData = getenchantData(dataObject, dataKeys, slot)
@@ -50,7 +50,18 @@ function getenchantData(dataObject, dataKeys, slot) {
                 $('<div/>', {
                     class: 'enchantInfo',
                     text: slot.toUpperCase() + " : " + dataObject[dataKeys[i]].effect,
-                }).appendTo('.selected-enchant')
+                }).prepend($('<button/>', {
+                    class: 'delete',
+                    text: '✘',
+                    enchantData: dataKeys[i],
+                    itemslot: slot
+
+                }).on({
+                    click: e => {
+                        removeEnchant(e.target.attributes.enchantData.value, e.target.attributes.itemslot.value)
+                        $(e.target).parent().remove();
+                    }
+                })).appendTo('.selected-enchant')
 
                 const enchantMaterials = dataObject[dataKeys[i]].materials
 
@@ -61,11 +72,36 @@ function getenchantData(dataObject, dataKeys, slot) {
                         materialArray.push(materialKeys[j])
                     }
                 }
+                calculateData()
             }
         })
         enchantToAppend.push(slotEnchants)
     }
     return enchantToAppend
+}
+
+function removeEnchant(enchant, slot) {
+    let materialsToDelete = []
+
+    const enchantMaterialsToRemove = enchants[slot][enchant].materials
+
+    const materialKeys = Object.getOwnPropertyNames(enchantMaterialsToRemove);
+    for (let i = 0; i < materialKeys.length; i++) {
+        const materialAmmount = enchantMaterialsToRemove[materialKeys[i]]
+        for (let j = 0; j < materialAmmount; j++) {
+            materialsToDelete.push(materialKeys[i])
+        }
+    }
+
+    for (let i = 0; i < materialsToDelete.length; i++) {
+        for (let j = 0; j < materialArray.length; j++) {
+            if (materialsToDelete[i] === materialArray[j]) {
+                materialArray.splice(j, 1)
+                break;
+            }
+        }
+    }
+    calculateData()
 }
 
 function clearData() {

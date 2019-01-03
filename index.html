@@ -23,9 +23,6 @@
 
 <body>
     <div class="container">
-        <div class="topBar"></div>
-    </div>
-    <div class="container">
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-dark col-12">
                 <a class="navbar-brand" href="#">
@@ -39,16 +36,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto justify-content-around w-100">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Class Guide</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="index.html">Enchant Tool</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="consumes.html">Consumable Tool</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link " href="#">Coming Soon...</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
                         </li>
                     </ul>
                 </div>
@@ -57,20 +54,14 @@
     </div>
     <div class="container">
         <div class="page-title">Enchant Tool</div>
+        <div class="pt-5"></div>
     </div>
-    <div class="container mainBody">
-        <div class="row"></div>
-        <div class="row">
-            <div class="col rightSideBar">
-                <div class="rightContainer">
-                    <div class="bookImg">
-                        <div class="enchantHolder"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 mainDisplay">
+    <div class="container">
+        <div class="row mainBody">
+            <div class="col"></div>
+            <div class="col-12 col-lg-6 mainDisplay">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12">
                         <div class="row">
                             <div class="col-3">
                                 <div class="itemslot enchantable mx-auto" id="head" data-toggle="tooltip"
@@ -92,14 +83,11 @@
                             </div>
                             <div class="col-6">
                                 <div class="row">
-                                    <div class="col">
-                                        <button class="btn btn-dark" type="button" onclick="clearData()">Reset All</button>
+                                    <div class="enchantOptions">
+                                        <div class="bookImg">
+                                            <div class="enchantHolder"></div>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <button class="btn btn-dark" type="button" onclick="calculateData()">Calculate</button>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col selected-enchant"></div>
 
                                 </div>
@@ -144,27 +132,25 @@
                             <div class="col">
                                 <button class="btn btn-dark" type="button" onclick="clearData()">Reset All</button>
                             </div>
-                            <div class="col">
-                                <button class="btn btn-dark" type="button" onclick="calculateData()">Calculate</button>
-                            </div>
-                        </div>
-                        <div class="row">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col leftSideBar">
-                <div class="leftContainer">
+            <div class="col"></div>
+            <div class="col-12 col-lg-4 leftSideBar">
+                <div class="totalContainer">
                     <div class="totalTitle">Totals</div>
                     <div class="results"></div>
                 </div>
             </div>
+            <div class="col d-none d-lg-block"></div>
         </div>
+    </div>
     </div>
     <div class="container">
         <div class="row">
             <footer class="footer">
-                <span class="text-muted">this is a footer</span>
+                <span class="text-muted">&copy Ony Buff 2018</span>
             </footer>
         </div>
     </div>
