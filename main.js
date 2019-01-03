@@ -31,8 +31,6 @@ function findSlot(selection) {
         class: 'enchant-slot-title'
     }))
     $('.enchantHolder').append(enchantData)
-    $('[data-toggle="tooltip"]').tooltip()
-
 }
 
 function getenchantData(dataObject, dataKeys, slot) {
