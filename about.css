@@ -39,12 +39,12 @@ body {
 
 @font-face {
     font-family: 'MetalMacabre';
-    src: url('/assets/fonts/MetalMacabre.ttf');
+    src: url('assets/fonts/MetalMacabre.ttf');
 }
 
 @font-face {
     font-family: 'Quattro';
-    src: url('/assets/fonts/Quattrocento-Regular.ttf');
+    src: url('assets/fonts/Quattrocento-Regular.ttf');
 }
 
 .navbar-brand {
