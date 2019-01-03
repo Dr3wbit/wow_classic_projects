@@ -23,7 +23,6 @@ body {
     background-size: cover;
     border-radius: 5px;
     border: 2px #100007 solid;
-    min-height: 15vh;
 }
 
 .class-filter {
@@ -146,6 +145,11 @@ input:focus {
     color: rgb(255, 54, 4) !important
 }
 
+.mainBody {
+    min-height: 80vh;
+    align-content: center;
+   }
+
 
 .container {
     background-color: rgba(0, 0, 0, 0.4);
@@ -156,7 +160,7 @@ input:focus {
         background-color: rgba(0, 0, 0, 0.1);
     }
   }
-  
+
 .navbar {
     background-color: black;
 }
