@@ -3,9 +3,8 @@ body {
     text-align: center;
     font-size: 100%;
     background-color: grey;
-    background-image: url("assets/images/alterac_background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url("assets/images/tileable_texture3.jpg");
+    background-repeat: repeat;
     background-attachment: fixed;
     font-family: Quattro;
 }
