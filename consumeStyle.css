@@ -11,7 +11,7 @@ body {
 }
 
 .consume-container {
-    background-image: url("assets/images/alch_table_transparent.png");
+    background-image: url("assets/images/alch_table_transparent_smaller.png");
     background-size: cover;
     border-radius: 5px;
     border: 2px #100007 solid;
