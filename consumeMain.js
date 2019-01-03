@@ -58,7 +58,7 @@ function createConsumeBlocks(dataObject, dataKeys) {
                 consumeInput = $('<input/>', {
                     class: 'consume-input',
                     name: dataKeys[i],
-                    type: 'text',
+                    type: 'number',
                     placeholder: 'Amount',
                     maxlength: 3,
                 }),
