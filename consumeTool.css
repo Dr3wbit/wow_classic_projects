@@ -27,6 +27,11 @@
     border-top-right-radius: 5px;
     background-color: #030001e1;
     cursor: pointer;
+
+background-image: linear-gradient(to bottom, azure, azure 50%, transparent 50%, transparent);
+background-position: 0 100%;
+background-size: 100% 200%;
+transition: all .2s ease-in;
 }
 
 .class-filter:hover {
@@ -40,7 +45,11 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background-color: azure;
+    
+    background-position: 0 0;
 }
+
+
 
 .consume-input {
     display: block;
