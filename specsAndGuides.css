@@ -21,8 +21,13 @@
     margin-left: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: #030001e1;
+    background-color: black;
     cursor: pointer;
+    /* animation */
+    background-image: linear-gradient(to bottom, azure, azure 50%, transparent 50%, transparent);
+    background-position: 0 100%;
+    background-size: 100% 200%;
+    transition: all .2s ease-in;
 }
 
 .class-filter:hover {
@@ -36,6 +41,8 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background-color: azure;
+    /* animation */
+    background-position: 0 0;
 }
 
 .class-selection {
@@ -56,6 +63,11 @@
     border-bottom-left-radius: 5px;
     color: azure;
     cursor: pointer;
+    /* animation */
+    background-image: linear-gradient(to right, azure, azure 50%, transparent 50%, transparent);
+    background-position: 100% 0%;
+    background-size: 200% 100%;
+    transition: all .2s ease-in;
 }
 
 .information-selection:hover {
@@ -71,6 +83,8 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     color: black;
+    /* animation */
+    background-position: 0 0;
 }
 
 @media only screen and (max-width: 768px) {
