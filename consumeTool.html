@@ -3,20 +3,20 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131655338-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131655338-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'UA-131655338-1');
-</script>
+        gtag('config', 'UA-131655338-1');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ony Buff</title>
-    <link rel="icon" type="image/png" href="assets/images/OnyBuff.png"/>
+    <link rel="icon" type="image/png" href="assets/images/OnyBuff.png" />
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -26,9 +26,10 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="consumeStyle.css">
+    <link rel="stylesheet" type="text/css" href="global.css">
+    <link rel="stylesheet" type="text/css" href="consumeTool.css">
     <script src="consumes.js"></script>
-    <script src="consumeMain.js"></script>
+    <script src="consumeTool.js"></script>
 
 </head>
 
@@ -36,7 +37,7 @@
     <div class="container">
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-dark col-12 pt-5">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
                     Ony Buff</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -47,13 +48,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto justify-content-around w-100">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Enchant Tool</a>
+                            <a class="nav-link" href="enchantTool.html">Enchant Tool</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="consumes.html">Consumable Tool</a>
+                            <a class="nav-link" href="consumeTool.html">Consumable Tool</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="#">Coming Soon...</a>
+                            <a class="nav-link " href="specsAndGuides.html">Specs & Guides</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
@@ -65,10 +66,11 @@
     </div>
     <div class="container">
         <div class="page-title">Consumable Tool</div>
+        <div class="p-3 page-description">A Classic World of Warcraft Consumable Calculator...</div>
     </div>
     <div class="container mainBody">
         <div class="row class-selection">
-            <div class="class-filter" id="all">All Consumes</div>
+            <!-- <div class="class-filter" id="all">All Consumes</div> -->
             <div class="class-filter" id="warrior">Warrior</div>
             <div class="class-filter" id="mage">Mage</div>
             <div class="class-filter" id="druid">Druid</div>
@@ -83,6 +85,7 @@
             <div class="col-xl-9 consume-container">
                 <div class="row">
                     <form class="consume-form col" onsubmit="getMaterials()">
+                        <div class="consumePrompt">~Select Your Class~</div>
                     </form>
                 </div>
             </div>
@@ -101,7 +104,7 @@
     <div class="container">
         <div class="row">
             <footer class="footer">
-                <span class="text-muted">&copy Ony Buff 2018</span>
+                <span class="text-muted">&copy Ony Buff 2019</span>
             </footer>
         </div>
     </div>
