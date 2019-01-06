@@ -3,7 +3,7 @@
     background-image: url("assets/images/alch_table_transparent_smaller.png");
     background-size: cover;
     border-radius: 5px;
-    border: 2px #100007 solid;
+    border: 1px azure solid;
     min-height: 58vh;
     padding: 10px;
 }
@@ -12,7 +12,7 @@
     background-image: url("assets/images/textured_background_white.png");
     background-size: cover;
     border-radius: 5px;
-    border: 2px #100007 solid;
+    border: 1px azure solid;
 }
 
 .class-filter {
@@ -30,7 +30,7 @@
 }
 
 .class-filter:hover {
-    color: black;
+    color: black !important;
     padding: 5px;
     font-size: 110%;
     border-right: 1px solid  #100007 ;
@@ -85,7 +85,7 @@ input:focus {
 }
 
 .selected {
-    color: black;
+    color: black !important;
     background-color: azure;
 }
 

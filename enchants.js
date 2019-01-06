@@ -219,7 +219,7 @@ const enchants = {
 
         arcanum_of_focus: {
             name: 'Arcanum of Focus',
-            effect: '+8 spell DMG/HEAL',
+            effect: '+8 Spell DMG/HEAL',
             materials: {
                 libram_of_focus: 1,
                 pristine_black_diamond: 1,
@@ -254,7 +254,7 @@ const enchants = {
 
         lesser_arcanum_of_voracity: {
             name: 'Arcanum of Voracity',
-            effect: '+8 to single stat',
+            effect: '+8 to Single Stat',
             materials: {
                 black_diamond: 1,
                 libram_of_voracity: 1,
@@ -266,7 +266,7 @@ const enchants = {
 
         lesser_arcanum_of_resilience: {
             name: 'Arcanum of Resilience',
-            effect: '+20 fire Res',
+            effect: '+20 Fire Res',
             materials: {
                 black_diamond: 1,
                 crystal_spire: 4,
@@ -281,7 +281,7 @@ const enchants = {
 
         arcanum_of_focus: {
             name: 'Arcanum of Focus',
-            effect: '+8 spell DMG/HEAL',
+            effect: '+8 Spell DMG/HEAL',
             materials: {
                 libram_of_focus: 1,
                 pristine_black_diamond: 1,
@@ -316,7 +316,7 @@ const enchants = {
 
         lesser_arcanum_of_voracity: {
             name: 'Arcanum of Voracity',
-            effect: '+8 to single stat',
+            effect: '+8 to Single Stat',
             materials: {
                 black_diamond: 1,
                 libram_of_voracity: 1,
@@ -328,7 +328,7 @@ const enchants = {
 
         lesser_arcanum_of_resilience: {
             name: 'Arcanum of Resilience',
-            effect: '+20 fire Res',
+            effect: '+20 Fire Res',
             materials: {
                 black_diamond: 1,
                 crystal_spire: 4,
@@ -398,7 +398,7 @@ const enchants = {
 
         fiery_weapon: {
             name: 'Fiery Weapon',
-            effect: '40 fire DMG proc',
+            effect: '40 Fire DMG Proc',
             materials: {
                 small_radiant_shard: 4,
                 essence_of_fire: 2
@@ -407,7 +407,7 @@ const enchants = {
 
         icy_chill: {
             name: 'Icy Chill',
-            effect: 'slows target',
+            effect: 'Slows Target',
             materials: {
                 small_brilliant_shard: 4,
                 essence_of_water: 2,
@@ -448,7 +448,7 @@ const enchants = {
 
         fiery_weapon: {
             name: 'Fiery Weapon',
-            effect: '40 fire DMG proc',
+            effect: '40 Fire DMG Proc',
             materials: {
                 small_radiant_shard: 4,
                 essence_of_fire: 2
@@ -457,7 +457,7 @@ const enchants = {
 
         icy_chill: {
             name: 'Icy Chill',
-            effect: 'slows target',
+            effect: 'Slows Target',
             materials: {
                 small_brilliant_shard: 4,
                 essence_of_water: 2,

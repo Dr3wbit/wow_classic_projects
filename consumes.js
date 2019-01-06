@@ -45,7 +45,7 @@ const consumes = {
                 hot_spices: 0.2,
                 goblin_rocket_fuel: 0.2,
                 deeprock_salt: 0.2,
-                Chimaerok_tenderloin: 0.2,
+                chimaerok_tenderloin: 0.2,
             },
         },
 
