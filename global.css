@@ -86,3 +86,43 @@ body {
 .page-description {
     color: azure
 }
+
+
+
+/* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
+
+#warrior {
+    color: rgb(179, 113, 113)
+}
+
+#mage {
+    color: rgb(80, 185, 255);
+}
+
+#druid {
+    color: rgb(253, 136, 39)
+}
+
+#paladin {
+    color: rgb(255, 147, 232);
+}
+
+#shaman {
+    color: rgb(57, 57, 255);
+}
+
+#warlock {
+    color: rgb(150, 44, 236);
+}
+
+#priest {
+    color: white;
+}
+
+#hunter {
+    color: rgb(15, 194, 54);
+}
+
+#rogue {
+    color: rgb(252, 252, 80);
+}
