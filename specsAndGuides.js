@@ -19,6 +19,10 @@ function applyClickHandlers() {
             const clickedID = clickedFilter[0].id
             selectedClass = { ...specsAndGuidesData[clickedID] }
             clearForm()
+            $('.information-container').append($('<h1/>', {
+                text: 'Select a Side Option',
+            })).css("color", "azure")
+
         },
     })
 
