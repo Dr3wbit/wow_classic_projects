@@ -4,11 +4,19 @@
     border-radius: 5px;
     border: 1px azure solid;
     min-height: 58vh;
+    max-height: 65vh;
     padding: 10px;
+    overflow-y: scroll;
+
 }
 
 .information-selector {
     padding-right: 0;
+}
+
+.selected {
+    color: black !important;
+    background-color: azure !important;
 }
 
 .class-filter {
@@ -51,7 +59,7 @@
 
 .information-selection {
     padding: 10px;
-    margin: 5px;
+    margin: 4px;
     margin-right: 0;
     font-size: 120%;
     padding-right: 0px !important;
@@ -72,7 +80,7 @@
 
 .information-selection:hover {
     padding: 10px;
-    margin: 5px;
+    margin: 4px;
     margin-right: 0;
     font-size: 120%;
     padding-right: 0px !important;
@@ -85,6 +93,37 @@
     color: black;
     /* animation */
     background-position: 0 0;
+}
+
+.information-block {
+    border-bottom: 1px azure dotted;
+    margin: 0px;
+    padding-bottom: 20px;
+    max-height: 452px;
+}
+
+.content-description {
+    color: azure;
+    text-align: left;
+    font-size: 100%;
+    min-height: 100%;
+}
+
+.content-title {
+    font-size: 250%;
+    text-align: center;
+}
+
+.content-text {
+
+}
+
+.content {
+    min-height: 58vh;
+    margin-top: 20px;
+    margin-right: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 768px) {
