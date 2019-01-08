@@ -107,6 +107,7 @@
     text-align: left;
     font-size: 100%;
     min-height: 100%;
+    padding-top: 20px;
 }
 
 .content-title {
@@ -125,7 +126,7 @@
 
 .content {
     min-height: 58vh;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-right: 20px;
     background-size: contain;
     background-repeat: no-repeat;
