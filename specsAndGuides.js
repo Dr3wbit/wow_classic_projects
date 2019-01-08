@@ -7,37 +7,26 @@ $(document).ready(initializeApp)
 
 function initializeApp() {
     applyClickHandlers();
-    //TODO create funtion to pull default data
+    pullDefaultData();
 }
 
 function applyClickHandlers() {
     $('.class-filter').on({
         click: e => {
             $('.class-filter').removeClass('selected')
-            $('.information-selection').removeClass('selected')
             const clickedFilter = $(e.target)
             clickedFilter.addClass('selected')
             const clickedID = clickedFilter[0].id
             selectedClass = { ...specsAndGuidesData[clickedID] }
             clearForm()
-            $('.information-container').append($('<h1/>', {
-                class: 'instructor',
-                text: 'Select a Side Option',
-            })).css("color", "azure")
+            if (selectedInformation != null){
+                pullSelectedInformation()
+            }
         },
     })
 
     $('.information-selection').on({
         click: e => {
-            if (selectedClass === null) {
-                $('.warning').remove()
-                $('.information-container').append($('<h1/>', {
-                    class: 'warning',
-                    text: 'You Must Select A Class First'
-                }).css('color', 'red'))
-                return;
-            }
-        
             clearForm()
             $('.information-selection').removeClass('selected')
             const clickedFilter = $(e.target)
@@ -50,6 +39,21 @@ function applyClickHandlers() {
     })
 }
 
+function pullDefaultData() {
+    $('#warrior, #pve_specs').addClass('selected')
+    selectedClass = { ...specsAndGuidesData['warrior'] }
+    selectedInformation = { ...selectedClass['pve_specs'] }
+    const informationBlock = createInformationBlock(selectedInformation);
+    $('.information-container').append(informationBlock)
+}
+
+function pullSelectedInformation(){
+    previouslySelectedInformation = $('.information-selection.selected')[0].id
+    selectedInformation = { ...selectedClass[previouslySelectedInformation] }
+            const informationBlock = createInformationBlock(selectedInformation);
+            $('.information-container').append(informationBlock)
+}
+
 function createInformationBlock(subData) {
     let informationBlock = null
     let informationToAppend = []
@@ -57,7 +61,7 @@ function createInformationBlock(subData) {
     let descriptionToAppend = []
     const dataKeys = Object.keys(subData)
     for (let i = 0; i < dataKeys.length; i++) {
-        descriptionToAppend = []
+        descriptionToAppend = []                                    //clear for next description
         for (let j = 0; j < subData[dataKeys[i]].description.length; j++) {
             descriptionBlock = $('<li/>', {
                 class: 'description-text',
@@ -91,7 +95,7 @@ function createInformationBlock(subData) {
                 $('<div/>', {
                     class: 'col-9'
                 })
-                //TODO not always gunna be an image fix DOM Creation
+                    //TODO not always gunna be an image fix DOM Creation
                     .append(
                         $('<div/>', {
                             class: 'content',
