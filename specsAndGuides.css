@@ -118,6 +118,11 @@
 
 }
 
+.instructor {
+    color:  azure;
+    padding: 20px;
+}
+
 .content {
     min-height: 58vh;
     margin-top: 20px;

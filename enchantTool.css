@@ -146,9 +146,11 @@
 #shoulders {
     background-image: url("assets/images/shoulders.png")
 }
+
 #tabard {
     background-image: url("assets/images/tabard.png")
 }
+
 #trinket {
     background-image: url("assets/images/trinket.png")
 }
@@ -176,7 +178,6 @@
 .not-enchantable {
     opacity: 0.5;
 }
-
 
 
 .delete {

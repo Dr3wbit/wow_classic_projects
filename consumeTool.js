@@ -12,6 +12,7 @@ function initializeApp() {
     $(".consume-form").on('keyup', () => {
         $('.consume-form').submit()
     })
+    //TODO create function to pull default data
 }
 
 function applyClickHandlers() {

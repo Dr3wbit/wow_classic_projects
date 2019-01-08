@@ -7,6 +7,7 @@ $(document).ready(initializeApp)
 
 function initializeApp() {
     applyClickHandlers();
+    //TODO create funtion to pull default data
 }
 
 function applyClickHandlers() {
@@ -20,21 +21,29 @@ function applyClickHandlers() {
             selectedClass = { ...specsAndGuidesData[clickedID] }
             clearForm()
             $('.information-container').append($('<h1/>', {
+                class: 'instructor',
                 text: 'Select a Side Option',
             })).css("color", "azure")
-
         },
     })
 
     $('.information-selection').on({
         click: e => {
+            if (selectedClass === null) {
+                $('.warning').remove()
+                $('.information-container').append($('<h1/>', {
+                    class: 'warning',
+                    text: 'You Must Select A Class First'
+                }).css('color', 'red'))
+                return;
+            }
+        
             clearForm()
             $('.information-selection').removeClass('selected')
             const clickedFilter = $(e.target)
             clickedFilter.addClass('selected')
             const clickedID = clickedFilter[0].id
             selectedInformation = { ...selectedClass[clickedID] }
-            console.log(selectedInformation)
             const informationBlock = createInformationBlock(selectedInformation);
             $('.information-container').append(informationBlock)
         },
@@ -44,9 +53,18 @@ function applyClickHandlers() {
 function createInformationBlock(subData) {
     let informationBlock = null
     let informationToAppend = []
+    let descriptionBlock = null
+    let descriptionToAppend = []
     const dataKeys = Object.keys(subData)
-    console.log(dataKeys)
     for (let i = 0; i < dataKeys.length; i++) {
+        descriptionToAppend = []
+        for (let j = 0; j < subData[dataKeys[i]].description.length; j++) {
+            descriptionBlock = $('<li/>', {
+                class: 'description-text',
+                text: subData[dataKeys[i]].description[j]
+            })
+            descriptionToAppend.push(descriptionBlock)
+        }
 
         informationBlock = $('<div/>', {
             class: 'information-block row'
@@ -66,41 +84,22 @@ function createInformationBlock(subData) {
                     })
                         .append($('<ul/>', {
                             class: 'content-list' + i
-                        })
-                            .append($('<li/>', {
-                                text: subData[dataKeys[i]].description[0]
-                            }))
-                            .append($('<li/>', {
-                                text: subData[dataKeys[i]].description[1]
-                            }))
-                            .append($('<li/>', {
-                                text: subData[dataKeys[i]].description[2]
-                            })))
+                        }).append(descriptionToAppend)
+                        )
                     )
-
                 ),
-
                 $('<div/>', {
                     class: 'col-9'
                 })
+                //TODO not always gunna be an image fix DOM Creation
                     .append(
                         $('<div/>', {
                             class: 'content',
                         }).css("background-image", 'url(' + subData[dataKeys[i]].image + ')'),
                     )
             )
-
-        // for (let j = 0; j < subData[dataKeys[i]].description.length; j++){
-
-        // $('<li/>', {
-        //         text: subData[dataKeys[i]].description[i]
-        //     }).appendTo($('.content-list' + i))
-        // }
-
         informationToAppend.push(informationBlock)
     }
-
-
     return informationToAppend
 
 }
