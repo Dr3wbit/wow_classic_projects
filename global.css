@@ -126,3 +126,10 @@ body {
 #rogue {
     color: rgb(252, 252, 80);
 }
+
+.disabled {
+    opacity: 0.2;
+    user-select: none;
+    pointer-events: none;
+    background-color: gray;
+}

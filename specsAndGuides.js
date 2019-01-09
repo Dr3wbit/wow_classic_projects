@@ -8,6 +8,7 @@ $(document).ready(initializeApp)
 function initializeApp() {
     applyClickHandlers();
     pullDefaultData();
+    //add auto scroll to top
 }
 
 function applyClickHandlers() {
@@ -61,7 +62,7 @@ function createInformationBlock(subData) {
     let descriptionToAppend = []
     const dataKeys = Object.keys(subData)
     for (let i = 0; i < dataKeys.length; i++) {
-        descriptionToAppend = []                                    //clear for next description
+        descriptionToAppend = []
         for (let j = 0; j < subData[dataKeys[i]].description.length; j++) {
             descriptionBlock = $('<li/>', {
                 class: 'description-text',
