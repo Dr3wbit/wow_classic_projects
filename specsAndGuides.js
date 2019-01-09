@@ -88,7 +88,7 @@ function createInformationBlock(subData) {
                         class: 'content-text'
                     })
                         .append($('<ul/>', {
-                            class: 'content-list' + i
+                            class: 'content-list'
                         }).append(descriptionToAppend)
                         )
                     )
