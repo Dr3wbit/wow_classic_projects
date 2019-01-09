@@ -37,7 +37,17 @@ body {
 .navbar-brand {
     font-family: MetalMacabre;
     font-size: 200%;
-    color: rgb(255, 54, 4) !important
+    color: rgb(255, 54, 4) !important;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;  
+}
+
+.navbar-toggler {
+    background-color: black;
+    border: 1px gray solid !important
 }
 
 
@@ -53,6 +63,8 @@ body {
 
 .navbar {
     background-color: black;
+    background-image: url('assets/images/block_texture.jpg');
+    border: 2px black solid;
 }
 
 .mainBody {
