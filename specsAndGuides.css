@@ -4,7 +4,7 @@
     border-radius: 5px;
     border: 1px azure solid;
     min-height: 58vh;
-    max-height: 65vh;
+    max-height: 72vh;
     padding: 10px;
     overflow-y: scroll;
 
@@ -99,7 +99,6 @@
     border-bottom: 1px azure dotted;
     margin: 0px;
     padding-bottom: 20px;
-    max-height: 452px;
 }
 
 .content-description {
@@ -130,6 +129,10 @@
     margin-right: 20px;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.content-list {
+    padding-left: 0px;
 }
 
 @media only screen and (max-width: 768px) {
