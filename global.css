@@ -37,7 +37,17 @@ body {
 .navbar-brand {
     font-family: MetalMacabre;
     font-size: 200%;
-    color: rgb(255, 54, 4) !important
+    color: rgb(255, 54, 4) !important;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;  
+}
+
+.navbar-toggler {
+    background-color: black;
+    border: 1px gray solid !important
 }
 
 
@@ -53,6 +63,8 @@ body {
 
 .navbar {
     background-color: black;
+    background-image: url('assets/images/block_texture.jpg');
+    border: 2px black solid;
 }
 
 .mainBody {
@@ -67,7 +79,7 @@ body {
     border-radius: 5px;
     min-width: 165px;
     color: azure !important;
-    font-family: Quattro
+    font-family: Quattro;
    }
 
 .nav-link:hover {
@@ -87,6 +99,9 @@ body {
     color: azure
 }
 
+.dark-bricks {
+    background-image: url(assets/images/block_texture_dark.jpg)
+}
 
 
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
@@ -125,4 +140,11 @@ body {
 
 #rogue {
     color: rgb(252, 252, 80);
+}
+
+.disabled {
+    opacity: 0.2;
+    user-select: none;
+    pointer-events: none;
+    background-color: gray;
 }
