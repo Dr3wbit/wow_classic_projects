@@ -79,7 +79,7 @@ body {
     border-radius: 5px;
     min-width: 165px;
     color: azure !important;
-    font-family: Quattro
+    font-family: Quattro;
    }
 
 .nav-link:hover {
@@ -99,6 +99,9 @@ body {
     color: azure
 }
 
+.dark-bricks {
+    background-image: url(assets/images/block_texture_dark.jpg)
+}
 
 
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */

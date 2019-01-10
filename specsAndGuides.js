@@ -8,6 +8,7 @@ $(document).ready(initializeApp)
 function initializeApp() {
     applyClickHandlers();
     pullDefaultData();
+    alert('This Page is NOT Finished and is Still Under Construction');
     //add auto scroll to top
 }
 
