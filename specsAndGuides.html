@@ -28,14 +28,15 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="global.css">
     <link rel="stylesheet" type="text/css" href="specsAndGuides.css">
+    <script src="specsAndGuidesData.js"></script>
     <script src="specsAndGuides.js"></script>
-
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <nav class="navbar navbar-expand-lg navbar-dark col-12 pt-5">
+                <div class="p-lg-4"></div>
+            <nav class="navbar navbar-expand-lg navbar-dark col-12">
                 <a class="navbar-brand" href="index.html">
                     <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
                     Ony Buff</a>
@@ -65,7 +66,6 @@
     </div>
     <div class="container">
         <div class="page-title">Specs and Guides</div>
-        <div class="p-3 page-description">Classic World of Warcraft Specs and Guides...</div>
     </div>
     <div class="container mainBody">
         <div class="row class-selection">
@@ -80,20 +80,16 @@
             <div class="class-filter" id="rogue">Rogue</div>
         </div>
         <div class="row">
-            <div class="col-3 d-none d-lg-block information-selector">
-                <div class="information-selection"> PvE Talent Guide</div>
-                <div class="information-selection"> PvP Talent Guide</div>
-                <div class="information-selection"> Raid Consume Lists</div>
-                <div class="information-selection"> PvP Consume Lists</div>
-                <div class="information-selection"> Preraid Bis List </div>
-                <div class="information-selection"> Bis List </div>
-                <div class="information-selection"> Gold Farming Techniques </div>
+            <div class="col-2 d-none d-lg-block information-selector">
+                <div class="information-selection" id="pve_specs"> PvE Talent Guide</div>
+                <div class="information-selection" id="pvp_specs"> PvP Talent Guide</div>
+                <div class="information-selection disabled" id="raid_consumes"> Raid Consume Lists</div>
+                <div class="information-selection disabled" id="pvp_consumes"> PvP Consume Lists</div>
+                <div class="information-selection disabled" id="preraid_bis"> Preraid Bis List </div>
+                <div class="information-selection disabled" id="bis"> Bis List </div>
+                <div class="information-selection disabled" id="gft"> ????? </div>
             </div>
-            <div class="col information-container">
-                <div class="pt-5"></div>
-                <h1 style="color:azure">Under Construction</h1>
-                <h2 style="color:azure">Coming Soon...</h2>
-            </div>
+            <div class="col information-container"></div>
         </div>
     </div>
     <div class="container">
