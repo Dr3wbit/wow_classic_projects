@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131655338-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-131655338-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ony Buff</title>
+    <link rel="icon" type="image/png" href="assets/images/OnyBuff.png" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="global.css">
+    <link rel="stylesheet" type="text/css" href="talent.css">
+    <script src="talent.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="p-lg-4"></div>
+            <nav class="navbar navbar-expand-lg navbar-dark col-12">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
+                    Ony Buff</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto justify-content-around w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="enchantTool.html">Enchant Tool</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="consumeTool.html">Consumable Tool</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="specsAndGuides.html">Specs & Guides</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-title">Talent Calculator</div>
+    </div>
+    <div class="container mainBody">
+        <div class="pt-5"></div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col" align="center">
+                <div class="treeTitle">Spec 1</div>
+                <table class="talentTable tableA">
+                    <tr>
+                        <td class="talent a00">
+                            <div class="spentPoints">0</div>
+                        </td>
+                        <td class="talent a01">
+                            <div class="spentPoints">0</div>
+                        </td>
+                        <td class="talent a02">
+                            <div class="spentPoints">0</div>
+                        </td>
+                        <td class="talent a03">
+                            <div class="spentPoints">0</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="talent a10">1</td>
+                        <td class="talent a11">2</td>
+                        <td class="talent a12">3</td>
+                        <td class="talent a13">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent a20">1</td>
+                        <td class="talent a21">2</td>
+                        <td class="talent a22">3</td>
+                        <td class="talent a23">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent a30">1</td>
+                        <td class="talent a31">2</td>
+                        <td class="talent a32">3</td>
+                        <td class="talent a33">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent a40">1</td>
+                        <td class="talent a41">2</td>
+                        <td class="talent a42">3</td>
+                        <td class="talent a43">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent a50">1</td>
+                        <td class="talent a51">2</td>
+                        <td class="talent a52">3</td>
+                        <td class="talent a53">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent a60">1</td>
+                        <td class="talent a61">2</td>
+                        <td class="talent a62">3</td>
+                        <td class="talent a63">4</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col" align="center">
+                <div class="treeTitle">Spec 2</div>
+                <table class="talentTable tableB">
+                    <tr>
+                        <td class="talent b00">1</td>
+                        <td class="talent b01">2</td>
+                        <td class="talent b02">3</td>
+                        <td class="talent b03">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent b10">1</td>
+                        <td class="talent b11">2</td>
+                        <td class="talent b12">3</td>
+                        <td class="talent b13">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent b20">1</td>
+                        <td class="talent b21">2</td>
+                        <td class="talent b22">3</td>
+                        <td class="talent b23">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent b30">1</td>
+                        <td class="talent b31">2</td>
+                        <td class="talent b32">3</td>
+                        <td class="talent b33">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent b40">1</td>
+                        <td class="talent b41">2</td>
+                        <td class="talent b42">3</td>
+                        <td class="talent b43">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent b50">1</td>
+                        <td class="talent b51">2</td>
+                        <td class="talent b52">3</td>
+                        <td class="talent b53">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent b60">1</td>
+                        <td class="talent b61">2</td>
+                        <td class="talent b62">3</td>
+                        <td class="talent b63">4</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col" align="center">
+                <div class="treeTitle">Spec 3</div>
+                <table class="talentTable tableC">
+                    <tr>
+                        <td class="talent c00">1</td>
+                        <td class="talent c01">2</td>
+                        <td class="talent c02">3</td>
+                        <td class="talent c03">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent c10">1</td>
+                        <td class="talent c11">2</td>
+                        <td class="talent c12">3</td>
+                        <td class="talent c13">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent c20">1</td>
+                        <td class="talent c21">2</td>
+                        <td class="talent c22">3</td>
+                        <td class="talent c23">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent c30">1</td>
+                        <td class="talent c31">2</td>
+                        <td class="talent c32">3</td>
+                        <td class="talent c33">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent c40">1</td>
+                        <td class="talent c41">2</td>
+                        <td class="talent c42">3</td>
+                        <td class="talent c43">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent c50">1</td>
+                        <td class="talent c51">2</td>
+                        <td class="talent c52">3</td>
+                        <td class="talent c53">4</td>
+                    </tr>
+                    <tr>
+                        <td class="talent c60">1</td>
+                        <td class="talent c61">2</td>
+                        <td class="talent c62">3</td>
+                        <td class="talent c63">4</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <footer class="footer">
+                <span class="text-muted">&copy Ony Buff 2019</span>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
