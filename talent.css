@@ -6,6 +6,11 @@
     position: relative;
 }
 
+.openSlot {
+    min-width: 40px;
+    height: 40px;
+    position: relative;
+}
 .talentTable {
     border-collapse: separate;
     border-spacing: 15px;
@@ -27,4 +32,8 @@
     color: yellowgreen;
     text-align: center;
     line-height: 14px;
+}
+
+.locked {
+    background-color: grey;
 }
