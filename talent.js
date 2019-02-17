@@ -1,5 +1,5 @@
 
-
+let talentsPointsSpent = 0
 
 $(document).ready(initializeApp)
 
@@ -84,8 +84,8 @@ function applyClickHandlers() {
             const requiredTalentPoints = clickedTalent.attr('requiredTalentPoints')
             clickedTalent.attr('value', function (index, originalValue) {
                 const pointValue = parseInt(originalValue)
-                
-                if ( clickedTalent.attr('value') < requiredTalentPoints){
+
+                if ( talentsPointsSpent < requiredTalentPoints){
                     console.log('you must have ' +requiredTalentPoints+ ' points in this tree to spec here')
                     return
                 }
@@ -94,6 +94,7 @@ function applyClickHandlers() {
                 }
                 if (e.which === 1) {
                     if (pointValue < maxRank){
+                        talentsPointsSpent++
                         return pointValue + 1
                     }
                 }
@@ -106,6 +107,7 @@ function applyClickHandlers() {
                         }
                     }
                     if (pointValue > 0){
+                        talentsPointsSpent--
                         return pointValue - 1
                     }
                 }
