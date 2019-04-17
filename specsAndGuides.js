@@ -1,15 +1,13 @@
 
-
-let selectedClass = null
-let selectedInformation = null
-
 $(document).ready(initializeApp)
 
 function initializeApp() {
-    applyClickHandlers();
-    pullDefaultData();
-    alert('This Page is NOT Finished and is Still Under Construction');
-    //add auto scroll to top
+
+	applyClickHandlers()
+	$('#warrior').addClass('selected')
+	populateData(context.classes[0]);
+  populateNavbar();
+
 }
 
 function applyClickHandlers() {
@@ -19,97 +17,29 @@ function applyClickHandlers() {
             const clickedFilter = $(e.target)
             clickedFilter.addClass('selected')
             const clickedID = clickedFilter[0].id
-            selectedClass = { ...specsAndGuidesData[clickedID] }
-            clearForm()
-            if (selectedInformation != null){
-                pullSelectedInformation()
-            }
+						selectedClass = context.classes.find(function(a) {
+							return a.name == clickedID; });
+						populateData(selectedClass)
         },
-    })
+    })}
 
-    $('.information-selection').on({
-        click: e => {
-            clearForm()
-            $('.information-selection').removeClass('selected')
-            const clickedFilter = $(e.target)
-            clickedFilter.addClass('selected')
-            const clickedID = clickedFilter[0].id
-            selectedInformation = { ...selectedClass[clickedID] }
-            const informationBlock = createInformationBlock(selectedInformation);
-            $('.information-container').append(informationBlock)
-        },
-    })
-}
+ function populateData(data) {
 
-function pullDefaultData() {
-    $('#warrior, #pve_specs').addClass('selected')
-    selectedClass = { ...specsAndGuidesData['warrior'] }
-    selectedInformation = { ...selectedClass['pve_specs'] }
-    const informationBlock = createInformationBlock(selectedInformation);
-    $('.information-container').append(informationBlock)
-}
+		//Retrieve the template data from the HTML .
+		let template = $('#handlebars-demo').html();
+		//Compile the template data into a function
+		let templateScript = Handlebars.compile(template);
 
-function pullSelectedInformation(){
-    previouslySelectedInformation = $('.information-selection.selected')[0].id
-    selectedInformation = { ...selectedClass[previouslySelectedInformation] }
-            const informationBlock = createInformationBlock(selectedInformation);
-            $('.information-container').append(informationBlock)
-}
+		const pve = Object.assign({}, data);
+		const pvp = Object.assign({}, data);
 
-function createInformationBlock(subData) {
-    let informationBlock = null
-    let informationToAppend = []
-    let descriptionBlock = null
-    let descriptionToAppend = []
-    const dataKeys = Object.keys(subData)
-    for (let i = 0; i < dataKeys.length; i++) {
-        descriptionToAppend = []
-        for (let j = 0; j < subData[dataKeys[i]].description.length; j++) {
-            descriptionBlock = $('<li/>', {
-                class: 'description-text',
-                text: subData[dataKeys[i]].description[j]
-            })
-            descriptionToAppend.push(descriptionBlock)
-        }
+		pve.specs = pve.specs.filter(function(a) {return a.focus == 'PvE';})
+		pvp.specs = pvp.specs.filter(function(a) {return a.focus == 'PvP';})
 
-        informationBlock = $('<div/>', {
-            class: 'information-block row'
-        })
-            .append($('<div/>', {
-                class: 'col-3',
-            })
-                .append($('<div/>', {
-                    class: 'content-description'
-                })
-                    .append($('<div/>', {
-                        class: 'content-title',
-                        text: subData[dataKeys[i]].name
-                    }))
-                    .append($('<div/>', {
-                        class: 'content-text'
-                    })
-                        .append($('<ul/>', {
-                            class: 'content-list'
-                        }).append(descriptionToAppend)
-                        )
-                    )
-                ),
-                $('<div/>', {
-                    class: 'col-9'
-                })
-                    //TODO not always gunna be an image fix DOM Creation
-                    .append(
-                        $('<div/>', {
-                            class: 'content',
-                        }).css("background-image", 'url(' + subData[dataKeys[i]].image + ')'),
-                    )
-            )
-        informationToAppend.push(informationBlock)
-    }
-    return informationToAppend
+		let pve_html = templateScript(pve);
+		$('#pve_specs').html(pve_html);
 
-}
+		let pvp_html = templateScript(pvp);
+		$('#pvp_specs').html(pvp_html);
 
-function clearForm() {
-    $('.information-container').empty()
-}
+ }
