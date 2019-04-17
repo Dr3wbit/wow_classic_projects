@@ -15,41 +15,6 @@
     border: 1px azure solid;
 }
 
-.class-filter {
-    color: azure;
-    padding: 5px;
-    font-size: 110%;
-    border-right: 1px solid  azure ;
-    border-left: 1px solid  azure ;
-    border-top: 1px solid  azure ;
-    margin-left: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: #030001e1;
-    cursor: pointer;
-
-background-image: linear-gradient(to bottom, azure, azure 50%, transparent 50%, transparent);
-background-position: 0 100%;
-background-size: 100% 200%;
-transition: all .2s ease-in;
-}
-
-.class-filter:hover {
-    color: black !important;
-    padding: 5px;
-    font-size: 110%;
-    border-right: 1px solid  #100007 ;
-    border-left: 1px solid  #100007 ;
-    border-top: 1px solid  #100007 ;
-    margin-left: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: azure;
-    
-    background-position: 0 0;
-}
-
-
 
 .consume-input {
     display: block;
@@ -85,7 +50,7 @@ input:focus {
 
 .consume-title {
     display: inline-block;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-left: 5px;
@@ -126,29 +91,7 @@ input:focus {
 @media only screen and (max-width: 600px) {
 
 
-    .class-filter {
-        color: azure;
-        padding: 5px;
-        font-size: 100%;
-        border: 1px solid  azure ;
-        margin-left: 5px;
-        margin-top: 5px;
-        border-radius: 5px;
-        background-color: #030001e1;
-        cursor: pointer;
-    }
-    
-    .class-filter:hover {
-        color: black;
-        padding: 5px;
-        font-size: 100%;
-        border: 1px solid  #100007 ;
-        margin-left: 5px;
-        margin-top: 5px;
-        border-radius: 5px;
-        background-color: azure;
-        cursor: pointer;
-    }
+
 
     .selected {
         color: black;
@@ -164,7 +107,7 @@ input:focus {
 .consumePrompt {
     background-color: #030001e1;
     font-size: 120%;
-    border: 1px solid azure; 
+    border: 1px solid azure;
     border-radius: 5px;
     color: azure !important;
     font-family: Quattro;
