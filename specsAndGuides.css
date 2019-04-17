@@ -1,8 +1,46 @@
+.list-group-item {
+    padding: 10px;
+    margin: 4px;
+    font-size: 100%;
+    line-height: 1;
+    border-radius: 0px;
+    background-color: transparent;
+    display: initial;
+    color: #9FA3A9;
+    cursor: pointer;
+    /* animation */
+    transition: all .2s ease-in;
+}
+
+.list-group-item.active {
+  color: azure !important;
+  border-left: 6px solid #ff3604;
+  border-right: transparent;
+  border-top: transparent;
+  border-bottom: transparent;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: transparent;
+}
+
+.list-group-item.active:hover {
+  color: azure !important;
+  border-left: 6px solid #ff3604;
+  border-radius: 0px;
+
+}
+
+.list-group-item:hover {
+  color: azure !important;
+  border-color: transparent;
+  border-radius: 0px;
+}
+
 .information-container {
     background-image: url("assets/images/textured_background.png");
     background-size: cover;
-    border-radius: 5px;
-    border: 1px azure solid;
+    border-top: 2px solid rgb(79, 80, 83);
+    border-bottom: 2px solid rgb(79, 80, 83);
     min-height: 58vh;
     max-height: 72vh;
     padding: 10px;
@@ -14,92 +52,42 @@
     padding-right: 0;
 }
 
-.selected {
-    color: black !important;
-    background-color: azure !important;
-}
 
-.class-filter {
-    color: azure;
-    padding: 5px;
-    font-size: 110%;
-    border-right: 1px solid  azure ;
-    border-left: 1px solid  azure ;
-    border-top: 1px solid  azure ;
-    margin-left: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: black;
-    cursor: pointer;
-    /* animation */
-    background-image: linear-gradient(to bottom, azure, azure 50%, transparent 50%, transparent);
-    background-position: 0 100%;
-    background-size: 100% 200%;
-    transition: all .2s ease-in;
-}
-
-.class-filter:hover {
-    color: black !important;
-    padding: 5px;
-    font-size: 110%;
-    border-right: 1px solid  #100007 ;
-    border-left: 1px solid  #100007 ;
-    border-top: 1px solid  #100007 ;
-    margin-left: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: azure;
-    /* animation */
-    background-position: 0 0;
-}
-
-.class-selection {
-    padding-left: 27%;
-}
 
 .information-selection {
     padding: 10px;
     margin: 4px;
     margin-right: 0;
-    font-size: 120%;
     padding-right: 0px !important;
-    background-color: black;
-    border-left: 1px solid  azure ;
-    border-top: 1px solid  azure ;
-    border-bottom: 1px solid  azure ;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    color: azure;
+    color: #9FA3A9;
     cursor: pointer;
-    /* animation */
-    background-image: linear-gradient(to right, azure, azure 50%, transparent 50%, transparent);
     background-position: 100% 0%;
     background-size: 200% 100%;
     transition: all .2s ease-in;
 }
 
-.information-selection:hover {
-    padding: 10px;
-    margin: 4px;
-    margin-right: 0;
-    font-size: 120%;
-    padding-right: 0px !important;
-    background-color: azure;
-    border-left: 1px solid  black ;
-    border-top: 1px solid  black ;
-    border-bottom: 1px solid  black ;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    color: black;
-    /* animation */
-    background-position: 0 0;
+.information-selection.selected {
+    color: azure !important;
+    border-left: 6px solid #ff3604;
 }
 
+.information-selection:hover {
+
+    color: azure !important;
+}
+
+
 .information-block {
-    border-bottom: 1px azure dotted;
-    margin: 0px;
+    border-bottom: 10px solid rgba(15, 17, 21, 0.7);
+    margin-top: 0px;
+    margin-bottom: 0px;
     padding-bottom: 20px;
 }
+
+.information-block:last-child {
+    border-bottom: none;
+}
+
 
 .content-description {
     color: azure;
@@ -120,13 +108,13 @@
 
 .instructor {
     color:  azure;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .content {
     min-height: 58vh;
     margin-top: 30px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -135,40 +123,7 @@
     padding-left: 0px;
 }
 
-@media only screen and (max-width: 768px) {
 
-    .class-filter {
-        color: azure;
-        padding: 5px;
-        font-size: 100%;
-        border: 1px solid  azure ;
-        margin-left: 5px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        background-color: #030001e1;
-        cursor: pointer;
-    }
-    
-    .class-filter:hover {
-        color: black;
-        padding: 5px;
-        font-size: 100%;
-        border: 1px solid  #100007 ;
-        margin-left: 5px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        background-color: azure;
-        cursor: pointer;
-    }
-
-    .selected {
-        color: black;
-        background-color: azure;
-    }
-
-  }
 
   @media only screen and (max-width: 992px) {
 
