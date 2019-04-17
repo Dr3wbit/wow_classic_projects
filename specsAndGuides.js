@@ -16,7 +16,7 @@ function applyClickHandlers() {
 			const clickedFilter = $(e.target)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
-			selectedClass = context.classes.find(function(a) {
+			const selectedClass = context.classes.find(function(a) {
 				return a.name == clickedID;
 			});
 			populateData(selectedClass);
