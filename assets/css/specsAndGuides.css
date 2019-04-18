@@ -37,7 +37,7 @@
 }
 
 .information-container {
-    background-image: url("assets/images/textured_background.png");
+    background-image: url("../images/textured_background.png");
     background-size: cover;
     border-top: 2px solid rgb(79, 80, 83);
     border-bottom: 2px solid rgb(79, 80, 83);
