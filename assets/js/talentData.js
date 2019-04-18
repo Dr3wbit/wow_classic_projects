@@ -1,114 +1,169 @@
 const talentData = {
-    warlock: {
-        affliction: {
-            suppression: {
-                name: "Supression",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 5,
-                requiredTalentPoints: 0,
-            },
-            improved_corruption: {
-                name: "Improved Corruption",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 5,
-                requiredTalentPoints: 0,
-            },
-            improved_curse_of_weakness: {
-                name: "Improved Curse of Weakness",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 3,
-                requiredTalentPoints: 5,
-            },
-            improved_drain_soul: {
-                name: "Improved Drain Soul",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 2,
-                requiredTalentPoints: 5,
-            },
-            imporved_life_tap: {
-                name: "Improved Life Tap",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 2,
-                requiredTalentPoints: 5,
-            },
-            improved_drain_life: {
-                name: "Improved Drain Life",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 5,
-                requiredTalentPoints: 5,
-            },
-            improved_curse_of_agony: {
-                name: "Improved Curse of Agony",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 3,
-                requiredTalentPoints: 10,
-            },
-            fel_concentration: {
-                name: "Fel Concentration",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 5,
-                requiredTalentPoints: 10,
-            },
-            amplify_curse: {
-                name: "Amplify Curse",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 1,
-                requiredTalentPoints: 10,
-                unlocks: 'curse_of_exhaustion'
-            },
-            grim_reach: {
-                name: "Grim Reach",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 2,
-                requiredTalentPoints: 15,
-            },
-            nightfall: {
-                name: "Nightfall",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 2,
-                requiredTalentPoints: 15,
-            },
-            improved_drain_mana: {
-                name: "Improved Drain Mana",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 2,
-                requiredTalentPoints: 15,
-            },
-            siphon_life: {
-                name: "Siphon Life",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 1,
-                requiredTalentPoints: 20,
-                unlocks: 'shadow_mastery'
-            },
-            curse_of_exhaustion: {
-                name: "Curse of Exhaustion",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 1,
-                requiredTalentPoints: 20,
-                locked: true,
-                unlocks: 'improved_curse_of_exhaustion'
-            },
-            improved_curse_of_exhaustion: {
-                name: "Improved Curse of Exhaustion",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 4,
-                requiredTalentPoints: 20,
-                locked: true
-            },
-            shadow_mastery: {
-                name: "Shadow Mastery",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 5,
-                requiredTalentPoints: 25,
-                locked: true
-            },
-            dark_pact: {
-                name: "Dark Pact",
-                description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-                maxRank: 5,
-                requiredTalentPoints: 30,
-            },
+    classes: [
+        {
+            name: 'warlock',
+            tree: [{
+                name: 'affliction',
+                talents: [{
+                    name: "Supression",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 5,
+                    requiredTalentPoints: 0
+                  },
+                  {
+                    name: "Improved Corruption",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 5,
+                    requiredTalentPoints: 0
+                  },
+                  {
+                    name: "Improved Curse of Weakness",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 3,
+                    requiredTalentPoints: 5
+                  },
+                  {
+                    name: "Improved Drain Soul",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 2,
+                    requiredTalentPoints: 5
+                  },
+                  {
+                    name: "Improved Life Tap",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 2,
+                    requiredTalentPoints: 5
+                  },
+                  {
+                    name: "Improved Drain Life",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 5,
+                    requiredTalentPoints: 5
+                  },
+                  {
+                    name: "Improved Curse of Agony",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 3,
+                    requiredTalentPoints: 10
+                  },
+                  {
+                    name: "Fel Concentration",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 5,
+                    requiredTalentPoints: 10
+                  },
+                  {
+                    name: "Amplify Curse",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 1,
+                    requiredTalentPoints: 10,
+                    unlocks: "curse_of_exhaustion"
+                  },
+                  {
+                    name: "Grim Reach",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 2,
+                    requiredTalentPoints: 15
+                  },
+                  {
+                    name: "Nightfall",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 2,
+                    requiredTalentPoints: 15
+                  },
+                  {
+                    name: "Improved Drain Mana",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 2,
+                    requiredTalentPoints: 15
+                  },
+                  {
+                    name: "Siphon Life",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 1,
+                    requiredTalentPoints: 20,
+                    unlocks: "shadow_mastery"
+                  },
+                  {
+                    name: "Curse of Exhaustion",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 1,
+                    requiredTalentPoints: 20,
+                    locked: true,
+                    unlocks: "improved_curse_of_exhaustion"
+                  },
+                  {
+                    name: "Improved Curse of Exhaustion",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 4,
+                    requiredTalentPoints: 20,
+                    locked: true
+                  },
+                  {
+                    name: "Shadow Mastery",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 5,
+                    requiredTalentPoints: 25,
+                    locked: true
+                  },
+                  {
+                    name: "Dark Pact",
+                    image: "test_icon.jpg",
+                    description:
+                      "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    invested: 0,
+                    maxRank: 5,
+                    requiredTalentPoints: 30
+                  }]
+            }]
         }
-    }
+    ]
 }
