@@ -4,7 +4,7 @@ body {
     height: 100vh;
     text-align: center;
     font-size: 100%;
-    background-image: url("assets/images/tileable_texture3.jpg");
+    background-image: url("../images/tileable_texture3.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
     font-family: Quattro;
@@ -25,12 +25,12 @@ body {
 
 @font-face {
     font-family: 'MetalMacabre';
-    src: url('assets/fonts/MetalMacabre.ttf');
+    src: url('../fonts/MetalMacabre.ttf');
 }
 
 @font-face {
     font-family: 'Quattro';
-    src: url('assets/fonts/Quattrocento-Regular.ttf');
+    src: url('../fonts/Quattrocento-Regular.ttf');
 }
 
 .navbar-brand {
@@ -128,54 +128,54 @@ body {
     }
 
     #warrior {
-        background-image: url("assets/images/icons/class_warrior.jpg");
+        background-image: url("../images/icons/class_warrior.jpg");
         color: rgb(179, 113, 113);
     }
 
     #mage {
-        background-image: url("assets/images/icons/class_mage.jpg");
+        background-image: url("../images/icons/class_mage.jpg");
         color: rgb(80, 185, 255);
     }
 
     #druid {
-        background-image: url("assets/images/icons/class_druid.jpg");
+        background-image: url("../images/icons/class_druid.jpg");
         color: rgb(253, 136, 39);
     }
 
     #paladin {
-        background-image: url("assets/images/icons/class_paladin.jpg");
+        background-image: url("../images/icons/class_paladin.jpg");
         color: rgb(255, 147, 232);
     }
 
     #shaman {
-        background-image: url("assets/images/icons/class_shaman.jpg");
+        background-image: url("../images/icons/class_shaman.jpg");
         color: rgb(57, 57, 255);
     }
 
     #warlock {
-        background-image: url("assets/images/icons/class_warlock.jpg");
+        background-image: url("../images/icons/class_warlock.jpg");
         color: rgb(150, 44, 236);
     }
 
     #priest {
-        background-image: url("assets/images/icons/class_priest.jpg");
+        background-image: url("../images/icons/class_priest.jpg");
         color: white;
     }
 
     #hunter {
-        background-image: url("assets/images/icons/class_hunter.jpg");
+        background-image: url("../images/icons/class_hunter.jpg");
         color: rgb(15, 194, 54);
     }
 
     #rogue {
-        background-image: url("assets/images/icons/class_rogue.jpg");
+        background-image: url("../images/icons/class_rogue.jpg");
         color: rgb(252, 252, 80);
     }
   }
 
 .navbar {
     /* background-color: black; */
-    background-image: url('assets/images/block_texture.jpg');
+    background-image: url('../images/block_texture.jpg');
     border-top: 2px black solid;
     border-bottom: 2px black solid;
 }
@@ -218,7 +218,7 @@ body {
 }
 
 .dark-bricks {
-    background-image: url(assets/images/block_texture_dark.jpg)
+    background-image: url(../images/block_texture_dark.jpg)
 }
 
 
