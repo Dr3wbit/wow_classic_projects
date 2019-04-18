@@ -7,7 +7,7 @@
 }
 
 .enchantOptions {
-    background-image: url("assets/images/textured_background.png");
+    background-image: url("../images/textured_background.png");
     background-size: cover;
     border-radius: 5px;
     border: 2px #100007 solid;
@@ -15,7 +15,7 @@
 }
 
 .bookImg {
-    background-image: url("assets/images/enchanted_book_3_small.png");
+    background-image: url("../images/enchanted_book_3_small.png");
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -23,13 +23,13 @@
 }
 
  .totalContainer {
-    background-image: url("assets/images/textured_background_white.png");
+    background-image: url("../images/textured_background_white.png");
     background-size: cover;
     padding: 10px;
     border-radius: 5px;
     border: 1px azure solid;
     min-height: 250px;
-} 
+}
 
 .results {
     font-size: 100%;
@@ -104,75 +104,75 @@
 }
 
 #belt {
-    background-image: url("assets/images/belt.png")
+    background-image: url("../images/belt.png")
 }
 
 #bracers {
-    background-image: url("assets/images/bracers.png")
+    background-image: url("../images/bracers.png")
 }
 
 #cloak {
-    background-image: url("assets/images/cloak.png")
+    background-image: url("../images/cloak.png")
 }
 
 #ring {
-    background-image: url("assets/images/ring.png")
+    background-image: url("../images/ring.png")
 }
 
 #gloves {
-    background-image: url("assets/images/gloves.png")
+    background-image: url("../images/gloves.png")
 }
 
 #head {
-    background-image: url("assets/images/head.png")
+    background-image: url("../images/head.png")
 }
 
 #legs {
-    background-image: url("assets/images/legs.png")
+    background-image: url("../images/legs.png")
 }
 
 #mainhand {
-    background-image: url("assets/images/mainhand.png")
+    background-image: url("../images/mainhand.png")
 }
 
 #offhand {
-    background-image: url("assets/images/offhand.png")
+    background-image: url("../images/offhand.png")
 }
 
 #ranged {
-    background-image: url("assets/images/ranged.png")
+    background-image: url("../images/ranged.png")
 }
 
 #shoulders {
-    background-image: url("assets/images/shoulders.png")
+    background-image: url("../images/shoulders.png")
 }
 
 #tabard {
-    background-image: url("assets/images/tabard.png")
+    background-image: url("../images/tabard.png")
 }
 
 #trinket {
-    background-image: url("assets/images/trinket.png")
+    background-image: url("../images/trinket.png")
 }
 
 #neck {
-    background-image: url("assets/images/neck.png")
+    background-image: url("../images/neck.png")
 }
 
 #chest {
-    background-image: url("assets/images/chest.png")
+    background-image: url("../images/chest.png")
 }
 
 #shirt {
-    background-image: url("assets/images/shirt.png")
+    background-image: url("../images/shirt.png")
 }
 
 #pants {
-    background-image: url("assets/images/pants.png")
+    background-image: url("../images/pants.png")
 }
 
 #boots {
-    background-image: url("assets/images/boots.png")
+    background-image: url("../images/boots.png")
 }
 
 .not-enchantable {

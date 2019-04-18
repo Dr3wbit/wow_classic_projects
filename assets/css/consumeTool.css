@@ -1,6 +1,6 @@
 
 .consume-container {
-    background-image: url("assets/images/alch_table_transparent_smaller.png");
+    background-image: url("../images/alch_table_transparent_smaller.png");
     background-size: cover;
     border-radius: 5px;
     border: 1px azure solid;
@@ -9,7 +9,7 @@
 }
 
 .total-container {
-    background-image: url("assets/images/textured_background_white.png");
+    background-image: url("../images/textured_background_white.png");
     background-size: cover;
     border-radius: 5px;
     border: 1px azure solid;
