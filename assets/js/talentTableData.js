@@ -284,7 +284,7 @@ const tableFormat = {
 	},
 	warlock: {
 		trees: [{
-			name: 'affliction',
+			name: 'Affliction',
 			data: [
 				[0, 1, 1, 0],
 				[1, 1, 1, 1],
@@ -296,7 +296,7 @@ const tableFormat = {
 			]
 		},
 		{
-			name: 'demonology',
+			name: 'Demonology',
 			data: [
 				[1, 1, 1, 0],
 				[1, 1, 1, 0],
@@ -308,7 +308,7 @@ const tableFormat = {
 			]
 		},
 		{
-			name: 'destruction',
+			name: 'Destruction',
 			data: [
 				[0, 1, 1, 0],
 				[0, 1, 1, 0],

@@ -4,11 +4,7 @@ let talentsPointsSpent = 0
 $(document).ready(initializeApp)
 
 function initializeApp() {
-    // createTables();
-    // const tableTalents = createTalents();
-    // mapTalentToTable(tableTalents);
     applyClickHandlers();
-
 }
 
 function applyClickHandlers() {
@@ -17,13 +13,13 @@ function applyClickHandlers() {
 }
 
 
-function populateTables(classData, formatData){
+function populateTables(classData){
     //Retrieve the template data from the HTML .
 	let template = $('#handlebars-demo2').html();
 	//Compile the template data into a function
     let templateScript = Handlebars.compile(template);
 
-    let talent_html = templateScript(formatData);
+    let talent_html = templateScript(classData);
     Handlebars.registerHelper('if', function(data, options) {
         if (data > 0) {
             return options.fn(this);
@@ -34,50 +30,29 @@ function populateTables(classData, formatData){
     $('#talentCalc').html(talent_html);
     talentClickedHandler()
 }
-// function createTables() {
-//     let tablesToAppend = []
-//     for (let i = 0; i < 3; i++){
-//         table = $('<table/>', {
-//             class: 'talentTable table'+i
-//         })
-//         tablesToAppend.push(table)
-//     }
-//     $('.test_tree').append(tablesToAppend)
-// }
 
-// function mapTalentToTable(talents){
-//     const tableData = tableFormat.warlock.affliction
-//     let talentNumber = 0
-//     for (let i=0; i < tableData.length; i++){
-//         let newRow = $('<tr/>', {
-//             class: 'row'+i
-//         })
-//         $('.table1').append(newRow)
-//         let tdToAppend = []
-//         for (let j=0; j <tableData[j].length; j++){
-//             if(tableData[i][j] === 1){
-//                 tdToAppend.push(talents[talentNumber])
-//                 talentNumber++
-//             }else{
-//                 let emptySpace = $('<td/>', {
-//                     class: 'openSlot'
-//                 })
-//                 tdToAppend.push(emptySpace)
-//             }
-//         }
-//         $('.row'+i).append(tdToAppend)
-//     }
-// }
+function combineTalents(data){
+    if(data){
+        data = data.tree_talents
+    let combinedTalents = []
+    for(let treeIterator = 0; treeIterator < data.length; treeIterator++){
+        for(let talentIterator = 0; talentIterator < data[treeIterator].talents.length; talentIterator++)
+        combinedTalents.push(data[treeIterator].talents[talentIterator])
+    }
+    return combinedTalents
+    }
+}
 
-// function createTalents() {
-//     let talentsToAppend = []
-//     let testData = talentData.warlock.affliction
-//     let talentKeys = Object.keys(testData)
-//     for (let i = 0; i < talentKeys.length; i++) {
-//         let data = testData[talentKeys[i]]
-//         talent = $('<td/>', {
+//~~~~~~~~~~~////////KEEP THIS////////~~~~~~~~~~//
+
+// function createTalents(data) {
+//     if(data){                       //only warlock has data
+//        const talentList = combineTalents(data)
+//        let talentsToAppend = []
+//     for (let talentIterator = 0; talentIterator < talentList.length; talentIterator++) {
+//         let data = talentList[0]
+//         talent = $('<div/>', {
 //             value: 0,
-//             id: talentKeys[i],
 //             class: 'talent',
 //             name: data.name,
 //             description: data.description,
@@ -92,6 +67,7 @@ function populateTables(classData, formatData){
 //         talentsToAppend.push(talent)
 //     }
 //     return talentsToAppend
+//     }
 // }
 
 function classSelectionHandler(){
@@ -104,10 +80,11 @@ function classSelectionHandler(){
 			const selectedClass = talentData.classes.find(function(a) {
 				return a.name == clickedID;
             })
+            const classData = combineTalents(selectedClass)  //use createTalents if we need to use jQuery
             const tableData = tableFormat[clickedID]
-            console.log(tableData)
-            console.log(selectedClass)
-            populateTables(selectedClass, tableData)
+            let joinedData = Object.assign({}, tableData, {talents : classData});
+            console.log(joinedData);
+            populateTables(joinedData)
 		},
 	})
 }
