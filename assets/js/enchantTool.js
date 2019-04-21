@@ -6,7 +6,6 @@ $(document).ready(initializeApp)
 
 function initializeApp() {
     applyClickHandlers();
-    // $('[data-toggle="tooltip"]').tooltip()
 }
 
 function applyClickHandlers() {
