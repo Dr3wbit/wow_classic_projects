@@ -1,6 +1,4 @@
 
-
-
 const navBarData = {
     links: [
         { text: 'Enchant Tool', href: "enchantTool.html" },
@@ -18,10 +16,6 @@ function initializeApp() {
 }
 
 function createNav(navBarData){
-    //Retrieve the template data from the HTML .
-	let template = $('#nav-template').html();
-	//Compile the template data into a function
-    let templateScript = Handlebars.compile(template);
-    let talent_html = templateScript(navBarData);
-    $('#nav-container').html(talent_html);
+    const templateScript = Handlebars.templates.nav(navBarData);
+    $('#nav-container').append(templateScript);
 }

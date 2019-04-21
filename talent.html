@@ -31,41 +31,15 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/global.css">
     <link rel="stylesheet" type="text/css" href="assets/css/talent.css">
+    <script src="assets/js/handlebars-v4.1.2.js"></script>
+    <!-- Nav Bar -->
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/templatesCompiled.js"></script>
+    <script src="assets/js/talent.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="p-lg-4"></div>
-            <nav class="navbar navbar-expand-lg navbar-dark col-12">
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
-                    Ony Buff</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto justify-content-around w-100">
-                        <li class="nav-item">
-                            <a class="nav-link" href="enchantTool.html">Enchant Tool</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="consumeTool.html">Consumable Tool</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="specsAndGuides.html">Specs & Guides</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <div id="nav-container" class="container"></div>
     <div class="container">
         <div class="page-title">Talent Calculator</div>
     </div>
@@ -93,7 +67,6 @@
         </div>
     </div>
 </body>
-<script src="assets/js/handlebars-v4.1.2.js"></script>
 <script id="handlebars-demo2" type="text/x-handlebars-template">
     {{#each trees as |tree|}}
     <div class="talentTable">
@@ -120,6 +93,5 @@
 
 <script src="assets/js/talentData.js"></script>
 <script src="assets/js/talentTableData.js"></script>
-<script src="assets/js/talent.js"></script>
 
 </html>
