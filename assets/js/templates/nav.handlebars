@@ -1,0 +1,75 @@
+
+
+<div class="row">
+    <div class="p-lg-4"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark col-12">
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
+            Ony Buff</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto justify-content-around w-100">
+                {{#each links}}
+                <li class="nav-item">
+                    <a class="nav-link" href={{href}}>{{text}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+    {{!-- 
+    Coppied the Tutorial I Followed for future reference  
+    https://www.sitepoint.com/a-beginners-guide-to-handlebars/
+     --}}
+
+    {{!-- 
+    ~~~~COMPILE TEMPLATES~~~~
+As we have seen, the first thing Handlebars does is to compile the template into a function. 
+This is one of the most expensive operations to perform on the client. 
+We can improve the performance of the application if we precompile templateScript and then send the compiled version to the client. 
+In that case, the only task needed to be performed on the client will be the execution of that function. 
+Since the precompiled file is a script, we can load the script in HTML as a normal file. Let’s see how all this stuff can be done.
+
+Firstly, you have to install Handlebars globally by using npm install handlebars -g. 
+Please, be sure that different templates are written in separate files with different 
+file names and with the .handlebars extensions (for example demo.handlebars). 
+There is no need of using the <script> tag inside those files.
+
+< div >
+        My name is { { name } }.I am a { { occupation } }.
+</div >
+        Now store all the template files in a single folder named templates.
+    You can use any folder name you wish but if you do that, please don’t forget to change the following command accordingly.
+        So, open the terminal and execute the command:
+
+    handlebars path / to / templates - f templatesCompiled.js
+    This command will generate a file named templatesCompiled.js that contains all the compiled templates.
+    The compiler will insert the templates in Handlebars.templates.
+    If the input file is demo.handlebars, then it will be inserted at Handlebars.templates.demo
+
+    Now we have to include templatesCompiled.js in the HTML file as a normal script.
+        It’s important to note that we don’t need to load the whole Handlebars library as the compiler itself is not needed anymore.
+    We can use the smaller “runtime” build instead:
+
+    NOTE : I had to run the whole library to get it to work..........
+
+    <script src="handlebars.runtime.js"></script>
+<script src="path/to/templatesCompiled.js"></script>
+Now we can employ the template that was originally present in demo.handlebars by using the following code:
+
+var context = {
+  "name" : "Ritesh Kumar",
+  "occupation" : "developer"
+}
+
+var templateScript = Handlebars.templates.demo(context);
+
+$(document.body).append(templateScript);
+ --}}
