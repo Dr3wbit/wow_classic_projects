@@ -13,10 +13,10 @@
     </script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-9459503224191189",
-        enable_page_level_ads: true
-      });
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9459503224191189",
+            enable_page_level_ads: true
+        });
     </script>
 
     <meta charset="UTF-8">
@@ -25,13 +25,16 @@
     <title>Ony Buff</title>
     <link rel="icon" type="image/png" href="assets/images/OnyBuff.png" />
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/global.css">
     <link rel="stylesheet" type="text/css" href="assets/css/about.css">
@@ -42,32 +45,7 @@
     <div class="container">
         <div class="row">
             <div class="p-lg-4"></div>
-            <nav class="navbar navbar-expand-lg navbar-dark col-12">
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
-                    Ony Buff</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto justify-content-around w-100">
-                        <li class="nav-item">
-                            <a class="nav-link" href="enchantTool.html">Enchant Tool</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="consumeTool.html">Consumable Tool</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Coming Soon</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <nav id="nav-container" class="navbar navbar-expand-lg navbar-dark col-12"></nav>
         </div>
     </div>
     <div class="container">
@@ -91,5 +69,26 @@
         </div>
     </div>
 </body>
+<script src="assets/js/handlebars-v4.1.2.js"></script>
+<script id="nav-template" type="text/x-handlebars-template">
+            <a class="navbar-brand" href="index.html">
+              <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
+              Ony Buff</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto justify-content-around w-100">
+                    {{#each links}}
+                <li class="nav-item">
+                  <a class="nav-link" href={{href}}>{{text}}</a>
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+</script>
+
+<script src="assets/js/nav.js"></script>
 
 </html>
