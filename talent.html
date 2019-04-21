@@ -102,7 +102,9 @@
         <div class="row">
             {{#each this}}
             {{#if this}}
-            <div class="talent">
+            <div class="talent" style="background-image: url({{image}});" name="{{name}}"
+                data-maxrank={{maxRank}} data-unlocks="{{unlocks}}"
+                data-requiredtalentpoints={{requiredTalentPoints}}>
                 <div class="spentPoints">0</div>
             </div>
             {{else}}

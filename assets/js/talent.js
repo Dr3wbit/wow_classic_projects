@@ -20,8 +20,9 @@ function populateTables(classData){
     let templateScript = Handlebars.compile(template);
 
     let talent_html = templateScript(classData);
-    Handlebars.registerHelper('if', function(data, options) {
-        if (data > 0) {
+    Handlebars.registerHelper('if', function(context, options) {
+        if (context) {
+            // console.log("context: ", context)
             return options.fn(this);
         } else {
             return options.inverse(this);
@@ -31,17 +32,6 @@ function populateTables(classData){
     talentClickedHandler()
 }
 
-function combineTalents(data){
-    if(data){
-        data = data.tree_talents
-    let combinedTalents = []
-    for(let treeIterator = 0; treeIterator < data.length; treeIterator++){
-        for(let talentIterator = 0; talentIterator < data[treeIterator].talents.length; talentIterator++)
-        combinedTalents.push(data[treeIterator].talents[talentIterator])
-    }
-    return combinedTalents
-    }
-}
 
 //~~~~~~~~~~~////////KEEP THIS////////~~~~~~~~~~//
 
@@ -80,28 +70,43 @@ function classSelectionHandler(){
 			const selectedClass = talentData.classes.find(function(a) {
 				return a.name == clickedID;
             })
-            const classData = combineTalents(selectedClass)  //use createTalents if we need to use jQuery
+            // const classData = combineTalents(selectedClass)  //use createTalents if we need to use jQuery
             const tableData = tableFormat[clickedID]
-            let joinedData = Object.assign({}, tableData, {talents : classData});
-            console.log(joinedData);
-            populateTables(joinedData)
+            const talentTrees = Object.assign({}, tableData);
+
+            console.log(talentTrees);
+            populateTables(talentTrees)
 		},
 	})
 }
 
 function talentClickedHandler(){
     $(".talent").on({
+        //for talent tooltips on hover?
         contextmenu: e => {
             e.preventDefault()
         },
+
         mousedown: e => {
             const clickedTalent = $(e.target)
-            const unlocks = clickedTalent.attr('unlocks')
-            const locked = clickedTalent.attr('locked')
-            const maxRank = clickedTalent.attr('maxRank')
-            const requiredTalentPoints = clickedTalent.attr('requiredTalentPoints')
-            clickedTalent.attr('value', function (index, originalValue) {
-                const pointValue = parseInt(originalValue)
+            console.log("e: ", e)
+
+            // console.log("spentpoints: ", $(".spentPoints").attr('val'))
+            console.log("clickedTalent.children: ", clickedTalent.children())
+
+            // console.log("clickedTalent.dataset: ", clickedTalent.dataset)
+
+            const unlocks = clickedTalent.attr('data-unlocks')
+            const locked = clickedTalent.attr('data-locked')
+            const maxRank = clickedTalent.attr('data-maxrank')
+
+            // not accessible through dataset, unsure why
+            // const maxRank = clickedTalent.dataset.maxrank
+
+            console.log(maxRank)
+            const requiredTalentPoints = clickedTalent.attr('data-requiredtalentpoints')
+            clickedTalent.attr('points', function (index, val=0) {
+                const pointValue = parseInt(val)
 
                 if ( talentsPointsSpent < requiredTalentPoints){
                     console.log('you must have ' +requiredTalentPoints+ ' points in this tree to spec here')
@@ -110,12 +115,16 @@ function talentClickedHandler(){
                 if (locked === 'true'){
                     return
                 }
+
+                // normal click
                 if (e.which === 1) {
                     if (pointValue < maxRank){
                         talentsPointsSpent++
                         return pointValue + 1
                     }
                 }
+
+                // right click
                 else if (e.which === 3) {
                     if (pointValue == maxRank && unlocks){
                         const unspecable = checkIfAbleToUnspec(clickedTalent)
@@ -130,9 +139,11 @@ function talentClickedHandler(){
                     }
                 }
             })
-            const value = clickedTalent.attr('value')
-            checkForUnlock(unlocks, maxRank, value)
-            console.log(clickedTalent.attr('name') +" : "+ value)
+            const points = clickedTalent.attr('points')
+            $
+            checkForUnlock(unlocks, maxRank, points)
+            clickedTalent.children()[0].innerText = ((points !== undefined)? points : 0)
+            console.log(clickedTalent.attr('name') +" : "+ points)
         }
     })
 }
