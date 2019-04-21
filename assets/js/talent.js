@@ -32,7 +32,6 @@ function populateTables(classData){
     talentClickedHandler()
 }
 
-
 //~~~~~~~~~~~////////KEEP THIS////////~~~~~~~~~~//
 
 // function createTalents(data) {
@@ -70,14 +69,41 @@ function classSelectionHandler(){
 			const selectedClass = talentData.classes.find(function(a) {
 				return a.name == clickedID;
             })
-            // const classData = combineTalents(selectedClass)  //use createTalents if we need to use jQuery
             const tableData = tableFormat[clickedID]
-            const talentTrees = Object.assign({}, tableData);
-
-            console.log(talentTrees);
-            populateTables(talentTrees)
+            const combinedTalents = combineTalents(selectedClass)
+            const finalData = mapTalentsToTableData(tableData.trees, combinedTalents)
+            console.log({trees: finalData});
+            populateTables({trees: finalData})
 		},
 	})
+}
+
+function mapTalentsToTableData(tableData, talents){
+    let spellIterator = 0
+    for(let treeIterator = 0; treeIterator < tableData.length; treeIterator++){
+        for(let rowIterator = 0; rowIterator < tableData[treeIterator].data.length; rowIterator++){
+            for(let talentIterator = 0; talentIterator < tableData[treeIterator].data[rowIterator].length; talentIterator++){
+                const slot = tableData[treeIterator].data[rowIterator][talentIterator]
+                if (slot != 0){
+                    tableData[treeIterator].data[rowIterator].splice(talentIterator, 1, talents[spellIterator])
+                    spellIterator++
+                }
+            }
+        }
+    }
+    return tableData
+}
+
+function combineTalents(data){
+    if(data){
+        data = data.tree_talents
+    let combinedTalents = []
+    for(let treeIterator = 0; treeIterator < data.length; treeIterator++){
+        for(let talentIterator = 0; talentIterator < data[treeIterator].talents.length; talentIterator++)
+        combinedTalents.push(data[treeIterator].talents[talentIterator])
+    }
+    return combinedTalents
+    }
 }
 
 function talentClickedHandler(){
