@@ -12,7 +12,6 @@ function applyClickHandlers() {
     talentClickedHandler()
 }
 
-
 function populateTables(classData){
     //Retrieve the template data from the HTML .
 	let template = $('#handlebars-demo2').html();

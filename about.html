@@ -38,15 +38,14 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/global.css">
     <link rel="stylesheet" type="text/css" href="assets/css/about.css">
-
+    <script src="assets/js/handlebars-v4.1.2.js"></script>
+    <!-- Nav Bar -->
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/templatesCompiled.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="p-lg-4"></div>
-            <nav id="nav-container" class="navbar navbar-expand-lg navbar-dark col-12"></nav>
-        </div>
+    <div id="nav-container" class="container">
     </div>
     <div class="container">
         <div class="page-title">About</div>
@@ -69,26 +68,4 @@
         </div>
     </div>
 </body>
-<script src="assets/js/handlebars-v4.1.2.js"></script>
-<script id="nav-template" type="text/x-handlebars-template">
-            <a class="navbar-brand" href="index.html">
-              <img src="assets/images/OnyBuff.png" width="50" height="50" alt="">
-              Ony Buff</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto justify-content-around w-100">
-                    {{#each links}}
-                <li class="nav-item">
-                  <a class="nav-link" href={{href}}>{{text}}</a>
-                </li>
-                {{/each}}
-              </ul>
-            </div>
-</script>
-
-<script src="assets/js/nav.js"></script>
-
 </html>
