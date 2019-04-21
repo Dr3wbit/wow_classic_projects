@@ -5,9 +5,8 @@ function initializeApp() {
 	applyClickHandlers()
 	$('#warrior').addClass('selected')
 	populateData(context.classes[0]);
-	populateNavbar();
-
 }
+
 
 function applyClickHandlers() {
 	$('.class-filter').on({
