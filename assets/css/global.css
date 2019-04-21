@@ -187,7 +187,6 @@ body {
 
 .nav-link {
     font-size: 120%;
-    min-width: 165px;
     color: azure !important;
     font-family: Quattro;
     -webkit-transition: background .3s ease-in-out;
