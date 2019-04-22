@@ -113,15 +113,15 @@
     background-repeat: no-repeat;
 }
 
-.content-list {
-    padding-left: 0px;
-}
-
 .nav-is-sticky {
-    background-color: black
+    background-color: black;
+    border-bottom: 3px solid #ff3604;
 }
 
-
+.content-selection-container {
+    padding-top: 8%;
+    text-align: left;
+}
 
   @media only screen and (max-width: 992px) {
 
@@ -130,6 +130,3 @@
     }
   }
 
-  .class-header{
-      font-size: 300%
-  }
