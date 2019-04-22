@@ -55,7 +55,7 @@ input:focus {
     text-overflow: ellipsis;
     margin-left: 5px;
     margin-right: 1px;
-    width: 134px;
+    width: 180px;
 }
 
 .selected {
