@@ -134,47 +134,47 @@ body {
 
     #warrior {
         background-image: url("../images/icons/class_warrior.jpg");
-        color: rgb(179, 113, 113);
+        color: #C79C6E
     }
 
     #mage {
         background-image: url("../images/icons/class_mage.jpg");
-        color: rgb(80, 185, 255);
+        color: #40C7EB
     }
 
     #druid {
         background-image: url("../images/icons/class_druid.jpg");
-        color: rgb(253, 136, 39);
+        color: #FF7D0A	
     }
 
     #paladin {
         background-image: url("../images/icons/class_paladin.jpg");
-        color: rgb(255, 147, 232);
+        color: #F58CBA
     }
 
     #shaman {
         background-image: url("../images/icons/class_shaman.jpg");
-        color: rgb(57, 57, 255);
+        color: #0070DE
     }
 
     #warlock {
         background-image: url("../images/icons/class_warlock.jpg");
-        color: rgb(150, 44, 236);
+        color: #8787ED
     }
 
     #priest {
         background-image: url("../images/icons/class_priest.jpg");
-        color: white;
+        color: #FFFFFF
     }
 
     #hunter {
         background-image: url("../images/icons/class_hunter.jpg");
-        color: rgb(15, 194, 54);
+        color: #ABD473
     }
 
     #rogue {
         background-image: url("../images/icons/class_rogue.jpg");
-        color: rgb(252, 252, 80);
+        color: #FFF569
     }
   }
 
@@ -229,39 +229,39 @@ body {
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
 
 #warrior {
-    color: rgb(179, 113, 113)
+    color: #C79C6E
 }
 
 #mage {
-    color: rgb(80, 185, 255);
+    color: #40C7EB
 }
 
 #druid {
-    color: rgb(253, 136, 39)
+    color: #FF7D0A	
 }
 
 #paladin {
-    color: rgb(255, 147, 232);
+    color: #F58CBA
 }
 
 #shaman {
-    color: rgb(57, 57, 255);
+    color: #0070DE
 }
 
 #warlock {
-    color: rgb(150, 44, 236);
+    color: #8787ED
 }
 
 #priest {
-    color: white;
+    color: #FFFFFF	
 }
 
 #hunter {
-    color: rgb(15, 194, 54);
+    color: #ABD473
 }
 
 #rogue {
-    color: rgb(252, 252, 80);
+    color: #FFF569
 }
 
 .disabled {
