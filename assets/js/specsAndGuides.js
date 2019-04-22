@@ -26,7 +26,7 @@ function applyClickHandlers() {
 			const selectedClass = context.classes.find(function(a) {
 				return a.name == clickedID;
 			});
-			$(window).scrollTop(0);
+			$(window).scrollTop(160);
 			populateData(selectedClass);
 		},
 	})
