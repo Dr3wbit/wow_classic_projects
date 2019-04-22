@@ -99,8 +99,13 @@ body {
 
 .class-selection {
     justify-content: center;
+    
     /* padding-left: 35%; */
 }
+
+.class-selection-sticky{
+    background-color: black;
+  }
 
 @media only screen and (max-width: 768px) {
 
@@ -210,7 +215,7 @@ body {
     font-family: MetalMacabre;
     font-size: 200%;
     color: azure;
-    padding-top: 15px
+    padding-top: 10px;
 }
 .page-description {
     color: azure
