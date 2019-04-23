@@ -1,126 +1,4 @@
-let talentPointsSpent = {
-	reqs: function(tier, tree) {
-        console.log("this[tree]", this[tree])
-        let val
-		switch (tier) {
-            case 0:
-                val = true
-                break
-			case 1:
-				val = this.tier1(tree)
-                console.log("case 1, val: ", val)
-                break
-			case 2:
-				val = this.tier2(tree)
-                console.log("case 2, val: ", val)
-                break
-
-			case 3:
-				val = this.tier3(tree)
-                console.log("case 3, val: ", val)
-                break
-
-			case 4:
-				val = this.tier4(tree)
-                console.log("case 4, val: ", val)
-                break
-
-			case 5:
-				val = this.tier5(tree)
-                console.log("case 5, val: ", val)
-                break
-
-			case 6:
-				val = this.tier6(tree)
-                console.log("case 6, val: ", val)
-                break
-
-		}
-        console.log("val: ", val)
-		return val
-	},
-	tier1: function(tree) {
-
-        if (this[tree][1] >= 5) {
-            console.log("this[tree][1]: ", this[tree][1])
-            console.log("tier1, true")
-            return true
-        } else {
-            console.log("this[tree][1]: ", this[tree][1])
-
-            console.log("tier1, false")
-            return false
-        }
-
-	},
-	tier2: function(tree) {
-		if (this[tree][1] >= 5 )
-        {
-            if ((this[tree][1]+this[tree][2] - this[tree]['total']) > 10) {
-                console.log("tier2, true")
-
-                return true
-            }
-
-            if (this[tree][1]+this[tree][2]+this[tree][3] - this[tree]['total'] > 15) {
-                console.log("tier2, true")
-
-                return true
-            }
-
-            if ((this[tree][1] + this[tree][2] > 10) && this[tree][3]+this[tree][4]+this[tree][5]+this[tree][6] < 15)
-            {
-                console.log("tier2, true")
-                return true
-            }
-        } else {
-            console.log("tier2, false")
-			return false
-		}
-	},
-
-	tier3: function(tree) {
-        if (this.tier1(tree) && this.tier2(tree)) {
-            if ((this[tree][1] + this[tree][2] + this[tree][3] > 9) || ((this[tree][3] == 0 & ((this[tree][1] + this[tree][2] >= 10)))))
-            {
-                console.log("tier3, true")
-                return true
-            }
-        }
-        else {
-            console.log("tier3, false")
-			return false
-		}
-	},
-    tier4: function(tree) {
-        if (this.tier1(tree) && this.tier2(tree) && this.tier3(tree)) {
-            if ((this[tree][1] + this[tree][2] + this[tree][3] + this[tree][4] > 15 ) || (this[tree][4] == 0 & ((this[tree][1] + this[tree][2] + this[tree][3] >= 16))))
-            {
-                console.log("tier3, true")
-                return true
-            }
-        }
-        else {
-            console.log("tier3, false")
-            return false
-        }
-    },
-
-	tier5: function(tree) {
-		if (this.tier1(tree) && this.tier2(tree) && this.tier3(tree) && this.tier4(tree) && (this[tree][1] + this[tree][2] + this[tree][3] > 24)) {
-			return true
-		} else {
-			return false
-		}
-	},
-	tier6: function(tree) {
-		if (this.tier1(tree) && this.tier2(tree) && this.tier3(tree) && this.tier4(tree) && this.tier5(tree) && (this[tree][1] + this[tree][2] + this[tree][3] + this[tree][4] > 29)) {
-			return true
-		} else {
-			return false
-		}
-	}
-}
+let talentPointsSpent = {}
 
 $(document).ready(initializeApp)
 
@@ -194,18 +72,25 @@ function classSelectionHandler() {
 
 			selectedClass.tree_talents.forEach(function(item, index) {
 				talentPointsSpent[item.name] = {
-					total: 0,
-					1: 0,
-					2: 0,
-					3: 0,
-					4: 0,
-					5: 0,
-					6: 0,
+					vals: [0,0,0,0,0,0],
+					total: function() {return this.vals.reduce((a,b) => a+b)},
+
+					highest_tier: function(){
+						let x = []
+						this.vals.forEach(function(item,index){
+							if (item>0){
+								x.push(index)
+							}
+						})
+						return Math.max(...x)
+					}
+
+
 				}
 
 			})
 
-
+			console.log("talentPointsSpent: ", talentPointsSpent)
 
 
 			const tableData = tableFormat[clickedID]
@@ -286,13 +171,13 @@ function talentClickedHandler() {
 			// not accessible through dataset, unsure why
 			// const maxRank = clickedTalent.dataset.maxrank
 			const requiredTalentPoints = clickedTalent.attr('data-requiredtalentpoints')
-            const tier = (requiredTalentPoints/5)+1
+            const tier = (requiredTalentPoints/5)
             // console.log("tier: ", tier)
 			clickedTalent.attr('points', function(index, val = 0) {
 				const pointsSpent = parseInt(val)
 
 
-				if (talentPointsSpent[tree]['total'] < requiredTalentPoints) {
+				if (talentPointsSpent[tree].total() < requiredTalentPoints) {
 					console.log('you must have ' + requiredTalentPoints + ' points in this tree to spec here')
 					return
 				}
@@ -303,34 +188,90 @@ function talentClickedHandler() {
 				// normal click
 				if (e.which === 1) {
 					if (pointsSpent < maxRank) {
-						talentPointsSpent[tree]['total']++
-                        talentPointsSpent[tree][tier]++
+						// talentPointsSpent[tree]['total']++
+                        talentPointsSpent[tree].vals[tier]++
 						return pointsSpent + 1
 					}
 				}
 
 				// right click
 				else if (e.which === 3) {
-                    console.log("talentPointsSpent: ", talentPointsSpent)
+
+					let can_unspec
+
+					let tier_unspeccing = (requiredTalentPoints/5)+1
+					let indarr = []
+
+					let tiers_used = talentPointsSpent[tree].vals.forEach(function(item, index) {
+						if (item > 0) {
+							indarr.push(index)
+						}
+					})
 
 
-                    let t = (talentPointsSpent[tree]['total']>=5) ? Math.ceil(talentPointsSpent[tree]['total'] / 5) : 0
+					let highest_tier_used = (Math.max(...indarr)+1)
+					console.log("highest_tier_used: ", highest_tier_used)
 
-                    let can_unspec = talentPointsSpent.reqs(t, tree)
+					if (tier_unspeccing == highest_tier_used){
+						console.log("tier_unspeccing == highest_tier_used")
+						can_unspec = true
+					}
+
+					if (tier_unspeccing < highest_tier_used){
+						let bool_arr = []
+						console.log("tier_unspeccing < highest_tier_used")
+						const tier_check = highest_tier_used-1
+						let k = tier_check
+
+						for (k;k>0;k--){
+							let req_points = k*5
+							let f = talentPointsSpent[tree].vals.slice(0, k).reduce((a,b)=>(a+b))
+							let num = (f - req_points)
+							if (num > 0)
+							{
+								bool_arr.push(true)
+							}else{
+								bool_arr.push(false)
+							}
+
+						}
+
+
+						if ((bool_arr.slice(0,-1).every(function(item,index) {return(item == true)}) &&
+						talentPointsSpent[tree].vals[0] >=5 && tier_unspeccing != 1) ||
+						bool_arr.every(function(item) {return(item == true)}))
+						{
+							can_unspec = true
+							console.log("false positive")
+						}
+						console.log("bool_arr: ", bool_arr)
+
+						// do this recursively for each tier
+						// if ((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a,b)=>(a+b)) - tier_check*5) > 0) {
+						// 	can_unspec = true
+						// }
+						// else {
+						// 	console.log("number: ", (tier_unspeccing*5 - talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b))))
+						// }
+					}
+
+
+
                     console.log("can_unspec: ", can_unspec)
 
 
-					if (pointsSpent == maxRank && unlocks) {
-						// const can_unspec = checkIfAbleToUnspec(clickedTalent, tree, tier)
-						if (!can_unspec) {
-							console.log('you must unspec ' + unlocks)
-							return
-						}
-					}
+					// if (pointsSpent == maxRank && unlocks) {
+					// 	// const can_unspec = checkIfAbleToUnspec(clickedTalent, tree, tier)
+					// 	if (!can_unspec) {
+					// 		console.log('you must unspec ' + unlocks)
+					// 		return
+					// 	}
+					//
+					// }
 					if (pointsSpent > 0) {
                         if (can_unspec){
-                            talentPointsSpent[tree]['total']--
-                            talentPointsSpent[tree][tier]--
+                            // talentPointsSpent[tree]['total']--
+                            talentPointsSpent[tree].vals[tier]--
                             return pointsSpent - 1
                         }
 
@@ -341,7 +282,7 @@ function talentClickedHandler() {
 			checkForUnlock(unlocks, maxRank, points)
 			clickedTalent.children()[0].innerText = ((points !== undefined) ? points : 0)
 
-			clickedTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree]['total'])
+			clickedTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree].total())
 
 			console.log(clickedTalent.attr('name') + " : " + points)
 		}
@@ -373,10 +314,10 @@ function checkForUnlock(unlocks, maxRank, p) {
 }
 
 function checkIfAbleToUnspec(clickedTalent, tree, tier) {
-    let t = tier+1
-    let x = talentPointsSpent.reqs(t, tree)
-    console.log("x: ",x)
-    return x
+    // let t = tier+1
+    // let x = talentPointsSpent.reqs(t, tree)
+    // console.log("x: ",x)
+    // return x
 }
 	// let unlocked_talent_name = clickedTalent.attr('data-unlocks')
 	// console.log('checkIfAbleToUnspec, talents_unlocked: ', unlocked_talent_name)
