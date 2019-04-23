@@ -222,37 +222,41 @@ function talentClickedHandler() {
 						console.log("tier_unspeccing < highest_tier_used")
 						const tier_check = highest_tier_used-1
 						let k = tier_check
+						//
+						// for (k;k>0;k--){
+						// 	let req_points = k*5
+						// 	let f = talentPointsSpent[tree].vals.slice(0, k).reduce((a,b)=>(a+b))
+						// 	let num = (f - req_points)
+						// 	if (num > 0)
+						// 	{
+						// 		bool_arr.push(true)
+						// 	}else{
+						// 		bool_arr.push(false)
+						// 	}
+						//
+						// }
+						//
+						//
+						// if ((bool_arr.slice(0,-1).every(function(item,index) {return(item == true)}) &&
+						// talentPointsSpent[tree].vals[0] >=5 && tier_unspeccing != 1) ||
+						// bool_arr.every(function(item) {return(item == true)}))
+						// {
+						// 	can_unspec = true
+						// 	console.log("false positive")
+						// }
+						// console.log("bool_arr: ", bool_arr)
+						//
+						// do this recursively for each tier
 
-						for (k;k>0;k--){
-							let req_points = k*5
-							let f = talentPointsSpent[tree].vals.slice(0, k).reduce((a,b)=>(a+b))
-							let num = (f - req_points)
-							if (num > 0)
-							{
-								bool_arr.push(true)
-							}else{
-								bool_arr.push(false)
-							}
 
-						}
-
-
-						if ((bool_arr.slice(0,-1).every(function(item,index) {return(item == true)}) &&
-						talentPointsSpent[tree].vals[0] >=5 && tier_unspeccing != 1) ||
-						bool_arr.every(function(item) {return(item == true)}))
+						if (((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a,b)=>(a+b)) - tier_check*5) > 0) &&
+						((tier_check == tier_unspeccing) || (talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b)) - tier_unspeccing*5) > 0))
 						{
 							can_unspec = true
-							console.log("false positive")
 						}
-						console.log("bool_arr: ", bool_arr)
-
-						// do this recursively for each tier
-						// if ((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a,b)=>(a+b)) - tier_check*5) > 0) {
-						// 	can_unspec = true
-						// }
-						// else {
-						// 	console.log("number: ", (tier_unspeccing*5 - talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b))))
-						// }
+						else {
+							console.log("number: ", (tier_unspeccing*5 - talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b))))
+						}
 					}
 
 
