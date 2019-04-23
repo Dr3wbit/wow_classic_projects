@@ -132,6 +132,7 @@ const talentData = {
                     maxRank: 1,
                     requiredTalentPoints: 20,
                     locked: true,
+                    prereq: "amplify_curse",
                     unlocks: "improved_curse_of_exhaustion"
                 },
                 {
@@ -142,6 +143,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 4,
                     requiredTalentPoints: 20,
+                    prereq: "curse_of_exhaustion",
                     locked: true
                 },
                 {
@@ -294,6 +296,7 @@ const talentData = {
                     maxRank: 1,
                     requiredTalentPoints: 20,
                     locked: true,
+                    prereq: "amplify_curse",
                     unlocks: "improved_curse_of_exhaustion"
                 },
                 {
@@ -304,6 +307,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 4,
                     requiredTalentPoints: 20,
+                    prereq: "curse_of_exhaustion",
                     locked: true
                 },
                 {
@@ -456,6 +460,7 @@ const talentData = {
                     maxRank: 1,
                     requiredTalentPoints: 20,
                     locked: true,
+                    prereq: "amplify_curse",
                     unlocks: "improved_curse_of_exhaustion"
                 },
                 {
@@ -466,6 +471,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 4,
                     requiredTalentPoints: 20,
+                    prereq: "curse_of_exhaustion",
                     locked: true
                 },
                 {
