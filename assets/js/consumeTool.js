@@ -48,10 +48,28 @@ function createConsumeBlocks(dataObject, dataKeys) {
         consumeBlock = $('<div/>', {
             class: 'consume-block',
         }).append(
-            consumeImg = $('<img/>', {
-                class: 'consume-img',
-                src: 'assets/images/icon_border_2.png',
-            }).css("background-image", 'url('+ dataObject[dataKeys[i]].img +')'),
+            iconContainer = $('<div/>', {
+                class: 'icon-container'
+            }).on({ 
+                mouseenter: (e) =>{
+                    $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
+                    },
+               mouseleave: (e) =>{
+                    $(e.currentTarget.children[1]).addClass('tooltip-hidden')
+                    }
+            })
+            .append(
+                consumeImg = $('<img/>', {
+                    class: 'consume-img',
+                    src: 'assets/images/icon_border_2.png',
+                }).css("background-image", 'url('+ dataObject[dataKeys[i]].img +')')
+            )
+            .append(
+                tooltip = $('<div/>', {
+                    class: 'consume-tooltip tooltip-hidden',
+                    text: dataObject[dataKeys[i]].effect
+                }),
+            ),
             consumeName = $('<div/>', {
                 class: 'consume-title',
                 text: dataObject[dataKeys[i]].name
