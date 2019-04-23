@@ -44,7 +44,6 @@ input:focus {
 .consume-img {
     height: 45px;
     width: 45px;
-    vertical-align: top;
     background-size: contain;
 }
 
@@ -113,4 +112,30 @@ input:focus {
     font-family: Quattro;
     padding: 5px;
     margin: 50px;
+}
+
+.consume-tooltip{
+    font-size: 100%;
+    width: 245px;
+    position: absolute;
+    top: 50px;
+    left: -12px;
+    background-color: #100007;
+    color: green;
+    pointer-events: none;
+    border: 1px solid azure;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.tooltip-hidden{
+    display: none
+}
+
+.icon-container{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
 }
