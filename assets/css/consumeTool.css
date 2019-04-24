@@ -13,6 +13,7 @@
     background-size: cover;
     border-radius: 5px;
     border: 1px azure solid;
+    min-height: 200px;
 }
 
 
@@ -118,10 +119,10 @@ input:focus {
     font-size: 100%;
     width: 245px;
     position: absolute;
-    top: 50px;
-    left: -12px;
+    left: 40px;
+    bottom: 40px;
     background-color: #100007;
-    color: green;
+    color: #1EFF00;
     pointer-events: none;
     border: 1px solid azure;
     padding: 5px;
