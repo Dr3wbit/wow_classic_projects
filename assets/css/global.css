@@ -3,11 +3,11 @@
 body {
     height: 100vh;
     text-align: center;
-    font-size: 100%;
+    font-size: 12px;
     background-image: url("../images/tileable_texture3.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
-    font-family: Quattro;
+    font-family: Quattro, OpenSans, Arial, Helvetica, sans-serif;
 }
 
 .navbar {
@@ -31,6 +31,11 @@ body {
 @font-face {
     font-family: 'Quattro';
     src: url('../fonts/Quattrocento-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Regular.ttf');
 }
 
 .navbar-brand {
@@ -120,6 +125,10 @@ body {
       font-size: 0;
     }
 
+    .class-filter.selected {
+        border: 1px solid #ff3604
+    }
+
     .class-filter:hover {
       background-position: 95 100%;
       font-size: 0;
@@ -130,11 +139,13 @@ body {
         width: 36px;
         top: 4px;
         left: 4px;
+        border: 3px solid black;
+        margin: 10px;
     }
 
     #warrior {
         background-image: url("../images/icons/class_warrior.jpg");
-        color: #C79C6E
+        color: #C79C6E;
     }
 
     #mage {
@@ -193,7 +204,7 @@ body {
 .nav-link {
     font-size: 120%;
     color: azure !important;
-    font-family: Quattro;
+    font-family: Quattro, OpenSans, Arial, Helvetica, sans-serif;
     -webkit-transition: background .3s ease-in-out;
        -moz-transition: background .3s ease-in-out;
             transition: background .3s ease-in-out;
@@ -203,7 +214,7 @@ body {
     outline: none;
     background-color: transparent;
     color: #9FA3A9 !important;
-    font-family: Quattro
+    font-family: Quattro, OpenSans, Arial, Helvetica, sans-serif;
 
     /* color: #030001e1 !important; */
     /* background-color: azure;
@@ -212,8 +223,8 @@ body {
    }
 
 .page-title {
-    font-family: MetalMacabre;
-    font-size: 200%;
+    font-family: Quattro, OpenSans, Arial, Helvetica, sans-serif;
+    font-size: 300%;
     color: azure;
     padding-top: 10px;
 }
