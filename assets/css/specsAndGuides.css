@@ -39,7 +39,7 @@
 .information-container {
     background-image: url("../images/textured_background.png");
     background-size: cover;
-    border-top: 2px solid rgb(79, 80, 83);
+    border-top: 2px solid #ff3604;
     border-bottom: 2px solid rgb(79, 80, 83);
     padding: 10px;
 
@@ -75,7 +75,7 @@
 
 
 .information-block {
-    border-bottom: 10px solid rgba(15, 17, 21, 0.7);
+    border-bottom: 10px dotted rgba(15, 17, 21, 0.7);
     margin-top: 0px;
     margin-bottom: 20px;
     padding-bottom: 20px;
