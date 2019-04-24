@@ -32,6 +32,7 @@
     color: yellowgreen;
     text-align: center;
     line-height: 14px;
+    pointer-events: none;
 }
 
 .locked {
