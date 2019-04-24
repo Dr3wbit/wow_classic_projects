@@ -69,13 +69,13 @@
 </body>
 <script id="handlebars-demo2" type="text/x-handlebars-template">
     {{#each trees as |tree|}}
-    <div class="talentTable">
+    <div class="talentTable" style="background-image: url('assets/images/talent_spells/{{image}}');">
         <div class="treeTitle col">{{name}}
         {{#each data}}
         <div class="row">
             {{#each this}}
             {{#if this}}
-            <div class="talent" style="background-image: url({{image}});" name="{{name}}"
+            <div class="talent" style="background-image: url('assets/images/talent_spells/{{image}}');" name="{{name}}"
                 data-maxrank={{maxRank}} data-unlocks="{{unlocks}}"
                 data-requiredtalentpoints={{requiredTalentPoints}}>
                 <div class="spentPoints">0</div>
