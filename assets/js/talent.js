@@ -221,8 +221,8 @@ function talentClickedHandler() {
 						let bool_arr = []
 						console.log("tier_unspeccing < highest_tier_used")
 						const tier_check = highest_tier_used-1
-						let k = tier_check
-						//
+						// let k = tier_check
+
 						// for (k;k>0;k--){
 						// 	let req_points = k*5
 						// 	let f = talentPointsSpent[tree].vals.slice(0, k).reduce((a,b)=>(a+b))
@@ -235,27 +235,24 @@ function talentClickedHandler() {
 						// 	}
 						//
 						// }
-						//
-						//
-						// if ((bool_arr.slice(0,-1).every(function(item,index) {return(item == true)}) &&
-						// talentPointsSpent[tree].vals[0] >=5 && tier_unspeccing != 1) ||
-						// bool_arr.every(function(item) {return(item == true)}))
-						// {
-						// 	can_unspec = true
-						// 	console.log("false positive")
-						// }
-						// console.log("bool_arr: ", bool_arr)
-						//
-						// do this recursively for each tier
+						tiersLocked = checkLockedTiers(highest_tier_used, tree)
+
+						let tier_unlocked = (tier_unspeccing <= tiersLocked)? false : true
+
+						if (tier_unspeccing <= tiersLocked){
+							console.log("locked tier, can't respec")
+							console.log("locked tiers: ", tiersLocked)
+
+						}
 
 
 						if (((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a,b)=>(a+b)) - tier_check*5) > 0) &&
-						((tier_check == tier_unspeccing) || (talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b)) - tier_unspeccing*5) > 0))
+						tier_unlocked &&
+						(talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b)) - tier_unspeccing*5) > 0)
 						{
 							can_unspec = true
 						}
 						else {
-							console.log("number: ", (tier_unspeccing*5 - talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b))))
 						}
 					}
 
@@ -322,6 +319,34 @@ function checkIfAbleToUnspec(clickedTalent, tree, tier) {
     // let x = talentPointsSpent.reqs(t, tree)
     // console.log("x: ",x)
     // return x
+}
+
+function checkLockedTiers(t, tree) {
+	let bool_arr = [], num_arr = []
+	let highest_tier = t
+	let tier_check = t-1
+	let k = 0
+	let remainder = 0
+	for (k;k<tier_check;k++){
+
+		let y = k+1
+		let req_points = (k+1)*5
+		let f = talentPointsSpent[tree].vals.slice(0, y).reduce((a,b)=>(a+b))
+		let sum = (f - req_points)
+		remainder += sum
+		if (sum > 0)
+		{
+			num_arr.push(sum)
+			bool_arr.push({extrapoints:sum, tier:y, can_unspec:true})
+		}else{
+			num_arr.push(sum)
+			bool_arr.push({extrapoints:sum, tier:y, can_unspec:false})
+		}
+
+	}
+	let tiers_locked = num_arr.lastIndexOf(0)+1
+	console.log("bool_arr: ", bool_arr)
+	return tiers_locked
 }
 	// let unlocked_talent_name = clickedTalent.attr('data-unlocks')
 	// console.log('checkIfAbleToUnspec, talents_unlocked: ', unlocked_talent_name)
