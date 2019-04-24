@@ -62,7 +62,7 @@ function createConsumeBlocks(dataObject, dataKeys) {
                 consumeImg = $('<img/>', {
                     class: 'consume-img',
                     src: 'assets/images/icon_border_2.png',
-                }).css("background-image", 'url('+ dataObject[dataKeys[i]].img +')')
+                }).css("background-image", 'url(assets/images/consumes/'+ dataObject[dataKeys[i]].img +')')
             )
             .append(
                 tooltip = $('<div/>', {
