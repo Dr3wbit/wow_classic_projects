@@ -131,7 +131,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 1,
                     requiredTalentPoints: 20,
-                    locked: true,
+                    locked: "locked",
                     prereq: "amplify_curse",
                     unlocks: "improved_curse_of_exhaustion"
                 },
@@ -144,7 +144,7 @@ const talentData = {
                     maxRank: 4,
                     requiredTalentPoints: 20,
                     prereq: "curse_of_exhaustion",
-                    locked: true
+                    locked: "locked"
                 },
                 {
                     name: "Shadow Mastery",
@@ -154,7 +154,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 25,
-                    locked: true
+                    locked: "locked"
                 },
                 {
                     name: "Dark Pact",
@@ -295,7 +295,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 1,
                     requiredTalentPoints: 20,
-                    locked: true,
+                    locked: "locked",
                     prereq: "amplify_curse",
                     unlocks: "improved_curse_of_exhaustion"
                 },
@@ -308,7 +308,7 @@ const talentData = {
                     maxRank: 4,
                     requiredTalentPoints: 20,
                     prereq: "curse_of_exhaustion",
-                    locked: true
+                    locked: "locked"
                 },
                 {
                     name: "Shadow Mastery",
@@ -318,7 +318,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 25,
-                    locked: true
+                    locked: "locked"
                 },
                 {
                     name: "Dark Pact",
@@ -459,7 +459,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 1,
                     requiredTalentPoints: 20,
-                    locked: true,
+                    locked: "locked",
                     prereq: "amplify_curse",
                     unlocks: "improved_curse_of_exhaustion"
                 },
@@ -472,7 +472,7 @@ const talentData = {
                     maxRank: 4,
                     requiredTalentPoints: 20,
                     prereq: "curse_of_exhaustion",
-                    locked: true
+                    locked: "locked"
                 },
                 {
                     name: "Shadow Mastery",
@@ -482,7 +482,7 @@ const talentData = {
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 25,
-                    locked: true
+                    locked: "locked"
                 }]
             }]
 
