@@ -72,9 +72,8 @@ function classSelectionHandler() {
 
 			selectedClass.tree_talents.forEach(function(item, index) {
 				talentPointsSpent[item.name] = {
-					vals: [0,0,0,0,0,0],
+					vals: [0,0,0,0,0,0,0],
 					total: function() {return this.vals.reduce((a,b) => a+b)},
-
 					highest_tier: function(){
 						let x = []
 						this.vals.forEach(function(item,index){
@@ -82,7 +81,7 @@ function classSelectionHandler() {
 								x.push(index)
 							}
 						})
-						return Math.max(...x)
+						return Math.max(...x)+1
 					}
 
 
@@ -90,19 +89,16 @@ function classSelectionHandler() {
 
 			})
 
-			console.log("talentPointsSpent: ", talentPointsSpent)
-
 
 			const tableData = tableFormat[clickedID]
 			const combinedTalents = combineTalents(selectedClass)
 			const finalData = mapTalentsToTableData(tableData.trees, combinedTalents)
 			const test = name_sanitizer(combinedTalents)
-			console.log("testing name janny: ", test)
 
-			//
-			// console.log("{trees: finalData} ", {
-			// 	trees: finalData
-			// });
+
+			console.log("{trees: finalData} ", {
+				trees: finalData
+			});
 			populateTables({
 				trees: finalData
 			})
@@ -140,11 +136,10 @@ function combineTalents(data) {
 	}
 }
 
-// name janny Curse of Exhaustion --> curse_of_exhaustion
+// name janitor, example: Curse of Exhaustion --> curse_of_exhaustion
 function name_sanitizer(arr) {
 	const talent_arr = arr
 	var regex = /\s/ig
-	console.log("talent_arr: ", talent_arr)
 	talent_arr.forEach(function(item, index) {
 		item.name = item.name.toLowerCase().replace(regex, '_')
 	})
@@ -153,7 +148,7 @@ function name_sanitizer(arr) {
 
 function talentClickedHandler() {
 	$(".talent").on({
-		//for talent tooltips on hover
+		//for talent tooltips on hover?
 		contextmenu: e => {
 			e.preventDefault()
 		},
@@ -164,31 +159,26 @@ function talentClickedHandler() {
 			//gets talent tree name (kinda ghetto)
 			const tree = clickedTalent.closest('div.treeTitle.col').text().split('\n')[0]
 			const unlocks = clickedTalent.attr('data-unlocks')
-			const locked = clickedTalent.attr('data-locked')
+			const locked = clickedTalent.hasClass('locked')
 			const maxRank = clickedTalent.attr('data-maxrank')
-			const prereq = clickedTalent.attr('data-prereq') || null
 
-			// not accessible through dataset, unsure why
-			// const maxRank = clickedTalent.dataset.maxrank
 			const requiredTalentPoints = clickedTalent.attr('data-requiredtalentpoints')
             const tier = (requiredTalentPoints/5)
-            // console.log("tier: ", tier)
 			clickedTalent.attr('points', function(index, val = 0) {
 				const pointsSpent = parseInt(val)
 
-
 				if (talentPointsSpent[tree].total() < requiredTalentPoints) {
-					console.log('you must have ' + requiredTalentPoints + ' points in this tree to spec here')
+					console.log(`you must have ${requiredTalentPoints} points in this ${tree} tree to spec here`)
 					return
 				}
-				if (locked === 'true') {
+				if (locked) {
+					console.log("that boy lockeD")
 					return
 				}
 
 				// normal click
 				if (e.which === 1) {
 					if (pointsSpent < maxRank) {
-						// talentPointsSpent[tree]['total']++
                         talentPointsSpent[tree].vals[tier]++
 						return pointsSpent + 1
 					}
@@ -196,185 +186,102 @@ function talentClickedHandler() {
 
 				// right click
 				else if (e.which === 3) {
+					let can_unspec = false
+					let tier_unspeccing = tier+1
 
-					let can_unspec
-
-					let tier_unspeccing = (requiredTalentPoints/5)+1
-					let indarr = []
-
-					let tiers_used = talentPointsSpent[tree].vals.forEach(function(item, index) {
-						if (item > 0) {
-							indarr.push(index)
-						}
-					})
-
-
-					let highest_tier_used = (Math.max(...indarr)+1)
-					console.log("highest_tier_used: ", highest_tier_used)
-
-					if (tier_unspeccing == highest_tier_used){
+					if (tier_unspeccing == talentPointsSpent[tree].highest_tier()){
 						console.log("tier_unspeccing == highest_tier_used")
 						can_unspec = true
 					}
 
-					if (tier_unspeccing < highest_tier_used){
-						let bool_arr = []
+					if (tier_unspeccing < talentPointsSpent[tree].highest_tier()){
 						console.log("tier_unspeccing < highest_tier_used")
-						const tier_check = highest_tier_used-1
-						// let k = tier_check
-
-						// for (k;k>0;k--){
-						// 	let req_points = k*5
-						// 	let f = talentPointsSpent[tree].vals.slice(0, k).reduce((a,b)=>(a+b))
-						// 	let num = (f - req_points)
-						// 	if (num > 0)
-						// 	{
-						// 		bool_arr.push(true)
-						// 	}else{
-						// 		bool_arr.push(false)
-						// 	}
-						//
-						// }
-						tiersLocked = checkLockedTiers(highest_tier_used, tree)
-
-						let tier_unlocked = (tier_unspeccing <= tiersLocked)? false : true
-
-						if (tier_unspeccing <= tiersLocked){
-							console.log("locked tier, can't respec")
-							console.log("locked tiers: ", tiersLocked)
-
-						}
-
-
-						if (((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a,b)=>(a+b)) - tier_check*5) > 0) &&
-						tier_unlocked &&
-						(talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b)) - tier_unspeccing*5) > 0)
-						{
-							can_unspec = true
-						}
-						else {
-						}
+						can_unspec = checkIfAbleToUnspec(tree, tier_unspeccing)
 					}
 
+					if (pointsSpent == maxRank && unlocks) {
+						// NOTE: will be unique once element names are unique, won't need .first()
+						const child_talent = $(`div.talent[name='${unlocks}']`).first()
+						let n = child_talent.find('.spentPoints').text()
 
-
-                    console.log("can_unspec: ", can_unspec)
-
-
-					// if (pointsSpent == maxRank && unlocks) {
-					// 	// const can_unspec = checkIfAbleToUnspec(clickedTalent, tree, tier)
-					// 	if (!can_unspec) {
-					// 		console.log('you must unspec ' + unlocks)
-					// 		return
-					// 	}
-					//
-					// }
-					if (pointsSpent > 0) {
-                        if (can_unspec){
-                            // talentPointsSpent[tree]['total']--
-                            talentPointsSpent[tree].vals[tier]--
-                            return pointsSpent - 1
-                        }
-
+						if (can_unspec && n > 0) {
+							console.log('you must unspec ' + unlocks)
+							return
+						}
+					}
+					if (pointsSpent > 0 && can_unspec) {
+                        talentPointsSpent[tree].vals[tier]--
+                        return pointsSpent - 1
 					}
 				}
 			})
 			const points = clickedTalent.attr('points')
 			checkForUnlock(unlocks, maxRank, points)
 			clickedTalent.children()[0].innerText = ((points !== undefined) ? points : 0)
-
 			clickedTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree].total())
-
 			console.log(clickedTalent.attr('name') + " : " + points)
 		}
 	})
 }
 
 
+function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
+
+	const tier_unspeccing = tier_unspeccing_from
+	const tier_check = talentPointsSpent[tree].highest_tier() - 1
+	const locked_tier = checkLockedTiers(tree)
+	const tier_unlocked = (tier_unspeccing <= locked_tier)? false : true
+
+	let decision = false
+	if (!tier_unlocked){
+		console.log(`Tiers ${locked_tier} and above are locked, unable to remove points`)
+	}
+
+	if ( ( (talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a,b)=>(a+b)) - tier_check*5) > 0) &&
+	tier_unlocked &&
+	(talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a,b)=>(a+b)) - tier_unspeccing*5) > 0)
+	{
+		decision = true
+	}
+	return decision
+}
+
+function checkLockedTiers(tree) {
+	let bool_arr = [], num_arr = []
+	let tier_check = talentPointsSpent[tree].highest_tier() - 1
+
+	for (let k=0;k<tier_check;k++){
+
+		let y = k+1
+		let req_points = y*5
+		let f = talentPointsSpent[tree].vals.slice(0, y).reduce((a,b)=>(a+b))
+		let sum = (f - req_points)
+		num_arr.push(sum)
+		bool_arr.push({extrapoints:sum, tier:y}) //for debugging
+	}
+
+	let locked_tier = num_arr.lastIndexOf(0)+1
+	return locked_tier
+}
+
 function checkForUnlock(unlocks, maxRank, p) {
 	let points = p || 0
 	if (unlocks) {
-		const talentReference = unlocks //"improved_curse_of_exhaustion"
-		// console.log("checkForUnlock, talentReference: ", talentReference)
-
+		const talentReference = unlocks
+		// NOTE: will be unique once element names are unique, won't need .first()
+		let talent_elem = $(`div.talent[name='${talentReference}']`).first()
 		if (points === maxRank) {
-			$('#' + talentReference).attr('locked', function(index, originalValue) {
+			talent_elem.attr('locked', function(index, originalValue) {
 				return false
 			})
-			$('#' + talentReference).removeClass('locked')
-			// console.log(talentReference + " is Unlocked.")
-
+			talent_elem.removeClass('locked')
+			console.log(talentReference + " is Unlocked.")
 		} else {
-			$('#' + talentReference).attr('locked', function(index, originalValue) {
+			talent_elem.attr('locked', function(index, originalValue) {
 				return true
 			})
-			$('#' + talentReference).addClass('locked')
-			// console.log(talentReference + " is locked.")
+			talent_elem.addClass('locked')
+			console.log(talentReference + " is locked.")
 		}
 	}
 }
-
-function checkIfAbleToUnspec(clickedTalent, tree, tier) {
-    // let t = tier+1
-    // let x = talentPointsSpent.reqs(t, tree)
-    // console.log("x: ",x)
-    // return x
-}
-
-function checkLockedTiers(t, tree) {
-	let bool_arr = [], num_arr = []
-	let highest_tier = t
-	let tier_check = t-1
-	let k = 0
-	let remainder = 0
-	for (k;k<tier_check;k++){
-
-		let y = k+1
-		let req_points = (k+1)*5
-		let f = talentPointsSpent[tree].vals.slice(0, y).reduce((a,b)=>(a+b))
-		let sum = (f - req_points)
-		remainder += sum
-		if (sum > 0)
-		{
-			num_arr.push(sum)
-			bool_arr.push({extrapoints:sum, tier:y, can_unspec:true})
-		}else{
-			num_arr.push(sum)
-			bool_arr.push({extrapoints:sum, tier:y, can_unspec:false})
-		}
-
-	}
-	let tiers_locked = num_arr.lastIndexOf(0)+1
-	console.log("bool_arr: ", bool_arr)
-	return tiers_locked
-}
-	// let unlocked_talent_name = clickedTalent.attr('data-unlocks')
-	// console.log('checkIfAbleToUnspec, talents_unlocked: ', unlocked_talent_name)
-    //
-	// let unlocked_talent_elem = $(`div.talent[name='${unlocked_talent_name}']`)
-	// console.log("unlocked_talent_elem: ", unlocked_talent_elem)
-	// let points = unlocked_talent_elem.attr('points') || 0
-    //
-	// console.log('checkIfAbleToUnspec, points: ', points)
-	// // let points = $('#' + talent).attr('points')
-	// if (points == '0') {
-	// 	return true
-	// }
-    //
-    //
-	// const talent_tier = ((clickedTalent.attr('requiredTalentPoints') + points) / 5) + 1 // points in talent trying to unspec
-	// const current_tier = Math.ceil(talentPointsSpent[tree][total] / 5) // total points divided
-	// if (talent_tier < current_tier) {
-	// 	return false
-	// }
-    //
-	// if ((points + requiredTalentPoints) < talentPointsSpent[tree]['total']) &&
-    //
-
-// function checkIfAbleToUnspec (clickedTalent) {
-//     let talent = clickedTalent.attr('unlocks')
-//     let value = $('#' + talent).attr('value')
-//     if (value !== '0'){
-//         return true
-//     }
-// }
