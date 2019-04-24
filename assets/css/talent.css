@@ -5,6 +5,7 @@
     border: 1px solid black;
     margin: 10px;
     position: relative;
+    background-size: contain;
 }
 
 .openSlot {
@@ -15,6 +16,8 @@
 .talentTable {
     margin: 15px;
     background-color: grey;
+    background-size: 100% 100%;
+    border: 2px solid black
 }
 
 .treeTitle {
