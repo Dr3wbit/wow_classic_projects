@@ -13,6 +13,7 @@
     background-size: cover;
     border-radius: 5px;
     border: 1px azure solid;
+    min-height: 200px;
 }
 
 
@@ -44,7 +45,6 @@ input:focus {
 .consume-img {
     height: 45px;
     width: 45px;
-    vertical-align: top;
     background-size: contain;
 }
 
@@ -55,7 +55,7 @@ input:focus {
     text-overflow: ellipsis;
     margin-left: 5px;
     margin-right: 1px;
-    width: 134px;
+    width: 180px;
 }
 
 .selected {
@@ -113,4 +113,30 @@ input:focus {
     font-family: Quattro;
     padding: 5px;
     margin: 50px;
+}
+
+.consume-tooltip{
+    font-size: 100%;
+    width: 245px;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    background-color: #100007;
+    color: #1EFF00;
+    pointer-events: none;
+    border: 1px solid azure;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.tooltip-hidden{
+    display: none
+}
+
+.icon-container{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
 }
