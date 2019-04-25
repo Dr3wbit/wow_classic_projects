@@ -5,8 +5,8 @@ const talentData = {
             tree_talents: [{
                 name: 'Affliction',
                 talents: [{
-                    name: "Supression",
-                    image: "suppresion.jpg",
+                    name: "Suppression",
+                    image: "suppression.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
