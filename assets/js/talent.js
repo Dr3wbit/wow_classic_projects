@@ -18,14 +18,18 @@ function populateTables(classData) {
 	let templateScript = Handlebars.compile(template);
 
 	let talent_html = templateScript(classData);
-	Handlebars.registerHelper('if', function(context, options) {
-		if (context) {
-			// console.log("context: ", context)
-			return options.fn(this);
-		} else {
-			return options.inverse(this);
-		}
-	});
+
+	// Handlebars.registerHelper('if', function(context, options) {
+	// 	if (context) {
+	// 		// console.log("context: ", context)
+	// 		return options.fn(this);
+	// 	} else {
+	// 		return options.inverse(this);
+	// 	}
+	// });
+
+
+
 	$('#talentCalc').html(talent_html);
 	talentClickedHandler()
 }
