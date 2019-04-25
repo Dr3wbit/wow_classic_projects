@@ -35,8 +35,19 @@
     color: yellowgreen;
     text-align: center;
     line-height: 14px;
+    pointer-events: none;
 }
 
 .locked {
     background-color: grey;
+}
+
+.talentFooter {
+    width: 25px;
+    height: 25px;
+    background-color: royalblue;
+    border: 1px solid black;
+    margin: 10px;
+    margin-top: 20px;
+    position: relative;
 }
