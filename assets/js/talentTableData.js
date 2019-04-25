@@ -284,6 +284,7 @@ const tableFormat = {
 	warlock: {
 		trees: [{
 			name: 'Affliction',
+			image:  'warlock/affliction_background.jpg',
 			data: [
 				[0, 1, 1, 0],
 				[1, 1, 1, 1],
@@ -296,6 +297,7 @@ const tableFormat = {
 		},
 		{
 			name: 'Demonology',
+			image:  'warlock/demonology_background.jpg',
 			data: [
 				[1, 1, 1, 0],
 				[1, 1, 1, 0],
@@ -308,6 +310,7 @@ const tableFormat = {
 		},
 		{
 			name: 'Destruction',
+			image:  'warlock/destruction_background.jpg',
 			data: [
 				[0, 1, 1, 0],
 				[0, 1, 1, 0],

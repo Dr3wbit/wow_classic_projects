@@ -39,12 +39,9 @@
 .information-container {
     background-image: url("../images/textured_background.png");
     background-size: cover;
-    border-top: 2px solid rgb(79, 80, 83);
+    border-top: 2px solid #ff3604;
     border-bottom: 2px solid rgb(79, 80, 83);
-    min-height: 58vh;
-    max-height: 72vh;
     padding: 10px;
-    overflow-y: scroll;
 
 }
 
@@ -78,26 +75,25 @@
 
 
 .information-block {
-    border-bottom: 10px solid rgba(15, 17, 21, 0.7);
+    border-bottom: 10px dotted rgba(15, 17, 21, 0.7);
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     padding-bottom: 20px;
-}
-
-.information-block:last-child {
-    border-bottom: none;
 }
 
 
 .content-description {
     color: azure;
     text-align: left;
-    font-size: 100%;
+    font-size: 120%;
     min-height: 100%;
     padding-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .content-title {
+    color:  azure;
     font-size: 250%;
     text-align: center;
 }
@@ -112,18 +108,20 @@
 }
 
 .content {
-    min-height: 58vh;
-    margin-top: 30px;
     /* margin-right: 20px; */
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.content-list {
-    padding-left: 0px;
+.nav-is-sticky {
+    background-color: black;
+    border-bottom: 3px solid #ff3604;
 }
 
-
+.content-selection-container {
+    padding-top: 8%;
+    text-align: left;
+}
 
   @media only screen and (max-width: 992px) {
 
@@ -131,3 +129,4 @@
         padding-left: 2%;
     }
   }
+
