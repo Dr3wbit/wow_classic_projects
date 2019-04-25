@@ -68,14 +68,16 @@
     </div>
 </body>
 <script id="handlebars-demo2" type="text/x-handlebars-template">
-    {{#each trees as |tree|}}
-    <div class="talentTable" style="background-image: url('assets/images/talent_spells/{{image}}');">
-        <div class="treeTitle col">{{name}}
+    {{#each trees as |tree treeKey|}}
+    <div class="talentTable" style="background-image: url('assets/images/talent_spells/{{className}}/{{lower tree.name}}/{{lower tree.name}}_background.jpg}');">
+        <div class="treeTitle col">{{tree.name}}
         {{#each data}}
         <div class="row">
             {{#each this}}
             {{#if this}}
-            <div class="talent" style="background-image: url('assets/images/talent_spells/{{image}}');" name="{{name}}"
+            <div class="talent {{locked}}"
+                style="background-image: url('assets/images/talent_spells/{{className}}/{{lower tree.name}}/{{image}}');"
+                name="{{name}}"
                 data-maxrank={{maxRank}} data-unlocks="{{unlocks}}"
                 data-requiredtalentpoints={{requiredTalentPoints}}>
                 <div class="spentPoints">0</div>
@@ -87,11 +89,16 @@
         </div>
         {{/each}}
     </div>
+    <div class="talentFooter">
+        <div class="spentPoints">0</div>
+    </div>
 </div>
+
     {{/each}}
 </script>
 
 <script src="assets/js/talentData.js"></script>
 <script src="assets/js/talentTableData.js"></script>
+<script src="assets/js/helpers.js"></script>
 
 </html>
