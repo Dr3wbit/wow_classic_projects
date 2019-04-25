@@ -104,75 +104,75 @@
 }
 
 #belt {
-    background-image: url("../images/belt.png")
+    background-image: url("../images/equipment_slots/belt.png")
 }
 
 #bracers {
-    background-image: url("../images/bracers.png")
+    background-image: url("../images/equipment_slots/bracers.png")
 }
 
 #cloak {
-    background-image: url("../images/cloak.png")
+    background-image: url("../images/equipment_slots/cloak.png")
 }
 
 #ring {
-    background-image: url("../images/ring.png")
+    background-image: url("../images/equipment_slots/ring.png")
 }
 
 #gloves {
-    background-image: url("../images/gloves.png")
+    background-image: url("../images/equipment_slots/gloves.png")
 }
 
 #head {
-    background-image: url("../images/head.png")
+    background-image: url("../images/equipment_slots/head.png")
 }
 
 #legs {
-    background-image: url("../images/legs.png")
+    background-image: url("../images/equipment_slots/legs.png")
 }
 
 #mainhand {
-    background-image: url("../images/mainhand.png")
+    background-image: url("../images/equipment_slots/mainhand.png")
 }
 
 #offhand {
-    background-image: url("../images/offhand.png")
+    background-image: url("../images/equipment_slots/offhand.png")
 }
 
 #ranged {
-    background-image: url("../images/ranged.png")
+    background-image: url("../images/equipment_slots/ranged.png")
 }
 
 #shoulders {
-    background-image: url("../images/shoulders.png")
+    background-image: url("../images/equipment_slots/shoulders.png")
 }
 
 #tabard {
-    background-image: url("../images/tabard.png")
+    background-image: url("../images/equipment_slots/tabard.png")
 }
 
 #trinket {
-    background-image: url("../images/trinket.png")
+    background-image: url("../images/equipment_slots/trinket.png")
 }
 
 #neck {
-    background-image: url("../images/neck.png")
+    background-image: url("../images/equipment_slots/neck.png")
 }
 
 #chest {
-    background-image: url("../images/chest.png")
+    background-image: url("../images/equipment_slots/chest.png")
 }
 
 #shirt {
-    background-image: url("../images/shirt.png")
+    background-image: url("../images/equipment_slots/shirt.png")
 }
 
 #pants {
-    background-image: url("../images/pants.png")
+    background-image: url("../images/equipment_slots/pants.png")
 }
 
 #boots {
-    background-image: url("../images/boots.png")
+    background-image: url("../images/equipment_slots/boots.png")
 }
 
 .not-enchantable {

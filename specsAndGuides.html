@@ -2,118 +2,124 @@
 <html lang="en">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131655338-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131655338-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
 
-    gtag('config', 'UA-131655338-1');
-  </script>
+		gtag('config', 'UA-131655338-1');
+	</script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Ony Buff</title>
-  <link rel="icon" type="image/png" href="assets/images/OnyBuff.png" />
-  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="assets/css/global.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/specsAndGuides.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Ony Buff</title>
+	<link rel="icon" type="image/png" href="assets/images/OnyBuff.png" />
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/global.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/specsAndGuides.css">
 
-  <script src="assets/js/specsAndGuidesData.js"></script>
-  <script src="assets/js/handlebars-v4.1.2.js"></script>
-  <!-- Nav Bar -->
-  <script src="assets/js/nav.js"></script>
-  <script src="assets/js/templatesCompiled.js"></script>
+	<script src="assets/js/specsAndGuidesData.js"></script>
+	<script src="assets/js/handlebars-v4.1.2.js"></script>
+	<!-- Nav Bar -->
+	<script src="assets/js/nav.js"></script>
+	<script src="assets/js/templatesCompiled.js"></script>
 </head>
 
-<body>
-  <div id="nav-container" class="container"></div>
-  <div class="container">
-    <div class="page-title">Specs and Guides</div>
-  </div>
+<body data-spy="scroll" data-offset="300">
+	<div id="nav-container" class="container"></div>
+	<div class="container">
+		<div class="page-title">Specs and Guides</div>
+	</div>
 
-  <div class="container mainBody">
-    <div class="row class-selection" id="class_selection">
-      <div class="class-filter class-icon" id="warrior">Warrior</div>
-      <div class="class-filter class-icon" id="mage">Mage</div>
-      <div class="class-filter class-icon" id="druid">Druid</div>
-      <div class="class-filter class-icon" id="paladin">Paladin</div>
-      <div class="class-filter class-icon" id="shaman">Shaman</div>
-      <div class="class-filter class-icon" id="warlock">Warlock</div>
-      <div class="class-filter class-icon" id="priest">Priest</div>
-      <div class="class-filter class-icon" id="hunter">Hunter</div>
-      <div class="class-filter class-icon" id="rogue">Rogue</div>
-    </div>
+	<div class="container mainBody">
+		<div class="row class-selection sticky-top pt-3" id="class_selection">
+			<div class="class-filter class-icon" id="warrior">Warrior</div>
+			<div class="class-filter class-icon" id="mage">Mage</div>
+			<div class="class-filter class-icon" id="druid">Druid</div>
+			<div class="class-filter class-icon" id="paladin">Paladin</div>
+			<div class="class-filter class-icon" id="shaman">Shaman</div>
+			<div class="class-filter class-icon" id="warlock">Warlock</div>
+			<div class="class-filter class-icon" id="priest">Priest</div>
+			<div class="class-filter class-icon" id="hunter">Hunter</div>
+			<div class="class-filter class-icon" id="rogue">Rogue</div>
+		</div>
 
-    <div class="row">
-      <div class="col-2 d-none d-lg-block list-group" id="scroll_parent">
-        <div class="information-selection">
-          <a class="list-group-item" href="#pve_specs">PvE Talents</a>
-        </div>
-        <div class="information-selection">
-          <a class="list-group-item" href="#pvp_specs">PvP Talents</a>
-        </div>
-        <div class="information-selection">
-          <a class="list-group-item" href="#raid_consumes">Raid Consumes</a>
-        </div>
-        <div class="information-selection">
-          <a class="list-group-item" href="#pvp_consumes">PvP Consumes</a>
-        </div>
-        <div class="information-selection">
-          <a class="list-group-item" href="#preraid_bis">Preraid BiS</a>
-        </div>
-        <div class="information-selection">
-          <a class="list-group-item" href="#bis">BiS</a>
-        </div>
-      </div>
+		<div class="row">
+			<div class="content-selection-container pl-xl-5 pl-lg-2 col-2 d-none d-lg-block list-group sticky-top align-self-start"
+				id="scroll_parent">
+				<div class="information-selection">
+					<a class="list-group-item" href="#pve_specs">PvE Talents</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#pvp_specs">PvP Talents</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#raid_consumes">Raid Consumes</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#pvp_consumes">PvP Consumes</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#preraid_bis">Preraid BiS</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#bis">BiS</a>
+				</div>
+			</div>
+			<div data-target="#scroll_parent" class="col information-container">
 
-      <div data-spy="scroll" data-target="#scroll_parent" class="col information-container">
+				<div id="pve_specs" class="pt-5">
+				</div>
 
-        <div id="pve_specs">
-        </div>
-
-        <div id="pvp_specs">
-        </div>
-      </div>
-
-
-      <div class="container">
-        <div class="row">
-          <footer class="footer">
-            <span class="text-muted">&copy Ony Buff 2019</span>
-          </footer>
-        </div>
-      </div>
+				<div id="pvp_specs" class="pt-5">
+				</div>
+			</div>
+			<div class="col-2 d-none d-lg-block"></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<footer class="footer">
+				<span class="text-muted">&copy Ony Buff 2019</span>
+			</footer>
+		</div>
+	</div>
 </body>
 <script id="handlebars-demo" type="text/x-handlebars-template">
 
   {{#each specs as |spec|}}
-
     <div class="information-block row">
-      <div class="col-3">
-        <div class="content-description">
-          <div class="content-title">{{spec.name}}</div>
-          <div class="content-text">
-            <ul class="content-list">
-              {{#each spec.description as |description|}}
-                <li class="description-text">{{description}}</li>
-              {{/each}}
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-9">
-        <div class="content" style="background-image: url({{spec.image}});"></div>
-      </div>
+        <div class="content-title col-12">({{spec.focus}})  {{spec.name}}</div>
+		<div class="content col-12">
+			<img src="{{spec.image}}" class="img-fluid" style="width: 80% height: auto"></img>
+		</div>
+		<div class="content-description">
+				<div class="content-text col-12">
+				<ul class="content-list">
+					{{#each spec.description as |description|}}
+					  <li class="description-text">{{description}}</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+
     </div>
   {{/each}}
 </script>

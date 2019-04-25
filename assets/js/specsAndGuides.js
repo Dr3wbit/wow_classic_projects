@@ -5,6 +5,14 @@ function initializeApp() {
 	applyClickHandlers()
 	$('#warrior').addClass('selected')
 	populateData(context.classes[0]);
+	//sticky nav color change
+	$(window).scroll(() => {
+		if ($(document).scrollTop() > 150) {
+			$('.class-selection').addClass('nav-is-sticky');
+		} else {
+			$('.class-selection').removeClass('nav-is-sticky');
+		}
+		});
 }
 
 
@@ -18,12 +26,14 @@ function applyClickHandlers() {
 			const selectedClass = context.classes.find(function(a) {
 				return a.name == clickedID;
 			});
+			$(window).scrollTop(160);
 			populateData(selectedClass);
 		},
 	})
 }
 
 function populateData(data) {
+	console.log(data)
 
 	//Retrieve the template data from the HTML .
 	let template = $('#handlebars-demo').html();
