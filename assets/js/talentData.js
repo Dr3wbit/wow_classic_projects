@@ -6,7 +6,7 @@ const talentData = {
                 name: 'Affliction',
                 talents: [{
                     name: "Supression",
-                    image: "warlock/suppresion.jpg",
+                    image: "suppresion.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -15,7 +15,7 @@ const talentData = {
                 },
                 {
                     name: "Improved Corruption",
-                    image: "warlock/improved_corruption.jpg",
+                    image: "improved_corruption.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -24,7 +24,7 @@ const talentData = {
                 },
                 {
                     name: "Improved Curse of Weakness",
-                    image: "warlock/improved_curse_of_weakness.jpg",
+                    image: "improved_curse_of_weakness.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -33,7 +33,7 @@ const talentData = {
                 },
                 {
                     name: "Improved Drain Soul",
-                    image: "warlock/improved_drain_soul.jpg",
+                    image: "improved_drain_soul.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -42,7 +42,7 @@ const talentData = {
                 },
                 {
                     name: "Improved Life Tap",
-                    image: "warlock/improved_life_tap.jpg",
+                    image: "improved_life_tap.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -51,7 +51,7 @@ const talentData = {
                 },
                 {
                     name: "Improved Drain Life",
-                    image: "warlock/improved_drain_life.jpg",
+                    image: "improved_drain_life.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -60,7 +60,7 @@ const talentData = {
                 },
                 {
                     name: "Improved Curse of Agony",
-                    image: "warlock/improved_curse_of_agony.jpg",
+                    image: "improved_curse_of_agony.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -69,7 +69,7 @@ const talentData = {
                 },
                 {
                     name: "Fel Concentration",
-                    image: "warlock/fel_concentration.jpg",
+                    image: "fel_concentration.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -78,7 +78,7 @@ const talentData = {
                 },
                 {
                     name: "Amplify Curse",
-                    image: "warlock/amplify_curse.jpg",
+                    image: "amplify_curse.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -88,7 +88,7 @@ const talentData = {
                 },
                 {
                     name: "Grim Reach",
-                    image: "warlock/grim_reach.jpg",
+                    image: "grim_reach.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -97,7 +97,7 @@ const talentData = {
                 },
                 {
                     name: "Nightfall",
-                    image: "warlock/nightfall.jpg",
+                    image: "nightfall.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -106,7 +106,7 @@ const talentData = {
                 },
                 {
                     name: "Improved Drain Mana",
-                    image: "warlock/improved_drain_mana.jpg",
+                    image: "improved_drain_mana.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -115,7 +115,7 @@ const talentData = {
                 },
                 {
                     name: "Siphon Life",
-                    image: "warlock/siphon_life.jpg",
+                    image: "siphon_life.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -125,7 +125,7 @@ const talentData = {
                 },
                 {
                     name: "Curse of Exhaustion",
-                    image: "warlock/curse_of_exhaustion.jpg",
+                    image: "curse_of_exhaustion.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -137,7 +137,7 @@ const talentData = {
                 },
                 {
                     name: "Improved Curse of Exhaustion",
-                    image: "warlock/curse_of_exhaustion.jpg",
+                    image: "curse_of_exhaustion.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -148,7 +148,7 @@ const talentData = {
                 },
                 {
                     name: "Shadow Mastery",
-                    image: "warlock/shadow_mastery.jpg",
+                    image: "shadow_mastery.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
@@ -158,7 +158,7 @@ const talentData = {
                 },
                 {
                     name: "Dark Pact",
-                    image: "warlock/dark_pact.jpg",
+                    image: "dark_pact.jpg",
                     description:
                         "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
                     invested: 0,
