@@ -108,10 +108,11 @@ function classSelectionHandler() {
 // }
 
 function mapTalentsToTableData(trees, tal_arr) {
-	trees.forEach(function(item, index) {
-		item.data.forEach(function(val, j) {
+	trees.forEach(function(tree, index) {
+		tree.data.forEach(function(data_arr, j) {
             let reqTalentPoints = j*5
-			val.forEach(function(v, k) {
+			data_arr.forEach(function(v, k) {
+                console.log("v: ", v)
                 // trees[index].data[j][k] = (v >= 1) ? tal_arr.pop() : trees[index].data[j][k]
                 if (v >= 1){ //
                     trees[index].data[j][k] = tal_arr.pop()
