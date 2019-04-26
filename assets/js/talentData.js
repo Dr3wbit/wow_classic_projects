@@ -926,7 +926,7 @@ const talentData = {
                     d: ["Gives your Frost damage spells a 20% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec.  Stacks up to 5 times.", "Gives your Frost damage spells a 40% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec.  Stacks up to 5 times.", "Gives your Frost damage spells a 60% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec.  Stacks up to 5 times.", "Gives your Frost damage spells a 80% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec.  Stacks up to 5 times.", "Gives your Frost damage spells a 100% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec.  Stacks up to 5 times."],
                     x: 2,
                     y: 5,
-                    image: "Winters Chill"
+                    image: "winters_chill.jpg"
                 }, {
                     i: 71,
                     name: 'Ice Barrier',
@@ -961,7 +961,7 @@ const talentData = {
                     d: ['While active, any time an enemy strikes the caster they have a 35% chance to become afflicted by Entangling Roots (Rank 1).  Only useable outdoors.  1 charge.  Lasts 45 sec.'],
                     x: 1,
                     y: 0,
-                    image: "Natures Grasp"
+                    image: "natures_grasp.jpg"
                 }, {
                     i: 921,
                     name: "Improved Nature's Grasp",
@@ -971,7 +971,7 @@ const talentData = {
                     x: 2,
                     y: 0,
                     r: [1, 1],
-                    image: "Improved Natures Grasp"
+                    image: "improved_natures_grasp.jpg"
                 }, {
                     i: 787,
                     name: 'Improved Entangling Roots',
@@ -1035,7 +1035,7 @@ const talentData = {
                     d: ['Increases the range of your Wrath, Entangling Roots, Faerie Fire, Moonfire, Starfire, and Hurricane spells by 10%.', 'Increases the range of your Wrath, Entangling Roots, Faerie Fire, Moonfire, Starfire, and Hurricane spells by 20%.'],
                     x: 3,
                     y: 2,
-                    image: "Natures Reach"
+                    image: "natures_reach.jpg"
                 }, {
                     i: 792,
                     name: 'Vengeance',
@@ -1063,7 +1063,7 @@ const talentData = {
                     d: ['All spell criticals grace you with a blessing of nature, reducing the casting time of your next spell by 0.5 sec.'],
                     x: 1,
                     y: 4,
-                    image: "Natures Grace"
+                    image: "natures_grace.jpg"
                 }, {
                     i: 783,
                     name: 'Moonglow',
@@ -1222,7 +1222,7 @@ const talentData = {
                     d: ['Decrease the armor of the target by 175 for 40 sec.  While affected, the target cannot stealth or turn invisible.'],
                     x: 2,
                     y: 4,
-                    image: "faerie_fire_(feral).jpg"
+                    image: "faerie_fire_feral.jpg"
                 }, {
                     i: 808,
                     name: 'Heart of the Wild',
@@ -1280,7 +1280,7 @@ const talentData = {
                     d: ['Gives you a 14% chance to avoid interruption caused by damage while casting the Healing Touch, Regrowth and Tranquility spells.', 'Gives you a 28% chance to avoid interruption caused by damage while casting the Healing Touch, Regrowth and Tranquility spells.', 'Gives you a 42% chance to avoid interruption caused by damage while casting the Healing Touch, Regrowth and Tranquility spells.', 'Gives you a 56% chance to avoid interruption caused by damage while casting the Healing Touch, Regrowth and Tranquility spells.', 'Gives you a 70% chance to avoid interruption caused by damage while casting the Healing Touch, Regrowth and Tranquility spells.'],
                     x: 1,
                     y: 1,
-                    image: "Natures Focus"
+                    image: "natures_focus.jpg"
                 }, {
                     i: 826,
                     name: 'Improved Enrage',
@@ -1344,7 +1344,7 @@ const talentData = {
                     x: 0,
                     y: 4,
                     r: [2, 5],
-                    image: "Natures Swiftness"
+                    image: "natures_swiftness.jpg"
                 }, {
                     i: 828,
                     name: 'Gift of Nature',
@@ -1565,7 +1565,7 @@ const talentData = {
                     d: ["Increases the Ranged Attack Power bonus of your Hunter's Mark spell by 3%.", "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by 6%.", "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by 9%.", "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by 12%.", "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by 15%."],
                     x: 1,
                     y: 1,
-                    image: "Improved Hunters Mark"
+                    image: "improved_hunters_mark.jpg"
                 }, {
                     i: 1344,
                     name: 'Lethal Shots',
@@ -1989,7 +1989,7 @@ const talentData = {
                     d: ['Reduces the cooldown of your Blessing of Protection by 60 sec and increases the duration of your Blessing of Freedom by 3 sec.', 'Reduces the cooldown of your Blessing of Protection by 120 sec and increases the duration of your Blessing of Freedom by 6 sec.'],
                     x: 1,
                     y: 1,
-                    image: "Guardians Favor"
+                    image: "guardians_favor.jpg"
                 }, {
                     i: 1423,
                     name: 'Toughness',
@@ -2080,7 +2080,7 @@ const talentData = {
                     d: ['Increases the damage you deal with one-handed melee weapons by 2%.', 'Increases the damage you deal with one-handed melee weapons by 4%.', 'Increases the damage you deal with one-handed melee weapons by 6%.', 'Increases the damage you deal with one-handed melee weapons by 8%.', 'Increases the damage you deal with one-handed melee weapons by 10%.'],
                     x: 2,
                     y: 5,
-                    image: "one-handed_weapon_specialization.jpg"
+                    image: "one_handed_weapon_specialization.jpg"
                 }, {
                     i: 1430,
                     name: 'Holy Shield',
@@ -2201,7 +2201,7 @@ const talentData = {
                     d: ['Increases the damage you deal with two-handed melee weapons by 2%.', 'Increases the damage you deal with two-handed melee weapons by 4%.', 'Increases the damage you deal with two-handed melee weapons by 6%.'],
                     x: 0,
                     y: 4,
-                    image: "two-handed_weapon_specialization.jpg"
+                    image: "two_handed_weapon_specialization.jpg"
                 }, {
                     i: 1409,
                     name: 'Sanctity Aura',
@@ -2272,7 +2272,7 @@ const talentData = {
                     d: ['Increases the effect of your Power Word: Fortitude and Prayer of Fortitude spells by 15%.', 'Increases the effect of your Power Word: Fortitude and Prayer of Fortitude spells by 30%.'],
                     x: 1,
                     y: 1,
-                    image: "improved_power_word:_fortitude.jpg"
+                    image: "improved_power_word_fortitude.jpg"
                 }, {
                     i: 343,
                     name: 'Improved Power Word: Shield',
@@ -2281,7 +2281,7 @@ const talentData = {
                     d: ['Increases the damage absorbed by your Power Word: Shield by 5%.', 'Increases the damage absorbed by your Power Word: Shield by 10%.', 'Increases the damage absorbed by your Power Word: Shield by 15%.'],
                     x: 2,
                     y: 1,
-                    image: "improved_power_word:_shield.jpg"
+                    image: "improved_power_word_shield.jpg"
                 }, {
                     i: 321,
                     name: 'Martyrdom',
@@ -2561,7 +2561,7 @@ const talentData = {
                     d: ['Increases the duration of your Shadow Word: Pain spell by 3 sec.', 'Increases the duration of your Shadow Word: Pain spell by 6 sec.'],
                     x: 1,
                     y: 1,
-                    image: "improved_shadow_word:_pain.jpg"
+                    image: "improved_shadow_word_pain.jpg"
                 }, {
                     i: 463,
                     name: 'Shadow Focus',
@@ -3185,7 +3185,7 @@ const talentData = {
                     d: ['Increases the health of your Stoneclaw Totem by 25% and the radius of your Earthbind Totem by 10%.', 'Increases the health of your Stoneclaw Totem by 50% and the radius of your Earthbind Totem by 20%.'],
                     x: 0,
                     y: 1,
-                    image: "Earths Grasp"
+                    image: "earths_grasp.jpg"
                 }, {
                     i: 1640,
                     name: 'Elemental Warding',
@@ -3370,7 +3370,7 @@ const talentData = {
                     d: ['Allows you to use Two-Handed Axes and Two-Handed Maces.'],
                     x: 2,
                     y: 2,
-                    image: "two-handed_axes_and_maces.jpg"
+                    image: "two_handed_axes_and_maces.jpg"
                 }, {
                     i: 601,
                     name: 'Anticipation',
@@ -3501,7 +3501,7 @@ const talentData = {
                     d: ['Increases your chance to hit with melee attacks and spells by 1%.', 'Increases your chance to hit with melee attacks and spells by 2%.', 'Increases your chance to hit with melee attacks and spells by 3%.'],
                     x: 0,
                     y: 2,
-                    image: "Natures Guidance"
+                    image: "natures_guidance.jpg"
                 }, {
                     i: 587,
                     name: 'Healing Focus',
@@ -3564,7 +3564,7 @@ const talentData = {
                     d: ['When activated, your next Nature spell with a casting time less than 10 sec. becomes an instant cast spell.'],
                     x: 2,
                     y: 4,
-                    image: "Natures Swiftness"
+                    image: "natures_swiftness.jpg"
                 }, {
                     i: 592,
                     name: 'Purification',
@@ -3682,7 +3682,7 @@ const talentData = {
                     d: ['Increases the damage you deal with two-handed melee weapons by 1%.', 'Increases the damage you deal with two-handed melee weapons by 2%.', 'Increases the damage you deal with two-handed melee weapons by 3%.', 'Increases the damage you deal with two-handed melee weapons by 4%.', 'Increases the damage you deal with two-handed melee weapons by 5%.'],
                     x: 1,
                     y: 3,
-                    image: "two-handed_weapon_specialization.jpg"
+                    image: "two_handed_weapon_specialization.jpg"
                 }, {
                     i: 662,
                     name: 'Impale',
@@ -4063,7 +4063,7 @@ const talentData = {
                     d: ['Increases the damage you deal with One-Handed Melee weapons by 2%.', 'Increases the damage you deal with One-Handed Melee weapons by 4%.', 'Increases the damage you deal with One-Handed Melee weapons by 6%.', 'Increases the damage you deal with One-Handed Melee weapons by 8%.', 'Increases the damage you deal with One-Handed Melee weapons by 10%.'],
                     x: 2,
                     y: 5,
-                    image: "one-handed_weapon_specialization.jpg"
+                    image: "one_handed_weapon_specialization.jpg"
                 }, {
                     i: 148,
                     name: 'Shield Slam',
