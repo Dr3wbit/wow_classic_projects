@@ -16,9 +16,7 @@ function populateTables(classData) {
 	let template = $('#handlebars-demo2').html();
 	//Compile the template data into a function
 	let templateScript = Handlebars.compile(template);
-
 	let talent_html = templateScript(classData);
-
 	$('#talentCalc').html(talent_html);
 	talentClickedHandler()
 }
@@ -58,7 +56,6 @@ function classSelectionHandler() {
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
 
-
 			const selectedClass = talentData.classes.find(function(a) {
 				return a.name == clickedID;
 			})
@@ -79,11 +76,8 @@ function classSelectionHandler() {
 				}
 			})
 
-
 			const tableData = tableFormat[clickedID]
-            // console.log("tableData: ", tableData)
 			const combinedTalents = combineTalents(selectedClass)
-            // console.log("combinedTalents: ", combinedTalents)
 			const finalData = mapTalentsToTableData(tableData.trees, combinedTalents)
             console.log("finalData: ", finalData)
 			const test = name_sanitizer(combinedTalents)
@@ -113,18 +107,16 @@ function classSelectionHandler() {
 // 	return tableData
 // }
 
-// same as mapTalentsToTableData
 function mapTalentsToTableData(trees, tal_arr) {
 	trees.forEach(function(item, index) {
 		item.data.forEach(function(val, j) {
             let reqTalentPoints = j*5
 			val.forEach(function(v, k) {
-                if (v >= 1){
+                // trees[index].data[j][k] = (v >= 1) ? tal_arr.pop() : trees[index].data[j][k]
+                if (v >= 1){ //
                     trees[index].data[j][k] = tal_arr.pop()
                     trees[index].data[j][k].requiredTalentPoints = reqTalentPoints
                 }
-                // trees[index].data[j][k] = (v >= 1) ? tal_arr.pop() : trees[index].data[j][k]
-
 			})
 		})
 	})
@@ -143,21 +135,17 @@ function mapTalentsToTableData(trees, tal_arr) {
 // 	}
 // }
 
-//same as combineTalents
-function combineTalents(data) {
-    // console.log("hello_test, data: ", data)
-	if (data) {
-        let talent_arr = []
-		data = data.tree_talents
-    	data.forEach(function(item, index) {
-    		talent_arr.push(item.talents)
-    	})
-    	talent_arr = talent_arr.flat().reverse()
-        return talent_arr
-    }
+function combineTalents(d) {
+    let talent_arr = []
+	data = d.tree_talents
+	data.forEach(function(item, index) {
+		talent_arr.push(item.talents)
+	})
+    return talent_arr.flat().reverse()
 }
 
 // name janitor, example: Curse of Exhaustion --> curse_of_exhaustion
+// NOTE: not sure this is still needed
 function name_sanitizer(arr) {
 	const talent_arr = arr
 	var regex = /\s/ig
