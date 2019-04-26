@@ -19,17 +19,6 @@ function populateTables(classData) {
 
 	let talent_html = templateScript(classData);
 
-	// Handlebars.registerHelper('if', function(context, options) {
-	// 	if (context) {
-	// 		// console.log("context: ", context)
-	// 		return options.fn(this);
-	// 	} else {
-	// 		return options.inverse(this);
-	// 	}
-	// });
-
-
-
 	$('#talentCalc').html(talent_html);
 	talentClickedHandler()
 }
@@ -87,22 +76,18 @@ function classSelectionHandler() {
 						})
 						return Math.max(...x)+1
 					}
-
-
 				}
-
 			})
 
 
 			const tableData = tableFormat[clickedID]
+            // console.log("tableData: ", tableData)
 			const combinedTalents = combineTalents(selectedClass)
+            // console.log("combinedTalents: ", combinedTalents)
 			const finalData = mapTalentsToTableData(tableData.trees, combinedTalents)
+            console.log("finalData: ", finalData)
 			const test = name_sanitizer(combinedTalents)
 
-
-			console.log("{trees: finalData} ", {
-				trees: finalData
-			});
 			populateTables({
 				trees: finalData
 			})
@@ -110,34 +95,66 @@ function classSelectionHandler() {
 	})
 }
 
-function mapTalentsToTableData(tableData, talents) {
-	// console.log("mapTalentsToTableData, tableData", tableData)
-	let spellIterator = 0
-	for (let treeIterator = 0; treeIterator < tableData.length; treeIterator++) {
-		for (let rowIterator = 0; rowIterator < tableData[treeIterator].data.length; rowIterator++) {
-			for (let talentIterator = 0; talentIterator < tableData[treeIterator].data[rowIterator].length; talentIterator++) {
-				const slot = tableData[treeIterator].data[rowIterator][talentIterator]
-				if (slot != 0) {
-					tableData[treeIterator].data[rowIterator].splice(talentIterator, 1, talents[spellIterator])
-					spellIterator++
-				}
-			}
-		}
-	}
-	// console.log("from function mapTalentsToTableData, tableData: ", tableData)
-	return tableData
+// function mapTalentsToTableData(tableData, talents) {
+// 	// console.log("mapTalentsToTableData, tableData", tableData)
+// 	let spellIterator = 0
+// 	for (let treeIterator = 0; treeIterator < tableData.length; treeIterator++) {
+// 		for (let rowIterator = 0; rowIterator < tableData[treeIterator].data.length; rowIterator++) {
+// 			for (let talentIterator = 0; talentIterator < tableData[treeIterator].data[rowIterator].length; talentIterator++) {
+// 				const slot = tableData[treeIterator].data[rowIterator][talentIterator]
+// 				if (slot != 0) {
+// 					tableData[treeIterator].data[rowIterator].splice(talentIterator, 1, talents[spellIterator])
+// 					spellIterator++
+// 				}
+// 			}
+// 		}
+// 	}
+// 	// console.log("from function mapTalentsToTableData, tableData: ", tableData)
+// 	return tableData
+// }
+
+// same as mapTalentsToTableData
+function mapTalentsToTableData(trees, tal_arr) {
+	trees.forEach(function(item, index) {
+		item.data.forEach(function(val, j) {
+            let reqTalentPoints = j*5
+			val.forEach(function(v, k) {
+                if (v >= 1){
+                    trees[index].data[j][k] = tal_arr.pop()
+                    trees[index].data[j][k].requiredTalentPoints = reqTalentPoints
+                }
+                // trees[index].data[j][k] = (v >= 1) ? tal_arr.pop() : trees[index].data[j][k]
+
+			})
+		})
+	})
+    return trees
 }
 
+// function combineTalents(data) {
+// 	if (data) {
+// 		data = data.tree_talents
+// 		let combinedTalents = []
+// 		for (let treeIterator = 0; treeIterator < data.length; treeIterator++) {
+// 			for (let talentIterator = 0; talentIterator < data[treeIterator].talents.length; talentIterator++)
+// 				combinedTalents.push(data[treeIterator].talents[talentIterator])
+// 		}
+// 		return combinedTalents
+// 	}
+// }
+
+//same as combineTalents
 function combineTalents(data) {
+    // console.log("hello_test, data: ", data)
 	if (data) {
+        let talent_arr = []
 		data = data.tree_talents
-		let combinedTalents = []
-		for (let treeIterator = 0; treeIterator < data.length; treeIterator++) {
-			for (let talentIterator = 0; talentIterator < data[treeIterator].talents.length; talentIterator++)
-				combinedTalents.push(data[treeIterator].talents[talentIterator])
-		}
-		return combinedTalents
-	}
+    	data.forEach(function(item, index) {
+    		talent_arr.push(item.talents)
+    	})
+    	talent_arr = talent_arr.flat().reverse()
+        return talent_arr
+    }
 }
 
 // name janitor, example: Curse of Exhaustion --> curse_of_exhaustion
