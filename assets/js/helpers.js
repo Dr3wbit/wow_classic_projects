@@ -13,3 +13,13 @@ Handlebars.registerHelper('className', function (str='') {
 function janitor(str) {
     return str.replace(" ", "_").toLowerCase()
 }
+
+
+// Handlebars.registerHelper('if', function(context, options) {
+// 	if (context) {
+// 		// console.log("context: ", context)
+// 		return options.fn(this);
+// 	} else {
+// 		return options.inverse(this);
+// 	}
+// });
