@@ -86,7 +86,7 @@ const tableFormat = {
 					[1, 1, 1, 0],
 					[1, 1, 1, 0],
 					[1, 1, 1, 0],
-					[0, 1, 0, 1],
+					[1, 1, 0, 1],
 					[0, 1, 1, 0],
 					[0, 1, 0, 0],
 					[0, 1, 0, 0]
@@ -163,7 +163,7 @@ const tableFormat = {
 	priest: {
 		trees: [
 			{
-				name: 'Dicipline',
+				name: 'Discipline',
 				data: [
 					[0, 1, 1, 0],
 					[1, 1, 1, 1],
@@ -228,7 +228,7 @@ const tableFormat = {
 				]
 			},
 			{
-				name: 'Sublety',
+				name: 'Subtlety',
 				data: [
 					[0, 1, 1, 0],
 					[1, 1, 1, 0],
