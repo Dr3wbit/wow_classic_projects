@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-xl-9 consume-container">
                 <div class="row">
-                    <form class="consume-form col" onsubmit="getMaterials()">
+                    <form id="consume-form" class="consume-form col">
                         <div class="consumePrompt">~Select Your Class~</div>
                     </form>
                 </div>
@@ -83,5 +83,23 @@
         </div>
     </div>
 </body>
+
+<script id="consume-block-template" type="text/x-handlebars-template">
+    {{#each professions as |profession|}}
+    <div>{{name}}</div>
+        {{#each data}}
+        <div class="consume-block">
+            <div class="icon-container">
+                <img class="consume-img" src="assets/images/icon_border_2.png" style="background-image: url(assets/images/consumes/{{img}})">
+                <div class="consume-tooltip tooltip-hidden">{{effect}}</div>
+            </div>
+            <div class="consume-title">{{name}}
+                <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" maxlength="3" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </div>
+
+        </div>
+        {{/each}}
+    {{/each}}
+</script>
 
 </html>
