@@ -75,7 +75,7 @@
 
 
 .information-block {
-    border-bottom: 10px dotted rgba(15, 17, 21, 0.7);
+    border-bottom: 10px solid rgba(15, 17, 21, 0.7);
     margin-top: 0px;
     margin-bottom: 20px;
     padding-bottom: 20px;
@@ -116,10 +116,10 @@
 .nav-is-sticky {
     background-color: black;
     border-bottom: 3px solid #ff3604;
+    top: 70px
 }
 
 .content-selection-container {
-    padding-top: 8%;
     text-align: left;
 }
 
