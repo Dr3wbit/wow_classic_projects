@@ -130,25 +130,36 @@ function populateConsumeBlocks(data) {
 // }
 
 function getMaterials(e, data) {
-    // const profession = data.find((a) => {
-    //     return a.name == targetProfession
-    // })
-    // const item = profession.data.find((a) => {
-    //     return a.name == targetItem
-    // })
-    // console.log(material.materials)
-    // console.log(inputValue)
-    // console.log(materialArray)
+    const targetProfession = e.target.attributes.category.value
+    const targetItem = e.target.name
+    const inputValue = e.target.value
+    const profession = data.find((a) => {
+        return a.name == targetProfession
+    })
+    const item = profession.data.find((a) => {
+        return a.name == targetItem
+    })
 
-    materialArray = []
-    console.log(data)
-    const formValues = $('.consume-input')
-    console.log(formValues)
-    for (let i = 0; i < formValues.length; i++) {
-        const name = formValues[i].attributes.name.value
-    const materials = data[name]
-    console.log(materials)
-}
+    let materialsToAppend = []
+    Object.keys(item.materials).map(key => {
+        materialsToAppend.push({[key] : item.materials[key]*inputValue})
+    });
+    console.log({[item.name] : materialsToAppend})
+
+
+
+
+
+
+
+//     materialArray = []
+//     console.log(data)
+//     const formValues = $('.consume-input')
+//     console.log(formValues)
+//     for (let i = 0; i < formValues.length; i++) {
+//         const name = formValues[i].attributes.name.value
+//     const materials = findMaterials(name, data)
+// }
 
     //     const consumeMaterials = data[dataKeys[i]].materials
     //     const materialKeys = Object.getOwnPropertyNames(consumeMaterials);
@@ -162,6 +173,9 @@ function getMaterials(e, data) {
 
 }
 
+function findMaterials(name, data){
+    
+}
 
 
 
