@@ -2,13 +2,13 @@ const talentData = {
     classes: [
         {
             name: 'warlock',
-            tree_talents: [{
+            tree_talents: [
+{
                 name: 'Affliction',
                 talents: [{
                     name: "Suppression",
                     image: "suppression.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Reduces the chance for enemies to resist your Affliction spells by 2%.', 'Reduces the chance for enemies to resist your Affliction spells by 4%.', 'Reduces the chance for enemies to resist your Affliction spells by 6%.', 'Reduces the chance for enemies to resist your Affliction spells by 8%.', 'Reduces the chance for enemies to resist your Affliction spells by 10%.'],
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 0
@@ -16,8 +16,7 @@ const talentData = {
                 {
                     name: "Improved Corruption",
                     image: "improved_corruption.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Reduces the casting time of your Corruption spell by 0.4 sec.', 'Reduces the casting time of your Corruption spell by 0.8 sec.', 'Reduces the casting time of your Corruption spell by 1.2 sec.', 'Reduces the casting time of your Corruption spell by 1.6 sec.', 'Reduces the casting time of your Corruption spell by 2 sec.'],
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 0
@@ -25,8 +24,7 @@ const talentData = {
                 {
                     name: "Improved Curse of Weakness",
                     image: "improved_curse_of_weakness.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Increases the effect of your Curse of Weakness by 6%.', 'Increases the effect of your Curse of Weakness by 13%.', 'Increases the effect of your Curse of Weakness by 20%.'],
                     invested: 0,
                     maxRank: 3,
                     requiredTalentPoints: 5
@@ -34,8 +32,7 @@ const talentData = {
                 {
                     name: "Improved Drain Soul",
                     image: "improved_drain_soul.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Gives you a 50% chance to get a 100% increase to your Mana regeneration for 10 sec if the target is killed by you while you drain its soul.  In addition your Mana may continue to regenerate while casting at 50% of normal.', 'Gives you a 100% chance to get a 100% increase to your Mana regeneration for 10 sec if the target is killed by you while you drain its soul.  In addition your Mana may continue to regenerate while casting at 50% of normal.'],
                     invested: 0,
                     maxRank: 2,
                     requiredTalentPoints: 5
@@ -43,8 +40,7 @@ const talentData = {
                 {
                     name: "Improved Life Tap",
                     image: "improved_life_tap.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Increases the amount of Mana awarded by your Life Tap spell by 10%.', 'Increases the amount of Mana awarded by your Life Tap spell by 20%.'],
                     invested: 0,
                     maxRank: 2,
                     requiredTalentPoints: 5
@@ -52,8 +48,7 @@ const talentData = {
                 {
                     name: "Improved Drain Life",
                     image: "improved_drain_life.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Increases the Health drained by your Drain Life spell by 2%.', 'Increases the Health drained by your Drain Life spell by 4%.', 'Increases the Health drained by your Drain Life spell by 6%.', 'Increases the Health drained by your Drain Life spell by 8%.', 'Increases the Health drained by your Drain Life spell by 10%.'],
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 5
@@ -61,8 +56,7 @@ const talentData = {
                 {
                     name: "Improved Curse of Agony",
                     image: "improved_curse_of_agony.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Increases the damage done by your Curse of Agony by 2%.', 'Increases the damage done by your Curse of Agony by 4%.', 'Increases the damage done by your Curse of Agony by 6%.'],
                     invested: 0,
                     maxRank: 3,
                     requiredTalentPoints: 10
@@ -70,8 +64,7 @@ const talentData = {
                 {
                     name: "Fel Concentration",
                     image: "fel_concentration.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Gives you a 14% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.', 'Gives you a 28% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.', 'Gives you a 42% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.', 'Gives you a 56% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.', 'Gives you a 70% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.'],
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 10
@@ -79,18 +72,16 @@ const talentData = {
                 {
                     name: "Amplify Curse",
                     image: "amplify_curse.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Increases the effect of your next Curse of Weakness or Curse of Agony by 50%, or your next Curse of Exhaustion by 20%.  Lasts 30 sec.'],
                     invested: 0,
                     maxRank: 1,
                     requiredTalentPoints: 10,
-                    unlocks: "curse_of_exhaustion"
+                    unlocks: "Curse of Exhaustion"
                 },
                 {
                     name: "Grim Reach",
                     image: "grim_reach.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Increases the range of your Affliction spells by 10%.', 'Increases the range of your Affliction spells by 20%.'],
                     invested: 0,
                     maxRank: 2,
                     requiredTalentPoints: 15
@@ -98,8 +89,7 @@ const talentData = {
                 {
                     name: "Nightfall",
                     image: "nightfall.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Gives your Corruption and Drain Life spells a 2% chance to cause you to enter a Shadow Trance state after damaging the opponent.  The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%.', 'Gives your Corruption and Drain Life spells a 4% chance to cause you to enter a Shadow Trance state after damaging the opponent.  The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%.'],
                     invested: 0,
                     maxRank: 2,
                     requiredTalentPoints: 15
@@ -107,8 +97,7 @@ const talentData = {
                 {
                     name: "Improved Drain Mana",
                     image: "improved_drain_mana.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Causes 15% of the Mana drained by your Drain Mana spell to damage the opponent.', 'Causes 30% of the Mana drained by your Drain Mana spell to damage the opponent.'],
                     invested: 0,
                     maxRank: 2,
                     requiredTalentPoints: 15
@@ -116,30 +105,27 @@ const talentData = {
                 {
                     name: "Siphon Life",
                     image: "siphon_life.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Transfers 15 health from the target to the caster every 3 sec.  Lasts 30 sec.'],
                     invested: 0,
                     maxRank: 1,
                     requiredTalentPoints: 20,
-                    unlocks: "shadow_mastery"
+                    unlocks: "Shadow Mastery"
                 },
                 {
                     name: "Curse of Exhaustion",
                     image: "curse_of_exhaustion.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ["Reduces the target's movement speed by 10% for 12 sec.  Only one Curse per Warlock can be active on any one target."],
                     invested: 0,
                     maxRank: 1,
                     requiredTalentPoints: 20,
                     locked: "locked",
                     prereq: "amplify_curse",
-                    unlocks: "improved_curse_of_exhaustion"
+                    unlocks: "Improved Curse of Exhaustion"
                 },
                 {
                     name: "Improved Curse of Exhaustion",
                     image: "curse_of_exhaustion.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Increases the speed reduction of your Curse of Exhaustion by 5%.', 'Increases the speed reduction of your Curse of Exhaustion by 10%.', 'Increases the speed reduction of your Curse of Exhaustion by 15%.', 'Increases the speed reduction of your Curse of Exhaustion by 20%.'],
                     invested: 0,
                     maxRank: 4,
                     requiredTalentPoints: 20,
@@ -149,8 +135,7 @@ const talentData = {
                 {
                     name: "Shadow Mastery",
                     image: "shadow_mastery.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ['Increases the damage dealt or life drained by your Shadow spells by 2%.', 'Increases the damage dealt or life drained by your Shadow spells by 4%.', 'Increases the damage dealt or life drained by your Shadow spells by 6%.', 'Increases the damage dealt or life drained by your Shadow spells by 8%.', 'Increases the damage dealt or life drained by your Shadow spells by 10%.'],
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 25,
@@ -159,8 +144,7 @@ const talentData = {
                 {
                     name: "Dark Pact",
                     image: "dark_pact.jpg",
-                    description:
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+                    description: ["Drains 150 of your pet's Mana, returning 100% to you."],
                     invested: 0,
                     maxRank: 5,
                     requiredTalentPoints: 30
