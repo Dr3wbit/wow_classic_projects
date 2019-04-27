@@ -7,8 +7,10 @@ function initializeApp() {
 	populateData(context.classes[0]);
 	//sticky nav color change
 	$(window).scroll(() => {
-		if ($(document).scrollTop() > 150) {
+		if ($(document).scrollTop() > 88.2) {
 			$('.class-selection').addClass('nav-is-sticky');
+			$('.content-selection-container').css('top', '130px')
+
 		} else {
 			$('.class-selection').removeClass('nav-is-sticky');
 		}
@@ -26,7 +28,7 @@ function applyClickHandlers() {
 			const selectedClass = context.classes.find(function(a) {
 				return a.name == clickedID;
 			});
-			$(window).scrollTop(160);
+			$(window).scrollTop(120);
 			populateData(selectedClass);
 		},
 	})
