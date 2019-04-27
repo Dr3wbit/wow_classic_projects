@@ -1,6 +1,5 @@
-
+let selectedData = {}
 let materialArray = []
-let selectedData = null
 
 $(document).ready(initializeApp)
 
@@ -9,10 +8,9 @@ function initializeApp() {
         e.preventDefault();
     });
     applyClickHandlers();
-    $(".consume-form").on('keyup', () => {
-        $('.consume-form').submit()
+    $(".consume-form").on('keyup', (e) => {
+        $('.consume-form').submit(getMaterials(e, selectedData))
     })
-    //TODO create function to pull default data
 }
 
 function applyClickHandlers() {
@@ -22,9 +20,16 @@ function applyClickHandlers() {
             const clickedFilter = $(e.target)
             clickedFilter.addClass('selected')
             const clickedID = clickedFilter[0].id
-            selectedData = { ...consumes[clickedID], ...consumes['all'] }
+            const defaultData = consumes.find((a) => {
+                return a.name == "all"
+            })
+            const classData = consumes.find((a) => {
+                return a.name == clickedID;
+            })
+            const fullData = combineData(defaultData.data, classData.data)
+            selectedData = fullData
             clearForm()
-            getData()
+            populateConsumeBlocks({ professions: fullData })
         },
     })
 }
@@ -33,85 +38,138 @@ function clearForm() {
     $('.consume-form').empty()
 }
 
-
-function getData() {
-    const dataObject = selectedData
-    const dataKeys = Object.keys(dataObject)
-    const consumeData = createConsumeBlocks(dataObject, dataKeys)
-    $('.consume-form').append(consumeData)
+function combineData(defaultData, classData) {
+    let combinedData = []
+    defaultData.map((item, index) => {
+        combinedData.push({ name: item.name, data: item.data.concat(classData[index].data) })
+    })
+    const cleanedData = removeEmptyCategory(combinedData)
+    return cleanedData
 }
 
-function createConsumeBlocks(dataObject, dataKeys) {
-    let consumeBlock = null
-    let consumesToAppend = []
-    for (let i = 0; i < dataKeys.length; i++) {
-        consumeBlock = $('<div/>', {
-            class: 'consume-block',
-        }).append(
-            iconContainer = $('<div/>', {
-                class: 'icon-container'
-            }).on({ 
-                mouseenter: (e) =>{
-                    $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
-                    },
-               mouseleave: (e) =>{
-                    $(e.currentTarget.children[1]).addClass('tooltip-hidden')
-                    }
-            })
-            .append(
-                consumeImg = $('<img/>', {
-                    class: 'consume-img',
-                    src: 'assets/images/icon_border_2.png',
-                }).css("background-image", 'url(assets/images/consumes/'+ dataObject[dataKeys[i]].img +')')
-            )
-            .append(
-                tooltip = $('<div/>', {
-                    class: 'consume-tooltip tooltip-hidden',
-                    text: dataObject[dataKeys[i]].effect
-                }),
-            ),
-            consumeName = $('<div/>', {
-                class: 'consume-title',
-                text: dataObject[dataKeys[i]].name
-            }).append(
-                consumeInput = $('<input/>', {
-                    class: 'consume-input',
-                    name: dataKeys[i],
-                    type: 'number',
-                    placeholder: 'Amount',
-                    maxLength: 3,
-                    oninput: "if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                }),
-            )
-        )
-        consumesToAppend.push(consumeBlock)
-    }
-    return consumesToAppend
-}
-
-function getMaterials() {
-    materialArray = []
-    const dataObject = selectedData
-    const dataKeys = Object.keys(dataObject)
-    const formValues = $('.consume-input')
-    for (let i = 0; i < formValues.length; i++) {
-        const consumeMaterials = dataObject[dataKeys[i]].materials
-        const materialKeys = Object.getOwnPropertyNames(consumeMaterials);
-        for (let j = 0; j < materialKeys.length; j++) {
-            const materialAmmount = dataObject[dataKeys[i]].materials[materialKeys[j]] * formValues[i].value
-            for (let x = 0; x < materialAmmount; x++) {
-                materialArray.push(materialKeys[j])
-            }
+function removeEmptyCategory(dataToClean) {
+    let refinedData = []
+    dataToClean.map((item) => {
+        if (item.data.length > 0) {
+            refinedData.push(item)
         }
-    }
-    calculateData();
+    })
+    return refinedData
 }
+
+function populateConsumeBlocks(data) {
+    console.log(data)
+
+    //Retrieve the template data from the HTML .
+    let template = $('#consume-block-template').html();
+    //Compile the template data into a function
+    let templateScript = Handlebars.compile(template);
+
+    let consume_html = templateScript(data);
+    $('#consume-form').html(consume_html);
+
+
+
+
+}
+
+
+// function getData() {
+//     const dataObject = selectedData
+//     const dataKeys = Object.keys(dataObject)
+//     const consumeData = createConsumeBlocks(dataObject, dataKeys)
+//     $('.consume-form').append(consumeData)
+// }
+
+// function createConsumeBlocks(dataObject, dataKeys) {
+//     let consumeBlock = null
+//     let consumesToAppend = []
+//     for (let i = 0; i < dataKeys.length; i++) {
+//         consumeBlock = $('<div/>', {
+//             class: 'consume-block',
+//         }).append(
+//             iconContainer = $('<div/>', {
+//                 class: 'icon-container'
+//             }).on({ 
+//                 mouseenter: (e) =>{
+//                     $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
+//                     },
+//                mouseleave: (e) =>{
+//                     $(e.currentTarget.children[1]).addClass('tooltip-hidden')
+//                     }
+//             })
+//             .append(
+//                 consumeImg = $('<img/>', {
+//                     class: 'consume-img',
+//                     src: 'assets/images/icon_border_2.png',
+//                 }).css("background-image", 'url(assets/images/consumes/'+ dataObject[dataKeys[i]].img +')')
+//             )
+//             .append(
+//                 tooltip = $('<div/>', {
+//                     class: 'consume-tooltip tooltip-hidden',
+//                     text: dataObject[dataKeys[i]].effect
+//                 }),
+//             ),
+//             consumeName = $('<div/>', {
+//                 class: 'consume-title',
+//                 text: dataObject[dataKeys[i]].name
+//             }).append(
+//                 consumeInput = $('<input/>', {
+//                     class: 'consume-input',
+//                     name: dataKeys[i],
+//                     type: 'number',
+//                     placeholder: 'Amount',
+//                     maxLength: 3,
+//                     oninput: "if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+//                 }),
+//             )
+//         )
+//         consumesToAppend.push(consumeBlock)
+//     }
+//     return consumesToAppend
+// }
+
+function getMaterials(e, data) {
+    // const profession = data.find((a) => {
+    //     return a.name == targetProfession
+    // })
+    // const item = profession.data.find((a) => {
+    //     return a.name == targetItem
+    // })
+    // console.log(material.materials)
+    // console.log(inputValue)
+    // console.log(materialArray)
+
+    materialArray = []
+    console.log(data)
+    const formValues = $('.consume-input')
+    console.log(formValues)
+    for (let i = 0; i < formValues.length; i++) {
+        const name = formValues[i].attributes.name.value
+    const materials = data[name]
+    console.log(materials)
+}
+
+    //     const consumeMaterials = data[dataKeys[i]].materials
+    //     const materialKeys = Object.getOwnPropertyNames(consumeMaterials);
+    //     for (let j = 0; j < materialKeys.length; j++) {
+    //         const materialAmmount = dataObject[dataKeys[i]].materials[materialKeys[j]] * formValues[i].value
+    //         for (let x = 0; x < materialAmmount; x++) {
+    //             materialArray.push(materialKeys[j])
+    //         }
+    //     }
+
+
+}
+
+
+
 
 function calculateData() {
     $('.results').empty()
     let materialsToAppend = []
     let counts = {};
-    materialArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+    materialArray.forEach((x)=>{ counts[x] = (counts[x] || 0) + 1; });
     let material = Object.keys(counts)
     for (let i = 0; i < material.length; i++) {
         let totalMaterialCount = $('<div/>', {
