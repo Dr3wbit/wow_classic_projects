@@ -83,7 +83,7 @@ const talentData = {
                     image: "fel_concentration.jpg",
                     x: 14,
                     invested: 0,
-                    y: function() {return (this.invested*this.x) + this.x},
+                    y: function() {return this.invested*this.x},
                     description: ['Gives you a 14% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.', 'Gives you a 28% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.', 'Gives you a 42% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.', 'Gives you a 56% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.', 'Gives you a 70% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.'],
                     maxRank: 5,
                     requiredTalentPoints: 10
@@ -148,7 +148,7 @@ const talentData = {
                 {
                     name: "Improved Curse of Exhaustion",
                     image: "curse_of_exhaustion.jpg",
-                    x: 15,
+                    x: 5,
                     description: ['Increases the speed reduction of your Curse of Exhaustion by 5%.', 'Increases the speed reduction of your Curse of Exhaustion by 10%.', 'Increases the speed reduction of your Curse of Exhaustion by 15%.', 'Increases the speed reduction of your Curse of Exhaustion by 20%.'],
                     invested: 0,
                     maxRank: 4,
