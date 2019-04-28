@@ -169,6 +169,8 @@ function talentHandler(classData) {
 		mouseenter: e => {
 			const targetTalent = $(e.target)
 
+
+
 			const name = targetTalent.attr('name')
             const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
 
@@ -179,8 +181,35 @@ function talentHandler(classData) {
             const k = targetTalent.attr('data-k')
 
             const talent = found.data[j][k]
+            const testobj = Object.assign({}, talent)
 
-            console.log(talent.description())
+            let description
+            let next_rank = true
+
+            if (talent.invested == 0)
+            {
+                testobj.invested++
+                description = testobj.description()
+            }
+
+            if (talent.maxRank == 1)
+            {
+                next_rank = false
+                testobj.invested = testobj.maxRank
+                description = testobj.description()
+            }
+
+            if (talent.invested == talent.maxRank) {
+                next_rank = false
+                description = testobj.description()
+            }
+
+            if (talent.maxRank > 1 && talent.invested > 0 && next_rank) {
+                testobj.invested++
+                description = talent.description() + "\nNext Rank:\n" + testobj.description()
+            }
+
+            console.log("description: ", description)
 
 			// console.log("mouse entered, talent.name: ", talent.name)
 			// tooltip should display:
