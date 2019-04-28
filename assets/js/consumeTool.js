@@ -9,7 +9,7 @@ function initializeApp() {
     });
     applyClickHandlers();
     $(".consume-form").on('keyup', (e) => {
-        $('.consume-form').submit(getMaterials(e, selectedData))
+        $('.consume-form').submit(getMaterials(selectedData))
     })
 }
 
@@ -30,6 +30,14 @@ function applyClickHandlers() {
             selectedData = fullData
             clearForm()
             populateConsumeBlocks({ professions: fullData })
+            $('.icon-container').on({
+                mouseenter: (e) => {
+                    $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
+                },
+                mouseleave: (e) => {
+                    $(e.currentTarget.children[1]).addClass('tooltip-hidden')
+                }
+            })
         },
     })
 }
@@ -58,139 +66,91 @@ function removeEmptyCategory(dataToClean) {
 }
 
 function populateConsumeBlocks(data) {
-    console.log(data)
-
-    //Retrieve the template data from the HTML .
     let template = $('#consume-block-template').html();
-    //Compile the template data into a function
     let templateScript = Handlebars.compile(template);
-
     let consume_html = templateScript(data);
     $('#consume-form').html(consume_html);
-
-
-
-
 }
 
+function getMaterials(data) {
+    let materials = []
+    const formValues = $('.consume-input')
+    formValues.map((item) => {
+        const name = formValues[item].attributes.name.value
+        const category = formValues[item].attributes.category.value
+        const inputValue = formValues[item].value
+        materials.push(findMaterials(name, category, data, inputValue))
+    })
+    appendMaterials(materials)
+}
 
-// function getData() {
-//     const dataObject = selectedData
-//     const dataKeys = Object.keys(dataObject)
-//     const consumeData = createConsumeBlocks(dataObject, dataKeys)
-//     $('.consume-form').append(consumeData)
-// }
-
-// function createConsumeBlocks(dataObject, dataKeys) {
-//     let consumeBlock = null
-//     let consumesToAppend = []
-//     for (let i = 0; i < dataKeys.length; i++) {
-//         consumeBlock = $('<div/>', {
-//             class: 'consume-block',
-//         }).append(
-//             iconContainer = $('<div/>', {
-//                 class: 'icon-container'
-//             }).on({ 
-//                 mouseenter: (e) =>{
-//                     $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
-//                     },
-//                mouseleave: (e) =>{
-//                     $(e.currentTarget.children[1]).addClass('tooltip-hidden')
-//                     }
-//             })
-//             .append(
-//                 consumeImg = $('<img/>', {
-//                     class: 'consume-img',
-//                     src: 'assets/images/icon_border_2.png',
-//                 }).css("background-image", 'url(assets/images/consumes/'+ dataObject[dataKeys[i]].img +')')
-//             )
-//             .append(
-//                 tooltip = $('<div/>', {
-//                     class: 'consume-tooltip tooltip-hidden',
-//                     text: dataObject[dataKeys[i]].effect
-//                 }),
-//             ),
-//             consumeName = $('<div/>', {
-//                 class: 'consume-title',
-//                 text: dataObject[dataKeys[i]].name
-//             }).append(
-//                 consumeInput = $('<input/>', {
-//                     class: 'consume-input',
-//                     name: dataKeys[i],
-//                     type: 'number',
-//                     placeholder: 'Amount',
-//                     maxLength: 3,
-//                     oninput: "if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-//                 }),
-//             )
-//         )
-//         consumesToAppend.push(consumeBlock)
-//     }
-//     return consumesToAppend
-// }
-
-function getMaterials(e, data) {
-    const targetProfession = e.target.attributes.category.value
-    const targetItem = e.target.name
-    const inputValue = e.target.value
+function findMaterials(name, category, data, inputValue) {
     const profession = data.find((a) => {
-        return a.name == targetProfession
+        return a.name == category
     })
     const item = profession.data.find((a) => {
-        return a.name == targetItem
+        return a.name == name
     })
-
     let materialsToAppend = []
     Object.keys(item.materials).map(key => {
-        materialsToAppend.push({[key] : item.materials[key]*inputValue})
+        materialsToAppend.push({ [key]: item.materials[key] * inputValue })
     });
-    console.log({[item.name] : materialsToAppend})
-
-
-
-
-
-
-
-//     materialArray = []
-//     console.log(data)
-//     const formValues = $('.consume-input')
-//     console.log(formValues)
-//     for (let i = 0; i < formValues.length; i++) {
-//         const name = formValues[i].attributes.name.value
-//     const materials = findMaterials(name, data)
-// }
-
-    //     const consumeMaterials = data[dataKeys[i]].materials
-    //     const materialKeys = Object.getOwnPropertyNames(consumeMaterials);
-    //     for (let j = 0; j < materialKeys.length; j++) {
-    //         const materialAmmount = dataObject[dataKeys[i]].materials[materialKeys[j]] * formValues[i].value
-    //         for (let x = 0; x < materialAmmount; x++) {
-    //             materialArray.push(materialKeys[j])
-    //         }
-    //     }
-
-
+    return { name : [item.name], materials: materialsToAppend, amount: inputValue}
 }
 
-function findMaterials(name, data){
-    
-}
-
-
-
-function calculateData() {
+function appendMaterials(materials) {
     $('.results').empty()
+    let totalMaterialCount = []
+    materials.forEach((item)=>{
+        let resultConsume = $('<div/>', {
+            class: 'result-consume',
+            text: item.name +' : '+item.amount
+        })
+        let materialsToAppend = []
+        for (let mats in item.materials){
+            key = Object.keys(item.materials[mats])
+            let resultMaterials = $('<div/>', {
+                class: 'total-materials',
+                text: key.toString().replace(/_/g, " ") +": "+ Object.values(item.materials[mats])
+            })
+            if(Object.values(item.materials[mats]) > 0){
+                materialsToAppend.push(resultMaterials)
+                totalMaterialCount.push(item.materials[mats])
+            }
+        }
+        if (materialsToAppend.length > 0){
+            resultConsume.append(materialsToAppend)
+            $('.results').append(resultConsume)
+        }
+    })
+    calculateTotals(totalMaterialCount)
+}
+
+function calculateTotals(materialTotals) {
+    let materialsTotalsToAppend = []
+    materialTotals.forEach((material)=>{
+        let key = Object.keys(material)
+        let value = Object.values(material)
+        for (let i = 0; i < value; i++){
+            materialsTotalsToAppend.push(key)
+        }
+    })
     let materialsToAppend = []
     let counts = {};
-    materialArray.forEach((x)=>{ counts[x] = (counts[x] || 0) + 1; });
+    materialsTotalsToAppend.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
     let material = Object.keys(counts)
+    let totalTitle = $('<div/>', {
+        class: 'totalTitle',
+        text: "Totals"
+    })
     for (let i = 0; i < material.length; i++) {
         let totalMaterialCount = $('<div/>', {
             class: 'total-materials',
             text: material[i].replace(/_/g, " ") + ": " + counts[material[i]]
         })
         materialsToAppend.push(totalMaterialCount)
+        totalTitle.append(totalMaterialCount)
     }
-    $('.results').append(materialsToAppend)
+    $('.results').append(totalTitle)
 }
+
