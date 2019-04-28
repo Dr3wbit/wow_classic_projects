@@ -44,6 +44,7 @@ function applyClickHandlers() {
 
 function clearForm() {
     $('.consume-form').empty()
+    $('.results').empty()
 }
 
 function combineData(defaultData, classData) {
