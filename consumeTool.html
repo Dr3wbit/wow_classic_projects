@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="col-3 d-none d-xl-block total-container">
-                <div class="totalTitle">Totals</div>
+                <div class="totalTitle">Materials</div>
                 <div class="results"></div>
             </div>
         </div>
@@ -86,7 +86,8 @@
 
 <script id="consume-block-template" type="text/x-handlebars-template">
     {{#each professions as |profession|}}
-    <div>{{name}}</div>
+    <div class="category-container" name="{{name}}">
+        <div class="category-title" name="{{name}}">{{name}}</div>
         {{#each data}}
         <div class="consume-block">
             <div class="icon-container">
@@ -94,11 +95,11 @@
                 <div class="consume-tooltip tooltip-hidden">{{effect}}</div>
             </div>
             <div class="consume-title">{{name}}
-                <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" maxlength="3" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" type="number" maxlength="3" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" onkeydown="return event.keyCode !== 69">
             </div>
-
         </div>
         {{/each}}
+    </div>
     {{/each}}
 </script>
 
