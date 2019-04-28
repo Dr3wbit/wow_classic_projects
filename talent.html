@@ -35,6 +35,9 @@
     <!-- Nav Bar -->
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/templatesCompiled.js"></script>
+    <script src="assets/js/talentData.js"></script>
+    <script src="assets/js/talentTableData.js"></script>
+
     <script src="assets/js/talent.js"></script>
 </head>
 
@@ -44,6 +47,7 @@
         <div class="page-title">Talent Calculator</div>
     </div>
     <div class="container mainBody">
+
         <div class="row class-selection" id="class_selection">
             <div class="class-filter class-icon" id="warrior">Warrior</div>
             <div class="class-filter class-icon" id="mage">Mage</div>
@@ -69,15 +73,15 @@
 </body>
 <script id="handlebars-demo2" type="text/x-handlebars-template">
     {{#each trees as |tree treeKey|}}
-    <div class="talentTable" style="background-image: url('assets/images/talent_spells/{{className}}/{{lower tree.name}}/{{lower tree.name}}_background.jpg}');">
+    <div class="talentTable" style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{sanitize tree.name}}_background.jpg');">
         <div class="treeTitle col">{{tree.name}}
         {{#each data}}
         <div class="row">
             {{#each this}}
             {{#if this}}
             <div class="talent {{locked}}"
-                style="background-image: url('assets/images/talent_spells/{{className}}/{{lower tree.name}}/{{image}}');"
-                name="{{name}}"
+                style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
+                name="{{name}}" data-j={{j}} data-k={{k}}
                 data-maxrank={{maxRank}} data-unlocks="{{unlocks}}"
                 data-requiredtalentpoints={{requiredTalentPoints}}>
                 <div class="spentPoints">0</div>
@@ -93,12 +97,10 @@
         <div class="spentPoints">0</div>
     </div>
 </div>
-
     {{/each}}
 </script>
 
-<script src="assets/js/talentData.js"></script>
-<script src="assets/js/talentTableData.js"></script>
 <script src="assets/js/helpers.js"></script>
+<div id="tooltip"></div>
 
 </html>
