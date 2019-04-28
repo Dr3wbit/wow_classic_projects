@@ -4,10 +4,10 @@ body {
     height: 100vh;
     text-align: center;
     font-size: 12px;
-    background-image: url("../images/tileable_texture_grey.jpg");
+    background-image: url("../images/tileable_texture_light.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
-    font-family: Quattro, OpenSans, Arial, Helvetica, sans-serif;
+    font-family: OpenSans, Arial, Helvetica, sans-serif;
 }
 
 .footer {
@@ -117,6 +117,7 @@ body {
 
 .class-selection {
     justify-content: center;
+    font-size: 14px
     
     /* padding-left: 35%; */
 }
@@ -215,9 +216,9 @@ body {
    }
 
 .nav-link {
-    font-size: 130%;
+    font-size: 16px;
     color: azure !important;
-    font-family: Quattro, OpenSans, Arial, Helvetica, sans-serif;
+    font-family: OpenSans, Arial, Helvetica, sans-serif;
     -webkit-transition: background .3s ease-in-out;
        -moz-transition: background .3s ease-in-out;
             transition: background .3s ease-in-out;
@@ -228,7 +229,6 @@ body {
     outline: none;
     background-color: transparent;
     color: #ff3604 !important;
-    font-family: Quattro, OpenSans, Arial, Helvetica, sans-serif;
 
     /* color: #030001e1 !important; */
     /* background-color: azure;
@@ -237,7 +237,7 @@ body {
    }
 
 .page-title {
-    font-family: Quattro, OpenSans, Arial, Helvetica, sans-serif;
+    font-family: OpenSans, Arial, Helvetica, sans-serif;
     font-size: 300%;
     color: azure;
     padding-top: 60px;
