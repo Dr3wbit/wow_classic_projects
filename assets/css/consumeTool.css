@@ -30,7 +30,7 @@ input:focus {
 
 .consume-block {
     display: inline-block;
-    background-color: #100007;
+    background-color: rgba(0, 0, 0, 0.89);
     border: 1px solid azure;
     padding: 5px;
     margin: 5px;
@@ -55,7 +55,7 @@ input:focus {
     text-overflow: ellipsis;
     margin-left: 5px;
     margin-right: 1px;
-    width: 180px;
+    width: 195px;
 }
 
 .selected {
@@ -94,7 +94,7 @@ input:focus {
     position: absolute;
     left: 40px;
     bottom: 40px;
-    background-color: #100007;
+    background-color: rgba(0, 0, 0, 0.89);
     color: #1EFF00;
     pointer-events: none;
     border: 1px solid azure;
