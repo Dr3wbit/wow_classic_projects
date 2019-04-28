@@ -1,10 +1,10 @@
 
 const navBarData = {
     links: [
-        { text: 'Enchant Tool', href: "enchantTool.html" },
-        { text: 'Consumable Tool', href: "consumeTool.html" },
         { text: 'Specs & Guides', href: "specsAndGuides.html" },
         { text: 'Talent Calculator', href: "talent.html" },
+        { text: 'Consumable Tool', href: "consumeTool.html" },
+        { text: 'Enchant Tool', href: "enchantTool.html" },
         { text: 'About', href: "about.html" }
     ]
 }
