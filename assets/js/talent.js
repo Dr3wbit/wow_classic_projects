@@ -170,23 +170,17 @@ function talentHandler(classData) {
 			const targetTalent = $(e.target)
 
 			const name = targetTalent.attr('name')
+            const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
 
-			targetTalent.attr('title', `${name}`)
+            const found = classData.trees.find(function(x) { //
+                return x.name == tree
+            })
+            const j = targetTalent.attr('data-j')
+            const k = targetTalent.attr('data-k')
 
+            const talent = found.data[j][k]
 
-			const tooltip = $('#tooltip')
-			tooltip.attr('title', "a title")
-			tooltip.css({ top : targetTalent.offset().top + 10 + 'px' });
-			tooltip.html("<p> testing </p>")
-			// tooltip.fadein("fast")
-
-
-			// $(".tooltip").text()
-			// const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
-			// // testObj.tree
-			// const found = classData.trees.find(function(x) {
-  			// 	return x.name === tree
-			// })
+            console.log(talent.description())
 
 			// console.log("mouse entered, talent.name: ", talent.name)
 			// tooltip should display:
