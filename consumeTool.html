@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ony Buff</title>
-    <link rel="icon" type="image/png" href="assets/images/OnyBuff.png" />
+    <link rel="icon" type="image/png" href="assets/images/onybuff_icon.png" />
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -58,13 +58,13 @@
         <div class="row">
             <div class="col-xl-9 consume-container">
                 <div class="row">
-                    <form class="consume-form col" onsubmit="getMaterials()">
+                    <form id="consume-form" class="consume-form col">
                         <div class="consumePrompt">~Select Your Class~</div>
                     </form>
                 </div>
             </div>
             <div class="col-3 d-none d-xl-block total-container">
-                <div class="totalTitle">Totals</div>
+                <div class="totalTitle">Materials</div>
                 <div class="results"></div>
             </div>
         </div>
@@ -83,5 +83,24 @@
         </div>
     </div>
 </body>
+
+<script id="consume-block-template" type="text/x-handlebars-template">
+    {{#each professions as |profession|}}
+    <div class="category-container" name="{{name}}">
+        <div class="category-title" name="{{name}}">{{name}}</div>
+        {{#each data}}
+        <div class="consume-block">
+            <div class="icon-container">
+                <img class="consume-img" src="assets/images/icon_border_2.png" style="background-image: url(assets/images/consumes/{{img}})">
+                <div class="consume-tooltip tooltip-hidden">{{effect}}</div>
+            </div>
+            <div class="consume-title">{{name}}
+                <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" type="number" maxlength="3" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" onkeydown="return event.keyCode !== 69">
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
 
 </html>
