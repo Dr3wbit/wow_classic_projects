@@ -1,0 +1,1391 @@
+const talentData = {
+	classes: [
+		{
+			name: 'warlock',
+			tree_talents: [
+				{
+					name: 'Affliction',
+					talents: [{
+							name: "Suppression",
+							image: "suppression.jpg",
+							x: 2,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Reduces the chance for enemies to resist your Affliction spells by ${this.y()}%.`
+							},
+							maxRank: 5,
+				},
+						{
+							name: "Improved Corruption",
+							image: "improved_corruption.jpg",
+							x: 0.4,
+							y: function() {
+								return parseFloat(this.x * this.invested).toFixed(1)
+							}, // issue: prints 2 as 2.0
+							description: function() {
+								return `Reduces the casting time of your Corruption spell by ${this.y()} sec.`
+							},
+
+							maxRank: 5,
+
+				},
+						{
+							name: "Improved Curse of Weakness",
+							image: "improved_curse_of_weakness.jpg",
+							x: 6.6666666,
+							y: function() {
+								return Math.round(this.x * this.invested - 0.333333)
+							},
+							description: function() {
+								return `Increases the effect of your Curse of Weakness by ${this.y()}%.`
+							},
+							maxRank: 3,
+				},
+						{
+							name: "Improved Drain Soul",
+							image: "improved_drain_soul.jpg",
+							x: 50,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Gives you a ${this.y()}% chance to get a 100% increase to your Mana regeneration for 10 sec if the target is killed by you while you drain its soul.  In addition your Mana may continue to regenerate while casting at 50% of normal.`
+							},
+							maxRank: 2,
+				},
+						{
+							name: "Improved Life Tap",
+							image: "improved_life_tap.jpg",
+							x: 10,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Increases the amount of Mana awarded by your Life Tap spell by ${this.y()}%.`
+							},
+							maxRank: 2,
+				},
+						{
+							name: "Improved Drain Life",
+							image: "improved_drain_life.jpg",
+							x: 2,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Increases the Health drained by your Drain Life spell by ${this.y()}%.`
+							},
+							maxRank: 5,
+				},
+						{
+							name: "Improved Curse of Agony",
+							image: "improved_curse_of_agony.jpg",
+							x: 2,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Increases the damage done by your Curse of Agony by ${this.y()}%.`
+							},
+							maxRank: 3,
+				},
+						{
+							name: "Fel Concentration",
+							image: "fel_concentration.jpg",
+							x: 14,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Gives you a ${this.y()}% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.`
+							},
+							maxRank: 5,
+				},
+						{
+							name: "Amplify Curse",
+							image: "amplify_curse.jpg",
+							description: function() {
+								return `Increases the effect of your next Curse of Weakness or Curse of Agony by 50%, or your next Curse of Exhaustion by 20%.  Lasts 30 sec.`
+							},
+							maxRank: 1,
+							unlocks: "Curse of Exhaustion"
+				},
+						{
+							name: "Grim Reach",
+							image: "grim_reach.jpg",
+							x: 10,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Increases the range of your Affliction spells by ${this.y()}%.`
+							},
+							maxRank: 2,
+				},
+						{
+							name: "Nightfall",
+							image: "nightfall.jpg",
+							x: 2,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Gives your Corruption and Drain Life spells a ${this.y()}% chance to cause you to enter a Shadow Trance state after damaging the opponent.  The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%.`
+							},
+							maxRank: 2,
+				},
+						{
+							name: "Improved Drain Mana",
+							image: "improved_drain_mana.jpg",
+							x: 15,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Causes ${this.y()}% of the Mana drained by your Drain Mana spell to damage the opponent.`
+							},
+							maxRank: 2,
+				},
+						{
+							name: "Siphon Life",
+							image: "siphon_life.jpg",
+							description: function() {
+								return `Transfers 15 health from the target to the caster every 3 sec.  Lasts 30 sec.`
+							},
+							maxRank: 1,
+							unlocks: "Shadow Mastery"
+				},
+						{
+							name: "Curse of Exhaustion",
+							image: "curse_of_exhaustion.jpg",
+							description: function() {
+								return `Reduces the target's movement speed by 10% for 12 sec.  Only one Curse per Warlock can be active on any one target.`
+							},
+							maxRank: 1,
+							locked: "locked",
+							prereq: "amplify_curse",
+							unlocks: "Improved Curse of Exhaustion"
+				},
+						{
+							name: "Improved Curse of Exhaustion",
+							image: "curse_of_exhaustion.jpg",
+							x: 5,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Increases the speed reduction of your Curse of Exhaustion by ${this.y()}%.`
+							},
+							maxRank: 4,
+							prereq: "curse_of_exhaustion",
+							locked: "locked"
+				},
+						{
+							name: "Shadow Mastery",
+							image: "shadow_mastery.jpg",
+							x: 2,
+							y: function() {
+								return this.x * this.invested
+							},
+							description: function() {
+								return `Increases the damage dealt or life drained by your Shadow spells by ${this.y()}%.`
+							},
+							maxRank: 5,
+							locked: "locked"
+				},
+						{
+							name: "Dark Pact",
+							image: "dark_pact.jpg",
+							description: function() {
+								return `Drains 150 of your pet's Mana, returning 100% to you.`
+							},
+							maxRank: 1,
+				}]
+			},
+				{
+					name: 'Demonology',
+					talents: [{
+						name: 'Improved Healthstone',
+						maxRank: 2,
+						x: 2,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the amount of Health restored by your Healthstone by ${this.y()}%.`
+						},
+						image: "improved_healthstone.jpg"
+				}, {
+						name: 'Improved Imp',
+						maxRank: 3,
+						x: 10,
+						description: function() {
+							return `Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by ${this.y()}%.`
+						},
+						image: "improved_imp.jpg"
+				}, {
+						name: 'Demonic Embrace',
+						maxRank: 5,
+						x: [3, 1],
+						y: function() {
+							return [this.x[0] * this.invested, this.x[1] * this.invested]
+						},
+						description: function() {
+							return `Increases your total Stamina by ${this.y()[0]}% but reduces your total Spirit by ${this.y()[1]}%.`
+						},
+						image: "demonic_embrace.jpg"
+				}, {
+						name: 'Improved Health Funnel',
+						maxRank: 2,
+						x: 10,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the amount of Health transferred by your Health Funnel spell by ${this.y()}%.`
+						},
+						description: ['Increases the amount of Health transferred by your Health Funnel spell by 10%.', 'Increases the amount of Health transferred by your Health Funnel spell by 20%.'],
+						image: "demonic_embrace.jpg"
+				}, {
+						name: 'Improved Voidwalker',
+						maxRank: 3,
+						x: 10,
+						description: function() {
+							return `Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice and Suffering spells by ${this.y()}%.`
+						},
+						image: "improved_voidwalker.jpg"
+				}, {
+						name: 'Fel Intellect',
+						maxRank: 5,
+						x: 3,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the maximum Mana of your Imp, Voidwalker, Succubus, and Felhunter by ${this.y()}%.`
+						},
+						image: "fel_intellect.jpg"
+				}, {
+						name: 'Improved Succubus',
+						maxRank: 3,
+						x: 10,
+						description: function() {
+							return `Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by 10%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 10%.`
+						},
+						description: ["Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by 10%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 10%.", "Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by 20%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 20%.", "Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by 30%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 30%."],
+						image: "improved_succubus.jpg"
+				}, {
+						image: "fel_domination.jpg"
+				}, {
+						name: 'Fel Stamina',
+						maxRank: 5,
+						x: 3,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the maximum Health of your Imp, Voidwalker, Succubus, and Felhunter by ${this.y()}%.`
+						},
+						image: "fel_stamina.jpg"
+				}, {
+						name: 'Master Summoner',
+						maxRank: 2,
+						x: [2, 20],
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by 2 sec and the Mana cost by 20%.`
+						},
+						description: ['Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by 2 sec and the Mana cost by 20%.', 'Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by 4 sec and the Mana cost by 40%.'],
+						r: [7, 1],
+						locked: "locked",
+						image: "master_summoner.jpg"
+				}, {
+						name: 'Unholy Power',
+						maxRank: 5,
+						x: 4,
+						description: function() {
+							return `Increases the damage done by your Voidwalker, Succubus, and Felhunter's melee attacks by ${this.y()}%.`
+						},
+						image: "unholy_power.jpg"
+				}, {
+						name: 'Improved Enslave Demon',
+						x: 2,
+						maxRank: 5,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Reduces the Attack Speed and Casting Speed penalty of your Enslave Demon spell by ${this.y()}% and reduces the resist chance by ${this.y()}%.`
+						},
+						image: "improved_enslave_demon.jpg"
+				}, {
+						//NOTE
+						name: 'Demonic Sacrifice',
+						maxRank: 1,
+						description: ['When activated, sacrifices your summoned demon to grant you an effect that lasts 30 min.  The effect is canceled if any Demon is summoned.\n\nImp: Increases your Fire damage by 15%.\n\nVoidwalker: Restores 3% of total Health every 4 sec.\n\nSuccubus: Increases your Shadow damage by 15%.\n\nFelhunter: Restores 2% of total Mana every 4 sec.'],
+						image: "demonic_sacrifice.jpg"
+				}, {
+
+						name: 'Improved Firestone',
+						maxRank: 2,
+						x: 15,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the bonus Fire damage from Firestones and the Firestone effect by ${this.y()}%.`
+						},
+						image: "improved_firestone.jpg"
+				}, {
+						//NOTE
+						name: 'Master Demonologist',
+						maxRank: 5,
+						d: ['Grants both the Warlock and the summoned demon an effect as long as that demon is active.\nImp - Reduces threat caused by 4%.\n\nVoidwalker - Reduces physical damage taken by 2%.\n\nSuccubus - Increases all damage caused by 2%.\n\nFelhunter - Increases all resistances by .2 per level.', 'Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Reduces threat caused by 8%.\n\nVoidwalker - Reduces physical damage taken by 4%.\n\nSuccubus - Increases all damage caused by 4%.\n\nFelhunter - Increases all resistances by .4 per level.', 'Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Reduces threat caused by 12%.\n\nVoidwalker - Reduces physical damage taken by 6%.\n\nSuccubus - Increases all damage caused by 6%.\n\nFelhunter - Increases all resistances by .6 per level.', 'Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Reduces threat caused by 16%.\n\nVoidwalker - Reduces physical damage taken by 8%.\n\nSuccubus - Increases all damage caused by 8%.\n\nFelhunter - Increases all resistances by .8 per level.', 'Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Reduces threat caused by 20%.\n\nVoidwalker - Reduces physical damage taken by 10%.\n\nSuccubus - Increases all damage caused by 10%.\n\nFelhunter - Increases all resistances by 1 per level.'],
+						r: [10, 5],
+						locked: "locked",
+						image: "master_demonologist.jpg"
+				}, {
+						r: [12, 1],
+						locked: "locked",
+						image: "soul_link.jpg"
+				}, {
+						name: 'Improved Spellstone',
+						x: 15,
+						maxRank: 2,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the amount of damage absorbed by your Spellstone by ${this.y()}%.`
+						},
+						image: "improved_spellstone.jpg"
+				}]
+			},
+				{
+					name: 'Destruction',
+					talents: [{
+						name: 'Improved Shadow Bolt',
+						maxRank: 5,
+						x: 4,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Your Shadow Bolt critical strikes increase Shadow damage dealt to the target by ${this.y()}% until 4 non-periodic damage sources are applied.  Effect lasts a maximum of 12 sec.`
+						},
+						image: "improved_shadow_bolt.jpg"
+				}, {
+						name: 'Cataclysm',
+						x: 1,
+						maxRank: 5,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Reduces the Mana cost of your Destruction spells by ${this.y()}%.`
+						},
+						image: "cataclysm.jpg"
+				}, {
+						name: 'Bane',
+						maxRank: 5,
+						x: [0.1, 0.4]
+						y: function() {
+							return [this.x[0] * this.invested, this.x[1] * this.invested]
+						},
+						description: function() {
+							return `Reduces the casting time of your Shadow Bolt and Immolate spells by ${this.y()[0]} sec and your Soul Fire spell by ${this.y()[1]} sec.`
+						},
+						image: "bane.jpg"
+				}, {
+						name: 'Aftermath',
+						maxRank: 5,
+						x: 2,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Gives your Destruction spells a ${this.y()}% chance to daze the target for 5 sec.`
+						},
+						image: "aftermath.jpg"
+				}, {
+						name: 'Improved Firebolt',
+						maxRank: 2,
+						x: 0.5,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Reduces the casting time of your Imp's Firebolt spell by ${this.y()} sec.`
+						},
+						image: "improved_firebolt.jpg"
+				}, {
+						name: 'Improved Lash of Pain',
+						x: 3,
+						maxRank: 2,
+						description: function() {
+							return `Reduces the cooldown of your Succubus' Lash of Pain spell by ${this.y()} sec.`
+						},
+						image: "improved_lash_of_pain.jpg"
+				}, {
+						name: 'Devastation',
+						maxRank: 5,
+						x: 1,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the critical strike chance of your Destruction spells by ${this.y()}%.`
+						},
+						image: "devastation.jpg"
+				}, {
+						image: "shadowburn.jpg"
+				}, {
+						name: 'Intensity',
+						maxRank: 2,
+						x: 35,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Gives you a ${this.y()}% chance to resist interruption caused by damage while channeling the Rain of Fire, Hellfire or Soul Fire spell.`
+						},
+						image: "intensity.jpg"
+				}, {
+						name: 'Destructive Reach',
+						maxRank: 2,
+						x: 10,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the range of your Destruction spells by ${this.y()}%.`
+						},
+						image: "destructive_reach.jpg"
+				}, {
+						name: 'Improved Searing Pain',
+						maxRank: 5,
+						x: 2,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the critical strike chance of your Searing Pain spell by ${this.y()}%.`
+						},
+						image: "improved_searing_pain.jpg"
+				}, {
+						name: 'Pyroclasm',
+						maxRank: 2,
+						x: 13,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Gives your Rain of Fire, Hellfire, and Soul Fire spells a ${this.y()}% chance to stun the target for 3 sec.`
+						},
+						r: [8, 2],
+						locked: "locked",
+						image: "pyroclasm.jpg"
+				}, {
+						name: 'Improved Immolate',
+						maxRank: 5,
+						x: 5,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the initial damage of your Immolate spell by ${this.y()}%.`
+						},
+						image: "improved_immolate.jpg"
+				}, {
+						r: [6, 5],
+						locked: "locked",
+						image: "ruin.jpg"
+				}, {
+						name: 'Emberstorm',
+						maxRank: 5,
+						x: 2,
+						y: function() {
+							return this.x * this.invested
+						},
+						description: function() {
+							return `Increases the damage done by your Fire spells by ${this.y()}%.`
+						},
+						image: "emberstorm.jpg"
+				}, {
+						r: [12, 5],
+						locked: "locked",
+						image: "conflagrate.jpg"
+				}]
+			}]
+
+		},
+		{
+			name: 'mage',
+			tree_talents: [{
+				name: 'Arcane',
+				talents: [{
+					name: 'Arcane Subtlety',
+					maxRank: 2,
+					x: [5, 20],
+					y: function() {
+						return [this.x[0] * this.invested, this.x[1] * this.invested]
+					},
+					description: function() {
+						return `Reduces your target's resistance to all your spells by ${this.y()[0]} and reduces the threat caused by your Arcane spells by ${this.y()[1]}%.`
+					},
+					image: "arcane_subtlety.jpg"
+				}, {
+					name: 'Arcane Focus',
+					maxRank: 5,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the chance that the opponent can resist your Arcane spells by ${this.y()}%.`
+					},
+					image: "arcane_focus.jpg"
+				}, {
+					name: 'Improved Arcane Missiles',
+					maxRank: 5,
+					x: 20,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives you a ${this.y()}% chance to avoid interruption caused by damage while channeling Arcane Missiles.`
+					},
+					image: "improved_arcane_missiles.jpg"
+				}, {
+					name: 'Wand Specialization',
+					maxRank: 2,
+					x: 12.5,
+					y: function() {
+						return Math.ceil(this.x * this.invested)
+					},
+					description: function() {
+						return `Increases your damage with Wands by ${this.y()}%.`
+					},
+					image: "wand_specialization.jpg"
+				}, {
+					name: 'Magic Absorption',
+					maxRank: 5,
+					x: [2, 1],
+					y: function() {
+						return [this.x[0] * this.invested, this.x[1] * this.invested]
+					},
+					description: function() {
+						return `Increases all resistances by ${this.y()[0]} and causes all spells you fully resist to restore ${this.y()[1]}% of your total mana.  1 sec. cooldown.`
+					},
+					image: "magic_absorption.jpg"
+				}, {
+					name: 'Arcane Concentration',
+					maxRank: 5,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives you a ${this.y()}% chance of entering a Clearcasting state after any damage spell hits a target.  The Clearcasting state reduces the mana cost of your next damage spell by 100%.`
+					},
+					image: "arcane_concentration.jpg"
+				}, {
+					name: 'Magic Attunement',
+					maxRank: 2,
+					x: 25,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the effect of your Amplify Magic and Dampen Magic spells by ${this.y()}%.`
+					},
+					image: "magic_attunement.jpg"
+				}, {
+					name: 'Improved Arcane Explosion',
+					maxRank: 3,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the critical strike chance of your Arcane Explosion spell by an additional ${this.y()}%.`
+					},
+					image: "improved_arcane_explosion.jpg"
+				}, {
+					image: "arcane_resilience.jpg"
+				}, {
+					name: 'Improved Mana Shield',
+					maxRank: 2,
+					x: 10,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Decreases the mana lost per point of damage taken when Mana Shield is active by ${this.y()}%.`
+					},
+					image: "improved_mana_shield.jpg"
+				}, {
+					name: 'Improved Counterspell',
+					x: 50.0,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives your Counterspell a 50% chance to silence the target for 4 sec.`
+					},
+					image: "improved_counterspell.jpg"
+				}, {
+					name: 'Arcane Meditation',
+					maxRank: 3,
+					x: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Allows ${this.y()}% of your Mana regeneration to continue while casting.`
+					},
+					image: "arcane_meditation.jpg"
+				}, {
+					image: "presence_of_mind.jpg"
+				}, {
+					name: 'Arcane Mind',
+					maxRank: 5,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your maximum Mana by ${this.y()}%.`
+					},
+					r: [8, 1],
+					locked: "locked",
+					image: "arcane_mind.jpg"
+				}, {
+					name: 'Arcane Instability',
+					maxRank: 3,
+					x: 1,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your spell damage and critical strike chance by ${this.y()}%.`
+					},
+					r: [12, 1],
+					locked: "locked",
+					image: "arcane_instability.jpg"
+				}, {
+					r: [14, 3],
+					locked: "locked",
+					image: "arcane_power.jpg"
+				}]
+			}, {
+				name: 'Fire',
+				talents: [{
+					name: 'Improved Fireball',
+					x: 0.1,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the casting time of your Fireball spell by ${this.y()} sec.`
+					},
+					image: "improved_fireball.jpg"
+				}, {
+					name: 'Impact',
+					maxRank: 5,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives your Fire spells a ${this.y()}% chance to stun the target for 2 sec.`
+					},
+					image: "impact.jpg"
+				}, {
+					name: 'Ignite',
+					maxRank: 5,
+					x: 8,
+					description: function() {
+						return `Your critical strikes from Fire damage spells cause the target to burn for an additional ${this.y()}% of your spell's damage over 4 sec.`
+					},
+					image: "ignite.jpg"
+				}, {
+					name: 'Flame Throwing',
+					maxRank: 2,
+					x: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the range of your Fire spells by ${this.y()} yards.`
+					},
+					image: "flame_throwing.jpg"
+				}, {
+					name: 'Improved Fire Blast',
+					maxRank: 3,
+					x: 0.5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the cooldown of your Fire Blast spell by ${this.y()} sec.`
+					},
+					image: "improved_fire_blast.jpg"
+				}, {
+					name: 'Incinerate',
+					maxRank: 2,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the critical strike chance of your Fire Blast and Scorch spells by ${this.y()}%.`
+					},
+					image: "incinerate.jpg"
+				}, {
+					name: 'Improved Flamestrike',
+					maxRank: 3,
+					x: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the critical strike chance of your Flamestrike spell by ${this.y()}%.`
+					},
+					image: "improved_flamestrike.jpg"
+				}, {
+					image: "pyroblast.jpg"
+				}, {
+					name: 'Burning Soul',
+					x: 35,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives your Fire spells a 35% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 15%.`
+					},
+					description: ['Gives your Fire spells a 35% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 15%.', 'Gives your Fire spells a 70% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 30%.'],
+					image: "burning_soul.jpg"
+				}, {
+					name: 'Improved Scorch',
+					x: 33.34,
+					maxRank: 3,
+					y: function() {
+						return Math.floor(this.x) * this.invested
+					},
+					description: function() {
+						return `Your Scorch spells have a ${this.y()}% chance to cause your target to be vulnerable to Fire damage.  This vulnerability increases the Fire damage dealt to your target by 3% and lasts 30 sec.  Stacks up to 3 times.`
+					},
+					image: "improved_scorch.jpg"
+				}, {
+					name: 'Improved Fire Ward',
+					maxRank: 2,
+					x: 10,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Causes your Fire Ward to have a ${this.y()}% chance to reflect Fire spells while active.`
+					},
+					image: "improved_fire_ward.jpg"
+				}, {
+					name: 'Master of Elements',
+					maxRank: 3,
+					x: 10,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Your Fire and Frost spell criticals will refund ${this.y()}% of their base mana cost.`
+					},
+					image: "master_of_elements.jpg"
+				}, {
+					name: 'Critical Mass',
+					maxRank: 3,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the critical strike chance of your Fire spells by 2%.`
+					},
+					description: ['Increases the critical strike chance of your Fire spells by 2%.', 'Increases the critical strike chance of your Fire spells by 4%.', 'Increases the critical strike chance of your Fire spells by 6%.'],
+					image: "critical_mass.jpg"
+				}, {
+					r: [7, 1],
+					locked: "locked",
+
+					image: "blast_wave.jpg"
+				}, {
+					name: 'Fire Power',
+					maxRank: 5,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the damage done by your Fire spells by ${this.y()}%.`
+					},
+					image: "fire_power.jpg"
+				}, {
+					r: [12, 3],
+					locked: "locked",
+					image: "combustion.jpg"
+				}]
+			}, {
+				name: 'Frost',
+				talents: [{
+					name: 'Frost Warding',
+					maxRank: 2,
+					x: [15, 10],
+					y: function() {
+						return [this.x[0] * this.invested, this.x[1] * this.invested]
+					},
+					description: function() {
+						return `Increases the armor and resistances given by your Frost Armor and Ice Armor spells by ${this.y()[0]}%.  In addition, gives your Frost Ward a ${this.y()[0]}% chance to reflect Frost spells and effects while active.`
+					},
+					image: "frost_warding.jpg"
+				}, {
+					name: 'Improved Frostbolt',
+					maxRank: 5,
+					x: 0.1,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the casting time of your Frostbolt spell by 0.1 sec.`
+					},
+					description: ['Reduces the casting time of your Frostbolt spell by 0.1 sec.', 'Reduces the casting time of your Frostbolt spell by 0.2 sec.', 'Reduces the casting time of your Frostbolt spell by 0.3 sec.', 'Reduces the casting time of your Frostbolt spell by 0.4 sec.', 'Reduces the casting time of your Frostbolt spell by 0.5 sec.'],
+					image: "improved_frostbolt.jpg"
+				}, {
+					name: 'Elemental Precision',
+					maxRank: 3,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the chance that the opponent can resist your Frost and Fire spells by ${this.y()}%.`
+					},
+					image: "elemental_precision.jpg"
+				}, {
+					name: 'Ice Shards',
+					maxRank: 5,
+					x: 20,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the critical strike damage bonus of your Frost spells by ${this.y()}%.`
+					},
+					image: "ice_shards.jpg"
+				}, {
+					name: 'Frostbite',
+					maxRank: 3,
+					x: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives your Chill effects a ${this.y()}% chance to freeze the target for 5 sec.`
+					},
+					image: "frostbite.jpg"
+				}, {
+					name: 'Improved Frost Nova',
+					maxRank: 2,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the cooldown of your Frost Nova spell by ${this.y()} sec.`
+					},
+					image: "improved_frost_nova.jpg"
+				}, {
+					name: 'Permafrost',
+					maxRank: 3,
+					x: [1, 3.33],
+					y: function() {
+						return [this.x[0] * this.invested, Math.ceil(this.x[1]) * this.invested]
+					},
+					description: function() {
+						return `Increases the duration of your Chill effects by 1 sec and reduces the target's speed by an additional 4%.`
+					},
+					image: "permafrost.jpg"
+				}, {
+					name: 'Piercing Ice',
+					maxRank: 3,
+					x: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the damage done by your Frost spells by ${this.y()}%.`
+					},
+					image: "piercing_ice.jpg"
+				}, {
+					image: "cold_snap.jpg"
+				}, {
+					//NOTE
+					name: 'Improved Blizzard',
+					maxRank: 3,
+					description: function() {
+						return `Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by 30%.  Lasts 2 sec.`
+					},
+					description: ["Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by 30%.  Lasts 2 sec.", "Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by 50%.  Lasts 2 sec.", "Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by 65%.  Lasts 2 sec."],
+					image: "improved_blizzard.jpg"
+				}, {
+					name: 'Arctic Reach',
+					maxRank: 2,
+					x: 10,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the range of your Frostbolt and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by ${this.y()}%.`
+					},
+					image: "arctic_reach.jpg"
+				}, {
+					name: 'Frost Channeling',
+					maxRank: 3,
+					x: [5, 10]
+					y: function() {
+						return this.x[0] * this.invested, this.x[1] * this.invested
+					},
+					description: function() {
+						return `Reduces the mana cost of your Frost spells by 5% and reduces the threat caused by your Frost spells by 10%.`
+					},
+					image: "frost_channeling.jpg"
+				}, {
+					name: 'Shatter',
+					maxRank: 5,
+					x: 10,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the critical strike chance of all your spells against frozen targets by ${this.y()}%.`
+					},
+					r: [5, 2],
+					locked: "locked",
+					image: "shatter.jpg"
+				}, {
+					image: "ice_block.jpg"
+				}, {
+					name: 'Improved Cone of Cold',
+					maxRank: 3,
+
+					x: 10,
+					y: function() {
+						return (this.x * this.invested) + 5
+					},
+					description: function() {
+						return `Increases the damage dealt by your Cone of Cold spell by ${this.y()}%.`
+					},
+					image: "improved_cone_of_cold.jpg"
+				}, {
+					//NOTE
+					name: "Winter's Chill",
+					maxRank: 5,
+					x: 20,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives your Frost damage spells a ${this.y()}% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec.  Stacks up to 5 times.`
+					},
+					image: "winters_chill.jpg"
+				}, {
+					r: [13, 1],
+					locked: "locked",
+					image: "ice_barrier.jpg"
+				}]
+			}]
+		},
+
+		{
+			name: 'warrior',
+			tree_talents: [{
+				name: 'Arms',
+				talents: [{
+					name: 'Improved Heroic Strike',
+					x: 1.0,
+					maxRank: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the cost of your Heroic Strike ability by 1 rage point.`
+					},
+					image: "improved_heroic_strike.jpg"
+				}, {
+					name: 'Deflection',
+					x: 1.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your Parry chance by 1%.`
+					},
+					image: "deflection.jpg"
+				}, {
+					name: 'Improved Rend',
+					maxRank: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the bleed damage done by your Rend ability by 15%.`
+					},
+					description: ['Increases the bleed damage done by your Rend ability by 15%.', 'Increases the bleed damage done by your Rend ability by 25%.', 'Increases the bleed damage done by your Rend ability by 35%.'],
+					image: "improved_rend.jpg"
+				}, {
+					name: 'Improved Charge',
+					x: 3.0,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the amount of rage generated by your Charge ability by 3.`
+					},
+					image: "improved_charge.jpg"
+				}, {
+					name: 'Tactical Mastery',
+					x: 5.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `You retain up to 5 of your rage points when you change stances.`
+					},
+					image: "tactical_mastery.jpg"
+				}, {
+					name: 'Improved Thunder Clap',
+					maxRank: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the cost of your Thunder Clap ability by 1 rage point.`
+					},
+					description: ['Reduces the cost of your Thunder Clap ability by 1 rage point.', 'Reduces the cost of your Thunder Clap ability by 2 rage points.', 'Reduces the cost of your Thunder Clap ability by 4 rage points.'],
+					image: "improved_thunder_clap.jpg"
+				}, {
+					name: 'Improved Overpower',
+					x: 25.0,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the critical strike chance of your Overpower ability by 25%.`
+					},
+					image: "improved_overpower.jpg"
+				}, {
+					name: 'Anger Management',
+					maxRank: 1,
+					description: function() {
+						return `Increases the time required for your rage to decay while out of combat by 30%.`
+					},
+					r: [4, 5],
+					locked: "locked",
+					image: "anger_management.jpg"
+				}, {
+					name: 'Deep Wounds',
+					x: 20.0,
+					maxRank: 3,
+					description: function() {
+						return `Your critical strikes cause the opponent to bleed, dealing 20% of your melee weapon's average damage over 12 sec.`
+					},
+					r: [2, 3],
+					locked: "locked",
+					image: "deep_wounds.jpg"
+				}, {
+					name: 'Two-Handed Weapon Specialization',
+					maxRank: 5,
+					description: ['Increases the damage you deal with two-handed melee weapons by 1%.', 'Increases the damage you deal with two-handed melee weapons by 2%.', 'Increases the damage you deal with two-handed melee weapons by 3%.', 'Increases the damage you deal with two-handed melee weapons by 4%.', 'Increases the damage you deal with two-handed melee weapons by 5%.'],
+					image: "two_handed_weapon_specialization.jpg"
+				}, {
+					name: 'Impale',
+					x: 10.0,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the critical strike damage bonus of your abilities in Battle, Defensive, and Berserker stance by 10%.`
+					},
+					r: [8, 3],
+					locked: "locked",
+					image: "impale.jpg"
+				}, {
+					name: 'Axe Specialization',
+					x: 1.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your chance to get a critical strike with Axes by 1%.`
+					},
+					image: "axe_specialization.jpg"
+				}, {
+					name: 'Sweeping Strikes',
+					maxRank: 1,
+					description: function() {
+						return `Your next 5 melee attacks strike an additional nearby opponent.`
+					},
+					image: "sweeping_strikes.jpg"
+				}, {
+					name: 'Mace Specialization',
+					x: 1.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives you a 1% chance to stun your target for 3 sec with a Mace.`
+					},
+					image: "mace_specialization.jpg"
+				}, {
+					name: 'Sword Specialization',
+					x: 1.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives you a 1% chance to get an extra attack on the same target after dealing damage with your Sword.`
+					},
+					image: "sword_specialization.jpg"
+				}, {
+					name: 'Polearm Specialization',
+					x: 1.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your chance to get a critical strike with Polearms by 1%.`
+					},
+					image: "polearm_specialization.jpg"
+				}, {
+					name: 'Improved Hamstring',
+					x: 5.0,
+					maxRank: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives your Hamstring ability a 5% chance to immobilize the target for 5 sec.`
+					},
+					image: "improved_hamstring.jpg"
+				}, {
+					name: 'Mortal Strike',
+					maxRank: 1,
+					description: function() {
+						return `A vicious strike that deals weapon damage plus 85 and wounds the target, reducing the effectiveness of any healing by 50% for 10 sec.`
+					},
+					r: [12, 1],
+					locked: "locked",
+					image: "mortal_strike.jpg"
+				}]
+			}, {
+				name: 'Protection',
+				talents: [{
+					name: 'Shield Specialization',
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your chance to block attacks with a shield by 1% and has a 20% chance to generate 1 rage when a block occurs.`
+					},
+					description: ['Increases your chance to block attacks with a shield by 1% and has a 20% chance to generate 1 rage when a block occurs.', 'Increases your chance to block attacks with a shield by 2% and has a 40% chance to generate 1 rage when a block occurs.', 'Increases your chance to block attacks with a shield by 3% and has a 60% chance to generate 1 rage when a block occurs.', 'Increases your chance to block attacks with a shield by 4% and has a 80% chance to generate 1 rage when a block occurs.', 'Increases your chance to block attacks with a shield by 5% and has a 100% chance to generate 1 rage when a block occurs.'],
+					image: "shield_specialization.jpg"
+				}, {
+					name: 'Anticipation',
+					x: 2.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your Defense skill by 2.`
+					},
+					image: "anticipation.jpg"
+				}, {
+					name: 'Improved Bloodrage',
+					x: 2.0,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the instant Rage generated by your Bloodrage ability by 2.`
+					},
+					image: "improved_bloodrage.jpg"
+				}, {
+					name: 'Toughness',
+					x: 2.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your armor value from items by 2%.`
+					},
+					image: "toughness.jpg"
+				}, {
+					name: 'Iron Will',
+					x: 3.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases your chance to resist Stun and Charm effects by an additional 3%.`
+					},
+					image: "iron_will.jpg"
+				}, {
+					name: 'Last Stand',
+					maxRank: 1,
+					description: function() {
+						return `When activated, this ability temporarily grants you 30% of your maximum hit points for 20 seconds.  After the effect expires, the hit points are lost.`
+					},
+					r: [2, 2],
+					locked: "locked",
+					image: "last_stand.jpg"
+				}, {
+					name: 'Improved Shield Block',
+					x: 0.5,
+					maxRank: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Allows your Shield Block ability to block an additional attack and increases the duration by 0.5 second.`
+					},
+					r: [0, 5],
+					locked: "locked",
+					image: "improved_shield_block.jpg"
+				}, {
+					name: 'Improved Revenge',
+					x: 3.0,
+					maxRank: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives your Revenge ability a 15% chance to stun the target for 3 sec.`
+					},
+					image: "improved_revenge.jpg"
+				}, {
+					name: 'Defiance',
+					x: 3.0,
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the threat generated by your attacks by 3% while in Defensive Stance.`
+					},
+					image: "defiance.jpg"
+				}, {
+					name: 'Improved Sunder Armor',
+					x: 1.0,
+					maxRank: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the cost of your Sunder Armor ability by 1 rage point.`
+					},
+					image: "improved_sunder_armor.jpg"
+				}, {
+					name: 'Improved Disarm',
+					x: 1.0,
+					maxRank: 3,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the duration of your Disarm ability by 1 secs.`
+					},
+					image: "improved_disarm.jpg"
+				}, {
+					name: 'Improved Taunt',
+					x: 1.0,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Reduces the cooldown of your Taunt ability by 1 sec.`
+					},
+					image: "improved_taunt.jpg"
+				}, {
+					name: 'Improved Shield Wall',
+					x: 3.0,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the effect duration of your Shield Wall ability by 3 secs.`
+					},
+					image: "improved_shield_wall.jpg"
+				}, {
+					name: 'Concussion Blow',
+					maxRank: 1,
+					description: function() {
+						return `Stuns the opponent for 5 sec.`
+					},
+					description: ['Stuns the opponent for 5 sec.'],
+					image: "concussion_blow.jpg"
+				}, {
+					name: 'Improved Shield Bash',
+					x: 50.0,
+					maxRank: 2,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Gives your Shield Bash ability a 50% chance to silence the target for 3 sec.`
+					},
+					image: "improved_shield_bash.jpg"
+				}, {
+					name: 'One-Handed Weapon Specialization',
+					maxRank: 5,
+					y: function() {
+						return this.x * this.invested
+					},
+					description: function() {
+						return `Increases the damage you deal with One-Handed Melee weapons by 2%.`
+					},
+					description: ['Increases the damage you deal with One-Handed Melee weapons by 2%.', 'Increases the damage you deal with One-Handed Melee weapons by 4%.', 'Increases the damage you deal with One-Handed Melee weapons by 6%.', 'Increases the damage you deal with One-Handed Melee weapons by 8%.', 'Increases the damage you deal with One-Handed Melee weapons by 10%.'],
+					image: "one_handed_weapon_specialization.jpg"
+				}, {
+					name: 'Shield Slam',
+					maxRank: 1,
+					description: function() {
+						return `Slam the target with your shield, causing 225 to 236 damage, modified by your shield block value, and has a 50% chance of dispelling 1 magic effect on the target.  Also causes a high amount of threat.`
+					},
+					r: [13, 1],
+					locked: "locked",
+					image: "shield_slam.jpg"
+				}]
+			}]
+		}
+	]
+}
