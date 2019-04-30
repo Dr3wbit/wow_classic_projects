@@ -13,11 +13,13 @@
     height: 40px;
     margin: 10px
 }
+
 .talentTable {
     margin: 15px;
     background-color: grey;
     background-size: 100% 100%;
-    border: 2px solid black
+    border: 2px solid black;
+    user-select: none;
 }
 
 .treeTitle {
