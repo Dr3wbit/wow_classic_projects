@@ -402,7 +402,7 @@ const talentData = {
 				}, {
 						name: 'Bane',
 						maxRank: 5,
-						x: [0.1, 0.4],
+						x: [0.1, 0.4]
 						y: function() {
 							return [this.x[0] * this.invested, this.x[1] * this.invested]
 						},
@@ -899,7 +899,7 @@ const talentData = {
 				talents: [{
 					name: 'Frost Warding',
 					maxRank: 2,
-					x: [15,10],
+					x: [15,10]
 					y: function() {
 						return [this.x[0] * this.invested, this.x[1] * this.invested]
 					},
@@ -1015,7 +1015,7 @@ const talentData = {
 				}, {
 					name: 'Frost Channeling',
 					maxRank: 3,
-					x: [5,10],
+					x: [5,10]
 					y: function() {
 						return this.x[0] * this.invested, this.x[1] * this.invested
 					},
