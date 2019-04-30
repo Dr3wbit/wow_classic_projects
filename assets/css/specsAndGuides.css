@@ -76,7 +76,7 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
     border: 19px dotted black;
-    border-image-source: url('/assets/images/content_border_image.png');
+    border-image-source: url('../images/content_border_image.png');
     border-image-slice: 19; 
 }
 
