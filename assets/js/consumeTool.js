@@ -94,7 +94,7 @@ function findMaterials(name, category, data, inputValue) {
     })
     let materialsToAppend = []
     Object.keys(item.materials).map(key => {
-        materialsToAppend.push({ [key]: item.materials[key] * inputValue })
+        materialsToAppend.push({ [key]: Math.ceil(item.materials[key] * inputValue) })
     });
     return { name : [item.name], materials: materialsToAppend, amount: inputValue}
 }

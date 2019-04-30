@@ -17,16 +17,6 @@ const consumes = [
                         },
                     },
                     {
-                        name: 'Elixir of Fortitude',
-                        effect: 'Use: Increases the player\'s maximum health by 120 for 1 hr.',
-                        img: 'elixir_of_fortitude.jpg',
-                        materials: {
-                            wild_steelbloom: 1,
-                            goldthorn: 1,
-                            leaded_vial: 1,
-                        },
-                    },
-                    {
                         name: 'Greater Fire Protection Potion',
                         effect: 'Use: Absorbs 1950 to 3251 fire damage. Lasts 1 hr. (cooldown 2 min)',
                         img: 'greater_fire_protection_potion.jpg',
@@ -34,6 +24,46 @@ const consumes = [
                             elemental_fire: 1,
                             dreamfoil: 1,
                             crystal_vial: 1,
+                        },
+                    },
+                    {
+                        name: 'Greater Nature Protection Potion',
+                        effect: 'Use: Absorbs 1950 to 3251 nature damage. Lasts 1 hr. (cooldown 2 min)',
+                        img: 'greater_nature_protection_potion.jpg',
+                        materials: {
+                            elemental_earth: 1,
+                            dreamfoil: 1,
+                            crystal_vial: 1,
+                        },
+                    },
+                    {
+                        name: 'Greater Shadow Protection Potion',
+                        effect: 'Use: Absorbs 1950 to 3251 shadow damage. Lasts 1 hr. (cooldown 2 min)',
+                        img: 'greater_shadow_protection_potion.jpg',
+                        materials: {
+                            shadow_oil: 1,
+                            dreamfoil: 1,
+                            crystal_vial: 1,
+                        },
+                    },
+                    {
+                        name: 'Greater Frost Protection Potion',
+                        effect: 'Use: Absorbs 1950 to 3251 frost damage. Lasts 1 hr. (cooldown 2 min)',
+                        img: 'greater_frost_protection_potion.jpg',
+                        materials: {
+                            elemental_water: 1,
+                            dreamfoil: 1,
+                            crystal_vial: 1,
+                        },
+                    },
+                    {
+                        name: 'Elixir of Fortitude',
+                        effect: 'Use: Increases the player\'s maximum health by 120 for 1 hr.',
+                        img: 'elixir_of_fortitude.jpg',
+                        materials: {
+                            wild_steelbloom: 1,
+                            goldthorn: 1,
+                            leaded_vial: 1,
                         },
                     },
                     {
@@ -58,23 +88,14 @@ const consumes = [
                         },
                     },
                     {
-                        name: 'Invisibility Potion',
-                        effect: 'Use: Gives the imbiber invisibility for 18 sec. (cooldown 10 min)',
-                        img: 'invisibility_potion.jpg',
+                        name: 'Living Action Potion',
+                        effect: 'Use: Makes you immune to Stun and Movement Impairing effects for the next 5 sec. Also removes existing Stun and Movement Impairing effects. (cooldown 2 min)',
+                        img: 'living_action_potion.jpg',
                         materials: {
-                            ghost_mushroom: 1,
-                            sungrass: 1,
+                            icecap: 2,
+                            mountain_silversage: 2,
+                            heart_of_the_wild: 2,
                             crystal_vial: 1,
-                        },
-                    },
-                    {
-                        name: 'Lesser Invisibility Potion',
-                        effect: 'Use: Gives the imbiber invisibility for 15 sec. (cooldown 10 min)',
-                        img: 'lesser_invisibility_potion.jpg',
-                        materials: {
-                            fadeleaf: 1,
-                            wild_steelbloom: 1,
-                            leaded_vial: 1,
                         },
                     },
                     {
@@ -98,42 +119,12 @@ const consumes = [
                         },
                     },
                     {
-                        name: 'Greater Nature Protection Potion',
-                        effect: 'Use: Absorbs 1950 to 3251 nature damage. Lasts 1 hr. (cooldown 2 min)',
-                        img: 'greater_nature_protection_potion.jpg',
-                        materials: {
-                            elemental_earth: 1,
-                            dreamfoil: 1,
-                            crystal_vial: 1,
-                        },
-                    },
-                    {
-                        name: 'Oil of Immolation',
-                        effect: 'Use: Does 50 fire damage to any enemies within a 5 yard radius around the caster every 3 seconds for 15 sec',
-                        img: 'oil_of_immolation.jpg',
-                        materials: {
-                            firebloom: 1,
-                            goldthorn: 1,
-                            crystal_vial: 1,
-                        },
-                    },
-                    {
                         name: 'Restorative Potion',
                         effect: 'Use: Removes 1 magic, curse, poison or disease effect on you every 5 seconds for 30 seconds. (cooldown 2 min)',
                         img: 'restorative_potion.jpg',
                         materials: {
                             elemental_earth: 1,
                             goldthorn: 1,
-                            crystal_vial: 1,
-                        },
-                    },
-                    {
-                        name: 'Greater Shadow Protection Potion',
-                        effect: 'Use: Absorbs 1950 to 3251 shadow damage. Lasts 1 hr. (cooldown 2 min)',
-                        img: 'greater_shadow_protection_potion.jpg',
-                        materials: {
-                            shadow_oil: 1,
-                            dreamfoil: 1,
                             crystal_vial: 1,
                         },
                     },
@@ -145,6 +136,36 @@ const consumes = [
                             swiftthistle: 1,
                             briarthorn: 1,
                             empty_vial: 1,
+                        },
+                    },
+                    {
+                        name: 'Invisibility Potion',
+                        effect: 'Use: Gives the imbiber invisibility for 18 sec. (cooldown 10 min)',
+                        img: 'invisibility_potion.jpg',
+                        materials: {
+                            ghost_mushroom: 1,
+                            sungrass: 1,
+                            crystal_vial: 1,
+                        },
+                    },
+                    {
+                        name: 'Lesser Invisibility Potion',
+                        effect: 'Use: Gives the imbiber invisibility for 15 sec. (cooldown 10 min)',
+                        img: 'lesser_invisibility_potion.jpg',
+                        materials: {
+                            fadeleaf: 1,
+                            wild_steelbloom: 1,
+                            leaded_vial: 1,
+                        },
+                    },
+                    {
+                        name: 'Oil of Immolation',
+                        effect: 'Use: Does 50 fire damage to any enemies within a 5 yard radius around the caster every 3 seconds for 15 sec',
+                        img: 'oil_of_immolation.jpg',
+                        materials: {
+                            firebloom: 1,
+                            goldthorn: 1,
+                            crystal_vial: 1,
                         },
                     },
                 ],
@@ -191,6 +212,30 @@ const consumes = [
                             iron_bar: 0.5,
                             heavy_blasting_powder: 0.5,
                             silk_cloth: 0.5,
+                        },
+                    },
+                    {
+                        //TG makes 3
+                        name: 'Thorium Grenade',
+                        effect: 'Use: Inflicts 300 to 501 Fire damage and stuns targets for 3 sec in a 3 yard radius. Any damage will break the effect. (cooldown 1 min)',
+                        img: 'thorium_grenade.jpg',
+                        materials: {
+                            thorium_widget: 0.33,
+                            thorium_bar: 1,
+                            dense_blasting_powder: 1,
+                            runecloth: 1,
+                        },
+                    },
+                    {
+                        name: 'Goblin Rocket Boots',
+                        effect: 'Use: These dangerous looking boots significantly increase your run speed by 70% for 20 sec. They are prone to explode however, so use with caution. (cooldown 5 min)',
+                        img: 'goblin_rocket_boots.jpg',
+                        materials: {
+                            black_mageweave_boots: 1,
+                            mithril_tube: 2,
+                            heavy_leather: 4,
+                            goblin_rocket_fuel: 2,
+                            unstable_trigger: 1,
                         },
                     },
                 ],
