@@ -58,9 +58,9 @@ body {
 
 .navbar {
     background-color: black;
+    background-image: linear-gradient(rgb(20, 20, 20), black ,rgb(20, 20, 20));
     border-top: 2px black solid;
     border-bottom: 2px black solid;
-    box-shadow: inset 0 4px 8px -2px rgb(24, 24, 24), inset 0 4px 8px -2px rgb(24, 24, 24), inset 0 4px 8px -2px rgb(24, 24, 24), 0 4px 8px -2px rgb(24, 24, 24);
 }
 
 .navbar-brand{
@@ -156,12 +156,11 @@ body {
     }
 
     .class-icon {
-        height: 36px;
-        width: 36px;
-        top: 4px;
-        left: 4px;
-        border: 3px solid black;
-        margin: 10px;
+        height: 30px;
+        width: 30px;
+        border: 2px solid black;
+        margin-left: 0;
+        margin: 2px
     }
 
     #warrior {
