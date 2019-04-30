@@ -237,19 +237,19 @@ const talentData = {
 					}, {
 						name: 'Improved Health Funnel',
 						maxRank: 2,
-						x: 10,
 						y: function() {
-							return this.x * this.invested
+							return 10 * this.invested
 						},
 						description: function() {
 							return `Increases the amount of Health transferred by your Health Funnel spell by ${this.y()}%.`
 						},
-						description: ['Increases the amount of Health transferred by your Health Funnel spell by 10%.', 'Increases the amount of Health transferred by your Health Funnel spell by 20%.'],
-						image: "demonic_embrace.jpg"
+						image: "improved_health_funnel.jpg"
 					}, {
 						name: 'Improved Voidwalker',
 						maxRank: 3,
-						x: 10,
+						y: function() {
+							return 10 * this.invested
+						},
 						description: function() {
 							return `Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice and Suffering spells by ${this.y()}%.`
 						},
@@ -283,7 +283,8 @@ const talentData = {
 						description: function() {
 							return `Your next Imp, Voidwalker, Succubus, or Felhunter Summon spell has its casting time reduced by 5.5 sec and its Mana cost reduced by 50%.`
 						},
-						image: "fel_domination.jpg"
+						unlocks: "Master Summoner",
+						image: "fel_domination.jpg",
 					}, {
 						name: 'Fel Stamina',
 						maxRank: 5,
@@ -298,23 +299,24 @@ const talentData = {
 					}, {
 						name: 'Master Summoner',
 						maxRank: 2,
-						x: [2, 20],
 						y: function() {
-							return this.x * this.invested
+							return [2 * this.invested, 20 * this.invested]
 						},
 						description: function() {
 							return `Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by ${this.y()[0]} sec and the Mana cost by ${this.y()[1]}%.`
 						},
-						r: [7, 1],
 						locked: "locked",
 						image: "master_summoner.jpg"
 					}, {
 						name: 'Unholy Power',
 						maxRank: 5,
-						x: 4,
+						y: function() {
+							return 4 * this.invested
+						},
 						description: function() {
 							return `Increases the damage done by your Voidwalker, Succubus, and Felhunter's melee attacks by ${this.y()}%.`
 						},
+						unlocks: 'Master Demonologist',
 						image: "unholy_power.jpg"
 					}, {
 						name: 'Improved Enslave Demon',
@@ -329,13 +331,12 @@ const talentData = {
 						},
 						image: "improved_enslave_demon.jpg"
 					}, {
-						//NOTE
 						name: 'Demonic Sacrifice',
 						maxRank: 1,
 						description: function() {
-							v = this.y()
 							return `When activated, sacrifices your summoned demon to grant you an effect that lasts 30 min.  The effect is canceled if any Demon is summoned.\n\nImp: Increases your Fire damage by 15%.\n\nVoidwalker: Restores 3% of total Health every 4 sec.\n\nSuccubus: Increases your Shadow damage by 15%.\n\nFelhunter: Restores 2% of total Mana every 4 sec.`
 						},
+						unlocks: 'Soul Link',
 						image: "demonic_sacrifice.jpg"
 					}, {
 
@@ -444,8 +445,10 @@ const talentData = {
 						image: "improved_firebolt.jpg"
 					}, {
 						name: 'Improved Lash of Pain',
-						x: 3,
 						maxRank: 2,
+						y: function() {
+							return 3* this.invested
+						},
 						description: function() {
 							return `Reduces the cooldown of your Succubus' Lash of Pain spell by ${this.y()} sec.`
 						},
@@ -460,6 +463,7 @@ const talentData = {
 						description: function() {
 							return `Increases the critical strike chance of your Destruction spells by ${this.y()}%.`
 						},
+						unlocks: 'Ruin',
 						image: "devastation.jpg"
 					}, {
 						name: 'Shadowburn',
@@ -478,6 +482,7 @@ const talentData = {
 						description: function() {
 							return `Gives you a ${this.y()}% chance to resist interruption caused by damage while channeling the Rain of Fire, Hellfire or Soul Fire spell.`
 						},
+						unlocks: "Pyroclasm",
 						image: "intensity.jpg"
 					}, {
 						name: 'Destructive Reach',
@@ -524,6 +529,7 @@ const talentData = {
 						description: function() {
 							return `Increases the initial damage of your Immolate spell by ${this.y()}%.`
 						},
+						unlocks: 'Conflagrate',
 						image: "improved_immolate.jpg"
 					}, {
 						name: 'Ruin',
@@ -531,7 +537,6 @@ const talentData = {
 						description: function() {
 							return `Increases the critical strike damage bonus of your Destruction spells by 100%.`
 						},
-						r: [6, 5],
 						locked: "locked",
 						image: "ruin.jpg"
 					}, {
@@ -551,7 +556,6 @@ const talentData = {
 						description: function() {
 							return `Ignites a target that is already afflicted by Immolate, dealing 240 to 307 Fire damage and consuming the Immolate spell.`
 						},
-						r: [12, 5],
 						locked: "locked",
 						image: "conflagrate.jpg"
 					}]
@@ -657,6 +661,7 @@ const talentData = {
 					description: function() {
 						return `Increases your armor by an amount equal to 50% of your Intellect.`
 					},
+					unlocks: "Arcane Mind",
 					image: "arcane_resilience.jpg"
 				}, {
 					name: 'Improved Mana Shield',
@@ -697,6 +702,7 @@ const talentData = {
 					description: function() {
 						return `When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.`
 					},
+					unlocks: "Arcane Instability",
 					image: "presence_of_mind.jpg"
 				}, {
 					name: 'Arcane Mind',
@@ -721,8 +727,8 @@ const talentData = {
 					description: function() {
 						return `Increases your spell damage and critical strike chance by ${this.y()}%.`
 					},
-					r: [12, 1],
 					locked: "locked",
+					unlocks: "Arcane Power",
 					image: "arcane_instability.jpg"
 				}, {
 					name: 'Arcane Power',
@@ -730,7 +736,6 @@ const talentData = {
 					description: function() {
 						return `When activated, your spells deal 30% more damage while costing 30% more mana to cast.  This effect lasts 15 sec.`
 					},
-					r: [14, 3],
 					locked: "locked",
 					image: "arcane_power.jpg"
 				}]
@@ -761,7 +766,9 @@ const talentData = {
 				}, {
 					name: 'Ignite',
 					maxRank: 5,
-					x: 8,
+					y: function() {
+						return 8*this.invested
+					},
 					description: function() {
 						return `Your critical strikes from Fire damage spells cause the target to burn for an additional ${this.y()}% of your spell's damage over 4 sec.`
 					},
@@ -816,25 +823,23 @@ const talentData = {
 					description: function() {
 						return `Hurls an immense fiery boulder that causes 141 to 188 Fire damage and an additional 56 Fire damage over 12 sec.`
 					},
+					unlocks: "Blast Wave",
 					image: "pyroblast.jpg"
 				}, {
 					name: 'Burning Soul',
-					x: 35,
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return [35*this.invested, 15*this.invested]
 					},
 					description: function() {
-						return `Gives your Fire spells a 35% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 15%.`
+						return `Gives your Fire spells a ${this.y()[0]}% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by ${this.y()[1]}%.`
 					},
-					description: ['Gives your Fire spells a 35% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 15%.', 'Gives your Fire spells a 70% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 30%.'],
 					image: "burning_soul.jpg"
 				}, {
 					name: 'Improved Scorch',
-					x: 33.34,
 					maxRank: 3,
 					y: function() {
-						return Math.floor(this.x) * this.invested
+						return Math.floor(33.34*this.invested)
 					},
 					description: function() {
 						return `Your Scorch spells have a ${this.y()}% chance to cause your target to be vulnerable to Fire damage.  This vulnerability increases the Fire damage dealt to your target by 3% and lasts 30 sec.  Stacks up to 3 times.`
@@ -872,6 +877,7 @@ const talentData = {
 					description: function() {
 						return `Increases the critical strike chance of your Fire spells by ${this.y()}%.`
 					},
+					unlocks: "Combustion",
 					image: "critical_mass.jpg"
 				}, {
 					name: 'Blast Wave',
@@ -920,14 +926,12 @@ const talentData = {
 				}, {
 					name: 'Improved Frostbolt',
 					maxRank: 5,
-					x: 0.1,
 					y: function() {
-						return this.x * this.invested
+						return 0.1 * this.invested
 					},
 					description: function() {
-						return `Reduces the casting time of your Frostbolt spell by 0.1 sec.`
+						return `Reduces the casting time of your Frostbolt spell by ${this.y()} sec.`
 					},
-					description: ['Reduces the casting time of your Frostbolt spell by 0.1 sec.', 'Reduces the casting time of your Frostbolt spell by 0.2 sec.', 'Reduces the casting time of your Frostbolt spell by 0.3 sec.', 'Reduces the casting time of your Frostbolt spell by 0.4 sec.', 'Reduces the casting time of your Frostbolt spell by 0.5 sec.'],
 					image: "improved_frostbolt.jpg"
 				}, {
 					name: 'Elemental Precision',
@@ -972,6 +976,7 @@ const talentData = {
 					description: function() {
 						return `Reduces the cooldown of your Frost Nova spell by ${this.y()} sec.`
 					},
+					unlocks: "Shatter",
 					image: "improved_frost_nova.jpg"
 				}, {
 					name: 'Permafrost',
@@ -1055,11 +1060,11 @@ const talentData = {
 					description: function() {
 						return `You become encased in a block of ice, protecting you from all physical attacks and spells for 10 sec, but during that time you cannot attack, move or cast spells.`
 					},
+					unlocks: "Ice Barrier",
 					image: "ice_block.jpg"
 				}, {
 					name: 'Improved Cone of Cold',
 					maxRank: 3,
-
 					x: 10,
 					y: function() {
 						return (this.x * this.invested) + 5
@@ -1105,7 +1110,6 @@ const talentData = {
 					description: function() {
 						return `Reduces the cast time of your Wrath spell by ${this.y()} sec.`
 					},
-					description: ['Reduces the cast time of your Wrath spell by 0.1 sec.', 'Reduces the cast time of your Wrath spell by 0.2 sec.', 'Reduces the cast time of your Wrath spell by 0.3 sec.', 'Reduces the cast time of your Wrath spell by 0.4 sec.', 'Reduces the cast time of your Wrath spell by 0.5 sec.'],
 					image: "improved_wrath.jpg"
 				}, {
 					name: "Nature's Grasp",
@@ -1113,7 +1117,9 @@ const talentData = {
 					description: function() {
 						return `While active, any time an enemy strikes the caster they have a 35% chance to become afflicted by Entangling Roots (Rank 1).  Only useable outdoors.  1 charge.  Lasts 45 sec.`
 					},
+					unlocks: "Improved Nature's Grasp",
 					image: "natures_grasp.jpg"
+
 				}, {
 					name: "Improved Nature's Grasp",
 					maxRank: 4,
@@ -1123,7 +1129,6 @@ const talentData = {
 					description: function() {
 						return `Increases the chance for your Nature's Grasp to entangle an enemy by ${this.y()}%.`
 					},
-					r: [1, 1],
 					locked: "locked",
 					image: "improved_natures_grasp.jpg"
 				}, {
@@ -1146,6 +1151,7 @@ const talentData = {
 					description: function() {
 						return `Increases the damage and critical strike chance of your Moonfire spell by ${this.y()}%.`
 					},
+					unlocks: "Vengeance",
 					image: "improved_moonfire.jpg"
 				}, {
 					name: 'Natural Weapons',
@@ -1156,6 +1162,7 @@ const talentData = {
 					description: function() {
 						return `Increases the damage you deal with physical attacks in all forms by ${this.y()}%.`
 					},
+					unlocks: "Omen of Clarity",
 					image: "natural_weapons.jpg"
 				}, {
 					name: 'Natural Shapeshifter',
@@ -1229,6 +1236,7 @@ const talentData = {
 					description: function() {
 						return `All spell criticals grace you with a blessing of nature, reducing the casting time of your next spell by 0.5 sec.`
 					},
+					unlocks: "Moonfury",
 					image: "natures_grace.jpg"
 				}, {
 					name: 'Moonglow',
@@ -1251,7 +1259,6 @@ const talentData = {
 					description: function() {
 						return `Increases the damage done by your Starfire, Moonfire and Wrath spells by ${this.y()}%.`
 					},
-					r: [12, 1],
 					locked: "locked",
 					image: "moonfury.jpg"
 				}, {
@@ -1275,6 +1282,7 @@ const talentData = {
 					description: function() {
 						return `Reduces the cost of your Maul, Swipe, Claw, and Rake abilities by ${this.y()} Rage or Energy.`
 					},
+					unlocks: "Frenzy",
 					image: "ferocity.jpg"
 				}, {
 					name: 'Feral Aggression',
@@ -1346,6 +1354,7 @@ const talentData = {
 					description: function() {
 						return `Increases your critical strike chance while in Bear, Dire Bear or Cat Form by ${this.y()}%.`
 					},
+					unlocks: ["Blood Frenzy", "Primal Fury"],
 					image: "sharpened_claws.jpg"
 				}, {
 					name: 'Improved Shred',
@@ -1366,6 +1375,7 @@ const talentData = {
 					description: function() {
 						return `Increases your melee attack power in Cat, Bear and Dire Bear Forms by ${this.y()}% of your level.`
 					},
+					unlocks: "Heart of the Wild",
 					image: "predatory_strikes.jpg"
 				}, {
 					name: 'Blood Frenzy',
@@ -1460,14 +1470,13 @@ const talentData = {
 				}, {
 					name: 'Improved Healing Touch',
 					maxRank: 5,
-					x: 0.1,
 					y: function() {
-						return this.x * this.invested
+						return 0.1 * this.invested
 					},
 					description: function() {
-						return `Reduces the cast time of your Healing Touch spell by 0.1 sec.`
+						return `Reduces the cast time of your Healing Touch spell by ${this.y()} sec.`
 					},
-					description: ['Reduces the cast time of your Healing Touch spell by 0.1 sec.', 'Reduces the cast time of your Healing Touch spell by 0.2 sec.', 'Reduces the cast time of your Healing Touch spell by 0.3 sec.', 'Reduces the cast time of your Healing Touch spell by 0.4 sec.', 'Reduces the cast time of your Healing Touch spell by 0.5 sec.'],
+					unlocks: "Nature's Swiftness",
 					image: "improved_healing_touch.jpg"
 				}, {
 					name: "Nature's Focus",
@@ -1508,6 +1517,7 @@ const talentData = {
 					description: function() {
 						return `The enemy target is swarmed by insects, decreasing their chance to hit by 2% and causing 66 Nature damage over 12 sec.`
 					},
+					unlocks: "Gift of Nature",
 					image: "insect_swarm.jpg"
 				}, {
 					name: 'Subtlety',
@@ -1530,6 +1540,7 @@ const talentData = {
 					description: function() {
 						return `Reduces the mana cost of your Healing Touch and Tranquility spells by ${this.y()}%.`
 					},
+					unlocks: "Swiftmend",
 					image: "tranquil_spirit.jpg"
 				}, {
 					name: 'Improved Rejuvenation',
@@ -1702,13 +1713,11 @@ const talentData = {
 					name: 'Improved Mend Pet',
 					maxRank: 2,
 					y: function() {
-						let x = this.invested
-						return (15*x)+(20*(x-1))
+						return (15*this.invested)+(20*(this.invested - 1))
 					},
 					description: function() {
-						return `Gives the Mend Pet spell a 15% chance of cleansing 1 Curse, Disease, Magic or Poison effect from the pet each tick.`
+						return `Gives the Mend Pet spell a ${this.y()}% chance of cleansing 1 Curse, Disease, Magic or Poison effect from the pet each tick.`
 					},
-					description: ['Gives the Mend Pet spell a 15% chance of cleansing 1 Curse, Disease, Magic or Poison effect from the pet each tick.', 'Gives the Mend Pet spell a 50% chance of cleansing 1 Curse, Disease, Magic or Poison effect from the pet each tick.'],
 					image: "improved_mend_pet.jpg"
 				}, {
 					name: 'Ferocity',
@@ -1738,6 +1747,7 @@ const talentData = {
 					description: function() {
 						return `Command your pet to intimidate the target on the next successful melee attack, causing a high amount of threat and stunning the target for 3 sec.`
 					},
+					unlocks: "Bestial Wrath",
 					image: "intimidation.jpg"
 				}, {
 					name: 'Bestial Discipline',
@@ -1818,6 +1828,7 @@ const talentData = {
 					description: function() {
 						return `Increases your critical strike chance with ranged weapons by ${this.y()}%.`
 					},
+					unlocks: "Mortal Shots",
 					image: "lethal_shots.jpg"
 				}, {
 					name: 'Aimed Shot',
@@ -1889,6 +1900,7 @@ const talentData = {
 					description: function() {
 						return `Increases the damage done by your Multi-Shot and Volley spells by ${this.y()}%.`
 					},
+					unlocks: "Trueshot Aura",
 					image: "barrage.jpg"
 				}, {
 					name: 'Improved Scorpid Sting',
@@ -2022,6 +2034,7 @@ const talentData = {
 					description: function() {
 						return `When activated, increases your Dodge and Parry chance by 25% for 10 sec.`
 					},
+					unlocks: "Counterattack",
 					image: "deterrence.jpg"
 				}, {
 					name: 'Trap Mastery',
@@ -2037,9 +2050,8 @@ const talentData = {
 				}, {
 					name: 'Surefooted',
 					maxRank: 3,
-					x: [1, 5],
 					y: function() {
-						return [this.x * this.invested, this.x * this.invested]
+						return [this.invested, 5 * this.invested]
 					},
 					description: function() {
 						return `Increases hit chance by ${this.y()[0]}% and increases the chance movement impairing effects will be resisted by an additional ${this.y()[1]}%.`
@@ -2066,6 +2078,7 @@ const talentData = {
 					description: function() {
 						return `Increases your critical strike chance with all attacks by ${this.y()}%.`
 					},
+					unlocks: "Wyvern Sting",
 					image: "killer_instinct.jpg"
 				}, {
 					name: 'Counterattack',
@@ -2198,6 +2211,7 @@ const talentData = {
 					description: function() {
 						return `After getting a critical effect from your Flash of Light, Holy Light, or Holy Shock heal spell, gives you a ${this.y()}% chance to gain Mana equal to the base cost of the spell.`
 					},
+					unlocks: "Divine Favor",
 					image: "illumination.jpg"
 				}, {
 					name: 'Improved Blessing of Wisdom',
@@ -2216,8 +2230,8 @@ const talentData = {
 					description: function() {
 						return `When activated, gives your next Flash of Light, Holy Light, or Holy Shock spell a 100% critical effect chance.`
 					},
-					r: [8, 5],
 					locked: "locked",
+					unlocks: "Holy Shock",
 					image: "divine_favor.jpg"
 				}, {
 					name: 'Lasting Judgement',
@@ -2273,8 +2287,9 @@ const talentData = {
 						return this.x * this.invested
 					},
 					description: function() {
-						return `Increases your chance to block attacks with your shield by ${this.y()}% after being the victim of a critical strike.  Lasts 10 sec or 5 blocks.`
+						return `Increases your chance to block attacks with your shield by ${this.y()}% after being the victim of a critical strike. Lasts 10 sec or 5 blocks.`
 					},
+					unlocks: "Shield Specialization",
 					image: "redoubt.jpg"
 				}, {
 					name: 'Precision',
@@ -2378,7 +2393,7 @@ const talentData = {
 					description: function() {
 						return `Places a Blessing on the friendly target, reducing damage dealt from all sources by up to 10 for 5 min.  In addition, when the target blocks a melee attack the attacker will take 14 Holy damage.  Players may only have one Blessing on them per Paladin at any one time.`
 					},
-
+					unlocks: "Holy Shield",
 					image: "blessing_of_sanctuary.jpg"
 				}, {
 					name: 'Reckoning',
@@ -2491,6 +2506,7 @@ const talentData = {
 					description: function() {
 						return `Increases your chance to get a critical strike with melee weapons by ${this.y()}%.`
 					},
+					unlocks: "Vengeance",
 					image: "conviction.jpg"
 				}, {
 					name: 'Seal of Command',
@@ -2512,8 +2528,10 @@ const talentData = {
 					image: "pursuit_of_justice.jpg"
 				}, {
 					name: 'Eye for an Eye',
-					x: 15,
 					maxRank: 2,
+					y: function() {
+						return 15 * this.invested
+					},
 					description: function() {
 						return `All spell criticals against you cause ${this.y()}% of the damage taken to the caster as well.  The damage caused by Eye for an Eye will not exceed 50% of the Paladin's total health.`
 					},
@@ -2656,6 +2674,7 @@ const talentData = {
 					description: function() {
 						return `Allows ${this.y()}% of your Mana regeneration to continue while casting.`
 					},
+					unlocks: "Divine Spirit",
 					image: "meditation.jpg"
 				}, {
 					name: 'Improved Inner Fire',
@@ -2700,6 +2719,7 @@ const talentData = {
 					description: function() {
 						return `Increases your maximum Mana by ${this.y()}%.`
 					},
+					unlocks: "Power Infusion",
 					image: "mental_strength.jpg"
 				}, {
 					name: 'Divine Spirit',
@@ -2714,7 +2734,7 @@ const talentData = {
 					name: 'Force of Will',
 					maxRank: 5,
 					y: function() {
-						return this.invested
+						return this.x * this.invested
 					},
 					description: function() {
 						v = this.y()
@@ -2787,6 +2807,7 @@ const talentData = {
 					description: function() {
 						return `Reduces the casting time of your Smite, Holy Fire, Heal and Greater Heal spells by ${this.y()} sec.`
 					},
+					unlocks: "Searing Light",
 					image: "divine_fury.jpg"
 				}, {
 					name: 'Holy Nova',
@@ -2867,7 +2888,7 @@ const talentData = {
 					description: function() {
 						return `Upon death, the priest becomes the Spirit of Redemption for 10 sec.  The Spirit of Redemption cannot move, attack, be attacked or targeted by any spells or effects.  While in this form the priest can cast any healing spell free of cost.  When the effect ends, the priest dies.`
 					},
-
+					unlocks: "Lightwell",
 					image: "spirit_of_redemption.jpg"
 				}, {
 					name: 'Spiritual Guidance',
@@ -2966,6 +2987,7 @@ const talentData = {
 					description: function() {
 						return `Reduces the cooldown of your Psychic Scream spell by ${this.y()} sec.`
 					},
+					unlocks: "Silence",
 					image: "improved_psychic_scream.jpg"
 				}, {
 					name: 'Improved Mind Blast',
@@ -3023,7 +3045,6 @@ const talentData = {
 					description: function() {
 						return `Silences the target, preventing them from casting spells for 5 sec.`
 					},
-
 					r: [5, 2],
 					locked: "locked",
 					image: "silence.jpg"
@@ -3033,7 +3054,7 @@ const talentData = {
 					description: function() {
 						return `Afflicts your target with Shadow energy that causes all party members to be healed for 20% of any Shadow spell damage you deal for 1 min.`
 					},
-
+					unlocks: ["Improved Vampiric Embrace", "Shadowform"],
 					image: "vampiric_embrace.jpg"
 				}, {
 					name: 'Improved Vampiric Embrace',
@@ -3045,7 +3066,6 @@ const talentData = {
 					description: function() {
 						return `Increases the percentage healed by Vampiric Embrace by an additional ${this.y()}%.`
 					},
-					r: [12, 1],
 					locked: "locked",
 					image: "improved_vampiric_embrace.jpg"
 				}, {
@@ -3107,6 +3127,7 @@ const talentData = {
 					description: function() {
 						return `Increases your critical strike chance by ${this.y()}%.`
 					},
+					unlocks: "Lethality",
 					image: "malice.jpg"
 				}, {
 					name: 'Ruthlessness',
@@ -3145,9 +3166,8 @@ const talentData = {
 					name: 'Relentless Strikes',
 					maxRank: 1,
 					description: function() {
-						return `Your finishing moves have a 1101000000% chance per combo point to restore 25 energy.`
+						return `Your finishing moves have a 20% chance per combo point to restore 25 energy.`
 					},
-
 					image: "relentless_strikes.jpg"
 				}, {
 					name: 'Improved Expose Armor',
@@ -3177,12 +3197,11 @@ const talentData = {
 					name: 'Vile Poisons',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return [4*this.invested, 8*this.invested]
 					},
 					description: function() {
-						return `Increases the damage dealt by your poisons by 4% and gives your poisons an additional 8% chance to resist dispel effects.`
+						return `Increases the damage dealt by your poisons by ${this.y()[0]}% and gives your poisons an additional ${this.y()[1]}% chance to resist dispel effects.`
 					},
-					description: ['Increases the damage dealt by your poisons by 4% and gives your poisons an additional 8% chance to resist dispel effects.', 'Increases the damage dealt by your poisons by 8% and gives your poisons an additional 16% chance to resist dispel effects.', 'Increases the damage dealt by your poisons by 12% and gives your poisons an additional 24% chance to resist dispel effects.', 'Increases the damage dealt by your poisons by 16% and gives your poisons an additional 32% chance to resist dispel effects.', 'Increases the damage dealt by your poisons by 20% and gives your poisons an additional 40% chance to resist dispel effects.'],
 					image: "vile_poisons.jpg"
 				}, {
 					name: 'Improved Poisons',
@@ -3201,7 +3220,7 @@ const talentData = {
 					description: function() {
 						return `When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Ambush, or Eviscerate by 100%.`
 					},
-
+					unlocks: "Seal Fate",
 					image: "cold_blood.jpg"
 				}, {
 					name: 'Improved Kidney Shot',
@@ -3222,9 +3241,8 @@ const talentData = {
 						return this.x * this.invested
 					},
 					description: function() {
-						return `Your critical strikes from abilities that add combo points  have a ${this.y()}% chance to add an additional combo point.`
+						return `Your critical strikes from abilities that add combo points have a ${this.y()}% chance to add an additional combo point.`
 					},
-					r: [11, 1],
 					locked: "locked",
 					image: "seal_fate.jpg"
 				}, {
@@ -3233,7 +3251,6 @@ const talentData = {
 					description: function() {
 						return `Increases your maximum Energy by 10.`
 					},
-
 					image: "vigor.jpg"
 				}]
 			}, {
@@ -3253,7 +3270,7 @@ const talentData = {
 					name: 'Improved Sinister Strike',
 					maxRank: 2,
 					y: function() {
-						return Math.round(2.6*this.invested)
+						return Math.round(2.51*this.invested)
 					},
 					description: function() {
 						return `Reduces the Energy cost of your Sinister Strike ability by ${this.y()}.`
@@ -3291,6 +3308,7 @@ const talentData = {
 					description: function() {
 						return `Increases your Parry chance by ${this.y()}%.`
 					},
+					unlocks: "Riposte",
 					image: "deflection.jpg"
 				}, {
 					name: 'Precision',
@@ -3302,17 +3320,17 @@ const talentData = {
 					description: function() {
 						return `Increases your chance to hit with melee weapons by ${this.y()}%.`
 					},
+					unlocks: "Dual Wield Specialization",
 					image: "precision.jpg"
 				}, {
 					name: 'Endurance',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return ["45 sec", "1.5 min"]
 					},
 					description: function() {
-						return `Reduces the cooldown of your Sprint and Evasion abilities by 45 sec.`
+						return `Reduces the cooldown of your Sprint and Evasion abilities by ${this.y(this.invested)}.`
 					},
-					description: ['Reduces the cooldown of your Sprint and Evasion abilities by 45 sec.', 'Reduces the cooldown of your Sprint and Evasion abilities by 1.5 min.'],
 					image: "endurance.jpg"
 				}, {
 					name: 'Riposte',
@@ -3373,10 +3391,10 @@ const talentData = {
 					name: 'Mace Specialization',
 					maxRank: 5,
 					y: function() {
-						return [this.invested, Math.floor(1.2*this.invested)]
+						return Math.floor(1.2*this.invested)
 					},
 					description: function() {
-						return `Increases your skill with Maces by ${this.y()[0]}, and gives you a ${this.y()[1]}% chance to stun your target for 3 sec with a mace.`
+						return `Increases your skill with Maces by ${this.invested}, and gives you a ${this.y()}% chance to stun your target for 3 sec with a mace.`
 					},
 					image: "mace_specialization.jpg"
 				}, {
@@ -3385,40 +3403,31 @@ const talentData = {
 					description: function() {
 						return `Increases your attack speed by 20%.  In addition, attacks strike an additional nearby opponent.  Lasts 15 sec.`
 					},
-
+					unlocks: "Weapon Expertise",
 					image: "blade_flurry.jpg"
 				}, {
 					name: 'Sword Specialization',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Gives you a ${this.y()}% chance to get an extra attack on the same target after dealing damage with your Sword.`
+						return `Gives you a ${this.invested}% chance to get an extra attack on the same target after dealing damage with your Sword.`
 					},
 					image: "sword_specialization.jpg"
 				}, {
 					name: 'Fist Weapon Specialization',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Increases your chance to get a critical strike with Fist Weapons by ${this.y()}%.`
+						return `Increases your chance to get a critical strike with Fist Weapons by ${this.invested}%.`
 					},
 					image: "fist_weapon_specialization.jpg"
 				}, {
 					name: 'Weapon Expertise',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return Math.round(2.51*this.invested)
 					},
 					description: function() {
-						return `Increases your skill with Sword, Fist and Dagger weapons by 3.`
+						return `Increases your skill with Sword, Fist and Dagger weapons by ${this.y()}.`
 					},
-					description: ['Increases your skill with Sword, Fist and Dagger weapons by 3.', 'Increases your skill with Sword, Fist and Dagger weapons by 5.'],
 					r: [13, 1],
 					locked: "locked",
 					image: "weapon_expertise.jpg"
@@ -3439,7 +3448,6 @@ const talentData = {
 					description: function() {
 						return `Increases your Energy regeneration rate by 100% for 15 sec.`
 					},
-
 					image: "adrenaline_rush.jpg"
 				}]
 			}, {
@@ -3447,7 +3455,10 @@ const talentData = {
 				talents: [{
 					name: 'Master of Deception',
 					maxRank: 5,
-					description: ['Reduces the chance enemies have to detect you while in Stealth mode.', 'Reduces the chance enemies have to detect you while in Stealth mode.  More effective than Master of Deception (Rank 1).', 'Reduces the chance enemies have to detect you while in Stealth mode.  More effective than Master of Deception (Rank 2).', 'Reduces the chance enemies have to detect you while in Stealth mode.  More effective than Master of Deception (Rank 3).', 'Reduces the chance enemies have to detect you while in Stealth mode.  More effective than Master of Deception (Rank 4).'],
+					description: function() {
+						let v = (this.invested > 1) ? (` More effective than Master of Deception (Rank ${this.invested-1})`) : ''
+						return `Reduces the chance enemies have to detect you while in Stealth mode.${v}`
+					},
 					image: "master_of_deception.jpg"
 				}, {
 					name: 'Opportunity',
@@ -3464,34 +3475,31 @@ const talentData = {
 					name: 'Sleight of Hand',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return 10 * this.invested
 					},
 					description: function() {
-						return `Reduces the chance you are critically hit by melee and ranged attacks by 1% and increases the threat reduction of your Feint ability by 10%.`
+						return `Reduces the chance you are critically hit by melee and ranged attacks by ${this.invested}% and increases the threat reduction of your Feint ability by ${this.y()}%.`
 					},
-					description: ['Reduces the chance you are critically hit by melee and ranged attacks by 1% and increases the threat reduction of your Feint ability by 10%.', 'Reduces the chance you are critically hit by melee and ranged attacks by 2% and increases the threat reduction of your Feint ability by 20%.'],
 					image: "sleight_of_hand.jpg"
 				}, {
 					name: 'Elusiveness',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return ["45 sec", "1.5min"]
 					},
 					description: function() {
-						return `Reduces the cooldown of your Vanish and Blind abilities by 45 sec.`
+						return `Reduces the cooldown of your Vanish and Blind abilities by ${this.y(this.invested)}.`
 					},
-					description: ['Reduces the cooldown of your Vanish and Blind abilities by 45 sec.', 'Reduces the cooldown of your Vanish and Blind abilities by 1.5 min.'],
 					image: "elusiveness.jpg"
 				}, {
 					name: 'Camouflage',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 3*this.invested
 					},
 					description: function() {
-						return `Increases your speed while stealthed by 3% and reduces the cooldown of your Stealth ability by 1 sec.`
+						return `Increases your speed while stealthed by ${this.y()}% and reduces the cooldown of your Stealth ability by ${this.invested} sec.`
 					},
-					description: ['Increases your speed while stealthed by 3% and reduces the cooldown of your Stealth ability by 1 sec.', 'Increases your speed while stealthed by 6% and reduces the cooldown of your Stealth ability by 2 sec.', 'Increases your speed while stealthed by 9% and reduces the cooldown of your Stealth ability by 3 sec.', 'Increases your speed while stealthed by 12% and reduces the cooldown of your Stealth ability by 4 sec.', 'Increases your speed while stealthed by 15% and reduces the cooldown of your Stealth ability by 5 sec.'],
 					image: "camouflage.jpg"
 				}, {
 					name: 'Initiative',
@@ -3510,7 +3518,6 @@ const talentData = {
 					description: function() {
 						return `A strike that deals 125% weapon damage and increases your chance to dodge by 15% for 7 sec.  Awards 1 combo point.`
 					},
-
 					image: "ghostly_strike.jpg"
 				}, {
 					name: 'Improved Ambush',
@@ -3548,20 +3555,24 @@ const talentData = {
 				}, {
 					name: 'Serrated Blades',
 					maxRank: 3,
-					description: function() {
-						return `Causes your attacks to ignore 0 of your target's Armor and increases the damage dealt by your Rupture ability by 10%.  The amount of Armor reduced increases with your level.`
+					y: function() {
+						return 10*this.invested
 					},
-					description: ["Causes your attacks to ignore 0 of your target's Armor and increases the damage dealt by your Rupture ability by 10%.  The amount of Armor reduced increases with your level.", "Causes your attacks to ignore 0 of your target's Armor and increases the damage dealt by your Rupture ability by 20%.  The amount of Armor reduced increases with your level.", "Causes your attacks to ignore 0 of your target's Armor and increases the damage dealt by your Rupture ability by 30%.  The amount of Armor reduced increases with your level."],
+					description: function() {
+						return `Causes your attacks to ignore 0 of your target's Armor and increases the damage dealt by your Rupture ability by ${this.y()}%.  The amount of Armor reduced increases with your level.`
+					},
+					unlocks: "Hemorrhage",
 					image: "serrated_blades.jpg"
 				}, {
 					name: 'Heightened Senses',
 					maxRank: 2,
 
 					y: function() {
-						return this.x * this.invested
+						let z = this.invested==1 ? (" More effective than Heightened Senses (Rank 1).") : ''
+						return [2*this.invested, z]
 					},
 					description: function() {
-						return `Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by 2%.`
+						return `Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by ${this.y()[0]}%.${this.y()[1]}`
 					},
 					image: "heightened_senses.jpg"
 				}, {
@@ -3570,7 +3581,7 @@ const talentData = {
 					description: function() {
 						return `When activated, this ability immediately finishes the cooldown on your other Rogue abilities.`
 					},
-
+					unlocks: "Premeditation",
 					image: "preparation.jpg"
 				}, {
 					name: 'Dirty Deeds',
@@ -3589,7 +3600,6 @@ const talentData = {
 					description: function() {
 						return `An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by up to 3.  Lasts 30 charges or 15 sec.  Awards 1 combo point.`
 					},
-
 					r: [10, 3],
 					locked: "locked",
 					image: "hemorrhage.jpg"
@@ -3610,7 +3620,6 @@ const talentData = {
 					description: function() {
 						return `When used, adds 2 combo points to your target.  You must add to or use those combo points within 10 sec or the combo points are lost. `
 					},
-
 					r: [12, 1],
 					locked: "locked",
 					image: "premeditation.jpg"
@@ -3647,23 +3656,21 @@ const talentData = {
 					name: "Earth's Grasp",
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return [25*this.invested, 10*this.invested]
 					},
 					description: function() {
-						return `Increases the health of your Stoneclaw Totem by 25% and the radius of your Earthbind Totem by 10%.`
+						return `Increases the health of your Stoneclaw Totem by ${this.y()[0]}% and the radius of your Earthbind Totem by ${this.y()[0]}%.`
 					},
-					description: ['Increases the health of your Stoneclaw Totem by 25% and the radius of your Earthbind Totem by 10%.', 'Increases the health of your Stoneclaw Totem by 50% and the radius of your Earthbind Totem by 20%.'],
 					image: "earths_grasp.jpg"
 				}, {
 					name: 'Elemental Warding',
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return Math.ceil(3.33*this.invested)
 					},
 					description: function() {
 						return `Reduces damage taken from Fire, Frost and Nature effects by 4%.`
 					},
-					description: ['Reduces damage taken from Fire, Frost and Nature effects by 4%.', 'Reduces damage taken from Fire, Frost and Nature effects by 7%.', 'Reduces damage taken from Fire, Frost and Nature effects by 10%.'],
 					image: "elemental_warding.jpg"
 				}, {
 					name: 'Call of Flame',
@@ -3699,34 +3706,32 @@ const talentData = {
 					name: 'Call of Thunder',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return Math.floor(1.2*this.invested)
 					},
 					description: function() {
-						return `Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 1%.`
+						return `Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional ${this.y()}%.`
 					},
-					description: ['Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 1%.', 'Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 2%.', 'Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 3%.', 'Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 4%.', 'Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 6%.'],
+					unlocks: "Lightning Mastery",
 					image: "call_of_thunder.jpg"
 				}, {
 					name: 'Improved Fire Totems',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return [this.invested,25*this.invested]
 					},
 					description: function() {
-						return `Reduces the delay before your Fire Nova Totem activates by 1 sec. and decreases the threat generated by your Magma Totem by 25%.`
+						return `Reduces the delay before your Fire Nova Totem activates by ${this.y()[0]} sec. and decreases the threat generated by your Magma Totem by ${this.y()[1]}%.`
 					},
-					description: ['Reduces the delay before your Fire Nova Totem activates by 1 sec. and decreases the threat generated by your Magma Totem by 25%.', 'Reduces the delay before your Fire Nova Totem activates by 2 sec. and decreases the threat generated by your Magma Totem by 50%.'],
 					image: "improved_fire_totems.jpg"
 				}, {
 					name: 'Eye of the Storm',
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return Math.floor(3.34*this.invested)
 					},
 					description: function() {
-						return `Gives you a 33% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect prevents you from losing casting time when taking damage.`
+						return `Gives you a ${this.y()}% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect prevents you from losing casting time when taking damage.`
 					},
-					description: ['Gives you a 33% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect prevents you from losing casting time when taking damage.', 'Gives you a 66% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect prevents you from losing casting time when taking damage.', 'Gives you a 100% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect prevents you from losing casting time when taking damage.'],
 					image: "eye_of_the_storm.jpg"
 				}, {
 					name: 'Elemental Devastation',
@@ -3756,7 +3761,7 @@ const talentData = {
 					description: function() {
 						return `Increases the critical strike damage bonus of your Searing, Magma, and Fire Nova Totems and your Fire, Frost, and Nature spells by 100%.`
 					},
-
+					unlocks: "Elemental Mastery",
 					image: "elemental_fury.jpg"
 				}, {
 					name: 'Lightning Mastery',
@@ -3799,23 +3804,21 @@ const talentData = {
 					name: 'Shield Specialization',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return [this.invested,5*this.invested]
 					},
 					description: function() {
-						return `Increases your chance to block attacks with a shield by 1% and increases the amount blocked by 5%.`
+						return `Increases your chance to block attacks with a shield by ${this.y()[0]}% and increases the amount blocked by ${this.y()[1]}%.`
 					},
-					description: ['Increases your chance to block attacks with a shield by 1% and increases the amount blocked by 5%.', 'Increases your chance to block attacks with a shield by 2% and increases the amount blocked by 10%.', 'Increases your chance to block attacks with a shield by 3% and increases the amount blocked by 15%.', 'Increases your chance to block attacks with a shield by 4% and increases the amount blocked by 20%.', 'Increases your chance to block attacks with a shield by 5% and increases the amount blocked by 25%.'],
 					image: "shield_specialization.jpg"
 				}, {
 					name: 'Guardian Totems',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return [10*this.invested, this.invested]
 					},
 					description: function() {
-						return `Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 10% and reduces the cooldown of your Grounding Totem by 1 sec.`
+						return `Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by ${this.y()[0]}% and reduces the cooldown of your Grounding Totem by ${this.y()[0]} sec.`
 					},
-					description: ['Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 10% and reduces the cooldown of your Grounding Totem by 1 sec.', 'Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 20% and reduces the cooldown of your Grounding Totem by 2 sec.'],
 					image: "guardian_totems.jpg"
 				}, {
 					name: 'Thundering Strikes',
@@ -3827,6 +3830,7 @@ const talentData = {
 					description: function() {
 						return `Improves your chance to get a critical strike with your weapon attacks by ${this.y()}%.`
 					},
+					unlocks: "Flurry",
 					image: "thundering_strikes.jpg"
 				}, {
 					name: 'Improved Ghost Wolf',
@@ -3854,12 +3858,11 @@ const talentData = {
 					name: 'Enhancing Totems',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return Math.round(7.51*this.invested)
 					},
 					description: function() {
-						return `Increases the effect of your Strength of Earth and Grace of Air Totems by 8%.`
+						return `Increases the effect of your Strength of Earth and Grace of Air Totems by ${this.y()}%.`
 					},
-					description: ['Increases the effect of your Strength of Earth and Grace of Air Totems by 8%.', 'Increases the effect of your Strength of Earth and Grace of Air Totems by 15%.'],
 					image: "enhancing_totems.jpg"
 				}, {
 					name: 'Two-Handed Axes and Maces',
@@ -3871,7 +3874,6 @@ const talentData = {
 					description: function() {
 						return `Allows you to use Two-Handed Axes and Two-Handed Maces.`
 					},
-					description: ['Allows you to use Two-Handed Axes and Two-Handed Maces.'],
 					image: "two_handed_axes_and_maces.jpg"
 				}, {
 					name: 'Anticipation',
@@ -3888,12 +3890,11 @@ const talentData = {
 					name: 'Flurry',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return (5*this.invested+5)
 					},
 					description: function() {
-						return `Increases your attack speed by 10% for your next 3 swings after dealing a critical strike.`
+						return `Increases your attack speed by ${this.y()}% for your next 3 swings after dealing a critical strike.`
 					},
-					description: ['Increases your attack speed by 10% for your next 3 swings after dealing a critical strike.', 'Increases your attack speed by 15% for your next 3 swings after dealing a critical strike.', 'Increases your attack speed by 20% for your next 3 swings after dealing a critical strike.', 'Increases your attack speed by 25% for your next 3 swings after dealing a critical strike.', 'Increases your attack speed by 30% for your next 3 swings after dealing a critical strike.'],
 					r: [3, 5],
 					locked: "locked",
 					image: "flurry.jpg"
@@ -3912,23 +3913,22 @@ const talentData = {
 					name: 'Improved Weapon Totems',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return [15*this.invested,6*this.invested]
 					},
 					description: function() {
-						return `Increases the melee attack power bonus of your Windfury Totem by 15% and increases the damage caused by your Flametongue Totem by 6%.`
+						return `Increases the melee attack power bonus of your Windfury Totem by ${this.y()[0]}% and increases the damage caused by your Flametongue Totem by ${this.y()[1]}%.`
 					},
-					description: ['Increases the melee attack power bonus of your Windfury Totem by 15% and increases the damage caused by your Flametongue Totem by 6%.', 'Increases the melee attack power bonus of your Windfury Totem by 30% and increases the damage caused by your Flametongue Totem by 12%.'],
 					image: "improved_weapon_totems.jpg"
 				}, {
 					name: 'Elemental Weapons',
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return [Math.ceil(6.66*this.invested), Math.round(13.33*this.invested), 5*this.invested]
 					},
 					description: function() {
-						return `Increases the melee attack power bonus of your Rockbiter Weapon by 7%, your Windfury Weapon effect by 13% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 5%.`
+						return `Increases the melee attack power bonus of your Rockbiter Weapon by ${this.y()[0]}%, your Windfury Weapon effect by ${this.y()[1]}% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by ${this.y()[2]}%.`
 					},
-					description: ['Increases the melee attack power bonus of your Rockbiter Weapon by 7%, your Windfury Weapon effect by 13% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 5%.', 'Increases the melee attack power bonus of your Rockbiter Weapon by 14%, your Windfury Weapon effect by 27% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 10%.', 'Increases the melee attack power bonus of your Rockbiter Weapon by 20%, your Windfury Weapon effect by 40% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 15%.'],
+					unlocks: "Stormstrike",
 					image: "elemental_weapons.jpg"
 				}, {
 					name: 'Parry',
@@ -3955,7 +3955,6 @@ const talentData = {
 					description: function() {
 						return `Gives you an extra attack.  In addition, the next 2 sources of Nature damage dealt to the target are increased by 20%.  Lasts 12 sec.`
 					},
-
 					r: [12, 3],
 					locked: "locked",
 					image: "stormstrike.jpg"
@@ -3988,20 +3987,22 @@ const talentData = {
 					name: 'Improved Reincarnation',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return 10*this.invested
 					},
 					description: function() {
-						return `Reduces the cooldown of your Reincarnation spell by 10 min and increases the amount of health and mana you reincarnate with by an additional 10%.`
+						v = this.y()
+						return `Reduces the cooldown of your Reincarnation spell by ${v} min and increases the amount of health and mana you reincarnate with by an additional ${v}%.`
 					},
-					description: ['Reduces the cooldown of your Reincarnation spell by 10 min and increases the amount of health and mana you reincarnate with by an additional 10%.', 'Reduces the cooldown of your Reincarnation spell by 20 min and increases the amount of health and mana you reincarnate with by an additional 20%.'],
 					image: "improved_reincarnation.jpg"
 				}, {
 					name: 'Ancestral Healing',
 					maxRank: 3,
-					description: function() {
-						return `Increases your target's armor value by 8% for 15 sec after getting a critical effect from one of your healing spells.`
+					y: function() {
+						return Math.floor(8.34*this.invested)
 					},
-					description: ["Increases your target's armor value by 8% for 15 sec after getting a critical effect from one of your healing spells.", "Increases your target's armor value by 16% for 15 sec after getting a critical effect from one of your healing spells.", "Increases your target's armor value by 25% for 15 sec after getting a critical effect from one of your healing spells."],
+					description: function() {
+						return `Increases your target's armor value by ${this.y()}% for 15 sec after getting a critical effect from one of your healing spells.`
+					},
 					image: "ancestral_healing.jpg"
 				}, {
 					name: 'Totemic Focus',
@@ -4021,9 +4022,8 @@ const talentData = {
 						return this.x * this.invested
 					},
 					description: function() {
-						return `Increases your chance to hit with melee attacks and spells by 1%.`
+						return `Increases your chance to hit with melee attacks and spells by ${this.y()}%.`
 					},
-					description: ['Increases your chance to hit with melee attacks and spells by 1%.', 'Increases your chance to hit with melee attacks and spells by 2%.', 'Increases your chance to hit with melee attacks and spells by 3%.'],
 					image: "natures_guidance.jpg"
 				}, {
 					name: 'Healing Focus',
@@ -4042,7 +4042,6 @@ const talentData = {
 					description: function() {
 						return `The radius of your totems that affect friendly targets is increased to 30 yd.`
 					},
-
 					image: "totemic_mastery.jpg"
 				}, {
 					name: 'Healing Grace',
@@ -4065,6 +4064,7 @@ const talentData = {
 					description: function() {
 						return `Increases the effect of your Mana Spring and Healing Stream Totems by ${this.y()}%.`
 					},
+					unlocks: "Mana Tide Totem",
 					image: "restorative_totems.jpg"
 				}, {
 					name: 'Tidal Mastery',
@@ -4081,12 +4081,11 @@ const talentData = {
 					name: 'Healing Way',
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return Math.floor(33.34*this.invested)
 					},
 					description: function() {
-						return `Your Healing Wave spells have a 33% chance to increase the effect of subsequent Healing Wave spells on that target by 6% for 15 sec.  This effect will stack up to 15001 times.`
+						return `Your Healing Wave spells have a ${this.y()}% chance to increase the effect of subsequent Healing Wave spells on that target by 6% for 15 sec.  This effect will stack up to 5 times.`
 					},
-					description: ['Your Healing Wave spells have a 33% chance to increase the effect of subsequent Healing Wave spells on that target by 6% for 15 sec.  This effect will stack up to 15001 times.', 'Your Healing Wave spells have a 66% chance to increase the effect of subsequent Healing Wave spells on that target by 6% for 15 sec.  This effect will stack up to 15001 times.', 'Your Healing Wave spells have a 100% chance to increase the effect of subsequent Healing Wave spells on that target by 6% for 15 sec.  This effect will stack up to 15001 times.'],
 					image: "healing_way.jpg"
 				}, {
 					name: "Nature's Swiftness",
@@ -4094,7 +4093,6 @@ const talentData = {
 					description: function() {
 						return `When activated, your next Nature spell with a casting time less than 10 sec. becomes an instant cast spell.`
 					},
-					description: ['When activated, your next Nature spell with a casting time less than 10 sec. becomes an instant cast spell.'],
 					image: "natures_swiftness.jpg"
 				}, {
 					name: 'Purification',
@@ -4150,12 +4148,12 @@ const talentData = {
 					name: 'Improved Rend',
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return (10*this.invested)+5
 					},
 					description: function() {
-						return `Increases the bleed damage done by your Rend ability by 15%.`
+						return `Increases the bleed damage done by your Rend ability by ${this.y()}%.`
 					},
-					description: ['Increases the bleed damage done by your Rend ability by 15%.', 'Increases the bleed damage done by your Rend ability by 25%.', 'Increases the bleed damage done by your Rend ability by 35%.'],
+					unlocks: "Deep Wounds",
 					image: "improved_rend.jpg"
 				}, {
 					name: 'Improved Charge',
@@ -4178,17 +4176,17 @@ const talentData = {
 					description: function() {
 						return `You retain up to ${this.y()} of your rage points when you change stances.`
 					},
+					unlocks: "Anger Management",
 					image: "tactical_mastery.jpg"
 				}, {
 					name: 'Improved Thunder Clap',
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return Math.floor(1.34*this.invested)
 					},
 					description: function() {
-						return `Reduces the cost of your Thunder Clap ability by 1 rage point.`
+						return `Reduces the cost of your Thunder Clap ability by ${this.y()} rage point.`
 					},
-					description: ['Reduces the cost of your Thunder Clap ability by 1 rage point.', 'Reduces the cost of your Thunder Clap ability by 2 rage points.', 'Reduces the cost of your Thunder Clap ability by 4 rage points.'],
 					image: "improved_thunder_clap.jpg"
 				}, {
 					name: 'Improved Overpower',
@@ -4213,25 +4211,22 @@ const talentData = {
 					image: "anger_management.jpg"
 				}, {
 					name: 'Deep Wounds',
-					x: 20,
 					maxRank: 3,
+					y: function() {
+						return 20*this.invested
+					},
 					description: function() {
 						return `Your critical strikes cause the opponent to bleed, dealing ${this.y()}% of your melee weapon's average damage over 12 sec.`
 					},
-					r: [2, 3],
+					unlocks: "Impale",
 					locked: "locked",
 					image: "deep_wounds.jpg"
 				}, {
 					name: 'Two-Handed Weapon Specialization',
 					maxRank: 5,
-
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Increases the damage you deal with two-handed melee weapons by 1%.`
+						return `Increases the damage you deal with two-handed melee weapons by ${this.invested}%.`
 					},
-					description: ['Increases the damage you deal with two-handed melee weapons by 1%.', 'Increases the damage you deal with two-handed melee weapons by 2%.', 'Increases the damage you deal with two-handed melee weapons by 3%.', 'Increases the damage you deal with two-handed melee weapons by 4%.', 'Increases the damage you deal with two-handed melee weapons by 5%.'],
 					image: "two_handed_weapon_specialization.jpg"
 				}, {
 					name: 'Impale',
@@ -4248,13 +4243,9 @@ const talentData = {
 					image: "impale.jpg"
 				}, {
 					name: 'Axe Specialization',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Increases your chance to get a critical strike with Axes by ${this.y()}%.`
+						return `Increases your chance to get a critical strike with Axes by ${this.invested}%.`
 					},
 					image: "axe_specialization.jpg"
 				}, {
@@ -4263,39 +4254,30 @@ const talentData = {
 					description: function() {
 						return `Your next 5 melee attacks strike an additional nearby opponent.`
 					},
-
+					unlocks: "Mortal Strike",
 					image: "sweeping_strikes.jpg"
 				}, {
 					name: 'Mace Specialization',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return Math.floor(1.2*this.invested)
 					},
 					description: function() {
-						return `Gives you a 1% chance to stun your target for 3 sec with a Mace.`
+						return `Gives you a ${this.invested}% chance to stun your target for 3 sec with a Mace.`
 					},
-					description: ['Gives you a 1% chance to stun your target for 3 sec with a Mace.', 'Gives you a 2% chance to stun your target for 3 sec with a Mace.', 'Gives you a 3% chance to stun your target for 3 sec with a Mace.', 'Gives you a 4% chance to stun your target for 3 sec with a Mace.', 'Gives you a 6% chance to stun your target for 3 sec with a Mace.'],
 					image: "mace_specialization.jpg"
 				}, {
 					name: 'Sword Specialization',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Gives you a ${this.y()}% chance to get an extra attack on the same target after dealing damage with your Sword.`
+						return `Gives you a ${this.invested}% chance to get an extra attack on the same target after dealing damage with your Sword.`
 					},
 					image: "sword_specialization.jpg"
 				}, {
 					name: 'Polearm Specialization',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Increases your chance to get a critical strike with Polearms by ${this.y()}%.`
+						return `Increases your chance to get a critical strike with Polearms by ${this.invested}%.`
 					},
 					image: "polearm_specialization.jpg"
 				}, {
@@ -4306,7 +4288,7 @@ const talentData = {
 						return this.x * this.invested
 					},
 					description: function() {
-						return `Gives your Hamstring ability a ${this.y()}% chance to immobilize the target for ${this.y()} sec.`
+						return `Gives your Hamstring ability a ${this.y()}% chance to immobilize the target for 5 sec.`
 					},
 					image: "improved_hamstring.jpg"
 				}, {
@@ -4383,18 +4365,13 @@ const talentData = {
 					description: function() {
 						return `Causes all enemies near the warrior to be dazed, reducing movement speed by 50% for 6 sec.`
 					},
-
 					image: "piercing_howl.jpg"
 				}, {
 					name: 'Blood Craze',
 					maxRank: 3,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Regenerates 0% of your total Health over 6 sec after being the victim of a critical strike.`
+						return `Regenerates ${this.invested}% of your total Health over 6 sec after being the victim of a critical strike.`
 					},
-					description: ['Regenerates 0% of your total Health over 6 sec after being the victim of a critical strike.', 'Regenerates 0% of your total Health over 6 sec after being the victim of a critical strike.', 'Regenerates 0% of your total Health over 6 sec after being the victim of a critical strike.'],
 					image: "blood_craze.jpg"
 				}, {
 					name: 'Improved Battle Shout',
@@ -4422,12 +4399,11 @@ const talentData = {
 					name: 'Improved Execute',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return Math.round(2.49*this.invested)
 					},
 					description: function() {
-						return `Reduces the Rage cost of your Execute ability by 2.`
+						return `Reduces the Rage cost of your Execute ability by ${this.y()}.`
 					},
-					description: ['Reduces the Rage cost of your Execute ability by 2.', 'Reduces the Rage cost of your Execute ability by 5.'],
 					image: "improved_execute.jpg"
 				}, {
 					name: 'Enrage',
@@ -4439,6 +4415,7 @@ const talentData = {
 					description: function() {
 						return `Gives you a ${this.y()}% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.`
 					},
+					unlocks: "Flurry",
 					image: "enrage.jpg"
 				}, {
 					name: 'Improved Slam',
@@ -4453,11 +4430,11 @@ const talentData = {
 					image: "improved_slam.jpg"
 				}, {
 					name: 'Death Wish',
-					x: 20,
 					maxRank: 1,
 					description: function() {
-						return `When activated, increases your physical damage by ${this.y()}% and makes you immune to Fear effects, but lowers your armor and all resistances by ${this.y()}%.  Lasts 30 sec.`
+						return `When activated, increases your physical damage by 20% and makes you immune to Fear effects, but lowers your armor and all resistances by 20%.  Lasts 30 sec.`
 					},
+					unlocks: "Bloodthirst",
 					image: "death_wish.jpg"
 				}, {
 					name: 'Improved Intercept',
@@ -4485,12 +4462,11 @@ const talentData = {
 					name: 'Flurry',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return (5*this.invested)+5
 					},
 					description: function() {
-						return `Increases your attack speed by 10% for your next 3 swings after dealing a melee critical strike.`
+						return `Increases your attack speed by ${this.y()}% for your next 3 swings after dealing a melee critical strike.`
 					},
-					description: ['Increases your attack speed by 10% for your next 3 swings after dealing a melee critical strike.', 'Increases your attack speed by 15% for your next 3 swings after dealing a melee critical strike.', 'Increases your attack speed by 20% for your next 3 swings after dealing a melee critical strike.', 'Increases your attack speed by 25% for your next 3 swings after dealing a melee critical strike.', 'Increases your attack speed by 30% for your next 3 swings after dealing a melee critical strike.'],
 					r: [10, 5],
 					locked: "locked",
 					image: "flurry.jpg"
@@ -4500,7 +4476,6 @@ const talentData = {
 					description: function() {
 						return `Instantly attack the target causing damage equal to 45% of your attack power.  In addition, the next 5 successful melee attacks will restore 10 health.  This effect lasts 8 sec.`
 					},
-
 					r: [12, 1],
 					locked: "locked",
 					image: "bloodthirst.jpg"
@@ -4511,12 +4486,12 @@ const talentData = {
 					name: 'Shield Specialization',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return [this.invested, 20*this.invested]
 					},
 					description: function() {
-						return `Increases your chance to block attacks with a shield by 1% and has a 20% chance to generate 1 rage when a block occurs.`
+						return `Increases your chance to block attacks with a shield by ${this.y()[0]}% and has a ${this.y()[1]}% chance to generate 1 rage when a block occurs.`
 					},
-					description: ['Increases your chance to block attacks with a shield by 1% and has a 20% chance to generate 1 rage when a block occurs.', 'Increases your chance to block attacks with a shield by 2% and has a 40% chance to generate 1 rage when a block occurs.', 'Increases your chance to block attacks with a shield by 3% and has a 60% chance to generate 1 rage when a block occurs.', 'Increases your chance to block attacks with a shield by 4% and has a 80% chance to generate 1 rage when a block occurs.', 'Increases your chance to block attacks with a shield by 5% and has a 100% chance to generate 1 rage when a block occurs.'],
+					unlocks: "Improved Shield Block",
 					image: "shield_specialization.jpg"
 				}, {
 					name: 'Anticipation',
@@ -4533,23 +4508,21 @@ const talentData = {
 					name: 'Improved Bloodrage',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return Math.round(2.49*this.invested)
 					},
 					description: function() {
-						return `Increases the instant Rage generated by your Bloodrage ability by 2.`
+						return `Increases the instant Rage generated by your Bloodrage ability by ${this.y()}.`
 					},
-					description: ['Increases the instant Rage generated by your Bloodrage ability by 2.', 'Increases the instant Rage generated by your Bloodrage ability by 5.'],
 					image: "improved_bloodrage.jpg"
 				}, {
 					name: 'Toughness',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 2*this.invested
 					},
 					description: function() {
-						return `Increases your armor value from items by 2%.`
+						return `Increases your armor value from items by ${this.y()}%.`
 					},
-					description: ['Increases your armor value from items by 2%.', 'Increases your armor value from items by 4%.', 'Increases your armor value from items by 6%.', 'Increases your armor value from items by 8%.', 'Increases your armor value from items by 10%.'],
 					image: "toughness.jpg"
 				}, {
 					name: 'Iron Will',
@@ -4568,7 +4541,6 @@ const talentData = {
 					description: function() {
 						return `When activated, this ability temporarily grants you 30% of your maximum hit points for 20 seconds.  After the effect expires, the hit points are lost.`
 					},
-
 					r: [2, 2],
 					locked: "locked",
 					image: "last_stand.jpg"
@@ -4644,12 +4616,11 @@ const talentData = {
 					name: 'Improved Shield Wall',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return Math.round(2.51*this.invested)
 					},
 					description: function() {
-						return `Increases the effect duration of your Shield Wall ability by 3 secs.`
+						return `Increases the effect duration of your Shield Wall ability by ${this.y()} secs.`
 					},
-					description: ['Increases the effect duration of your Shield Wall ability by 3 secs.', 'Increases the effect duration of your Shield Wall ability by 5 secs.'],
 					image: "improved_shield_wall.jpg"
 				}, {
 					name: 'Concussion Blow',
@@ -4657,7 +4628,7 @@ const talentData = {
 					description: function() {
 						return `Stuns the opponent for 5 sec.`
 					},
-
+					unlocks: "Shield Slam",
 					image: "concussion_blow.jpg"
 				}, {
 					name: 'Improved Shield Bash',
@@ -4673,14 +4644,12 @@ const talentData = {
 				}, {
 					name: 'One-Handed Weapon Specialization',
 					maxRank: 5,
-
 					y: function() {
-						return this.x * this.invested
+						return 2*this.invested
 					},
 					description: function() {
-						return `Increases the damage you deal with One-Handed Melee weapons by 2%.`
+						return `Increases the damage you deal with One-Handed Melee weapons by ${this.y()}%.`
 					},
-					description: ['Increases the damage you deal with One-Handed Melee weapons by 2%.', 'Increases the damage you deal with One-Handed Melee weapons by 4%.', 'Increases the damage you deal with One-Handed Melee weapons by 6%.', 'Increases the damage you deal with One-Handed Melee weapons by 8%.', 'Increases the damage you deal with One-Handed Melee weapons by 10%.'],
 					image: "one_handed_weapon_specialization.jpg"
 				}, {
 					name: 'Shield Slam',
@@ -4688,7 +4657,6 @@ const talentData = {
 					description: function() {
 						return `Slam the target with your shield, causing 225 to 236 damage, modified by your shield block value, and has a 50% chance of dispelling 1 magic effect on the target.  Also causes a high amount of threat.`
 					},
-
 					r: [13, 1],
 					locked: "locked",
 					image: "shield_slam.jpg"
