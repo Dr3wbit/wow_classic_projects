@@ -3253,12 +3253,11 @@ const talentData = {
 					name: 'Improved Sinister Strike',
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return Math.round(2.6*this.invested)
 					},
 					description: function() {
-						return `Reduces the Energy cost of your Sinister Strike ability by 3.`
+						return `Reduces the Energy cost of your Sinister Strike ability by ${this.y()}.`
 					},
-					description: ['Reduces the Energy cost of your Sinister Strike ability by 3.', 'Reduces the Energy cost of your Sinister Strike ability by 5.'],
 					image: "improved_sinister_strike.jpg"
 				}, {
 					name: 'Lightning Reflexes',
@@ -3321,7 +3320,6 @@ const talentData = {
 					description: function() {
 						return `A strike that becomes active after parrying an opponent's attack.  This attack deals 150% weapon damage and disarms the target for 6 sec.`
 					},
-					description: ["A strike that becomes active after parrying an opponent's attack.  This attack deals 150% weapon damage and disarms the target for 6 sec."],
 					r: [4, 5],
 					locked: "locked",
 					image: "riposte.jpg"
@@ -3375,12 +3373,11 @@ const talentData = {
 					name: 'Mace Specialization',
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return [this.invested, Math.floor(1.2*this.invested)]
 					},
 					description: function() {
-						return `Increases your skill with Maces by 1, and gives you a 1% chance to stun your target for 3 sec with a mace.`
+						return `Increases your skill with Maces by ${this.y()[0]}, and gives you a ${this.y()[1]}% chance to stun your target for 3 sec with a mace.`
 					},
-					description: ['Increases your skill with Maces by 1, and gives you a 1% chance to stun your target for 3 sec with a mace.', 'Increases your skill with Maces by 2, and gives you a 2% chance to stun your target for 3 sec with a mace.', 'Increases your skill with Maces by 3, and gives you a 3% chance to stun your target for 3 sec with a mace.', 'Increases your skill with Maces by 4, and gives you a 4% chance to stun your target for 3 sec with a mace.', 'Increases your skill with Maces by 5, and gives you a 6% chance to stun your target for 3 sec with a mace.'],
 					image: "mace_specialization.jpg"
 				}, {
 					name: 'Blade Flurry',
