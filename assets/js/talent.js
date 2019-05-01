@@ -167,10 +167,50 @@ function talentHandler(classData) {
 			e.preventDefault()
 		},
 		mouseenter: e => {
+			updateTooltip(classData, e)
+		},
+
+		mouseleave: e => {
 			const targetTalent = $(e.target)
+			console.log(e)
+			targetTalent.children($('.talent-tooltip').remove())
+		},
 
+		mousedown: e => {
+			const targetTalent = $(e.target)
+			targetTalent.children($('.talent-tooltip').remove())
+			const unlocks = targetTalent.attr('data-unlocks')
 
+			//gets talent tree name (kinda ghetto)
+			const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
+			const name = targetTalent.attr('name')
 
+			const found = classData.trees.find(function(x) { //
+				return x.name == tree
+			})
+			const j = targetTalent.attr('data-j')
+			const k = targetTalent.attr('data-k')
+
+			const talent = found.data[j][k]
+
+			talent.invested = targetTalent.children(0).text() // should insure points don't carry over when switching between classes
+
+			const maxRank = talent.maxRank
+
+			canSpendPoints(talent, e, tree)
+			checkForUnlock(unlocks, talent)
+
+			targetTalent.children(0).text(talent.invested)
+			targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree].total())
+			console.log(targetTalent.attr('name') + " : " + talent.invested)
+			updateTooltip(classData, e)
+		}
+
+	})
+}
+
+function updateTooltip(classData, e){
+	const targetTalent = $(e.target)
 			const name = targetTalent.attr('name')
             const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
 
@@ -209,6 +249,10 @@ function talentHandler(classData) {
                 description = talent.description() + "\nNext Rank:\n" + testobj.description()
             }
 
+			targetTalent.append($('<div/>', {
+				class: 'talent-tooltip',
+				text: description
+			}))
             console.log("description: ", description)
 
 			// console.log("mouse entered, talent.name: ", talent.name)
@@ -217,39 +261,7 @@ function talentHandler(classData) {
 			// Rank x/maxRank
 			// required talent prereqs if not met (red font)
 			// required talent points spent if not enough spent in tree (red font)
-		},
-
-		mousedown: e => {
-			const targetTalent = $(e.target)
-			const unlocks = targetTalent.attr('data-unlocks')
-
-			//gets talent tree name (kinda ghetto)
-			const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
-			const name = targetTalent.attr('name')
-
-			const found = classData.trees.find(function(x) { //
-				return x.name == tree
-			})
-			const j = targetTalent.attr('data-j')
-			const k = targetTalent.attr('data-k')
-
-			const talent = found.data[j][k]
-
-			talent.invested = targetTalent.children(0).text() // should insure points don't carry over when switching between classes
-
-			const maxRank = talent.maxRank
-
-			canSpendPoints(talent, e, tree)
-			checkForUnlock(unlocks, talent)
-
-			targetTalent.children(0).text(talent.invested)
-			targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree].total())
-			console.log(targetTalent.attr('name') + " : " + talent.invested)
-		}
-
-	})
 }
-
 
 function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
 
