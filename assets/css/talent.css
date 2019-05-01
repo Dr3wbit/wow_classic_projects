@@ -55,7 +55,7 @@
     position: relative;
 }
 
-#tooltip {
+/* #tooltip {
     position: absolute;
     z-index: 1070;
     display: block;
@@ -76,22 +76,23 @@
     font-size: .875rem;
     word-wrap: break-word;
     opacity: 0
-}
+} */
 
 .talent-tooltip{
     font-size: 100%;
-    width: 245px;
+    width: 325px;
     position: absolute;
     left: 40px;
     bottom: 40px;
     background-color: rgba(0, 0, 0, 0.89);
-    color: #1EFF00;
+    color: azure;
     pointer-events: none;
     border: 1px solid azure;
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
     z-index: 999;
+    text-align: left;
 }
 
 .tooltip.show {
