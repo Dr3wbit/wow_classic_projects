@@ -215,7 +215,7 @@ function updateTooltip(classData, e){
 			const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
 			const locked = $(e.target).hasClass('locked')
 
-            const found = classData.trees.find(function(x) { //
+            const found = classData.trees.find(function(x) {
                 return x.name == tree
             })
             const j = targetTalent.attr('data-j')
@@ -225,6 +225,9 @@ function updateTooltip(classData, e){
 			const testobj = Object.assign({}, talent)
 			const requiredTalentPoints = talent.requiredTalentPoints
 
+			// console.log("talent: ", talent)
+			// console.log("found: ", found)
+			console.log("jk: [",j,"][",k,"]")
             let description
 			let next_rank = true
 			let req_text = ''
@@ -249,14 +252,20 @@ function updateTooltip(classData, e){
 
             if (talent.maxRank > 1 && talent.invested > 0 && next_rank) {
                 testobj.invested++
-                description = talent.description() + "\nNext Rank:\n" + testobj.description()
+                description = talent.description() + "\n\nNext Rank:\n" + testobj.description()
 			}
 			if (talentPointsSpent[tree].total() < requiredTalentPoints) {
 				req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
 			}
 			if (locked){
 				if(req_text){
-					req_text = req_text + "\nthis boy locked" //Figure out how to get the talent and points needed to unlock for this text
+					const coords = testobj.locked
+					const prereq = Object.assign({}, found.data[coords[0]][coords[1]])
+					// console.log("prereq: ", prereq)
+					const points_remaining = prereq.maxRank - prereq.invested
+					const plural = (points_remaining>1) ? 's' : ''
+					req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text  //Figure out how to get the talent and points needed to unlock for this text
+					// req_text = req_text + "this boy locked"
 				}else{
 					req_text = "this boy locked" //Figure out how to get the talent and points needed to unlock for this text
 				}
@@ -341,7 +350,7 @@ function checkForUnlock(unlocks, talent) {
 		const talentReference = unlocks
 
 		// NOTE: will be unique once element names are unique, won't need .first()
-		let talent_elem = $(`div.talent[name='${talentReference}']`).first()
+		let talent_elem = $(`div.talent[name="${talentReference}"]`)
 		if (points === maxRank) {
 
 			talent_elem.removeClass('locked')
@@ -397,7 +406,7 @@ function canSpendPoints(talent, e, tree) {
 
 		if (talent.invested == maxRank && unlocks) {
 			// NOTE: will be unique once element names are unique, won't need .first()
-			const child_talent = $(`div.talent[name='${unlocks}']`).first()
+			const child_talent = $(`div.talent[name="${unlocks}"]`)
 			let n = child_talent.find('.spentPoints').text()
 
 			if (can_unspec && n > 0) {
