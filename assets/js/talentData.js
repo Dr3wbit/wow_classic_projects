@@ -161,23 +161,20 @@ const talentData = {
 								return `Reduces the target's movement speed by 10% for 12 sec.  Only one Curse per Warlock can be active on any one target.`
 							},
 							maxRank: 1,
-							locked: "locked",
-							prereq: "amplify_curse",
+							locked: [2,2],
 							unlocks: "Improved Curse of Exhaustion"
 						},
 						{
 							name: "Improved Curse of Exhaustion",
 							image: "curse_of_exhaustion.jpg",
-							x: 5,
 							y: function() {
-								return this.x * this.invested
+								return 5 *this.invested
 							},
 							description: function() {
 								return `Increases the speed reduction of your Curse of Exhaustion by ${this.y()}%.`
 							},
 							maxRank: 4,
-							prereq: "curse_of_exhaustion",
-							locked: "locked"
+							locked: [4, 2],
 						},
 						{
 							name: "Shadow Mastery",
@@ -190,7 +187,7 @@ const talentData = {
 								return `Increases the damage dealt or life drained by your Shadow spells by ${this.y()}%.`
 							},
 							maxRank: 5,
-							locked: "locked"
+							locked: [4,1]
 						},
 						{
 							name: "Dark Pact",
@@ -218,7 +215,9 @@ const talentData = {
 					}, {
 						name: 'Improved Imp',
 						maxRank: 3,
-						x: 10,
+						y: function() {
+                            return (10*this.invested)
+                        },
 						description: function() {
 							return `Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by ${this.y()}%.`
 						},
@@ -305,7 +304,7 @@ const talentData = {
 						description: function() {
 							return `Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by ${this.y()[0]} sec and the Mana cost by ${this.y()[1]}%.`
 						},
-						locked: "locked",
+						locked: [2,1],
 						image: "master_summoner.jpg"
 					}, {
 						name: 'Unholy Power',
@@ -359,10 +358,9 @@ const talentData = {
 							return [this.x[0] * this.invested,this.x[1] * this.invested,this.x[2] * this.invested]
 						},
 						description: function() {
-							return `Grants both the Warlock and the summoned demon an effect as long as that demon is active.\nImp - Reduces threat caused by ${this.y()[0]}%.\n\nVoidwalker - Reduces physical damage taken by ${this.y()[1]}%.\n\nSuccubus - Increases all damage caused by ${this.y()[1]}%.\n\nFelhunter - Increases all resistances by ${this.y()[2]} per level.`
+							return `Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Reduces threat caused by ${this.y()[0]}%.\n\nVoidwalker - Reduces physical damage taken by ${this.y()[1]}%.\n\nSuccubus - Increases all damage caused by ${this.y()[1]}%.\n\nFelhunter - Increases all resistances by ${this.y()[2]} per level.`
 						},
-						r: [10, 5],
-						locked: "locked",
+						locked: [3,2],
 						image: "master_demonologist.jpg"
 					}, {
 						name: 'Soul Link',
@@ -370,8 +368,7 @@ const talentData = {
 						description: function() {
 							return `When active, 30% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, or Felhunter demon instead.  In addition, both the demon and master will inflict 3% more damage.  Lasts as long as the demon is active.`
 						},
-						r: [12, 1],
-						locked: "locked",
+						locked: [4,1],
 						image: "soul_link.jpg"
 					}, {
 						name: 'Improved Spellstone',
@@ -413,9 +410,8 @@ const talentData = {
 					}, {
 						name: 'Bane',
 						maxRank: 5,
-						x: [0.1, 0.4],
 						y: function() {
-							return [this.x[0] * this.invested, this.x[1] * this.invested]
+							return [(0.1*10*this.invested)/10, (0.4*10*this.invested)/10]
 						},
 						description: function() {
 							return `Reduces the casting time of your Shadow Bolt and Immolate spells by ${this.y()[0]} sec and your Soul Fire spell by ${this.y()[1]} sec.`
@@ -516,8 +512,7 @@ const talentData = {
 						description: function() {
 							return `Gives your Rain of Fire, Hellfire, and Soul Fire spells a ${this.y()}% chance to stun the target for 3 sec.`
 						},
-						r: [8, 2],
-						locked: "locked",
+						locked: [3,0],
 						image: "pyroclasm.jpg"
 					}, {
 						name: 'Improved Immolate',
@@ -537,7 +532,7 @@ const talentData = {
 						description: function() {
 							return `Increases the critical strike damage bonus of your Destruction spells by 100%.`
 						},
-						locked: "locked",
+						locked: [2,2],
 						image: "ruin.jpg"
 					}, {
 						name: 'Emberstorm',
@@ -556,7 +551,7 @@ const talentData = {
 						description: function() {
 							return `Ignites a target that is already afflicted by Immolate, dealing 240 to 307 Fire damage and consuming the Immolate spell.`
 						},
-						locked: "locked",
+						locked: [4,1],
 						image: "conflagrate.jpg"
 					}]
 				}
@@ -743,10 +738,9 @@ const talentData = {
 				name: 'Fire',
 				talents: [{
 					name: 'Improved Fireball',
-					x: 0.1,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return (10*0.1*this.invested)/10
 					},
 					description: function() {
 						return `Reduces the casting time of your Fireball spell by ${this.y()} sec.`
@@ -927,7 +921,7 @@ const talentData = {
 					name: 'Improved Frostbolt',
 					maxRank: 5,
 					y: function() {
-						return 0.1 * this.invested
+						return (0.1*10*this.invested)/10
 					},
 					description: function() {
 						return `Reduces the casting time of your Frostbolt spell by ${this.y()} sec.`
@@ -981,12 +975,11 @@ const talentData = {
 				}, {
 					name: 'Permafrost',
 					maxRank: 3,
-					x: [1, 3.33],
 					y: function() {
-						return [this.x[0] * this.invested, Math.ceil(this.x[1]) * this.invested]
+						return Math.ceil(3.33*this.invested)
 					},
 					description: function() {
-						return `Increases the duration of your Chill effects by 1 sec and reduces the target's speed by an additional 4%.`
+						return `Increases the duration of your Chill effects by ${this.invested} sec and reduces the target's speed by an additional ${this.y()}%.`
 					},
 					image: "permafrost.jpg"
 				}, {
@@ -1012,8 +1005,7 @@ const talentData = {
 					name: 'Improved Blizzard',
 					maxRank: 3,
 					y: function() {
-						let x = this.invested
-						return 15*(x+1)+(5*(Math.round(.34*x)))
+						return (15*(this.invested+1)+(5*(Math.round(.34*this.invested))))
 					},
 					description: function() {
 						return `Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by ${this.y()}%.  Lasts 2 sec.`
@@ -1105,7 +1097,7 @@ const talentData = {
 					name: 'Improved Wrath',
 					maxRank: 5,
 					y: function() {
-						return 0.1*this.invested
+						return (0.1*10*this.invested)/10
 					},
 					description: function() {
 						return `Reduces the cast time of your Wrath spell by ${this.y()} sec.`
@@ -1222,9 +1214,8 @@ const talentData = {
 				}, {
 					name: 'Improved Starfire',
 					maxRank: 5,
-					x: [0.1, 3],
 					y: function() {
-						return [this.x[0] * this.invested, this.x[1] * this.invested]
+						return [(0.1*10*this.invested)/10, 3*this.invested]
 					},
 					description: function() {
 						return `Reduces the cast time of Starfire by ${this.y()[0]} sec and has a ${this.y()[1]}% chance to stun the target for 3 sec.`
@@ -1471,7 +1462,7 @@ const talentData = {
 					name: 'Improved Healing Touch',
 					maxRank: 5,
 					y: function() {
-						return 0.1 * this.invested
+						return (0.1*10*this.invested)/10
 					},
 					description: function() {
 						return `Reduces the cast time of your Healing Touch spell by ${this.y()} sec.`
@@ -1840,9 +1831,8 @@ const talentData = {
 				}, {
 					name: 'Improved Arcane Shot',
 					maxRank: 5,
-					x: 0.2,
 					y: function() {
-						return this.x * this.invested
+						return (0.2*10*this.invested)/10
 					},
 					description: function() {
 						return `Reduces the cooldown of your Arcane Shot by ${this.y()} sec.`
@@ -2733,11 +2723,8 @@ const talentData = {
 				}, {
 					name: 'Force of Will',
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						v = this.y()
+						v = this.invested
 						return `Increases your spell damage by ${v}% and the critical strike chance of your offensive spells by ${v}%.`
 					},
 					image: "force_of_will.jpg"
@@ -2799,10 +2786,9 @@ const talentData = {
 					image: "spell_warding.jpg"
 				}, {
 					name: 'Divine Fury',
-					x: 0.1,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return (0.1*10*this.invested)/10
 					},
 					description: function() {
 						return `Reduces the casting time of your Smite, Holy Fire, Heal and Greater Heal spells by ${this.y()} sec.`
@@ -3030,13 +3016,12 @@ const talentData = {
 					image: "shadow_reach.jpg"
 				}, {
 					name: 'Shadow Weaving',
-					x: 20,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 20*this.invested
 					},
 					description: function() {
-						return `Your Shadow damage spells have a ${this.y()}% chance to cause your target to be vulnerable to Shadow damage.  This vulnerability increases the Shadow damage dealt to your target by 3% and lasts 15 sec.  Stacks up to 15001 times.`
+						return `Your Shadow damage spells have a ${this.y()}% chance to cause your target to be vulnerable to Shadow damage.  This vulnerability increases the Shadow damage dealt to your target by 3% and lasts 15 sec.  Stacks up to 5 times.`
 					},
 					image: "shadow_weaving.jpg"
 				}, {
@@ -3326,10 +3311,12 @@ const talentData = {
 					name: 'Endurance',
 					maxRank: 2,
 					y: function() {
-						return ["45 sec", "1.5 min"]
+						if (this.invested>1){
+							return "1.5 min"
+						} else{return "45 sec"}
 					},
 					description: function() {
-						return `Reduces the cooldown of your Sprint and Evasion abilities by ${this.y(this.invested)}.`
+						return `Reduces the cooldown of your Sprint and Evasion abilities by ${this.y()}.`
 					},
 					image: "endurance.jpg"
 				}, {
@@ -3485,10 +3472,12 @@ const talentData = {
 					name: 'Elusiveness',
 					maxRank: 2,
 					y: function() {
-						return ["45 sec", "1.5min"]
+						if (this.invested>1){
+							return "1.5 min"
+						} else{return "45 sec"}
 					},
 					description: function() {
-						return `Reduces the cooldown of your Vanish and Blind abilities by ${this.y(this.invested)}.`
+						return `Reduces the cooldown of your Vanish and Blind abilities by ${this.y()}.`
 					},
 					image: "elusiveness.jpg"
 				}, {
@@ -3693,10 +3682,9 @@ const talentData = {
 					image: "elemental_focus.jpg"
 				}, {
 					name: 'Reverberation',
-					x: 0.2,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return (0.2*10*this.invested)/10
 					},
 					description: function() {
 						return `Reduces the cooldown of your Shock spells by ${this.y()} sec.`
@@ -3963,10 +3951,9 @@ const talentData = {
 				name: 'Restoration',
 				talents: [{
 					name: 'Improved Healing Wave',
-					x: 0.1,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return (0.1*10*this.invested)/10
 					},
 					description: function() {
 						return `Reduces the casting time of your Healing Wave spell by ${this.y()} sec.`
@@ -4018,11 +4005,8 @@ const talentData = {
 				}, {
 					name: "Nature's Guidance",
 					maxRank: 3,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Increases your chance to hit with melee attacks and spells by ${this.y()}%.`
+						return `Increases your chance to hit with melee attacks and spells by ${this.invested}%.`
 					},
 					image: "natures_guidance.jpg"
 				}, {
@@ -4419,10 +4403,9 @@ const talentData = {
 					image: "enrage.jpg"
 				}, {
 					name: 'Improved Slam',
-					x: 0.1,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return (0.1*10*this.invested)/10
 					},
 					description: function() {
 						return `Decreases the casting time of your Slam ability by ${this.y()} sec.`
