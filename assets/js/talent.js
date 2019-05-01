@@ -145,7 +145,7 @@ function combineTalents(d) {
 	data.forEach(function(item, index) {
 		talent_arr.push(item.talents)
 	})
-    return talent_arr.flat().reverse()
+    return talent_arr.flat().reverse()   //Microsoft Edge does not support  .flat()
 }
 
 // name janitor, example: Curse of Exhaustion --> curse_of_exhaustion
