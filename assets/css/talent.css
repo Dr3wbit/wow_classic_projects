@@ -113,7 +113,12 @@
     right: 8px;
 }
 
-.talentcalc-arrow-down2 {
+.talentcalc-arrow-down-long {
     background-image:url(../images/arrows/down.png);
     background-repeat: no-repeat;
+    position: absolute;
+    width: 15px;
+    height: 30px;
+    bottom: -30px;
+    right: 8px;
 }
