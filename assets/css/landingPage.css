@@ -2,5 +2,31 @@
 
 .mainHeader {
     text-align: left;
-    color: azure
+    color: azure;
+}
+
+.sidebar-header{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: azure;
+}
+
+.sidebar-content{
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: left;
+    color: azure;
+    padding: 10px;
+}
+
+.sidebar-ref{
+    font-size: 14px;
+    color: #ff3604;
+}
+.sidebar-ref:hover{
+    color: #FFCD55;
+}
+
+.card{
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    color: azure !important;
+    border-color: azure !important;
 }
