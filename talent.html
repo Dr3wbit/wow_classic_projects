@@ -79,7 +79,7 @@
         <div class="row">
             {{#each this}}
             {{#if this}}
-            <div class="talent {{locked}}"
+            <div class="talent {{#if locked}}locked{{/if}}"
                 style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
                 name="{{name}}" data-j={{j}} data-k={{k}} data-unlocks="{{unlocks}}">
                 <div class="spentPoints">0</div>
