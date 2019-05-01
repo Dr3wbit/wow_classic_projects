@@ -38,6 +38,7 @@
     text-align: center;
     line-height: 14px;
     pointer-events: none;
+    user-select: none;
 }
 
 .locked {
@@ -75,6 +76,22 @@
     font-size: .875rem;
     word-wrap: break-word;
     opacity: 0
+}
+
+.talent-tooltip{
+    font-size: 100%;
+    width: 245px;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.89);
+    color: #1EFF00;
+    pointer-events: none;
+    border: 1px solid azure;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    z-index: 999;
 }
 
 .tooltip.show {

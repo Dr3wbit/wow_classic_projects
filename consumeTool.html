@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="consume-title">{{name}}
-                <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" type="number" maxlength="3" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" onkeydown="return event.keyCode !== 69">
+                <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" type="number" maxlength="3" min="0" step="1" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" onkeydown="return event.keyCode !== 69">
             </div>
         </div>
         {{/each}}
