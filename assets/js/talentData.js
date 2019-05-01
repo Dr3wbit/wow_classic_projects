@@ -353,9 +353,8 @@ const talentData = {
 						//NOTE
 						name: 'Master Demonologist',
 						maxRank: 5,
-						x: [4,2,.2],
 						y: function() {
-							return [this.x[0] * this.invested,this.x[1] * this.invested,this.x[2] * this.invested]
+							return [4*this.invested, 2*this.invested, (0.2*10*this.invested)/10]
 						},
 						description: function() {
 							return `Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Reduces threat caused by ${this.y()[0]}%.\n\nVoidwalker - Reduces physical damage taken by ${this.y()[1]}%.\n\nSuccubus - Increases all damage caused by ${this.y()[1]}%.\n\nFelhunter - Increases all resistances by ${this.y()[2]} per level.`
