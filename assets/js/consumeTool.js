@@ -8,8 +8,13 @@ function initializeApp() {
         e.preventDefault();
     });
     applyClickHandlers();
-    $(".consume-form").on('keyup', (e) => {
-        $('.consume-form').submit(getMaterials(selectedData))
+    $(".consume-form").on({
+        'change': (e) => {
+            $('.consume-form').submit(getMaterials(selectedData))
+        },
+        'keyup': (e) => {
+            $('.consume-form').submit(getMaterials(selectedData))
+        }
     })
 }
 
