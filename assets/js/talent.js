@@ -212,7 +212,8 @@ function talentHandler(classData) {
 function updateTooltip(classData, e){
 	const targetTalent = $(e.target)
 			const name = targetTalent.attr('name')
-            const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
+			const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
+			const locked = $(e.target).hasClass('locked')
 
             const found = classData.trees.find(function(x) { //
                 return x.name == tree
@@ -221,10 +222,12 @@ function updateTooltip(classData, e){
             const k = targetTalent.attr('data-k')
 
             const talent = found.data[j][k]
-            const testobj = Object.assign({}, talent)
+			const testobj = Object.assign({}, talent)
+			const requiredTalentPoints = talent.requiredTalentPoints
 
             let description
-            let next_rank = true
+			let next_rank = true
+			let req_text = ''
 
             if (talent.invested == 0)
             {
@@ -247,15 +250,43 @@ function updateTooltip(classData, e){
             if (talent.maxRank > 1 && talent.invested > 0 && next_rank) {
                 testobj.invested++
                 description = talent.description() + "\nNext Rank:\n" + testobj.description()
-            }
+			}
+			if (talentPointsSpent[tree].total() < requiredTalentPoints) {
+				req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
+			}
+			if (locked){
+				if(req_text){
+					req_text = req_text + "\nthis boy locked" //Figure out how to get the talent and points needed to unlock for this text
+				}else{
+					req_text = "this boy locked" //Figure out how to get the talent and points needed to unlock for this text
+				}
+			}
 
 			targetTalent.append($('<div/>', {
-				class: 'talent-tooltip',
-				text: description
+				class: 'talent-tooltip',  //talent-tooltip (the container) is only class in css, the rest are inline styling
+			})
+			.append($('<div/>', {
+				class: 'talent-tooltip-title',
+				text: name,
+				css: ({'font-size': '16px'}),
 			}))
+			.append($('<div/>', {
+				class: 'talent-tooltip-rank',
+				text: "Rank " + talent.invested +"/"+ talent.maxRank,
+			}))
+			.append($('<div/>', {
+				class: 'talent-tooltip-req',
+				text: req_text,
+				css: ({'color': 'red', 'white-space': 'pre-line'}),
+			}))
+			.append($('<div/>', {
+				class: 'talent-tooltip-description',  //regex afterward to replace "NextRank:" with white text OR we make separate elements
+				text: description,
+				css: ({'color': '#FFCD55', 'white-space': 'pre-line'}),
+			}))
+			)
             console.log("description: ", description)
 
-			// console.log("mouse entered, talent.name: ", talent.name)
 			// tooltip should display:
 			// Talent Name
 			// Rank x/maxRank
