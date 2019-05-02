@@ -124,7 +124,27 @@ function mapTalentsToTableData(trees, tal_arr) {
                     trees[index].data[j][k].requiredTalentPoints = reqTalentPoints
 					trees[index].data[j][k].j = j
 					trees[index].data[j][k].k = k
+					if (trees[index].data[j][k].unlocks){
+						if (v == 2){
+							console.log("multiple arrows issue")
+						}
+						// down
+						if (v > 2 && v <= 5){
+							let n = 6 - v
+							trees[index].data[j][k].arrows = ["down-"+n.toString()]
 
+						}
+						// right
+						if (v == 6){
+							trees[index].data[j][k].arrows = ["right"]
+
+						}
+						// rightdown
+						if (v == 7){
+							trees[index].data[j][k].arrows = ["rightdown"]
+						}
+
+					}
                 }
 			})
 		})
@@ -197,7 +217,7 @@ function talentHandler(classData) {
 			const k = targetTalent.attr('data-k')
 
 			const talent = found.data[j][k]
-			talent.invested = targetTalent.children(0).text() // should insure points don't carry over when switching between classes
+			talent.invested = parseInt(targetTalent.children(0).first().text()) // should insure points don't carry over when switching between classes
 
 			const talentCopy = Object.assign({}, talent)
 
@@ -206,7 +226,7 @@ function talentHandler(classData) {
 
 			canSpendPoints(talent, e, tree)
 
-			targetTalent.children(0).text(talent.invested)
+			targetTalent.children(0).first().text(talent.invested)
 			targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree].total())
 			console.log(targetTalent.attr('name') + " : " + talent.invested)
 			updateTooltip(classData, e)
@@ -239,6 +259,7 @@ function updateTooltip(classData, e){
 
             if (talent.invested == 0)
             {
+				next_rank = false
                 talentCopy.invested++
                 description = talentCopy.description()
             }
@@ -257,7 +278,9 @@ function updateTooltip(classData, e){
 
             if (talent.maxRank > 1 && talent.invested > 0 && next_rank) {
                 talentCopy.invested++
-                description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
+                // description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
+				description = talent.description()
+
 			}
 			if (talentPointsSpent[tree].total() < requiredTalentPoints) {
 				req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
@@ -269,17 +292,26 @@ function updateTooltip(classData, e){
 				const points_remaining = prereq.maxRank - prereq.invested
 				const plural = (points_remaining>1) ? 's' : ''
 				req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text  //Figure out how to get the talent and points needed to unlock for this text
-
 			}
 
 
-			targetTalent.append($('<div/>', {
+			const next_rank_ele = (next_rank) ? $('<div/>', {
+				class: 'talent-tooltip-rank-next',
+				text: "\nNext Rank:\n",
+			}).append($('<div/>', {
+				class: 'talent-tooltip-description',
+				text: talentCopy.description(),
+			})) : null
+
+			console.log("targetTalent", targetTalent.siblings(".tooltip-container").first())
+
+			// targetTalent.append($('<div/>', {
+			targetTalent.next().append($('<div/>', {
 				class: 'talent-tooltip',  //talent-tooltip (the container) is only class in css, the rest are inline styling
 			})
 			.append($('<div/>', {
 				class: 'talent-tooltip-title',
 				text: name,
-				css: ({'font-size': '16px'}),
 			}))
 			.append($('<div/>', {
 				class: 'talent-tooltip-rank',
@@ -287,15 +319,28 @@ function updateTooltip(classData, e){
 			}))
 			.append($('<div/>', {
 				class: 'talent-tooltip-req',
+
 				text: req_text,
-				css: ({'color': 'red', 'white-space': 'pre-line'}),
 			}))
 			.append($('<div/>', {
-				class: 'talent-tooltip-description',  //regex afterward to replace "NextRank:" with white text OR we make separate elements
+				class: 'talent-tooltip-description',
 				text: description,
-				css: ({'color': '#FFCD55', 'white-space': 'pre-line'}),
 			}))
+			.append(next_rank_ele)
 			)
+
+			// if (next_rank) {
+			// 	targetTalent.append($('<div/>', {
+			// 		class: 'talent-tooltip-rank',
+			// 		text: "\n\nNext Rank:\n",
+			// 	})
+			// 	.append($('<div/>', {
+			// 		class: 'talent-tooltip-description',
+			// 		text: talentCopy.description(),
+			// 	}))
+			// 	)
+			// }
+
 }
 
 function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
@@ -368,6 +413,7 @@ function tryToUnlock(talent) {
 function canSpendPoints(talent, e, tree) {
 
 	// checkForUnlock(talent)
+	// const unlocks = (Array.isArray(talent.unlocks)) ? talent.unlocks[0] : talent.unlocks
 	const unlocks = talent.unlocks
 	const locked = $(e.target).hasClass('locked')
 	const requiredTalentPoints = talent.requiredTalentPoints
