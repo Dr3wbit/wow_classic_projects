@@ -1,3 +1,11 @@
+.locked {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+}
+
 .talent {
     min-width: 40px;
     height: 40px;
@@ -41,18 +49,75 @@
     user-select: none;
 }
 
-.locked {
-    background-color: grey;
+.talent-tooltip-req{
+    color: red !important;
+    white-space: pre-line;
 }
 
+.talent-tooltip-title{
+    font-size: 16px;
+}
+
+.talent-tooltip-rank {
+    color: white !important;
+    font-size: 12px;
+}
+
+.talent-tooltip-rank-next {
+    white-space: pre-line;
+}
+
+.talent-tooltip-description {
+    color: rgba(255, 205, 85, 1) !important;
+    white-space: pre-line;
+}
+
+.talent-tooltip{
+    font-size: 100%;
+    width: 325px;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.89) !important;
+    color: azure;
+    pointer-events: none;
+    border: 1px solid azure;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    z-index: 999;
+    text-align: left;
+}
+
+
+/* .talent.locked.talent-tooltip div {
+    -webkit-filter: grayscale(0);
+       -moz-filter: grayscale(0);
+         -o-filter: grayscale(0);
+        -ms-filter: grayscale(0);
+            filter: grayscale(0);
+} */
+
+/* .talent.locked.talent-tooltip {
+    color: initial;
+    -webkit-filter: initial;
+       -moz-filter: initial;
+         -o-filter: initial;
+        -ms-filter: initial;
+            filter: initial;
+} */
+
+
+
 .talentFooter {
-    width: 25px;
-    height: 25px;
+    width: 18px;
+    height: 18px;
     background-color: royalblue;
     border: 1px solid black;
     margin: 10px;
     margin-top: 20px;
     position: relative;
+    background-repeat: no-repeat;
 }
 
 /* #tooltip {
@@ -78,22 +143,7 @@
     opacity: 0
 } */
 
-.talent-tooltip{
-    font-size: 100%;
-    width: 325px;
-    position: absolute;
-    left: 40px;
-    bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.89);
-    color: azure;
-    pointer-events: none;
-    border: 1px solid azure;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    z-index: 999;
-    text-align: left;
-}
+
 
 .tooltip.show {
     opacity: .9
@@ -103,7 +153,22 @@
     z-index:30;
 } */
 
-.talentcalc-arrow-down {
+.talentcalc-arrow {
+    pointer-events: none;
+}
+.talentcalc-arrow.right {
+    background-image: url(../images/arrows/right.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 12px;
+    width: 23px;
+    height: 15px;
+    background-position-x: right;
+    left: 40px;
+
+}
+
+.talentcalc-arrow.down-1 {
     background-image:url(../images/arrows/down.png);
     background-repeat: no-repeat;
     position: absolute;
@@ -116,7 +181,7 @@
     right: 12px;
 }
 
-.talentcalc-arrow-down-2 {
+.talentcalc-arrow.down-2 {
     background-image:url(../images/arrows/down.png);
     background-repeat: no-repeat;
     position: absolute;
@@ -129,7 +194,32 @@
     right: 12px;
 }
 
-.talentcalc-arrow-anchor {
+.talentcalc-arrow.rightdown {
+    background-image: url(../images/arrows/rightdown.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 12px;
+    width: 43px;
+    height: 15px;
+    background-position-x: right;
+    left: 40px;
+
+}
+
+.talentcalc-arrow.rightdown div:last-child {
+    background-image: url(../images/arrows/down.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 15px;
+    width: 15px;
+    height: 35px;
+    background-position-y: bottom;
+    right: 0px;
+}
+
+.tooltip-container {
     position: relative;
-    z-index: 30;
+    /* left: -15px; */
+    right: 80px;
+    top: 20px;
 }
