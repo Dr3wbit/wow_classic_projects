@@ -107,18 +107,29 @@
     background-image:url(../images/arrows/down.png);
     background-repeat: no-repeat;
     position: absolute;
+    top: 40px;
     width: 15px;
-    height: 15px;
-    bottom: -15px;
-    right: 8px;
+    height: 23px;
+    background-position-x: center;
+    background-position-y: bottom;
+    /* bottom: -50px; */
+    right: 12px;
 }
 
-.talentcalc-arrow-down-long {
+.talentcalc-arrow-down-2 {
     background-image:url(../images/arrows/down.png);
     background-repeat: no-repeat;
     position: absolute;
+    top: 40px;
     width: 15px;
-    height: 30px;
-    bottom: -30px;
-    right: 8px;
+    height: 83px;
+    background-position-x: center;
+    background-position-y: bottom;
+    /* bottom: -50px; */
+    right: 12px;
+}
+
+.talentcalc-arrow-anchor {
+    position: relative;
+    z-index: 30;
 }
