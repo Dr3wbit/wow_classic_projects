@@ -125,10 +125,10 @@ function mapTalentsToTableData(trees, tal_arr) {
 					trees[index].data[j][k].j = j
 					trees[index].data[j][k].k = k
 					if (trees[index].data[j][k].unlocks){
-						if (v == 2){
+						if (v == 2) {
 							console.log("multiple arrows~")
 						}
-						// down
+						// down, arrow length is inverse of v (v decreases)
 						if (v > 2 && v <= 5){
 							let n = 5 - v
 							trees[index].data[j][k].arrows = ["talentcalc-arrow-down down-"+n.toString()]
@@ -136,12 +136,12 @@ function mapTalentsToTableData(trees, tal_arr) {
 						}
 						// right
 						if (v == 6){
-							trees[index].data[j][k].arrows = ["right"]
+							trees[index].data[j][k].arrows = ["talentcalc-arrow right"]
 
 						}
 						// rightdown
 						if (v == 7){
-							trees[index].data[j][k].arrows = ["rightdown"]
+							trees[index].data[j][k].arrows = ["talentcalc-arrow-rightdown"]
 						}
 
 					}
@@ -466,12 +466,13 @@ function tryToUnlock(talent, tree, classData) {
 				let ele = $(`div.talent[name="${name}"]`)
 				ele.removeClass('grayed')
 				if (!ele.hasClass('locked')){
-					ele.addClass('unlocked')
-					ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
-					let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
-					talent_arrow.removeClass('grayed')
-
+					console.log("test")
+					// ele.addClass('unlocked')
 				}
+				ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
+				let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
+				talent_arrow.removeClass('grayed')
+
 				// $(`div.talent[name="${item}"]`).removeClass('grayed').addClass('talent-unlocked')
 			})
 		}
