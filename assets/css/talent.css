@@ -6,20 +6,40 @@
             filter: grayscale(100%);
 }
 
+.grayed {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+}
+
+.talent-container {
+    /* min-width: 40px;
+    height: 40px; */
+    margin: 10px;
+    position: relative;
+    /* z-index: 10; */
+    border: 1px solid black;
+
+}
 .talent {
     min-width: 40px;
     height: 40px;
     background-color: royalblue;
     border: 1px solid black;
-    margin: 10px;
-    position: relative;
+    /* margin: 10px; */
     background-size: contain;
+    z-index: 10;
+
 }
 
 .openSlot {
     min-width: 40px;
     height: 40px;
-    margin: 10px
+    margin: 10px;
+    position: relative;
+
 }
 
 .talentTable {
@@ -85,7 +105,7 @@
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    z-index: 999;
+    /* z-index: 999; */
     text-align: left;
 }
 
@@ -154,56 +174,51 @@
 } */
 
 .talentcalc-arrow {
+    z-index: 5;
     pointer-events: none;
+    position: absolute;
+    background-repeat: no-repeat;
+
 }
 .talentcalc-arrow.right {
     background-image: url(../images/arrows/right.png);
-    background-repeat: no-repeat;
-    position: absolute;
     top: 12px;
     width: 23px;
     height: 15px;
     background-position-x: right;
     left: 40px;
-
-}
-
-.talentcalc-arrow.down-1 {
-    background-image:url(../images/arrows/down.png);
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 40px;
-    width: 15px;
-    height: 23px;
-    background-position-x: center;
-    background-position-y: bottom;
-    /* bottom: -50px; */
-    right: 12px;
-}
-
-.talentcalc-arrow.down-2 {
-    background-image:url(../images/arrows/down.png);
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 40px;
-    width: 15px;
-    height: 83px;
-    background-position-x: center;
-    background-position-y: bottom;
-    /* bottom: -50px; */
-    right: 12px;
 }
 
 .talentcalc-arrow.rightdown {
     background-image: url(../images/arrows/rightdown.png);
-    background-repeat: no-repeat;
-    position: absolute;
     top: 12px;
     width: 43px;
     height: 15px;
     background-position-x: right;
     left: 40px;
 
+}
+
+.talentcalc-arrow-down {
+    background-image:url(../images/arrows/down.png);
+    top: 41px;
+    right: 14px;
+    width: 15px;
+    background-position-x: center;
+    background-position-y: bottom;
+
+}
+
+.talentcalc-arrow.down-0 {
+    height: 25px;
+}
+
+.talentcalc-arrow.down-1 {
+    height: 85px;
+}
+
+.talentcalc-arrow.down-2 {
+    height: 200px;
 }
 
 .talentcalc-arrow.rightdown div:last-child {
@@ -218,8 +233,9 @@
 }
 
 .tooltip-container {
+    z-index: 15;
     position: relative;
     /* left: -15px; */
-    right: 80px;
-    top: 20px;
+    right: 120px;
+    top: 40px;
 }
