@@ -1,17 +1,68 @@
-.talent {
-    min-width: 40px;
-    height: 40px;
-    background-color: royalblue;
-    border: 1px solid black;
+.locked {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+}
+
+.grayed {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+}
+
+.talent-container {
+
     margin: 10px;
     position: relative;
+    border: 1px solid black;
+
+}
+
+.talent-container:hover {
+    border-radius: 5px;
+    border-image: url(../images/icons/icon_hilite_medium_talent.png);
+
+}
+
+
+.talent {
+    /* border-image: url(../images/border.gif); */
+    min-width: 40px;
+    height: 40px;
+    border: 1px solid black;
     background-size: contain;
+    z-index: 10;
+
+}
+
+.talent.unlocked {
+
+    border-radius: 5px;
+    border-color: rgb(23, 253, 23);
+    border-width: 2px;
+
+}
+
+.talent.locked {
+    border: 1px solid black;
+}
+
+.talent.max {
+    border-radius: 5px;
+    border-color: rgb(231, 186, 0);
+    border-width: 2px;
 }
 
 .openSlot {
     min-width: 40px;
     height: 40px;
-    margin: 10px
+    margin: 10px;
+    position: relative;
+
 }
 
 .talentTable {
@@ -32,27 +83,95 @@
     height: 15px;
     bottom: -6px;
     right : -6px;
-    border: 1px greenyellow solid;
-    background-color: black;
-    color: yellowgreen;
+    border: 1px rgba(0,0,0, 0.9);
+    border-radius: 5px;
+    background-color: rgba(0,0,0, 0.6);
+    color: rgb(23, 253, 23);
     text-align: center;
     line-height: 14px;
     pointer-events: none;
     user-select: none;
+    z-index: 5;
+
 }
 
-.locked {
-    background-color: grey;
+.spentPoints.unlocked {
+    color: rgb(23, 253, 23);
+    border: 1px rgba(23, 253, 23, 0.9);
+    visibility: visible;
+
 }
+.spentPoints.max {
+    color: rgb(231, 186, 0);
+    border: 1px rgba(231,186,0, 0.9);
+    border-radius: 5px;
+}
+
+.spentPoints.locked {
+    visibility: hidden;
+}
+
+.talent-tooltip-req{
+    color: red !important;
+    white-space: pre-line;
+}
+
+.talent-tooltip-title{
+    font-size: 16px;
+}
+
+.talent-tooltip-rank {
+    color: white !important;
+    font-size: 12px;
+}
+
+.talent-tooltip-rank-next {
+    white-space: pre-line;
+}
+
+.talent-tooltip-description {
+    color: rgba(255, 205, 85, 1) !important;
+    white-space: pre-line;
+}
+
+.talent-tooltip{
+    font-size: 100%;
+    width: 325px;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.89) !important;
+    color: azure;
+    pointer-events: none;
+    border: 1px solid azure;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    /* z-index: 999; */
+    text-align: left;
+}
+
+
+/* .talent.locked.talent-tooltip {
+    color: initial;
+    -webkit-filter: initial;
+       -moz-filter: initial;
+         -o-filter: initial;
+        -ms-filter: initial;
+            filter: initial;
+} */
+
+
 
 .talentFooter {
-    width: 25px;
-    height: 25px;
+    width: 18px;
+    height: 18px;
     background-color: royalblue;
     border: 1px solid black;
     margin: 10px;
     margin-top: 20px;
     position: relative;
+    background-repeat: no-repeat;
 }
 
 /* #tooltip {
@@ -78,23 +197,87 @@
     opacity: 0
 } */
 
-.talent-tooltip{
-    font-size: 100%;
-    width: 325px;
-    position: absolute;
-    left: 40px;
-    bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.89);
-    color: azure;
-    pointer-events: none;
-    border: 1px solid azure;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    z-index: 999;
-    text-align: left;
-}
+
 
 .tooltip.show {
     opacity: .9
+}
+
+/* .talentcalc-arrow {
+    z-index:30;
+} */
+
+.talentcalc-arrow {
+    z-index: 5;
+    pointer-events: none;
+    position: absolute;
+    background-repeat: no-repeat;
+
+}
+.talentcalc-arrow.right {
+    background-image: url(../images/arrows/right.png);
+    top: 12px;
+    width: 23px;
+    height: 15px;
+    background-position-x: right;
+    left: 40px;
+}
+
+.talentcalc-arrow.rightdown {
+    background-image: url(../images/arrows/rightdown.png);
+    top: 12px;
+    width: 43px;
+    height: 15px;
+    background-position-x: right;
+    left: 40px;
+
+}
+
+.talentcalc-arrow-down {
+    background-image:url(../images/arrows/down.png);
+    top: 41px;
+    right: 14px;
+    width: 15px;
+    background-position-x: center;
+    background-position-y: bottom;
+
+}
+
+.talentcalc-arrow.down-0 {
+    height: 25px;
+}
+
+.talentcalc-arrow.down-1 {
+    height: 85px;
+}
+
+.talentcalc-arrow.down-2 {
+    height: 200px;
+}
+
+.talentcalc-arrow.rightdown div:last-child {
+    background-image: url(../images/arrows/down.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 15px;
+    width: 15px;
+    height: 35px;
+    background-position-y: bottom;
+    right: 0px;
+}
+
+.tooltip-container {
+    z-index: 15;
+    position: relative;
+    /* left: -15px; */
+    right: 120px;
+    top: 40px;
+}
+
+.talent-border:hover{
+    background-image: url(../images/icon_border_medium.png);
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 44px;
+    /* background-position: -84px 0px; */
 }
