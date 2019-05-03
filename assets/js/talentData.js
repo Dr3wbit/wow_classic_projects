@@ -1120,7 +1120,7 @@ const talentData = {
 					description: function() {
 						return `Increases the chance for your Nature's Grasp to entangle an enemy by ${this.y()}%.`
 					},
-					locked: "locked",
+					locked: [0,1],
 					image: "improved_natures_grasp.jpg"
 				}, {
 					name: 'Improved Entangling Roots',
