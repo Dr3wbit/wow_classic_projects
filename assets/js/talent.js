@@ -287,47 +287,29 @@ function updateTooltip(classData, e){
 				text: talentCopy.description(),
 			})) : null
 
-			// console.log("targetTalent", targetTalent.siblings(".tooltip-container").first())
-			// targetTalent.append($('<div/>', {
 			targetTalent.prev().append($('<div/>', {
 				class: 'talent-tooltip',  //talent-tooltip (the container) is only class in css, the rest are inline styling
-				// css: ({'all': 'revert'}),
 			})
 			.append($('<div/>', {
 				class: 'talent-tooltip-title',
-				// css: ({'all': 'revert'}),
 				text: name,
 
 			}))
 			.append($('<div/>', {
 				class: 'talent-tooltip-rank',
-				// css: ({'all': 'revert'}),
 				text: "Rank " + talent.invested +"/"+ talent.maxRank,
 			}))
 			.append($('<div/>', {
 				class: 'talent-tooltip-req',
-				// css: ({'all': 'revert'}),
 				text: req_text,
 			}))
 			.append($('<div/>', {
 				class: 'talent-tooltip-description',
-				// css: ({'all': 'revert'}),
 				text: description,
 			}))
 			.append(next_rank_ele)
 			)
 
-			// if (next_rank) {
-			// 	targetTalent.append($('<div/>', {
-			// 		class: 'talent-tooltip-rank',
-			// 		text: "\n\nNext Rank:\n",
-			// 	})
-			// 	.append($('<div/>', {
-			// 		class: 'talent-tooltip-description',
-			// 		text: talentCopy.description(),
-			// 	}))
-			// 	)
-			// }
 
 }
 
@@ -447,9 +429,11 @@ function tryToUnlock(talent, tree, classData) {
 
 					talent_names.forEach(function(n) {
 						let ele = $(`div.talent[name="${n}"]`)
+						if (!ele.hasClass('locked')) {
+							ele.removeClass('grayed').addClass('unlocked')
+							ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
 
-						ele.removeClass('grayed').addClass('unlocked')
-						ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
+						}
 						let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${n}"]`)
 						talent_arrow.removeClass('grayed')
 					})
@@ -480,10 +464,14 @@ function tryToUnlock(talent, tree, classData) {
 
 			talent_names.forEach(function(name) {
 				let ele = $(`div.talent[name="${name}"]`)
-				ele.removeClass('grayed').addClass('unlocked')
-				ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
-				let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
-				talent_arrow.removeClass('grayed')
+				ele.removeClass('grayed')
+				if (!ele.hasClass('locked')){
+					ele.addClass('unlocked')
+					ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
+					let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
+					talent_arrow.removeClass('grayed')
+
+				}
 				// $(`div.talent[name="${item}"]`).removeClass('grayed').addClass('talent-unlocked')
 			})
 		}
