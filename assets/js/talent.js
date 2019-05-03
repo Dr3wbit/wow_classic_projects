@@ -193,7 +193,6 @@ function talentHandler(classData) {
 			const targetTalent = $(e.target)
 			targetTalent.children($('.talent-tooltip').remove())
 			// const unlocks = targetTalent.attr('data-unlocks')
-
 			//gets talent tree name (kinda ghetto)
 			const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
 			const name = targetTalent.attr('name')
@@ -212,7 +211,7 @@ function talentHandler(classData) {
 
 			canSpendPoints(talent, e, tree, classData)
 
-			targetTalent.children(0).first().text(talent.invested)
+			// targetTalent.children(0).first().text(talent.invested)
 			targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree].total())
 			console.log(targetTalent.attr('name') + " : " + talent.invested)
 			updateTooltip(classData, e)
@@ -289,7 +288,6 @@ function updateTooltip(classData, e){
 			})) : null
 
 			// console.log("targetTalent", targetTalent.siblings(".tooltip-container").first())
-			console.log("targetTalent.prev() ", targetTalent.prev())
 			// targetTalent.append($('<div/>', {
 			targetTalent.prev().append($('<div/>', {
 				class: 'talent-tooltip',  //talent-tooltip (the container) is only class in css, the rest are inline styling
@@ -373,20 +371,37 @@ function checkLockedTiers(tree) {
 }
 
 function tryToUnlock(talent, tree, classData) {
+
+
 	const talentCopy = Object.assign({}, talent)
+	let parent_tal_elem = $(`div.talent[name="${talentCopy.name}"]`).first()
+	let spent_points_elem = parent_tal_elem.find('.spentPoints')
+
+	if (talentCopy.invested === talentCopy.maxRank) {
+		parent_tal_elem.addClass('max')
+		spent_points_elem.addClass('max')
+	}
+	if (!(talentCopy.invested === talentCopy.maxRank) && parent_tal_elem.hasClass('max')) {
+		parent_tal_elem.removeClass('max').addClass('unlocked')
+		spent_points_elem.removeClass('max').addClass('unlocked')
+
+	}
 
 	const unlocks = talentCopy.unlocks
 	if (unlocks) {
 		let talent_elem = $(`div.talent[name="${unlocks}"]`).first()
 		if (talent_elem){
-			if (talentCopy.invested === talentCopy.maxRank) {
-				talent_elem.removeClass('locked')
 
+			let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${unlocks}"]`)
+			if (talentCopy.invested === talentCopy.maxRank) {
+				talent_arrow.removeClass('locked')
+				talent_elem.removeClass('locked')
 			}
 			else {
 				console.log("Unable to unlock ", unlocks, "...", talentCopy.invested, " points invested in", talentCopy.name)
 				if (!talent_elem.hasClass('locked')){
 					console.log("locking: ", unlocks)
+					talent_arrow.addClass('locked')
 					talent_elem.addClass('locked')
 				}
 			}
@@ -394,72 +409,142 @@ function tryToUnlock(talent, tree, classData) {
 			console.log("Unable to find element with name: ", unlocks)
 		}
 	}
-	// unlock the tier next tier, excluding those talents with pre-reqs
-	if (talentPointsSpent[tree].total()%5==0) {
-		const tier = talentPointsSpent[tree].total()/5
-		const found = classData.trees.find(function(x) { //
-			return x.name == tree
-		})
 
-		let talent_names = []
-		found.data[tier].filter(function(item) {
-			talent_names.push(item.name)
-		})
+	if (talentPointsSpent.grand_total() >= 50){
+		if (talentPointsSpent.grand_total() == 51) {
+			console.log('Maximum talent points spent')
+			// lock all talents without points spent in them
+			let talent_containers = $("div.talent").filter(".unlocked").not(".max")
+			$("div.talent").filter(".unlocked").not(".max").each(function(ind, item){
+				let a = $( this ).find(".spentPoints").first()
+				if (a.text() >= 1) {
+				}
+				else{
+					a.removeClass("unlocked").addClass("locked")
+					$( this ).removeClass('unlocked').addClass('grayed')
+				}
+			})
+			return
+		}
+		else {
+			let tree_names = []
+			classData.trees.forEach(function(item) {
+				tree_names.push(item.name)
+			})
+			tree_names.forEach(function(name) {
 
-		talent_names.forEach(function(item) {
-			$(`div.talent[name="${item}"]`).removeClass('grayed')
-		})
+				let tiers = [...Array(Math.min(Math.floor((talentPointsSpent[name].total()/5)+1), 7)).keys()]
+
+				tiers.forEach(function(tier) {
+					let talent_names = []
+					let found = classData.trees.find(function(x) {
+						return x.name == name
+					})
+
+					found.data[tier].filter(function(item) {
+						talent_names.push(item.name)
+					})
+
+					talent_names.forEach(function(n) {
+						let ele = $(`div.talent[name="${n}"]`)
+
+						ele.removeClass('grayed').addClass('unlocked')
+						ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
+						let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${n}"]`)
+						talent_arrow.removeClass('grayed')
+					})
+				})
+
+			})
+
+
+		}
+
 	}
-	if (talentPointsSpent[tree].total()%5==4){
-		const tier = Math.round(talentPointsSpent[tree].total()/5)
-		const found = classData.trees.find(function(x) { //
-			return x.name == tree
-		})
 
-		let talent_names = []
-		found.data[tier].filter(function(item) {
-			talent_names.push(item.name)
-		})
 
-		talent_names.forEach(function(item) {
-			$(`div.talent[name="${item}"]`).addClass('grayed')
-		})
 
+	if (talentPointsSpent[tree].total()>30){
+		return
+	} else {
+		if (talentPointsSpent[tree].total()%5==0) {
+			const tier = talentPointsSpent[tree].total()/5
+			const found = classData.trees.find(function(x) { //
+				return x.name == tree
+			})
+
+			let talent_names = []
+			found.data[tier].filter(function(item) {
+				talent_names.push(item.name)
+			})
+
+			talent_names.forEach(function(name) {
+				let ele = $(`div.talent[name="${name}"]`)
+				ele.removeClass('grayed').addClass('unlocked')
+				ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
+				let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
+				talent_arrow.removeClass('grayed')
+				// $(`div.talent[name="${item}"]`).removeClass('grayed').addClass('talent-unlocked')
+			})
+		}
+		if (talentPointsSpent[tree].total()%5==4){
+			const tier = Math.round(talentPointsSpent[tree].total()/5)
+			const found = classData.trees.find(function(x) { //
+				return x.name == tree
+			})
+
+			let talent_names = []
+			found.data[tier].filter(function(item) {
+				talent_names.push(item.name)
+			})
+
+			talent_names.forEach(function(name) {
+
+				let ele = $(`div.talent[name="${name}"]`)
+				ele.removeClass('unlocked').addClass('grayed')
+				ele.find('.spentPoints').removeClass('unlocked').addClass('locked')
+
+				let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
+				talent_arrow.addClass('grayed')
+
+			})
+
+		}
 	}
 
-	// need something to check arrows
+
 }
 
 
 function canSpendPoints(talent, e, tree, classData) {
 
 	const unlocks = talent.unlocks
-	const locked = $(e.target).hasClass('locked')
+	const targetTalent = $(e.target)
+	const locked = targetTalent.hasClass('locked')
 	const requiredTalentPoints = talent.requiredTalentPoints
 	const tier = (requiredTalentPoints/5)
 	const maxRank = talent.maxRank
-
-	console.log("talentPointsSpent.grand_total", talentPointsSpent.grand_total())
-	if (talentPointsSpent.grand_total() > 50){
-		console.log('Maximum talent points spent')
-		return
-	}
 
 	if (talentPointsSpent[tree].total() < requiredTalentPoints) {
 		console.log(`you must have ${requiredTalentPoints} points in this ${tree} tree to spec here`)
 		return
 	}
 	if (locked) {
-
 		console.log("that boy lockeD")
 		return
 	}
 
 	// normal click
 	if (e.which === 1) {
+		if (talentPointsSpent.grand_total() > 50){
+			console.log('Maximum talent points spent')
+			return
+		}
 		if (talent.invested < maxRank) {
 			talentPointsSpent[tree].vals[tier]++
 			talent.invested++
+			targetTalent.children(0).first().text(talent.invested)
+
 			tryToUnlock(talent, tree, classData)
 			return
 		}
@@ -481,7 +566,6 @@ function canSpendPoints(talent, e, tree, classData) {
 			// NOTE: will be unique once element names are unique, won't need .first()
 			const child_talent = $(`div.talent[name="${unlocks}"]`)
 			let n = child_talent.find('.spentPoints').text()
-
 			if (can_unspec && n > 0) {
 				console.log('you must unspec ' + unlocks)
 				return
@@ -491,6 +575,7 @@ function canSpendPoints(talent, e, tree, classData) {
 		if (talent.invested > 0 && can_unspec) {
 			talentPointsSpent[tree].vals[tier]--
 			talent.invested--
+			targetTalent.children(0).first().text(talent.invested)
 			tryToUnlock(talent, tree, classData)
 			return
 		}
