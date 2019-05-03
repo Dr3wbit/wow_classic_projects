@@ -91,7 +91,7 @@
                         </div>
                         {{#if unlocks}}
                             {{#each arrows}}
-                                <div class="talentcalc-arrow {{this}} locked grayed" data-unlocks="{{item.unlocks}}"></div>
+                                <div class="talentcalc-arrow {{this}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{item.unlocks}}"></div>
                                 {{! log this}}
                             {{/each}}
                         {{/if}}
