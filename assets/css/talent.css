@@ -15,34 +15,46 @@
 }
 
 .talent-container {
-    /* min-width: 40px;
-    height: 40px; */
+
     margin: 10px;
     position: relative;
-    /* z-index: 10; */
     border: 1px solid black;
-    /* border-image: url(../images/border.gif); */
-
 
 }
 
 .talent-container:hover {
     border-radius: 5px;
-    border-image: url(../images/icon_border_medium.png);
-    /* background-repeat: no-repeat; */
-    /* border-image: url(../images/border.gif); */
+    border-image: url(../images/icons/icon_hilite_medium_talent.png);
+
 }
 
+
 .talent {
-    border-image: url(../images/border.gif);
+    /* border-image: url(../images/border.gif); */
     min-width: 40px;
     height: 40px;
-    background-color: royalblue;
     border: 1px solid black;
-    /* margin: 10px; */
     background-size: contain;
     z-index: 10;
 
+}
+
+.talent.unlocked {
+
+    border-radius: 5px;
+    border-color: rgb(23, 253, 23);
+    border-width: 2px;
+
+}
+
+.talent.locked {
+    border: 1px solid black;
+}
+
+.talent.max {
+    border-radius: 5px;
+    border-color: rgb(231, 186, 0);
+    border-width: 2px;
 }
 
 .openSlot {
@@ -71,13 +83,32 @@
     height: 15px;
     bottom: -6px;
     right : -6px;
-    border: 1px greenyellow solid;
-    background-color: black;
-    color: yellowgreen;
+    border: 1px rgba(0,0,0, 0.9);
+    border-radius: 5px;
+    background-color: rgba(0,0,0, 0.6);
+    color: rgb(23, 253, 23);
     text-align: center;
     line-height: 14px;
     pointer-events: none;
     user-select: none;
+    z-index: 5;
+
+}
+
+.spentPoints.unlocked {
+    color: rgb(23, 253, 23);
+    border: 1px rgba(23, 253, 23, 0.9);
+    visibility: visible;
+
+}
+.spentPoints.max {
+    color: rgb(231, 186, 0);
+    border: 1px rgba(231,186,0, 0.9);
+    border-radius: 5px;
+}
+
+.spentPoints.locked {
+    visibility: hidden;
 }
 
 .talent-tooltip-req{
@@ -120,14 +151,6 @@
     text-align: left;
 }
 
-
-/* .talent.locked.talent-tooltip div {
-    -webkit-filter: grayscale(0);
-       -moz-filter: grayscale(0);
-         -o-filter: grayscale(0);
-        -ms-filter: grayscale(0);
-            filter: grayscale(0);
-} */
 
 /* .talent.locked.talent-tooltip {
     color: initial;
