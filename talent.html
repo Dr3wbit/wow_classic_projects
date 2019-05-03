@@ -78,22 +78,25 @@
         {{#each data}}
         <div class="row">
             {{#each this}}
-            {{#if this}}
-                <div class="talent {{#if locked}}locked {{/if}}"
-                    style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
-                    name="{{name}}" data-j={{j}} data-k={{k}} data-unlocks="{{unlocks}}">
-                    <div class="spentPoints">0</div>
-                {{#if unlocks}}
-                {{#each arrows}}
-                    <div class="talentcalc-arrow {{this}}"></div>
-                    {{log this}}
-                {{/each}}{{/if}}
-                </div>
-                <div class="tooltip-container"></div>
-            {{else}}
-            <div class="openSlot">
 
-            </div>
+                {{#if this}}
+                    <div class="talent-container">
+                        <div class="tooltip-container"></div>
+
+                        <div class="talent{{#if locked}} locked{{/if}}{{#if j}} grayed{{/if}}"
+                            style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
+                            name="{{name}}" data-j={{j}} data-k={{k}} data-unlocks="{{unlocks}}">
+                            <div class="spentPoints">0</div>
+                        </div>
+                        {{#if unlocks}}
+                            {{#each arrows}}
+                                <div class="talentcalc-arrow {{this}} locked"></div>
+                                {{! log this}}
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                {{else}}
+                    <div class="openSlot"></div>
             {{/if}}
             {{/each}}
         </div>
