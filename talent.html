@@ -81,8 +81,9 @@
 
                 {{#if this}}
                     <div class="talent-container">
-                        <div class="tooltip-container"></div>
+                        <div class="talent-border"></div>
 
+                        <div class="tooltip-container"></div>
                         <div class="talent{{#if locked}} locked{{/if}}{{#if j}} grayed{{/if}}"
                             style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
                             name="{{name}}" data-j={{j}} data-k={{k}} data-unlocks="{{unlocks}}">
