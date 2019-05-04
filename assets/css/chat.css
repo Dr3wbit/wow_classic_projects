@@ -1,0 +1,18 @@
+
+
+#messageContainer {
+    color: azure;
+    text-align: left;
+    background-color: black;
+    height: 60vh;
+    overflow-y: scroll;
+    border: 5px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+#messageInput {
+    width: 100%;
+    border: 5px solid black;
+}
