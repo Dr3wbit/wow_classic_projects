@@ -94,56 +94,29 @@ function classSelectionHandler() {
 	})
 }
 
-// function mapTalentsToTableData(tableData, talents) {
-// 	// console.log("mapTalentsToTableData, tableData", tableData)
-// 	let spellIterator = 0
-// 	for (let treeIterator = 0; treeIterator < tableData.length; treeIterator++) {
-// 		for (let rowIterator = 0; rowIterator < tableData[treeIterator].data.length; rowIterator++) {
-// 			for (let talentIterator = 0; talentIterator < tableData[treeIterator].data[rowIterator].length; talentIterator++) {
-// 				const slot = tableData[treeIterator].data[rowIterator][talentIterator]
-// 				if (slot != 0) {
-// 					tableData[treeIterator].data[rowIterator].splice(talentIterator, 1, talents[spellIterator])
-// 					spellIterator++
-// 				}
-// 			}
-// 		}
-// 	}
-// 	// console.log("from function mapTalentsToTableData, tableData: ", tableData)
-// 	return tableData
-// }
-
 function mapTalentsToTableData(trees, tal_arr) {
 	trees.forEach(function(tree, index) {
 		tree.data.forEach(function(data_arr, j) {
             let reqTalentPoints = j*5
 			data_arr.forEach(function(v, k) {
-                // trees[index].data[j][k] = (v >= 1) ? tal_arr.pop() : trees[index].data[j][k]
-                if (v >= 1){ //
+                if (v >= 1 || v.length > 1){ //
                     trees[index].data[j][k] = tal_arr.pop()
 					trees[index].data[j][k].invested = 0
                     trees[index].data[j][k].requiredTalentPoints = reqTalentPoints
 					trees[index].data[j][k].j = j
 					trees[index].data[j][k].k = k
 					if (trees[index].data[j][k].unlocks){
-						if (v == 2) {
-							console.log("multiple arrows~")
+						trees[index].data[j][k].arrows = []
+						if (v.length == 2) {
+							trees[index].data[j][k].multi = true
+							trees[index].data[j][k].unlocks.forEach(function(someVar) {
+								trees[index].data[j][k].arrows.push(arrowTypeSwitch(v))
+							})
+							trees[index].data[j][k].arrows = ["talentcalc-arrow-down down-0", "talentcalc-arrow rightdown"]
 						}
-						// down, arrow length is inverse of v (v decreases)
-						if (v > 2 && v <= 5){
-							let n = 5 - v
-							trees[index].data[j][k].arrows = ["talentcalc-arrow-down down-"+n.toString()]
-
+						else {
+							trees[index].data[j][k].arrows.push(arrowTypeSwitch(v))
 						}
-						// right
-						if (v == 6){
-							trees[index].data[j][k].arrows = ["talentcalc-arrow right"]
-
-						}
-						// rightdown
-						if (v == 7){
-							trees[index].data[j][k].arrows = ["talentcalc-arrow-rightdown"]
-						}
-
 					}
                 }
 			})
@@ -152,6 +125,23 @@ function mapTalentsToTableData(trees, tal_arr) {
     return trees
 }
 
+function arrowTypeSwitch(item) {
+
+	switch (item) {
+		// down, arrow length is inverse of v (v decreases)
+		default:
+			let n = 5 - item
+			return `talentcalc-arrow-down down-${n}`
+
+		// right
+		case 6:
+			return "talentcalc-arrow right"
+
+		// rightdown
+		case 7:
+			return "talentcalc-arrow rightdown"
+	}
+}
 
 function combineTalents(d) {
     let talent_arr = []
@@ -360,8 +350,8 @@ function tryToUnlock(talent, tree, classData) {
 	let spent_points_elem = parent_tal_elem.find('.spentPoints')
 
 	if (talentCopy.invested === talentCopy.maxRank) {
-		parent_tal_elem.addClass('max')
-		spent_points_elem.addClass('max')
+		parent_tal_elem.addClass('max').removeClass('unlocked')
+		spent_points_elem.addClass('max').removeClass('unlocked')
 	}
 	if (!(talentCopy.invested === talentCopy.maxRank) && parent_tal_elem.hasClass('max')) {
 		parent_tal_elem.removeClass('max').addClass('unlocked')
@@ -369,46 +359,82 @@ function tryToUnlock(talent, tree, classData) {
 
 	}
 
-	const unlocks = talentCopy.unlocks
-	if (unlocks) {
-		let talent_elem = $(`div.talent[name="${unlocks}"]`).first()
-		if (talent_elem){
+	// if not an array, turn into array
 
-			let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${unlocks}"]`)
-			if (talentCopy.invested === talentCopy.maxRank) {
-				talent_arrow.removeClass('locked')
-				talent_elem.removeClass('locked')
-			}
-			else {
-				console.log("Unable to unlock ", unlocks, "...", talentCopy.invested, " points invested in", talentCopy.name)
-				if (!talent_elem.hasClass('locked')){
-					console.log("locking: ", unlocks)
-					talent_arrow.addClass('locked')
-					talent_elem.addClass('locked')
-					let s = talent_elem.find('.spentPoints')
-					console.log("spentPoints: ", s)
-					s.addClass('locked')
+	const talents_unlocked = (!Array.isArray(talentCopy.unlocks)) ? Array(talentCopy.unlocks) : talentCopy.unlocks
+	if (talentCopy.unlocks) {
+		talents_unlocked.forEach(function(unlocks){
+			let talent_elem = $(`div.talent[name="${unlocks}"]`).first()
+			if (talent_elem){
+
+				//NOTE: ARRO_WS
+				let talent_arrows = $(`div.talentcalc-arrow[data-unlocks="${unlocks}"]`)
+
+
+				if (talentCopy.invested === talentCopy.maxRank) {
+
+					// talent_arrow.removeClass('locked')
+					talent_arrows.each(function(i, v){
+						let a = $( this )
+						a.removeClass('locked')
+					})
+
+					talent_elem.removeClass('locked')
+					talent_elem.find('.spentPoints').removeClass('locked')
+
+					if (!talent_elem.hasClass('grayed')) {
+						talent_elem.addClass('unlocked')
+						talent_elem.find('.spentPoints').addClass('unlocked')
+					}
+
 
 				}
+				else {
+					console.log("Unable to unlock ", unlocks, "...", talentCopy.invested, " points invested in", talentCopy.name)
+					if (!talent_elem.hasClass('locked')){
+						talent_arrows.each(function(ind, item){
+							let a = $( this )
+							a.addClass('locked')
+						})
+
+						talent_elem.addClass('locked').removeClass('unlocked')
+						talent_elem.find('.spentPoints').addClass('locked').removeClass('unlocked')
+
+					}
+				}
+			}else{
+				console.log("Unable to find element with name: ", unlocks)
 			}
-		}else{
-			console.log("Unable to find element with name: ", unlocks)
-		}
+
+		})
 	}
 
 	//logic for max talent points spent
 	if (talentPointsSpent.grand_total() >= 50){
 		if (talentPointsSpent.grand_total() == 51) {
-			console.log('Maximum talent points spent')
+			console.log('Maximum talent points spent, locking all')
 			// lock all talents without points spent in them
-			let talent_containers = $("div.talent").filter(".unlocked").not(".max")
-			$("div.talent").filter(".unlocked").not(".max").each(function(ind, item){
+			let talent_containers = $("div.talent")
+			let filtered = talent_containers.filter(".unlocked").not(".max")
+			filtered.each(function(ind, item){
 				let a = $( this ).find(".spentPoints").first()
 				if (a.text() >= 1) {
 				}
 				else{
 					a.removeClass("unlocked").addClass("locked")
 					$( this ).removeClass('unlocked').addClass('grayed')
+
+					let n = $( this ).attr("name")
+
+					// make arrows gray
+					let talent_arrows = $(`div.talentcalc-arrow[data-unlocks="${n}"]`)
+					if (talent_arrows) {
+						talent_arrows.each(function(i, v){
+							let b = $( this )
+							b.addClass('grayed')
+						})
+					}
+
 				}
 			})
 			return
@@ -436,21 +462,22 @@ function tryToUnlock(talent, tree, classData) {
 						let ele = $(`div.talent[name="${n}"]`)
 						if (!ele.hasClass('locked')) {
 							ele.removeClass('grayed').addClass('unlocked')
+
 							ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
 
 						}
-						let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${n}"]`)
-						talent_arrow.removeClass('grayed')
+						//NOTE: ARRO_WS
+						let talent_arrows = $(`div.talentcalc-arrow[data-unlocks="${n}"]`)
+
+						talent_arrows.each(function(i, v){
+							let a = $( this )
+							a.removeClass('grayed')
+						})
 					})
 				})
-
 			})
-
-
 		}
-
 	}
-
 
 	if (talentPointsSpent[tree].total()>30){
 		return
@@ -472,9 +499,13 @@ function tryToUnlock(talent, tree, classData) {
 				if (!ele.hasClass('locked')){
 					ele.addClass('unlocked')
 				}
-				ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
-				let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
-				talent_arrow.removeClass('grayed')
+
+				// ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
+				ele.find('.spentPoints').removeClass('grayed').addClass('unlocked')
+
+				// ARROWS
+				let talent_arrows = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
+				talent_arrows.removeClass('grayed')
 
 				// $(`div.talent[name="${item}"]`).removeClass('grayed').addClass('talent-unlocked')
 			})
@@ -494,23 +525,21 @@ function tryToUnlock(talent, tree, classData) {
 
 				let ele = $(`div.talent[name="${name}"]`)
 				ele.removeClass('unlocked').addClass('grayed')
-				ele.find('.spentPoints').removeClass('unlocked').addClass('locked')
-
-				let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
-				talent_arrow.addClass('grayed')
-
+				ele.find('.spentPoints').removeClass('unlocked').addClass('grayed') //NOTE HERE
+				let talent_arrows = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
+				talent_arrows.each(function(i, v){
+					let a = $( this )
+					a.addClass('grayed')
+				})
 			})
-
 		}
 	}
-
-
 }
 
 
 function canSpendPoints(talent, e, tree, classData) {
 
-	const unlocks = talent.unlocks
+	const unlocks = (!Array.isArray(talent.unlocks)) ? Array(talent.unlocks) : talent.unlocks
 	const targetTalent = $(e.target)
 	const locked = targetTalent.hasClass('locked')
 	const requiredTalentPoints = talent.requiredTalentPoints
@@ -556,13 +585,24 @@ function canSpendPoints(talent, e, tree, classData) {
 
 		if (talent.invested == maxRank && unlocks) {
 			// NOTE: will be unique once element names are unique, won't need .first()
-			const child_talent = $(`div.talent[name="${unlocks}"]`)
-			let n = child_talent.find('.spentPoints').text()
-			if (can_unspec && n > 0) {
-				console.log('you must unspec ' + unlocks)
+			let test_arr = []
+			unlocks.forEach(function(item){
+				const child_talent = $(`div.talent[name="${item}"]`)
+				let n = child_talent.find('.spentPoints').text()
+				if (can_unspec && n > 0) {
+					console.log('you must unspec ' + item)
+					test_arr.push(false)
+					return
+				}
+				else {
+					test_arr.push(true)
+				}
+			})
+			if (test_arr.some(function(item) {return item == false})) {
 				return
-			}
+		  	}
 		}
+
 
 		if (talent.invested > 0 && can_unspec) {
 			talentPointsSpent[tree].vals[tier]--
