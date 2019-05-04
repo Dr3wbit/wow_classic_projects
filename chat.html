@@ -30,28 +30,26 @@
 </head>
 
 <body>
-        <div id="nav-container" class="container">
+    <div id="nav-container" class="container">
+    </div>
+    <div class="container">
+        <div class="page-title">Live Chat</div>
+    </div>
+    <div class="container mainBody">
+        <div class="row">
+            <div class="col">
+                <div id="messageContainer"></div>
+                <input id="messageInput" autocomplete="off" placeholder="Message..." />
             </div>
-            <div class="container">
-                <div class="page-title">Live Chat</div>
-            </div>
-            <div class="container mainBody">
-                <div class="row">
-                    <div class="col-3 d-none d-lg-block"></div>
-                    <div class="col">
-                    <div id="messageContainer"></div>
-                    <input id="messageInput" autocomplete="off" placeholder="Message..." />
-                    </div>
-                    <div class="col-3 d-none d-lg-block"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <footer class="footer">
-                        <span class="text-muted">&copy Ony Buff 2019</span>
-                    </footer>
-                </div>
-            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <footer class="footer">
+                <span class="text-muted">&copy Ony Buff 2019</span>
+            </footer>
+        </div>
+    </div>
     <script>
 
         const firebaseConfig = {
@@ -69,10 +67,10 @@
             container.scrollTop = container.scrollHeight;
             if (e.keyCode == 13) {
                 var now = new Date(Date.now());
-                var formatted = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+                var formatted = addZero(now.getHours()) + ":" + addZero(now.getMinutes()) + ":" + addZero(now.getSeconds());
                 var name = 'Anonymous';
                 var text = $('#messageInput').val();
-                if (!text){
+                if (!text || text.length > 300) {
                     return
                 }
                 console.log(formatted)
@@ -91,10 +89,17 @@
             updateScroll()
         });
 
-    function updateScroll(){
-        var element = document.getElementById('messageContainer');
-   element.scrollTop = element.scrollHeight - element.clientHeight;
-}
+        function updateScroll() {
+            var element = document.getElementById('messageContainer');
+            element.scrollTop = element.scrollHeight - element.clientHeight;
+        }
+
+        function addZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
 
     </script>
 </body>
