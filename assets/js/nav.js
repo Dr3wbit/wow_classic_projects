@@ -5,7 +5,7 @@ const navBarData = {
         { text: 'Talent Calculator', href: "talent.html" },
         { text: 'Consumable Tool', href: "consumeTool.html" },
         { text: 'Enchant Tool', href: "enchantTool.html" },
-        { text: 'About', href: "about.html" }
+        { text: 'Chat', href: "chat.html" }
     ]
 }
 
