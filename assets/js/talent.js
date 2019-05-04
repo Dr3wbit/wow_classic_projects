@@ -109,10 +109,9 @@ function mapTalentsToTableData(trees, tal_arr) {
 						trees[index].data[j][k].arrows = []
 						if (v.length == 2) {
 							trees[index].data[j][k].multi = true
-							trees[index].data[j][k].unlocks.forEach(function(someVar) {
-								trees[index].data[j][k].arrows.push(arrowTypeSwitch(v))
+							trees[index].data[j][k].unlocks.forEach(function(z, ii) {
+								trees[index].data[j][k].arrows.push(arrowTypeSwitch(v[ii]))
 							})
-							trees[index].data[j][k].arrows = ["talentcalc-arrow-down down-0", "talentcalc-arrow rightdown"]
 						}
 						else {
 							trees[index].data[j][k].arrows.push(arrowTypeSwitch(v))
@@ -130,7 +129,7 @@ function arrowTypeSwitch(item) {
 	switch (item) {
 		// down, arrow length is inverse of v (v decreases)
 		default:
-			let n = 5 - item
+			let n = 5-item
 			return `talentcalc-arrow-down down-${n}`
 
 		// right
