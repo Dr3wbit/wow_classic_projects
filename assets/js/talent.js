@@ -385,6 +385,10 @@ function tryToUnlock(talent, tree, classData) {
 					console.log("locking: ", unlocks)
 					talent_arrow.addClass('locked')
 					talent_elem.addClass('locked')
+					let s = talent_elem.find('.spentPoints')
+					console.log("spentPoints: ", s)
+					s.addClass('locked')
+
 				}
 			}
 		}else{
@@ -392,6 +396,7 @@ function tryToUnlock(talent, tree, classData) {
 		}
 	}
 
+	//logic for max talent points spent
 	if (talentPointsSpent.grand_total() >= 50){
 		if (talentPointsSpent.grand_total() == 51) {
 			console.log('Maximum talent points spent')
@@ -447,7 +452,6 @@ function tryToUnlock(talent, tree, classData) {
 	}
 
 
-
 	if (talentPointsSpent[tree].total()>30){
 		return
 	} else {
@@ -466,8 +470,7 @@ function tryToUnlock(talent, tree, classData) {
 				let ele = $(`div.talent[name="${name}"]`)
 				ele.removeClass('grayed')
 				if (!ele.hasClass('locked')){
-					console.log("test")
-					// ele.addClass('unlocked')
+					ele.addClass('unlocked')
 				}
 				ele.find('.spentPoints').removeClass('locked').addClass('unlocked')
 				let talent_arrow = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
