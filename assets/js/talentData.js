@@ -1183,8 +1183,7 @@ const talentData = {
 					description: function() {
 						return `Imbues the Druid with natural energy.  Each of the Druid's melee attacks has a chance of causing the caster to enter a Clearcasting state.  The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by 100%.  Lasts 10 min.`
 					},
-					r: [5, 5],
-					locked: "locked",
+					locked: [2,2],
 					image: "omen_of_clarity.jpg"
 				}, {
 					name: "Nature's Reach",
@@ -1207,8 +1206,7 @@ const talentData = {
 					description: function() {
 						return `Increases the critical strike damage bonus of your Starfire, Moonfire, and Wrath spells by ${this.y()}%.`
 					},
-					r: [4, 5],
-					locked: "locked",
+					locked: [1,1],
 					image: "vengeance.jpg"
 				}, {
 					name: 'Improved Starfire',
@@ -1249,7 +1247,7 @@ const talentData = {
 					description: function() {
 						return `Increases the damage done by your Starfire, Moonfire and Wrath spells by ${this.y()}%.`
 					},
-					locked: "locked",
+					locked: [4,1],
 					image: "moonfury.jpg"
 				}, {
 					// NOTE
@@ -1272,7 +1270,6 @@ const talentData = {
 					description: function() {
 						return `Reduces the cost of your Maul, Swipe, Claw, and Rake abilities by ${this.y()} Rage or Energy.`
 					},
-					unlocks: "Frenzy",
 					image: "ferocity.jpg"
 				}, {
 					name: 'Feral Aggression',
@@ -1411,17 +1408,15 @@ const talentData = {
 					image: "faerie_fire_feral.jpg"
 				}, {
 					name: 'Heart of the Wild',
-					x: 4,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 4 * this.invested
 					},
 					description: function() {
 						let v = this.y()
 						return `Increases your Intellect by ${v}%.  In addition, while in Bear or Dire Bear Form your Stamina is increased by ${v}% and while in Cat Form your Strength is increased by ${v}%.`
 					},
-					r: [9, 3],
-					locked: "locked",
+					locked: [3,1],
 					image: "heart_of_the_wild.jpg"
 				}, {
 					name: 'Leader of the Pack',
@@ -1707,13 +1702,14 @@ const talentData = {
 				}, {
 					name: 'Ferocity',
 					maxRank: 5,
-					x: 3,
 					y: function() {
-						return this.x * this.invested
+						return 3 * this.invested
 					},
 					description: function() {
 						return `Increases the critical strike chance of your pets by ${this.y()}%.`
 					},
+					unlocks: "Frenzy",
+
 					image: "ferocity.jpg"
 				}, {
 					name: 'Spirit Bond',
@@ -2560,8 +2556,7 @@ const talentData = {
 					description: function() {
 						return `Gives you a ${this.y()}% bonus to Physical and Holy damage you deal for 8 sec after dealing a critical strike from a weapon swing, spell, or ability.`
 					},
-					r: [6, 5],
-					locked: "locked",
+					locked: [1,1],
 					image: "vengeance.jpg"
 				}, {
 					name: 'Repentance',
@@ -3583,8 +3578,7 @@ const talentData = {
 					description: function() {
 						return `An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by up to 3.  Lasts 30 charges or 15 sec.  Awards 1 combo point.`
 					},
-					r: [10, 3],
-					locked: "locked",
+					locked: [3,2],
 					image: "hemorrhage.jpg"
 				}, {
 					name: 'Deadliness',
