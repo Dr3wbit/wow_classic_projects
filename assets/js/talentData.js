@@ -1377,8 +1377,7 @@ const talentData = {
 					description: function() {
 						return `Your critical strikes from Cat Form abilities that add combo points  have a ${this.y()}% chance to add an additional combo point.`
 					},
-					r: [7, 3],
-					locked: "locked",
+					locked: [2,2],
 					image: "blood_frenzy.jpg"
 				}, {
 					name: 'Primal Fury',
@@ -1390,8 +1389,7 @@ const talentData = {
 					description: function() {
 						return `Gives you a ${this.y()}% chance to gain an additional 5 Rage anytime you get a critical strike while in Bear and Dire Bear Form.`
 					},
-					r: [7, 3],
-					locked: "locked",
+					locked: [2,2],
 					image: "primal_fury.jpg"
 				}, {
 					name: 'Savage Fury',
@@ -1549,8 +1547,7 @@ const talentData = {
 					description: function() {
 						return `When activated, your next Nature spell becomes an instant cast spell.`
 					},
-					r: [2, 5],
-					locked: "locked",
+					locked: [1,0],
 					image: "natures_swiftness.jpg"
 				}, {
 					name: 'Gift of Nature',
@@ -1562,8 +1559,7 @@ const talentData = {
 					description: function() {
 						return `Increases the effect of all healing spells by ${this.y()}%.`
 					},
-					r: [6, 1],
-					locked: "locked",
+					locked: [2,2],
 					image: "gift_of_nature.jpg"
 				}, {
 					name: 'Improved Tranquility',
@@ -1593,8 +1589,7 @@ const talentData = {
 					description: function() {
 						return `Consumes a Rejuvenation or Regrowth effect on a friendly target to instantly heal them an amount equal to 12 sec. of Rejuvenation or 18 sec. of Regrowth.`
 					},
-					r: [8, 5],
-					locked: "locked",
+					locked: [3,1],
 					image: "swiftmend.jpg"
 				}]
 			}]
