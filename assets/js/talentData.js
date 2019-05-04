@@ -2645,10 +2645,9 @@ const talentData = {
 					image: "inner_focus.jpg"
 				}, {
 					name: 'Meditation',
-					x: 5,
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return 5 * this.invested
 					},
 					description: function() {
 						return `Allows ${this.y()}% of your Mana regeneration to continue while casting.`
@@ -2706,8 +2705,7 @@ const talentData = {
 					description: function() {
 						return `Holy power infuses the target, increasing their Spirit by 17 for 30 min.`
 					},
-					r: [7, 3],
-					locked: "locked",
+					locked: [4,2],
 					image: "divine_spirit.jpg"
 				}, {
 					name: 'Force of Will',
@@ -2723,8 +2721,7 @@ const talentData = {
 					description: function() {
 						return `Infuses the target with power, increasing their spell damage and healing by 20%.  Lasts 15 sec.`
 					},
-					r: [11, 5],
-					locked: "locked",
+					locked: [6,1],
 					image: "power_infusion.jpg"
 				}]
 			}, {
@@ -2835,16 +2832,14 @@ const talentData = {
 					image: "improved_healing.jpg"
 				}, {
 					name: 'Searing Light',
-					x: 5,
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return 5 * this.invested
 					},
 					description: function() {
 						return `Increases the damage of your Smite and Holy Fire spells by ${this.y()}%.`
 					},
-					r: [4, 5],
-					locked: "locked",
+					locked: [1,2],
 					image: "searing_light.jpg"
 				}, {
 					name: 'Improved Prayer of Healing',
@@ -2894,18 +2889,16 @@ const talentData = {
 						return `Creates a holy Lightwell near the priest.  Members of your raid or party can click the Lightwell to restore 0 health over 10 sec.  Being attacked cancels the effect.  Lightwell lasts for 0 sec or 5 charges.`
 					},
 
-					r: [12, 1],
-					locked: "locked",
+					locked: [4,1],
 					image: "lightwell.jpg"
 				}]
 			}, {
 				name: 'Shadow',
 				talents: [{
 					name: 'Spirit Tap',
-					x: 20,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 20 * this.invested
 					},
 					description: function() {
 						return `Gives you a ${this.y()}% chance to gain a 100% bonus to your Spirit after killing a target that yields experience.  For the duration, your Mana will regenerate at a 50% rate while casting.  Lasts 15 sec.`
@@ -3019,8 +3012,7 @@ const talentData = {
 					description: function() {
 						return `Silences the target, preventing them from casting spells for 5 sec.`
 					},
-					r: [5, 2],
-					locked: "locked",
+					locked: [4,0],
 					image: "silence.jpg"
 				}, {
 					name: 'Vampiric Embrace',
@@ -3040,7 +3032,7 @@ const talentData = {
 					description: function() {
 						return `Increases the percentage healed by Vampiric Embrace by an additional ${this.y()}%.`
 					},
-					locked: "locked",
+					locked: [4,1],
 					image: "improved_vampiric_embrace.jpg"
 				}, {
 					name: 'Darkness',
@@ -3059,8 +3051,7 @@ const talentData = {
 					description: function() {
 						return `Assume a Shadowform, increasing your Shadow damage by 15% and reducing Physical damage done to you by 15%.  However, you may not cast Holy spells while in this form.`
 					},
-					r: [12, 1],
-					locked: "locked",
+					locked: [4,1],
 					image: "shadowform.jpg"
 				}]
 			}]
