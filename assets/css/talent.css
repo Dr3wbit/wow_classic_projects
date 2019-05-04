@@ -100,8 +100,8 @@
     color: rgb(23, 253, 23);
     border: 1px rgba(23, 253, 23, 0.9);
     visibility: visible;
-
 }
+
 .spentPoints.max {
     color: rgb(231, 186, 0);
     border: 1px rgba(231,186,0, 0.9);
@@ -109,6 +109,10 @@
 }
 
 .spentPoints.locked {
+    visibility: hidden;
+}
+
+.spentPoints.grayed {
     visibility: hidden;
 }
 
@@ -212,7 +216,7 @@
 .talentcalc-arrow.rightdown {
     background-image: url(../images/arrows/rightdown.png);
     top: 12px;
-    width: 43px;
+    width: 47px;
     height: 15px;
     background-position-x: right;
     left: 40px;
@@ -237,7 +241,7 @@
 }
 
 .talentcalc-arrow.down-2 {
-    height: 200px;
+    height: 147px;
 }
 
 .talentcalc-arrow.rightdown div:last-child {
@@ -248,7 +252,7 @@
     width: 15px;
     height: 35px;
     background-position-y: bottom;
-    right: 0px;
+    left: 32px;
 }
 
 .tooltip-container {
