@@ -3147,16 +3147,14 @@ const talentData = {
 					image: "improved_expose_armor.jpg"
 				}, {
 					name: 'Lethality',
-					x: 6,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 6 * this.invested
 					},
 					description: function() {
 						return `Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, and Hemorrhage abilities by ${this.y()}%.`
 					},
-					r: [2, 5],
-					locked: "locked",
+					locked: [0,2],
 					image: "lethality.jpg"
 				}, {
 					name: 'Vile Poisons',
@@ -3200,15 +3198,14 @@ const talentData = {
 					image: "improved_kidney_shot.jpg"
 				}, {
 					name: 'Seal Fate',
-					x: 20,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 20 * this.invested
 					},
 					description: function() {
 						return `Your critical strikes from abilities that add combo points have a ${this.y()}% chance to add an additional combo point.`
 					},
-					locked: "locked",
+					locked: [4,1],
 					image: "seal_fate.jpg"
 				}, {
 					name: 'Vigor',
@@ -3305,8 +3302,7 @@ const talentData = {
 					description: function() {
 						return `A strike that becomes active after parrying an opponent's attack.  This attack deals 150% weapon damage and disarms the target for 6 sec.`
 					},
-					r: [4, 5],
-					locked: "locked",
+					locked: [2,1],
 					image: "riposte.jpg"
 				}, {
 					name: 'Improved Sprint',
@@ -3343,16 +3339,14 @@ const talentData = {
 					image: "dagger_specialization.jpg"
 				}, {
 					name: 'Dual Wield Specialization',
-					x: 10,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 10 * this.invested
 					},
 					description: function() {
 						return `Increases the damage done by your offhand weapon by ${this.y()}%.`
 					},
-					r: [5, 5],
-					locked: "locked",
+					locked: [1,2],
 					image: "dual_wield_specialization.jpg"
 				}, {
 					name: 'Mace Specialization',
@@ -3395,8 +3389,7 @@ const talentData = {
 					description: function() {
 						return `Increases your skill with Sword, Fist and Dagger weapons by ${this.y()}.`
 					},
-					r: [13, 1],
-					locked: "locked",
+					locked: [5,1],
 					image: "weapon_expertise.jpg"
 				}, {
 					name: 'Aggression',
@@ -3588,8 +3581,7 @@ const talentData = {
 					description: function() {
 						return `When used, adds 2 combo points to your target.  You must add to or use those combo points within 10 sec or the combo points are lost. `
 					},
-					r: [12, 1],
-					locked: "locked",
+					locked: [4,1],
 					image: "premeditation.jpg"
 				}]
 			}]
@@ -4349,10 +4341,9 @@ const talentData = {
 					image: "improved_battle_shout.jpg"
 				}, {
 					name: 'Dual Wield Specialization',
-					x: 5,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 5 * this.invested
 					},
 					description: function() {
 						return `Increases the damage done by your offhand weapon by ${this.y()}%.`
