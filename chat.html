@@ -1,6 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131655338-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-131655338-1');
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9459503224191189",
+            enable_page_level_ads: true
+        });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -19,28 +37,25 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/global.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/chat.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/about.css">
     <script src="assets/js/handlebars-v4.1.2.js"></script>
     <!-- Nav Bar -->
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/templatesCompiled.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-database.js"></script>
-
 </head>
 
 <body>
     <div id="nav-container" class="container">
     </div>
     <div class="container">
-        <div class="page-title">Live Chat</div>
+        <div class="page-title">Chat</div>
     </div>
     <div class="container mainBody">
-        <div class="row">
-            <div class="col">
-                <div id="messageContainer"></div>
-                <input id="messageInput" autocomplete="off" placeholder="Message..." />
+        <div class="row about-section d-block">
+            <div class="col-12">
+                    <iframe id="discord-chat"src="https://titanembeds.com/embed/574262341835685899?css=494&theme=DiscordDark&scrollbartheme=minimal" height="600" width="100%" frameborder="0"></iframe>
             </div>
+            <a class="col" href="https://titanembeds.com">Made with TitanEmbeds</a>
         </div>
     </div>
     <div class="container">
@@ -50,58 +65,5 @@
             </footer>
         </div>
     </div>
-    <script>
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyAf5sPVoEr8h1uCGlyI8-J71_6WL6bxTug",
-            authDomain: "onybuffchat.firebaseapp.com",
-            databaseURL: "https://onybuffchat.firebaseio.com",
-            projectId: "onybuffchat",
-        };
-
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database()
-        const container = $('#messageContainer')
-
-        $('#messageInput').keyup(function (e) {
-            container.scrollTop = container.scrollHeight;
-            if (e.keyCode == 13) {
-                var now = new Date(Date.now());
-                var formatted = addZero(now.getHours()) + ":" + addZero(now.getMinutes()) + ":" + addZero(now.getSeconds());
-                var name = 'Anonymous';
-                var text = $('#messageInput').val();
-                if (!text || text.length > 300) {
-                    return
-                }
-                console.log(formatted)
-                database.ref().push({ name: name, text: text, time: formatted });
-                $('#messageInput').val('');
-            }
-            updateScroll()
-        });
-
-        database.ref().on('child_added', function (snapshot) {
-            var message = snapshot.val();
-            container.append($('<div/>', {
-                text: `${message.time} ${message.name} : ${message.text}`,
-                class: 'message'
-            }))
-            updateScroll()
-        });
-
-        function updateScroll() {
-            var element = document.getElementById('messageContainer');
-            element.scrollTop = element.scrollHeight - element.clientHeight;
-        }
-
-        function addZero(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        }
-
-    </script>
 </body>
-
 </html>
