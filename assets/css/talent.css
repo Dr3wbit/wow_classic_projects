@@ -15,12 +15,8 @@
 }
 
 .talent-container {
-
     margin: 10px;
     position: relative;
-    border: 1px solid black;
-    border-radius: 5px;
-
 }
 
 /* .talent-container:hover {
@@ -34,7 +30,8 @@
     /* border-image: url(../images/border.gif); */
     min-width: 40px;
     height: 40px;
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 5px;
     background-size: contain;
     z-index: 10;
 
@@ -49,7 +46,8 @@
 }
 
 .talent.locked {
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 .talent.max {
@@ -225,9 +223,7 @@
 
 .talentcalc-arrow-down {
     background-image:url(../images/arrows/down.png);
-    top: 41px;
-    right: 14px;
-    width: 15px;
+    width: 100%;
     background-position-x: center;
     background-position-y: bottom;
 }
