@@ -15,7 +15,7 @@
 }
 
 .talent-container {
-    margin: 10px;
+    margin: 8px;
     position: relative;
 }
 
@@ -30,10 +30,11 @@
     /* border-image: url(../images/border.gif); */
     min-width: 40px;
     height: 40px;
-    border: 2px solid black;
+    border: 2px solid rgb(22, 22, 22);
     border-radius: 5px;
     background-size: contain;
     z-index: 10;
+    border-style: ridge;
 
 }
 
@@ -41,25 +42,28 @@
 
     border-radius: 5px;
     border-color: rgb(23, 253, 23);
+    border-style: ridge;
     border-width: 2px;
 
 }
 
 .talent.locked {
-    border: 2px solid black;
+    border: 2px solid rgb(22, 22, 22);
     border-radius: 5px;
+    border-style: ridge;
 }
 
 .talent.max {
     border-radius: 5px;
     border-color: rgb(231, 186, 0);
     border-width: 2px;
+    border-style: ridge;
 }
 
 .openSlot {
     min-width: 40px;
     height: 40px;
-    margin: 10px;
+    margin: 8px;
     position: relative;
 
 }
@@ -69,6 +73,7 @@
     background-color: grey;
     background-size: 100% 100%;
     border: 2px solid black;
+    border-style: ridge;
     user-select: none;
 }
 
@@ -205,8 +210,8 @@
 .talentcalc-arrow.right {
     background-image: url(../images/arrows/right.png);
     top: 12px;
-    width: 23px;
-    height: 15px;
+    width: 20px;
+    height: 100%;
     background-position-x: right;
     left: 40px;
 }
@@ -214,7 +219,7 @@
 .talentcalc-arrow.rightdown {
     background-image: url(../images/arrows/rightdown.png);
     top: 12px;
-    width: 47px;
+    width: 42px;
     height: 15px;
     background-position-x: right;
     left: 40px;
@@ -229,15 +234,15 @@
 }
 
 .talentcalc-arrow.down-0 {
-    height: 25px;
+    height: 20px;
 }
 
 .talentcalc-arrow.down-1 {
-    height: 85px;
+    height: 77px;
 }
 
 .talentcalc-arrow.down-2 {
-    height: 147px;
+    height: 133px;
 }
 
 .talentcalc-arrow.rightdown div:last-child {
@@ -246,9 +251,9 @@
     position: absolute;
     top: 15px;
     width: 15px;
-    height: 35px;
+    height: 33px;
     background-position-y: bottom;
-    left: 32px;
+    left: 27px;
 }
 
 .tooltip-container {
