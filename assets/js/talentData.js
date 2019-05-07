@@ -4195,7 +4195,7 @@ const talentData = {
 					description: function() {
 						return `A vicious strike that deals weapon damage plus 85 and wounds the target, reducing the effectiveness of any healing by 50% for 10 sec.`
 					},
-					locked: [5,1],
+					locked: [4,1],
 					image: "mortal_strike.jpg"
 				}]
 			}, {

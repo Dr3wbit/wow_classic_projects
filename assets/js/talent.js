@@ -12,6 +12,25 @@ function applyClickHandlers() {
 	talentHandler()
 }
 
+const translationTable = {
+	00:'a', 01:'b', 02:'c', 03:'d', 04:'e', 05:'f',
+	10:'g', 11:'h', 12:'i', 13:'j', 14:'k', 15:'l',
+	20:'m', 21:'n', 22:'o', 23:'p', 24:'q', 25:'r',
+	30:'s', 31:'t', 32:'u', 33:'v', 34:'w', 35:'x',
+	40:'y', 41:'z',42:'A',43:'B',44:'C',45:'D',
+	50:'E',51:'F',52:'G',53:'H',54:'I',55:'J', 7: 'Y', 8: 'Z'
+
+}
+
+
+// 06:'g', 07:'h', 08:'i', 09: 'j', 10:'k',
+//
+//
+// 11:'l', 12:'m', 13:'n', 14:'o', 15:'p', 16:'q', 17:'r', 18:'s', 19:'t', 20:'u',
+// 21:'v', 22:'w', 23:'x', 24:'y', 25:'z', 26:'A', 27:'B',28:'C', 29:'D', 30:'E',
+// 31: 'F', 32:'G', 33:'H', 34:'I', 35:'J', 36:'K', 37:'L', 38:'M', 39:'N', 40:'0',
+// 41: 'P', 42: 'Q', 43:'R', 44:'S', 45:'T', 46:'U', 47:'V', 48: 'W', 49:'X', 50:'Y',
+// 51: 'Z', 52: '0', 53:'1', 54:'2', 55:'3', 8:'5', 9:'6'
 function populateTables(classData) {
 	//Retrieve the template data from the HTML .
 	let template = $('#handlebars-demo2').html();
@@ -48,14 +67,74 @@ function populateTables(classData) {
 //     return talentsToAppend
 //     }
 // }
+// function decimalToHexString(number)
+// {
+//   if (number < 0)
+//   {
+//     number = 0xFFFFFFFF + number + 1;
+//   }
+//
+//   return ((number) >>> 0).toString(16).toUpperCase();
+// }
+//
+// function binaryToHex(bin) {
+// 	var hexa = parseInt(number, 2).toString(16);
+// }
+//
+// function hex2bin(hex){
+//     return (parseInt(hex, 16).toString(2)).padStart(8, '0');
+// }
+
 
 function classSelectionHandler() {
 	$('.class-filter').on({
 		click: e => {
+			if ($('.class-filter.selected') == $(e.target)) {
+				return
+			}
+
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
+			// console.log(window.location.protocol)
+			// console.log((window.location.protocol=='file:'))
+
+			let original_url = (window.location.protocol=='file:') ? "file:///Users/ktuten/Documents/wow_classic_projects/talent.html" : window.location.origin+"/enchanter_tool/talent.html"
+			let new_url = original_url+'#'+clickedID
+
+			window.history.pushState(`Ony Buff: ${clickedID}`, clickedID, new_url)
+
+
+			// if (history.pushState) {
+			// 	window.history.pushState(window.history.state, clickedID, new_url)
+			// 	console.log('test')
+			// 	return false
+			// }
+
+
+
+			// console.log("clickedID: ", clickedID)
+			// console.log(clickedID[0])
+			// let class_var = clickedID
+			// console.log(class_var.slice(1,-1))
+
+			// let new_sentence = clickedID[0].toUpperCase()+clickedID.slice(1,-1)
+			// console.log(new_sentence)
+
+			// location.href
+			// console.log(location.href)
+
+
+			// let original_url = location.origin+"/enchanter_tool/talent.html"+'#'+clickedID
+
+
+
+			// !!
+			// $('.class-filter').removeClass('selected')
+			// const clickedFilter = $(e.target)
+			// clickedFilter.addClass('selected')
+			// const clickedID = clickedFilter[0].id
 
 			const selectedClass = talentData.classes.find(function(a) {
 				return a.name == clickedID;
@@ -92,6 +171,53 @@ function classSelectionHandler() {
 
 		},
 	})
+}
+
+function urlBuilder(classData) {
+
+	let myURL = ''
+	let newURL = ''
+	console.log("classData: ", classData)
+	classData.trees.forEach(function(item, ind){
+		// console.log(item)
+		item.data.forEach(function(dataArr){
+			// console.log(dataArr)
+			dataArr.forEach(function(x) {
+				if (x) {
+					myURL = myURL.concat('', x.invested)
+
+				}
+			})
+		})
+		// myURL = (ind<2) ? myURL.concat('', '8') : myURL.concat('', '9')
+		myURL = myURL.concat('', '7')
+
+		// for (var i = 0;i<myURL.length;i=i+2){
+		// 	console.log(i)
+		// 	let subStr = myURL.substring(i,i+2)
+		// 	newURL = newURL.concat('', translationTable[parseInt(subStr)])
+		// }
+		// console.log(newURL)
+		// // myURL = myURL.concat('', '5')
+	})
+	let myURLarr = myURL.split('7')
+	myURLarr.forEach(function(str){
+		if (str.length%2!=0){
+			str = str.concat('', '07')
+			console.log(str)
+		}
+		else {
+			str = str.concat('', '7')
+		}
+		for (var i = 0;i<str.length;i=i+2){
+			let subStr = str.substring(i,i+2)
+			newURL = newURL.concat('', translationTable[parseInt(subStr)])
+		}
+		// newURL = newURL.concat('', '8')
+	})
+	console.log(newURL)
+	console.log(myURL)
+
 }
 
 function mapTalentsToTableData(trees, tal_arr) {
@@ -204,6 +330,7 @@ function talentHandler(classData) {
 			targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree].total())
 			console.log(targetTalent.attr('name') + " : " + talent.invested)
 			updateTooltip(classData, e)
+			urlBuilder(classData)
 		}
 
 	})
