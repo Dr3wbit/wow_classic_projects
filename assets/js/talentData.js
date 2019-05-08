@@ -3485,11 +3485,11 @@ const talentData = {
 					maxRank: 2,
 
 					y: function() {
-						let z = this.invested==1 ? (" More effective than Heightened Senses (Rank 1).") : ''
-						return [2*this.invested, z]
+						return 2*this.invested
 					},
 					description: function() {
-						return `Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by ${this.y()[0]}%.${this.y()[1]}`
+						let v = (this.invested > 1) ? (` More effective than Heightened Senses (Rank ${this.invested-1})`) : ''
+						return `Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by ${this.y()}%.${v}`
 					},
 					image: "heightened_senses.jpg"
 				}, {
