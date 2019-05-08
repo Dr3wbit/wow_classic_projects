@@ -1,6 +1,8 @@
 
 const talentPointsSpent = {}
-const re = /a{2,}|b{2,}|c{2,}/g //only looks for repeats of a, b, or c atm
+const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a, b, or c atm
+const re2 = /([a-z])\d/g
+
 $(document).ready(initializeApp)
 
 function initializeApp() {
@@ -23,10 +25,15 @@ const translationTable = {
 	20:'m', 21:'n', 22:'o', 23:'p', 24:'q', 25:'r',
 	30:'s', 31:'t', 32:'u', 33:'v', 34:'w', 35:'x',
 	40:'y', 41:'z',42:'A',43:'B',44:'C',45:'D',
-	50:'E',51:'F',52:'G',53:'H',54:'I',55:'J', 7: 'Y', 8: 'Z', 'YY':'Z'
-
+	50:'E',51:'F',52:'G',53:'H',54:'I',55:'J', 7:'Y', 8:'Z'
 }
 
+const reversedTable = {}
+
+Object.values(translationTable).forEach(function(item,index) {
+  let repl = (Object.keys(translationTable)[index].length>1) ? Object.keys(translationTable)[index] : "0"+Object.keys(translationTable)[index]
+  reversedTable[item] = repl
+})
 
 function populateTables(classData) {
 	//Retrieve the template data from the HTML
@@ -196,12 +203,43 @@ function urlBuilder(classData) {
 	let shortestURL = newURL.slice(0, newURL.indexOf('Z'))
 
 	console.log('shortened: ',shortestURL)
-	console.log(window.location.href+'?'+shortestURL)
+	console.log(window.location.href+'?v='+shortestURL)
 
 	let url = window.location.href+"#rogue"
 	let hash = "#rogue"+"?"+shortestURL
 	const finalURL = new URL(hash, url);
 	history.replaceState({}, null, finalURL)
+	urlExpander()
+}
+
+function urlExpander() {
+	let hash = window.location.hash
+	let newStr = window.location.hash.slice(location.hash.indexOf('?')+1, location.hash.length)
+	console.log(newStr)
+
+	let matchArr = newStr.match(re2)
+	for (var y=0;y<matchArr.length;y++){
+		let replStr = Array(parseInt(matchArr[y][1])).fill(matchArr[y][0]).join('')
+		console.log(replStr)
+		newStr = newStr.replace(matchArr[y], replStr)
+		console.log(newStr)
+
+	}
+	// console.log(newStr)
+	let newStrArr = newStr.split('Y')
+	let arr
+	// console.log(newStrArr)
+	newStrArr.forEach(function(item,ind){
+		
+		arr = item.split('')
+		arr.forEach(function(v,i){
+			arr[i] = arr[i].replace(v, reversedTable[v])
+		})
+		newStrArr[ind] = arr.join('')
+	})
+	console.log(newStrArr)
+	newStr = newStrArr.join('')
+	console.log('expanded: ', newStr)
 
 }
 
