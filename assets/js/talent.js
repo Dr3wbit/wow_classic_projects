@@ -5,6 +5,11 @@ $(document).ready(initializeApp)
 
 function initializeApp() {
 	applyClickHandlers();
+	// if (window.location.hash) {
+	// 	console.log('test')
+	// 	$('.class-filter').trigger("click")
+	// }
+
 }
 
 function applyClickHandlers() {
@@ -24,7 +29,7 @@ const translationTable = {
 
 
 function populateTables(classData) {
-	//Retrieve the template data from the HTML .
+	//Retrieve the template data from the HTML
 	let template = $('#handlebars-demo2').html();
 	//Compile the template data into a function
 	let templateScript = Handlebars.compile(template);
@@ -79,6 +84,7 @@ function populateTables(classData) {
 
 
 function classSelectionHandler() {
+
 	$('.class-filter').on({
 		click: e => {
 
@@ -89,14 +95,28 @@ function classSelectionHandler() {
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
 			clickedFilter.addClass('selected')
+
 			const clickedID = clickedFilter[0].id
 			// console.log(window.location.protocol)
 			// console.log((window.location.protocol=='file:'))
 
+			// console.log(window.location)
 			// let original_url = (window.location.protocol=='file:') ? "file:///Users/ktuten/Documents/wow_classic_projects/talent.html" : window.location.origin+"/enchanter_tool/talent.html"
 			// let new_url = original_url+'#'+clickedID
+
+			// if (window.location.hash) {
+			// 	var clickedID = window.location.hash.slice(1, window.location.hash.length)
+			// 	console.log('1', clickedID)
 			//
-			// window.history.pushState(`Ony Buff: ${clickedID}`, clickedID, new_url)
+			// } else {
+			// 	var clickedID = clickedFilter[0].id
+			// 	console.log('2', clickedID)
+			// }
+
+			let myURL = window.location.origin+window.location.pathname+"#"+clickedID
+
+
+			window.history.pushState(`Ony Buff: ${clickedID}`, clickedID, myURL)
 			//
 
 			const selectedClass = talentData.classes.find(function(a) {
@@ -151,7 +171,6 @@ function urlBuilder(classData) {
 		})
 		myURL = (ind<2) ? myURL.concat('', '7') : myURL.concat('', '8')
 	})
-
 	let myURLarr = myURL.split('7')
 	myURLarr.forEach(function(str){
 		if (str.length%2==1){
@@ -166,22 +185,23 @@ function urlBuilder(classData) {
 			newURL = newURL.concat('', translationTable[parseInt(subStr)])
 		}
 	})
-
 	let found = newURL.match(re)
-
-	let shortestURL = ''
 	console.log('preTranslation: ', myURL)
-
 	console.log('post: ', newURL)
-	for (var y = 0;y <found.length;y++){
-		let shortestURL = newURL.replace(found[y], found[y][0]+(found[y].length).toString())
-		newURL = shortestURL
+	for (var y=0;y<found.length;y++){
+		newURL = newURL.replace(found[y], found[y][0]+(found[y].length).toString())
+		// newURL = shortened
 	}
 
-	let smallestBoi = newURL.slice(0, newURL.indexOf('Z'))
-	console.log('shortened: ',smallestBoi)
+	let shortestURL = newURL.slice(0, newURL.indexOf('Z'))
 
-	console.log(window.location.href+'?'+smallestBoi)
+	console.log('shortened: ',shortestURL)
+	console.log(window.location.href+'?'+shortestURL)
+
+	let url = window.location.href+"#rogue"
+	let hash = "#rogue"+"?"+shortestURL
+	const finalURL = new URL(hash, url);
+	history.replaceState({}, null, finalURL)
 
 }
 
@@ -432,8 +452,6 @@ function checkLockedTiers(tree) {
 }
 
 function tryToUnlock(talent, tree, classData) {
-
-
 	const talentCopy = Object.assign({}, talent)
 	let parent_tal_elem = $(`div.talent[name="${talentCopy.name}"]`).first()
 	let spent_points_elem = parent_tal_elem.find('.spentPoints')
@@ -449,7 +467,6 @@ function tryToUnlock(talent, tree, classData) {
 	}
 
 	// if not an array, turn into array
-
 	const talents_unlocked = (!Array.isArray(talentCopy.unlocks)) ? Array(talentCopy.unlocks) : talentCopy.unlocks
 	if (talentCopy.unlocks) {
 		talents_unlocked.forEach(function(unlocks){
@@ -701,4 +718,29 @@ function canSpendPoints(talent, e, tree, classData) {
 			return
 		}
 	}
+}
+
+//polyfill
+// .flat()
+if (!Array.prototype.flat) {
+  Array.prototype.flat = function() {
+    var depth = arguments[0];
+    depth = depth === undefined ? 1 : Math.floor(depth);
+    if (depth < 1) return Array.prototype.slice.call(this);
+    return (function flat(arr, depth) {
+      var len = arr.length >>> 0;
+      var flattened = [];
+      var i = 0;
+      while (i < len) {
+        if (i in arr) {
+          var el = arr[i];
+          if (Array.isArray(el) && depth > 0)
+            flattened = flattened.concat(flat(el, depth - 1));
+          else flattened.push(el);
+        }
+        i++;
+      }
+      return flattened;
+    })(this, depth);
+  };
 }
