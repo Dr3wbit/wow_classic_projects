@@ -94,13 +94,13 @@
                             {{#each arrows as |arrowItem arrowKey|}}
                                 {{#if item.multi}}
                                     {{#with (lookup item.unlocks arrowKey) as |talentName| }}
-                                        <div class="talentcalc-arrow {{arrowItem}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{talentName}}">
-                                            {{#if (needsExtraDiv arrowItem)}}<div class="{{arrowItem}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{talentName}}"></div>{{/if}}
+                                        <div class="talentcalc-arrow {{arrowItem}} locked grayed{{#if item.j}}{{/if}}" data-unlocks="{{talentName}}">
+                                            {{#if (needsExtraDiv arrowItem)}}<div class="{{arrowItem}} locked grayed{{#if item.j}}{{/if}}" data-unlocks="{{talentName}}"></div>{{/if}}
                                         </div>
                                     {{/with}}
                                 {{else}}
-                                    <div class="talentcalc-arrow {{arrowItem}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{item.unlocks}}">
-                                        {{#if (needsExtraDiv arrowItem)}}<div class="{{arrowItem}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{item.unlocks}}"></div>{{/if}}
+                                    <div class="talentcalc-arrow {{arrowItem}} locked grayed{{#if item.j}}{{/if}}" data-unlocks="{{item.unlocks}}">
+                                        {{#if (needsExtraDiv arrowItem)}}<div class="{{arrowItem}} locked grayed{{#if item.j}}{{/if}}" data-unlocks="{{item.unlocks}}"></div>{{/if}}
                                     </div>
                                 {{/if}}
                             {{/each}}
