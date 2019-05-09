@@ -79,12 +79,12 @@ body {
 .class-filter {
     padding: 5px;
     font-size: 110%;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-top: 1px solid transparent;
+    /* border-right: 1px solid transparent; */
+    /* border-left: 1px solid transparent; */
+    /* border-top: 1px solid transparent; */
     margin-left: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    /* border-top-left-radius: 5px;
+    border-top-right-radius: 5px; */
     cursor: pointer;
 
     background-position: 0 100%;
@@ -96,31 +96,48 @@ body {
     transition: all .2s ease-in; */
 }
 
+
+.class-filter.selected {
+    color: inherit;
+    border-top: 4px solid #ff3604;
+    padding: 5px;
+}
+
 .class-filter:hover {
+    color: inherit;
+    border-top: 4px solid #ff3604;
+    padding: 5px;
+    background-color: transparent;
+
+}
+
+/* old */
+
+/* .class-filter:hover {
     color: black !important;
-    /* padding: 5px; */
+    padding: 5px;
     font-size: 110%;
     border-right: 1px solid #9FA3A9;
     border-left: 1px solid #9FA3A9;
     border-top: 1px solid #9FA3A9;
-    /* margin-left: 5px; */
+    margin-left: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: azure;
+    background-color: azure; */
     /* animation */
-    background-position: 0 0;
-}
-.class-filter.selected {
+    /* background-position: 0 0;
+} */
+/* .class-filter.selected {
 
     border-right: 1px solid #ff3604;
     border-left: 1px solid #ff3604;
     border-top: 1px solid #ff3604;
-}
+} */
 
 .class-selection {
     justify-content: center;
     font-size: 14px
-    
+
     /* padding-left: 35%; */
 }
 
@@ -177,7 +194,7 @@ body {
 
     #druid {
         background-image: url("../images/icons/class_druid.jpg");
-        color: #FF7D0A	
+        color: #FF7D0A
     }
 
     #paladin {
@@ -263,7 +280,7 @@ body {
 }
 
 #druid {
-    color: #FF7D0A	
+    color: #FF7D0A
 }
 
 #paladin {
@@ -279,7 +296,7 @@ body {
 }
 
 #priest {
-    color: #FFFFFF	
+    color: #FFFFFF
 }
 
 #hunter {
