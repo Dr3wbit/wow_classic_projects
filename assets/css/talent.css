@@ -30,12 +30,11 @@
     /* border-image: url(../images/border.gif); */
     min-width: 40px;
     height: 40px;
-    border: 2px solid rgb(22, 22, 22);
+    border: 2px solid rgb(23, 253, 23);
     border-radius: 5px;
     background-size: contain;
     z-index: 10;
     border-style: ridge;
-
 }
 .talent.locked {
     border: 2px solid rgb(22, 22, 22);
@@ -43,14 +42,20 @@
     border-style: ridge;
 }
 
-.talent.unlocked {
+.talent.grayed {
+    border: 2px solid rgb(22, 22, 22);
+    border-radius: 5px;
+    border-style: ridge;
+}
+
+/* .talent.unlocked {
 
     border-radius: 5px;
     border-color: rgb(23, 253, 23);
     border-style: ridge;
     border-width: 2px;
 
-}
+} */
 
 .talent.max {
     border-radius: 5px;
