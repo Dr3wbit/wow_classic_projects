@@ -37,6 +37,11 @@
     border-style: ridge;
 
 }
+.talent.locked {
+    border: 2px solid rgb(22, 22, 22);
+    border-radius: 5px;
+    border-style: ridge;
+}
 
 .talent.unlocked {
 
@@ -47,18 +52,13 @@
 
 }
 
-.talent.locked {
-    border: 2px solid rgb(22, 22, 22);
-    border-radius: 5px;
-    border-style: ridge;
-}
-
 .talent.max {
     border-radius: 5px;
     border-color: rgb(231, 186, 0);
     border-width: 2px;
     border-style: ridge;
 }
+
 
 .openSlot {
     min-width: 40px;
@@ -99,6 +99,14 @@
 
 }
 
+.spentPoints.locked {
+    visibility: hidden;
+}
+
+.spentPoints.grayed {
+    visibility: hidden;
+}
+
 .spentPoints.unlocked {
     color: rgb(23, 253, 23);
     border: 1px rgba(23, 253, 23, 0.9);
@@ -111,13 +119,6 @@
     border-radius: 5px;
 }
 
-.spentPoints.locked {
-    visibility: hidden;
-}
-
-.spentPoints.grayed {
-    visibility: hidden;
-}
 
 .talent-tooltip-req{
     color: red !important;
@@ -263,6 +264,48 @@
     right: 120px;
     top: 40px;
 }
+
+
+.class-filter.selected {
+    color: inherit;
+    border-top: 4px solid #ff3604;
+    padding: 5px;
+    /* border-right: transparent;
+    border-left: transparent;
+    border-bottom: transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: transparent; */
+}
+
+.class-filter:hover {
+    color: inherit;
+    border-top: 4px solid #ff3604;
+    padding: 5px;
+    background-color: transparent;
+    /* border-radius: 0px;
+    border-right: transparent;
+    border-left: transparent;
+    border-bottom: transparent; */
+}
+
+
+/* .class-filter {
+    padding: 5px;
+    font-size: 110%;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top: 1px solid transparent;
+    margin-left: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    background-position: 0 100%;
+    background-size: 100% 200%;
+    transition: all .2s ease-in;
+} */
+
+
 
 /* .talent-border:hover{
     background-image: url(../images/icon_border_medium.png);
