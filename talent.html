@@ -84,23 +84,23 @@
                         <div class="talent-border"></div>
 
                         <div class="tooltip-container"></div>
-                        <div class="talent{{#if locked}} locked{{/if}}{{#if j}} grayed{{else}} unlocked{{/if}}"
+                        <div class="talent{{#if locked}} locked{{/if}}{{#if j}} grayed{{/if}}"
                             style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
-                            name="{{name}}" data-j={{j}} data-k={{k}} data-unlocks="{{unlocks}}">
-                            <div class="spentPoints {{#if locked}}locked {{/if}}{{#if item.j}}grayed{{/if}}">0</div>
+                            name="{{name}}" data-j={{j}} data-k={{k}} {{#if unlocks}}data-unlocks="{{unlocks}}"{{/if}}>
+                            <div class="spentPoints {{#if locked}}locked {{/if}}{{#if item.j}}grayed{{/if}}">{{invested}}</div>
                         </div>
 
                         {{#if unlocks}}
                             {{#each arrows as |arrowItem arrowKey|}}
                                 {{#if item.multi}}
                                     {{#with (lookup item.unlocks arrowKey) as |talentName| }}
-                                        <div class="talentcalc-arrow {{arrowItem}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{talentName}}">
-                                            {{#if (needsExtraDiv arrowItem)}}<div class="{{arrowItem}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{talentName}}"></div>{{/if}}
+                                        <div class="talentcalc-arrow {{arrowItem}} locked grayed{{#if item.j}}{{/if}}" data-unlocks="{{talentName}}">
+                                            {{#if (needsExtraDiv arrowItem)}}<div class="{{arrowItem}} locked grayed{{#if item.j}}{{/if}}" data-unlocks="{{talentName}}"></div>{{/if}}
                                         </div>
                                     {{/with}}
                                 {{else}}
-                                    <div class="talentcalc-arrow {{arrowItem}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{item.unlocks}}">
-                                        {{#if (needsExtraDiv arrowItem)}}<div class="{{arrowItem}} locked {{#if item.j}}grayed{{/if}}" data-unlocks="{{item.unlocks}}"></div>{{/if}}
+                                    <div class="talentcalc-arrow {{arrowItem}} locked grayed{{#if item.j}}{{/if}}" data-unlocks="{{item.unlocks}}">
+                                        {{#if (needsExtraDiv arrowItem)}}<div class="{{arrowItem}} locked grayed{{#if item.j}}{{/if}}" data-unlocks="{{item.unlocks}}"></div>{{/if}}
                                     </div>
                                 {{/if}}
                             {{/each}}

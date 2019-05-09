@@ -3142,10 +3142,9 @@ const talentData = {
 					image: "cold_blood.jpg"
 				}, {
 					name: 'Improved Kidney Shot',
-					x: 3,
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return 3 * this.invested
 					},
 					description: function() {
 						return `While affected by your Kidney Shot ability, the target receives an additional ${this.y()}% damage from all sources.`
@@ -3174,10 +3173,10 @@ const talentData = {
 				name: 'Combat',
 				talents: [{
 					name: 'Improved Gouge',
-					x: 0.5,
+
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return 0.5 * this.invested
 					},
 					description: function() {
 						return `Increases the effect duration of your Gouge ability by ${this.y()} sec.`
@@ -3195,21 +3194,16 @@ const talentData = {
 					image: "improved_sinister_strike.jpg"
 				}, {
 					name: 'Lightning Reflexes',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Increases your Dodge chance by ${this.y()}%.`
+						return `Increases your Dodge chance by ${this.invested}%.`
 					},
 					image: "lightning_reflexes.jpg"
 				}, {
 					name: 'Improved Backstab',
-					x: 10,
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return 10 * this.invested
 					},
 					description: function() {
 						return `Increases the critical strike chance of your Backstab ability by ${this.y()}%.`
@@ -3217,25 +3211,18 @@ const talentData = {
 					image: "improved_backstab.jpg"
 				}, {
 					name: 'Deflection',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Increases your Parry chance by ${this.y()}%.`
+						return `Increases your Parry chance by ${this.invested}%.`
 					},
 					unlocks: "Riposte",
 					image: "deflection.jpg"
 				}, {
 					name: 'Precision',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
+
 					description: function() {
-						return `Increases your chance to hit with melee weapons by ${this.y()}%.`
+						return `Increases your chance to hit with melee weapons by ${this.invested}%.`
 					},
 					unlocks: "Dual Wield Specialization",
 					image: "precision.jpg"
@@ -3257,14 +3244,13 @@ const talentData = {
 					description: function() {
 						return `A strike that becomes active after parrying an opponent's attack.  This attack deals 150% weapon damage and disarms the target for 6 sec.`
 					},
-					locked: [2,1],
+					locked: [1,1],
 					image: "riposte.jpg"
 				}, {
 					name: 'Improved Sprint',
-					x: 50,
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return 50 * this.invested
 					},
 					description: function() {
 						return `Gives a ${this.y()}% chance to remove all movement impairing effects when you activate your Sprint ability.`
@@ -3272,10 +3258,9 @@ const talentData = {
 					image: "improved_sprint.jpg"
 				}, {
 					name: 'Improved Kick',
-					x: 50,
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return 50 * this.invested
 					},
 					description: function() {
 						return `Gives your Kick ability a ${this.y()}% chance to silence the target for 2 sec.`
@@ -3283,13 +3268,9 @@ const talentData = {
 					image: "improved_kick.jpg"
 				}, {
 					name: 'Dagger Specialization',
-					x: 1,
 					maxRank: 5,
-					y: function() {
-						return this.x * this.invested
-					},
 					description: function() {
-						return `Increases your chance to get a critical strike with Daggers by ${this.y()}%.`
+						return `Increases your chance to get a critical strike with Daggers by ${this.invested}%.`
 					},
 					image: "dagger_specialization.jpg"
 				}, {
@@ -3377,10 +3358,9 @@ const talentData = {
 					image: "master_of_deception.jpg"
 				}, {
 					name: 'Opportunity',
-					x: 4,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 4 * this.invested
 					},
 					description: function() {
 						return `Increases the damage dealt when striking from behind with your Backstab, Garrote, or Ambush abilities by ${this.y()}%.`
@@ -3485,11 +3465,11 @@ const talentData = {
 					maxRank: 2,
 
 					y: function() {
-						let z = this.invested==1 ? (" More effective than Heightened Senses (Rank 1).") : ''
-						return [2*this.invested, z]
+						return 2*this.invested
 					},
 					description: function() {
-						return `Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by ${this.y()[0]}%.${this.y()[1]}`
+						let v = (this.invested > 1) ? (` More effective than Heightened Senses (Rank ${this.invested-1})`) : ''
+						return `Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by ${this.y()}%.${v}`
 					},
 					image: "heightened_senses.jpg"
 				}, {
@@ -4195,7 +4175,7 @@ const talentData = {
 					description: function() {
 						return `A vicious strike that deals weapon damage plus 85 and wounds the target, reducing the effectiveness of any healing by 50% for 10 sec.`
 					},
-					locked: [5,1],
+					locked: [4,1],
 					image: "mortal_strike.jpg"
 				}]
 			}, {
