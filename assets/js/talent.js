@@ -180,12 +180,14 @@ function talentBuilder(e=null, cl='', hash='') {
 	const combinedTalents = combineTalents(selectedClass)
 	const finalData = mapTalentsToTableData(tableData.trees, combinedTalents)
 
-	if (hash){
-		const expanded = urlExpander(hash)
-		preBuiltSpec({trees: finalData}, expanded)
-	}
 
 	populateTables({trees: finalData}, talentPointsSpent)
+
+	if (hash){
+		const expanded = urlExpander(hash)
+		preBuiltSpec({trees: finalData}, expanded, true)
+		updatePointsElems({trees: finalData})
+	}
 }
 
 
@@ -435,18 +437,18 @@ function checkLockedTiers(tree) {
 	return locked_tier
 }
 
-function tryToUnlock(talent, tree, classData) {
-	const talentCopy = Object.assign({}, talent)
+function tryToUnlock(talentObj, tree, classData) {
+	let talentCopy = Object.assign({}, talentObj)
 	let parent_tal_elem = $(`div.talent[name="${talentCopy.name}"]`).first()
 	let spent_points_elem = parent_tal_elem.find('.spentPoints')
 
-	if (talentCopy.invested === talentCopy.maxRank) {
-		parent_tal_elem.addClass('max').removeClass('unlocked')
-		spent_points_elem.addClass('max').removeClass('unlocked')
+	if (talentCopy.invested == talentCopy.maxRank) {
+		parent_tal_elem.addClass('max').removeClass('unlocked').removeClass('grayed')
+		spent_points_elem.addClass('max').removeClass('unlocked').removeClass('grayed')
 	}
-	if (!(talentCopy.invested === talentCopy.maxRank) && parent_tal_elem.hasClass('max')) {
-		parent_tal_elem.removeClass('max').addClass('unlocked')
-		spent_points_elem.removeClass('max').addClass('unlocked')
+	if (!(talentCopy.invested == talentCopy.maxRank) && parent_tal_elem.hasClass('max')) {
+		parent_tal_elem.removeClass('max').removeClass('grayed').addClass('unlocked')
+		spent_points_elem.removeClass('max').removeClass('grayed').addClass('unlocked')
 
 	}
 
@@ -502,8 +504,7 @@ function tryToUnlock(talent, tree, classData) {
 	//logic for max talent points spent
 	if (talentPointsSpent.grandTotal() >= 50){
 		if (talentPointsSpent.grandTotal() == 51){
-			lockTalents(classData, false)
-
+			lockTalents(classData, true)
 		} else {
 			lockTalents(classData, false)
 		}
@@ -511,10 +512,14 @@ function tryToUnlock(talent, tree, classData) {
 
 
 	if (talentPointsSpent[tree].total()>30){
+		console.log("talentPointsSpent[tree].total() > 30: ", talentPointsSpent[tree].total())
 		return
 	} else {
-		if (talentPointsSpent[tree].total()%5==0) {
+		console.log("talentPointsSpent[tree].total(): ", talentPointsSpent[tree].total())
+		if (talentPointsSpent[tree].total()%5==0 && talentPointsSpent[tree].total()>0) {
+			console.log("talentPointsSpent[tree].total()%5==0 ")
 			const tier = talentPointsSpent[tree].total()/5
+			console.log('tier: ', tier)
 			const found = classData.trees.find(function(x) { //
 				return x.name == tree
 			})
@@ -523,9 +528,11 @@ function tryToUnlock(talent, tree, classData) {
 			found.data[tier].filter(function(item) {
 				talent_names.push(item.name)
 			})
+			console.log(talent_names)
 
 			talent_names.forEach(function(name) {
 				let ele = $(`div.talent[name="${name}"]`)
+				console.log(ele)
 				ele.removeClass('grayed')
 				if (!ele.hasClass('locked')){
 					ele.addClass('unlocked')
@@ -556,7 +563,7 @@ function tryToUnlock(talent, tree, classData) {
 
 				let ele = $(`div.talent[name="${name}"]`)
 				ele.removeClass('unlocked').addClass('grayed')
-				ele.find('.spentPoints').removeClass('unlocked').addClass('grayed') //NOTE HERE
+				ele.find('.spentPoints').removeClass('unlocked').addClass('grayed')
 				let talent_arrows = $(`div.talentcalc-arrow[data-unlocks="${name}"]`)
 				talent_arrows.each(function(i, v){
 					let a = $( this )
@@ -645,30 +652,6 @@ function canSpendPoints(talent, e, tree, classData) {
 	}
 }
 
-//polyfill
-// .flat()
-if (!Array.prototype.flat) {
-  Array.prototype.flat = function() {
-    var depth = arguments[0];
-    depth = depth === undefined ? 1 : Math.floor(depth);
-    if (depth < 1) return Array.prototype.slice.call(this);
-    return (function flat(arr, depth) {
-      var len = arr.length >>> 0;
-      var flattened = [];
-      var i = 0;
-      while (i < len) {
-        if (i in arr) {
-          var el = arr[i];
-          if (Array.isArray(el) && depth > 0)
-            flattened = flattened.concat(flat(el, depth - 1));
-          else flattened.push(el);
-        }
-        i++;
-      }
-      return flattened;
-    })(this, depth);
-  };
-}
 
 
 function urlBuilder(classData) {
@@ -715,14 +698,14 @@ function urlBuilder(classData) {
 	// const finalURL = new URL(hash, url);
 	history.replaceState({}, null, url)
 
-	let expanded = urlExpander()
+	// let expanded = urlExpander()
 
-	console.log("before: ", myURL)
-	console.log("after: ", expanded)
+	// console.log("before: ", myURL)
+	// console.log("after: ", expanded)
 
-	if (expanded == myURL) {
-		console.log('same hash')
-	}
+	// if (expanded == myURL) {
+	// 	console.log('same hash')
+	// }
 }
 
 function urlExpander() {
@@ -777,7 +760,6 @@ function lockTalents(classData, lock=false) {
 						b.addClass('grayed')
 					})
 				}
-
 			}
 		})
 		return
@@ -822,37 +804,95 @@ function lockTalents(classData, lock=false) {
 
 }
 
-function preBuiltSpec(classData, hash) {
+function preBuiltSpec(classData, hash='', unlock=false) {
 
-	let hashArr = hash.slice(0,hash.indexOf('8')).split('7')
-
+	let hashArr = (hash) ? hash.slice(0,hash.indexOf('8')).split('7') : ''
 	classData.trees.forEach(function(item, i){
-		var arr = hashArr[i].split('')
+		var arr = (hashArr) ? hashArr[i].split(''): ''
 		let treeName = item.name
-		console.log('item: ',item)
 		item.data.forEach(function(dataArr, i2){
-			console.log('dataArr: ', dataArr)
+			dataArr.forEach(function(t, i3) {
+				if (t) {
+					if (hashArr){
+						t.invested = parseInt(arr.shift())
+						talentPointsSpent[treeName].vals[parseInt(i2)] += parseInt(t.invested)
+					}
+					if (unlock){
+						tryToUnlock(t, treeName, classData)
+					}
 
-			dataArr.forEach(function(x, i3) {
-				if (x) {
-					x.invested = arr.shift()
-					talentPointsSpent[treeName][i2]+=x.invested
-					console.log('i: ', i, ' i2: ', i2, ' i3: ', i3)
-					console.log('x: ', x)
 				}
 			})
 		})
 
 	})
 
-	console.log(hash)
-	console.log(hashArr)
-	console.log(classData)
+	// console.log(hash)
+	// console.log(hashArr)
+	// console.log(classData)
+	//
 
-	lockTalents(classData, false)
-	lockTalents(classData, true)
+	// lockTalents(classData, false)
+
+
 
 	// assume hashes given are legit, will implement check for them later
 	// populate classData and talentPointsSpent
 	// run lockTalents(classData, lock=true)
+}
+
+function updatePointsElems(classData) {
+	classData.trees.forEach(function(item, i){
+		let treeName = item.name
+		let footer = $(".talentTable").find(".talentFooter").children()
+		console.log(footer[i])
+		footer[i].innerText = talentPointsSpent[treeName].total()
+		// first().text(talentPointsSpent[treeName].total())
+		// console.log(footer[i])
+		// footer[i].text(talentPointsSpent[treeName].total())
+		// console.log(footer[i].children().first())
+
+		// footer[i].text(talentPointsSpent[treeName].total())
+
+		item.data.forEach(function(dataArr, i2){
+			dataArr.forEach(function(t, i3) {
+				if (t) {
+						if (t.invested) {
+							console.log("t.name: ", t.name)
+							var targetTalent = $(`div.talent[name="${t.name}"]`).first()
+							targetTalent.removeClass('grayed')
+							targetTalent.find('.spentPoints').removeClass('grayed').text(t.invested)
+							// targetTalent.find('.spentPoints').text(t.invested)
+						}
+
+					}
+				})
+			})
+
+	})
+}
+
+//polyfill
+// .flat()
+if (!Array.prototype.flat) {
+  Array.prototype.flat = function() {
+    var depth = arguments[0];
+    depth = depth === undefined ? 1 : Math.floor(depth);
+    if (depth < 1) return Array.prototype.slice.call(this);
+    return (function flat(arr, depth) {
+      var len = arr.length >>> 0;
+      var flattened = [];
+      var i = 0;
+      while (i < len) {
+        if (i in arr) {
+          var el = arr[i];
+          if (Array.isArray(el) && depth > 0)
+            flattened = flattened.concat(flat(el, depth - 1));
+          else flattened.push(el);
+        }
+        i++;
+      }
+      return flattened;
+    })(this, depth);
+  };
 }
