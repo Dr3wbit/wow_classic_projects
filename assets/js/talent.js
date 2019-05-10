@@ -95,7 +95,8 @@ function buildClassData(e=null, cl='', hash='') {
 		const clickedFilter = $(e.target)
 		clickedFilter.addClass('selected')
 		className = clickedFilter[0].id
-
+		$('.talentHeader').text(className)
+		console.log($('#talentHeader'))
 		let url = new URL(location.origin+location.pathname)
 		let params = url.searchParams
 
