@@ -1,22 +1,28 @@
 .locked {
-    -webkit-filter: grayscale(100%);
-       -moz-filter: grayscale(100%);
-         -o-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-            filter: grayscale(100%);
+    -webkit-filter: grayscale(90%);
+       -moz-filter: grayscale(90%);
+         -o-filter: grayscale(90%);
+        -ms-filter: grayscale(90%);
+            filter: grayscale(90%);
 }
 
 .grayed {
-    -webkit-filter: grayscale(100%);
-       -moz-filter: grayscale(100%);
-         -o-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-            filter: grayscale(100%);
+    -webkit-filter: grayscale(90%);
+       -moz-filter: grayscale(90%);
+         -o-filter: grayscale(90%);
+        -ms-filter: grayscale(90%);
+            filter: grayscale(90%);
 }
 
 .talent-container {
     margin: 8px;
     position: relative;
+    /* pointer-events: none; */
+    /* user-select: none; */
+    /* width: 46px;
+    height: 46px; */
+    /* background: url(../images/icon_border_medium.png); */
+
 }
 
 /* .talent-container:hover {
@@ -43,24 +49,10 @@
     border-style: ridge;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 
-    /* background: url(../images/icon_border1.png); */
-    /* background-repeat: no-repeat; */
-
+    /* background-image: url(../images/icon_border_medium.png); */
 }
 
-.talent:hover {
 
-  box-shadow: inset 0px 0px 2px 3px rgba(228, 224, 239, 0.15),
-              inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
-              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
-
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-
-
-}
 .talent.locked {
     border: 2px solid rgb(22, 22, 22);
     border-radius: 5px;
@@ -90,10 +82,23 @@
 }
 
 
+.talent:hover {
+
+  box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+              inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+
+  border-style: groove;
+}
 
 .openSlot {
-    min-width: 40px;
-    height: 40px;
+    min-width: 42px;
+    height: 42px;
     margin: 8px;
     position: relative;
 
@@ -210,6 +215,14 @@
     margin-top: 20px;
     position: relative;
     background-repeat: no-repeat;
+    z-index: 20;
+    border-radius: 5px;
+
+}
+
+.talentFooter.icon {
+  width: 18px;
+  height: 18px;
 }
 
 /* #tooltip {
