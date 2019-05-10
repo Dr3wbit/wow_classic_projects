@@ -262,15 +262,13 @@ function mouseDownDaddy(e=null, classData, talent, tree) {
 
 	let something
 	if (e){
-		console.log('e: ', e)
 		var targetTalent = $(e.target)
-
 		targetTalent.children($('.talent-tooltip').remove())
 		var treeName = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
 
 		const name = targetTalent.attr('name')
-		const j = targetTalent.attr('data-j') //
-		const k = targetTalent.attr('data-k') //
+		const j = targetTalent.attr('data-j')
+		const k = targetTalent.attr('data-k')
 
 		const found = classData.trees.find(function(x) { //
 			return x.name == treeName
@@ -437,16 +435,12 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 	const tier = (talent.requiredTalentPoints/5)
 	const targetTalent = $(`div.talent[name="${talent.name}"]`)
 
-
-	// const locked = targetTalent.hasClass('locked')
-	// const requiredTalentPoints = talent.requiredTalentPoints
-	// const maxRank = talent.maxRank
 	if (talentPointsSpent[tree].total() < talent.requiredTalentPoints) {
-		console.log(`you must have ${talent.requiredTalentPoints} points in this ${tree} tree to spec here`)
+		// console.log(`you must have ${talent.requiredTalentPoints} points in this ${tree} tree to spec here`)
 		return
 	}
 	if (targetTalent.hasClass('locked')) {
-		console.log("that boy lockeD")
+		// console.log("that boy lockeD")
 		return
 	}
 
@@ -454,22 +448,27 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 	if (e.which === 1 || e == true) {
 		if (talentPointsSpent.grandTotal() > 50){
 			if (!talentPointsSpent.locked) {
-				//lockOrUnlockSpec()
-				console.log("lockOrUnlockSpec()")
+				talentLocker(classData)
+				console.log("talentLocker()")
 			}
 			return
 		}
 		if (talent.invested < talent.maxRank) {
 			talentPointsSpent[tree].vals[tier]++
 			talent.invested++
-
 			targetTalent.children(0).first().text(talent.invested)
+
+			if (talentPointsSpent.grandTotal() > 50) {
+				talentLocker(classData)
+				console.log("talentLocker()")
+				talentPointsSpent.locked = true
+				return
+			}
 
 			let tierU = (talentPointsSpent[tree].total() < 30) ? Math.floor(talentPointsSpent[tree].total()/5) : 6
 			let talentObjs = []
 
 			// get talents in highest unlocked tier
-
 			const found = classData.trees.find(function(x) { //
 				return x.name == tree
 			})
@@ -604,9 +603,54 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 	}
 }
 
-function lockorUnlockSpec() {
-	//
+// needs optimization
+function talentLocker(classData, trees) {
+	let treeNames = []
+	if (!trees) { // defaults to all trees
+		classData.trees.forEach(function(item) {
+			treeNames.push(item.name)
+		})
+	} else {
+		trees.forEach(function(item){
+			treeNames.push(item)
+		})
+	}
+	let talentObjs = []
+
+	treeNames.forEach(function(name) {
+		let found = classData.trees.find(function(x) {
+			return x.name == name
+		})
+		// let talentObjs = []
+
+		found.data.forEach(function(dataArr, tier){
+			dataArr.forEach(function(tal){
+				if (tal) {
+					if (!tal.invested) {
+						talentObjs.push(tal)
+					}
+				}
+			})
+		})
+	})
+
+	talentObjs.forEach(function(tal){
+		let t = $(`div.talent[name="${tal.name}"]`)
+		t.addClass('grayed')
+		t.find(".spentPoints").addClass('grayed')
+		if (tal.locked) {
+			let arrows = $(`div.talentcalc-arrow[data-unlocks="${tal.name}"]`)
+			arrows.each(function(){
+				$( this ).addClass('grayed')
+			})
+		}
+	})
+
+	console.log("talentObjs: ", talentObjs)
+	talentPointsSpent.locked = true
+
 }
+
 
 function urlBuilder(classData) {
 	let myURL = ''
@@ -760,10 +804,8 @@ function lockTalents(classData, lock=false) {
 
 }
 
-// to be refactored and deleted
+// needs new name
 function preBuiltSpec(classData, hash='') {
-
-	// mouseDownDaddy(null, classData, talentObj)
 
 	var treeName = ''
 	let hashArr = hash.slice(0,hash.indexOf('8')).split('7')
@@ -779,9 +821,14 @@ function preBuiltSpec(classData, hash='') {
 							newArr.forEach(function(item2) {
 								mouseDownDaddy(null, classData, t, treeName)
 							})
-						} else {
+							return
+						} if (arr[0] == 1){
 							arr.shift()
 							mouseDownDaddy(null, classData, t, treeName)
+							return
+
+						} else {
+							arr.shift()
 						}
 						// console.log(t)
 						// console.log(arr)
@@ -794,37 +841,6 @@ function preBuiltSpec(classData, hash='') {
 	})
 }
 
-// to be deleted
-// function updatePointsElems(classData) {
-// 	classData.trees.forEach(function(item, i){
-// 		let treeName = item.name
-// 		let footer = $(".talentTable").find(".talentFooter").children()
-// 		console.log(footer[i])
-// 		footer[i].innerText = talentPointsSpent[treeName].total()
-// 		// first().text(talentPointsSpent[treeName].total())
-// 		// console.log(footer[i])
-// 		// footer[i].text(talentPointsSpent[treeName].total())
-// 		// console.log(footer[i].children().first())
-//
-// 		// footer[i].text(talentPointsSpent[treeName].total())
-//
-// 		item.data.forEach(function(dataArr, i2){
-// 			dataArr.forEach(function(t, i3) {
-// 				if (t) {
-// 						if (t.invested) {
-// 							console.log("t.name: ", t.name)
-// 							var targetTalent = $(`div.talent[name="${t.name}"]`).first()
-// 							targetTalent.removeClass('grayed')
-// 							targetTalent.find('.spentPoints').removeClass('grayed').text(t.invested)
-// 							// targetTalent.find('.spentPoints').text(t.invested)
-// 						}
-//
-// 					}
-// 				})
-// 			})
-//
-// 	})
-// }
 
 //polyfill
 // .flat()

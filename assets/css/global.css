@@ -91,9 +91,9 @@ body {
     background-size: 100% 200%;
     transition: all .2s ease-in;
     /* background-image: linear-gradient(to bottom, azure, azure 50%, transparent 50%, transparent); */
-    /* background-position: 95 100%;
+    background-position: 95 100%;
     background-size: 100% 105%;
-    transition: all .2s ease-in; */
+    transition: all .2s ease-in;
 }
 
 
