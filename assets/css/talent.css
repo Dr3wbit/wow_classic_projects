@@ -19,22 +19,43 @@
     position: relative;
 }
 
-.talent-container:hover {
+/* .talent-container:hover {
+    box-shadow: inset 0px 0px 2px 2px rgba(218, 224, 229, .65);
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+} */
+
+/* .talent-container:hover {
     border-radius: 5px;
     background-image: url(../images/icons/icon_hilite_medium_talent.png);
-    z-index: 11;
-}
+} */
 
 
 .talent {
-    /* border-image: url(../images/border.gif); */
-    min-width: 40px;
-    height: 40px;
+    min-width: 42px;
+    height: 42px;
     border: 2px solid rgb(23, 253, 23);
     border-radius: 5px;
     background-size: contain;
     z-index: 10;
     border-style: ridge;
+    /* background: url(../images/icon_border1.png); */
+    /* background-repeat: no-repeat; */
+
+}
+
+.talent:hover {
+
+  box-shadow: inset -2px 0px 6px 2px rgba(218, 224, 229, .55);
+
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+
+
 }
 .talent.locked {
     border: 2px solid rgb(22, 22, 22);
@@ -63,6 +84,7 @@
     border-width: 2px;
     border-style: ridge;
 }
+
 
 
 .openSlot {
@@ -317,8 +339,14 @@
 
 
 /* .talent-border{
-
+    background: url(../images/icon_border1.png);
+    background-repeat: no-repeat;
     border: 1px solid rgb(22, 22, 22);
     border-radius: 5px;
     border-style: ridge;
+    background-size: auto;
+    width: 44px;
+    height: 44px;
+    z-index: 15;
+    position: fixed;
 } */
