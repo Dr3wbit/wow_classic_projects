@@ -41,6 +41,8 @@
     background-size: contain;
     z-index: 10;
     border-style: ridge;
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+
     /* background: url(../images/icon_border1.png); */
     /* background-repeat: no-repeat; */
 
@@ -48,12 +50,14 @@
 
 .talent:hover {
 
-  box-shadow: inset -2px 0px 6px 2px rgba(218, 224, 229, .55);
+  box-shadow: inset 0px 0px 2px 3px rgba(228, 224, 239, 0.15),
+              inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
 
-  -moz-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 
 
 }
@@ -128,6 +132,12 @@
     user-select: none;
     z-index: 10;
 
+}
+
+.spentPoints.footer {
+  left: 15px;
+  top: 0px;
+  background-color: transparent;
 }
 
 .spentPoints.locked {
