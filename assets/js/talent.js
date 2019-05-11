@@ -19,16 +19,13 @@ function initializeApp() {
 	let params = myURL.searchParams
 	if (params.has('class')){
 		let cl_name = params.get('class')
-		console.log("class (init): ", params.get('class'))
 		if (CLASS_ARR.some(function(name){ return cl_name == name})){
-			//if class exists in preset list, move on
-
-			// NOTE: validity check for the hash needed here
-			if (myURL.hash) {
-				// urlExpander(myURL.hash)
-				console.log("hash (init): ", myURL.hash)
-				buildClassData(null, cl_name, myURL.hash)
-			}
+			buildClassData(null, cl_name, myURL.hash)
+			// if (myURL.hash) {
+			// 	console.log("hash (init): ", myURL.hash)
+			// 	buildClassData(null, cl_name, myURL.hash)
+			// }
+			//
 		}
 	}
 
@@ -84,7 +81,7 @@ function buildClassData(e=null, cl='', hash='') {
 
 	let className = cl
 
-	if (cl && hash){
+	if (cl){
 		$(`#${className}`).addClass('selected')
 	}
 	else{
