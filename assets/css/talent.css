@@ -1,12 +1,4 @@
-.locked {
-    -webkit-filter: grayscale(90%);
-       -moz-filter: grayscale(90%);
-         -o-filter: grayscale(90%);
-        -ms-filter: grayscale(90%);
-            filter: grayscale(90%);
-}
-
-.grayed {
+.locked, .grayed  {
     -webkit-filter: grayscale(90%);
        -moz-filter: grayscale(90%);
          -o-filter: grayscale(90%);
@@ -17,12 +9,6 @@
 .talent-container {
     margin: 8px;
     position: relative;
-    /* pointer-events: none; */
-    /* user-select: none; */
-    /* width: 46px;
-    height: 46px; */
-    /* background: url(../images/icon_border_medium.png); */
-
 }
 
 /* .talent-container:hover {
@@ -48,39 +34,19 @@
     z-index: 10;
     border-style: ridge;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-
-    /* background-image: url(../images/icon_border_medium.png); */
 }
 
 
-.talent.locked {
-    border: 2px solid rgb(22, 22, 22);
-    border-radius: 5px;
-    border-style: ridge;
+.talent.locked, .talent.grayed {
+    border-color: rgb(22, 22, 22);
 }
 
-.talent.grayed {
-    border: 2px solid rgb(22, 22, 22);
-    border-radius: 5px;
-    border-style: ridge;
+
+.max {
+  border-color: rgb(231, 186, 0);
+  color: rgb(231, 186, 0);
+
 }
-
-/* .talent.unlocked {
-
-    border-radius: 5px;
-    border-color: rgb(23, 253, 23);
-    border-style: ridge;
-    border-width: 2px;
-
-} */
-
-.talent.max {
-    border-radius: 5px;
-    border-color: rgb(231, 186, 0);
-    border-width: 2px;
-    border-style: ridge;
-}
-
 
 .talent:hover {
 
@@ -126,9 +92,8 @@
     height: 23px;
     top: 29px;
     left: 30px;
-    /* border: 1px rgba(0,0,0, 0.9); */
-    /* border-radius: 5px; */
     padding-top: 3px;
+    padding-left: 1px;
     /* background-color: rgba(0,0,0, 0.6); */
     background-image: url(../images/icons/bubble2.png);
     background-repeat: no-repeat;
@@ -146,21 +111,13 @@
   left: 15px;
   top: 0px;
   background-color: transparent;
+  font-size: 11px;
 }
 
-.spentPoints.locked {
+.spentPoints.locked, .spentPoints.grayed  {
     visibility: hidden;
 }
 
-.spentPoints.grayed {
-    visibility: hidden;
-}
-
-.spentPoints.unlocked {
-    color: rgb(23, 253, 23);
-    border: 1px rgba(23, 253, 23, 0.9);
-    visibility: visible;
-}
 
 .spentPoints.max {
     color: rgb(231, 186, 0);
@@ -379,8 +336,22 @@
 
 #talentHeader {
   height: 25px;
-  /* width: 80%; */
-  border: 1px solid azure;
+  position: relative;
+  width: 63%;
+  margin-left: 5px;
+  border: 2px solid black;
+  /* border-radius: 5px; */
+  border-style: ridge;
+  color: azure;
+  background: #343a40;
+  display: flex;
+  font-size: 14px;
+  /* align-self: flex-start; */
+  /* flex-flow: row-reverse nowrap; */
+  /* justify-content: center; */
+  /* width: 60%; */
+  /* box-sizing: border-box; */
+
   /* margin-left: 20px; */
   /* margin-right: 20px; */
 }
