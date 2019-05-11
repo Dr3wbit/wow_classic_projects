@@ -72,7 +72,8 @@
     </div>
 </body>
 <script id="handlebars-demo2" type="text/x-handlebars-template">
-  <div id="talentHeader"></div>
+
+  <div id="talentHeader" class='col-10'></div>
     {{#each trees as |tree treeKey|}}
     <div class="talentTable" style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{sanitize tree.name}}_background.jpg');">
         <div class="treeTitle col">{{tree.name}}
