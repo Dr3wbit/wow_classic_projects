@@ -284,12 +284,6 @@
     color: inherit;
     border-top: 4px solid #ff3604;
     padding: 5px;
-    /* border-right: transparent;
-    border-left: transparent;
-    border-bottom: transparent;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    background-color: transparent; */
 }
 
 .class-filter:hover {
@@ -297,42 +291,29 @@
     border-top: 4px solid #ff3604;
     padding: 5px;
     background-color: transparent;
-    /* border-radius: 0px;
-    border-right: transparent;
-    border-left: transparent;
-    border-bottom: transparent; */
 }
 
+.talentcalc-button {
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  border: none;
 
-/* .class-filter {
-    padding: 5px;
-    font-size: 110%;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-top: 1px solid transparent;
-    margin-left: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    cursor: pointer;
-    background-position: 0 100%;
-    background-size: 100% 200%;
-    transition: all .2s ease-in;
-} */
+}
 
+.talentcalc-button.reset {
+    height: 16px;
+    width: 16px;
+    background: url(../images/icons/reset.gif);
+}
 
+.talentcalc-button.lock {
+    background: url(../images/icons/lock.gif);
+}
 
-/* .talent-border{
-    background: url(../images/icon_border1.png);
-    background-repeat: no-repeat;
-    border: 1px solid rgb(22, 22, 22);
-    border-radius: 5px;
-    border-style: ridge;
-    background-size: auto;
-    width: 44px;
-    height: 44px;
-    z-index: 15;
-    position: fixed;
-} */
+.talentcalc-button.unlock {
+    background: url(../images/icons/unlock.gif);
+}
 
 #talentHeader {
   height: 25px;
