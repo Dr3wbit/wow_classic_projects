@@ -233,7 +233,7 @@ function talentHandler(classData) {
 
 		mousedown: e => {
 
-			mouseDownDaddy(e, classData)
+			mouseDownHandler(e, classData)
 			// const targetTalent = $(e.target)
 			// targetTalent.children($('.talent-tooltip').remove())
 			// // const unlocks = targetTalent.attr('data-unlocks')
@@ -261,7 +261,7 @@ function talentHandler(classData) {
 }
 
 //needs new name
-function mouseDownDaddy(e=null, classData, talent, tree) {
+function mouseDownHandler(e=null, classData, talent, tree) {
 
 	var something = false
 	if (e){
@@ -299,6 +299,21 @@ function mouseDownDaddy(e=null, classData, talent, tree) {
 		urlBuilder(classData)
 	}
 
+	updateTalentHeader(classData)
+
+}
+
+function updateTalentHeader(classData) {
+	let treeNames = []
+	classData.trees.forEach(function(item) {
+		treeNames.push(item.name)
+	})
+	let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
+	$("#allottedTalentPoints").text(a)
+	let requiredLevel = talentPointsSpent.grandTotal()+9
+	$("#requiredLevel").text(`Required level: ${requiredLevel}`)
+	let pointsRemaining = 51-talentPointsSpent.grandTotal()
+	$("#pointsRemaining").text(`Points left: ${pointsRemaining}`)
 }
 
 function updateTooltip(classData, e){
@@ -789,12 +804,12 @@ function preBuiltSpec(classData, hash='') {
 						if (arr[0] > 1) {
 							let newArr = [...Array(parseInt(arr.shift()))].fill()
 							newArr.forEach(function(item2) {
-								mouseDownDaddy(null, classData, t, treeName)
+								mouseDownHandler(null, classData, t, treeName)
 							})
 							return
 						} if (arr[0] == 1){
 							arr.shift()
-							mouseDownDaddy(null, classData, t, treeName)
+							mouseDownHandler(null, classData, t, treeName)
 							return
 
 						} else {

@@ -60,6 +60,16 @@
             <div class="class-filter class-icon" id="rogue">Rogue</div>
         </div>
         <div class="pt-5"></div>
+        <div class="row justify-content-center">
+        <div id="talentHeader">
+          <div id="allottedTalentPoints" class="col-3 text-left">(0/0/0)</div>
+        <div id="requiredLevel" class="col-3">Required level:</div>
+        <div id="pointsRemaining" class="col-3 text-right">Points Left:</div>
+        <div id="buttonCity" class="col-3">
+        </div>
+
+      </div>
+      </div>
         <div class="row justify-content-center" id="talentCalc" align="center">
         </div>
     </div>
@@ -73,7 +83,6 @@
 </body>
 <script id="handlebars-demo2" type="text/x-handlebars-template">
 
-  <div id="talentHeader" class='col-10'></div>
     {{#each trees as |tree treeKey|}}
     <div class="talentTable" style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{sanitize tree.name}}_background.jpg');">
         <div class="treeTitle col">{{tree.name}}
