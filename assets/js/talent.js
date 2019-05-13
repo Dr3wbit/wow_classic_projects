@@ -1,6 +1,6 @@
 
-const talentPointsSpent = {}
-const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a, b, or c atm
+var talentPointsSpent = {}
+const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a/b/c/d/e atm
 const re2 = /([a-z])\d/g
 const translationTable = {
 	00:'a', 01:'b', 02:'c', 03:'d', 04:'e', 05:'f',
@@ -21,17 +21,15 @@ Object.values(translationTable).forEach(function(item,index) {
 
 $(document).ready(initializeApp)
 
-$(window).on('unload', function() {
-	console.log("unloaded")
-	// resetHandler()
-})
+
 
 function initializeApp() {
 
 	// applyClickHandlers();
-
+	console.log('initializing')
 	classSelectionHandler()
 	talentHandler()
+	exportSpec()
 	// lockSpec()
 	// resetTalents()
 	// exportSpec()
@@ -44,20 +42,22 @@ function initializeApp() {
 	}
 	let params = myURL.searchParams
 	if (params.has('class')){
-		let cl_name = params.get('class')
-		if (CLASS_ARR.some(function(name){ return cl_name == name})){
-			buildClassData(null, cl_name, myURL.hash)
-			// if (params.has('L')) {
-			// }
-			// if (myURL.hash) {
-			// 	console.log("hash (init): ", myURL.hash)
-			// 	buildClassData(null, cl_name, myURL.hash)
-			// }
-			//
+		let className = params.get('class')
+		if (CLASS_ARR.some(function(name){ return className == name})){
+			buildClassData(null, className, myURL.hash)
 		}
 	}
 }
 
+// $(window).on("unload", function() {
+// 	console.log("unloaded")
+// 	// $('.class-filter').unbind("click")
+//
+// 	$("#resetTalents").triggerHandler("click", {reload:true})
+// 	let myURL = new URL(location.origin+location.pathname+location.search)
+// 	history.replaceState(null, null, myURL.href)
+//
+// })
 
 
 // function applyClickHandlers() {
@@ -70,7 +70,17 @@ function initializeApp() {
 
 
 function exportSpec(){
-	//
+	$("#export").on({
+		click: e=> {
+			// $("#export").off("click")
+			console.log("exporting")
+			e.preventDefault()
+			e.stopImmediatePropagation()
+			window.alert(window.location.href)
+			// return false
+
+		}
+	})
 }
 
 
@@ -89,6 +99,8 @@ function populateTables(classData, reset=false) {
 		resetHandler(classData)
 	}
 	exportSpec(classData)
+	console.log('populating tables')
+
 }
 
 function classSelectionHandler() {
@@ -104,40 +116,34 @@ function lockSpec(classData){
 	$('#talentLock').on({
 		click: e => {
 
-			let url = new URL(document.location)
-			let params = url.searchParams
-
-			if ($(e.target).hasClass("unlock")) {
-				talentLocker(classData)
-				$(e.target).removeClass("unlock").addClass("lock")
-				$(e.target).attr('title', 'Locked')
-
-				params.set('L', true)
-
-
-			} else {
+			if ($("#talentLock").hasClass('lock')) {
 				talentUnlocker(classData)
-				$(e.target).removeClass("lock").addClass("unlock")
-				$(e.target).attr('title', 'Unlocked')
-
-				params.delete('L')
-
 
 			}
-			history.replaceState(null, null, url)
+			else if ($("#talentLock").hasClass('unlock')) {
+				talentLocker(classData)
+
+			}
 		},
+
 	})
 }
 
 function resetHandler(classData){
 	$('#resetTalents').on({
 		click: e => {
+			console.log("resetting")
 			resetTalents(classData)
+			$("#talentLock").unbind("click")
+			$("#talentLock").bind("click", lockSpec(classData))
 		}
 	})
 }
 
-function resetTalents(classData) {
+function resetTalents(classData, reload) {
+	console.log(talentPointsSpent)
+	talentPointsSpent = {}
+	console.log(talentPointsSpent)
 
 	let className = $('.class-filter.selected')[0].id
 	let treeNames = []
@@ -159,16 +165,28 @@ function resetTalents(classData) {
 		})
 	})
 
-	buildClassData(null, className, '', true)
-
 	let url = new URL(document.location)
 	url.hash = '#'
-
 	history.replaceState(null, null, url)
+
+	console.log(reload)
+
+	buildClassData(null, className, '', true)
+
+
+
+
+	if (talentPointsSpent.locked) {
+		// $("#talentLock").triggerHandler("click")
+
+		talentUnlocker(classData)
+
+	}
 
 }
 
 function buildClassData(e=null, cl='', hash='', reset) {
+	console.log('building class data')
 
 	let className = cl
 	let url = new URL(document.location)
@@ -375,7 +393,7 @@ function mouseDownHandler(e=null, classData, talent, tree) {
 
 	targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[treeName].total())
 
-	// console.log(targetTalent.attr('name') + " : " + talentObj.invested)
+	console.log(targetTalent.attr('name') + " : " + talentObj.invested)
 	if (manuallyClicked) {
 		urlBuilder(classData)
 		updateTooltip(classData, e)
@@ -687,6 +705,8 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 // needs optimization
 function talentLocker(classData, trees='') {
 
+
+
 	let treeNames = []
 	if (!trees) { // defaults to all trees
 		classData.trees.forEach(function(item) {
@@ -697,7 +717,6 @@ function talentLocker(classData, trees='') {
 			treeNames.push(item)
 		})
 	}
-
 	let talentObjs = []
 
 	// get list of talent objects with no points spent
@@ -729,13 +748,15 @@ function talentLocker(classData, trees='') {
 	let url = new URL(document.location)
 	let params = url.searchParams
 	let lockButton = $("#talentLock")
-	params.set('L', true)
-
 	lockButton.removeClass("unlock").addClass("lock")
 	lockButton.attr('title', 'Locked')
-	history.replaceState(null, null, url)
 
+	params.set('L', true)
 	talentPointsSpent.locked = true
+
+	history.replaceState({}, null, url)
+
+
 }
 
 function talentUnlocker(classData, trees='') {
