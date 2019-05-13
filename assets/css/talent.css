@@ -301,7 +301,7 @@
 
 }
 
-.talentcalc-button.reset {
+.talentcalc-button#resetTalents {
     height: 16px;
     width: 16px;
     background: url(../images/icons/reset.gif);
@@ -313,6 +313,10 @@
 
 .talentcalc-button.unlock {
     background: url(../images/icons/unlock.gif);
+}
+
+#export {
+   color: #3d7e9a;
 }
 
 #talentHeader {
