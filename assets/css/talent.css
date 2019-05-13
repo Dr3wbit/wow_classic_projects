@@ -1,17 +1,9 @@
-.locked {
-    -webkit-filter: grayscale(100%);
-       -moz-filter: grayscale(100%);
-         -o-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-            filter: grayscale(100%);
-}
-
-.grayed {
-    -webkit-filter: grayscale(100%);
-       -moz-filter: grayscale(100%);
-         -o-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-            filter: grayscale(100%);
+.locked, .grayed  {
+    -webkit-filter: grayscale(90%);
+       -moz-filter: grayscale(90%);
+         -o-filter: grayscale(90%);
+        -ms-filter: grayscale(90%);
+            filter: grayscale(90%);
 }
 
 .talent-container {
@@ -20,61 +12,69 @@
 }
 
 /* .talent-container:hover {
-    border-radius: 5px;
-    border-image: url(../images/icons/icon_hilite_medium_talent.png);
+    box-shadow: inset 0px 0px 2px 2px rgba(218, 224, 229, .65);
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+} */
 
+/* .talent-container:hover {
+    border-radius: 5px;
+    background-image: url(../images/icons/icon_hilite_medium_talent.png);
 } */
 
 
 .talent {
-    /* border-image: url(../images/border.gif); */
-    min-width: 40px;
-    height: 40px;
+    min-width: 42px;
+    height: 42px;
     border: 2px solid rgb(23, 253, 23);
     border-radius: 5px;
     background-size: contain;
     z-index: 10;
     border-style: ridge;
-}
-.talent.locked {
-    border: 2px solid rgb(22, 22, 22);
-    border-radius: 5px;
-    border-style: ridge;
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-.talent.grayed {
-    border: 2px solid rgb(22, 22, 22);
-    border-radius: 5px;
-    border-style: ridge;
+
+.talent.locked, .talent.grayed {
+    border-color: rgb(22, 22, 22);
 }
 
-/* .talent.unlocked {
 
-    border-radius: 5px;
-    border-color: rgb(23, 253, 23);
-    border-style: ridge;
-    border-width: 2px;
+.max {
+  border-color: rgb(231, 186, 0);
+  color: rgb(231, 186, 0);
 
-} */
-
-.talent.max {
-    border-radius: 5px;
-    border-color: rgb(231, 186, 0);
-    border-width: 2px;
-    border-style: ridge;
 }
 
+.talent:hover {
+
+  box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+              inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+
+  border-style: groove;
+}
 
 .openSlot {
-    min-width: 40px;
-    height: 40px;
+    min-width: 42px;
+    height: 42px;
     margin: 8px;
     position: relative;
 
 }
 
 .talentTable {
-    margin: 15px;
+    /* margin: 15px; */
+    margin-left: 5px;
+    margin-bottom: 15px;
+
     background-color: grey;
     background-size: 100% 100%;
     border: 2px solid black;
@@ -88,35 +88,36 @@
 
 .spentPoints {
     position: absolute;
-    width: 15px;
-    height: 15px;
-    bottom: -6px;
-    right : -6px;
-    border: 1px rgba(0,0,0, 0.9);
-    border-radius: 5px;
-    background-color: rgba(0,0,0, 0.6);
+    width: 22px;
+    height: 23px;
+    top: 29px;
+    left: 30px;
+    padding-top: 3px;
+    padding-left: 1px;
+    /* background-color: rgba(0,0,0, 0.6); */
+    background-image: url(../images/icons/bubble2.png);
+    background-repeat: no-repeat;
+
     color: rgb(23, 253, 23);
     text-align: center;
-    line-height: 14px;
+    /* line-height: 14px; */
     pointer-events: none;
     user-select: none;
-    z-index: 5;
+    z-index: 10;
 
 }
 
-.spentPoints.locked {
+.spentPoints.footer {
+  left: 15px;
+  top: 0px;
+  background-color: transparent;
+  font-size: 11px;
+}
+
+.spentPoints.locked, .spentPoints.grayed  {
     visibility: hidden;
 }
 
-.spentPoints.grayed {
-    visibility: hidden;
-}
-
-.spentPoints.unlocked {
-    color: rgb(23, 253, 23);
-    border: 1px rgba(23, 253, 23, 0.9);
-    visibility: visible;
-}
 
 .spentPoints.max {
     color: rgb(231, 186, 0);
@@ -174,6 +175,14 @@
     margin-top: 20px;
     position: relative;
     background-repeat: no-repeat;
+    z-index: 20;
+    border-radius: 5px;
+
+}
+
+.talentFooter.icon {
+  width: 18px;
+  height: 18px;
 }
 
 /* #tooltip {
@@ -275,12 +284,6 @@
     color: inherit;
     border-top: 4px solid #ff3604;
     padding: 5px;
-    /* border-right: transparent;
-    border-left: transparent;
-    border-bottom: transparent;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    background-color: transparent; */
 }
 
 .class-filter:hover {
@@ -288,34 +291,52 @@
     border-top: 4px solid #ff3604;
     padding: 5px;
     background-color: transparent;
-    /* border-radius: 0px;
-    border-right: transparent;
-    border-left: transparent;
-    border-bottom: transparent; */
 }
 
+.talentcalc-button {
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  border: none;
 
-/* .class-filter {
-    padding: 5px;
-    font-size: 110%;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-top: 1px solid transparent;
-    margin-left: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    cursor: pointer;
-    background-position: 0 100%;
-    background-size: 100% 200%;
-    transition: all .2s ease-in;
-} */
+}
 
+.talentcalc-button#resetTalents {
+    height: 16px;
+    width: 16px;
+    background: url(../images/icons/reset.gif);
+}
 
+.talentcalc-button.lock {
+    background: url(../images/icons/lock.gif);
+}
 
-/* .talent-border:hover{
-    background-image: url(../images/icon_border_medium.png);
-    background-repeat: no-repeat;
-    width: 44px;
-    height: 44px;
-    background-position: -84px 0px;
-} */
+.talentcalc-button.unlock {
+    background: url(../images/icons/unlock.gif);
+}
+
+#export {
+   color: #3d7e9a;
+}
+
+#talentHeader {
+  height: 25px;
+  position: relative;
+  width: 63%;
+  margin-left: 5px;
+  border: 2px solid black;
+  /* border-radius: 5px; */
+  border-style: ridge;
+  color: azure;
+  background: #343a40;
+  display: flex;
+  font-size: 14px;
+  /* align-self: flex-start; */
+  /* flex-flow: row-reverse nowrap; */
+  /* justify-content: center; */
+  /* width: 60%; */
+  /* box-sizing: border-box; */
+
+  /* margin-left: 20px; */
+  /* margin-right: 20px; */
+}

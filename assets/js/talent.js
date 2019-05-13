@@ -1,50 +1,7 @@
 
-const talentPointsSpent = {}
-const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a, b, or c atm
+var talentPointsSpent = {}
+const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a/b/c/d/e atm
 const re2 = /([a-z])\d/g
-
-$(document).ready(initializeApp)
-
-function initializeApp() {
-
-	classSelectionHandler()
-	talentHandler()
-
-	const CLASS_ARR = ['druid','hunter','mage','paladin','priest','rogue','shaman','warlock','warrior']
-
-	let myURL = new URL(document.location)
-	if (myURL.search) {
-		console.log("test init: ", myURL.search)
-	}
-	let params = myURL.searchParams
-	if (params.has('class')){
-		let cl_name = params.get('class')
-		console.log("class (init): ", params.get('class'))
-		if (CLASS_ARR.some(function(name){ return cl_name == name})){
-			//if class exists in preset list, move on
-
-			// NOTE: validity check for the hash needed here
-			if (myURL.hash) {
-				// urlExpander(myURL.hash)
-				console.log("hash (init): ", myURL.hash)
-				buildClassData(null, cl_name, myURL.hash)
-			}
-		}
-	}
-
-
-	// if (true) {
-	// 	$('.class-filter').trigger('click', [ {hash:urlExpander(myURL.hash)} ])
-	// }
-	// applyClickHandlers();
-
-}
-
-// function applyClickHandlers() {
-// 	classSelectionHandler()
-// 	talentHandler()
-// }
-
 const translationTable = {
 	00:'a', 01:'b', 02:'c', 03:'d', 04:'e', 05:'f',
 	10:'g', 11:'h', 12:'i', 13:'j', 14:'k', 15:'l',
@@ -61,7 +18,75 @@ Object.values(translationTable).forEach(function(item,index) {
   reversedTable[item] = repl
 })
 
-function populateTables(classData) {
+
+$(document).ready(initializeApp)
+
+
+
+function initializeApp() {
+
+	// applyClickHandlers();
+	console.log('initializing')
+	classSelectionHandler()
+	talentHandler()
+	exportSpec()
+	// lockSpec()
+	// resetTalents()
+	// exportSpec()
+
+	const CLASS_ARR = ['druid','hunter','mage','paladin','priest','rogue','shaman','warlock','warrior']
+
+	let myURL = new URL(document.location)
+	if (myURL.search) {
+		//
+	}
+	let params = myURL.searchParams
+	if (params.has('class')){
+		let className = params.get('class')
+		if (CLASS_ARR.some(function(name){ return className == name})){
+			buildClassData(null, className, myURL.hash)
+		}
+	}
+}
+
+// $(window).on("unload", function() {
+// 	console.log("unloaded")
+// 	// $('.class-filter').unbind("click")
+//
+// 	$("#resetTalents").triggerHandler("click", {reload:true})
+// 	let myURL = new URL(location.origin+location.pathname+location.search)
+// 	history.replaceState(null, null, myURL.href)
+//
+// })
+
+
+// function applyClickHandlers() {
+// 	classSelectionHandler()
+// 	talentHandler()
+// 	lockSpec()
+// 	resetTalents()
+// 	exportSpec()
+// }
+
+
+function exportSpec(){
+	$("#export").on({
+		click: e=> {
+			// $("#export").off("click")
+			console.log("exporting")
+			e.preventDefault()
+			e.stopImmediatePropagation()
+			window.alert(window.location.href)
+			// return false
+
+		}
+	})
+}
+
+
+
+
+function populateTables(classData, reset=false) {
 	//Retrieve the template data from the HTML
 	let template = $('#handlebars-demo2').html();
 	//Compile the template data into a function
@@ -69,6 +94,13 @@ function populateTables(classData) {
 	let talent_html = templateScript(classData);
 	$('#talentCalc').html(talent_html);
 	talentHandler(classData)
+	lockSpec(classData)
+	if (!reset) {
+		resetHandler(classData)
+	}
+	exportSpec(classData)
+	console.log('populating tables')
+
 }
 
 function classSelectionHandler() {
@@ -80,11 +112,88 @@ function classSelectionHandler() {
 	})
 }
 
-function buildClassData(e=null, cl='', hash='') {
+function lockSpec(classData){
+	$('#talentLock').on({
+		click: e => {
+
+			if ($("#talentLock").hasClass('lock')) {
+				talentUnlocker(classData)
+
+			}
+			else if ($("#talentLock").hasClass('unlock')) {
+				talentLocker(classData)
+
+			}
+		},
+
+	})
+}
+
+function resetHandler(classData){
+	$('#resetTalents').on({
+		click: e => {
+			console.log("resetting")
+			resetTalents(classData)
+			$("#talentLock").unbind("click")
+			$("#talentLock").bind("click", lockSpec(classData))
+		}
+	})
+}
+
+function resetTalents(classData, reload) {
+	console.log(talentPointsSpent)
+	talentPointsSpent = {}
+	console.log(talentPointsSpent)
+
+	let className = $('.class-filter.selected')[0].id
+	let treeNames = []
+	classData.trees.forEach(function(item) {
+		treeNames.push(item.name)
+	})
+
+	treeNames.forEach(function(name) {
+		let found = classData.trees.find(function(x) {
+			return x.name == name
+		})
+
+		found.data.forEach(function(dataArr, tier){
+			dataArr.forEach(function(tal){
+				if (tal) {
+					tal.invested = 0
+				}
+			})
+		})
+	})
+
+	let url = new URL(document.location)
+	url.hash = '#'
+	history.replaceState(null, null, url)
+
+	console.log(reload)
+
+	buildClassData(null, className, '', true)
+
+
+
+
+	if (talentPointsSpent.locked) {
+		// $("#talentLock").triggerHandler("click")
+
+		talentUnlocker(classData)
+
+	}
+
+}
+
+function buildClassData(e=null, cl='', hash='', reset) {
+	console.log('building class data')
 
 	let className = cl
+	let url = new URL(document.location)
+	let params = url.searchParams
 
-	if (cl && hash){
+
+	if (cl){
 		$(`#${className}`).addClass('selected')
 	}
 	else{
@@ -95,23 +204,23 @@ function buildClassData(e=null, cl='', hash='') {
 		const clickedFilter = $(e.target)
 		clickedFilter.addClass('selected')
 		className = clickedFilter[0].id
-
-		let url = new URL(location.origin+location.pathname)
-		let params = url.searchParams
+		$('.talentHeader').text(className)
+		// let url = new URL(location.origin+location.pathname)
+		// let params = url.searchParams
 
 		params.set('class', className)
 		url.hash = '#'
-		history.replaceState({}, null, url)
+		history.replaceState(null, null, url)
 	}
 
 	const selectedClass = talentData.classes.find(function(a) {
 		return a.name == className;
 	})
 
-	let tree_names = []
+	let treeNames = []
 
 	selectedClass.tree_talents.forEach(function(item, index) {
-		tree_names.push(item.name)
+		treeNames.push(item.name)
 		talentPointsSpent[item.name] = {
 			vals: [0,0,0,0,0,0,0],
 			total: function() {return this.vals.reduce((a,b) => a+b)},
@@ -127,7 +236,7 @@ function buildClassData(e=null, cl='', hash='') {
 		}
 	})
 	talentPointsSpent.grandTotal = function(){
-		return (this[tree_names[0]].total()+this[tree_names[1]].total()+this[tree_names[2]].total())
+		return (this[treeNames[0]].total()+this[treeNames[1]].total()+this[treeNames[2]].total())
 	}
 	talentPointsSpent.locked = false
 
@@ -135,8 +244,7 @@ function buildClassData(e=null, cl='', hash='') {
 	const combinedTalents = combineTalents(selectedClass)
 	const finalData = mapTalentsToTableData(tableData.trees, combinedTalents)
 
-
-	populateTables({trees: finalData}, talentPointsSpent)
+	populateTables({trees: finalData}, reset)
 
 	if (hash){
 		const expanded = urlExpander(hash)
@@ -144,10 +252,16 @@ function buildClassData(e=null, cl='', hash='') {
 			preBuiltSpec({trees: finalData}, expanded, true)
 		} catch (e) {
 			console.log("While building spec using hash, the following exception occurred:\n", e)
-		} finally {
-			return
+		// } finally {
+		// 	return
 		}
 	}
+
+	if (params.has('L')){
+		talentLocker({trees: finalData})
+	}
+
+	updateTalentHeader({trees: finalData}) //function call needed here for switching to different class
 }
 
 
@@ -203,7 +317,7 @@ function combineTalents(d) {
 	data.forEach(function(item, index) {
 		talent_arr.push(item.talents)
 	})
-    return talent_arr.flat().reverse()   //Microsoft Edge does not support  .flat()
+    return talent_arr.flat().reverse()
 }
 
 // name janitor, example: Curse of Exhaustion --> curse_of_exhaustion
@@ -223,50 +337,30 @@ function talentHandler(classData) {
 		contextmenu: e => {
 			e.preventDefault()
 		},
+
 		mouseenter: e => {
 			updateTooltip(classData, e)
 		},
 
 		mouseleave: e => {
 			const targetTalent = $(e.target)
-			// console.log(e)
 			targetTalent.children($('.talent-tooltip').remove())
 		},
 
 		mousedown: e => {
 
-			mouseDownDaddy(e, classData)
-			// const targetTalent = $(e.target)
-			// targetTalent.children($('.talent-tooltip').remove())
-			// // const unlocks = targetTalent.attr('data-unlocks')
-			// //gets talent tree name (kinda ghetto)
-			// const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
-			// const name = targetTalent.attr('name')
-			// const j = targetTalent.attr('data-j') //
-			// const k = targetTalent.attr('data-k') //
-			//
-			// const found = classData.trees.find(function(x) { //
-			// 	return x.name == tree
-			// })
-
-			// const talent = found.data[j][k]
-
-			// pointSpender(talent, e, tree, classData)
-
-			// targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[tree].total())
-			// console.log(targetTalent.attr('name') + " : " + talent.invested)
-			// updateTooltip(classData, e)
-			// urlBuilder(classData)
+			mouseDownHandler(e, classData)
 		}
 
 	})
 }
 
 //needs new name
-function mouseDownDaddy(e=null, classData, talent, tree) {
+function mouseDownHandler(e=null, classData, talent, tree) {
 
-	var something = false
+	var manuallyClicked = false
 	if (e){
+		manuallyClicked = true
 		var targetTalent = $(e.target)
 		targetTalent.children($('.talent-tooltip').remove())
 		var treeName = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
@@ -281,8 +375,11 @@ function mouseDownDaddy(e=null, classData, talent, tree) {
 		var talentObj = found.data[j][k]
 
 		talentObj.invested = parseInt(targetTalent.children(0).first().text()) // should insure points don't carry over when switching between classes
-		something = true
 
+		if (((talentObj.invested === talentObj.maxRank) && e.which===1 ) || (talentPointsSpent.locked)){
+			updateTooltip(classData, e) //tooltip goes away otherwise, unsure why
+			return
+		}
 	}
 	else {
 		var talentObj = talent
@@ -291,106 +388,122 @@ function mouseDownDaddy(e=null, classData, talent, tree) {
 		var e = true
 	}
 
+
 	pointSpender(talentObj, e, treeName, classData)
 
 	targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[treeName].total())
 
-	// console.log(targetTalent.attr('name') + " : " + talentObj.invested)
-	if (something) {
-		updateTooltip(classData, e)
+	console.log(targetTalent.attr('name') + " : " + talentObj.invested)
+	if (manuallyClicked) {
 		urlBuilder(classData)
+		updateTooltip(classData, e)
 	}
 
+	updateTalentHeader(classData)
+
+}
+
+function updateTalentHeader(classData) {
+	let treeNames = []
+	classData.trees.forEach(function(item) {
+		treeNames.push(item.name)
+	})
+	let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
+	$("#allottedTalentPoints").text(a)
+	let requiredLevel = (talentPointsSpent.grandTotal() >= 1) ? talentPointsSpent.grandTotal()+9 : "--"
+	$("#requiredLevel").text(`Required level: ${requiredLevel}`)
+	let pointsRemaining = 51-talentPointsSpent.grandTotal()
+	$("#pointsRemaining").text(`Points left: ${pointsRemaining}`)
 }
 
 function updateTooltip(classData, e){
 	const targetTalent = $(e.target)
-			const name = targetTalent.attr('name')
-			const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
+	const name = targetTalent.attr('name')
+	const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
 
-            const found = classData.trees.find(function(x) {
-                return x.name == tree
-            })
+    const found = classData.trees.find(function(x) {
+        return x.name == tree
+    })
 
-            const j = targetTalent.attr('data-j')
-            const k = targetTalent.attr('data-k')
+    const j = targetTalent.attr('data-j')
+    const k = targetTalent.attr('data-k')
 
-            const talent = found.data[j][k]
-			const talentCopy = Object.assign({}, talent)
-			const requiredTalentPoints = talent.requiredTalentPoints
+    const talentObj = found.data[j][k]
+	const talentCopy = Object.assign({}, talentObj)
+	const requiredTalentPoints = talentObj.requiredTalentPoints
 
-            let description
-			let next_rank = true
-			let req_text = ''
+    let description
+	let next_rank = true
+	let req_text = ''
 
-			const locked = $(e.target).hasClass('locked')
+	const locked = $(e.target).hasClass('locked')
 
-            if (talent.invested == 0)
-            {
-				next_rank = false
-                talentCopy.invested++
-                description = talentCopy.description()
-            }
+    if (talentObj.invested == 0)
+    {
+		next_rank = false
+        talentCopy.invested++
+        description = talentCopy.description()
+    }
 
-            if (talent.maxRank == 1)
-            {
-                next_rank = false
-                talentCopy.invested = talentCopy.maxRank
-                description = talentCopy.description()
-            }
+    if (talentObj.maxRank == 1)
+    {
+        next_rank = false
+        talentCopy.invested = talentCopy.maxRank
+        description = talentCopy.description()
+    }
 
-            if (talent.invested == talent.maxRank) {
-                next_rank = false
-                description = talentCopy.description()
-            }
+    if (talentObj.invested == talentObj.maxRank) {
+        next_rank = false
+        description = talentCopy.description()
+    }
 
-            if (talent.maxRank > 1 && talent.invested > 0 && next_rank) {
-                talentCopy.invested++
-                // description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
-				description = talent.description()
+    if (talentObj.maxRank > 1 && talentObj.invested > 0 && next_rank) {
+        talentCopy.invested++
+        // description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
+		description = talentObj.description()
 
-			}
-			if (talentPointsSpent[tree].total() < requiredTalentPoints) {
-				req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
-			}
+	}
+	if (talentPointsSpent[tree].total() < requiredTalentPoints) {
+		req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
+	}
 
-			if (locked){
-				const coords = talentCopy.locked
-				const prereq = Object.assign({}, found.data[coords[0]][coords[1]])
-				const points_remaining = prereq.maxRank - prereq.invested
-				const plural = (points_remaining>1) ? 's' : ''
-				req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text  //Figure out how to get the talent and points needed to unlock for this text
-			}
+	if (locked){
+		const coords = talentCopy.locked
+		const prereq = Object.assign({}, found.data[coords[0]][coords[1]])
+		const points_remaining = prereq.maxRank - prereq.invested
+		const plural = (points_remaining>1) ? 's' : ''
+		req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text  //Figure out how to get the talent and points needed to unlock for this text
+	}
 
-			const next_rank_ele = (next_rank) ? $('<div/>', {
-				class: 'talent-tooltip-rank-next',
-				text: "\nNext Rank:\n",
-			}).append($('<div/>', {
-				class: 'talent-tooltip-description',
-				text: talentCopy.description(),
-			})) : null
+	const next_rank_ele = (next_rank) ? $('<div/>', {
+		class: 'talent-tooltip-rank-next',
+		text: "\nNext Rank:\n",
+	}).append($('<div/>', {
+		class: 'talent-tooltip-description',
+		text: talentCopy.description(),
+	})) : null
 
-			targetTalent.prev().append($('<div/>', {
-				class: 'talent-tooltip',  //talent-tooltip (the container) is only class in css, the rest are inline styling
-			})
-			.append($('<div/>', {
-				class: 'talent-tooltip-title',
-				text: name,
-			}))
-			.append($('<div/>', {
-				class: 'talent-tooltip-rank',
-				text: "Rank " + talent.invested +"/"+ talent.maxRank,
-			}))
-			.append($('<div/>', {
-				class: 'talent-tooltip-req',
-				text: req_text,
-			}))
-			.append($('<div/>', {
-				class: 'talent-tooltip-description',
-				text: description,
-			}))
-			.append(next_rank_ele)
-			)
+	targetTalent.prev().append($('<div/>', {
+		class: 'talent-tooltip',  //talent-tooltip (the container) is only class in css, the rest are inline styling
+	})
+	.append($('<div/>', {
+		class: 'talent-tooltip-title',
+		text: name,
+	}))
+	.append($('<div/>', {
+		class: 'talent-tooltip-rank',
+		text: "Rank " + talentObj.invested +"/"+ talentObj.maxRank,
+	}))
+	.append($('<div/>', {
+		class: 'talent-tooltip-req',
+		text: req_text,
+	}))
+	.append($('<div/>', {
+		class: 'talent-tooltip-description',
+		text: description,
+	}))
+	.append(next_rank_ele)
+	)
 }
 
 function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
@@ -439,11 +552,9 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 	const targetTalent = $(`div.talent[name="${talent.name}"]`)
 
 	if (talentPointsSpent[tree].total() < talent.requiredTalentPoints) {
-		// console.log(`you must have ${talent.requiredTalentPoints} points in this ${tree} tree to spec here`)
 		return
 	}
 	if (targetTalent.hasClass('locked')) {
-		// console.log("that boy lockeD")
 		return
 	}
 
@@ -460,12 +571,9 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 			talent.invested++
 			targetTalent.children(0).first().text(talent.invested)
 
-
 			let tierU = (talentPointsSpent[tree].total() < 30) ? Math.floor(talentPointsSpent[tree].total()/5) : 6
 			let talentObjs = []
-
-			// get talents in highest unlocked tier
-			const found = classData.trees.find(function(x) { //
+			const found = classData.trees.find(function(x) {
 				return x.name == tree
 			})
 
@@ -480,12 +588,8 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 				t.removeClass('grayed') // ungray talent element
 				t.find(".spentPoints").first().removeClass('grayed') // ungray spentPoints element
 
-
 				if (tal.locked) { // if talent object has locked property, also has arrows
-					let arrows = $(`div.talentcalc-arrow[data-unlocks="${tal.name}"]`)
-					arrows.each(function() {
-						$( this ).removeClass('grayed') // ungray the arrows
-					})
+					arrowClassChanger(tal.name, false, 'grayed')
 				}
 			})
 
@@ -497,13 +601,10 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 				// if talent is a pre req, unlock each parent elem
 				if (talent.unlocks) {
 					unlocks.forEach(function(n) {
-						let par = $(`div.talent[name="${n}"]`).removeClass('locked') //unlocks talent element
-						par.find(".spentPoints").first().removeClass('locked') //unlocks points spent element
+						let par = $(`div.talent[name="${n}"]`).removeClass('locked') //unlock talent element
+						par.find(".spentPoints").first().removeClass('locked') //unlock points spent element
+						arrowClassChanger(n, false, 'locked')
 
-						let arrows = $(`div.talentcalc-arrow[data-unlocks="${n}"]`)
-						arrows.each(function(){
-							$( this ).removeClass('locked') //unlock arrows
-						})
 					})
 				}
 			}
@@ -565,10 +666,7 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 				unlocks.forEach(function(n) {
 					let par = $(`div.talent[name="${n}"]`).addClass('locked') //NOTE: locks talent element
 					par.find(".spentPoints").first().addClass('locked') //NOTE: locks points spent element
-					let arrows = $(`div.talentcalc-arrow[data-unlocks="${n}"]`)
-					arrows.each(function(){
-						$( this ).addClass('locked') //NOTE: locks arrow elements
-					})
+					arrowClassChanger(n, true, 'locked')
 				})
 			}
 
@@ -594,10 +692,7 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 					t.addClass('grayed') //NOTE: grayed added to talent elem
 					t.find('.spentPoints').addClass('grayed') //NOTE: grayed added to pointsSpent elem
 					if (tal.locked) {
-						let arrows = $(`div.talentcalc-arrow[data-unlocks="${tal.name}"]`)
-						arrows.each(function(){
-							$( this ).addClass('grayed') //NOTE: add gray to arrows
-						})
+						arrowClassChanger(tal.name, true, 'grayed')
 					}
 				}
 			})
@@ -608,7 +703,10 @@ function pointSpender(talent, e, tree, classData, targetTal) {
 
 
 // needs optimization
-function talentLocker(classData, trees) {
+function talentLocker(classData, trees='') {
+
+
+
 	let treeNames = []
 	if (!trees) { // defaults to all trees
 		classData.trees.forEach(function(item) {
@@ -619,7 +717,6 @@ function talentLocker(classData, trees) {
 			treeNames.push(item)
 		})
 	}
-
 	let talentObjs = []
 
 	// get list of talent objects with no points spent
@@ -644,16 +741,25 @@ function talentLocker(classData, trees) {
 		t.addClass('grayed')
 		t.find(".spentPoints").addClass('grayed')
 		if (tal.locked) {
-			let arrows = $(`div.talentcalc-arrow[data-unlocks="${tal.name}"]`)
-			arrows.each(function(){
-				$( this ).addClass('grayed')
-			})
+			arrowClassChanger(tal.name, true, 'grayed')
 		}
 	})
+
+	let url = new URL(document.location)
+	let params = url.searchParams
+	let lockButton = $("#talentLock")
+	lockButton.removeClass("unlock").addClass("lock")
+	lockButton.attr('title', 'Locked')
+
+	params.set('L', true)
 	talentPointsSpent.locked = true
+
+	history.replaceState({}, null, url)
+
+
 }
 
-function talentUnlocker(classData, trees) {
+function talentUnlocker(classData, trees='') {
 	let treeNames = []
 	if (!trees) { // defaults to all trees
 		classData.trees.forEach(function(item) {
@@ -680,44 +786,58 @@ function talentUnlocker(classData, trees) {
 					t.removeClass('grayed')
 					t.find('.spentPoints').first().removeClass('grayed')
 					if (tal.locked) { //if object has a locked property, it also has an arrow(s)
-						let arrows = $(`div.talentcalc-arrow[data-unlocks="${tal.name}"]`)
-						arrows.each(function() {
-							$( this ).removeClass('grayed')
-						})
+						// let arrows = $(`div.talentcalc-arrow[data-unlocks="${tal.name}"]`)
+						// arrows.each(function() {
+						// 	$( this ).removeClass('grayed')
+						// })
+						arrowClassChanger(tal.name, false, 'grayed')
+
 					}
 				}
 			})
 		}
 	})
 	talentPointsSpent.locked = false
+	let url = new URL(document.location)
+	let params = url.searchParams
+	let lockButton = $("#talentLock")
+
+	lockButton.removeClass("lock").addClass("unlock")
+	lockButton.attr('title', 'Unlocked')
+
+	params.delete('L')
+	history.replaceState(null, null, url)
 }
 
 function urlBuilder(classData) {
 	let myURL = ''
 	var newURL = ''
 	classData.trees.forEach(function(item, ind){
-		let testStr = ''
+		let invested = ''
 		item.data.forEach(function(dataArr){
 			dataArr.forEach(function(x) {
 				if (x) {
-					testStr = testStr.concat('', x.invested)
+					invested = invested.concat('', x.invested)
 				}
 			})
 		})
-		testStr = (testStr.length%2==0) ? testStr.concat('', '0') : testStr
-		testStr = (ind<2) ? testStr.concat('', '7') : testStr.concat('', '8')
-		myURL = myURL.concat('', testStr)
+		invested = (!invested.length%2==0) ? invested.concat('', '0') : invested
+		invested = (ind<2) ? invested.concat('', '7') : invested.concat('', '8')
+		myURL = myURL.concat('', invested)
 	})
 
 	let newStrArr = myURL.split('7')
-	newStrArr.forEach(function(str,indc){
+	newStrArr.forEach(function(str, indc){
+
 		if (indc <2 ){
 			str = (str.length%2==0) ? str.concat('', '07') : str.concat('', '7')
 		}
 
 		for (var i = 0;i<str.length;i=i+2){
+
 			let subStr = str.substring(i,i+2)
 			newURL = newURL.concat('', translationTable[parseInt(subStr)])
+
 		}
 	})
 
@@ -732,27 +852,15 @@ function urlBuilder(classData) {
 
 	params.set('class', $('.class-filter.selected')[0].id)
 	url.hash = shortestURL
-
 	// const finalURL = new URL(hash, url);
-	history.replaceState({}, null, url)
-
-	// let expanded = urlExpander()
-
-	// console.log("before: ", myURL)
-	// console.log("after: ", expanded)
-
-	// if (expanded == myURL) {
-	// 	console.log('same hash')
-	// }
+	history.replaceState(null, null, url)
 }
 
 function urlExpander(hash) {
-
 	if (!hash){
-		let hash = window.location.hash
+		var hash = window.location.hash
 	}
-	let newStr = window.location.hash.slice(location.hash.indexOf('#')+1, location.hash.length)
-
+	let newStr = hash.slice(hash.indexOf('#')+1, hash.length)
 	let matchArr = newStr.match(re2)
 	for (var y=0;y<matchArr.length;y++){
 		let replStr = Array(parseInt(matchArr[y][1])).fill(matchArr[y][0]).join('')
@@ -791,12 +899,12 @@ function preBuiltSpec(classData, hash='') {
 						if (arr[0] > 1) {
 							let newArr = [...Array(parseInt(arr.shift()))].fill()
 							newArr.forEach(function(item2) {
-								mouseDownDaddy(null, classData, t, treeName)
+								mouseDownHandler(null, classData, t, treeName)
 							})
 							return
 						} if (arr[0] == 1){
 							arr.shift()
-							mouseDownDaddy(null, classData, t, treeName)
+							mouseDownHandler(null, classData, t, treeName)
 							return
 
 						} else {
@@ -833,4 +941,20 @@ if (!Array.prototype.flat) {
       return flattened;
     })(this, depth);
   };
+}
+
+function arrowClassChanger(talName, add, lockOrGray) {
+	//
+	let arrows = $(`div.talentcalc-arrow[data-unlocks="${talName}"]`)
+	arrows.each(function() {
+		if (add) {
+			$( this ).addClass(lockOrGray)
+		} else {
+			$( this ).removeClass(lockOrGray)
+		}
+	})
+}
+
+function updateURL(url) {
+	history.replaceState(null, null, url)
 }
