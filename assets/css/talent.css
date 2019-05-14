@@ -11,19 +11,6 @@
     position: relative;
 }
 
-/* .talent-container:hover {
-    box-shadow: inset 0px 0px 2px 2px rgba(218, 224, 229, .65);
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-} */
-
-/* .talent-container:hover {
-    border-radius: 5px;
-    background-image: url(../images/icons/icon_hilite_medium_talent.png);
-} */
-
 
 .talent {
     min-width: 42px;
@@ -84,6 +71,7 @@
 
 .treeTitle {
     color: azure;
+    margin-top: 10px;
 }
 
 .spentPoints {
@@ -107,12 +95,12 @@
 
 }
 
-.spentPoints.footer {
-  left: 15px;
-  top: 0px;
+.talentFooter-spentPoints{
   background-color: transparent;
-  font-size: 11px;
+  font-size: 14px;
+  position: relative;
 }
+
 
 .spentPoints.locked, .spentPoints.grayed  {
     visibility: hidden;
@@ -168,22 +156,29 @@
 
 
 .talentFooter {
-    width: 18px;
-    height: 18px;
+    color: azure;
+
     border: 1px solid black;
     margin: 10px;
     margin-top: 20px;
     position: relative;
     background-repeat: no-repeat;
-    z-index: 20;
+    /* z-index: 20; */
     border-radius: 5px;
 
 }
 
-.talentFooter.icon {
+
+.talentFooter span.treeName {
   width: 18px;
   height: 18px;
+  font-size: 14px;
+  background: left center no-repeat;
+  padding-right: 5px;
+  padding-left: 25px;
+
 }
+
 
 /* #tooltip {
     position: absolute;
@@ -317,6 +312,7 @@
 
 #export {
    color: #3d7e9a;
+   cursor: pointer;
 }
 
 #talentHeader {
