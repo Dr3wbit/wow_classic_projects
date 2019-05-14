@@ -31,6 +31,7 @@ function initializeApp() {
 	exportSpec()
 	resetHandler()
 	lockSpec()
+	resetTree()
 
 
 
@@ -72,9 +73,10 @@ function exportSpec(){
 function resetTree(){
 	$('.resetTree').on({
 		click: e=> {
+			console.log("resetTree")
 			e.preventDefault()
 			let treeName = $(e.target)[0].id
-			resetTalentTree(treeName.slice(5, treeName.length))
+			resetTalentTree(treeName.slice(5, treeName.length), e)
 			// console.log(treeName)
 		}
 	})
@@ -95,7 +97,7 @@ function populateTables(reset=false) {
 		resetHandler()
 	}
 	// exportSpec()
-	// resetTree()
+	resetTree()
 
 }
 
@@ -155,7 +157,8 @@ function resetAll() {
 	history.replaceState(null, null, url)
 }
 
-function resetTalentTree(tree) {
+function resetTalentTree(tree, e) {
+
 	let found = classData.trees.find(function(x) {
 		return x.name == tree
 	})
@@ -177,7 +180,33 @@ function resetTalentTree(tree) {
 	})
 
 	updateTalentHeader()
-	$(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints").text("("+talentPointsSpent[tree].total()+")")
+
+	let footer = ''
+
+	// $(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints")
+
+	if (e) {
+		let targetTalent = $(e.target)
+		footer = targetTalent.parents(".talentFooter").find("span.talentFooter-spentPoints")
+		footer.first().text("("+talentPointsSpent[tree].total()+")")
+		console.log()
+		// $(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints")
+	} else {
+
+		let targetTalent = $( `span:contains('${tree}')` )
+		footer = targetTalent.parents(".talentFooter").find("span.talentFooter-spentPoints")
+		footer.first().text("("+talentPointsSpent[tree].total()+")")
+
+		// $(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints").text("("+talentPointsSpent[tree].total()+")")
+	}
+
+	// if (tree.split(' ').length > 1)
+	// {
+	// 	tree = tree.split(' ')
+	// 	let footer = $(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints")
+	//
+	// }
+	// console.log(footer)
 
 	talentLocker(tree)
 	talentUnlocker(tree)
