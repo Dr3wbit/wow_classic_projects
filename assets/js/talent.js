@@ -49,15 +49,15 @@ function initializeApp() {
 	}
 }
 
-// $(window).on("unload", function() {
-// 	console.log("unloaded")
-// 	// $('.class-filter').unbind("click")
-//
-// 	$("#resetTalents").triggerHandler("click", {reload:true})
-// 	let myURL = new URL(location.origin+location.pathname+location.search)
-// 	history.replaceState(null, null, myURL.href)
-//
-// })
+$(window).on("unload", function() {
+	console.log("unloaded")
+	// $('.class-filter').unbind("click")
+
+	$("#resetTalents").triggerHandler("click", {reload:true})
+	let myURL = new URL(location.origin+location.pathname+location.search)
+	history.replaceState(null, null, myURL.href)
+
+})
 
 
 // function applyClickHandlers() {
@@ -117,12 +117,12 @@ function lockSpec(classData){
 		click: e => {
 
 			if ($("#talentLock").hasClass('lock')) {
+				console.log("unlocking")
 				talentUnlocker(classData)
-
 			}
 			else if ($("#talentLock").hasClass('unlock')) {
+				console.log("locking")
 				talentLocker(classData)
-
 			}
 		},
 
@@ -141,9 +141,6 @@ function resetHandler(classData){
 }
 
 function resetTalents(classData, reload) {
-	console.log(talentPointsSpent)
-	talentPointsSpent = {}
-	console.log(talentPointsSpent)
 
 	let className = $('.class-filter.selected')[0].id
 	let treeNames = []
@@ -169,12 +166,7 @@ function resetTalents(classData, reload) {
 	url.hash = '#'
 	history.replaceState(null, null, url)
 
-	console.log(reload)
-
 	buildClassData(null, className, '', true)
-
-
-
 
 	if (talentPointsSpent.locked) {
 		// $("#talentLock").triggerHandler("click")
@@ -357,13 +349,14 @@ function talentHandler(classData) {
 
 //needs new name
 function mouseDownHandler(e=null, classData, talent, tree) {
-
+	console.log(classData)
 	var manuallyClicked = false
 	if (e){
 		manuallyClicked = true
 		var targetTalent = $(e.target)
 		targetTalent.children($('.talent-tooltip').remove())
-		var treeName = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
+
+		var treeName = targetTalent.closest('div.talentTable')[0].id
 
 		const name = targetTalent.attr('name')
 		const j = targetTalent.attr('data-j')
@@ -391,7 +384,10 @@ function mouseDownHandler(e=null, classData, talent, tree) {
 
 	pointSpender(talentObj, e, treeName, classData)
 
-	targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[treeName].total())
+	// targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[treeName].total())
+
+	targetTalent.closest(".talentTable").find(".talentFooter span.talentFooter-spentPoints").text("("+talentPointsSpent[treeName].total()+")")
+	// console.log("textTarget: ", textTarget)
 
 	console.log(targetTalent.attr('name') + " : " + talentObj.invested)
 	if (manuallyClicked) {
@@ -419,7 +415,7 @@ function updateTalentHeader(classData) {
 function updateTooltip(classData, e){
 	const targetTalent = $(e.target)
 	const name = targetTalent.attr('name')
-	const tree = targetTalent.closest('div.treeTitle.col').text().split('\n')[0]
+	const tree = targetTalent.closest('div.talentTable')[0].id
 
     const found = classData.trees.find(function(x) {
         return x.name == tree
