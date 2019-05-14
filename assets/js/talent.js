@@ -26,7 +26,6 @@ $(document).ready(initializeApp)
 function initializeApp() {
 
 	// applyClickHandlers();
-	console.log('initializing')
 	classSelectionHandler()
 	talentHandler()
 	exportSpec()
@@ -35,29 +34,36 @@ function initializeApp() {
 	// exportSpec()
 
 	const CLASS_ARR = ['druid','hunter','mage','paladin','priest','rogue','shaman','warlock','warrior']
+	var reset = (performance.navigation.type == 1) ? true : false
 
 	let myURL = new URL(document.location)
+
 	if (myURL.search) {
-		//
-	}
-	let params = myURL.searchParams
-	if (params.has('class')){
-		let className = params.get('class')
-		if (CLASS_ARR.some(function(name){ return className == name})){
-			buildClassData(null, className, myURL.hash)
+		let params = myURL.searchParams
+		if (params.has('class')){
+			let className = params.get('class')
+			if (CLASS_ARR.some(function(name){ return className == name})){
+				buildClassData(null, className, myURL.hash, reset)
+			}
 		}
+	} else {
+		buildClassData(null, 'warrior', myURL.hash, true)
 	}
+
+
+	// let params = myURL.searchParams
+	//
+	// if (params.has('class')){
+	// 	let className = params.get('class')
+	// 	if (CLASS_ARR.some(function(name){ return className == name})){
+	// 		buildClassData(null, className, myURL.hash)
+	// 	}
+	// }
 }
 
-$(window).on("unload", function() {
-	console.log("unloaded")
-	// $('.class-filter').unbind("click")
-
-	$("#resetTalents").triggerHandler("click", {reload:true})
-	let myURL = new URL(location.origin+location.pathname+location.search)
-	history.replaceState(null, null, myURL.href)
-
-})
+window.onbeforeunload = function() {
+	console.log("load time: ", window.performance.timing.domComplete - window.performance.timing.domLoading)
+}
 
 
 // function applyClickHandlers() {
@@ -72,12 +78,9 @@ $(window).on("unload", function() {
 function exportSpec(){
 	$("#export").on({
 		click: e=> {
-			// $("#export").off("click")
-			console.log("exporting")
 			e.preventDefault()
 			e.stopImmediatePropagation()
 			window.alert(window.location.href)
-			// return false
 
 		}
 	})
@@ -99,7 +102,6 @@ function populateTables(classData, reset=false) {
 		resetHandler(classData)
 	}
 	exportSpec(classData)
-	console.log('populating tables')
 
 }
 
@@ -117,11 +119,9 @@ function lockSpec(classData){
 		click: e => {
 
 			if ($("#talentLock").hasClass('lock')) {
-				console.log("unlocking")
 				talentUnlocker(classData)
 			}
 			else if ($("#talentLock").hasClass('unlock')) {
-				console.log("locking")
 				talentLocker(classData)
 			}
 		},
@@ -132,10 +132,10 @@ function lockSpec(classData){
 function resetHandler(classData){
 	$('#resetTalents').on({
 		click: e => {
-			console.log("resetting")
 			resetTalents(classData)
 			$("#talentLock").unbind("click")
 			$("#talentLock").bind("click", lockSpec(classData))
+			window.setTimeout(function() { console.log('timing out')}, 500)
 		}
 	})
 }
@@ -177,16 +177,21 @@ function resetTalents(classData, reload) {
 
 }
 
-function buildClassData(e=null, cl='', hash='', reset) {
-	console.log('building class data')
+function buildClassData(e=null, cl='', hash='', reset=false) {
 
 	let className = cl
 	let url = new URL(document.location)
 	let params = url.searchParams
 
+	if (reset) {
+		url.hash = '#'
+	}
 
 	if (cl){
 		$(`#${className}`).addClass('selected')
+		params.set('class', className)
+		history.replaceState(null, className, url)
+
 	}
 	else{
 		if ($('.class-filter.selected') == $(e.target)) {
@@ -202,7 +207,8 @@ function buildClassData(e=null, cl='', hash='', reset) {
 
 		params.set('class', className)
 		url.hash = '#'
-		history.replaceState(null, null, url)
+		history.replaceState(null, className, url)
+		talentPointsSpent = {}
 	}
 
 	const selectedClass = talentData.classes.find(function(a) {
@@ -238,10 +244,12 @@ function buildClassData(e=null, cl='', hash='', reset) {
 
 	populateTables({trees: finalData}, reset)
 
-	if (hash){
+
+
+	if (hash && !reset){
 		const expanded = urlExpander(hash)
 		try {
-			preBuiltSpec({trees: finalData}, expanded, true)
+			preBuiltSpec({trees: finalData}, expanded)
 		} catch (e) {
 			console.log("While building spec using hash, the following exception occurred:\n", e)
 		// } finally {
@@ -349,7 +357,6 @@ function talentHandler(classData) {
 
 //needs new name
 function mouseDownHandler(e=null, classData, talent, tree) {
-	console.log(classData)
 	var manuallyClicked = false
 	if (e){
 		manuallyClicked = true
