@@ -315,9 +315,17 @@
    cursor: pointer;
 }
 
+#buttonCity {
+  padding-right: 0px;
+  max-width: 20%;
+
+}
+
+#requiredLevel {
+  max-width: 30%;
+}
 #talentHeader {
   height: 25px;
-  position: relative;
   width: 63%;
   margin-left: 5px;
   border: 2px solid black;
@@ -327,6 +335,8 @@
   background: #343a40;
   display: flex;
   font-size: 14px;
+  position: relative;
+
   /* align-self: flex-start; */
   /* flex-flow: row-reverse nowrap; */
   /* justify-content: center; */
@@ -335,4 +345,81 @@
 
   /* margin-left: 20px; */
   /* margin-right: 20px; */
+}
+
+@media only screen and (max-width: 1200px) {
+    #talentHeader {
+      width: 75%;
+
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #talentHeader {
+      width: 66%;
+      margin-left: 0px;
+      font-size: 14px;
+
+    }
+
+    #allottedTalentPoints {
+      padding-right: 5px;
+    }
+    #requiredLevel {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    #pointsRemaining {
+      padding-left: 5px;
+      padding-right: 5px;
+
+    }
+
+    #buttonCity {
+      padding-left: 5px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+  #talentHeader {
+    width: 88%;
+    left: 2px;
+    /* margin-left: 0px; */
+    font-size: 14px;
+
+  }
+
+  #allottedTalentPoints {
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: center!important;
+  }
+  #requiredLevel {
+    visibility: hidden;
+    width: 0px;
+    flex: 0 0 0%;
+  }
+
+  #pointsRemaining {
+    visibility: hidden;
+    width: 0px;
+    flex: 0 0 0%;
+  }
+
+  #buttonCity {
+    padding-left: 0px;
+    left: 160px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #talentHeader {
+    width: 90%;
+    /* left: 2px; */
+    /* margin-left: 0px; */
+    /* font-size: 14px; */
+
+  }
 }
