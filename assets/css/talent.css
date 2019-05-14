@@ -232,7 +232,7 @@
     width: 42px;
     height: 15px;
     background-position-x: right;
-    left: 40px;
+    left: 42px;
 
 }
 
@@ -248,11 +248,11 @@
 }
 
 .talentcalc-arrow.down-1 {
-    height: 77px;
+    height: 78px;
 }
 
 .talentcalc-arrow.down-2 {
-    height: 133px;
+    height: 135px;
 }
 
 .talentcalc-arrow.rightdown div:last-child {
@@ -290,7 +290,7 @@
 
 .talentcalc-button {
   background-repeat: no-repeat;
-  height: 16px;
+  height: 18px;
   width: 16px;
   border: none;
 
@@ -300,6 +300,8 @@
     height: 16px;
     width: 16px;
     background: url(../images/icons/reset.gif);
+    background-repeat: no-repeat;
+
 }
 
 .talentcalc-button.lock {
@@ -359,7 +361,7 @@
       width: 66%;
       margin-left: 0px;
       font-size: 14px;
-
+      left: 2px;
     }
 
     #allottedTalentPoints {
@@ -422,4 +424,18 @@
     /* font-size: 14px; */
 
   }
+}
+
+.resetTree {
+    height: 16px;
+    width: 16px;
+    background: url(../images/icons/reset.gif);
+    background-repeat: no-repeat;
+    border: none;
+    left: 5px;
+    position: relative;
+}
+
+svg.icon {
+    vertical-align: text-bottom;
 }
