@@ -56,11 +56,6 @@ function initializeApp() {
 	}
 }
 
-// window.onbeforeunload = function() {
-// 	console.log("load time: ", window.performance.timing.domComplete - window.performance.timing.domLoading)
-// }
-
-
 function exportSpec(){
 	$("#export").on({
 		click: e=> {
@@ -115,20 +110,26 @@ function lockSpec(){
 	$('#talentLock').on({
 		click: e => {
 
+			$("#talentLock").unbind("click")
+			$("#talentLock").bind("click", lockSpec())
+
 			if ($("#talentLock").hasClass('lock')) {
+				console.log('unlocking')
 				talentUnlocker()
+
 			}
 			else if ($("#talentLock").hasClass('unlock')) {
+				console.log('locking')
 				talentLocker()
 			}
 		},
-
 	})
 }
 
 function resetHandler(){
 	$('#resetTalents').on({
 		click: e => {
+			console.log('reset')
 			resetAll()
 			$("#talentLock").unbind("click")
 			$("#talentLock").bind("click", lockSpec())
@@ -191,9 +192,6 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 	let url = new URL(document.location)
 	let params = url.searchParams
 	classData = {}
-
-
-
 
 	if (cl){
 		$(`#${className}`).addClass('selected')
