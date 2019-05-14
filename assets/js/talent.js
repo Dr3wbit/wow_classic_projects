@@ -42,6 +42,12 @@ function initializeApp() {
 		if (params.has('class')){
 			let className = params.get('class')
 			if (CLASS_ARR.some(function(name){ return className == name})){
+				if (myURL.hash=='') {
+					console.log('no hash')
+
+					reset = true
+				}
+				console.log(myURL.hash)
 				buildClassData(null, className, myURL.hash, reset)
 			}
 		}
@@ -100,7 +106,7 @@ function classSelectionHandler() {
 
 	$('.class-filter').on({
 		click: e => {
-			buildClassData(e)
+			buildClassData(e, '', '', true)
 		},
 	})
 }
@@ -187,9 +193,7 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 	classData = {}
 
 
-	if (reset) {
-		url.hash = '#'
-	}
+
 
 	if (cl){
 		$(`#${className}`).addClass('selected')
@@ -250,7 +254,9 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 
 	populateTables(reset)
 
-
+	if (reset) {
+		resetAll()
+	}
 
 	if (hash && !reset){
 		const expanded = urlExpander(hash)
