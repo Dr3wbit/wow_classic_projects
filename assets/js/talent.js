@@ -30,6 +30,8 @@ function initializeApp() {
 	talentHandler()
 	exportSpec()
 	resetHandler()
+	lockSpec()
+
 
 
 	const CLASS_ARR = ['druid','hunter','mage','paladin','priest','rogue','shaman','warlock','warrior']
@@ -79,7 +81,7 @@ function resetTree(){
 }
 
 
-function populateTables(reset=true) {
+function populateTables(reset=false) {
 	console.log('populate tables')
 	//Retrieve the template data from the HTML
 	let template = $('#handlebars-demo2').html();
@@ -88,12 +90,12 @@ function populateTables(reset=true) {
 	let talent_html = templateScript(classData);
 	$('#talentCalc').html(talent_html);
 	talentHandler()
-	lockSpec()
+	// lockSpec()
 	if (!reset) {
 		resetHandler()
 	}
-	exportSpec()
-	resetTree()
+	// exportSpec()
+	// resetTree()
 
 }
 
@@ -101,6 +103,7 @@ function classSelectionHandler() {
 
 	$('.class-filter').on({
 		click: e => {
+			console.log('class selection')
 			buildClassData(e, '', '', true)
 		},
 	})
@@ -110,8 +113,8 @@ function lockSpec(){
 	$('#talentLock').on({
 		click: e => {
 
-			$("#talentLock").unbind("click")
-			$("#talentLock").bind("click", lockSpec())
+			// $("#talentLock").unbind("click")
+			// $("#talentLock").bind("click", lockSpec())
 
 			if ($("#talentLock").hasClass('lock')) {
 				console.log('unlocking')
@@ -212,6 +215,7 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 		// let params = url.searchParams
 
 		params.set('class', className)
+		params.delete('L')
 		url.hash = '#'
 		history.replaceState(null, className, url)
 		talentPointsSpent = {}
@@ -252,11 +256,10 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 
 	populateTables(reset)
 
+	console.log(reset)
 	if (reset) {
 		resetAll()
-	}
-
-	if (hash && !reset){
+	} else if (hash && !reset){
 		const expanded = urlExpander(hash)
 		try {
 			preBuiltSpec(expanded)
@@ -265,11 +268,13 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 		// } finally {
 		// 	return
 		}
-	}
-
-	if (params.has('L')){
+	} else {
 		talentLocker()
 	}
+
+	// if (params.has('L')){
+	// 	talentLocker()
+	// }
 
 	updateTalentHeader() //function call needed here for switching to different class
 }
