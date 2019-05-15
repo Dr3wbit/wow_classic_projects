@@ -165,9 +165,65 @@
     background-repeat: no-repeat;
     /* z-index: 20; */
     border-radius: 5px;
+    box-shadow: 0 0 10px black;
 
 }
 
+.talentFooter:hover {
+    box-shadow: 0 0 10px #ffc000;
+    border: 1px solid #ffc000;
+}
+
+
+
+
+#buttonCity:hover{
+
+    outline: 7px solid rgba(240, 255, 255, .8);
+    box-shadow: inset 0px 0px 1px 2px #04213d;
+    /* box-shadow: inset 0 0 1px -webkit-focus-ring-color; */
+    /* outline: 2px auto -webkit-focus-ring-color; */
+    /* box-shadow: inset 0px 0px 1px 2px rgba(255, 192, 0, .5), inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15); */
+    /* box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15); */
+
+    /* border: 1px solid #ffc000; */
+    /* border-radius: 5px; */
+}
+
+#buttonCity *{
+  -webkit-filter: grayscale(60%);
+     -moz-filter: grayscale(60%);
+       -o-filter: grayscale(60%);
+      -ms-filter: grayscale(60%);
+          filter: grayscale(60%);
+}
+
+#buttonCity:hover *{
+    -webkit-filter: grayscale(0%);
+       -moz-filter: grayscale(0%);
+         -o-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+            filter: grayscale(0%);
+}
+
+#buttonCity *:hover{
+
+    -webkit-filter: grayscale(0%);
+       -moz-filter: grayscale(0%);
+         -o-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+            filter: grayscale(0%);
+            cursor: pointer;
+    /* box-shadow: inset 0 0 10px #ffc000; */
+    /* outline: 3px auto -webkit-focus-ring-color; */
+    /* outline: 2px solid rgba(240, 255, 255, .7); */
+
+    /* outline: 7px solid rgba(240, 255, 255, .8); */
+
+    /* outline: 1rem solid rgba(170, 50, 220, .75); */
+    /* border: 1px solid #ffc000; */
+    /* border-radius: 5px; */
+}
 
 .talentFooter span.treeName {
   width: 18px;
@@ -301,7 +357,6 @@
     width: 16px;
     background: url(../images/icons/reset.gif);
     background-repeat: no-repeat;
-
 }
 
 .talentcalc-button.lock {
@@ -318,14 +373,14 @@
 }
 
 #buttonCity {
-  padding-right: 0px;
+  /* padding-right: 0px; */
   max-width: 20%;
-
 }
 
 #requiredLevel {
   max-width: 30%;
 }
+
 #talentHeader {
   height: 25px;
   width: 63%;
@@ -432,10 +487,31 @@
     background: url(../images/icons/reset.gif);
     background-repeat: no-repeat;
     border: none;
-    left: 5px;
+    left: 35px;
     position: relative;
+    -webkit-filter: grayscale(40%);
+       -moz-filter: grayscale(40%);
+         -o-filter: grayscale(40%);
+        -ms-filter: grayscale(40%);
+            filter: grayscale(40%);
+}
+
+.resetTree:hover {
+    -webkit-filter: grayscale(0%);
+       -moz-filter: grayscale(0%);
+         -o-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+            filter: grayscale(0%);
 }
 
 svg.icon {
     vertical-align: text-bottom;
+}
+
+svg.icon path {
+  fill:#ffc000;
+}
+
+svg.icon:hover path{
+  fill: #3d7e9a;
 }
