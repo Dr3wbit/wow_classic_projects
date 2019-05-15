@@ -111,6 +111,8 @@ function populateTables(reset=false) {
 		resetHandler()
 	}
 	resetTree()
+	navbarCollapse()
+
 
 }
 
@@ -1034,3 +1036,39 @@ function arrowClassChanger(talName, add, lockOrGray) {
 function updateURL(url) {
 	history.replaceState(null, null, url)
 }
+
+function navbarCollapse (){
+	$(window).on({
+		scroll: e=> {
+			console.log('scroll')
+
+			if ($("nav.navbar").offset().top > 10) {
+				$("nav.navbar").addClass("navbar-shrink")
+				$(".navbar-logo-text").addClass('collapse')
+			}else {
+				$("nav.navbar").removeClass("navbar-shrink");
+				$(".navbar-logo-text").removeClass('collapse')
+
+			}
+		}
+	})
+}
+// (function($) {
+// 	"use strict"; // Start of use strict
+//
+//
+// 	// Collapse Navbar
+// 	var navbarCollapse = function() {
+// 		if ($("nav.navbar").offset().top > 10) {
+// 			$("nav.navbar").addClass("navbar-shrink");
+// 		} else {
+// 			$("nav.navbar").removeClass("navbar-shrink");
+// 		}
+// 	};
+// 	// Collapse now if page is not at top
+// 	navbarCollapse();
+// 	// Collapse the navbar when page is scrolled
+// 	$(window).scroll(navbarCollapse);
+//
+//
+// })(jQuery); // End of use strict
