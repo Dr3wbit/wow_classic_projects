@@ -5,3 +5,15 @@
     min-height: 58vh;
     padding: 10px;
 }
+
+#name {
+    width: 100%;
+}
+
+#subject {
+    width: 100%;
+}
+
+#message {
+    width: 100%;
+}
