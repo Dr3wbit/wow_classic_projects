@@ -65,6 +65,13 @@ body {
     padding-bottom: 0;
 }
 
+.navbar.navbar-shrink {
+    transition: background .3s ease-in-out, padding-top .3s ease-in-out, padding-bottom .3s;
+    border-bottom: none;
+    background: transparent;
+
+}
+
 .navbar-brand{
     padding-left: 15px;
 }
@@ -111,28 +118,6 @@ body {
 
 }
 
-/* old */
-
-/* .class-filter:hover {
-    color: black !important;
-    padding: 5px;
-    font-size: 110%;
-    border-right: 1px solid #9FA3A9;
-    border-left: 1px solid #9FA3A9;
-    border-top: 1px solid #9FA3A9;
-    margin-left: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: azure; */
-    /* animation */
-    /* background-position: 0 0;
-} */
-/* .class-filter.selected {
-
-    border-right: 1px solid #ff3604;
-    border-left: 1px solid #ff3604;
-    border-top: 1px solid #ff3604;
-} */
 
 .class-selection {
     justify-content: center;
@@ -150,6 +135,14 @@ body {
         background-color: rgba(0, 0, 0, 0.1);
         padding-top: 18px
     }
+    .nav-link:hover {
+        margin-left:80%;
+        background-image: -webkit-gradient(radial, right top, 10, 90% 0%, 150, from(rgba(255, 255, 255, .2)), to(transparent));
+        background-image: -webkit-radial-gradient(right top, 150px 230px, rgba(255, 255, 255, .2), transparent);
+        background-image: -moz-radial-gradient(right top, farthest-corner, rgba(255, 255, 255, .2) 0%, transparent 80%);
+        z-index: -2;
+    }
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -244,7 +237,7 @@ body {
     font-weight: bold
    }
 
-.nav-link.active {
+.nav-link.active, .nav-link.selected {
     background-color: rgba(255, 255, 255, .2);
 }
 
@@ -252,7 +245,9 @@ body {
     outline: none;
     background-color: transparent;
     color: #ff3604 !important;
-    background-color: rgba(255, 255, 255, .3);
+    /* background-color: rgba(255, 255, 255, .2); */
+
+
     /* color: #030001e1 !important; */
     /* background-color: azure;
     border: 1px solid #030001e1;
@@ -326,4 +321,35 @@ ul {
 .mainHeader {
     text-align: left;
     color: azure
+}
+
+
+@media (min-width: 992px)
+.navbar-expand-lg .navbar-collapse {
+    /* display: -ms-flexbox!important; */
+    display: flex!important;
+    /* -ms-flex-preferred-size: auto; */
+    flex-basis: auto;
+}
+
+.collapse:not(.show) {
+    display: none;
+}
+
+.navbar-collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-align: right;
+    align-items: right;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: auto;
+    text-align: right;
+}
+
+.navbar-nav {
+  text-align: right;
 }

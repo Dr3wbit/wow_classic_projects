@@ -25,8 +25,8 @@
 </div>
 
 
-    {{!-- 
-    Coppied the Tutorial I Followed for future reference  
+    {{!--
+    Copied the Tutorial I Followed for future reference  
     https://www.sitepoint.com/a-beginners-guide-to-handlebars/
 
     TO COMPILE: handlebars assets/js/templates -f templatesCompiled.js
@@ -35,17 +35,17 @@
 
      --}}
 
-    {{!-- 
+    {{!--
     ~~~~COMPILE TEMPLATES~~~~
-As we have seen, the first thing Handlebars does is to compile the template into a function. 
-This is one of the most expensive operations to perform on the client. 
-We can improve the performance of the application if we precompile templateScript and then send the compiled version to the client. 
-In that case, the only task needed to be performed on the client will be the execution of that function. 
+As we have seen, the first thing Handlebars does is to compile the template into a function.
+This is one of the most expensive operations to perform on the client.
+We can improve the performance of the application if we precompile templateScript and then send the compiled version to the client.
+In that case, the only task needed to be performed on the client will be the execution of that function.
 Since the precompiled file is a script, we can load the script in HTML as a normal file. Let’s see how all this stuff can be done.
 
-Firstly, you have to install Handlebars globally by using npm install handlebars -g. 
-Please, be sure that different templates are written in separate files with different 
-file names and with the .handlebars extensions (for example demo.handlebars). 
+Firstly, you have to install Handlebars globally by using npm install handlebars -g.
+Please, be sure that different templates are written in separate files with different
+file names and with the .handlebars extensions (for example demo.handlebars).
 There is no need of using the <script> tag inside those files.
 
 < div >
