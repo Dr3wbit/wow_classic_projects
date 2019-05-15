@@ -244,11 +244,15 @@ body {
     font-weight: bold
    }
 
+.nav-link.active {
+    background-color: rgba(255, 255, 255, .2);
+}
+
 .nav-link:hover {
     outline: none;
     background-color: transparent;
     color: #ff3604 !important;
-
+    background-color: rgba(255, 255, 255, .3);
     /* color: #030001e1 !important; */
     /* background-color: azure;
     border: 1px solid #030001e1;
