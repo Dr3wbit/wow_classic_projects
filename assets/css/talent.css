@@ -169,18 +169,18 @@
 
 }
 
-.talentFooter:hover {
+/* .talentFooter:hover {
     box-shadow: 0 0 10px #ffc000;
     border: 1px solid #ffc000;
-}
+} */
 
 
 
-
+/*
 #buttonCity:hover{
 
     outline: 7px solid rgba(240, 255, 255, .8);
-    box-shadow: inset 0px 0px 1px 2px #04213d;
+    box-shadow: inset 0px 0px 1px 2px #04213d; */
     /* box-shadow: inset 0 0 1px -webkit-focus-ring-color; */
     /* outline: 2px auto -webkit-focus-ring-color; */
     /* box-shadow: inset 0px 0px 1px 2px rgba(255, 192, 0, .5), inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15); */
@@ -188,7 +188,7 @@
 
     /* border: 1px solid #ffc000; */
     /* border-radius: 5px; */
-}
+/* } */
 
 #buttonCity *{
   -webkit-filter: grayscale(60%);
@@ -214,6 +214,8 @@
         -ms-filter: grayscale(0%);
             filter: grayscale(0%);
             cursor: pointer;
+
+
     /* box-shadow: inset 0 0 10px #ffc000; */
     /* outline: 3px auto -webkit-focus-ring-color; */
     /* outline: 2px solid rgba(240, 255, 255, .7); */
@@ -502,10 +504,13 @@
          -o-filter: grayscale(0%);
         -ms-filter: grayscale(0%);
             filter: grayscale(0%);
+            cursor: pointer;
 }
 
 svg.icon {
     vertical-align: text-bottom;
+    position: absolute;
+    left: 10px;
 }
 
 svg.icon path {
@@ -514,4 +519,15 @@ svg.icon path {
 
 svg.icon:hover path{
   fill: #3d7e9a;
+}
+
+#talentLock {
+    position: relative;
+    top: 1px;
+}
+
+#resetTalents {
+    position: relative;
+    right: 6px;
+    top: 1px;
 }
