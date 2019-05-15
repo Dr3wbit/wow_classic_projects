@@ -25,19 +25,10 @@ $(document).ready(initializeApp)
 function initializeApp() {
 	console.log('init')
 
-	// applyClickHandlers();
-	classSelectionHandler()
-	talentHandler()
-	exportSpec()
-	resetHandler()
-	lockSpec()
-	resetTree()
-
-
+	applyClickHandlers()
 
 	const CLASS_ARR = ['druid','hunter','mage','paladin','priest','rogue','shaman','warlock','warrior']
 	var reset = (performance.navigation.type == 1) ? true : false
-
 	let myURL = new URL(document.location)
 
 	if (myURL.search) {
@@ -46,11 +37,8 @@ function initializeApp() {
 			let className = params.get('class')
 			if (CLASS_ARR.some(function(name){ return className == name})){
 				if (myURL.hash=='') {
-					console.log('no hash')
-
 					reset = true
 				}
-				console.log(myURL.hash)
 				buildClassData(null, className, myURL.hash, reset)
 			}
 		}
@@ -59,13 +47,24 @@ function initializeApp() {
 	}
 }
 
+function applyClickHandlers() {
+	classSelectionHandler()
+	talentHandler()
+	exportSpec()
+	resetHandler()
+	lockSpec()
+	resetTree()
+}
+
 function exportSpec(){
 	$("#export").on({
 		click: e=> {
 			e.preventDefault()
 			e.stopImmediatePropagation()
+			if (! $("#talentLock").hasClass('lock')) {
+				$("#talentLock").trigger("click")
+			}
 			window.alert(window.location.href)
-
 		}
 	})
 }
@@ -92,11 +91,9 @@ function populateTables(reset=false) {
 	let talent_html = templateScript(classData);
 	$('#talentCalc').html(talent_html);
 	talentHandler()
-	// lockSpec()
 	if (!reset) {
 		resetHandler()
 	}
-	// exportSpec()
 	resetTree()
 
 }
@@ -115,18 +112,39 @@ function lockSpec(){
 	$('#talentLock').on({
 		click: e => {
 
-			// $("#talentLock").unbind("click")
-			// $("#talentLock").bind("click", lockSpec())
+			let url = new URL(document.location)
+			let params = url.searchParams
+			let lockButton = $("#talentLock")
+
 
 			if ($("#talentLock").hasClass('lock')) {
-				console.log('unlocking')
+				console.log('hard unlocking')
+				talentPointsSpent.hardLocked = false
 				talentUnlocker()
+
+				lockButton.removeClass("lock").addClass("unlock")
+				lockButton.attr('title', 'Unlocked')
+
+				params.delete('L')
+
+				if (talentPointsSpent.softLocked) {
+					talentLocker()
+				}
+
 
 			}
 			else if ($("#talentLock").hasClass('unlock')) {
-				console.log('locking')
+				console.log('hard locking')
 				talentLocker()
+
+				talentPointsSpent.hardLocked = true
+
+				lockButton.removeClass("unlock").addClass("lock")
+				lockButton.attr('title', 'Locked')
+				params.set('L', true)
 			}
+			history.replaceState({}, null, url)
+
 		},
 	})
 }
@@ -146,12 +164,21 @@ function resetAll() {
 
 	let className = $('.class-filter.selected')[0].id
 	let treeNames = []
+
+	talentPointsSpent.hardLocked = false
+	talentPointsSpent.softLocked = false
+
 	classData.trees.forEach(function(item) {
 		treeNames.push(item.name)
 	})
 	treeNames.forEach(function(tree) {
 		resetTalentTree(tree)
 	})
+
+	if ($("#talentLock").hasClass('lock')) {
+		$("#talentLock").trigger("click")
+	}
+
 	let url = new URL(document.location)
 	url.hash = '#'
 	history.replaceState(null, null, url)
@@ -179,42 +206,38 @@ function resetTalentTree(tree, e) {
 		talentPointsSpent[tree].vals[i] = 0
 	})
 
+
+	if (talentPointsSpent.grandTotal() < 51) {
+		talentPointsSpent.softLocked = false
+	}
+
 	updateTalentHeader()
 
 	let footer = ''
-
-	// $(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints")
 
 	if (e) {
 		let targetTalent = $(e.target)
 		footer = targetTalent.parents(".talentFooter").find("span.talentFooter-spentPoints")
 		footer.first().text("("+talentPointsSpent[tree].total()+")")
-		console.log()
-		// $(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints")
 	} else {
 
 		let targetTalent = $( `span:contains('${tree}')` )
 		footer = targetTalent.parents(".talentFooter").find("span.talentFooter-spentPoints")
 		footer.first().text("("+talentPointsSpent[tree].total()+")")
 
-		// $(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints").text("("+talentPointsSpent[tree].total()+")")
 	}
-
-	// if (tree.split(' ').length > 1)
-	// {
-	// 	tree = tree.split(' ')
-	// 	let footer = $(`#${tree}`).find(".talentFooter span.talentFooter-spentPoints")
-	//
-	// }
-	// console.log(footer)
 
 	talentLocker(tree)
 	talentUnlocker(tree)
+	console.log("talentPointsSpent.hardLocked: ", talentPointsSpent.hardLocked)
+	console.log("talentPointsSpent.softLocked: ", talentPointsSpent.softLocked)
 
-	if (talentPointsSpent.locked) {
-		talentLocker(tree)
+	if ( ( talentPointsSpent.hardLocked ) || ( talentPointsSpent.softLocked ) ) {
+		talentLocker()
+	} else {
+		talentUnlocker()
 	}
-	urlBuilder()
+	// urlBuilder()
 
 }
 
@@ -240,8 +263,6 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 		clickedFilter.addClass('selected')
 		className = clickedFilter[0].id
 		$('.talentHeader').text(className)
-		// let url = new URL(location.origin+location.pathname)
-		// let params = url.searchParams
 
 		params.set('class', className)
 		params.delete('L')
@@ -275,7 +296,9 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 	talentPointsSpent.grandTotal = function(){
 		return (this[treeNames[0]].total()+this[treeNames[1]].total()+this[treeNames[2]].total())
 	}
-	talentPointsSpent.locked = false
+	talentPointsSpent.hardLocked = false
+	talentPointsSpent.softLocked = false
+
 
 	const tableData = tableFormat[className]
 	const combinedTalents = combineTalents(selectedClass)
@@ -285,25 +308,18 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 
 	populateTables(reset)
 
-	console.log(reset)
 	if (reset) {
 		resetAll()
 	} else if (hash && !reset){
 		const expanded = urlExpander(hash)
 		try {
 			preBuiltSpec(expanded)
-		} catch (e) {
-			console.log("While building spec using hash, the following exception occurred:\n", e)
-		// } finally {
-		// 	return
+		} catch (error) {
+			console.log("While building spec using hash, the following exception occurred:\n", error)
 		}
 	} else {
 		talentLocker()
 	}
-
-	// if (params.has('L')){
-	// 	talentLocker()
-	// }
 
 	updateTalentHeader() //function call needed here for switching to different class
 }
@@ -342,7 +358,7 @@ function mapTalentsToTableData(trees, tal_arr) {
 function arrowTypeSwitch(item) {
 
 	switch (item) {
-		// down, arrow length is inverse of v (v decreases)
+		// down, arrow length is inverse of v (v decreases, length increases)
 		default:
 			let n = 5-item
 			return `talentcalc-arrow-down down-${n}`
@@ -420,7 +436,7 @@ function mouseDownHandler(e=null, talent, tree) {
 
 		talentObj.invested = parseInt(targetTalent.children(0).first().text()) // should insure points don't carry over when switching between classes
 
-		if (((talentObj.invested === talentObj.maxRank) && e.which===1 ) || (talentPointsSpent.locked)){
+		if ( ( ( talentObj.invested === talentObj.maxRank ) && e.which===1 ) || ( talentPointsSpent.hardLocked ) ){
 			updateTooltip(e) //tooltip goes away otherwise, unsure why
 			return
 		}
@@ -598,17 +614,16 @@ function pointSpender(talent, e, tree, targetTal) {
 	const tier = (talent.requiredTalentPoints/5)
 	const targetTalent = $(`div.talent[name="${talent.name}"]`)
 
-	if (talentPointsSpent[tree].total() < talent.requiredTalentPoints) {
+	if ( (talentPointsSpent[tree].total() < talent.requiredTalentPoints ) || ( targetTalent.hasClass('locked')) || (talentPointsSpent.hardLocked)) {
 		return
 	}
-	if (targetTalent.hasClass('locked')) {
-		return
-	}
+
 
 	// normal click
 	if (e.which === 1 || e == true) {
 		if (talentPointsSpent.grandTotal() > 50){
-			if (!talentPointsSpent.locked) {
+			if (!talentPointsSpent.softLocked) {
+				talentPointsSpent.softLocked = true
 				talentLocker()
 			}
 			return
@@ -656,6 +671,7 @@ function pointSpender(talent, e, tree, targetTal) {
 				}
 			}
 			if (talentPointsSpent.grandTotal() > 50) {
+				talentPointsSpent.softLocked = true
 				talentLocker()
 				return
 			}
@@ -701,7 +717,8 @@ function pointSpender(talent, e, tree, targetTal) {
 			talent.invested--
 			targetTalent.children(0).first().text(talent.invested)
 
-			if (talentPointsSpent.grandTotal() < 51 && talentPointsSpent.locked) {
+			if (talentPointsSpent.grandTotal() < 51 && talentPointsSpent.softLocked) {
+				talentPointsSpent.softLocked = false
 				talentUnlocker()
 			}
 
@@ -752,8 +769,6 @@ function pointSpender(talent, e, tree, targetTal) {
 // needs optimization
 function talentLocker(tree='') {
 
-
-
 	let treeNames = []
 	if (!tree) { // defaults to all trees
 		classData.trees.forEach(function(item) {
@@ -790,17 +805,16 @@ function talentLocker(tree='') {
 		}
 	})
 
-	let url = new URL(document.location)
-	let params = url.searchParams
-	let lockButton = $("#talentLock")
-	lockButton.removeClass("unlock").addClass("lock")
-	lockButton.attr('title', 'Locked')
-
-	params.set('L', true)
-	talentPointsSpent.locked = true
-
-	history.replaceState({}, null, url)
-
+	// let url = new URL(document.location)
+	// let params = url.searchParams
+	// let lockButton = $("#talentLock")
+	// lockButton.removeClass("unlock").addClass("lock")
+	// lockButton.attr('title', 'Locked')
+	//
+	// params.set('L', true)
+	// // talentPointsSpent.locked = true
+	//
+	// history.replaceState({}, null, url)
 
 }
 
@@ -837,16 +851,16 @@ function talentUnlocker(tree='') {
 			})
 		}
 	})
-	talentPointsSpent.locked = false
-	let url = new URL(document.location)
-	let params = url.searchParams
-	let lockButton = $("#talentLock")
-
-	lockButton.removeClass("lock").addClass("unlock")
-	lockButton.attr('title', 'Unlocked')
-
-	params.delete('L')
-	history.replaceState(null, null, url)
+	// talentPointsSpent.locked = false
+	// let url = new URL(document.location)
+	// let params = url.searchParams
+	// let lockButton = $("#talentLock")
+	//
+	// lockButton.removeClass("lock").addClass("unlock")
+	// lockButton.attr('title', 'Unlocked')
+	//
+	// params.delete('L')
+	// history.replaceState(null, null, url)
 }
 
 function urlBuilder() {
