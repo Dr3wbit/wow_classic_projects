@@ -65,7 +65,23 @@ function exportSpec(){
 				$("#talentLock").trigger("click")
 			}
 			window.alert(window.location.href)
-		}
+		},
+
+		// mouseenter: e => {
+		// 	const exportButton = $( e.target )
+		// 	let path = exportButton.find("path")
+		// 	console.log(exportButton.find("path"))
+		// 	path.attr("style", "fill:#3d7e9a;")
+		//
+		// },
+		//
+		// mouseleave: e => {
+		// 	const exportButton = $( e.target )
+		// 	let path = exportButton.find("path")
+		// 	path.attr("style", "fill:#ffc000;")
+		//
+		// },
+
 	})
 }
 
