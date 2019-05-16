@@ -35,12 +35,33 @@ function applyClickHandlers() {
             selectedData = fullData
             clearForm()
             populateConsumeBlocks({ professions: fullData })
+
             $('.icon-container').on({
                 mouseenter: (e) => {
                     $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
                 },
                 mouseleave: (e) => {
                     $(e.currentTarget.children[1]).addClass('tooltip-hidden')
+                },
+
+                mousedown: (e) => {
+                    let consumeBlock = $(e.target).closest('.consume-block')
+
+                    let currentInput = consumeBlock.find('input')
+                    let currentCount = currentInput.val() || 0
+
+                    currentInput.val(parseInt(currentCount)+1)
+                    (".consume-form").triggerHandler('change')
+                    
+                    // getMaterials()
+
+                    console.log('consumeBlock', consumeBlock)
+                    console.log('currentCount.value', currentCount)
+                    console.log('currentCount.value', currentCount.val())
+
+
+
+
                 }
             })
         },
@@ -159,4 +180,3 @@ function calculateTotals(materialTotals) {
     }
     $('.results').append(totalTitle)
 }
-
