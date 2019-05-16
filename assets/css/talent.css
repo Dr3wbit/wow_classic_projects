@@ -23,6 +23,13 @@
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
+.talent:active {
+    transform: translateY(1px);
+    filter: saturate(120%);
+    transition: all .05s ease-in-out;
+
+}
+
 /* .talent img {
     min-width: 42px;
     height: 42px;
