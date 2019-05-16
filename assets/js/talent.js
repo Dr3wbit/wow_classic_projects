@@ -25,41 +25,36 @@ Object.values(translationTable).forEach(function(item,index) {
 $(document).ready(function () {
 
 	initializeApp()
+
     // Navbar collapse on scroll below 100px
-    changeNavbar()
+    // changeNavbar()
 
-    $(window).scroll(function () {
-        changeNavbar()
-    })
+    // $(window).scroll(function () {
+    //     changeNavbar()
+    // })
 
-    function changeNavbar() {
-        var navbar = $("nav.navbar.fixed-top");
-        if ($(this).scrollTop() >= 10) {
-            navbar.removeClass("navbar-expand-lg").addClass("navbar-shrink")
-			$("span.navbar-logo-text").hide()
-
-			// $(".navbar-logo-text").attr('style', "visibility: hidden;")
-
-			// navbar.attr('style', "visibility: hidden;")
-			// navbar.hide()
-        } else if ($(this).scrollTop() < 10) {
-
-			if (window.screen.width >= 1024 && window.screen.height >= 768) {
-  				// Resolution is 1024x768 or above
-				navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
-
-
-			}
-            navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
-			$("span.navbar-logo-text").show()
-
-			// $(".navbar-logo-text").attr('style', "visibility: visible;")
-
-			// navbar.attr('style', "visibility: visible;")
-			// navbar.show()
-
-        }
-    }
+    // function changeNavbar() {
+    //     var navbar = $("nav.navbar.fixed-top");
+    //     if ($(this).scrollTop() >= 10) {
+    //         navbar.removeClass("navbar-expand-lg").addClass("navbar-shrink")
+	// 		$("span.navbar-logo-text").hide()
+	//
+	// 		// $(".navbar-logo-text").attr('style', "visibility: hidden;")
+	//
+	// 		// navbar.attr('style', "visibility: hidden;")
+	// 		// navbar.hide()
+    //     } else if ($(this).scrollTop() < 10) {
+	//
+	// 		if (window.screen.width >= 1024 && window.screen.height >= 768) {
+  	// 			// Resolution is 1024x768 or above
+	// 			navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
+	//
+	// 		}
+    //         navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
+	// 		$("span.navbar-logo-text").show()
+	//
+    //     }
+    // }
 })
 
 function initializeApp() {
