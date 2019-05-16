@@ -467,3 +467,94 @@ const enchants = {
         },
     },
 }
+
+const materials = {
+    black_diamond: {
+        
+    }
+    black_lotus: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    righteous_orb: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    golden_pearl: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    living_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_undeath: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_fire: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_water: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_earth: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_air: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    lesser_eternal_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    greater_nether_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    lesser_eternal_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    greater_eternal_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    vision_dust: {
+        rarity: 'common',
+        stack: 20,
+    },
+    dream_dust: {
+        rarity: 'common',
+        stack: 20,
+    },
+    illusion_dust: {
+        rarity: 'common',
+        stack: 20,
+    },
+
+    small_radiant_shard: {
+        rarity: 'rare',
+        stack: 20,
+    },
+    large_radiant_shard: {
+        rarity: 'rare',
+        stack: 20,
+    },
+    large_brilliant_shard: {
+        rarity: 'rare',
+        stack: 20,
+    },
+    small_brilliant_shard: {
+        rarity: 'rare',
+        stack: 20,
+    },
+    nexus_crystal: {
+        rarity: 'epic',
+        stack: 20,
+    }
+}
