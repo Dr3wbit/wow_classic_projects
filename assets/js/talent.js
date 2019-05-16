@@ -1040,14 +1040,49 @@ function updateURL(url) {
 function navbarCollapse (){
 	$(window).on({
 		scroll: e=> {
-			console.log('scroll')
+			// console.log('scroll')
 
 			if ($("nav.navbar").offset().top > 10) {
 				$("nav.navbar").addClass("navbar-shrink")
-				$(".navbar-logo-text").addClass('collapse')
+				$(".navbar-toggler").addClass("d-block")
+				// $("button.navbar-toggler").addClass("collapsed")
+				$(".navbar-logo-text").attr('style', "visibility: hidden;")
+				// $(".navbar-expand-lg").attr('style', "display: none")
+
+				$(".navbar-logo-text").attr('style', "visibility: hidden;")
+
+				$("#navbarSupportedContent").collapse('hide')
+				$("#navbarSupportedContent").collapse('dispose')
+
+
+				// .navbar-expand-lg {
+			    //     display: none;
+			    // }
+				// $('.collapse.navbar-collapse').collapse('hide')
+				// $('.navbar-toggler').collapse('hide')
+				// $('.collapse').collapse()
+				console.log($('.collapse'))
+
+
+
+				// $(".navbar-logo-text").addClass('collapse')
+
+
 			}else {
 				$("nav.navbar").removeClass("navbar-shrink");
-				$(".navbar-logo-text").removeClass('collapse')
+				// $('.collapse.navbar-collapse').collapse('toggle')
+				// $('.collapse.navbar-collapse').collapse('hide')
+
+				// }
+				// $('.collapse.navbar-collapse').collapse('show')
+				// $('.navbar-toggler').collapse('show')
+				// $('.collapse').collapse()
+
+				$(".navbar-logo-text").attr('style', "visibility: visible;")
+				// $("button.navbar-toggler").removeClass("collapsed")
+
+
+				// $(".navbar-logo-text").removeClass('collapse')
 
 			}
 		}
