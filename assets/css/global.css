@@ -355,3 +355,10 @@ ul {
     background-image: -moz-radial-gradient(right top, farthest-corner, rgba(255, 255, 255, .2) 0%, transparent 80%);
     z-index: -2;
 } */
+
+.icon-container:active {
+    transform: translateY(1px);
+        filter: saturate(120%);
+        transition: all .05s ease-in-out;
+
+}
