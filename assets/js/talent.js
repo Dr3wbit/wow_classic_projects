@@ -43,6 +43,13 @@ $(document).ready(function () {
 			// navbar.attr('style', "visibility: hidden;")
 			// navbar.hide()
         } else if ($(this).scrollTop() < 10) {
+
+			if (window.screen.width >= 1024 && window.screen.height >= 768) {
+  				// Resolution is 1024x768 or above
+				navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
+
+
+			}
             navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
 			$("span.navbar-logo-text").show()
 
@@ -62,6 +69,7 @@ function initializeApp() {
 
 	const CLASS_ARR = ['druid','hunter','mage','paladin','priest','rogue','shaman','warlock','warrior']
 	var reset = (performance.navigation.type == 1) ? true : false
+	console.log('reset: ', reset)
 	let myURL = new URL(document.location)
 
 	if (myURL.search) {
@@ -98,7 +106,7 @@ function exportSpec(){
 				$("#talentLock").trigger("click")
 			}
 			let url = new URL(document.location)
-			$('#export').popover({content:url.toString(), title:"Copied!", offset:-50, container:"#export"})
+			$('#export').popover({content:url.toString(), title:"Copied!", container:"#export"})
 
 
 			// not all browsers support navigator.clipboard.writeText()
@@ -118,17 +126,12 @@ function exportSpec(){
 			});
 
 			$('#export').popover('toggle')
-
-
-
-
 		},
 
 		'shown.bs.popover': e=> {
 			setTimeout(function a() {
 				$('#export').popover('hide')
 				$('#export').popover('disable')
-
 			}, 1500)
 
 		},
@@ -284,7 +287,7 @@ function resetTalentTree(tree, e) {
 		dataArr.forEach(function(tal){
 			if (tal) {
 				tal.invested = 0
-				let targetTalent = $(`div.talent[name="${tal.name}"]`)
+				let targetTalent = $(`img.talent[name="${tal.name}"]`)
 				targetTalent.removeClass('max')
 				targetTalent.children(0).first().text(tal.invested).removeClass('max')
 
@@ -404,6 +407,9 @@ function buildClassData(e=null, cl='', hash='', reset=false) {
 		const expanded = urlExpander(hash)
 		try {
 			preBuiltSpec(expanded)
+			if (params.has('L')){
+				$("#talentLock").trigger("click")
+			}
 		} catch (error) {
 			console.log("While building spec using hash, the following exception occurred:\n", error)
 		}
@@ -494,7 +500,7 @@ function talentHandler() {
 
 		mouseleave: e => {
 			const targetTalent = $(e.target)
-			targetTalent.children($('.talent-tooltip').remove())
+			targetTalent.closest('.talent-container').children($('.talent-tooltip').remove())
 		},
 
 		mousedown: e => {
@@ -511,7 +517,7 @@ function mouseDownHandler(e=null, talent, tree) {
 	if (e){
 		manuallyClicked = true
 		var targetTalent = $(e.target)
-		targetTalent.children($('.talent-tooltip').remove())
+		targetTalent.closest('.talent-container').find('.talent-tooltip').remove()
 
 		var treeName = targetTalent.closest('div.talentTable')[0].id
 
@@ -524,7 +530,11 @@ function mouseDownHandler(e=null, talent, tree) {
 		})
 		var talentObj = found.data[j][k]
 
-		talentObj.invested = parseInt(targetTalent.children(0).first().text()) // should insure points don't carry over when switching between classes
+		// let testEle = targetTalent.closest('.talent-container').find('.spentPoints').first().text()
+
+		// console.log('testEle: ', testEle)
+
+		talentObj.invested = parseInt(targetTalent.closest('.talent-container').find('.spentPoints').first().text()) // should insure points don't carry over when switching between classes
 
 		if ( ( ( talentObj.invested === talentObj.maxRank ) && e.which===1 ) || ( talentPointsSpent.hardLocked ) ){
 			updateTooltip(e) //tooltip goes away otherwise, unsure why
@@ -534,7 +544,7 @@ function mouseDownHandler(e=null, talent, tree) {
 	else {
 		var talentObj = talent
 		var treeName = tree
-		var targetTalent = $(`div.talent[name="${talentObj.name}"]`)
+		var targetTalent = $(`img.talent[name="${talentObj.name}"]`)
 		var e = true
 	}
 
@@ -577,6 +587,7 @@ function updateTooltip(e){
     const found = classData.trees.find(function(x) {
         return x.name == tree
     })
+
 
     const j = targetTalent.attr('data-j')
     const k = targetTalent.attr('data-k')
@@ -647,9 +658,11 @@ function updateTooltip(e){
 	})
 
 
+	// console.log(targetTalent.prev())
+	let targetTooltip = targetTalent.closest('.talent-container').find('.tooltip-container')
 
-	targetTalent.prev().append($('<div/>', {
-		class: 'talent-tooltip',  //talent-tooltip (the container) is only class in css, the rest are inline styling
+	targetTooltip.append($('<div/>', {
+		class: 'talent-tooltip',
 	})
 	.append($('<div/>', {
 		class: 'talent-tooltip-title',
@@ -714,7 +727,7 @@ function pointSpender(talent, e, tree, targetTal) {
 
 	const unlocks = (!Array.isArray(talent.unlocks)) ? Array(talent.unlocks) : talent.unlocks
 	const tier = (talent.requiredTalentPoints/5)
-	const targetTalent = $(`div.talent[name="${talent.name}"]`)
+	const targetTalent = $(`img.talent[name="${talent.name}"]`)
 
 	if ( (talentPointsSpent[tree].total() < talent.requiredTalentPoints ) || ( targetTalent.hasClass('locked')) || (talentPointsSpent.hardLocked)) {
 		return
@@ -733,7 +746,8 @@ function pointSpender(talent, e, tree, targetTal) {
 		if (talent.invested < talent.maxRank) {
 			talentPointsSpent[tree].vals[tier]++
 			talent.invested++
-			targetTalent.children(0).first().text(talent.invested)
+
+			targetTalent.closest('.talent-container').find('.spentPoints').first().text(talent.invested)
 
 			let tierU = (talentPointsSpent[tree].total() < 30) ? Math.floor(talentPointsSpent[tree].total()/5) : 6
 			let talentObjs = []
@@ -748,9 +762,9 @@ function pointSpender(talent, e, tree, targetTal) {
 			})
 
 			talentObjs.forEach(function(tal){
-				let t = $(`div.talent[name="${tal.name}"]`)
+				let t = $(`img.talent[name="${tal.name}"]`)
 				t.removeClass('grayed') // ungray talent element
-				t.find(".spentPoints").first().removeClass('grayed') // ungray spentPoints element
+				t.closest('.talent-container').find(".spentPoints").first().removeClass('grayed') // ungray spentPoints element
 
 				if (tal.locked) { // if talent object has locked property, also has arrows
 					arrowClassChanger(tal.name, false, 'grayed')
@@ -758,15 +772,15 @@ function pointSpender(talent, e, tree, targetTal) {
 			})
 
 			if (talent.invested == talent.maxRank) {
-				let t = $(`div.talent[name="${talent.name}"]`)
+				let t = $(`img.talent[name="${talent.name}"]`)
 				t.addClass('max')
-				t.find(".spentPoints").first().addClass('max')
+				t.closest('.talent-container').find(".spentPoints").first().addClass('max')
 
 				// if talent is a pre req, unlock each parent elem
 				if (talent.unlocks) {
 					unlocks.forEach(function(n) {
-						let par = $(`div.talent[name="${n}"]`).removeClass('locked') //unlock talent element
-						par.find(".spentPoints").first().removeClass('locked') //unlock points spent element
+						let par = $(`img.talent[name="${n}"]`).removeClass('locked') //unlock talent element
+						par.closest('.talent-container').find(".spentPoints").first().removeClass('locked') //unlock points spent element
 						arrowClassChanger(n, false, 'locked')
 
 					})
@@ -797,8 +811,8 @@ function pointSpender(talent, e, tree, targetTal) {
 			// NOTE: will be unique once element names are unique, won't need .first()
 			let test_arr = []
 			unlocks.forEach(function(item){
-				const child_talent = $(`div.talent[name="${item}"]`)
-				let n = child_talent.find('.spentPoints').text()
+				const child_talent = $(`img.talent[name="${item}"]`)
+				let n = child_talent.closest('.talent-container').find('.spentPoints').text()
 				if (can_unspec && n > 0) {
 					console.log('you must unspec ' + item)
 					test_arr.push(false)
@@ -817,7 +831,9 @@ function pointSpender(talent, e, tree, targetTal) {
 		if (talent.invested > 0 && can_unspec) {
 			talentPointsSpent[tree].vals[tier]--
 			talent.invested--
-			targetTalent.children(0).first().text(talent.invested)
+
+			targetTalent.closest('.talent-container').find('.spentPoints').first().text(talent.invested)
+
 
 			if (talentPointsSpent.grandTotal() < 51 && talentPointsSpent.softLocked) {
 				talentPointsSpent.softLocked = false
@@ -825,13 +841,13 @@ function pointSpender(talent, e, tree, targetTal) {
 			}
 
 			// begin locking/graying syntax
-			talElem = $(`div.talent[name="${talent.name}"]`)
+			talElem = $(`img.talent[name="${talent.name}"]`)
 			talElem.removeClass('max') //NOTE: remove max class from talent element
-			talElem.find('.spentPoints').removeClass('max') // NOTE: remove max class from pointsSpent element
+			talElem.closest('.talent-container').find('.spentPoints').removeClass('max') // NOTE: remove max class from pointsSpent element
 			if (talent.unlocks) {
 				unlocks.forEach(function(n) {
-					let par = $(`div.talent[name="${n}"]`).addClass('locked') //NOTE: locks talent element
-					par.find(".spentPoints").first().addClass('locked') //NOTE: locks points spent element
+					let par = $(`img.talent[name="${n}"]`).addClass('locked') //NOTE: locks talent element
+					par.closest('.talent-container').find(".spentPoints").first().addClass('locked') //NOTE: locks points spent element
 					arrowClassChanger(n, true, 'locked')
 				})
 			}
@@ -854,9 +870,9 @@ function pointSpender(talent, e, tree, targetTal) {
 
 			talentObjs.forEach(function(tal, ind) {
 				if (tal) {
-					let t = $(`div.talent[name="${tal.name}"]`)
+					let t = $(`img.talent[name="${tal.name}"]`)
 					t.addClass('grayed') //NOTE: grayed added to talent elem
-					t.find('.spentPoints').addClass('grayed') //NOTE: grayed added to pointsSpent elem
+					t.closest('.talent-container').find('.spentPoints').addClass('grayed') //NOTE: grayed added to pointsSpent elem
 					if (tal.locked) {
 						arrowClassChanger(tal.name, true, 'grayed')
 					}
@@ -899,24 +915,13 @@ function talentLocker(tree='') {
 	})
 
 	talentObjs.forEach(function(tal){
-		let t = $(`div.talent[name="${tal.name}"]`)
+		let t = $(`img.talent[name="${tal.name}"]`)
 		t.addClass('grayed')
-		t.find(".spentPoints").addClass('grayed')
+		t.closest('.talent-container').find(".spentPoints").addClass('grayed')
 		if (tal.locked) {
 			arrowClassChanger(tal.name, true, 'grayed')
 		}
 	})
-
-	// let url = new URL(document.location)
-	// let params = url.searchParams
-	// let lockButton = $("#talentLock")
-	// lockButton.removeClass("unlock").addClass("lock")
-	// lockButton.attr('title', 'Locked')
-	//
-	// params.set('L', true)
-	// // talentPointsSpent.locked = true
-	//
-	// history.replaceState({}, null, url)
 
 }
 
@@ -942,9 +947,9 @@ function talentUnlocker(tree='') {
 		for (tier; tier>=0;tier=tier-1){
 			found.data[tier].forEach(function(tal) {
 				if (tal) {//skips empty slots
-					let t = $(`div.talent[name="${tal.name}"]`)
+					let t = $(`img.talent[name="${tal.name}"]`)
 					t.removeClass('grayed')
-					t.find('.spentPoints').first().removeClass('grayed')
+					t.closest('.talent-container').find('.spentPoints').first().removeClass('grayed')
 					if (tal.locked) {
 						arrowClassChanger(tal.name, false, 'grayed')
 
