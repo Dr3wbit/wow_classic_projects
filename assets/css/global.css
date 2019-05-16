@@ -71,8 +71,14 @@ body {
     border-bottom: none;
     background: transparent;
     z-index: 0;
+    text-align: right;
 
-
+}
+.navbar.navbar-shrink .nav-link:hover {
+    background-image: -webkit-gradient(radial, right top, 10, 90% 0%, 150, from(rgba(255, 255, 255, .2)), to(transparent));
+    background-image: -webkit-radial-gradient(right top, 150px 230px, rgba(255, 255, 255, .2), transparent);
+    background-image: -moz-radial-gradient(right top, farthest-corner, rgba(255, 255, 255, .2) 0%, transparent 80%);
+    z-index: -2;
 }
 
 .navbar-brand{
@@ -340,73 +346,3 @@ ul {
         padding-right: 2px;
     }
 }
-
-.navbar-collapse {
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -ms-flex-align: right;
-    align-items: right;
-}
-
-.mr-auto, .mx-auto {
-    margin-right: auto;
-    text-align: right;
-}
-
-.navbar-nav {
-    text-align: right;
-}
-
-/*
-@media (min-width: 992px) and (max-width: 1200px){
-    .navbar-expand-lg {
-        display: none;
-    }
-
-    .navbar-toggler {
-        display: block;
-    }
-
-    .navbar-toggler-icon .navbar-dark {
-        display: block;
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5");
-    }
-
-    .navbar-toggler-icon {
-        display: inline-block;
-        width: 1.5em;
-        height: 1.5em;
-        vertical-align: middle;
-        content: "";
-        background: no-repeat center center;
-        background-size: 100% 100%;
-    }
-
-    .navbar-collapse {
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .navbar-fixed-top {
-		top: 0;
-		border-width: 0 0 1px;
-	}
-    .navbar-collapse.collapse {
-        display: none!important;
-    }
-    .navbar-nav {
-        float: none!important;
-		margin-top: 7.5px;
-	}
-	.navbar-nav>li {
-        float: none;
-    }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .collapse.in{
-  		display:block !important;
-	}
-} */

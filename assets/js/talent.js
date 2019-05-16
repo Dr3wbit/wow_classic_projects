@@ -20,7 +20,40 @@ Object.values(translationTable).forEach(function(item,index) {
 })
 
 
-$(document).ready(initializeApp)
+// $(document).ready()
+
+$(document).ready(function () {
+
+	initializeApp()
+    // Navbar collapse on scroll below 100px
+    changeNavbar()
+
+    $(window).scroll(function () {
+        changeNavbar()
+    })
+
+    function changeNavbar() {
+        var navbar = $("nav.navbar.fixed-top");
+        if ($(this).scrollTop() >= 10) {
+            navbar.removeClass("navbar-expand-lg").addClass("navbar-shrink")
+			$("span.navbar-logo-text").hide()
+
+			// $(".navbar-logo-text").attr('style', "visibility: hidden;")
+
+			// navbar.attr('style', "visibility: hidden;")
+			// navbar.hide()
+        } else if ($(this).scrollTop() < 10) {
+            navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
+			$("span.navbar-logo-text").show()
+
+			// $(".navbar-logo-text").attr('style', "visibility: visible;")
+
+			// navbar.attr('style', "visibility: visible;")
+			// navbar.show()
+
+        }
+    }
+})
 
 function initializeApp() {
 	console.log('init')
@@ -64,8 +97,47 @@ function exportSpec(){
 			if (! $("#talentLock").hasClass('lock')) {
 				$("#talentLock").trigger("click")
 			}
-			window.alert(window.location.href)
+			let url = new URL(document.location)
+			$('#export').popover({content:url.toString(), title:"Copied!", offset:-50, container:"#export"})
+
+
+			// not all browsers support navigator.clipboard.writeText()
+			navigator.clipboard.writeText(url.toString()).then(function() {
+  				/* clipboard successfully set */
+			}, function() {
+				/* clipboard write failed */
+				let tempInput = document.createElement("input")
+				tempInput.style = "position: absolute; left: -1000px; top: -1000px"
+				tempInput.value = url.toString()
+				document.body.appendChild(tempInput)
+				tempInput.select()
+				document.execCommand("copy")
+				document.body.removeChild(tempInput)
+
+
+			});
+
+			$('#export').popover('toggle')
+
+
+
+
 		},
+
+		'shown.bs.popover': e=> {
+			setTimeout(function a() {
+				$('#export').popover('hide')
+				$('#export').popover('disable')
+
+			}, 1500)
+
+		},
+		'hidden.bs.popover': e=> {
+			$('#export').popover('enable')
+		},
+
+
+})
 
 		// mouseenter: e => {
 		// 	const exportButton = $( e.target )
@@ -82,8 +154,8 @@ function exportSpec(){
 		//
 		// },
 
-	})
 }
+
 
 function resetTree(){
 	$('.resetTree').on({
@@ -111,7 +183,7 @@ function populateTables(reset=false) {
 		resetHandler()
 	}
 	resetTree()
-	navbarCollapse()
+	// navbarCollapse()
 
 
 }
@@ -516,6 +588,7 @@ function updateTooltip(e){
     let description
 	let next_rank = true
 	let req_text = ''
+	let tooltipFooter = {}
 
 	const locked = $(e.target).hasClass('locked')
 
@@ -523,6 +596,9 @@ function updateTooltip(e){
     {
 		next_rank = false
         talentCopy.invested++
+		tooltipFooter.text = 'Click to learn'
+		tooltipFooter.color = 'learn'
+
         description = talentCopy.description()
     }
 
@@ -534,6 +610,9 @@ function updateTooltip(e){
     }
 
     if (talentObj.invested == talentObj.maxRank) {
+		tooltipFooter.text = 'Right-click to unlearn'
+		tooltipFooter.color = 'unlearn'
+
         next_rank = false
         description = talentCopy.description()
     }
@@ -562,7 +641,12 @@ function updateTooltip(e){
 	}).append($('<div/>', {
 		class: 'talent-tooltip-description',
 		text: talentCopy.description(),
-	})) : null
+	})) : ( req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color=='learn')) ? null : $('<div/>', {
+		class: tooltipFooter.color,
+		text: tooltipFooter.text,
+	})
+
+
 
 	targetTalent.prev().append($('<div/>', {
 		class: 'talent-tooltip',  //talent-tooltip (the container) is only class in css, the rest are inline styling
@@ -1036,74 +1120,3 @@ function arrowClassChanger(talName, add, lockOrGray) {
 function updateURL(url) {
 	history.replaceState(null, null, url)
 }
-
-function navbarCollapse (){
-	$(window).on({
-		scroll: e=> {
-			// console.log('scroll')
-
-			if ($("nav.navbar").offset().top > 10) {
-				$("nav.navbar").addClass("navbar-shrink")
-				$(".navbar-toggler").addClass("d-block")
-				// $("button.navbar-toggler").addClass("collapsed")
-				$(".navbar-logo-text").attr('style', "visibility: hidden;")
-				// $(".navbar-expand-lg").attr('style', "display: none")
-
-				$(".navbar-logo-text").attr('style', "visibility: hidden;")
-
-				$("#navbarSupportedContent").collapse('hide')
-				$("#navbarSupportedContent").collapse('dispose')
-
-
-				// .navbar-expand-lg {
-			    //     display: none;
-			    // }
-				// $('.collapse.navbar-collapse').collapse('hide')
-				// $('.navbar-toggler').collapse('hide')
-				// $('.collapse').collapse()
-				console.log($('.collapse'))
-
-
-
-				// $(".navbar-logo-text").addClass('collapse')
-
-
-			}else {
-				$("nav.navbar").removeClass("navbar-shrink");
-				// $('.collapse.navbar-collapse').collapse('toggle')
-				// $('.collapse.navbar-collapse').collapse('hide')
-
-				// }
-				// $('.collapse.navbar-collapse').collapse('show')
-				// $('.navbar-toggler').collapse('show')
-				// $('.collapse').collapse()
-
-				$(".navbar-logo-text").attr('style', "visibility: visible;")
-				// $("button.navbar-toggler").removeClass("collapsed")
-
-
-				// $(".navbar-logo-text").removeClass('collapse')
-
-			}
-		}
-	})
-}
-// (function($) {
-// 	"use strict"; // Start of use strict
-//
-//
-// 	// Collapse Navbar
-// 	var navbarCollapse = function() {
-// 		if ($("nav.navbar").offset().top > 10) {
-// 			$("nav.navbar").addClass("navbar-shrink");
-// 		} else {
-// 			$("nav.navbar").removeClass("navbar-shrink");
-// 		}
-// 	};
-// 	// Collapse now if page is not at top
-// 	navbarCollapse();
-// 	// Collapse the navbar when page is scrolled
-// 	$(window).scroll(navbarCollapse);
-//
-//
-// })(jQuery); // End of use strict

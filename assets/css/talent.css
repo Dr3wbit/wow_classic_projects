@@ -95,6 +95,10 @@
 
 }
 
+.unlearned {
+    color: rgb(23, 253, 23);
+}
+
 .talentFooter-spentPoints{
   background-color: transparent;
   font-size: 14px;
@@ -114,9 +118,13 @@
 }
 
 
-.talent-tooltip-req{
+.talent-tooltip-req, .unlearn {
     color: red !important;
     white-space: pre-line;
+}
+
+.learn {
+    color: rgb(23, 253, 23) !important;
 }
 
 .talent-tooltip-title{
@@ -530,4 +538,9 @@ svg.icon:hover path{
     position: relative;
     right: 6px;
     top: 1px;
+}
+
+
+#testTooltip {
+    display: none;
 }
