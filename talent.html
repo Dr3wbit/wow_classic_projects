@@ -103,14 +103,13 @@
 
                 {{#if this}}
                     <div class="talent-container">
-                        <div class="talent-border"></div>
 
                         <div class="tooltip-container"></div>
-                        <div class="talent{{#if locked}} locked{{/if}}{{#if j}} grayed{{/if}}"
+                        <img class="talent{{#if locked}} locked{{/if}}{{#if j}} grayed{{/if}}"
+                            src="assets/images/icon_border_2.png"
                             style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
                             name="{{name}}" data-j={{j}} data-k={{k}} {{#if unlocks}}data-unlocks="{{unlocks}}"{{/if}}>
                             <div class="spentPoints {{#if locked}}locked {{/if}}{{#if item.j}}grayed{{/if}}">{{invested}}</div>
-                        </div>
 
                         {{#if unlocks}}
                             {{#each arrows as |arrowItem arrowKey|}}
