@@ -110,6 +110,7 @@ body {
     background-position: 95 100%;
     background-size: 100% 105%;
     transition: all .2s ease-in;
+    z-index: 5;
 }
 
 
@@ -345,4 +346,15 @@ ul {
         flex-basis: auto;
         padding-right: 2px;
     }
+}
+
+
+.navbar-nav .nav-link {
+    padding-right: 2px;
+    float: right;
+    width: 150px;
+}
+
+.navbar-collapse.show {
+    /* flex-basis: 100px; */
 }

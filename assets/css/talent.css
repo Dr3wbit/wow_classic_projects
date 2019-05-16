@@ -15,13 +15,24 @@
 .talent {
     min-width: 42px;
     height: 42px;
-    border: 2px solid rgb(23, 253, 23);
+    border: 1px solid rgb(23, 253, 23);
     border-radius: 5px;
     background-size: contain;
     z-index: 12;
     border-style: ridge;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
+
+/* .talent img {
+    min-width: 42px;
+    height: 42px;
+    border: 2px solid rgb(23, 253, 23);
+    border-radius: 5px;
+    background-size: contain;
+    z-index: 12;
+    border-style: ridge;
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+} */
 
 
 .talent.locked, .talent.grayed {
@@ -41,10 +52,10 @@
               inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
               inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
 
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
 
   border-style: groove;
 }
@@ -244,30 +255,6 @@
   padding-left: 25px;
 
 }
-
-
-/* #tooltip {
-    position: absolute;
-    z-index: 1070;
-    display: block;
-    margin: 0;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: left;
-    text-align: start;
-    text-decoration: none;
-    text-shadow: none;
-    text-transform: none;
-    letter-spacing: normal;
-    word-break: normal;
-    word-spacing: normal;
-    white-space: normal;
-    line-break: auto;
-    font-size: .875rem;
-    word-wrap: break-word;
-    opacity: 0
-} */
 
 
 
