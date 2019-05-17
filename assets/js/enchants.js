@@ -84,7 +84,7 @@ const enchants = {
             }
         },
 
-        superior_strenght: {
+        superior_strength: {
             name: 'Superior Strength',
             effect: '+9 Strength',
             materials: {
@@ -93,7 +93,7 @@ const enchants = {
             }
         },
 
-        greater_strenght: {
+        greater_strength: {
             name: 'Greater Strength',
             effect: '+7 Strength',
             materials: {
@@ -466,4 +466,101 @@ const enchants = {
             }
         },
     },
+}
+
+const materials = {
+    black_diamond: {
+        rarity: 'uncommon',
+    },
+    black_lotus: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    righteous_orb: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    golden_pearl: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    living_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_undeath: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_fire: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_water: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_earth: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    essence_of_air: {
+        rarity: 'uncommon',
+        stack: 10,
+    },
+    lesser_nether_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+        use: 'Turn three lesser nether essences into a greater one.',
+    },
+    greater_nether_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+        use: 'Turn a greater nether essence into three lesser ones.',
+
+    },
+    lesser_eternal_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+        use: 'Turn three lesser eternal essences into a greater one.',
+    },
+    greater_eternal_essence: {
+        rarity: 'uncommon',
+        stack: 10,
+        use: 'Turn a greater eternal essence into three lesser ones.',
+    },
+    vision_dust: {
+        rarity: 'common',
+        stack: 20,
+    },
+    dream_dust: {
+        rarity: 'common',
+        stack: 20,
+    },
+    illusion_dust: {
+        rarity: 'common',
+        stack: 20,
+    },
+
+    small_radiant_shard: {
+        rarity: 'rare',
+        stack: 20,
+    },
+    large_radiant_shard: {
+        rarity: 'rare',
+        stack: 20,
+    },
+    large_brilliant_shard: {
+        rarity: 'rare',
+        stack: 20,
+    },
+    small_brilliant_shard: {
+        rarity: 'rare',
+        stack: 20,
+    },
+    nexus_crystal: {
+        rarity: 'epic',
+        stack: 20,
+    },
+
 }
