@@ -26,9 +26,7 @@
 .talent:active:not(.grayed):not(.locked)  {
     /* transform: translateY(1px); */
 
-    transform: scale(.98);
-    /* transition: all .05s ease-in-out; */
-
+    transform: scale(.97);
     -webkit-filter: saturate(120%);
        -moz-filter: saturate(120%);
          -o-filter: saturate(120%);
