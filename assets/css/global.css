@@ -357,8 +357,8 @@ ul {
 } */
 
 .icon-container:active {
-    transform: translateY(1px);
+    transform: scale(.98);
         filter: saturate(120%);
-        transition: all .05s ease-in-out;
+        /* transition: all .05s ease-in-out; */
 
 }
