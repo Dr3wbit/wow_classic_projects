@@ -1,9 +1,9 @@
 .locked, .grayed  {
-    -webkit-filter: grayscale(90%);
-       -moz-filter: grayscale(90%);
-         -o-filter: grayscale(90%);
-        -ms-filter: grayscale(90%);
-            filter: grayscale(90%);
+    -webkit-filter: grayscale(95%);
+       -moz-filter: grayscale(95%);
+         -o-filter: grayscale(95%);
+        -ms-filter: grayscale(95%);
+            filter: grayscale(95%);
 }
 
 .talent-container {
@@ -24,11 +24,28 @@
 }
 
 .talent:active:not(.grayed):not(.locked)  {
-    transform: translateY(1px);
-    filter: saturate(120%);
-    transition: all .05s ease-in-out;
+    /* transform: translateY(1px); */
+
+    transform: scale(.98);
+    /* transition: all .05s ease-in-out; */
+
+    -webkit-filter: saturate(120%);
+       -moz-filter: saturate(120%);
+         -o-filter: saturate(120%);
+        -ms-filter: saturate(120%);
+            filter: saturate(120%);
 }
 
+/* .active:not(.grayed):not(.locked)  {
+    transform: translateY(1px);
+    transition: all .05s ease-in-out;
+
+    -webkit-filter: saturate(120%);
+       -moz-filter: saturate(120%);
+         -o-filter: saturate(120%);
+        -ms-filter: saturate(120%);
+            filter: saturate(120%);
+} */
 /* .talent img {
     min-width: 42px;
     height: 42px;
