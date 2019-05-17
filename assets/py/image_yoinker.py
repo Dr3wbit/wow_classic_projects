@@ -58,7 +58,7 @@ def get_images(choice, BASE_URL):
     driver.implicitly_wait(5)
 
     if choice == 'materials':
-        materials_filename = "/Users/ktuten/Desktop/materials_list.txt"
+        materials_filename = input('enter filepath for list of icons to be downloaded') or "icon_download_list.txt"
 
         with open(materials_filename, 'r') as f:
         	content = f.read()
