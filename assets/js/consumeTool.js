@@ -5,20 +5,28 @@ $(document).ready(initializeApp)
 
 function initializeApp() {
 	$(".consume-form").submit(function(e) {
-		e.preventDefault();
+		e.preventDefault()
+		
 	});
 	applyClickHandlers();
 	$(".consume-form").on({
 		'change': (e) => {
+			// console.log("this: ", $( e.target ) )
 			$('.consume-form').submit(getMaterials(selectedData))
 		},
-		'keyup': (e) => {
+		blue: (e) => {
 			$('.consume-form').submit(getMaterials(selectedData))
-		}
+		},
+		// 'keyup': (e) => {
+		// 	// console.log("this: ", $( e.target ) )
+		// 	$('.consume-form').submit(getMaterials(selectedData))
+		// }
 	})
-
 }
 
+function stepValidator(n, step) {
+	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
+}
 
 
 function applyClickHandlers() {
@@ -59,39 +67,23 @@ function applyClickHandlers() {
 
 
                     if (e.which === 1) {
-						// console.log($(e.target))
 
-						$( e.target ).closest('.consume-block').find( $('input') ).first().val(function(i, val) {
-							return (parseInt(val) || 0 )+1
+						let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
+						let step = input.attr('step')
+						input.val(function(i, val) {
+							return ( parseInt(val) || 0 ) + parseInt(step)
 						})
-
 						$(".consume-form").trigger('change')
-
-
-
-						// consumeBlock.find('input').val(function(i, val) {
-						// 	return parseInt(val)++
-						// })
-						//
-						// let consumeBlock = $(e.target).closest('.consume-block')
-                        // let currentInput = consumeBlock.find('input')
-                        // let currentCount = currentInput.val() || 0
-
-
-
 
                     } else if (e.which === 3){
 
-							console.log(3)
-
-							$( e.target ).closest('.consume-block').find( $('input') ).first().val(function(i, val) {
-								return (parseInt(val) >=1 ) ? parseInt(val)-1 : 0
+							let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
+							let step = input.attr('step')
+							input.val(function(i, val) {
+								return (parseInt(val) >= parseInt(step) ) ? parseInt(val) - parseInt(step) : 0
 							})
-
-
 							$(".consume-form").trigger('change')
-
-							console.log(typeof($(e.target).closest('.consume-block')))
+							// console.log(typeof($(e.target).closest('.consume-block')))
 
                     }
                }
@@ -100,6 +92,8 @@ function applyClickHandlers() {
 		},
 	})
 }
+
+
 
 function clearForm() {
 	$('.consume-form').empty()
@@ -141,7 +135,14 @@ function getMaterials(data) {
 	formValues.map((item) => {
 		const name = formValues[item].attributes.name.value
 		const category = formValues[item].attributes.category.value
-		const inputValue = formValues[item].value
+		let inp2 = formValues[item].value
+		const inputValue = stepValidator(formValues[item].value, formValues[item].attributes.step.value)
+		if (inputValue != formValues[item].value) {
+
+			$(`.consume-input[name="${name}"]`).val( parseInt(inputValue) ).delay( 3000 )
+			console.log('test')
+		}
+
 		materials.push(findMaterials(name, category, data, inputValue))
 	})
 	appendMaterials(materials)
