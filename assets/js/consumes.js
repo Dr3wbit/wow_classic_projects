@@ -192,6 +192,7 @@ const consumes = [
                             dense_blasting_powder: 1,
                             runecloth: 1.5,
                         },
+                        step: 2,
                     },
                     {
                         name: 'Goblin Sapper Charge',
@@ -204,15 +205,16 @@ const consumes = [
                         },
                     },
                     {
-                        //IG makes 2
+                        //IG makes 2-4, averaged to 3
                         name: 'Iron Grenade',
                         effect: 'Use: Inflicts 132 to 219 Fire damage and stuns targets for 3 sec in a 3 yard radius. Any damage will break the effect. (cooldown 1 min)',
                         img: 'iron_grenade.jpg',
                         materials: {
-                            iron_bar: 0.5,
-                            heavy_blasting_powder: 0.5,
-                            silk_cloth: 0.5,
+                            iron_bar: 0.33,
+                            heavy_blasting_powder: 0.33,
+                            silk_cloth: 0.33,
                         },
+                        step: 3,
                     },
                     {
                         //TG makes 3
@@ -225,6 +227,7 @@ const consumes = [
                             dense_blasting_powder: 1,
                             runecloth: 1,
                         },
+                        step: 3,
                     },
                     {
                         name: 'Goblin Rocket Boots',
@@ -328,7 +331,7 @@ const consumes = [
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
@@ -387,7 +390,7 @@ const consumes = [
                             'frostsaber_e\'ko': 3
                         },
                     },
-            
+
                     {
                         name: 'Juju Might',
                         effect: 'Use: Increases attack power by 40 for 10 min. (cooldown 1 min)',
@@ -395,7 +398,7 @@ const consumes = [
                         materials: {
                             'frosmaul_e\'ko': 3
                         },
-                    },           
+                    },
                     {
                         name: 'Juju Power',
                         effect: 'Use: Increases the target\'s Strength by 30 for 30 min. (cooldown 1 min)',
@@ -439,7 +442,7 @@ const consumes = [
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
@@ -473,7 +476,7 @@ const consumes = [
                             'frostsaber_e\'ko': 3
                         },
                     },
-            
+
                     {
                         name: 'Juju Might',
                         effect: 'Use: Increases attack power by 40 for 10 min. (cooldown 1 min)',
@@ -482,7 +485,7 @@ const consumes = [
                             'frosmaul_e\'ko': 3
                         },
                     },
-            
+
                     {
                         name: 'Juju Power',
                         effect: 'Use: Increases the target\'s Strength by 30 for 30 min. (cooldown 1 min)',
@@ -547,7 +550,7 @@ const consumes = [
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
@@ -703,7 +706,7 @@ const consumes = [
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
@@ -777,7 +780,7 @@ const consumes = [
                             imbued_vial: 1,
                         },
                     },
-            
+
                     {
                         name: 'Major Mana Potion',
                         effect: 'Use: Restores 1350 to 2251 mana. (cooldown 2 min)',
@@ -823,7 +826,7 @@ const consumes = [
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
@@ -943,7 +946,7 @@ const consumes = [
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
@@ -1079,13 +1082,13 @@ const consumes = [
                             crystal_vial: 1,
                         },
                     },
-            
+
                 ],
             },
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
@@ -1292,13 +1295,13 @@ const consumes = [
                             crystal_vial: 1
                         },
                     },
-            
+
                 ],
             },
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
@@ -1527,7 +1530,7 @@ const consumes = [
             {
                 name: 'Engineering',
                 data: [
-                    
+
                 ],
             },
             {
