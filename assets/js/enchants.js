@@ -84,7 +84,7 @@ const enchants = {
             }
         },
 
-        superior_strenght: {
+        superior_strength: {
             name: 'Superior Strength',
             effect: '+9 Strength',
             materials: {
@@ -93,7 +93,7 @@ const enchants = {
             }
         },
 
-        greater_strenght: {
+        greater_strength: {
             name: 'Greater Strength',
             effect: '+7 Strength',
             materials: {
@@ -508,21 +508,26 @@ const materials = {
         rarity: 'uncommon',
         stack: 10,
     },
-    lesser_eternal_essence: {
+    lesser_nether_essence: {
         rarity: 'uncommon',
         stack: 10,
+        use: 'Turn three lesser nether essences into a greater one.',
     },
     greater_nether_essence: {
         rarity: 'uncommon',
         stack: 10,
+        use: 'Turn a greater nether essence into three lesser ones.',
+
     },
     lesser_eternal_essence: {
         rarity: 'uncommon',
         stack: 10,
+        use: 'Turn three lesser eternal essences into a greater one.',
     },
     greater_eternal_essence: {
         rarity: 'uncommon',
         stack: 10,
+        use: 'Turn a greater eternal essence into three lesser ones.',
     },
     vision_dust: {
         rarity: 'common',
