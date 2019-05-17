@@ -499,9 +499,14 @@ function talentHandler() {
 		},
 
 		mousedown: e => {
-
+			// $(e.target).css({"filter": "saturate(120%)", "transform": "translateY(1px)"})
 			mouseDownHandler(e)
-		}
+
+		},
+
+		// mouseup: e => {
+		// 	$(e.target).removeClass('active')
+		// }
 
 	})
 }

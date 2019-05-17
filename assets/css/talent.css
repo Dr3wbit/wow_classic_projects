@@ -1,9 +1,9 @@
 .locked, .grayed  {
-    -webkit-filter: grayscale(90%);
-       -moz-filter: grayscale(90%);
-         -o-filter: grayscale(90%);
-        -ms-filter: grayscale(90%);
-            filter: grayscale(90%);
+    -webkit-filter: grayscale(95%);
+       -moz-filter: grayscale(95%);
+         -o-filter: grayscale(95%);
+        -ms-filter: grayscale(95%);
+            filter: grayscale(95%);
 }
 
 .talent-container {
@@ -23,13 +23,29 @@
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-.talent:active {
-    transform: translateY(1px);
-    filter: saturate(120%);
-    transition: all .05s ease-in-out;
+.talent:active:not(.grayed):not(.locked)  {
+    /* transform: translateY(1px); */
 
+    transform: scale(.98);
+    /* transition: all .05s ease-in-out; */
+
+    -webkit-filter: saturate(120%);
+       -moz-filter: saturate(120%);
+         -o-filter: saturate(120%);
+        -ms-filter: saturate(120%);
+            filter: saturate(120%);
 }
 
+/* .active:not(.grayed):not(.locked)  {
+    transform: translateY(1px);
+    transition: all .05s ease-in-out;
+
+    -webkit-filter: saturate(120%);
+       -moz-filter: saturate(120%);
+         -o-filter: saturate(120%);
+        -ms-filter: saturate(120%);
+            filter: saturate(120%);
+} */
 /* .talent img {
     min-width: 42px;
     height: 42px;
@@ -55,9 +71,9 @@
 
 .talent:hover {
 
-  box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+  /* box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
               inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
-              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80); */
 
   -moz-transition: all 0.1s ease-in;
   -o-transition: all 0.1s ease-in;
