@@ -470,8 +470,8 @@ const enchants = {
 
 const materials = {
     black_diamond: {
-        
-    }
+        rarity: 'uncommon',
+    },
     black_lotus: {
         rarity: 'uncommon',
         stack: 10,
@@ -556,5 +556,6 @@ const materials = {
     nexus_crystal: {
         rarity: 'epic',
         stack: 20,
-    }
+    },
+
 }
