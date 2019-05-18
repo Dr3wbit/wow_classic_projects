@@ -362,3 +362,22 @@ ul {
         /* transition: all .05s ease-in-out; */
 
 }
+
+.delete {
+    float: left;
+    font-size: 90%;
+    background-color: black;
+    color: azure;
+    border: none;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.delete:focus {
+    outline:0;
+}
+
+.delete:hover {
+    color: black;
+    background-color: red;
+}
