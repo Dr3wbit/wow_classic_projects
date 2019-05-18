@@ -2,7 +2,6 @@
 .about-section {
     color: azure;
     text-align: center;
-    min-height: 58vh;
     padding: 10px;
 }
 
@@ -16,4 +15,12 @@
 
 #message {
     width: 100%;
+}
+
+.formContainer{
+    border: 2px solid black;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 10px
 }
