@@ -1,22 +1,5 @@
 const enchants = {
 
-    example: {
-
-        example: {
-            name: '',
-            effect: '',
-            materials: {
-            }
-        },
-
-        example: {
-            name: '',
-            effect: '',
-            materials: {
-            }
-        },
-    },
-
     boots: {
 
         minor_speed: {
@@ -468,6 +451,30 @@ const enchants = {
     },
 }
 
+const enchants_v2 = {
+    example: [{
+
+    }],
+    weapon: [
+        {
+        healing_power: {
+            description: "Permanently enchant a Melee Weapon to add up to 55 points of healing to healing spells.",
+            effect: '+55 Healing',
+
+            materials: {
+                large_brilliant_shard: 8,
+                greater_eternal_essence: 8,
+                living_essence: 6,
+                essence_of_water: 6,
+                righteous_orb: 1,
+            },
+
+        },
+        crusader: {},
+    },
+],
+
+}
 const materials = {
     black_diamond: {
         rarity: 'uncommon',
