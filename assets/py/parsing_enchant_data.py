@@ -17,14 +17,17 @@ for slot,v in all_enchants:
 
 	link_list = []
 
-	search_text = 'Enchant '.format(slot.title())
+	search_text = 'Enchant {}'.format(slot.title())
 	search_bar = driver.find_element(By.CLASS_NAME, 'search-database')
 
 	search_bar.send_keys(search_text)
 	search_bar.send_keys(Keys.ENTER)
-
 	driver.implicitly_wait(3)
 
+	spell_tab = driver.find_element(By.CSS_SELECTOR, 'ul.tabs').find_elements(By.TAG_NAME, 'li')[1]
+
+	spell_tab.find_element(By.TAG_NAME, 'a').click()
+	driver.implicitly_wait(1)
 
 	ench_rows = driver.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_elements(By.TAG_NAME, 'tr')
 
@@ -34,17 +37,13 @@ for slot,v in all_enchants:
 		if this_link.text.startswith(search_text):
 			link_list.append(this_link)
 
-
-
 	for link in link_list:
 		link_text = link.text
 		match = name_catcher.search(link_text)
 		a = match.group(1)
-
 		b = a.replace(' ', '_')
 
 		ench_name = b.lower()
-
 
 		all_enchants[slot][ench_name] = {}
 
@@ -54,7 +53,7 @@ for slot,v in all_enchants:
 		tables = driver.find_elements(By.CSS_SELECTOR, 'table.iconlist')
 
 		rows = tables[0].find_elements(By.TAG_NAME, 'tr')
-		materials = {}
+		all_enchants[slot][ench_name]['materials'] = {}
 		for tablerow in rows:
 			q_parent = tablerow.find_element(By.TAG_NAME, 'div.iconsmall')
 
@@ -65,7 +64,6 @@ for slot,v in all_enchants:
 
 
 		# get ench name
-
 		all_enchants[slot][ench_name][]
 
 		driver.back()
