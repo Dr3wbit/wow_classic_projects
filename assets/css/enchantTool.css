@@ -10,7 +10,7 @@
     background-image: url("../images/textured_background.png");
     background-size: cover;
     border-radius: 5px;
-    border: 2px #100007 solid;
+    border: 2px black solid;
     width: 100%
 }
 
@@ -179,21 +179,3 @@
     opacity: 0.5;
 }
 
-
-.delete {
-    float: left;
-    font-size: 90%;
-    background-color: black;
-    color: azure;
-    border: none;
-    cursor: pointer;
-}
-
-.delete:focus {
-    outline:0;
-}
-
-.delete:hover {
-    color: black;
-    background-color: red;
-}

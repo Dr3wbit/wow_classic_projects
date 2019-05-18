@@ -350,7 +350,6 @@
     top: 40px;
 }
 
-
 .class-filter.selected {
     color: inherit;
     border-top: 4px solid #ff3604;
@@ -369,22 +368,42 @@
   height: 18px;
   width: 16px;
   border: none;
+  margin-right: 4px;
+  vertical-align: text-bottom;
+  background-color: transparent;
 
 }
 
 .talentcalc-button#resetTalents {
     height: 16px;
     width: 16px;
-    background: url(../images/icons/reset.gif);
+    background-image: url(../images/icons/reset.gif);
     background-repeat: no-repeat;
 }
 
 .talentcalc-button.lock {
-    background: url(../images/icons/lock.gif);
+    background-image: url(../images/icons/lock.gif);
 }
 
 .talentcalc-button.unlock {
-    background: url(../images/icons/unlock.gif);
+    background-image: url(../images/icons/unlock.gif);
+}
+
+.savedSpecs{
+    color: azure
+}
+
+.savedSpecsTitle {
+    font-size: 14px;
+    border: 2px solid black;
+    border-style: ridge;
+    color: azure;
+    background: #343a40;
+}
+
+#saveSpec{
+    background-size: contain;
+    background-image: url(../images/icons/save_icon.png);
 }
 
 #export {
@@ -393,8 +412,8 @@
 }
 
 #buttonCity {
-  /* padding-right: 0px; */
-  max-width: 20%;
+    vertical-align: text-bottom;
+    width: 100%;
 }
 
 #requiredLevel {
@@ -403,7 +422,7 @@
 
 #talentHeader {
   height: 25px;
-  width: 63%;
+  width: 95%;
   margin-left: 5px;
   border: 2px solid black;
   /* border-radius: 5px; */
@@ -527,8 +546,7 @@
 
 svg.icon {
     vertical-align: text-bottom;
-    position: absolute;
-    left: 10px;
+    padding-top: 2px;
 }
 
 svg.icon path {
@@ -540,12 +558,22 @@ svg.icon:hover path{
 }
 
 #talentLock {
-    position: relative;
-    top: 1px;
+    margin-bottom: 1px;
 }
 
 #resetTalents {
-    position: relative;
-    right: 6px;
-    top: 1px;
+    margin-bottom: 1px;
+}
+
+.specItem{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #343a40;
+    border: 2px black solid;
+    text-align: left;
+    user-select: none;
+    cursor: pointer;
+
 }
