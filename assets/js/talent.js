@@ -116,8 +116,6 @@ function exportSpec(){
 				tempInput.select()
 				document.execCommand("copy")
 				document.body.removeChild(tempInput)
-
-
 			});
 
 			$('#export').popover('toggle')
