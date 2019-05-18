@@ -12,11 +12,6 @@ prof_text = {'Fished':'fishing', 'Gathered':'herbalism', 'Mined':'mining',
 
 other_text = {'Dropped': 'drop', 'Sold': 'vendor'}
 
-# fishing = 'Fished in' #any tab
-# herbalism = 'Gathered from' #any tab
-# mining = 'Mined from' #any tab
-# enchanting = 'Disenchanted from' #any tab
-# skinning = 'Skinned from' #any tab
 
 r1 = re.compile(r'spell=[\d]+?\/([\w\-]+)', re.M)
 get_url = re.compile(r'url\(\"(https://wow\.zamimg\.com.+?\.jpg)', re.M)
