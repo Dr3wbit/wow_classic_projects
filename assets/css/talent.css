@@ -6,7 +6,7 @@
             filter: grayscale(95%);
 }
 
-.talent-container {
+.talent-slot {
     margin: 8px;
     position: relative;
 }
@@ -23,10 +23,11 @@
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-.talent:active:not(.grayed):not(.locked)  {
-    /* transform: translateY(1px); */
+/* resolves issues with red shading, but applies scales and filter to arrows, spentPoints, and tooltip container */
 
-    transform: scale(.97);
+.talent-container:active:not(.grayed):not(.locked){
+
+    transform: scale(0.97);
     -webkit-filter: saturate(120%);
        -moz-filter: saturate(120%);
          -o-filter: saturate(120%);
@@ -34,26 +35,7 @@
             filter: saturate(120%);
 }
 
-/* .active:not(.grayed):not(.locked)  {
-    transform: translateY(1px);
-    transition: all .05s ease-in-out;
 
-    -webkit-filter: saturate(120%);
-       -moz-filter: saturate(120%);
-         -o-filter: saturate(120%);
-        -ms-filter: saturate(120%);
-            filter: saturate(120%);
-} */
-/* .talent img {
-    min-width: 42px;
-    height: 42px;
-    border: 2px solid rgb(23, 253, 23);
-    border-radius: 5px;
-    background-size: contain;
-    z-index: 12;
-    border-style: ridge;
-    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-} */
 
 
 .talent.locked, .talent.grayed {
@@ -69,16 +51,16 @@
 
 .talent:hover {
 
-  /* box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+  box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
               inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
-              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80); */
+              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
 
   -moz-transition: all 0.1s ease-in;
   -o-transition: all 0.1s ease-in;
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 
-  border-style: groove;
+  /* border-style: groove; */
 }
 
 .openSlot {
@@ -178,6 +160,7 @@
 }
 
 .talent-tooltip{
+    all: revert;
     font-size: 100%;
     width: 325px;
     position: absolute;
@@ -190,7 +173,7 @@
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    /* z-index: 999; */
+    z-index: 999;
     text-align: left;
 }
 
@@ -341,7 +324,7 @@
 }
 
 .tooltip-container {
-    z-index: 15;
+    /* z-index: 999; */
     position: relative;
     /* left: -15px; */
     right: 120px;

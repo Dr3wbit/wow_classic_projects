@@ -282,8 +282,8 @@ function resetTalentTree(tree, e) {
 				tal.invested = 0
 				let targetTalent = $(`img.talent[name="${tal.name}"]`)
 				targetTalent.removeClass('max')
-				targetTalent.children(0).first().text(tal.invested).removeClass('max')
-
+				let spentPoints = targetTalent.closest('.talent-slot').find('.spentPoints')
+				spentPoints.text(tal.invested).removeClass('max')
 			}
 		})
 	})
@@ -493,7 +493,7 @@ function talentHandler() {
 
 		mouseleave: e => {
 			const targetTalent = $(e.target)
-			targetTalent.closest('.talent-container').children($('.talent-tooltip').remove())
+			targetTalent.closest('.talent-slot').children($('.talent-tooltip').remove())
 		},
 
 		mousedown: e => {
@@ -515,7 +515,7 @@ function mouseDownHandler(e=null, talent, tree) {
 	if (e){
 		manuallyClicked = true
 		var targetTalent = $(e.target)
-		targetTalent.closest('.talent-container').find('.talent-tooltip').remove()
+		targetTalent.closest('.talent-slot').find('.talent-tooltip').remove()
 
 		var treeName = targetTalent.closest('div.talentTable')[0].id
 
@@ -657,8 +657,7 @@ function updateTooltip(e){
 
 
 	// console.log(targetTalent.prev())
-	let targetTooltip = targetTalent.closest('.talent-container').find('.tooltip-container')
-
+	let targetTooltip = targetTalent.closest('.talent-slot').find('.tooltip-container')
 	targetTooltip.append($('<div/>', {
 		class: 'talent-tooltip',
 	})
@@ -915,7 +914,7 @@ function talentLocker(tree='') {
 	talentObjs.forEach(function(tal){
 		let t = $(`img.talent[name="${tal.name}"]`)
 		t.addClass('grayed')
-		t.closest('.talent-container').find(".spentPoints").addClass('grayed')
+		t.closest('.talent-slot').find(".spentPoints").addClass('grayed')
 		if (tal.locked) {
 			arrowClassChanger(tal.name, true, 'grayed')
 		}
@@ -947,7 +946,7 @@ function talentUnlocker(tree='') {
 				if (tal) {//skips empty slots
 					let t = $(`img.talent[name="${tal.name}"]`)
 					t.removeClass('grayed')
-					t.closest('.talent-container').find('.spentPoints').first().removeClass('grayed')
+					t.closest('.talent-slot').find('.spentPoints').first().removeClass('grayed')
 					if (tal.locked) {
 						arrowClassChanger(tal.name, false, 'grayed')
 
