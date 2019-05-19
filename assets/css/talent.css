@@ -560,9 +560,9 @@ svg.icon:hover path{
     text-overflow: ellipsis;
     background-color: #343a40;
     border: 1px black solid;
-    text-align: left;
     user-select: none;
     cursor: pointer;
+    text-align: left;
     max-width: 186px;
 }
 
@@ -588,6 +588,7 @@ svg.icon:hover path{
     color: azure;
     background: #1f2122;
     border: 1px solid black;
+    margin-left: 4px;
 }
 
 .savedSpecs{

@@ -364,13 +364,13 @@ ul {
 }
 
 .delete {
-    height: 16px;
-    width: 16px;
+    height: 18px;
+    width: 18px;
     float: left;
     color: azure;
     border: none;
     cursor: pointer;
-    margin-right: 4px;
+    margin-right: 6px;
     background-image: url(../images/icons/reset.gif);
     background-repeat: no-repeat;
     background-size: contain;
