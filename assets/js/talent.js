@@ -92,6 +92,7 @@ function applyClickHandlers() {
 	lockSpec()
 	resetTree()
 	saveSpec()
+	sideNav()
 }
 
 function exportSpec() {
@@ -191,6 +192,8 @@ function checkForSavedSpecs() {
 	let existingSpecs = localStorage.getItem('savedSpecs');
 	if (existingSpecs) {
 		return JSON.parse(existingSpecs)
+	}else{
+		return {}
 	}
 }
 
@@ -205,18 +208,25 @@ function updateSavedSpecs() {
 				text: name,
 				href: spec.href
 			})
-				.on('click', () => {
+				.on('click', (e) => {
+					$('.specItem').removeClass('specSelected')
+					$(e.target).addClass('specSelected')
 					// Pass spec.href to where we need to go
-					console.log('click')
+					console.log('Spec : ', spec.href)
 				})
 				.prepend($('<button/>', {
 					class: 'delete',
-					text: '✘',
+					title: 'Delete'
 				}).on('click', ()=>{
 					removeSavedSpec(name, existingSpecs)
 				}))
 			$('.specList').append(specItem)
-		}
+		} 
+	}
+	 let checkIfEmpty = $('.specList').children()
+	 console.log(checkIfEmpty)
+	if (checkIfEmpty.length === 0){
+		$('.specList').text('To save a spec, fill out your talents then click the save icon (top right of calculator) and give your spec a name. We use cookies to save your specs on this page so aslong as you dont clear cookies on us, your specs will be here forever!')
 	}
 }
 
@@ -224,6 +234,21 @@ function removeSavedSpec(name, existingSpecs) {
 	delete existingSpecs[name]
 	localStorage.setItem('savedSpecs', JSON.stringify(existingSpecs));
 	updateSavedSpecs()
+}
+
+function sideNav(){
+	console.log('works')
+	sideNav = $('.savedSpecs')
+	navTrigger = $('.side-nav-trigger')
+	navTrigger.on({
+		click: e => {
+			if(sideNav.hasClass('minimized')){
+				sideNav.removeClass('minimized')
+			}else{
+				sideNav.addClass('minimized')
+			}
+		},
+	})
 }
 
 

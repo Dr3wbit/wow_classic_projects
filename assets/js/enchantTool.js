@@ -49,7 +49,6 @@ function getenchantData(dataObject, dataKeys, slot) {
                     text: slot.toUpperCase() + " : " + dataObject[dataKeys[i]].effect,
                 }).prepend($('<button/>', {
                     class: 'delete',
-                    text: '✘',
                     enchantData: dataKeys[i],
                     itemslot: slot
 
