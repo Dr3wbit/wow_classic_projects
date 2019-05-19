@@ -178,7 +178,8 @@ function saveSpec() {
 			let spec = document.location
 			let specName = prompt('What do you want to name this spec?')
 			if (specName) {
-				let specObject = { ...specData, [specName.toString()]: spec }
+				let newSpec = {[specName.toString()] : spec}
+				let specObject = Object.assign({}, specData, newSpec )
 				localStorage.setItem('savedSpecs', JSON.stringify(specObject));
 				updateSavedSpecs()
 			} else {
