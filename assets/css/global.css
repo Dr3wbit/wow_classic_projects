@@ -364,13 +364,22 @@ ul {
 }
 
 .delete {
+    height: 16px;
+    width: 16px;
     float: left;
-    font-size: 90%;
-    background-color: black;
     color: azure;
     border: none;
     cursor: pointer;
     margin-right: 4px;
+    background-image: url(../images/icons/reset.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    -webkit-filter: grayscale(60%);
+    -moz-filter: grayscale(60%);
+      -o-filter: grayscale(60%);
+     -ms-filter: grayscale(60%);
+         filter: grayscale(60%);
 }
 
 .delete:focus {
@@ -378,6 +387,9 @@ ul {
 }
 
 .delete:hover {
-    color: black;
-    background-color: red;
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+      -o-filter: grayscale(0%);
+     -ms-filter: grayscale(0%);
+         filter: grayscale(0%);
 }
