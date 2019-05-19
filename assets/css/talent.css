@@ -387,18 +387,6 @@
     background-image: url(../images/icons/unlock.gif);
 }
 
-.savedSpecs{
-    color: azure
-}
-
-.savedSpecsTitle {
-    font-size: 14px;
-    border: 2px solid black;
-    border-style: ridge;
-    color: azure;
-    background: #343a40;
-}
-
 #saveSpec{
     background-size: contain;
     background-image: url(../images/icons/save_icon.png);
@@ -420,7 +408,7 @@
 
 #talentHeader {
   height: 25px;
-  width: 95%;
+  width: 63.5%;
   margin-left: 5px;
   border: 2px solid black;
   /* border-radius: 5px; */
@@ -566,12 +554,103 @@ svg.icon:hover path{
 .specItem{
     margin-top: 4px;
     margin-bottom: 4px;
+    margin-left: 2px;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
     background-color: #343a40;
-    border: 2px black solid;
+    border: 1px black solid;
     text-align: left;
     user-select: none;
     cursor: pointer;
+    max-width: 186px;
+}
 
+.specItem:hover{
+    background-color: #6d6e70;
+}
+
+.specSelected{
+    background-color: #ff3604;
+}
+
+.specSelected:hover{
+    background-color: #ff3604;
+}
+
+.savedSpecsContainer{
+    padding: 5px;
+    padding-top: 0px;
+}
+
+.savedSpecsTitle {
+    font-size: 14px;
+    color: azure;
+    background: #1f2122;
+    border: 1px solid black;
+}
+
+.savedSpecs{
+    color: azure;
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 1px black solid;
+    padding-left: 10px;
+    min-height: 70vh;
+    max-height: 70vh;
+    overflow-y: scroll;
+    max-width: 230px;
+    min-width: 230px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    transform: translateX(-85%);
+    -webkit-transform: translateX(-85%);
+    animation: slide-in 1s forwards;
+    -webkit-animation: slide-in 1s forwards;
+}
+
+.savedSpecs::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.side-nav-trigger{
+    background-color: #1f2122;
+    max-width: 20px;
+    width: 20px;
+    padding: 0;
+    border: 1px black solid;
+    background-image: url(../images/icons/chevron.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position-y: 48%;
+    background-position-x: 50%;
+}
+.side-nav-trigger:hover{
+    background-color: #343a40;
+}
+
+.minimized{
+    animation: slide-out 1s forwards;
+    -webkit-animation: slide-out 1s forwards;
+}
+
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-85%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-85%); }
 }
