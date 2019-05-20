@@ -15,11 +15,12 @@
 .talent {
     width: 42px;
     height: 42px;
-    border: 2px solid rgb(23, 253, 23);
+    border: 1px solid rgb(23, 253, 23);
     border-style: ridge;
     border-radius: 5px;
-    background-size: contain;
-    z-index: 12;
+    background-size: 38px 38px;
+    background-position: left 1px top 1px;
+    background-repeat: no-repeat;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
