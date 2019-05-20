@@ -13,7 +13,7 @@
 
 
 .talent {
-    min-width: 42px;
+    width: 42px;
     height: 42px;
     border: 1px solid rgb(23, 253, 23);
     border-radius: 5px;
@@ -22,6 +22,7 @@
     border-style: ridge;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
+
 
 .talent:active:not(.grayed):not(.locked)  {
     /* transform: translateY(1px); */
@@ -97,7 +98,6 @@
     background-color: grey;
     background-size: 100% 100%;
     border: 2px solid black;
-    border-style: ridge;
     user-select: none;
 }
 
@@ -109,18 +109,16 @@
 .spentPoints {
     position: absolute;
     width: 22px;
-    height: 23px;
+    height: 22px;
     top: 29px;
     left: 30px;
-    padding-top: 3px;
-    padding-left: 1px;
+    padding-top: 2px;
     /* background-color: rgba(0,0,0, 0.6); */
     background-image: url(../images/icons/bubble2.png);
     background-repeat: no-repeat;
 
     color: rgb(23, 253, 23);
     text-align: center;
-    /* line-height: 14px; */
     pointer-events: none;
     user-select: none;
     z-index: 10;
@@ -408,11 +406,11 @@
 
 #talentHeader {
   height: 25px;
-  width: 63.5%;
   margin-left: 5px;
+  width:100%;
+  max-width: 718px;
   border: 2px solid black;
   /* border-radius: 5px; */
-  border-style: ridge;
   color: azure;
   background: #343a40;
   display: flex;
@@ -438,10 +436,7 @@
 
 @media only screen and (max-width: 992px) {
     #talentHeader {
-      width: 66%;
-      margin-left: 0px;
-      font-size: 14px;
-      left: 2px;
+      max-width: 477px;
     }
 
     #allottedTalentPoints {
@@ -466,11 +461,8 @@
 
 @media only screen and (max-width: 768px) {
   #talentHeader {
-    width: 88%;
-    left: 2px;
-    /* margin-left: 0px; */
-    font-size: 14px;
-
+      width: 477px;
+    max-width: 477px;
   }
 
   #allottedTalentPoints {
@@ -492,7 +484,8 @@
 
   #buttonCity {
     padding-left: 0px;
-    left: 160px;
+    min-width: 120px;
+    left: 140px;
   }
 }
 
