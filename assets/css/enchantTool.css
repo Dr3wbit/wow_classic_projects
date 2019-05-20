@@ -10,7 +10,7 @@
     background-image: url("../images/textured_background.png");
     background-size: cover;
     border-radius: 5px;
-    border: 2px #100007 solid;
+    border: 2px black solid;
     width: 100%
 }
 
