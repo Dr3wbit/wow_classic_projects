@@ -115,11 +115,29 @@ function calculateData() {
     materialArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
     let material = Object.keys(counts)
     for (let i = 0; i < material.length; i++) {
-        let totalMaterialCount = $('<div/>', {
+        console.log(material[i])
+        console.log(counts[material[i]])
+
+        let materialsContainer = $('<div/>', {
+            class: 'icon-small',
+            text: `${counts[material[i]]}`,
+
+            // src: "assets/images/icons/small/icon_border.png",
+            style: `background-image: url(assets/images/icons/small/materials/enchanting/${material[i]}.jpg); color: magenta;`,
+        }).append($('<span/>', {
+            text: material[i],
             class: 'totalMaterials',
-            text: material[i].replace(/_/g, " ") + ": " + counts[material[i]]
-        })
-        materialsToAppend.push(totalMaterialCount)
+            // text: 'count '+material[i].replace(/_/g, " ") + ": " + counts[material[i]]
+        }))
+
+        // .append('<div/>', {
+        //     text: `count ${counts[material[i]]}`,
+        //     // class: 'totalMaterials',
+        //     // text: 'count '+material[i].replace(/_/g, " ") + ": " + counts[material[i]]
+        // })
+        // materialsContainer = materialsContainer.wrapAll("<div class='new' />")
+
+        materialsToAppend.push(materialsContainer)
     }
     $('.results').append(materialsToAppend)
 }
