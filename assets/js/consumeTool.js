@@ -22,6 +22,7 @@ function initializeApp() {
 		// 	$('.consume-form').submit(getMaterials(selectedData))
 		// }
 	})
+	$("#warrior").click()
 }
 
 function stepValidator(n, step) {
