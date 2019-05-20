@@ -13,7 +13,7 @@
 
 
 .talent {
-    min-width: 42px;
+    width: 42px;
     height: 42px;
     border: 1px solid rgb(23, 253, 23);
     border-radius: 5px;
@@ -23,7 +23,6 @@
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-/* resolves issues with red shading, but applies scales and filter to arrows, spentPoints, and tooltip container */
 
 .talent-container:active:not(.grayed):not(.locked){
 
@@ -79,7 +78,6 @@
     background-color: grey;
     background-size: 100% 100%;
     border: 2px solid black;
-    border-style: ridge;
     user-select: none;
 }
 
@@ -91,18 +89,16 @@
 .spentPoints {
     position: absolute;
     width: 22px;
-    height: 23px;
+    height: 22px;
     top: 29px;
     left: 30px;
-    padding-top: 3px;
-    padding-left: 1px;
+    padding-top: 2px;
     /* background-color: rgba(0,0,0, 0.6); */
     background-image: url(../images/icons/small/bubble2.png);
     background-repeat: no-repeat;
 
     color: rgb(23, 253, 23);
     text-align: center;
-    /* line-height: 14px; */
     pointer-events: none;
     user-select: none;
     z-index: 10;
@@ -331,7 +327,6 @@
     top: 40px;
 }
 
-
 .class-filter.selected {
     color: inherit;
     border-top: 4px solid #ff3604;
@@ -350,22 +345,42 @@
   height: 18px;
   width: 16px;
   border: none;
+  margin-right: 4px;
+  vertical-align: text-bottom;
+  background-color: transparent;
 
 }
 
 .talentcalc-button#resetTalents {
     height: 16px;
     width: 16px;
+<<<<<<< HEAD
     background: url(../images/icons/small/reset.gif);
+=======
+    background-image: url(../images/icons/reset.gif);
+>>>>>>> dev
     background-repeat: no-repeat;
 }
 
 .talentcalc-button.lock {
+<<<<<<< HEAD
     background: url(../images/icons/small/lock.gif);
 }
 
 .talentcalc-button.unlock {
     background: url(../images/icons/small/unlock.gif);
+=======
+    background-image: url(../images/icons/lock.gif);
+}
+
+.talentcalc-button.unlock {
+    background-image: url(../images/icons/unlock.gif);
+}
+
+#saveSpec{
+    background-size: contain;
+    background-image: url(../images/icons/save_icon.png);
+>>>>>>> dev
 }
 
 #export {
@@ -374,8 +389,8 @@
 }
 
 #buttonCity {
-  /* padding-right: 0px; */
-  max-width: 20%;
+    vertical-align: text-bottom;
+    width: 100%;
 }
 
 #requiredLevel {
@@ -384,11 +399,11 @@
 
 #talentHeader {
   height: 25px;
-  width: 63%;
   margin-left: 5px;
+  width:100%;
+  max-width: 718px;
   border: 2px solid black;
   /* border-radius: 5px; */
-  border-style: ridge;
   color: azure;
   background: #343a40;
   display: flex;
@@ -414,10 +429,7 @@
 
 @media only screen and (max-width: 992px) {
     #talentHeader {
-      width: 66%;
-      margin-left: 0px;
-      font-size: 14px;
-      left: 2px;
+      max-width: 477px;
     }
 
     #allottedTalentPoints {
@@ -442,11 +454,8 @@
 
 @media only screen and (max-width: 768px) {
   #talentHeader {
-    width: 88%;
-    left: 2px;
-    /* margin-left: 0px; */
-    font-size: 14px;
-
+      width: 477px;
+    max-width: 477px;
   }
 
   #allottedTalentPoints {
@@ -468,7 +477,8 @@
 
   #buttonCity {
     padding-left: 0px;
-    left: 160px;
+    min-width: 120px;
+    left: 140px;
   }
 }
 
@@ -508,8 +518,7 @@
 
 svg.icon {
     vertical-align: text-bottom;
-    position: absolute;
-    left: 10px;
+    padding-top: 2px;
 }
 
 svg.icon path {
@@ -521,12 +530,114 @@ svg.icon:hover path{
 }
 
 #talentLock {
-    position: relative;
-    top: 1px;
+    margin-bottom: 1px;
 }
 
 #resetTalents {
-    position: relative;
-    right: 6px;
-    top: 1px;
+    margin-bottom: 1px;
+}
+
+.specItem{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: #343a40;
+    border: 1px black solid;
+    user-select: none;
+    cursor: pointer;
+    text-align: left;
+    max-width: 186px;
+}
+
+.specItem:hover{
+    background-color: #6d6e70;
+}
+
+.specSelected{
+    background-color: #ff3604;
+}
+
+.specSelected:hover{
+    background-color: #ff3604;
+}
+
+.savedSpecsContainer{
+    padding: 5px;
+    padding-top: 0px;
+}
+
+.savedSpecsTitle {
+    font-size: 14px;
+    color: azure;
+    background: #1f2122;
+    border: 1px solid black;
+    margin-left: 4px;
+}
+
+.savedSpecs{
+    color: azure;
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 1px black solid;
+    padding-left: 10px;
+    min-height: 70vh;
+    max-height: 70vh;
+    overflow-y: scroll;
+    max-width: 230px;
+    min-width: 230px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    transform: translateX(-85%);
+    -webkit-transform: translateX(-85%);
+    animation: slide-in 1s forwards;
+    -webkit-animation: slide-in 1s forwards;
+}
+
+.savedSpecs::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.side-nav-trigger{
+    background-color: #1f2122;
+    max-width: 20px;
+    width: 20px;
+    padding: 0;
+    border: 1px black solid;
+    background-image: url(../images/icons/chevron.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position-y: 48%;
+    background-position-x: 50%;
+}
+.side-nav-trigger:hover{
+    background-color: #343a40;
+}
+
+.minimized{
+    animation: slide-out 1s forwards;
+    -webkit-animation: slide-out 1s forwards;
+}
+
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-85%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-85%); }
 }

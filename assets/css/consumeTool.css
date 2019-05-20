@@ -58,25 +58,6 @@ input:focus {
     width: 195px;
 }
 
-.selected {
-    color: black !important;
-    background-color: azure;
-}
-
-
-
-@media only screen and (max-width: 600px) {
-
-
-
-
-    .selected {
-        color: black;
-        background-color: azure;
-    }
-
-  }
-
 .consumePrompt {
     background-color: #030001e1;
     font-size: 120%;
