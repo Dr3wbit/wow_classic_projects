@@ -197,3 +197,14 @@
     color: black;
     background-color: red;
 }
+
+.icon-small {
+    height: 22px;
+    width: 22px;
+    background-size: contain;
+}
+
+.totalMaterials {
+    color: black;
+    left: 4px;
+}
