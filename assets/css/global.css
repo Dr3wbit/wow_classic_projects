@@ -362,3 +362,34 @@ ul {
         /* transition: all .05s ease-in-out; */
 
 }
+
+.delete {
+    height: 18px;
+    width: 18px;
+    float: left;
+    color: azure;
+    border: none;
+    cursor: pointer;
+    margin-right: 6px;
+    background-image: url(../images/icons/reset.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    -webkit-filter: grayscale(60%);
+    -moz-filter: grayscale(60%);
+      -o-filter: grayscale(60%);
+     -ms-filter: grayscale(60%);
+         filter: grayscale(60%);
+}
+
+.delete:focus {
+    outline:0;
+}
+
+.delete:hover {
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+      -o-filter: grayscale(0%);
+     -ms-filter: grayscale(0%);
+         filter: grayscale(0%);
+}
