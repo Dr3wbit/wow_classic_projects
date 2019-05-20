@@ -97,7 +97,7 @@
     padding-top: 3px;
     padding-left: 1px;
     /* background-color: rgba(0,0,0, 0.6); */
-    background-image: url(../images/icons/bubble2.png);
+    background-image: url(../images/icons/small/bubble2.png);
     background-repeat: no-repeat;
 
     color: rgb(23, 253, 23);
@@ -356,16 +356,16 @@
 .talentcalc-button#resetTalents {
     height: 16px;
     width: 16px;
-    background: url(../images/icons/reset.gif);
+    background: url(../images/icons/small/reset.gif);
     background-repeat: no-repeat;
 }
 
 .talentcalc-button.lock {
-    background: url(../images/icons/lock.gif);
+    background: url(../images/icons/small/lock.gif);
 }
 
 .talentcalc-button.unlock {
-    background: url(../images/icons/unlock.gif);
+    background: url(../images/icons/small/unlock.gif);
 }
 
 #export {
@@ -485,7 +485,7 @@
 .resetTree {
     height: 16px;
     width: 16px;
-    background: url(../images/icons/reset.gif);
+    background: url(../images/icons/small/reset.gif);
     background-repeat: no-repeat;
     border: none;
     left: 35px;
