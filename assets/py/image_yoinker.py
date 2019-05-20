@@ -25,6 +25,7 @@ word_exceptions = ['of', 'the']
 
 def main():
     choice = input("image category:") or "materials"
+    image_size = input("image size (small / medium / large )") or 'small'
 
     if choice == "materials":
         BASE_URL = "https://classicdb.ch/?items"
@@ -131,8 +132,9 @@ def get_images(choice, BASE_URL):
                     materials_list_copy.remove(item)
                     continue
 
+                   
 
-                img_url = "https://classicdb.ch/images/icons/medium/"+icon_name+".jpg"
+                img_url = "https://classicdb.ch/images/icons/"image_size+"/"+icon_name+".jpg"
                 urllib.request.urlretrieve(img_url, full_path)
 
                 materials_list_copy.remove(item)
