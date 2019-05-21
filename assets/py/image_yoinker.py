@@ -11,6 +11,7 @@ prof_text = {'Fished':'fishing', 'Gathered':'herbalism', 'Mined':'mining',
             'Disenchanted':'enchanting', 'Skinned':'skinning'}
 
 other_text = {'Dropped': 'drop', 'Sold': 'vendor'}
+image_size = 'small'
 
 
 r1 = re.compile(r'spell=[\d]+?\/([\w\-]+)', re.M)
@@ -24,8 +25,10 @@ space_replacer = re.compile('\s')
 word_exceptions = ['of', 'the']
 
 def main():
-    choice = input("image category:") or "materials"
-    image_size = input("image size (small / medium / large )") or 'small'
+    # choice = input("image category:") or "materials"
+    choice = 'materials'
+    # image_size = input("image size (small / medium / large )") or 'small'
+    # image_size = 'small'
 
     if choice == "materials":
         BASE_URL = "https://classicdb.ch/?items"
@@ -121,7 +124,7 @@ def get_images(choice, BASE_URL):
                 icon_match = icon_re.search(icon.get_attribute("onclick"))
                 icon_name = icon_match.group(1)
 
-                folder_path = "../images/icons/materials/"+folder_name
+                folder_path = "../images/icons/small/materials/"+folder_name
 
                 full_path = folder_path+"/"+item+".jpg"
 
@@ -132,9 +135,9 @@ def get_images(choice, BASE_URL):
                     materials_list_copy.remove(item)
                     continue
 
-                   
 
-                img_url = "https://classicdb.ch/images/icons/"image_size+"/"+icon_name+".jpg"
+
+                img_url = "https://classicdb.ch/images/icons/"+image_size+"/"+icon_name+".jpg"
                 urllib.request.urlretrieve(img_url, full_path)
 
                 materials_list_copy.remove(item)
