@@ -3,6 +3,8 @@ var talentPointsSpent = {}
 var classData = {}
 const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a/b/c/d/e atm
 const re2 = /([a-z])\d/g
+const re3 = /(?:.* \[)(.+)(?:\] .)/
+
 const translationTable = {
 	00: 'a', 01: 'b', 02: 'c', 03: 'd', 04: 'e', 05: 'f',
 	10: 'g', 11: 'h', 12: 'i', 13: 'j', 14: 'k', 15: 'l',
@@ -10,6 +12,13 @@ const translationTable = {
 	30: 's', 31: 't', 32: 'u', 33: 'v', 34: 'w', 35: 'x',
 	40: 'y', 41: 'z', 42: 'A', 43: 'B', 44: 'C', 45: 'D',
 	50: 'E', 51: 'F', 52: 'G', 53: 'H', 54: 'I', 55: 'J', 07: 'Y', 08: 'Z'
+}
+
+function TalentSpec(url, className, name, points) {
+	this.url = url
+	this.className = className
+	this.name = name
+	this.points = points
 }
 
 const reversedTable = {}
@@ -91,8 +100,32 @@ function applyClickHandlers() {
 	resetHandler()
 	lockSpec()
 	resetTree()
+	getSpecName()
 	saveSpec()
 	sideNav()
+	specChoiceRadios()
+}
+
+function specChoiceRadios(){
+	$("#specNameChoice").on({
+		change: e => {
+			console.log($(e.target))
+
+			let choice = $('input[name=nameChoice]:checked').val()
+			console.log(choice)
+
+			if (choice=='current') {
+				$("#specName").val($('div.specItem.specSelected').text())
+				$("#specName").addClass('disabled')
+			} else {
+				$("#specName").removeClass('disabled')
+				$("#specName").val(' ')
+			}
+			// if (){
+			//
+			// }
+		}
+	})
 }
 
 function exportSpec() {
@@ -168,24 +201,69 @@ function resetTree() {
 	})
 }
 
-function saveSpec() {
+function saveSpec(){
 	$('#saveSpec').on({
-		click: e => {
+
+		submit: e=> {
 			e.preventDefault()
+			console.log('saveSpec')
 			let specData = checkForSavedSpecs()
-			let spec = document.location
-			let specName = prompt('What do you want to name this spec?')
+			console.log('specData: ', specData)
+			let specURL = document.location
+
+			let specName = $("#specName").val()
+
 			if (specName) {
-				let newSpec = {[specName.toString()] : spec}
-				let specObject = Object.assign({}, specData, newSpec )
+
+				let treeNames = talentPointsSpent.treeNames
+				// console.log('specData: ', specData)
+				let mySpec = new TalentSpec(specURL, talentPointsSpent.className,specName.toString(), [talentPointsSpent[treeNames[0]].total(), talentPointsSpent[treeNames[1]].total(), talentPointsSpent[treeNames[2]].total()])
+				let name = mySpec.name
+				let newSpec = {[name.toString()]: mySpec}
+				let specObject = Object.assign({}, specData, newSpec)
+				console.log('specObject: ', specObject)
+
 				localStorage.setItem('savedSpecs', JSON.stringify(specObject));
 				updateSavedSpecs()
+				let currentSelectedSpec = $("div.specItem.specSelected")
+
+				if (!($(`div.specItem[name='${name}']`) == currentSelectedSpec)){
+					currentSelectedSpec.removeClass('specSelected')
+					$(`div.specItem[name='${name}']`).addClass('specSelected')
+				}
+				// $(`div.specItem[name='${name}']`).addClass('specSelected')
 			} else {
-				alert('Spec not saved, you must provide a unique name')
+				// alert('Spec not saved, you must provide a unique name')
 			}
+			$("#specSaverPrompt").modal('hide')
+
 		}
 	})
 }
+
+function getSpecName() {
+	$('#getSpecName').on({
+		click: e => {
+			e.preventDefault()
+
+			// console.log(talentPointsSpent)
+			if (talentPointsSpent.grandTotal() == 0){
+				alert('Unable to save empty spec')
+				return
+			}
+
+			if ($("#talentLock").hasClass('unlock')) {
+				$("#talentLock").trigger("click")
+			}
+			console.log('test')
+
+			$("#specSaverPrompt").modal('show')
+
+		}
+	})
+}
+
+
 
 function checkForSavedSpecs() {
 	let existingSpecs = localStorage.getItem('savedSpecs');
@@ -201,17 +279,50 @@ function updateSavedSpecs() {
 	let existingSpecs = checkForSavedSpecs()
 	if (existingSpecs) {
 		specList = Object.entries(existingSpecs)
-		for (const [name, spec] of specList) {
+		// console.log('specList: ', specList)
+		for (const [name,item] of specList) {
+			// console.log(item)
 			let specItem = $('<div/>', {
 				class: 'specItem',
-				text: name,
-				href: spec.href
+				text: item.name +` [${item.className}] (${item.points[0]}/${item.points[1]}/${item.points[2]})`,
+				href: item.url.href,
+				name: item.name,
 			})
 				.on('click', (e) => {
-					$('.specItem').removeClass('specSelected')
-					$(e.target).addClass('specSelected')
-					// Pass spec.href to where we need to go
-					console.log('Spec : ', spec.href)
+					if ($(e.target).hasClass('specSelected')) {
+
+						// should attempt to update spec here, maybe popup asking if want to update spec
+
+						console.log('already selected')
+						return false
+					} else {
+						$('.specItem').removeClass('specSelected')
+						$(e.target).addClass('specSelected')
+
+
+						resetAll()
+
+						let myURL = new URL(item.url.href)
+						let params = myURL.searchParams
+						let hasClass = params.has('class')
+						// console.log("myURL: ", myURL)
+						let hash = myURL.hash
+
+						history.replaceState(null, null, myURL)
+						if (hasClass && hash) {
+
+							let cl = params.get('class')
+							talentPointsSpent = {}
+							classData = {}
+							buildClassData(null, cl, myURL.hash, false)
+						}
+
+						// console.log("hasClass: ", hasClass)
+						// console.log("params: ", params)
+						// console.log("cl: ", cl)
+					}
+
+
 				})
 				.prepend($('<button/>', {
 					class: 'delete',
@@ -223,7 +334,7 @@ function updateSavedSpecs() {
 		}
 	}
 	 let checkIfEmpty = $('.specList').children()
-	 console.log(checkIfEmpty)
+	 // console.log(checkIfEmpty)
 	if (checkIfEmpty.length === 0){
 		$('.specList').text('To save a spec, fill out your talents then click the save icon (top right of calculator) and give your spec a name. We use cookies to save your specs on this page so aslong as you dont clear cookies on us, your specs will be here forever!')
 	}
@@ -273,8 +384,22 @@ function classSelectionHandler() {
 
 	$('.class-filter').on({
 		click: e => {
+
 			console.log('class selection')
 			buildClassData(e, '', '', true)
+			if ($('div.specItem.specSelected')){
+				let savedSpecClassText = $('div.specItem.specSelected').text()
+				let matched = savedSpecClassText.match(re3)
+				if (matched){
+					let className = matched[1]
+
+					if (!(className == talentPointsSpent.className)){
+						let selectedSpec = $('div.specItem.specSelected')
+						selectedSpec.removeClass('specSelected')
+						// $('div.specItem.specSelected').removeClass('specSelected')
+					}
+				}
+			}
 		},
 	})
 }
@@ -284,9 +409,8 @@ function lockSpec() {
 		click: e => {
 
 			let url = new URL(document.location)
-			let params = url.searchParams
 			let lockButton = $("#talentLock")
-
+			let params = url.searchParams
 
 			if ($("#talentLock").hasClass('lock')) {
 				console.log('hard unlocking')
@@ -332,14 +456,14 @@ function resetHandler() {
 function resetAll() {
 
 	let className = $('.class-filter.selected')[0].id
-	let treeNames = []
+	let treeNames = talentPointsSpent.treeNames
 
 	talentPointsSpent.hardLocked = false
 	talentPointsSpent.softLocked = false
 
-	classData.trees.forEach(function (item) {
-		treeNames.push(item.name)
-	})
+	// classData.trees.forEach(function (item) {
+	// 	treeNames.push(item.name)
+	// })
 	treeNames.forEach(function (tree) {
 		resetTalentTree(tree)
 	})
@@ -375,7 +499,6 @@ function resetTalentTree(tree, e) {
 		talentPointsSpent[tree].vals[i] = 0
 	})
 
-
 	if (talentPointsSpent.grandTotal() < 51) {
 		talentPointsSpent.softLocked = false
 	}
@@ -398,8 +521,6 @@ function resetTalentTree(tree, e) {
 
 	talentLocker(tree)
 	talentUnlocker(tree)
-	console.log("talentPointsSpent.hardLocked: ", talentPointsSpent.hardLocked)
-	console.log("talentPointsSpent.softLocked: ", talentPointsSpent.softLocked)
 
 	if ((talentPointsSpent.hardLocked) || (talentPointsSpent.softLocked)) {
 		talentLocker()
@@ -415,14 +536,23 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 	let className = cl
 	let url = new URL(document.location)
 	let params = url.searchParams
+	// console.log(classData)
+	console.log("classData: ", classData)
+	console.log("talentPointsSpent: ", talentPointsSpent)
 	classData = {}
+	talentPointsSpent = {}
+
+	console.log("classData: ", classData)
+	console.log("talentPointsSpent: ", talentPointsSpent)
+
 
 	if (cl) {
+		$('.class-filter').removeClass('selected')
 		$(`#${className}`).addClass('selected')
 		params.set('class', className)
 		history.replaceState(null, className, url)
-
 	}
+
 	else {
 		if ($('.class-filter.selected') == $(e.target)) {
 			return
@@ -437,7 +567,6 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 		params.delete('L')
 		url.hash = '#'
 		history.replaceState(null, className, url)
-		talentPointsSpent = {}
 	}
 
 	const selectedClass = talentData.classes.find(function (a) {
@@ -465,6 +594,11 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 	talentPointsSpent.grandTotal = function () {
 		return (this[treeNames[0]].total() + this[treeNames[1]].total() + this[treeNames[2]].total())
 	}
+
+	// for convenience
+	talentPointsSpent.treeNames = treeNames
+	talentPointsSpent.className = className
+
 	talentPointsSpent.hardLocked = false
 	talentPointsSpent.softLocked = false
 
@@ -484,7 +618,11 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 		try {
 			preBuiltSpec(expanded)
 			if (params.has('L')) {
-				$("#talentLock").trigger("click")
+				console.log('params has L')
+
+				if (!$("#talentLock").hasClass('lock')) {
+					$("#talentLock").trigger("click")
+				}
 			}
 		} catch (error) {
 			console.log("While building spec using hash, the following exception occurred:\n", error)
@@ -966,9 +1104,7 @@ function talentLocker(tree = '') {
 
 	let treeNames = []
 	if (!tree) { // defaults to all trees
-		classData.trees.forEach(function (item) {
-			treeNames.push(item.name)
-		})
+		treeNames = talentPointsSpent.treeNames
 	} else {
 		treeNames.push(tree)
 	}
@@ -1005,9 +1141,7 @@ function talentLocker(tree = '') {
 function talentUnlocker(tree = '') {
 	let treeNames = []
 	if (!tree) { // defaults to all trees
-		classData.trees.forEach(function (item) {
-			treeNames.push(item.name)
-		})
+		treeNames = talentPointsSpent.treeNames
 	} else {
 		treeNames.push(tree)
 	}
