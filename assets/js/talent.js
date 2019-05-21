@@ -220,7 +220,7 @@ function updateSavedSpecs() {
 					removeSavedSpec(name, existingSpecs)
 				}))
 			$('.specList').append(specItem)
-		} 
+		}
 	}
 	 let checkIfEmpty = $('.specList').children()
 	 console.log(checkIfEmpty)
@@ -301,8 +301,6 @@ function lockSpec() {
 				if (talentPointsSpent.softLocked) {
 					talentLocker()
 				}
-
-
 			}
 			else if ($("#talentLock").hasClass('unlock')) {
 				console.log('hard locking')
