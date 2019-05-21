@@ -91,8 +91,32 @@ function applyClickHandlers() {
 	resetHandler()
 	lockSpec()
 	resetTree()
+	getSpecName()
 	saveSpec()
 	sideNav()
+	specChoiceRadios()
+}
+
+function specChoiceRadios(){
+	$("#specNameChoice").on({
+		change: e => {
+			console.log($(e.target))
+
+			let choice = $('input[name=nameChoice]:checked').val()
+			console.log(choice)
+
+			if (choice=='current') {
+				$("#specName").val($('div.specItem.specSelected').text())
+				$("#specName").addClass('disabled')
+			} else {
+				$("#specName").removeClass('disabled')
+				$("#specName").val(' ')
+			}
+			// if (){
+			//
+			// }
+		}
+	})
 }
 
 function exportSpec() {
@@ -168,24 +192,67 @@ function resetTree() {
 	})
 }
 
-function saveSpec() {
+function saveSpec(){
 	$('#saveSpec').on({
-		click: e => {
+
+		submit: e=> {
 			e.preventDefault()
+			console.log('saveSpec')
 			let specData = checkForSavedSpecs()
 			let spec = document.location
-			let specName = prompt('What do you want to name this spec?')
+			console.log('spec: ', spec)
+
+
+			let specName = $("#specName").val()
+
 			if (specName) {
+
 				let newSpec = {[specName.toString()] : spec}
 				let specObject = Object.assign({}, specData, newSpec )
+				console.log('specObject: ', specObject)
+
 				localStorage.setItem('savedSpecs', JSON.stringify(specObject));
 				updateSavedSpecs()
 			} else {
-				alert('Spec not saved, you must provide a unique name')
+				// alert('Spec not saved, you must provide a unique name')
 			}
+			$("#specSaverPrompt").modal('hide')
 		}
 	})
 }
+
+function getSpecName() {
+	$('#getSpecName').on({
+		click: e => {
+			e.preventDefault()
+
+			// console.log(talentPointsSpent)
+			if (talentPointsSpent.grandTotal() == 0){
+				alert('Unable to save empty spec')
+				return
+			}
+
+			if ($("#talentLock").hasClass('unlock')) {
+				$("#talentLock").trigger("click")
+			}
+			console.log('test')
+
+			$("#specSaverPrompt").modal('show')
+			// let specName = prompt('What do you want to name this spec?')
+
+			// if (specName) {
+			// 	let newSpec = {[specName.toString()] : spec}
+			// 	let specObject = Object.assign({}, specData, newSpec )
+			// 	localStorage.setItem('savedSpecs', JSON.stringify(specObject));
+			// 	updateSavedSpecs()
+			// } else {
+			// 	alert('Spec not saved, you must provide a unique name')
+			// }
+		}
+	})
+}
+
+
 
 function checkForSavedSpecs() {
 	let existingSpecs = localStorage.getItem('savedSpecs');
@@ -208,10 +275,40 @@ function updateSavedSpecs() {
 				href: spec.href
 			})
 				.on('click', (e) => {
-					$('.specItem').removeClass('specSelected')
-					$(e.target).addClass('specSelected')
-					// Pass spec.href to where we need to go
-					console.log('Spec : ', spec.href)
+					if ($(e.target).hasClass('specSelected')) {
+
+						// should attempt to update spec here, maybe popup asking if want to update spec
+
+						console.log('already selected')
+						return false
+					} else {
+						$('.specItem').removeClass('specSelected')
+						$(e.target).addClass('specSelected')
+
+
+						resetAll()
+
+						let myURL = new URL(spec.href)
+						let params = myURL.searchParams
+						let hasClass = params.has('class')
+						// console.log("myURL: ", myURL)
+						let hash = myURL.hash
+
+						history.replaceState(null, null, myURL)
+						if (hasClass && hash) {
+
+							let cl = params.get('class')
+							talentPointsSpent = {}
+							classData = {}
+							buildClassData(null, cl, myURL.hash, false)
+						}
+
+						// console.log("hasClass: ", hasClass)
+						// console.log("params: ", params)
+						// console.log("cl: ", cl)
+					}
+
+
 				})
 				.prepend($('<button/>', {
 					class: 'delete',
@@ -223,7 +320,7 @@ function updateSavedSpecs() {
 		}
 	}
 	 let checkIfEmpty = $('.specList').children()
-	 console.log(checkIfEmpty)
+	 // console.log(checkIfEmpty)
 	if (checkIfEmpty.length === 0){
 		$('.specList').text('To save a spec, fill out your talents then click the save icon (top right of calculator) and give your spec a name. We use cookies to save your specs on this page so aslong as you dont clear cookies on us, your specs will be here forever!')
 	}
@@ -284,9 +381,8 @@ function lockSpec() {
 		click: e => {
 
 			let url = new URL(document.location)
-			let params = url.searchParams
 			let lockButton = $("#talentLock")
-
+			let params = url.searchParams
 
 			if ($("#talentLock").hasClass('lock')) {
 				console.log('hard unlocking')
@@ -375,7 +471,6 @@ function resetTalentTree(tree, e) {
 		talentPointsSpent[tree].vals[i] = 0
 	})
 
-
 	if (talentPointsSpent.grandTotal() < 51) {
 		talentPointsSpent.softLocked = false
 	}
@@ -415,14 +510,23 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 	let className = cl
 	let url = new URL(document.location)
 	let params = url.searchParams
+	// console.log(classData)
+	console.log("classData: ", classData)
+	console.log("talentPointsSpent: ", talentPointsSpent)
 	classData = {}
+	talentPointsSpent = {}
+
+	console.log("classData: ", classData)
+	console.log("talentPointsSpent: ", talentPointsSpent)
+
 
 	if (cl) {
+		$('.class-filter').removeClass('selected')
 		$(`#${className}`).addClass('selected')
 		params.set('class', className)
 		history.replaceState(null, className, url)
-
 	}
+
 	else {
 		if ($('.class-filter.selected') == $(e.target)) {
 			return
@@ -484,7 +588,11 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 		try {
 			preBuiltSpec(expanded)
 			if (params.has('L')) {
-				$("#talentLock").trigger("click")
+				console.log('params has L')
+
+				if (!$("#talentLock").hasClass('lock')) {
+					$("#talentLock").trigger("click")
+				}
 			}
 		} catch (error) {
 			console.log("While building spec using hash, the following exception occurred:\n", error)
