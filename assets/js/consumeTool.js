@@ -6,7 +6,7 @@ $(document).ready(initializeApp)
 function initializeApp() {
 	$(".consume-form").submit(function(e) {
 		e.preventDefault()
-		
+
 	});
 	applyClickHandlers();
 	$(".consume-form").on({
@@ -14,7 +14,7 @@ function initializeApp() {
 			// console.log("this: ", $( e.target ) )
 			$('.consume-form').submit(getMaterials(selectedData))
 		},
-		blue: (e) => {
+		blur: (e) => {
 			$('.consume-form').submit(getMaterials(selectedData))
 		},
 		// 'keyup': (e) => {
