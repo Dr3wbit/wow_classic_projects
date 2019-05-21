@@ -354,33 +354,24 @@
 .talentcalc-button#resetTalents {
     height: 16px;
     width: 16px;
-<<<<<<< HEAD
-    background: url(../images/icons/small/reset.gif);
-=======
-    background-image: url(../images/icons/reset.gif);
->>>>>>> dev
+    /* background: url(../images/icons/small/reset.gif); */
+    background-image: url(../images/icons/small/reset.gif);
     background-repeat: no-repeat;
 }
 
 .talentcalc-button.lock {
-<<<<<<< HEAD
     background: url(../images/icons/small/lock.gif);
 }
 
 .talentcalc-button.unlock {
-    background: url(../images/icons/small/unlock.gif);
-=======
-    background-image: url(../images/icons/lock.gif);
+    /* background: url(../images/icons/small/unlock.gif); */
+    background-image: url(../images/icons/small/unlock.gif);
 }
 
-.talentcalc-button.unlock {
-    background-image: url(../images/icons/unlock.gif);
-}
 
 #saveSpec{
     background-size: contain;
     background-image: url(../images/icons/save_icon.png);
->>>>>>> dev
 }
 
 #export {
