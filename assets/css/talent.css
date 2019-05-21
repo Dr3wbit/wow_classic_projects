@@ -361,7 +361,7 @@
 }
 
 
-#saveSpec{
+#getSpecName{
     background-size: contain;
     background-image: url(../images/icons/save_icon.png);
 }
@@ -623,4 +623,9 @@ svg.icon:hover path{
 @-webkit-keyframes slide-out {
     0% { -webkit-transform: translateX(0%); }
     100% { -webkit-transform: translateX(-85%); }
+}
+
+.form-check-label {
+    position: relative;
+    right: 5px;
 }
