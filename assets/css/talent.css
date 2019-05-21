@@ -624,3 +624,8 @@ svg.icon:hover path{
     0% { -webkit-transform: translateX(0%); }
     100% { -webkit-transform: translateX(-85%); }
 }
+
+.form-check-label {
+    position: relative;
+    right: 5px;
+}
