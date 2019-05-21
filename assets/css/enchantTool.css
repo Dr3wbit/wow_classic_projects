@@ -180,24 +180,6 @@
 }
 
 
-.delete {
-    float: left;
-    font-size: 90%;
-    background-color: black;
-    color: azure;
-    border: none;
-    cursor: pointer;
-}
-
-.delete:focus {
-    outline:0;
-}
-
-.delete:hover {
-    color: black;
-    background-color: red;
-}
-
 .icon-small {
     color: azure;
     height: 22px;
