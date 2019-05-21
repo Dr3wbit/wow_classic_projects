@@ -12,6 +12,16 @@ const translationTable = {
 	50: 'E', 51: 'F', 52: 'G', 53: 'H', 54: 'I', 55: 'J', 07: 'Y', 08: 'Z'
 }
 
+function TalentSpec(url, className, name, points) {
+	this.url = url
+	this.className = className
+	this.name = name
+	this.pts = points
+	this.points = function() {
+		return `(${this.pts[0]}/${this.pts[1]}/${this.pts[2]})`
+	}
+}
+
 const reversedTable = {}
 
 Object.values(translationTable).forEach(function (item, index) {
@@ -199,16 +209,19 @@ function saveSpec(){
 			e.preventDefault()
 			console.log('saveSpec')
 			let specData = checkForSavedSpecs()
-			let spec = document.location
-			console.log('spec: ', spec)
-
+			console.log('specData: ', specData)
+			let specURL = document.location
 
 			let specName = $("#specName").val()
 
 			if (specName) {
 
-				let newSpec = {[specName.toString()] : spec}
-				let specObject = Object.assign({}, specData, newSpec )
+				let treeNames = talentPointsSpent.treeNames
+				// console.log('specData: ', specData)
+				let mySpec = new TalentSpec(specURL, talentPointsSpent.className,specName.toString(), [talentPointsSpent[treeNames[0]].total(), talentPointsSpent[treeNames[1]].total(), talentPointsSpent[treeNames[2]].total()])
+				let name = mySpec.name
+				let newSpec = {mySpec}
+				let specObject = Object.assign({}, specData, newSpec)
 				console.log('specObject: ', specObject)
 
 				localStorage.setItem('savedSpecs', JSON.stringify(specObject));
@@ -268,11 +281,16 @@ function updateSavedSpecs() {
 	let existingSpecs = checkForSavedSpecs()
 	if (existingSpecs) {
 		specList = Object.entries(existingSpecs)
-		for (const [name, spec] of specList) {
+		console.log('specList: ', specList)
+		// for (const [url, className, ]) {
+		//
+		// }
+		for (const [name,item] of specList) {
+			console.log(item)
 			let specItem = $('<div/>', {
 				class: 'specItem',
-				text: name,
-				href: spec.href
+				text: item.name +` [${item.className}] (${item.pts[0]}/${item.pts[1]}/${item.pts[2]})`,
+				href: item.url.href
 			})
 				.on('click', (e) => {
 					if ($(e.target).hasClass('specSelected')) {
@@ -288,7 +306,7 @@ function updateSavedSpecs() {
 
 						resetAll()
 
-						let myURL = new URL(spec.href)
+						let myURL = new URL(item.url.href)
 						let params = myURL.searchParams
 						let hasClass = params.has('class')
 						// console.log("myURL: ", myURL)
@@ -541,7 +559,6 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 		params.delete('L')
 		url.hash = '#'
 		history.replaceState(null, className, url)
-		talentPointsSpent = {}
 	}
 
 	const selectedClass = talentData.classes.find(function (a) {
@@ -569,6 +586,11 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 	talentPointsSpent.grandTotal = function () {
 		return (this[treeNames[0]].total() + this[treeNames[1]].total() + this[treeNames[2]].total())
 	}
+
+	// for convenience
+	talentPointsSpent.treeNames = treeNames
+	talentPointsSpent.className = className
+
 	talentPointsSpent.hardLocked = false
 	talentPointsSpent.softLocked = false
 
