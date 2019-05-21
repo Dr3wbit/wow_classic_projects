@@ -11,18 +11,17 @@
     position: relative;
 }
 
-
 .talent {
     width: 42px;
     height: 42px;
     border: 1px solid rgb(23, 253, 23);
-    border-radius: 5px;
-    background-size: contain;
-    z-index: 12;
     border-style: ridge;
+    border-radius: 5px;
+    background-size: 38px 38px;
+    background-position: left 1px top 1px;
+    background-repeat: no-repeat;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
-
 
 .talent-container:active:not(.grayed):not(.locked){
 
@@ -34,18 +33,13 @@
             filter: saturate(120%);
 }
 
-
-
-
 .talent.locked, .talent.grayed {
     border-color: rgb(22, 22, 22);
 }
 
-
 .max {
   border-color: rgb(231, 186, 0);
   color: rgb(231, 186, 0);
-
 }
 
 .talent:hover {
@@ -53,12 +47,10 @@
   box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
               inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
               inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
-
   -moz-transition: all 0.1s ease-in;
   -o-transition: all 0.1s ease-in;
   -webkit-transition: all 0.1s ease-in;
-  transition: all 0.1s ease-in;
-
+  transition: all 0.05s ease-in;
   /* border-style: groove; */
 }
 
