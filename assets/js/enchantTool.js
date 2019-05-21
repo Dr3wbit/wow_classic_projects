@@ -123,7 +123,7 @@ function calculateData() {
             text: `${counts[material[i]]}`,
 
             // src: "assets/images/icons/small/icon_border.png",
-            style: `background-image: url(assets/images/icons/small/materials/enchanting/${material[i]}.jpg); color: magenta;`,
+            style: `background-image: url(assets/images/icons/small/materials/enchanting/${material[i]}.jpg);`,
         }).append($('<span/>', {
             text: material[i],
             class: 'totalMaterials',
