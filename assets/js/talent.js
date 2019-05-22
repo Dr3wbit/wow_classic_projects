@@ -5,6 +5,7 @@ const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a/b/c/d/
 const re2 = /([a-z])\d/g
 const re3 = /(?:.* \[)(.+)(?:\] .)/
 
+
 const translationTable = {
 	00: 'a', 01: 'b', 02: 'c', 03: 'd', 04: 'e', 05: 'f',
 	10: 'g', 11: 'h', 12: 'i', 13: 'j', 14: 'k', 15: 'l',
@@ -104,23 +105,69 @@ function applyClickHandlers() {
 	saveSpec()
 	sideNav()
 	specChoiceRadios()
+	specNameValidator()
+	addClassName()
+	addAllottedPoints()
+}
+
+function addAllottedPoints(){
+	$("#addAllottedPoints").on({
+		change: e => {
+			console.log('to be added...')
+		}
+	})
+}
+
+function addClassName(){
+	$("#addClassName").on({
+		change: e => {
+			const classRemoveRE = /^([\w.-]{2,18})/
+			const classRemoveRE2 = / \[\w+\]/
+			if ($("#addClassName:checked").length) {
+				let proposedSpecName = $("#specName").val()
+				$("#specName").val(proposedSpecName+` [${talentPointsSpent.className}]`)
+			} else {
+				let proposedSpecName = $("#specName").val()
+				
+				let newName = proposedSpecName.replace(classRemoveRE2, '')
+
+				$("#specName").val(newName)
+
+				// let matched = proposedSpecName.search(classRemoveRE)
+			}
+		}
+	})
 }
 
 function specChoiceRadios(){
 	$("#specNameChoice").on({
 		change: e => {
-			console.log($(e.target))
+			// console.log($(e.target))
 
-			let choice = $('input[name=nameChoice]:checked').val()
-			console.log(choice)
+
+			let choice = $("input[name='nameChoice']:checked").val()
 
 			if (choice=='current') {
-				$("#specName").val($('div.specItem.specSelected').text())
+				let savedSpecClassText = $('div.specItem.specSelected').text()
+				let matched = savedSpecClassText.match(re3)[1]
+
+				$("#specName").val(matched)
 				$("#specName").addClass('disabled')
 			} else {
 				$("#specName").removeClass('disabled')
-				$("#specName").val(' ')
+				$("#specName").val('')
 			}
+			//
+			// if (choice) {
+			// 	if (choice=='current') {
+			// 		$("#specName").val($('div.specItem.specSelected').text())
+			// 		$("#specName").addClass('disabled')
+			// 	} else {
+			// 		$("#specName").removeClass('disabled')
+			// 		$("#specName").val('')
+			// 	}
+			// }
+
 			// if (){
 			//
 			// }
@@ -137,7 +184,14 @@ function exportSpec() {
 				$("#talentLock").trigger("click")
 			}
 			let url = new URL(document.location)
-			$('#export').popover({ content: url.toString(), title: "Copied!", container: "#export" })
+			$('#export').popover({
+				content: url.toString(),
+				title: "Copied!",
+				container: "#export",
+				template: '<div class="popover customPopover bg-dark text-white" role="tooltip"><div class="arrow text-white"></div><h3 class="popover-header bg-dark text-white"></h3><div class="popover-body bg-dark text-white"></div></div>'
+			})
+
+			// template: '<div class="popover bg-dark text-white" role="tooltip"><div class="arrow bg-dark text-white"></div><h3 class="popover-header bg-dark text-white"></h3><div class="popover-body bg-dark text-white"></div></div>'
 
 
 			// not all browsers support navigator.clipboard.writeText()
@@ -167,24 +221,7 @@ function exportSpec() {
 		'hidden.bs.popover': e => {
 			$('#export').popover('enable')
 		},
-
-
 	})
-
-	// mouseenter: e => {
-	// 	const exportButton = $( e.target )
-	// 	let path = exportButton.find("path")
-	// 	console.log(exportButton.find("path"))
-	// 	path.attr("style", "fill:#3d7e9a;")
-	//
-	// },
-	//
-	// mouseleave: e => {
-	// 	const exportButton = $( e.target )
-	// 	let path = exportButton.find("path")
-	// 	path.attr("style", "fill:#ffc000;")
-	//
-	// },
 
 }
 
@@ -197,6 +234,36 @@ function resetTree() {
 			let treeName = $(e.target)[0].id
 			resetTalentTree(treeName.slice(5, treeName.length), e)
 			// console.log(treeName)
+		}
+	})
+}
+
+function specNameValidator(){
+	$("#specName").on({
+		keyup: e=> {
+			const validNameRE = /^([\w.-]{2,18})$/
+			let test = true
+			let proposedSpecName = $("#specName").val()
+			let matched = proposedSpecName.match(validNameRE)
+			console.log('matched: ', matched)
+			console.log('proposedSpecName: ', proposedSpecName)
+
+			if (!matched) {
+				$("#specNameValidation").addClass('invalid-feedback')
+				$("#specNameValidation").text('Username must be 8-30 characters (A-Z0-9_- )')
+				$("#confirmSpecName").addClass('disabled')
+				$("#saveSpec").unbind("submit")
+				$("#saveSpec").bind("submit", function(e) {
+					e.preventDefault()
+					return false
+				})
+
+			} else {
+				// $("#specNameValidation").attr('style', 'display: none;')
+				$("#specNameValidation").text('')
+				$("#confirmSpecName").removeClass('disabled')
+				$("#saveSpec").bind("submit", saveSpec())
+			}
 		}
 	})
 }
@@ -255,7 +322,13 @@ function getSpecName() {
 			if ($("#talentLock").hasClass('unlock')) {
 				$("#talentLock").trigger("click")
 			}
-			console.log('test')
+
+			let currentSelectedSpec = $("div.specItem.specSelected")
+			if (currentSelectedSpec.length) {
+				$("#useCurrentSpec").removeClass('disabled')
+			} else {
+				$("#useCurrentSpec").addClass('disabled')
+			}
 
 			$("#specSaverPrompt").modal('show')
 
@@ -332,8 +405,11 @@ function updateSavedSpecs() {
 				}))
 			$('.specList').append(specItem)
 		}
+	} else {
+		localStorage.clear()
 	}
-	 let checkIfEmpty = $('.specList').children()
+
+	let checkIfEmpty = $('.specList').children()
 	 // console.log(checkIfEmpty)
 	if (checkIfEmpty.length === 0){
 		$('.specList').text('To save a spec, fill out your talents then click the save icon (top right of calculator) and give your spec a name. We use cookies to save your specs on this page so aslong as you dont clear cookies on us, your specs will be here forever!')
