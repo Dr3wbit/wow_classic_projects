@@ -8,11 +8,7 @@ function initializeApp() {
 	//sticky nav color change
 	$(window).scroll(() => {
 		if ($(document).scrollTop() > 88.2) {
-			$('.class-selection').addClass('nav-is-sticky');
 			$('.content-selection-container').css('top', '130px')
-
-		} else {
-			$('.class-selection').removeClass('nav-is-sticky');
 		}
 		});
 }

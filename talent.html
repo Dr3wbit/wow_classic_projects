@@ -43,8 +43,10 @@
 
 <body>
     <div id="nav-container" class="container"></div>
-    <div class="container">
-        <div class="page-title">Talent Calculator</div>
+    <div class="container titleSplash">
+        <div class="page-title">Talent Calculator
+            <div class="p-3 page-description">A Classic World of Warcraft talent calculator, complete with the ability to save your specs so you can reference them ant anytime!</div>
+        </div>
     </div>
     <div class="savedSpecs row">
         <div class="col savedSpecsContainer">
@@ -58,7 +60,7 @@
     </div>
     <div class="container mainBody">
 
-        <div class="row class-selection pt-3" id="class_selection">
+        <div class="row class-selection pt-1 nav-is-sticky" id="class_selection">
             <div class="class-filter class-icon" id="warrior">Warrior</div>
             <div class="class-filter class-icon" id="mage">Mage</div>
             <div class="class-filter class-icon" id="druid">Druid</div>
@@ -91,14 +93,13 @@
         </div>
         <div class="row justify-content-center" id="talentCalc" align="center"></div>
     </div>
-    <div class="container">
-        <div class="row">
-            <footer class="footer">
-                <span class="text-muted">&copy Ony Buff 2019</span>
-            </footer>
-        </div>
-    </div>
+
+    <footer class="footer">
+        <span class="text-muted">&copy Ony Buff 2019</span>
+    </footer>
+
 </body>
+
 <script id="handlebars-demo2" type="text/x-handlebars-template">
 
     {{#each trees as |tree treeKey|}}
@@ -169,17 +170,13 @@
               <div class="form-check">
                   <input class="form-check-input" type="radio" name="nameChoice" id="createNewSpec" value="new" checked>
                   <label class="form-check-label" for="inlineRadio1">New</label>
-
               </div>
               <div class="form-check">
                   <input class="form-check-input disabled" type="radio" name="nameChoice" id="useCurrentSpec" value="current">
                   <label class="form-check-label" for="inlineRadio2">Current</label>
-
               </div>
          </fieldset>
-
      </div>
-
         <div class="form-group row">
           <div class="input-group input-group-sm">
             <div class="input-group-prepend">
@@ -192,13 +189,9 @@
             <div id="specNameValidation" class="form-text"></div>
           </div>
        </div>
-   </form>
-
-
-<!-- modal-footer-->
-  </div>
-</div>
-</div>
-</div>
-
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
 </html>
