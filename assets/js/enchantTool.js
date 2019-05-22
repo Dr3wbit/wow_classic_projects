@@ -33,12 +33,15 @@ function findSlot(selection) {
 }
 
 function getenchantData(dataObject, dataKeys, slot) {
+    console.log('dataObject: ', dataObject)
+    console.log('dataKeys: ', dataKeys)
+
     let slotEnchants = null
     let enchantToAppend = []
     for (let i = 0; i < dataKeys.length; i++) {
         slotEnchants = $('<div/>', {
             class: 'enchantOption',
-            text: dataObject[dataKeys[i]].name + " : " + dataObject[dataKeys[i]].effect,
+            text: titleCase(dataKeys[i]) + " : " + dataObject[dataKeys[i]].effect,
         }).on({
             click: e => {
                 $('.enchantOption').removeClass('focus')
@@ -140,4 +143,17 @@ function calculateData() {
         materialsToAppend.push(materialsContainer)
     }
     $('.results').append(materialsToAppend)
+}
+
+function titleCase(s){
+    const spaceRE = /\_/g
+    let a = s.replace(spaceRE, ' ')
+    let strArr = a.split(' ')
+    strArr.forEach(function(word, i) {
+        if (word != ('of' || 'the') && typeof(word)=='string'){
+            strArr[i] = word.charAt(0).toUpperCase() + word.slice(1)
+        }
+    })
+    return strArr.join(' ')
+
 }
