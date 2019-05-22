@@ -26,10 +26,8 @@
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -49,45 +47,46 @@
     <div id="nav-container" class="container">
     </div>
     <div class="container">
-        <div class="page-title">Contact</div>
-        <div class="p-3 page-description">Have an idea you'd like to see on the website? Found a bug? Send us a message and let us know about it!</div>
+        <div class="page-title">Contact
+            <div class="p-3 page-description">Have an idea you'd like to see on the website? Found a bug? Send us a
+                message and let us know about it!</div>
+        </div>
     </div>
     <div class="container mainBody">
         <div class="row about-section">
             <div class="col-2"></div>
             <div class="col-8 formContainer">
-                    <div id="form-messages"></div>
-                    <form id="ajax-contact" method="post" action="/assets/php/phpmailer/mail_handler.php">
-                        <div class="field">
-                            <!--<label for="name">Name:</label>-->
-                            <input class="mt-3" type="text" id="name" name="name" placeholder="Name" required>
-                        </div>
-        
-                        <div class="field">
-                            <!--<label for="email">Email:</label>-->
-                            <input class="mt-3" type="subject" id="subject" name="subject" placeholder="Subject: Bug / Suggestion / Request"
-                                required>
-                        </div>
-        
-                        <div class="field">
-                            <!--<label for="message">Message:</label>-->
-                            <textarea class="mt-3" id="message" name="message" placeholder="Message" rows="10" cols="59" required></textarea>
-                        </div>
-                        <div class="field text-center">
-                            <button type="submit" class="btn btn-lg btn-dark mt-3">Send Message</button>
-                        </div>
-                    </form>
+                <div id="form-messages"></div>
+                <form id="ajax-contact" method="post" action="/assets/php/phpmailer/mail_handler.php">
+                    <div class="field">
+                        <!--<label for="name">Name:</label>-->
+                        <input class="mt-3" type="text" id="name" name="name" placeholder="Name" required>
+                    </div>
+
+                    <div class="field">
+                        <!--<label for="email">Email:</label>-->
+                        <input class="mt-3" type="subject" id="subject" name="subject"
+                            placeholder="Subject: Bug / Suggestion / Request" required>
+                    </div>
+
+                    <div class="field">
+                        <!--<label for="message">Message:</label>-->
+                        <textarea class="mt-3" id="message" name="message" placeholder="Message" rows="10" cols="59"
+                            required></textarea>
+                    </div>
+                    <div class="field text-center">
+                        <button type="submit" class="btn btn-lg btn-dark mt-3">Send Message</button>
+                    </div>
+                </form>
             </div>
-           <div class="col-2"></div>
+            <div class="col-2"></div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <footer class="footer">
-                <span class="text-muted">&copy Ony Buff 2019</span>
-            </footer>
-        </div>
-    </div>
+
+    <footer class="footer">
+        <span class="text-muted">&copy Ony Buff 2019</span>
+    </footer>
+
 </body>
 
 </html>

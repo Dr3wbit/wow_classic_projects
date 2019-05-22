@@ -13,9 +13,19 @@ $(document).ready(initializeApp)
 
 function initializeApp() {
     createNav(navBarData)
+    applyPageSelection()
 }
 
 function createNav(navBarData){
     const templateScript = Handlebars.templates.nav(navBarData);
     $('#nav-container').append(templateScript);
+}
+
+function applyPageSelection(){
+    let pageLocation = window.location.pathname
+    let saniLocation = pageLocation.replace(/\//g,'');
+    let currentPage = $('.nav-link[href= '+ saniLocation +']')
+    currentPage.addClass('nav-link-selected')
+    currentPage.parent().addClass('nav-item-selected')
+    
 }
