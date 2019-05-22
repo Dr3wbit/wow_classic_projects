@@ -75,7 +75,6 @@ function initializeApp() {
 
 	const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
 	var reset = (performance.navigation.type == 1) ? true : false
-	console.log('reset: ', reset)
 	let myURL = new URL(document.location)
 
 	if (myURL.search) {
@@ -142,16 +141,14 @@ function addClassName(){
 function specChoiceRadios(){
 	$("#specNameChoice").on({
 		change: e => {
-			// console.log($(e.target))
-
-
+			const specGrabRE = /([\w. -]+)\[/
 			let choice = $("input[name='nameChoice']:checked").val()
 
 			if (choice=='current') {
 				let savedSpecClassText = $('div.specItem.specSelected').text()
-				let matched = savedSpecClassText.match(re3)[1]
+				let matched = savedSpecClassText.match(specGrabRE)
 
-				$("#specName").val(matched)
+				$("#specName").val(matched[1].trim())
 				$("#specName").addClass('disabled')
 			} else {
 				$("#specName").removeClass('disabled')
@@ -229,11 +226,9 @@ function exportSpec() {
 function resetTree() {
 	$('.resetTree').on({
 		click: e => {
-			console.log("resetTree")
 			e.preventDefault()
 			let treeName = $(e.target)[0].id
 			resetTalentTree(treeName.slice(5, treeName.length), e)
-			// console.log(treeName)
 		}
 	})
 }
@@ -246,8 +241,6 @@ function specNameValidator(){
 			let proposedSpecName = ($("#specName").val()).trim()
 
 			let matched = proposedSpecName.match(validNameRE)
-			console.log('matched: ', matched)
-			console.log('proposedSpecName: ', proposedSpecName)
 
 			if (!matched) {
 				$("#specNameValidation").addClass('invalid-feedback')
@@ -282,9 +275,7 @@ function saveSpec(){
 
 		submit: e=> {
 			e.preventDefault()
-			console.log('saveSpec')
 			let specData = checkForSavedSpecs()
-			console.log('specData: ', specData)
 			let specURL = document.location
 
 			let specName = ($("#specName").val()).trim()
@@ -292,12 +283,10 @@ function saveSpec(){
 			if (specName) {
 
 				let treeNames = talentPointsSpent.treeNames
-				// console.log('specData: ', specData)
 				let mySpec = new TalentSpec(specURL, talentPointsSpent.className,specName.toString(), [talentPointsSpent[treeNames[0]].total(), talentPointsSpent[treeNames[1]].total(), talentPointsSpent[treeNames[2]].total()])
 				let name = mySpec.name
 				let newSpec = {[name.toString()]: mySpec}
 				let specObject = Object.assign({}, specData, newSpec)
-				console.log('specObject: ', specObject)
 
 				localStorage.setItem('savedSpecs', JSON.stringify(specObject));
 				updateSavedSpecs()
@@ -322,7 +311,6 @@ function getSpecName() {
 		click: e => {
 			e.preventDefault()
 
-			// console.log(talentPointsSpent)
 			if (talentPointsSpent.grandTotal() == 0){
 				alert('Unable to save empty spec')
 				return
@@ -362,7 +350,6 @@ function updateSavedSpecs() {
 	let existingSpecs = checkForSavedSpecs()
 	if (existingSpecs) {
 		specList = Object.entries(existingSpecs)
-		// console.log('specList: ', specList)
 		for (const [name,item] of specList) {
 			// console.log(item)
 				let capitalizedClassName = item.className.substr(0,1).toUpperCase()+item.className.substr(1);
@@ -382,10 +369,6 @@ function updateSavedSpecs() {
 			})
 				.on('click', (e) => {
 					if ($(e.target).hasClass('specSelected')) {
-
-						// should attempt to update spec here, maybe popup asking if want to update spec
-
-						console.log('already selected')
 						return false
 					} else {
 						$('.specItem').removeClass('specSelected')
@@ -397,7 +380,6 @@ function updateSavedSpecs() {
 						let myURL = new URL(item.url.href)
 						let params = myURL.searchParams
 						let hasClass = params.has('class')
-						// console.log("myURL: ", myURL)
 						let hash = myURL.hash
 
 						history.replaceState(null, null, myURL)
@@ -408,10 +390,6 @@ function updateSavedSpecs() {
 							classData = {}
 							buildClassData(null, cl, myURL.hash, false)
 						}
-
-						// console.log("hasClass: ", hasClass)
-						// console.log("params: ", params)
-						// console.log("cl: ", cl)
 					}
 				})
 				.prepend($('<button/>', {
@@ -428,7 +406,6 @@ function updateSavedSpecs() {
 	}
 
 	let checkIfEmpty = $('.specList').children()
-	 // console.log(checkIfEmpty)
 	if (checkIfEmpty.length === 0){
 		$('.specList').text('To save a spec, fill out your talents then click the save icon (top right of calculator) and give your spec a name. We use cookies to save your specs on this page so aslong as you dont clear cookies on us, your specs will be here forever!')
 		$('.saveSpec').append($('<div/>',{
@@ -444,7 +421,6 @@ function removeSavedSpec(name, existingSpecs) {
 }
 
 function sideNav(){
-	console.log('works')
 	sideNav = $('.savedSpecs')
 	navTrigger = $('.side-nav-trigger')
 	navTrigger.on({
@@ -460,7 +436,6 @@ function sideNav(){
 
 
 function populateTables(reset = false) {
-	console.log('populate tables')
 	//Retrieve the template data from the HTML
 	let template = $('#handlebars-demo2').html();
 	//Compile the template data into a function
@@ -482,7 +457,6 @@ function classSelectionHandler() {
 	$('.class-filter').on({
 		click: e => {
 
-			console.log('class selection')
 			buildClassData(e, '', '', true)
 			let selectedSpec = $('div.specItem.specSelected')
 			if (selectedSpec){
@@ -515,7 +489,6 @@ function lockSpec() {
 			let params = url.searchParams
 
 			if ($("#talentLock").hasClass('lock')) {
-				console.log('hard unlocking')
 				talentPointsSpent.hardLocked = false
 				talentUnlocker()
 
@@ -529,7 +502,6 @@ function lockSpec() {
 				}
 			}
 			else if ($("#talentLock").hasClass('unlock')) {
-				console.log('hard locking')
 				talentLocker()
 
 				talentPointsSpent.hardLocked = true
@@ -547,7 +519,6 @@ function lockSpec() {
 function resetHandler() {
 	$('#resetTalents').on({
 		click: e => {
-			console.log('reset')
 			resetAll()
 			$("#talentLock").unbind("click")
 			$("#talentLock").bind("click", lockSpec())
@@ -634,18 +605,11 @@ function resetTalentTree(tree, e) {
 }
 
 function buildClassData(e = null, cl = '', hash = '', reset = false) {
-	console.log('building class data')
 	let className = cl
 	let url = new URL(document.location)
 	let params = url.searchParams
-	// console.log(classData)
-	console.log("classData: ", classData)
-	console.log("talentPointsSpent: ", talentPointsSpent)
 	classData = {}
 	talentPointsSpent = {}
-
-	console.log("classData: ", classData)
-	console.log("talentPointsSpent: ", talentPointsSpent)
 
 
 	if (cl) {
@@ -720,7 +684,6 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 		try {
 			preBuiltSpec(expanded)
 			if (params.has('L')) {
-				console.log('params has L')
 
 				if (!$("#talentLock").hasClass('lock')) {
 					$("#talentLock").trigger("click")
@@ -851,10 +814,6 @@ function mouseDownHandler(e = null, talent, tree) {
 		})
 		var talentObj = found.data[j][k]
 
-		// let testEle = targetTalent.closest('.talent-container').find('.spentPoints').first().text()
-
-		// console.log('testEle: ', testEle)
-
 		talentObj.invested = parseInt(targetTalent.closest('.talent-container').find('.spentPoints').first().text()) // should insure points don't carry over when switching between classes
 
 		if (((talentObj.invested === talentObj.maxRank) && e.which === 1) || (talentPointsSpent.hardLocked)) {
@@ -875,7 +834,6 @@ function mouseDownHandler(e = null, talent, tree) {
 	// targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[treeName].total())
 
 	targetTalent.closest(".talentTable").find(".talentFooter span.talentFooter-spentPoints").text("(" + talentPointsSpent[treeName].total() + ")")
-	// console.log("textTarget: ", textTarget)
 
 	console.log(targetTalent.attr('name') + " : " + talentObj.invested)
 	if (manuallyClicked) {
@@ -977,7 +935,6 @@ function updateTooltip(e) {
 	})
 
 
-	// console.log(targetTalent.prev())
 	let targetTooltip = targetTalent.closest('.talent-slot').find('.tooltip-container')
 	targetTooltip.append($('<div/>', {
 		class: 'talent-tooltip',
