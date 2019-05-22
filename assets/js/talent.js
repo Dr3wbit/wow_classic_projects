@@ -153,23 +153,10 @@ function specChoiceRadios(){
 				$("#specName").removeClass('disabled')
 				$("#specName").val('')
 			}
-			//
-			// if (choice) {
-			// 	if (choice=='current') {
-			// 		$("#specName").val($('div.specItem.specSelected').text())
-			// 		$("#specName").addClass('disabled')
-			// 	} else {
-			// 		$("#specName").removeClass('disabled')
-			// 		$("#specName").val('')
-			// 	}
-			// }
-
-			// if (){
-			//
-			// }
 		}
 	})
 }
+
 
 function exportSpec() {
 	$("#export").on({
