@@ -2,9 +2,6 @@
 .consume-container {
     background-image: url("../images/alch_table_transparent_smaller.png");
     background-size: cover;
-    border-radius: 5px;
-    border: 1px azure solid;
-    min-height: 58vh;
     padding: 10px;
 }
 
@@ -12,7 +9,7 @@
     background-image: url("../images/textured_background_white.png");
     background-size: cover;
     border-radius: 5px;
-    border: 1px azure solid;
+    border: 1px black solid;
     min-height: 200px;
 }
 
@@ -31,7 +28,8 @@ input:focus {
 .consume-block {
     display: inline-block;
     background-color: rgba(0, 0, 0, 0.89);
-    border: 1px solid azure;
+    border: 2px solid rgb(82, 82, 82);
+    border-style: ridge;
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
@@ -82,7 +80,7 @@ input:focus {
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    z-index: 999;
+    z-index: 1025;
 }
 
 .tooltip-hidden{
