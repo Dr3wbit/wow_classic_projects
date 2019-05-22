@@ -128,7 +128,7 @@ function addClassName(){
 				$("#specName").val(proposedSpecName+` [${talentPointsSpent.className}]`)
 			} else {
 				let proposedSpecName = $("#specName").val()
-				
+
 				let newName = proposedSpecName.replace(classRemoveRE2, '')
 
 				$("#specName").val(newName)
@@ -241,16 +241,17 @@ function resetTree() {
 function specNameValidator(){
 	$("#specName").on({
 		keyup: e=> {
-			const validNameRE = /^([\w.-]{2,18})$/
-			let test = true
-			let proposedSpecName = $("#specName").val()
+			// input valdiation needs improving - will accept 18 spaces
+			const validNameRE = /^([\w. -]{2,18})$/
+			let proposedSpecName = ($("#specName").val()).trim()
+
 			let matched = proposedSpecName.match(validNameRE)
 			console.log('matched: ', matched)
 			console.log('proposedSpecName: ', proposedSpecName)
 
 			if (!matched) {
 				$("#specNameValidation").addClass('invalid-feedback')
-				$("#specNameValidation").text('Username must be 8-30 characters (A-Z0-9_- )')
+				$("#specNameValidation").text('Spec name must be 2-18 characters (a-Z 0-9 -._ )')
 				$("#confirmSpecName").addClass('disabled')
 				$("#saveSpec").unbind("submit")
 				$("#saveSpec").bind("submit", function(e) {
@@ -260,6 +261,8 @@ function specNameValidator(){
 
 			} else {
 				// $("#specNameValidation").attr('style', 'display: none;')
+				let current = ($("#specName").val()).trim()
+				$("#specName").val(current)
 				$("#specNameValidation").text('')
 				$("#confirmSpecName").removeClass('disabled')
 				$("#saveSpec").bind("submit", saveSpec())
@@ -278,7 +281,7 @@ function saveSpec(){
 			console.log('specData: ', specData)
 			let specURL = document.location
 
-			let specName = $("#specName").val()
+			let specName = ($("#specName").val()).trim()
 
 			if (specName) {
 
