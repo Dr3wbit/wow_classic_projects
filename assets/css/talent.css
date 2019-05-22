@@ -201,15 +201,17 @@
     /* border-radius: 5px; */
 /* } */
 
-#buttonCity *{
+#buttonCity>:not(div) {
   -webkit-filter: grayscale(60%);
      -moz-filter: grayscale(60%);
        -o-filter: grayscale(60%);
       -ms-filter: grayscale(60%);
           filter: grayscale(60%);
+          cursor: pointer;
 }
 
-#buttonCity:hover *{
+
+#buttonCity>:not(div):hover {
     -webkit-filter: grayscale(0%);
        -moz-filter: grayscale(0%);
          -o-filter: grayscale(0%);
@@ -217,25 +219,8 @@
             filter: grayscale(0%);
 }
 
-#buttonCity *:hover{
-
-    -webkit-filter: grayscale(0%);
-       -moz-filter: grayscale(0%);
-         -o-filter: grayscale(0%);
-        -ms-filter: grayscale(0%);
-            filter: grayscale(0%);
-            cursor: pointer;
-
-
-    /* box-shadow: inset 0 0 10px #ffc000; */
-    /* outline: 3px auto -webkit-focus-ring-color; */
-    /* outline: 2px solid rgba(240, 255, 255, .7); */
-
-    /* outline: 7px solid rgba(240, 255, 255, .8); */
-
-    /* outline: 1rem solid rgba(170, 50, 220, .75); */
-    /* border: 1px solid #ffc000; */
-    /* border-radius: 5px; */
+#buttonCity>*:focus {
+    outline: none;
 }
 
 .talentFooter span.treeName {
@@ -466,6 +451,9 @@
 }
 
 @media only screen and (max-width: 576px) {
+    .promptArrow {
+        display: none
+    }
   #talentHeader {
     width: 90%;
     /* left: 2px; */
@@ -483,20 +471,6 @@
     border: none;
     left: 35px;
     position: relative;
-    -webkit-filter: grayscale(40%);
-       -moz-filter: grayscale(40%);
-         -o-filter: grayscale(40%);
-        -ms-filter: grayscale(40%);
-            filter: grayscale(40%);
-}
-
-.resetTree:hover {
-    -webkit-filter: grayscale(0%);
-       -moz-filter: grayscale(0%);
-         -o-filter: grayscale(0%);
-        -ms-filter: grayscale(0%);
-            filter: grayscale(0%);
-            cursor: pointer;
 }
 
 svg.icon {
@@ -521,9 +495,6 @@ svg.icon:hover path{
 }
 
 .specItem{
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 2px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -541,6 +512,7 @@ svg.icon:hover path{
 
 .specSelected{
     background-color: #ff3604;
+    color: black;
 }
 
 .specSelected:hover{
@@ -555,15 +527,16 @@ svg.icon:hover path{
 .savedSpecsTitle {
     font-size: 14px;
     color: azure;
-    background: #1f2122;
-    border: 1px solid black;
+    border-bottom: 1px solid azure;
     margin-left: 4px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
 }
 
 .savedSpecs{
     color: azure;
     position: fixed;
-    z-index: 999;
+    z-index: 1000;
     background-color: rgba(0, 0, 0, 0.95);
     border: 1px black solid;
     padding-left: 10px;
@@ -684,6 +657,41 @@ div.modal-body {
     left: 60px;
 }
 
+.specInfo {
+    background-color: #141414;
+    font-size: 85%;
+    justify-content: space-evenly;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    user-select: none;
+}
+
+.specContainer {
+    margin: 8px 0px 8px 2px;
+}
+
+.promptArrow {
+    position: absolute;
+    bottom: -5px;
+    left: 23px;
+    background-image: url('../images/icons/medium/promptArrow.png');
+    height: 30px;
+    width: 52px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    user-select: none;
+    pointer-events: none;
+    cursor: pointer;
+    animation-iteration-count: 10;
+    animation-name: prompt;
+    animation-duration: 1s;
+}
+
+@keyframes prompt {
+    0% { left: 23px;}
+    50%{ left: 30px;}
+    100%{ left: 23px;}
+}
 
 /* .customPopover {
     left: -20px;
