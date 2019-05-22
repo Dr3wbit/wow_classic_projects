@@ -159,7 +159,7 @@
 <script src="assets/js/helpers.js"></script>
 
 <!-- Modal -->
-<div class="modal fade" id="specSaverPromptNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="specSaverPromptNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -186,14 +186,14 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- Old Modal -->
 
 <div class="modal fade" id="specSaverPrompt" tabindex="-1" role="dialog" aria-labelledby="specSaver" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content bg-dark text-white">
       <div class="modal-header">
         <h5 class="modal-title" id="specSaver">Save Spec</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -202,74 +202,69 @@
 
       </div>
       <div class="modal-body">
-        <fieldset class="form-group" id="specNameChoice">
-            <div class="row">
-              <!-- <legend class="col-form-label col-sm-2 pt-0"></legend> -->
-              <div class="col-sm-10 text-align-left">
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label" for="inlineRadio1">New</label>
+
+          <form id="saveSpec">
+
+          <div class="form-group row">
+
+
+          <fieldset class="form-group col-sm-4" id="specNameChoice">
+              <legend class="col-form-label">Name</legend>
+              <div class="form-check">
                   <input class="form-check-input" type="radio" name="nameChoice" id="createNewSpec" value="new" checked>
-                </div>
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label" for="inlineRadio2">Use Current</label>
-                  <input class="form-check-input" type="radio" name="nameChoice" id="useCurrentSpec" value="current">
-                </div>
-                <!-- <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
-                  <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
-                </div> -->
+                  <label class="form-check-label" for="inlineRadio1">New</label>
+
               </div>
-            </div>
-          </fieldset>
-<!--
-      <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="useCurrent" name="customRadioInline1" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">Use Current</label>
-      </div>
-      <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="newSpec" name="customRadioInline1" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">New</label>
-      </div> -->
+              <div class="form-check">
+                  <input class="form-check-input disabled" type="radio" name="nameChoice" id="useCurrentSpec" value="current">
+                  <label class="form-check-label" for="inlineRadio2">Current</label>
+
+              </div>
+         </fieldset>
+
+     <fieldset class="form-group col-sm-3" id="includeInName">
+         <legend class="col-form-label">Include</legend>
 
 
-        <!-- <div class="btn-group btn-group-sm" role="group" aria-label="test">
+         <div class="form-check">
 
-          <input type="radio" name="options" id="option1" autocomplete="off" checked>
+             <input class="form-check-input disabled" type="checkbox" id="addClassName" autocomplete="off">
+             <label class="form-check-label" for="defaultCheck1">
+               class
+             </label>
+         </div>
+           <div class="form-check">
+             <input class="form-check-input disabled" type="checkbox" id="addAllottedPoints" autocomplete="off">
+             <label class="form-check-label" for="defaultCheck2">
+               points
+             </label>
+         </div>
+     </fieldset>
 
-          <input type="radio" name="options" id="option2" autocomplete="off" checked>
-        </div> -->
-      </div>
-      <div class="modal-footer">
-        <form id="saveSpec">
-        <div class="form-group">
+     </div>
+
+        <div class="form-group row">
           <!-- <label for="specName">label test</label> -->
-
-          <div class="input-group mb-3">
+          <div class="input-group input-group-sm">
             <div class="input-group-prepend">
               <div class="input-group-text">name</div>
             </div>
-            <input type="text" id="specName" class="form-control" placeholder="spec name" aria-label="Text..." aria-describedby="basic-addon1">
+
+            <input type="text" id="specName" class="form-control-sm" placeholder="spec name" aria-label="Text..." aria-describedby="basic-addon1" autocomplete="off">
             <div class="input-group-append">
-              <button type="submit" class="input-group-text btn btn-primary">Confirm</button>
+              <button type="submit" class="input-group-text btn-sm btn-primary" id="confirmSpecName">Confirm</button>
             </div>
-          </div>
-          <!-- <small id="emailHelp" class="form-text text-muted">small element form-text text-muted</small> -->
+            <div id="specNameValidation" class="form-text"></div>
 
-        </div>
-        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-      </form>
-
-        <!-- <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">name</span>
           </div>
-          <input type="text" id="specName" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-          <div class="input-group-append">
-            <button type="button" class="input-group-text btn btn-secondary" id="saveSpec" type="submit">Confirm</button>
-        </div>
-      </div> -->
-    </div>
+       </div>
+   </form>
+
+
+<!-- modal-footer-->
   </div>
+</div>
+</div>
 </div>
 
 </html>
