@@ -1,0 +1,15 @@
+night_dragons_breath
+small_glowing_shard
+fire_oil
+small_glimmering_shard
+shadow_protection_potion
+frost_oil
+large_glowing_shard
+large_glimmering_shard
+truesilver_bar
+kingsblood
+iron_ore
+wildvine
+elixir_of_demonslaying
+large_fang
+wintersbite
