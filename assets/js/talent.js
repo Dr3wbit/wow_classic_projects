@@ -357,18 +357,28 @@ function checkForSavedSpecs() {
 }
 
 function updateSavedSpecs() {
-	$('.specList').empty()
+	$('.specList, .saveSpec').empty()
+
 	let existingSpecs = checkForSavedSpecs()
 	if (existingSpecs) {
 		specList = Object.entries(existingSpecs)
 		// console.log('specList: ', specList)
 		for (const [name,item] of specList) {
 			// console.log(item)
+				let capitalizedClassName = item.className.substr(0,1).toUpperCase()+item.className.substr(1);
+			let specContainer = $('<div/>', {
+				class: 'specContainer',
+			})
+			let specInfo = $('<div/>', {
+				class: `specInfo ${item.className}`,
+				text: ` ${capitalizedClassName} (${item.points[0]}/${item.points[1]}/${item.points[2]})`,
+			})
 			let specItem = $('<div/>', {
 				class: 'specItem',
-				text: item.name +` [${item.className}] (${item.points[0]}/${item.points[1]}/${item.points[2]})`,
+				text: item.name,
 				href: item.url.href,
 				name: item.name,
+				wowclassname: item.className
 			})
 				.on('click', (e) => {
 					if ($(e.target).hasClass('specSelected')) {
@@ -403,8 +413,6 @@ function updateSavedSpecs() {
 						// console.log("params: ", params)
 						// console.log("cl: ", cl)
 					}
-
-
 				})
 				.prepend($('<button/>', {
 					class: 'delete',
@@ -412,7 +420,8 @@ function updateSavedSpecs() {
 				}).on('click', ()=>{
 					removeSavedSpec(name, existingSpecs)
 				}))
-			$('.specList').append(specItem)
+				specContainer.append(specInfo, specItem)
+			$('.specList').append(specContainer)
 		}
 	} else {
 		localStorage.clear()
@@ -422,6 +431,9 @@ function updateSavedSpecs() {
 	 // console.log(checkIfEmpty)
 	if (checkIfEmpty.length === 0){
 		$('.specList').text('To save a spec, fill out your talents then click the save icon (top right of calculator) and give your spec a name. We use cookies to save your specs on this page so aslong as you dont clear cookies on us, your specs will be here forever!')
+		$('.saveSpec').append($('<div/>',{
+			class: 'promptArrow'
+		}))
 	}
 }
 
@@ -472,17 +484,22 @@ function classSelectionHandler() {
 
 			console.log('class selection')
 			buildClassData(e, '', '', true)
-			if ($('div.specItem.specSelected')){
-				let savedSpecClassText = $('div.specItem.specSelected').text()
+			let selectedSpec = $('div.specItem.specSelected')
+			if (selectedSpec){
+				let savedSpecClassText = selectedSpec.text()
 				let matched = savedSpecClassText.match(re3)
 				if (matched){
 					let className = matched[1]
 
 					if (!(className == talentPointsSpent.className)){
-						let selectedSpec = $('div.specItem.specSelected')
 						selectedSpec.removeClass('specSelected')
 						// $('div.specItem.specSelected').removeClass('specSelected')
 					}
+				}
+				let specURL = selectedSpec.attr('href')
+				let currentURL = document.location
+				if(currentURL != specURL){
+					selectedSpec.removeClass('specSelected')
 				}
 			}
 		},
