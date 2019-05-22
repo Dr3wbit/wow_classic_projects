@@ -629,3 +629,63 @@ svg.icon:hover path{
     position: relative;
     right: 5px;
 }
+
+#specNameChoice {
+    text-align:left;
+    width: 100%;
+
+    /* text-align: left; */
+    /* float: left; */
+}
+#includeInName {
+    text-align:left;
+    /* text-align:right; */
+    /* float: right; */
+}
+
+
+.form-check-input {
+    position: relative;
+    margin-top: .3rem;
+    margin-right: 5px;
+}
+
+legend.col-form-label{
+    font-size: 15px;
+}
+    /* margin-left: -1.25rem; */
+
+div.modal-footer {
+    align-items: flex-start;
+}
+
+div.modal-body {
+    padding-left: 5px;
+}
+
+#saveSpec >* {
+    width: 100%;
+    margin-left: 10px;
+}
+
+#specName {
+    width: 65%;
+    font-size: 12px;
+    padding-left: 5px;
+
+}
+
+
+.invalid-feedback {
+    text-align: left;
+    font-size: 95%;
+    display: block;
+    position: relative;
+    left: 60px;
+}
+
+
+/* .customPopover {
+    left: -20px;
+    position: sticky;
+} */
