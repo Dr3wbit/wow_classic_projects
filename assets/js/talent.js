@@ -261,13 +261,19 @@ function specNameValidator(){
 
 			} else {
 				// $("#specNameValidation").attr('style', 'display: none;')
-				let current = ($("#specName").val()).trim()
-				$("#specName").val(current)
+				// let current = ($("#specName").val()).trim()
+				// $("#specName").val(current)
 				$("#specNameValidation").text('')
 				$("#confirmSpecName").removeClass('disabled')
 				$("#saveSpec").bind("submit", saveSpec())
 			}
+		},
+		blur: e=> {
+			let proposedSpecName = ($("#specName").val()).trim()
+
+			$("#specName").val(proposedSpecName)
 		}
+
 	})
 }
 
