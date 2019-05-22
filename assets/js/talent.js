@@ -141,33 +141,18 @@ function addClassName(){
 function specChoiceRadios(){
 	$("#specNameChoice").on({
 		change: e => {
-			const specGrabRE = /([\w. -]+)\[/
+			console.log('specChoiceRadios')
 			let choice = $("input[name='nameChoice']:checked").val()
 
 			if (choice=='current') {
 				let savedSpecClassText = $('div.specItem.specSelected').text()
-				let matched = savedSpecClassText.match(specGrabRE)
-
-				$("#specName").val(matched[1].trim())
+				$("#specName").val(savedSpecClassText)
 				$("#specName").addClass('disabled')
+
 			} else {
 				$("#specName").removeClass('disabled')
 				$("#specName").val('')
 			}
-			//
-			// if (choice) {
-			// 	if (choice=='current') {
-			// 		$("#specName").val($('div.specItem.specSelected').text())
-			// 		$("#specName").addClass('disabled')
-			// 	} else {
-			// 		$("#specName").removeClass('disabled')
-			// 		$("#specName").val('')
-			// 	}
-			// }
-
-			// if (){
-			//
-			// }
 		}
 	})
 }
