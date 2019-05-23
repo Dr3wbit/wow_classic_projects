@@ -12,6 +12,7 @@ body {
     background-attachment: fixed;
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     margin-bottom: 3vh; 
+    margin-top: 53px;
 }
 
 .footer {
@@ -73,7 +74,7 @@ body {
     background-image: linear-gradient(rgb(20, 20, 20), black ,rgb(20, 20, 20));
     border-top: 2px black solid;
     border-bottom: 2px black solid;
-    padding-top: 0;
+    padding: 0;
     padding-bottom: 0;
     z-index: 1030;
 }
@@ -82,6 +83,15 @@ body {
 .navbar-brand{
     padding-left: 70px;
     padding-right: 20px;
+    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
+    box-shadow: inset 0 0 5px rgb(40, 40, 40);
+    border: 1px solid black;
+    margin: 0;
+}
+
+.navbar-brand:hover{
+    background-image: linear-gradient(black, rgb(20, 20, 20), black);
+    box-shadow: inset 0 0 5px black;
 }
 
 .nav-link {
@@ -89,9 +99,6 @@ body {
     font-size: 14px;
     color: azure !important;
     font-family: OpenSans, Arial, Helvetica, sans-serif;
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
     font-weight: bold
    }
 
@@ -170,10 +177,7 @@ body {
 }
 
 @media only screen and (max-width: 992px) {
-    .container {
-        background-color: rgba(82, 66, 66, 0.1);
-        padding-top: 18px
-    }
+
     .navbar-brand{
         padding-left: 15px;
         padding-right: 20px;
@@ -182,10 +186,6 @@ body {
 
 @media only screen and (max-width: 768px) {
 
-    .container {
-        background-color: rgba(0, 0, 0, 0.1);
-        padding-top: 10px
-    }
 
     .class-filter {
       background-position: 95 100%;
@@ -258,7 +258,7 @@ body {
   }
 
 .mainBody {
-    min-height: 76.5vh;
+    min-height: 77.5vh;
     align-content: center;
    }
 
@@ -266,7 +266,6 @@ body {
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     font-size: 300%;
     color: azure;
-    padding-top: 25px;
 }
 .page-description {
     color: azure;
@@ -276,6 +275,7 @@ body {
 .titleSplash {
     background-image: url(../images/title_splash.png);
     background-size: cover;
+    color: azure;
 }
 
 
