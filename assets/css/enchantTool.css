@@ -23,18 +23,22 @@
 }
 
  .totalContainer {
-    background-image: url("../images/textured_background_white.png");
+    background-image: url("../images/textured_background.png");
     background-size: cover;
     padding: 10px;
     border-radius: 5px;
     border: 1px azure solid;
     min-height: 250px;
+
+    color: #1EFF00;
+    border: 1px solid #b6bbc0;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
 }
 
 .results {
     font-size: 100%;
     text-align: left;
-    background-color: azure;
+    /* background-color: azure; */
     padding-left: 5px;
 }
 
@@ -182,13 +186,52 @@
 
 .icon-small {
     color: azure;
-    height: 22px;
-    width: 22px;
+    height: 18px;
+    /* width: 22px; */
     background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .totalMaterials {
-    color: black;
+    /* color: black; */
     left: 18px;
     position: relative;
+}
+
+.tooltip{
+    font-size: 100%;
+    text-align: left;
+    line-height: 17px;
+    min-width: 200px;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    background-color: rgba(0, 0, 30, 0.85);
+    color: #1EFF00;
+    pointer-events: none;
+    border: 1px solid #b6bbc0;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    z-index: 1025;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    padding-right: 5px;
+}
+
+.consume-tooltip.description{
+    padding:8px 4px 1px 9px;
+}
+
+.consume-tooltip-title{
+    min-width: 185px;
+    line-height: 17px;
+    font-size: 13px;
+    color: azure;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 8px;
+}
+
+.materialsList {
+    margin: 1px;
 }
