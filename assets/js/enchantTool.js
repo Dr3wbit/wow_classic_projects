@@ -9,6 +9,7 @@ function initializeApp() {
 }
 
 function applyClickHandlers() {
+    materialsTooltip()
     $(".enchantable").on({
         click: e => {
             $(".enchantable").removeClass('focus')
@@ -120,16 +121,17 @@ function calculateData() {
     for (let i = 0; i < material.length; i++) {
         console.log(material[i])
         console.log(counts[material[i]])
+        let matCat = allMaterials[material[i]].category
 
         let materialsContainer = $('<div/>', {
-            class: 'icon-small',
+            class: 'materialsList icon-small',
             text: `${counts[material[i]]}`,
 
             // src: "assets/images/icons/small/icon_border.png",
-            style: `background-image: url(assets/images/icons/small/materials/enchanting/${material[i]}.jpg);`,
+            style: `background-image: url(assets/images/icons/small/materials/${matCat}/${material[i]}.jpg);`,
         }).append($('<span/>', {
-            text: material[i],
-            class: 'totalMaterials',
+            text: titleCase(material[i]),
+            class: `totalMaterials rarity ${allMaterials[material[i]].rarity}`,
             // text: 'count '+material[i].replace(/_/g, " ") + ": " + counts[material[i]]
         }))
 
@@ -146,8 +148,8 @@ function calculateData() {
 }
 
 function titleCase(s){
-    const spaceRE = /\_/g
-    let a = s.replace(spaceRE, ' ')
+    const underScores = /\_/g
+    let a = s.replace(underScores, ' ')
     let strArr = a.split(' ')
     strArr.forEach(function(word, i) {
         if (word != ('of' || 'the') && typeof(word)=='string'){
@@ -156,4 +158,13 @@ function titleCase(s){
     })
     return strArr.join(' ')
 
+}
+
+function materialsTooltip() {
+    $(".materialsList").on({
+        mouseover: e => {
+
+            console.log($(e.target))
+        }
+    })
 }

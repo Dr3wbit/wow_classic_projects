@@ -175,8 +175,10 @@ function appendMaterials(materials) {
 	materials.forEach((item) => {
 		let resultConsume = $('<div/>', {
 			class: 'result-consume',
-			text: item.name + ' : ' + item.amount
+			text: item.name + ' : ' + item.amount,
 		})
+
+
 		let materialsToAppend = []
 		for (let mats in item.materials) {
 			key = Object.keys(item.materials[mats])
@@ -207,7 +209,7 @@ function calculateTotals(materialTotals) {
 		}
 	})
 	let materialsToAppend = []
-	let counts = {};
+	let counts = {}
 	materialsTotalsToAppend.forEach(function(x) {
 		counts[x] = (counts[x] || 0) + 1;
 	});
@@ -225,4 +227,17 @@ function calculateTotals(materialTotals) {
 		totalTitle.append(totalMaterialCount)
 	}
 	$('.results').append(totalTitle)
+}
+
+function titleCase(s){
+    const spaceRE = /\_/g
+    let a = s.replace(spaceRE, ' ')
+    let strArr = a.split(' ')
+    strArr.forEach(function(word, i) {
+        if (word != ('of' || 'the') && typeof(word)=='string'){
+            strArr[i] = word.charAt(0).toUpperCase() + word.slice(1)
+        }
+    })
+    return strArr.join(' ')
+
 }
