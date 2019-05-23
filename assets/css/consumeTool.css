@@ -56,6 +56,8 @@ input:focus {
     width: 195px;
 }
 
+
+
 .consumePrompt {
     background-color: #030001e1;
     font-size: 120%;
@@ -69,18 +71,36 @@ input:focus {
 
 .consume-tooltip{
     font-size: 100%;
+    text-align: left;
+    line-height: 17px;
     width: 245px;
     position: absolute;
     left: 40px;
     bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.89);
+    background-color: rgba(0, 0, 30, 0.85);
     color: #1EFF00;
     pointer-events: none;
-    border: 1px solid azure;
+    border: 1px solid #b6bbc0;
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
     z-index: 1025;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    padding-right: 5px;
+}
+
+.consume-tooltip.description{
+    padding:8px 4px 1px 9px;
+}
+
+.consume-tooltip-title{
+    min-width: 185px;
+    line-height: 17px;
+    font-size: 13px;
+    color: azure;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 8px;
 }
 
 .tooltip-hidden{
@@ -121,9 +141,9 @@ input:focus {
 .total-materials {
     font-size: 100%;
     text-align: left;
-    background-color: azure;
+    /* background-color: azure; */
     padding-left: 5px;
-    color: black;
+    /* color: black; */
 }
 
 .totalTitle {

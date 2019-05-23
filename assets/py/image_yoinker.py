@@ -11,7 +11,7 @@ prof_text = {'Fished':'fishing', 'Gathered':'herbalism', 'Mined':'mining',
 			'Disenchanted':'enchanting', 'Skinned':'skinning'}
 
 other_text = {'Dropped': 'drop', 'Sold': 'vendor'}
-image_size = 'small'
+image_size = 'medium'
 
 with open("all_materials_json.js", 'r') as f:
 	all_materials = json.load(f)
@@ -162,7 +162,7 @@ def get_images(choice):
 					icon_match = icon_re.search(icon.get_attribute("onclick"))
 					icon_name = icon_match.group(1)
 
-					folder_path = "../images/icons/small/materials/"+folder_name
+					folder_path = "../images/icons/medium/materials/"+folder_name
 
 					full_path = folder_path+"/"+item+".jpg"
 

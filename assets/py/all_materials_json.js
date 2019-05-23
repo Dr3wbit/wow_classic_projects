@@ -426,5 +426,57 @@
     "small_glowing_shard": {
         "category": "enchanting",
         "rarity": "rare"
+    },
+    "small_glimmering_shard": {
+        "category": "enchanting",
+        "rarity": "rare"
+    },
+    "shadow_protection_potion": {
+        "category": "other",
+        "rarity": "common"
+    },
+    "frost_oil": {
+        "category": "drop",
+        "rarity": "common"
+    },
+    "large_glowing_shard": {
+        "category": "enchanting",
+        "rarity": "rare"
+    },
+    "large_glimmering_shard": {
+        "category": "enchanting",
+        "rarity": "rare"
+    },
+    "truesilver_bar": {
+        "category": "other",
+        "rarity": "uncommon"
+    },
+    "kingsblood": {
+        "category": "herbalism",
+        "rarity": "common"
+    },
+    "iron_ore": {
+        "category": "mining",
+        "rarity": "common"
+    },
+    "wildvine": {
+        "category": "herbalism",
+        "rarity": "common"
+    },
+    "elixir_of_demonslaying": {
+        "category": "drop",
+        "rarity": "common"
+    },
+    "large_fang": {
+        "category": "drop",
+        "rarity": "common"
+    },
+    "wintersbite": {
+        "category": "herbalism",
+        "rarity": "common"
+    },
+    "fire_oil": {
+        "category": "other",
+        "rarity": "common"
     }
 }
