@@ -11,7 +11,7 @@ body {
     background-repeat: repeat;
     background-attachment: fixed;
     font-family: OpenSans, Arial, Helvetica, sans-serif;
-    margin-bottom: 3vh;
+    margin-bottom: 3vh; 
     margin-top: 53px;
 }
 
@@ -79,7 +79,7 @@ body {
     background-image: linear-gradient(rgb(20, 20, 20), black ,rgb(20, 20, 20));
     border-top: 2px black solid;
     border-bottom: 2px black solid;
-    padding-top: 0;
+    padding: 0;
     padding-bottom: 0;
     z-index: 1030;
 }
@@ -88,6 +88,15 @@ body {
 .navbar-brand{
     padding-left: 70px;
     padding-right: 20px;
+    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
+    box-shadow: inset 0 0 5px rgb(40, 40, 40);
+    border: 1px solid black;
+    margin: 0;
+}
+
+.navbar-brand:hover{
+    background-image: linear-gradient(black, rgb(20, 20, 20), black);
+    box-shadow: inset 0 0 5px black;
 }
 
 .nav-link {
@@ -95,9 +104,6 @@ body {
     font-size: 14px;
     color: azure !important;
     font-family: OpenSans, Arial, Helvetica, sans-serif;
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
     font-weight: bold
    }
 
@@ -143,17 +149,47 @@ body {
     background-size: 100% 105%;
     transition: all .2s ease-in;
     border-top: 4px solid transparent;
+    position: relative;
 }
 
 .nav-is-sticky {
-    background-image: linear-gradient(rgb(20, 20, 20), black ,rgb(20, 20, 20));
+    background-image: linear-gradient(rgb(30, 30, 30), black,rgb(30, 30, 30));
     border-bottom: 2px solid black;
     border-top: 1px solid black;
     top: 53px
 }
 
+.classMarker {
+    position: absolute;
+    background-image: url(../images/icons/medium/orange_filter_marker.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 30px;
+    top: -14px;
+    left: 50%;
+    margin-left: -15px;
+    user-select: none;
+    pointer-events: none;
+}
 
-.class-filter.selected {
+.classMarkerGhost {
+    position: absolute;
+    background-image: url(../images/icons/medium/orange_filter_marker.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 30px;
+    top: -14px;
+    left: 50%;
+    margin-left: -15px;
+    filter: grayscale(100%);
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* .class-filter.selected {
     color: inherit;
     border-top: 4px solid #ff3604;
     padding: 5px;
@@ -166,7 +202,7 @@ body {
     background-color: transparent;
 
 }
-
+ */
 
 .class-selection {
     justify-content: center;
@@ -176,10 +212,7 @@ body {
 }
 
 @media only screen and (max-width: 992px) {
-    .container {
-        background-color: rgba(82, 66, 66, 0.1);
-        padding-top: 18px
-    }
+
     .navbar-brand{
         padding-left: 15px;
         padding-right: 20px;
@@ -188,10 +221,6 @@ body {
 
 @media only screen and (max-width: 768px) {
 
-    .container {
-        background-color: rgba(0, 0, 0, 0.1);
-        padding-top: 10px
-    }
 
     .class-filter {
       background-position: 95 100%;
@@ -200,14 +229,14 @@ body {
       font-size: 0;
     }
 
-    .class-filter.selected {
+    /* .class-filter.selected {
         border: 1px solid #ff3604
     }
 
     .class-filter:hover {
       background-position: 95 100%;
       font-size: 0;
-    }
+    } */
 
     .class-icon {
         height: 30px;
@@ -218,53 +247,53 @@ body {
     }
 
     #warrior {
-        background-image: url("../images/icons/class_warrior.jpg");
+        background-image: url("../images/icons/medium/class_warrior.jpg");
         color: #C79C6E;
     }
 
     #mage {
-        background-image: url("../images/icons/class_mage.jpg");
+        background-image: url("../images/icons/medium/class_mage.jpg");
         color: #40C7EB
     }
 
     #druid {
-        background-image: url("../images/icons/class_druid.jpg");
+        background-image: url("../images/icons/medium/class_druid.jpg");
         color: #FF7D0A
     }
 
     #paladin {
-        background-image: url("../images/icons/class_paladin.jpg");
+        background-image: url("../images/icons/medium/class_paladin.jpg");
         color: #F58CBA
     }
 
     #shaman {
-        background-image: url("../images/icons/class_shaman.jpg");
+        background-image: url("../images/icons/medium/class_shaman.jpg");
         color: #0070DE
     }
 
     #warlock {
-        background-image: url("../images/icons/class_warlock.jpg");
+        background-image: url("../images/icons/medium/class_warlock.jpg");
         color: #8787ED
     }
 
     #priest {
-        background-image: url("../images/icons/class_priest.jpg");
+        background-image: url("../images/icons/medium/class_priest.jpg");
         color: #FFFFFF
     }
 
     #hunter {
-        background-image: url("../images/icons/class_hunter.jpg");
+        background-image: url("../images/icons/medium/class_hunter.jpg");
         color: #ABD473
     }
 
     #rogue {
-        background-image: url("../images/icons/class_rogue.jpg");
+        background-image: url("../images/icons/medium/class_rogue.jpg");
         color: #FFF569
     }
   }
 
 .mainBody {
-    min-height: 76.5vh;
+    min-height: 77.5vh;
     align-content: center;
    }
 
@@ -272,7 +301,6 @@ body {
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     font-size: 300%;
     color: azure;
-    padding-top: 25px;
 }
 .page-description {
     color: azure;
@@ -282,6 +310,7 @@ body {
 .titleSplash {
     background-image: url(../images/title_splash.png);
     background-size: cover;
+    color: azure;
 }
 
 
