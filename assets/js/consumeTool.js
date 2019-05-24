@@ -31,10 +31,17 @@ function stepValidator(n, step) {
 
 
 function applyClickHandlers() {
+	const classMarker = $('<div/>', {
+		class: 'classMarker',
+	})
+	const classMarkerGhost = $('<div/>', {
+		class: 'classMarkerGhost',
+	})
 	$('.class-filter').on({
 		click: e => {
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
+			clickedFilter.append(classMarker)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
 			const defaultData = consumes.find((a) => {
@@ -91,6 +98,17 @@ function applyClickHandlers() {
 
 			})
 		},
+		mouseenter: e => {
+			const hoveredFilter = $(e.target)
+			if(hoveredFilter.hasClass('selected')){
+				return
+			}else{
+				hoveredFilter.append(classMarkerGhost)
+			}
+		},
+		mouseleave: e => {
+			$('.classMarkerGhost').remove()
+		}
 	})
 }
 
