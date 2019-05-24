@@ -3,9 +3,6 @@ $(document).ready(initializeApp)
 function initializeApp() {
 
 	applyClickHandlers()
-	$('#warrior').addClass('selected')
-	populateData(context.classes[0]);
-	//sticky nav color change
 	$(window).scroll(() => {
 		if ($(document).scrollTop() > 88.2) {
 			$('.content-selection-container').css('top', '130px')
@@ -15,10 +12,23 @@ function initializeApp() {
 
 
 function applyClickHandlers() {
+	const defaultSelection = $('#warrior')
+	defaultSelection.addClass('selected')
+	populateData(context.classes[0]);
+	const classMarker = $('<div/>', {
+		class: 'classMarker',
+	})
+	const classMarkerGhost = $('<div/>', {
+		class: 'classMarkerGhost',
+	})
+	defaultSelection.append(classMarker)
+
 	$('.class-filter').on({
 		click: e => {
+			$('.class-filter').children().remove()
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
+			clickedFilter.append(classMarker)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
 			const selectedClass = context.classes.find(function(a) {
@@ -27,15 +37,23 @@ function applyClickHandlers() {
 			$(window).scrollTop(120);
 			populateData(selectedClass);
 		},
+
+		mouseenter: e => {
+			const hoveredFilter = $(e.target)
+			if(hoveredFilter.hasClass('selected')){
+				return
+			}else{
+				hoveredFilter.append(classMarkerGhost)
+			}
+		},
+		mouseleave: e => {
+			$('.classMarkerGhost').remove()
+		}
 	})
 }
 
 function populateData(data) {
-	console.log(data)
-
-	//Retrieve the template data from the HTML .
 	let template = $('#handlebars-demo').html();
-	//Compile the template data into a function
 	let templateScript = Handlebars.compile(template);
 
 	const pve = Object.assign({}, data);
