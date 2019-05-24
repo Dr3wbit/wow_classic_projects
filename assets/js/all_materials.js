@@ -313,6 +313,9 @@ const allMaterials = {
 	},
 	libram_of_constitution: {
 		category: 'drop',
+		unique: 'Unique',
+		req: 50,
+		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon'
 	},
 	ichor_of_undeath: {
@@ -320,8 +323,10 @@ const allMaterials = {
 		rarity: 'common'
 	},
 	crystal_force: {
+		bop: true,
 		category: 'other',
-		rarity: 'common'
+		rarity: 'common',
+		use: "Increases the target's Spirit by 30 for 30 min. (cooldown 5 min)",
 	},
 	large_brilliant_shard: {
 		category: 'enchanting',
@@ -336,8 +341,10 @@ const allMaterials = {
 		rarity: 'uncommon'
 	},
 	black_blood_of_the_tormented: {
+		bop: true,
 		category: 'other',
-		rarity: 'common'
+		rarity: 'common',
+		description: "The putrid scent of burned blood assaults your senses.",
 	},
 	large_radiant: {
 		category: 'enchanting',
@@ -385,7 +392,11 @@ const allMaterials = {
 	},
 	gizzard_gum: {
 		category: 'other',
-		rarity: 'common'
+		unique: true,
+		bop: true,
+		rarity: 'common',
+		description: 'Strawberry Flavor',
+		use: 'Increases Spirit by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)'
 	},
 	soul_dust: {
 		category: 'enchanting',
@@ -409,7 +420,8 @@ const allMaterials = {
 	},
 	lesser_nether_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: 'Turn three lesser nether essences into a greater one.'
 	},
 	greater_astral_essence: {
 		category: 'enchanting',
@@ -496,7 +508,7 @@ const allMaterials = {
     night_dragons_breath: {
         category: 'other',
         rarity: 'common',
-        use: 'Use: Restores 394 to 457 mana and 394 to 457 health. (cooldown 2 min)',
+        use: 'Restores 394 to 457 mana and 394 to 457 health. (cooldown 2 min)',
     }
 
 

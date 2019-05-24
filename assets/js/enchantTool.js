@@ -9,7 +9,6 @@ function initializeApp() {
 }
 
 function applyClickHandlers() {
-    materialsTooltip()
     $(".enchantable").on({
         click: e => {
             $(".enchantable").removeClass('focus')
@@ -18,7 +17,11 @@ function applyClickHandlers() {
             clickedSlot.addClass('focus')
             findSlot(clickedSlot)
         },
+
     })
+    materialsTooltip()
+    // iconHover()
+
 }
 
 function findSlot(selection) {
@@ -123,48 +126,124 @@ function calculateData() {
         console.log(counts[material[i]])
         let matCat = allMaterials[material[i]].category
 
+        let imageType = (!(material[i]=='gold' || material[i]=='silver')) ? 'jpg' : 'gif'
+
         let materialsContainer = $('<div/>', {
-            class: 'materialsList icon-small',
+            class: 'materials-list',
+        }).append($('<img/>', {
+            class: 'icon-small',
+            src: "assets/images/icons/small/icon_border.png",
+            style: `background-image: url(assets/images/icons/small/materials/${matCat}/${material[i]}.${imageType});`,
+        })).append($('<span/>', {
             text: `${counts[material[i]]}`,
-
-            // src: "assets/images/icons/small/icon_border.png",
-            style: `background-image: url(assets/images/icons/small/materials/${matCat}/${material[i]}.jpg);`,
-        }).append($('<span/>', {
+            class: 'amount',
+        })).append($('<span/>', {
+            text: `${counts[material[i]]}`,
+            style: "position:absolute; white-space:nowrap; color: black; left: 14px; top: 8px; font-size: 11px; z-index: 4; pointer-events: none;"
+        })).append($('<span/>', {
             text: titleCase(material[i]),
-            class: `totalMaterials rarity ${allMaterials[material[i]].rarity}`,
-            // text: 'count '+material[i].replace(/_/g, " ") + ": " + counts[material[i]]
+            class: `materials-name rarity ${allMaterials[material[i]].rarity}`,
+        })).append($('<div/>', {
+            class: 'tooltip-container',
         }))
-
-        // .append('<div/>', {
-        //     text: `count ${counts[material[i]]}`,
-        //     // class: 'totalMaterials',
-        //     // text: 'count '+material[i].replace(/_/g, " ") + ": " + counts[material[i]]
-        // })
-        // materialsContainer = materialsContainer.wrapAll("<div class='new' />")
 
         materialsToAppend.push(materialsContainer)
     }
     $('.results').append(materialsToAppend)
 }
 
-function titleCase(s){
-    const underScores = /\_/g
-    let a = s.replace(underScores, ' ')
-    let strArr = a.split(' ')
+
+
+function materialsTooltip() {
+    $(".results").on({
+        mouseenter: e => {
+            const closestMat = $( e.target ).closest('.materials-list').find('.materials-name')
+            let closestTooltip = $( e.target ).closest( $('.materials-list')).find('div.tooltip-container')
+
+            let matName = closestMat.text()
+
+            if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
+                return
+            } else {
+                $(".results").find('.materials-name').removeClass('underlined')
+                //
+                closestMat.addClass('underlined')
+                $(".results").find( $('div.tooltip-container') ).children().remove()
+
+
+
+                const thisMat = allMaterials[sanitize(matName)]
+
+
+                const rarity = thisMat.rarity
+
+                const BoP = (thisMat.bop) ? $('<div/>', {
+                    class: 'bop',
+                    text: "Binds when picked up",
+                }) : null
+
+                const unique = (thisMat.unique) ? $('<div/>', {
+                    class: 'unique',
+                    text: "Unique",
+                }) : null
+
+                const requiredLevel = (thisMat.req) ? $('<div/>', {
+                    class: 'requiredLevel',
+                    text: `Requires Level ${thisMat.req}`,
+                }) : null
+
+                const use = (thisMat.use) ? $('<div/>', {
+                    class: 'use',
+                    text: `Use: ${thisMat.use}`,
+                }) : null
+
+                const description = (thisMat.description) ? $('<div/>', {
+                    class: 'description',
+                    text: `"${thisMat.description}"`,
+                }) : null
+
+                closestTooltip.append($('<div/>', {
+                    class: 'enchant-tooltip',
+                 }).append($('<div/>', {
+                    class: `title ${rarity}`,
+                    text: matName,
+                })).append(BoP).append(unique).append(requiredLevel).append(use).append(description)
+            )
+
+            }
+        },
+        mouseleave: e => {
+            $(".results").find('.materials-name').removeClass('underlined')
+            $(".results").find( $('div.tooltip-container') ).children().remove()
+
+            // const targetMaterial = $( e.target ).closest('.materials-list').find('div.tooltip-container')
+            // targetMaterial.children().remove()
+        }
+    })
+}
+
+function titleCase(str){
+    let strArr = str.replace(/\_/g, ' ').split(' ')
     strArr.forEach(function(word, i) {
-        if (word != ('of' || 'the') && typeof(word)=='string'){
+        if (!(word=='of' || word=='the') && typeof(word)=='string'){
             strArr[i] = word.charAt(0).toUpperCase() + word.slice(1)
         }
     })
     return strArr.join(' ')
-
 }
 
-function materialsTooltip() {
-    $(".materialsList").on({
-        mouseover: e => {
-
-            console.log($(e.target))
-        }
-    })
+function sanitize(str) {
+    return str.toLowerCase().replace(/\s+/g, '_')
 }
+
+// function iconHover() {
+//     $(".materials-name").on({
+//         mouseover: e => {
+//             console.log($(e.target))
+//
+//             let mat = $( e.target ).closest('.materials-list').find('.materials-name')
+//             mat.attr('style', "text-decoration: underline;")
+//
+//         }
+//     })
+// }
