@@ -241,3 +241,71 @@ function titleCase(s){
     return strArr.join(' ')
 
 }
+
+function materialsTooltip() {
+    $(".results").on({
+        mouseenter: e => {
+            const closestMat = $( e.target ).closest('.materials-list').find('.materials-name')
+            let closestTooltip = $( e.target ).closest( $('.materials-list')).find('div.tooltip-container')
+
+            let matName = closestMat.text()
+
+            if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
+                return
+            } else {
+                $(".results").find('.materials-name').removeClass('underlined')
+                //
+                closestMat.addClass('underlined')
+                $(".results").find( $('div.tooltip-container') ).children().remove()
+
+
+
+                const thisMat = allMaterials[sanitize(matName)]
+
+
+                const rarity = thisMat.rarity
+
+                const BoP = (thisMat.bop) ? $('<div/>', {
+                    class: 'bop',
+                    text: "Binds when picked up",
+                }) : null
+
+                const unique = (thisMat.unique) ? $('<div/>', {
+                    class: 'unique',
+                    text: "Unique",
+                }) : null
+
+                const requiredLevel = (thisMat.req) ? $('<div/>', {
+                    class: 'requiredLevel',
+                    text: `Requires Level ${thisMat.req}`,
+                }) : null
+
+                const use = (thisMat.use) ? $('<div/>', {
+                    class: 'use',
+                    text: `Use: ${thisMat.use}`,
+                }) : null
+
+                const description = (thisMat.description) ? $('<div/>', {
+                    class: 'description',
+                    text: `"${thisMat.description}"`,
+                }) : null
+
+                closestTooltip.append($('<div/>', {
+                    class: 'consume-tooltip',
+                 }).append($('<div/>', {
+                    class: `title ${rarity}`,
+                    text: matName,
+                })).append(BoP).append(unique).append(requiredLevel).append(use).append(description)
+            )
+
+            }
+        },
+        mouseleave: e => {
+            $(".results").find('.materials-name').removeClass('underlined')
+            $(".results").find( $('div.tooltip-container') ).children().remove()
+
+            // const targetMaterial = $( e.target ).closest('.materials-list').find('div.tooltip-container')
+            // targetMaterial.children().remove()
+        }
+    })
+}
