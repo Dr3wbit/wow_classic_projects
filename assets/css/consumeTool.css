@@ -73,7 +73,7 @@ input:focus {
     font-size: 100%;
     text-align: left;
     line-height: 17px;
-    width: 245px;
+    min-width: 245px;
     position: absolute;
     left: 40px;
     bottom: 40px;
