@@ -12,6 +12,7 @@ body {
     background-attachment: fixed;
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     margin-bottom: 3vh;
+    margin-top: 53px;
 }
 
 .footer {
@@ -46,6 +47,11 @@ body {
 @font-face {
     font-family: 'Aeio';
     src: url('../fonts/aeio_goth.ttf');
+}
+
+@font-face {
+    font-family: 'FrizQuadrata';
+    src: url('../fonts/FrizQuadrataStdRegular.otf');
 }
 
 /* ````````````````````````NAV`````````````````` */
@@ -409,18 +415,14 @@ ul {
 }
 
 .rarity {
-    text-shadow: 0px 0px 5rem rgba(0, 0, 30, 0.85);
+    text-shadow: 0px 0px 0.1rem rgba(0, 0, 30, 0.85);
 }
 
-.icon-small:hover >* {
-    text-decoration: underline;
-}
-
-.common {
+.common, .unique, .bop, .requiredLevel{
     color: rgba(255,255,255,0.95);
 }
 
-.uncommon {
+.uncommon .use {
     color: rgba(30,255,0,0.95);
 }
 
