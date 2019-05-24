@@ -403,11 +403,18 @@ function populateTables(reset = false) {
 
 }
 
-function classSelectionHandler() {
+function applySelectionMarker() {
+	$('.class-filter').children().remove()
+	const classMarker = $('<div/>', {
+		class: 'classMarker',
+	})
+	$('.selected').append(classMarker)
+}
 
+function classSelectionHandler() {
 	$('.class-filter').on({
 		click: e => {
-
+			applySelectionMarker()
 			buildClassData(e, '', '', true)
 			let selectedSpec = $('div.specItem.specSelected')
 			if (selectedSpec){
@@ -418,7 +425,6 @@ function classSelectionHandler() {
 
 					if (!(className == talentPointsSpent.className)){
 						selectedSpec.removeClass('specSelected')
-						// $('div.specItem.specSelected').removeClass('specSelected')
 					}
 				}
 				let specURL = selectedSpec.attr('href')
@@ -431,6 +437,20 @@ function classSelectionHandler() {
 			// let oldTitle = document.title
 			// document.title = (oldTitle+' '+className)
 		},
+		mouseenter: e => {
+			const classMarkerGhost = $('<div/>', {
+				class: 'classMarkerGhost',
+			})
+			const hoveredFilter = $(e.target)
+			if(hoveredFilter.hasClass('selected')){
+				return
+			}else{
+				hoveredFilter.append(classMarkerGhost)
+			}
+		},
+		mouseleave: e => {
+			$('.classMarkerGhost').remove()
+		}
 	})
 }
 
@@ -588,6 +608,7 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 		url.hash = '#'
 		history.replaceState(null, className, url)
 	}
+	applySelectionMarker()
 
 	const selectedClass = talentData.classes.find(function (a) {
 		return a.name == className;
