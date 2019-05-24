@@ -131,7 +131,7 @@ const enchants = {
 				living_essence: 6,
 			},
 			description: 'Permanently enchants bracers to increase the effects of your healing spells by 24.',
-			effect: 'Healing Power'
+			effect: 'Healing Spells +24'
 		},
 		intellect: {
 			materials: {
@@ -846,7 +846,7 @@ const enchants = {
 				essence_of_fire: 1,
 			},
 			description: 'Permanently enchant a melee weapon to often strike for 40 additional fire damage.',
-			effect: 'Fiery Weapon'
+			effect: 'Fiery'
 		},
 		greater_striking: {
 			materials: {
@@ -864,7 +864,7 @@ const enchants = {
 				icecap: 1,
 			},
 			description: 'Permanently enchant a melee weapon to often chill the target reducing their movement and attack speed.',
-			effect: 'Icy Chill'
+			effect: 'Icy'
 		},
 		lesser_beastslayer: {
 			materials: {
@@ -890,7 +890,7 @@ const enchants = {
 				large_glimmering_shard: 1,
 			},
 			description: 'Permanently enchant a Melee Weapon to do 2 additional points of damage.',
-			effect: 'Lesser Striking'
+			effect: '+2 Damage'
 		},
 		lifestealing: {
 			materials: {
@@ -944,7 +944,7 @@ const enchants = {
 				essence_of_earth: 2,
 			},
 			description: 'Permanently enchant a melee weapon to grant +15 strength.',
-			effect: 'strength +15'
+			effect: '+15 Strength'
 		},
 		striking: {
 			materials: {
@@ -952,7 +952,7 @@ const enchants = {
 				large_glowing_shard: 1,
 			},
 			description: 'Permanently enchant a Melee Weapon to do 3 additional points of damage.',
-			effect: 'Striking'
+			effect: '+3 Damage'
 		},
 		superior_striking: {
 			materials: {
@@ -960,7 +960,7 @@ const enchants = {
 				greater_eternal_essence: 10,
 			},
 			description: 'Permanently enchant a Melee Weapon to do 5 additional points of damage.',
-			effect: 'Superior Striking'
+			effect: '+5 Damage'
 		},
 		unholy_weapon: {
 			materials: {
@@ -968,7 +968,7 @@ const enchants = {
 				essence_of_undeath: 4,
 			},
 			description: 'Permanently enchant a melee weapon to often inflict a curse on the target reducing their melee damage.',
-			effect: 'Unholy Weapon'
+			effect: 'Unholy'
 		},
 		'winter\'s_might': {
 			materials: {
@@ -978,7 +978,7 @@ const enchants = {
 				wintersbite: 2,
 			},
 			description: 'Permanently enchant a weapon to grant up to 7 additional frost damage when casting frost spells.',
-			effect: 'Enchant Weapon - Winter\'s Might'
+			effect: "Winter's Might"
 		}
 	},
 	'2h weapon': {
@@ -998,7 +998,7 @@ const enchants = {
 				dream_dust: 2,
 			},
 			description: 'Permanently enchant a two-handed melee weapon to do +7 damage.',
-			effect: 'damage +7'
+			effect: 'Weapon Damage +7'
 		},
 		impact: {
 			materials: {
@@ -1006,7 +1006,7 @@ const enchants = {
 				large_glowing_shard: 1,
 			},
 			description: 'Permanently enchant a Two-handed Melee Weapon to do 5 additional points of damage.',
-			effect: 'Impact'
+			effect: '+5 Damage'
 		},
 		lesser_impact: {
 			materials: {
@@ -1014,14 +1014,14 @@ const enchants = {
 				large_glimmering_shard: 1,
 			},
 			description: 'Permanently enchant a Two-handed Melee Weapon to do 3 additional points of damage.',
-			effect: 'Lesser Impact'
+			effect: '+3 Damage'
 		},
 		lesser_intellect: {
 			materials: {
 				greater_magic_essence: 3,
 			},
 			description: 'Permanently enchant a Two-Handed Melee Weapon to add 3 to intellect.',
-			effect: 'Lesser Intellect'
+			effect: '+3 Intellect'
 		},
 		lesser_spirit: {
 			materials: {
@@ -1029,7 +1029,7 @@ const enchants = {
 				strange_dust: 6,
 			},
 			description: 'Permanently enchant a Two-Handed Melee Weapon to add 3 to Spirit.',
-			effect: 'Lesser Spirit'
+			effect: '+3 Spirit'
 		},
 		major_intellect: {
 			materials: {
@@ -1037,7 +1037,7 @@ const enchants = {
 				large_brilliant_shard: 2,
 			},
 			description: 'Permanently enchant a Two-Handed Melee Weapon to add 9 to intellect.',
-			effect: 'Major Intellect'
+			effect: 'Intellect +9'
 		},
 		major_spirit: {
 			materials: {
@@ -1045,7 +1045,7 @@ const enchants = {
 				large_brilliant_shard: 2,
 			},
 			description: 'Permanently enchant a Two-Handed Melee Weapon to add 9 to Spirit.',
-			effect: 'Major Spirit'
+			effect: 'Spirit +9'
 		},
 		minor_impact: {
 			materials: {
@@ -1053,7 +1053,7 @@ const enchants = {
 				small_glimmering_shard: 1,
 			},
 			description: 'Permanently enchant a Two-Handed Melee Weapon to do 2 additional points of damage.',
-			effect: 'Minor Impact'
+			effect: 'Weapon Damage +9'
 		},
 		superior_impact: {
 			materials: {
@@ -1061,7 +1061,7 @@ const enchants = {
 				illusion_dust: 10,
 			},
 			description: 'Permanently enchant a two-handed melee weapon to do +9 damage.',
-			effect: 'damage +9'
+			effect: 'Weapon Damage +9'
 		}
 	},
 	head: {

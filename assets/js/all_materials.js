@@ -5,10 +5,16 @@ const allMaterials = {
 	},
 	libram_of_rapidity: {
 		category: 'drop',
+		unique: 'Unique',
+		req: 50,
+		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon'
 	},
 	libram_of_protection: {
 		category: 'drop',
+		unique: 'Unique',
+		req: 50,
+		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon'
 	},
 	unstable_trigger: {
@@ -145,7 +151,8 @@ const allMaterials = {
 	},
 	goblin_rocket_fuel: {
 		category: 'drop',
-		rarity: 'common'
+		rarity: 'common',
+		description: "Used by Goblin Engineers to power their creations",
 	},
 	elemental_fire: {
 		category: 'drop',
@@ -205,6 +212,9 @@ const allMaterials = {
 	},
 	libram_of_focus: {
 		category: 'drop',
+		unique: 'Unique',
+		req: 50,
+		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon'
 	},
 	heart_of_fire: {
@@ -221,6 +231,9 @@ const allMaterials = {
 	},
 	libram_of_rumination: {
 		category: 'drop',
+		unique: 'Unique',
+		req: 50,
+		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon'
 	},
 	enchanted_leather: {
@@ -253,15 +266,22 @@ const allMaterials = {
 	},
 	whipper_root_tuber: {
 		category: 'other',
-		rarity: 'common'
+		rarity: 'common',
+		bop: true,
+		req: 45,
+		use: "Restores 700 to 901 health. (cooldown 2 min)"
 	},
 	libram_of_tenacity: {
 		category: 'drop',
+		unique: 'Unique',
+		req: 50,
+		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon'
 	},
 	greater_eternal_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn a greater eternal essence into three lesser ones."
 	},
 	essence_of_fire: {
 		category: 'drop',
@@ -273,7 +293,8 @@ const allMaterials = {
 	},
 	skin_of_shadow: {
 		category: 'drop',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		bop: true,
 	},
 	golden_pearl: {
 		category: 'drop',
@@ -281,7 +302,8 @@ const allMaterials = {
 	},
 	lesser_eternal_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn three lesser eternal essences into a greater one."
 	},
 	black_diamond: {
 		category: 'mining',
@@ -330,10 +352,13 @@ const allMaterials = {
 	},
 	large_brilliant_shard: {
 		category: 'enchanting',
-		rarity: 'rare'
+		rarity: 'rare',
 	},
 	libram_of_resilience: {
 		category: 'drop',
+		unique: 'Unique',
+		req: 50,
+		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon'
 	},
 	essence_of_water: {
@@ -355,8 +380,10 @@ const allMaterials = {
 		rarity: 'common'
 	},
 	crystal_spire: {
+		bop: true,
 		category: 'other',
-		rarity: 'common'
+		rarity: 'common',
+		use: "A crystal shield surrounds the friendly target, doing 12 damage to anyone who hits him. Lasts 10 min. (cooldown 5 min)"
 	},
 	essence_of_undeath: {
 		category: 'drop',
@@ -368,11 +395,16 @@ const allMaterials = {
 	},
 	lung_juice_cocktail: {
 		category: 'other',
-		rarity: 'common'
+		rarity: 'common',
+		unique: true,
+		bop: true,
+		use: "Increases Stamina by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)",
+		description: "100% Grade A Lung Juice - Freshly Squeezed",
 	},
 	greater_nether_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn a greater nether essence into three lesser ones."
 	},
 	bloodvine: {
 		category: 'herbalism',
@@ -380,6 +412,9 @@ const allMaterials = {
 	},
 	libram_of_voracity: {
 		category: 'drop',
+		unique: 'Unique',
+		req: 50,
+		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon'
 	},
 	living_essence: {
@@ -404,11 +439,13 @@ const allMaterials = {
 	},
 	lesser_mystic_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn three lesser mystic essences into a greater one."
 	},
 	greater_mystic_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn a greater mystic essence into three lesser ones."
 	},
 	strange_dust: {
 		category: 'enchanting',
@@ -416,7 +453,8 @@ const allMaterials = {
 	},
 	lesser_astral_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn three lesser astral essences into a greater one.",
 	},
 	lesser_nether_essence: {
 		category: 'enchanting',
@@ -425,15 +463,18 @@ const allMaterials = {
 	},
 	greater_astral_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn a greater astral essence into three lesser ones."
 	},
 	greater_magic_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn a greater magic essence into three lesser ones."
 	},
 	lesser_magic_essence: {
 		category: 'enchanting',
-		rarity: 'uncommon'
+		rarity: 'uncommon',
+		use: "Turn three lesser magic essences into a greater one."
 	},
 	small_glowing_shard: {
 		category: 'enchanting',
@@ -444,12 +485,16 @@ const allMaterials = {
 		rarity: 'rare'
 	},
 	shadow_protection_potion: {
+		req: 17,
+		use: "Absorbs 675 to 1126 shadow damage. Lasts 1 hr. (cooldown 2 min)",
 		category: 'other',
-		rarity: 'common'
+		rarity: 'common',
 	},
 	frost_oil: {
 		category: 'drop',
-		rarity: 'common'
+		rarity: 'common',
+		req: 30,
+		use: "When applied to a melee weapon it gives a 10% chance of casting Frostbolt at the opponent when it hits. Lasts 30 minutes."
 	},
 	large_glowing_shard: {
 		category: 'enchanting',
@@ -477,7 +522,9 @@ const allMaterials = {
 	},
 	elixir_of_demonslaying: {
 		category: 'drop',
-		rarity: 'common'
+		rarity: 'common',
+		req: 40,
+		use: "Increases attack power by 265 against demons. Lasts 5 min."
 	},
 	large_fang: {
 		category: 'drop',
@@ -502,12 +549,15 @@ const allMaterials = {
     burning_essence: {
         category: 'drop',
         rarity: 'common',
+		bop: true,
         description: "The smoldering remains of something...",
 
     },
     night_dragons_breath: {
         category: 'other',
         rarity: 'common',
+		bop: true,
+		req: 45,
         use: 'Restores 394 to 457 mana and 394 to 457 health. (cooldown 2 min)',
     }
 
