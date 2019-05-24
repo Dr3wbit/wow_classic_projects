@@ -156,7 +156,7 @@ body {
 
 .classMarker {
     position: absolute;
-    background-image: url(../images/icons/medium/orange_marker.png);
+    background-image: url(../images/icons/medium/orange_filter_marker.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 20px;
@@ -170,7 +170,7 @@ body {
 
 .classMarkerGhost {
     position: absolute;
-    background-image: url(../images/icons/medium/orange_marker.png);
+    background-image: url(../images/icons/medium/orange_filter_marker.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 20px;
