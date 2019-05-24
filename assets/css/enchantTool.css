@@ -6,6 +6,9 @@
     margin-bottom: 5px;
 }
 
+.enchantHolder {
+    pointer-events: none;
+}
 .enchantOptions {
     background-image: url("../images/textured_background.png");
     background-size: cover;
@@ -55,6 +58,7 @@
     text-overflow: ellipsis;
     border-radius: 4px;
     align-items: center;
+    pointer-events: auto;
 }
 
 .enchantOption:hover {
@@ -209,23 +213,23 @@
 
 
 .enchant-tooltip {
-    font-size: 100%;
+    /* font-size: 100%;
     text-align: left;
-    line-height: 17px;
+    line-height: 17px; */
     /* min-width: 100px; */
-    position: absolute;
-    left: 10px;
-    bottom: 40px;
-    background-color: rgba(0, 0, 30, 0.85) !important;
+    /* position: absolute; */
+    /* left: 10px; */
+    /* bottom: 40px; */
+    /* background-color: rgba(0, 0, 30, 0.85) !important;
     color: #1EFF00;
     pointer-events: none;
     border: 1px solid #b6bbc0;
     padding: 5px;
     margin: 5px;
-    border-radius: 4px;
-    z-index: 10250;
-    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
-    padding-right: 5px;
+    border-radius: 4px; */
+    /* z-index: 10250; */
+    /* box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    padding-right: 5px; */
 }
 
 .description{
@@ -274,10 +278,36 @@
     text-decoration: underline;
 }
 
-.tooltip-container {
-    /* z-index: 999; */
-    position: relative;
-    /* left: -15px; */
-    right: 120px;
-    top: 40px;
+#tooltip-container {
+    font-size: 100%;
+    text-align: left;
+    line-height: 17px;
+    /* max-width: 320px; */
+    position: absolute;
+    display: block;
+    background-color: rgba(0, 0, 30, 0.85) !important;
+    color: #1EFF00;
+    pointer-events: none;
+    border: 1px solid #b6bbc0;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    /* padding-right: 5px; */
+    z-index: 500000;
+}
+
+.use {
+    color: rgba(30,255,0,0.95);
+    font-size: 95%;
+}
+
+
+.unique, .bop, .requiredLevel {
+    font-size: 95%;
+    color: rgba(255,255,255,0.95);
+}
+
+.spell {
+    color: rgba(127,172,244,1);
 }
