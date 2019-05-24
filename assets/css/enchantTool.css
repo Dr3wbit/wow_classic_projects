@@ -23,19 +23,24 @@
 }
 
  .totalContainer {
-    background-image: url("../images/textured_background_white.png");
+    background-image: url("../images/textured_background.png");
     background-size: cover;
     padding: 10px;
     border-radius: 5px;
     border: 1px azure solid;
     min-height: 250px;
+
+    color: #1EFF00;
+    border: 1px solid #b6bbc0;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
 }
 
 .results {
     font-size: 100%;
     text-align: left;
-    background-color: azure;
+    /* background-color: azure; */
     padding-left: 5px;
+    pointer-events: none;
 }
 
 .enchantOption {
@@ -68,13 +73,13 @@
 }
 
 .enchant-slot-title {
+    color: rgba(240, 255, 255, .85);
     font-size: 100%;
-    font-style: bold;
     margin: 10px;
     padding: 2px;
-    background-color: azure;
     border-radius: 2px;
-    border: 1px black solid
+    border: 1px solid #b6bbc0;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61), 0px 0px 1px 1px rgba(64, 64, 104, 0.4);
 }
 
 .mainDisplay {
@@ -90,10 +95,21 @@
     font-size: 100%;
     padding: 1px;
     margin: 2px;
-    background-color: azure;
+    background-image: url("../images/textured_background.png");
     border-radius: 2px;
-    border: 1px black solid;
+    border: 1px solid #b6bbc0;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    color: #1EFF00;
+
 }
+
+/* .totalContainer {
+   background-size: cover;
+   padding: 10px;
+   border-radius: 5px;
+   border: 1px azure solid;
+   min-height: 250px;
+} */
 
 .enchantable {
     cursor: pointer;
@@ -181,14 +197,87 @@
 
 
 .icon-small {
-    color: azure;
     height: 22px;
     width: 22px;
-    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: left 3px top 3px;
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
 }
 
-.totalMaterials {
-    color: black;
-    left: 18px;
+
+
+.enchant-tooltip {
+    font-size: 100%;
+    text-align: left;
+    line-height: 17px;
+    /* min-width: 100px; */
+    position: absolute;
+    left: 10px;
+    bottom: 40px;
+    background-color: rgba(0, 0, 30, 0.85) !important;
+    color: #1EFF00;
+    pointer-events: none;
+    border: 1px solid #b6bbc0;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    z-index: 10250;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    padding-right: 5px;
+}
+
+.description{
+    color: rgba(255, 205, 85, 1) !important;
+    white-space: pre-line;
+    padding-right: 5px;
+}
+
+.title{
+    line-height: 15px;
+    font-size: 14px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+
+.materials-name {
+    /* color: black; */
+    /* left: 18px; */
+    position: absolute;
+    left: 22px;
+    pointer-events: auto;
+    padding-left: 5px;
+    top: 1px;
+}
+
+.materials-list {
     position: relative;
+    margin-bottom: 4px;
+}
+
+.amount {
+    font-size: 11px;
+    position: relative;
+    margin-right: 5px;
+    left: -8px;
+    top: 6px;
+    text-decoration: none;
+    color: azure;
+    pointer-events: none;
+    -webkit-text-stroke: 0.01rem black;
+    z-index: 10;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.tooltip-container {
+    /* z-index: 999; */
+    position: relative;
+    /* left: -15px; */
+    right: 120px;
+    top: 40px;
 }

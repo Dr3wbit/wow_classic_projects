@@ -119,6 +119,10 @@
     border-radius: 5px;
 }
 
+@font-face {
+    font-family: 'Quattro';
+    src: url('../fonts/Quattrocento-Regular.ttf');
+}
 
 .talent-tooltip-req, .unlearn {
     color: red !important;
@@ -130,7 +134,7 @@
 }
 
 .talent-tooltip-title{
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .talent-tooltip-rank {
@@ -149,20 +153,23 @@
 
 .talent-tooltip{
     all: revert;
+    font-family: Verdana;
     font-size: 100%;
-    width: 325px;
+    min-width: 280px;
     position: absolute;
     left: 40px;
     bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.89) !important;
+    background-color: rgba(0, 0, 30, 0.85) !important;
     color: azure;
     pointer-events: none;
-    border: 1px solid azure;
+    border: 1px solid #b6bbc0;
     padding: 5px;
     margin: 5px;
+    margin-right: 8px;
     border-radius: 5px;
     z-index: 999;
     text-align: left;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
 }
 
 
