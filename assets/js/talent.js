@@ -5,7 +5,6 @@ const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a/b/c/d/
 const re2 = /([a-z])\d/g
 const re3 = /(?:.* \[)(.+)(?:\] .)/
 
-
 const translationTable = {
 	00: 'a', 01: 'b', 02: 'c', 03: 'd', 04: 'e', 05: 'f',
 	10: 'g', 11: 'h', 12: 'i', 13: 'j', 14: 'k', 15: 'l',
@@ -29,42 +28,8 @@ Object.values(translationTable).forEach(function (item, index) {
 	reversedTable[item] = repl
 })
 
-
-// $(document).ready()
-
 $(document).ready(function () {
-
 	initializeApp()
-
-	// Navbar collapse on scroll below 100px
-	// changeNavbar()
-
-	// $(window).scroll(function () {
-	//     changeNavbar()
-	// })
-
-	// function changeNavbar() {
-	//     var navbar = $("nav.navbar.fixed-top");
-	//     if ($(this).scrollTop() >= 10) {
-	//         navbar.removeClass("navbar-expand-lg").addClass("navbar-shrink")
-	// 		$("span.navbar-logo-text").hide()
-	//
-	// 		// $(".navbar-logo-text").attr('style', "visibility: hidden;")
-	//
-	// 		// navbar.attr('style', "visibility: hidden;")
-	// 		// navbar.hide()
-	//     } else if ($(this).scrollTop() < 10) {
-	//
-	// 		if (window.screen.width >= 1024 && window.screen.height >= 768) {
-	// 			// Resolution is 1024x768 or above
-	// 			navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
-	//
-	// 		}
-	//         navbar.removeClass("navbar-shrink").addClass("navbar-expand-lg")
-	// 		$("span.navbar-logo-text").show()
-	//
-	//     }
-	// }
 })
 
 function initializeApp() {
@@ -156,6 +121,7 @@ function specChoiceRadios(){
 		}
 	})
 }
+
 
 function exportSpec() {
 	$("#export").on({
@@ -467,6 +433,9 @@ function classSelectionHandler() {
 					selectedSpec.removeClass('specSelected')
 				}
 			}
+			// let className = $('.class-filter.selected')[0].id
+			// let oldTitle = document.title
+			// document.title = (oldTitle+' '+className)
 		},
 		mouseenter: e => {
 			const classMarkerGhost = $('<div/>', {
@@ -852,10 +821,10 @@ function mouseDownHandler(e = null, talent, tree) {
 }
 
 function updateTalentHeader() {
-	let treeNames = []
-	classData.trees.forEach(function (item) {
-		treeNames.push(item.name)
-	})
+	let treeNames = talentPointsSpent.treeNames
+	// classData.trees.forEach(function (item) {
+	// 	treeNames.push(item.name)
+	// })
 	let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
 	$("#allottedTalentPoints").text(a)
 	let requiredLevel = (talentPointsSpent.grandTotal() >= 1) ? talentPointsSpent.grandTotal() + 9 : "--"
@@ -963,6 +932,7 @@ function updateTooltip(e) {
 		}))
 		.append(next_rank_ele)
 	)
+
 }
 
 function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
@@ -1270,12 +1240,9 @@ function urlBuilder() {
 		if (indc < 2) {
 			str = (str.length % 2 == 0) ? str.concat('', '07') : str.concat('', '7')
 		}
-
 		for (var i = 0; i < str.length; i = i + 2) {
-
 			let subStr = str.substring(i, i + 2)
 			newURL = newURL.concat('', translationTable[parseInt(subStr)])
-
 		}
 	})
 
@@ -1285,8 +1252,6 @@ function urlBuilder() {
 	}
 
 	let shortestURL = newURL.slice(0, newURL.indexOf('Z'))
-
-
 	let url = new URL(location.origin + location.pathname)
 	let params = url.searchParams
 
@@ -1294,7 +1259,6 @@ function urlBuilder() {
 	url.hash = shortestURL
 	// const finalURL = new URL(hash, url);
 	history.replaceState(null, null, url)
-
 	return shortestURL
 }
 
@@ -1318,7 +1282,6 @@ function urlExpander(hash) {
 		arr.forEach(function (v, i) {
 			arr[i] = arr[i].replace(v, reversedTable[v])
 		})
-
 		newStrArr[ind] = arr.join('')
 
 	})
