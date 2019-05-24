@@ -49,6 +49,11 @@ body {
     src: url('../fonts/aeio_goth.ttf');
 }
 
+@font-face {
+    font-family: 'FrizQuadrata';
+    src: url('../fonts/FrizQuadrataStdRegular.otf');
+}
+
 /* ````````````````````````NAV`````````````````` */
 
 .navbar-logo-text {
@@ -436,4 +441,28 @@ ul {
       -o-filter: grayscale(0%);
      -ms-filter: grayscale(0%);
          filter: grayscale(0%);
+}
+
+.rarity {
+    text-shadow: 0px 0px 0.1rem rgba(0, 0, 30, 0.85);
+}
+
+.common, .unique, .bop, .requiredLevel{
+    color: rgba(255,255,255,0.95);
+}
+
+.uncommon .use {
+    color: rgba(30,255,0,0.95);
+}
+
+.rare {
+    color: rgba(0, 112, 221, 1);
+}
+
+.epic {
+    color: rgba(163, 53, 238, 1);
+}
+
+.legendary {
+    color: rgba(255, 128, 0, 0.95);
 }
