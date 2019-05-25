@@ -495,17 +495,17 @@ svg.icon:hover path{
 .savedSpecs{
     color: azure;
     position: fixed;
-    z-index: 1000;
+    z-index: 1025;
     background-color: rgba(0, 0, 0, 0.95);
     padding-left: 10px;
-    min-height: 70vh;
-    max-height: 70vh;
+    top: 173px;
+    min-height: 50vh;
+    max-height: 50vh;
     overflow-y: scroll;
     max-width: 230px;
     min-width: 230px;
     scrollbar-width: none;
     -ms-overflow-style: none;
-
     transform: translateX(-85%);
     -webkit-transform: translateX(-85%);
     animation: slide-in 1s forwards;
