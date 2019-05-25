@@ -126,7 +126,6 @@
     color: rgba(255,33,45,0.95);
     /* color: red !important; */
     white-space: pre-line;
-    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 .learn {
@@ -137,7 +136,6 @@
 .rank {
     color: azure !important;
     font-size: 95%;
-    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 .next {
@@ -148,7 +146,6 @@
     color: rgba(255, 205, 85, 1) !important;
     white-space: pre-line;
     padding-right: 5px;
-    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 .title{
@@ -156,7 +153,6 @@
     font-size: 14px;
     padding-top: 1px;
     padding-bottom: 1px;
-    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 #tooltip {
@@ -175,6 +171,7 @@
     border-radius: 4px;
     box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
     z-index: 500000;
+    text-shadow: -0.01rem -0.01rem 0.01rem black;
 }
 
 .talentFooter {
@@ -342,11 +339,12 @@
   width:100%;
   max-width: 718px;
   border: 2px solid black;
-  color: azure;
+  color: rgba(240, 240, 255, 0.95);
   background: #343a40;
   display: flex;
   font-size: 14px;
   position: relative;
+  text-shadow: -0.02rem -0.02rem 0.02rem black;
 }
 
 @media only screen and (max-width: 1200px) {
