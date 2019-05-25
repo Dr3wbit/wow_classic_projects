@@ -506,11 +506,10 @@ svg.icon:hover path{
     white-space: nowrap;
     text-overflow: ellipsis;
     background-color: #343a40;
-    border: 1px black solid;
     user-select: none;
     cursor: pointer;
     text-align: left;
-    max-width: 186px;
+    max-width: 188px;
 }
 
 .specItem:hover{
@@ -529,6 +528,9 @@ svg.icon:hover path{
 .savedSpecsContainer{
     padding: 5px;
     padding-top: 0px;
+    background-image: url(../images/naga_sketch.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .savedSpecsTitle {
@@ -545,7 +547,6 @@ svg.icon:hover path{
     position: fixed;
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.95);
-    border: 1px black solid;
     padding-left: 10px;
     min-height: 70vh;
     max-height: 70vh;
@@ -567,19 +568,15 @@ svg.icon:hover path{
 }
 
 .side-nav-trigger{
-    background-color: #1f2122;
     max-width: 20px;
     width: 20px;
     padding: 0;
     border: 1px black solid;
-    background-image: url(../images/icons/chevron.png);
+    background-image: linear-gradient(to right,rgb(20, 20, 20), black,rgb(20, 20, 20));
     background-repeat: no-repeat;
-    background-size: 80%;
-    background-position-y: 48%;
-    background-position-x: 50%;
 }
 .side-nav-trigger:hover{
-    background-color: #343a40;
+    background-image: linear-gradient(to right,rgb(25, 25, 25), rgb(35, 35, 35),rgb(25, 25, 25));
 }
 
 .minimized{
@@ -674,7 +671,7 @@ div.modal-body {
 }
 
 .specContainer {
-    margin: 8px 0px 8px 2px;
+    margin: 8px 0px 8px 5px;
 }
 
 .promptArrow {
