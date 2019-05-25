@@ -747,22 +747,15 @@ function talentHandler() {
 
 		mouseenter: e => {
 			updateTooltip(e)
-
 		},
 
 		mouseleave: e => {
-
 			$("#tooltip").hide()
 			$("#tooltip").children().remove()
-
-			// return $(e.target)
-
 		},
 
 		mousedown: e => {
 			mouseDownHandler(e)
-			return e.target
-			// return $(e.target)
 		},
 
 	})
@@ -838,7 +831,6 @@ function updateTooltip(e) {
 		return x.name == tree
 	})
 
-
 	const j = targetTalent.attr('data-j')
 	const k = targetTalent.attr('data-k')
 
@@ -896,31 +888,9 @@ function updateTooltip(e) {
 
 	const tooltipContainer = $("#tooltip")
 
-	console.log('width: ',$(e.target).width())
-	console.log('height: ',$(e.target).height())
-	// console.log('position: ', $(e.target).position())
-	console.log('position: ', $(e.target).offset())
-
-	console.log('e.pageY: ', e.pageY)
-
-	console.log('e.pageX: ', e.pageX)
-
-	let top = $(e.target).offset().top + 10
-	let left = $(e.target).offset().left + 40
-	let distanceFromTop = tooltipContainer.offset().top - $(window).scrollTop()
-	console.log('distanceFromTop: ', distanceFromTop)
-
-	// console.log('window.innerWidth: ', window.innerWidth)
-	//
-	// console.log('window.innerHeight: ', window.innerHeight)
-	//
-	// console.log('Tooltip width: ', tooltipContainer.innerWidth())
-	// console.log('Tooltip height: ', tooltipContainer.innerHeight())
-
-
-
-	// console.log('result: ', $(e.result))
-	tooltipContainer.attr("style", `top: ${top}px; left: ${left}px; visiblity: visible;`)
+	let top = 0
+	let left = $(e.target).offset().left + 45
+	let distanceFromTop = $(e.target).offset().top - $(window).scrollTop()
 
 	const next_rank_ele = (next_rank) ? $('<div/>', {
 		class: 'next',
@@ -933,7 +903,7 @@ function updateTooltip(e) {
 		text: tooltipFooter.text,
 	})
 
-	tooltipContainer.append($('<div/>', {
+	const testElem = $('<div/>', {
 		class: 'tooltip-container',
 		})
 		.append($('<div/>', {
@@ -953,22 +923,27 @@ function updateTooltip(e) {
 			text: description,
 		}))
 		.append(next_rank_ele)
-	)
 
-	// $(".talent").mouseleave(function( e ) {
-	// 	return e.target
-	// })
-	var previous = $(".talent").mousedown(previouslyClickedTalent(e))
+	tooltipContainer.append(testElem)
 
-	// console.log('previous element', previous)
+	let windowCoefficient = window.innerHeight/$(e.target).offset().top
 
+	if (windowCoefficient < 1) {
+		let a = $(e.target).offset().top + 45
+		top = a - tooltipContainer.height()
+	}
+	else if (window.innerHeight <  ($(e.target).offset().top*1.4)) {
+		// set tooltip vertically centered with talent
+		let a = (tooltipContainer.height() - 40)/2
+		top = $(e.target).offset().top - (a+20)
+	} else {
+		top = $(e.target).offset().top + 10
+	}
+
+	tooltipContainer.attr("style", `top: ${top}px; left: ${left}px; visiblity: visible;`)
 
 }
 
-function previouslyClickedTalent(e) {
-	// console.log('e: ', e)
-	return e.result
-}
 
 function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
 
