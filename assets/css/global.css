@@ -29,6 +29,27 @@ body {
 
 }
 
+.mainBody {
+    min-height: 77.5vh;
+    align-content: center;
+   }
+
+.page-title {
+    font-family: OpenSans, Arial, Helvetica, sans-serif;
+    font-size: 300%;
+    color: azure;
+}
+.page-description {
+    color: azure;
+    font-size: 12px;
+}
+
+.titleSplash {
+    background-image: url(../images/title_splash.png);
+    background-size: cover;
+    color: azure;
+}
+
 @font-face {
     font-family: 'MetalMacabre';
     src: url('../fonts/MetalMacabre.ttf');
@@ -184,21 +205,6 @@ body {
 }
 
 
-/* .class-filter.selected {
-    color: inherit;
-    border-top: 4px solid #ff3604;
-    padding: 5px;
-}
-
-.class-filter:hover {
-    color: inherit;
-    border-top: 4px solid #ff3604;
-    padding: 5px;
-    background-color: transparent;
-
-}
- */
-
 .class-selection {
     justify-content: center;
     font-size: 14px;
@@ -223,15 +229,6 @@ body {
       transition: all .2s ease-in;
       font-size: 0;
     }
-
-    /* .class-filter.selected {
-        border: 1px solid #ff3604
-    }
-
-    .class-filter:hover {
-      background-position: 95 100%;
-      font-size: 0;
-    } */
 
     .class-icon {
         height: 30px;
@@ -287,26 +284,6 @@ body {
     }
   }
 
-.mainBody {
-    min-height: 77.5vh;
-    align-content: center;
-   }
-
-.page-title {
-    font-family: OpenSans, Arial, Helvetica, sans-serif;
-    font-size: 300%;
-    color: azure;
-}
-.page-description {
-    color: azure;
-    font-size: 12px;
-}
-
-.titleSplash {
-    background-image: url(../images/title_splash.png);
-    background-size: cover;
-    color: azure;
-}
 
 
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
@@ -402,9 +379,7 @@ ul {
 
 .icon-container:active {
     transform: scale(.98);
-        filter: saturate(120%);
-        /* transition: all .05s ease-in-out; */
-
+    filter: saturate(120%);
 }
 
 .delete {
