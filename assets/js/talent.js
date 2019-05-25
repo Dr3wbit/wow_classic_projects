@@ -747,18 +747,21 @@ function talentHandler() {
 
 		mouseenter: e => {
 			updateTooltip(e)
-			return "test"
+
 		},
 
 		mouseleave: e => {
+
 			$("#tooltip").hide()
 			$("#tooltip").children().remove()
+
 			// return $(e.target)
 
 		},
 
 		mousedown: e => {
 			mouseDownHandler(e)
+			return e.target
 			// return $(e.target)
 		},
 
@@ -893,8 +896,31 @@ function updateTooltip(e) {
 
 	const tooltipContainer = $("#tooltip")
 
-	console.log('result: ', $(e.result))
-	tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; visiblity: visible;`)
+	console.log('width: ',$(e.target).width())
+	console.log('height: ',$(e.target).height())
+	// console.log('position: ', $(e.target).position())
+	console.log('position: ', $(e.target).offset())
+
+	console.log('e.pageY: ', e.pageY)
+
+	console.log('e.pageX: ', e.pageX)
+
+	let top = $(e.target).offset().top + 10
+	let left = $(e.target).offset().left + 40
+	let distanceFromTop = tooltipContainer.offset().top - $(window).scrollTop()
+	console.log('distanceFromTop: ', distanceFromTop)
+
+	// console.log('window.innerWidth: ', window.innerWidth)
+	//
+	// console.log('window.innerHeight: ', window.innerHeight)
+	//
+	// console.log('Tooltip width: ', tooltipContainer.innerWidth())
+	// console.log('Tooltip height: ', tooltipContainer.innerHeight())
+
+
+
+	// console.log('result: ', $(e.result))
+	tooltipContainer.attr("style", `top: ${top}px; left: ${left}px; visiblity: visible;`)
 
 	const next_rank_ele = (next_rank) ? $('<div/>', {
 		class: 'next',
@@ -929,6 +955,19 @@ function updateTooltip(e) {
 		.append(next_rank_ele)
 	)
 
+	// $(".talent").mouseleave(function( e ) {
+	// 	return e.target
+	// })
+	var previous = $(".talent").mousedown(previouslyClickedTalent(e))
+
+	// console.log('previous element', previous)
+
+
+}
+
+function previouslyClickedTalent(e) {
+	// console.log('e: ', e)
+	return e.result
 }
 
 function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
