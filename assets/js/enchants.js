@@ -812,7 +812,7 @@ const enchants = {
 			effect: 'Threat'
 		}
 	},
-	mainhand: {
+	weapon: {
 		agility: {
 			materials: {
 				large_brilliant_shard: 6,
@@ -1098,7 +1098,8 @@ const enchants = {
 				gizzard_gum: 1,
 				libram_of_rumination: 1,
 				gold: 30
-			}
+			},
+			description: 'Permanently adds 150 mana to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		},
 
 		lesser_arcanum_of_voracity: {
@@ -1160,7 +1161,8 @@ const enchants = {
 				gizzard_gum: 1,
 				libram_of_rumination: 1,
 				gold: 30
-			}
+			},
+			description: 'Permanently adds 150 mana to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		},
 
 		lesser_arcanum_of_voracity: {
