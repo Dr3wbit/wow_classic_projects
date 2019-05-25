@@ -51,7 +51,6 @@
   -o-transition: all 0.1s ease-in;
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
-  /* border-style: groove; */
 }
 
 .openSlot {
@@ -63,7 +62,6 @@
 }
 
 .talentTable {
-    /* margin: 15px; */
     margin-left: 5px;
     margin-bottom: 15px;
 
@@ -176,38 +174,15 @@
 
 .talentFooter {
     color: azure;
-
     border: 1px solid black;
     margin: 10px;
     margin-top: 20px;
     position: relative;
     background-repeat: no-repeat;
-    /* z-index: 20; */
     border-radius: 5px;
     box-shadow: 0 0 10px black;
 
 }
-
-/* .talentFooter:hover {
-    box-shadow: 0 0 10px #ffc000;
-    border: 1px solid #ffc000;
-} */
-
-
-
-/*
-#buttonCity:hover{
-
-    outline: 7px solid rgba(240, 255, 255, .8);
-    box-shadow: inset 0px 0px 1px 2px #04213d; */
-    /* box-shadow: inset 0 0 1px -webkit-focus-ring-color; */
-    /* outline: 2px auto -webkit-focus-ring-color; */
-    /* box-shadow: inset 0px 0px 1px 2px rgba(255, 192, 0, .5), inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15); */
-    /* box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15); */
-
-    /* border: 1px solid #ffc000; */
-    /* border-radius: 5px; */
-/* } */
 
 #buttonCity>:not(div) {
   -webkit-filter: grayscale(60%);
@@ -305,25 +280,10 @@
 }
 
 .tooltip-container {
-    /* z-index: 999; */
     position: relative;
-    /* left: -15px; */
     right: 120px;
     top: 40px;
 }
-
-/* .class-filter.selected {
-    color: inherit;
-    border-top: 4px solid #ff3604;
-    padding: 5px;
-}
-
-.class-filter:hover {
-    color: inherit;
-    border-top: 4px solid #ff3604;
-    padding: 5px;
-    background-color: transparent;
-} */
 
 .talentcalc-button {
   background-repeat: no-repeat;
@@ -339,7 +299,6 @@
 .talentcalc-button#resetTalents {
     height: 16px;
     width: 16px;
-    /* background: url(../images/icons/small/reset.gif); */
     background-image: url(../images/icons/small/reset.gif);
     background-repeat: no-repeat;
 }
@@ -349,7 +308,6 @@
 }
 
 .talentcalc-button.unlock {
-    /* background: url(../images/icons/small/unlock.gif); */
     background-image: url(../images/icons/small/unlock.gif);
 }
 
@@ -379,21 +337,11 @@
   width:100%;
   max-width: 718px;
   border: 2px solid black;
-  /* border-radius: 5px; */
   color: azure;
   background: #343a40;
   display: flex;
   font-size: 14px;
   position: relative;
-
-  /* align-self: flex-start; */
-  /* flex-flow: row-reverse nowrap; */
-  /* justify-content: center; */
-  /* width: 60%; */
-  /* box-sizing: border-box; */
-
-  /* margin-left: 20px; */
-  /* margin-right: 20px; */
 }
 
 @media only screen and (max-width: 1200px) {
@@ -463,10 +411,6 @@
     }
   #talentHeader {
     width: 90%;
-    /* left: 2px; */
-    /* margin-left: 0px; */
-    /* font-size: 14px; */
-
   }
 }
 
@@ -610,14 +554,9 @@ svg.icon:hover path{
 #specNameChoice {
     text-align:left;
     width: 100%;
-
-    /* text-align: left; */
-    /* float: left; */
 }
 #includeInName {
     text-align:left;
-    /* text-align:right; */
-    /* float: right; */
 }
 
 
@@ -630,7 +569,6 @@ svg.icon:hover path{
 legend.col-form-label{
     font-size: 15px;
 }
-    /* margin-left: -1.25rem; */
 
 div.modal-footer {
     align-items: flex-start;
@@ -651,7 +589,6 @@ div.modal-body {
     padding-left: 5px;
 
 }
-
 
 .invalid-feedback {
     text-align: left;
