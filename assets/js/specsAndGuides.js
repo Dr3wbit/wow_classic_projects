@@ -3,6 +3,7 @@ $(document).ready(initializeApp)
 function initializeApp() {
 	applyClickHandlers()
 	scrollSpyOffset()
+	updateBackground()
 }
 
 
@@ -29,8 +30,12 @@ function applyClickHandlers() {
 			const selectedClass = context.classes.find(function (a) {
 				return a.name == clickedID;
 			});
-			$(window).scrollTop(94.5);
 			populateData(selectedClass);
+			$('html, body').animate({
+				scrollTop: 94.5
+			}, 800, function () { 
+				return window.history.pushState(null, null, '#pve_specs');
+			})
 		},
 
 		mouseenter: e => {
@@ -51,16 +56,21 @@ function scrollSpyOffset() {
 	let navOffset = $('.navbar').height() + $('#class_selection').height() + 10;
 	$('.list-group-item').click(function (e) {
 		var href = $(this).attr('href');
-			console.log($(href))
 			e.preventDefault();
 			$('html, body').animate({
 				scrollTop: $(href).offset().top - navOffset
-			}, 1000, function () { 
+			}, 800, function () { 
 				return window.history.pushState(null, null, href);
 			})
 	});
 }
 
+function updateBackground(){
+	$(window).on('activate.bs.scrollspy', function () {
+				$('.list-group-item').parent().removeClass('selected')
+				$('.active').parent().addClass('selected')
+	});
+}
 
 function populateData(data) {
 	let template = $('#handlebars-demo').html();
