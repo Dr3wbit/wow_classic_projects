@@ -1,39 +1,37 @@
+
 .list-group-item {
-    padding: 10px;
-    margin: 0;
+    width: 152px;
+    height: 30px;
+    margin-left: -76px;
     font-size: 100%;
     line-height: 1;
-    border-radius: 0px;
+    border: none;
     background-color: transparent;
     display: initial;
-    color: #9FA3A9;
+    color: rgb(72, 85, 104);
     cursor: pointer;
-    /* animation */
-    transition: all .2s ease-in;
+    transition: all .1s ease-in;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    text-align: center;
 }
 
 .list-group-item.active {
   color: azure !important;
-  border-left: 6px solid #ff3604;
-  border-right: transparent;
-  border-top: transparent;
-  border-bottom: transparent;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border: none;
   background-color: transparent;
 }
 
 .list-group-item.active:hover {
   color: azure !important;
-  border-left: 6px solid #ff3604;
-  border-radius: 0px;
-
+  border: none;
+  background-color: transparent;
 }
 
 .list-group-item:hover {
   color: azure !important;
   border-color: transparent;
-  border-radius: 0px;
 }
 
 .information-container {
@@ -50,20 +48,21 @@
 
 
 .information-selection {
-    padding: 10px;
-    margin: 4px;
-    margin-right: 0;
+    margin-left: 15px;
+    width: 152px;
+    min-height: 90px;
+    margin-bottom: -6px;
     padding-right: 0px !important;
     color: #9FA3A9;
-    cursor: pointer;
-    background-position: 100% 0%;
-    background-size: 200% 100%;
-    transition: all .2s ease-in;
+    background-image: url(../images/hanging_sign.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
 }
+
 
 .information-selection.selected {
     color: azure !important;
-    border-left: 6px solid #ff3604;
 }
 
 .information-selection:hover {
@@ -75,13 +74,12 @@
 .information-block {
     background-image: url("../images/textured_background_dark.png");
     background-size: cover;
-    border-bottom: 10px solid rgba(15, 17, 21, 0.7);
     margin-top: 0px;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    border: 19px dotted;
-    border-image-source: url('../images/content_border_image_frills.png');
-    border-image-slice: 19; 
+    border: 10px dotted;
+    border-image-source: url('../images/wow_menu_border.png');
+    border-image-slice: 10; 
 }
 
 
@@ -99,6 +97,7 @@
     color:  azure;
     font-size: 250%;
     text-align: center;
+    padding: 10px;
 }
 
 .description-text {
@@ -118,13 +117,16 @@
 
 .content-selection-container {
     text-align: left;
-    font-size: 14px;
+    font-size: 12px;
+    padding-right:0;
+    top: 96px;
+    margin-left: 10px;
 }
 
-  @media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1199px) {
 
-    .class-selection {
-        padding-left: 2%;
+    .information-selection {
+        margin-left: 0;
     }
   }
 
