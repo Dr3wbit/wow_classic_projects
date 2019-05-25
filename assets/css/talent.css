@@ -172,56 +172,6 @@
     z-index: 500000;
 }
 
-
-/* .talent-tooltip-rank-next {
-    white-space: pre-line;
-} */
-
-/* .talent-tooltip-req, .unlearn {
-    color: red !important;
-    white-space: pre-line;
-} */
-
-/* .talent-tooltip-rank {
-    color: white !important;
-    font-size: 12px;
-} */
-/* .talent-tooltip-title{
-    font-size: 15px;
-} */
-
-/* .talent-tooltip-description {
-    color: rgba(255, 205, 85, 0.95) !important;
-    white-space: pre-line;
-    line-height: normal;
-} */
-
-/* .tooltip-container {
-    font-size: 100%;
-} */
-
-/* .talent-tooltip{
-    all: revert;
-    font-family: Verdana;
-    font-size: 100%;
-    min-width: 240px;
-    position: absolute;
-    left: 40px;
-    bottom: 40px;
-    background-color: rgba(0, 0, 30, 0.85) !important;
-    color: azure;
-    pointer-events: none;
-    border: 1px solid #b6bbc0;
-    padding: 5px;
-    margin: 5px;
-    margin-right: 8px;
-    border-radius: 5px;
-    z-index: 10005;
-    text-align: left;
-    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
-} */
-
-
 .talentFooter {
     color: azure;
     border: 1px solid black;
