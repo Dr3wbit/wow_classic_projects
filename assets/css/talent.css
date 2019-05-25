@@ -123,18 +123,21 @@
 }
 
 .req, .unlearn {
-    color: red !important;
+    color: rgba(255,33,45,0.95);
+    /* color: red !important; */
     white-space: pre-line;
+    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 .learn {
-    color: rgb(23, 253, 23) !important;
+    color: rgba(23, 253, 23, 0.95) !important;
 }
 
 
 .rank {
     color: azure !important;
     font-size: 95%;
+    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 .next {
@@ -145,6 +148,7 @@
     color: rgba(255, 205, 85, 1) !important;
     white-space: pre-line;
     padding-right: 5px;
+    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 .title{
@@ -152,6 +156,7 @@
     font-size: 14px;
     padding-top: 1px;
     padding-bottom: 1px;
+    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 #tooltip {
@@ -420,8 +425,9 @@
     background: url(../images/icons/small/reset.gif);
     background-repeat: no-repeat;
     border: none;
-    left: 35px;
-    position: relative;
+    right: 2px;
+    top: 3px;
+    position: absolute;
 }
 
 svg.icon {
