@@ -95,9 +95,9 @@
 
 }
 
-.unlearned {
+/* .unlearned {
     color: rgb(23, 253, 23);
-}
+} */
 
 .talentFooter-spentPoints{
   background-color: transparent;
@@ -122,7 +122,7 @@
     src: url('../fonts/Quattrocento-Regular.ttf');
 }
 
-.talent-tooltip-req, .unlearn {
+.req, .unlearn {
     color: red !important;
     white-space: pre-line;
 }
@@ -131,26 +131,76 @@
     color: rgb(23, 253, 23) !important;
 }
 
-.talent-tooltip-title{
-    font-size: 15px;
+
+.rank {
+    color: azure !important;
+    font-size: 95%;
 }
 
-.talent-tooltip-rank {
-    color: white !important;
-    font-size: 12px;
-}
-
-.talent-tooltip-rank-next {
+.next {
     white-space: pre-line;
 }
 
-.talent-tooltip-description {
-    color: rgba(255, 205, 85, 0.95) !important;
-    /* white-space: pre-line; */
-    /* line-height: normal; */
+.description{
+    color: rgba(255, 205, 85, 1) !important;
+    white-space: pre-line;
+    padding-right: 5px;
 }
 
-.talent-tooltip{
+.title{
+    line-height: 15px;
+    font-size: 14px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+#tooltip {
+    font-size: 100%;
+    text-align: left;
+    line-height: 17px;
+    max-width: 320px;
+    position: absolute;
+    display: block;
+    background-color: rgba(0, 0, 30, 0.85) !important;
+    color: rgba(240,255,255,0.95);
+    pointer-events: none;
+    border: 1px solid #b6bbc0;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    z-index: 500000;
+}
+
+
+/* .talent-tooltip-rank-next {
+    white-space: pre-line;
+} */
+
+/* .talent-tooltip-req, .unlearn {
+    color: red !important;
+    white-space: pre-line;
+} */
+
+/* .talent-tooltip-rank {
+    color: white !important;
+    font-size: 12px;
+} */
+/* .talent-tooltip-title{
+    font-size: 15px;
+} */
+
+/* .talent-tooltip-description {
+    color: rgba(255, 205, 85, 0.95) !important;
+    white-space: pre-line;
+    line-height: normal;
+} */
+
+/* .tooltip-container {
+    font-size: 100%;
+} */
+
+/* .talent-tooltip{
     all: revert;
     font-family: Verdana;
     font-size: 100%;
@@ -169,7 +219,7 @@
     z-index: 10005;
     text-align: left;
     box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
-}
+} */
 
 
 .talentFooter {
@@ -218,9 +268,9 @@
 
 
 
-.tooltip.show {
+/* .tooltip.show {
     opacity: .9
-}
+} */
 
 
 .talentcalc-arrow {
@@ -279,11 +329,11 @@
     left: 27px;
 }
 
-.tooltip-container {
+/* .tooltip-container {
     position: relative;
     right: 120px;
     top: 40px;
-}
+} */
 
 .talentcalc-button {
   background-repeat: no-repeat;

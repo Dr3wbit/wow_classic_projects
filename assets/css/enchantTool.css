@@ -212,24 +212,8 @@
 
 
 
-.enchant-tooltip {
-    /* font-size: 100%;
-    text-align: left;
-    line-height: 17px; */
-    /* min-width: 100px; */
-    /* position: absolute; */
-    /* left: 10px; */
-    /* bottom: 40px; */
-    /* background-color: rgba(0, 0, 30, 0.85) !important;
-    color: #1EFF00;
-    pointer-events: none;
-    border: 1px solid #b6bbc0;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 4px; */
-    /* z-index: 10250; */
-    /* box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
-    padding-right: 5px; */
+.tooltip-container {
+    font-size: 100%;
 }
 
 .description{
@@ -247,8 +231,6 @@
 
 
 .materials-name {
-    /* color: black; */
-    /* left: 18px; */
     position: absolute;
     left: 22px;
     pointer-events: auto;
@@ -278,7 +260,7 @@
     text-decoration: underline;
 }
 
-#tooltip-container {
+#tooltip {
     font-size: 100%;
     text-align: left;
     line-height: 17px;

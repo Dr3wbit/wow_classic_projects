@@ -204,9 +204,7 @@ function specNameValidator(){
 				})
 
 			} else {
-				// $("#specNameValidation").attr('style', 'display: none;')
-				// let current = ($("#specName").val()).trim()
-				// $("#specName").val(current)
+
 				$("#specNameValidation").text('')
 				$("#confirmSpecName").removeClass('disabled')
 				$("#saveSpec").bind("submit", saveSpec())
@@ -277,7 +275,6 @@ function getSpecName() {
 			} else {
 				$("#useCurrentSpec").addClass('disabled')
 			}
-
 			$("#specSaverPrompt").modal('show')
 
 		}
@@ -750,33 +747,32 @@ function talentHandler() {
 
 		mouseenter: e => {
 			updateTooltip(e)
+			return "test"
 		},
 
 		mouseleave: e => {
-			const targetTalent = $(e.target)
-			targetTalent.closest('.talent-slot').children($('.talent-tooltip').remove())
+			$("#tooltip").hide()
+			$("#tooltip").children().remove()
+			// return $(e.target)
+
 		},
 
 		mousedown: e => {
-			// $(e.target).css({"filter": "saturate(120%)", "transform": "translateY(1px)"})
 			mouseDownHandler(e)
-
+			// return $(e.target)
 		},
-
-		// mouseup: e => {
-		// 	$(e.target).removeClass('active')
-		// }
 
 	})
 }
 
-//needs new name
 function mouseDownHandler(e = null, talent, tree) {
 	var manuallyClicked = false
 	if (e) {
 		manuallyClicked = true
 		var targetTalent = $(e.target)
-		targetTalent.closest('.talent-slot').find('.talent-tooltip').remove()
+
+		$("#tooltip").hide()
+		$("#tooltip").children().remove()
 
 		var treeName = targetTalent.closest('div.talentTable')[0].id
 
@@ -806,7 +802,6 @@ function mouseDownHandler(e = null, talent, tree) {
 
 	pointSpender(talentObj, e, treeName)
 
-	// targetTalent.closest(".talentTable").find(".talentFooter").children(0).text(talentPointsSpent[treeName].total())
 
 	targetTalent.closest(".talentTable").find(".talentFooter span.talentFooter-spentPoints").text("(" + talentPointsSpent[treeName].total() + ")")
 
@@ -822,9 +817,7 @@ function mouseDownHandler(e = null, talent, tree) {
 
 function updateTalentHeader() {
 	let treeNames = talentPointsSpent.treeNames
-	// classData.trees.forEach(function (item) {
-	// 	treeNames.push(item.name)
-	// })
+
 	let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
 	$("#allottedTalentPoints").text(a)
 	let requiredLevel = (talentPointsSpent.grandTotal() >= 1) ? talentPointsSpent.grandTotal() + 9 : "--"
@@ -898,36 +891,39 @@ function updateTooltip(e) {
 		req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text  //Figure out how to get the talent and points needed to unlock for this text
 	}
 
+	const tooltipContainer = $("#tooltip")
+
+	console.log('result: ', $(e.result))
+	tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; visiblity: visible;`)
+
 	const next_rank_ele = (next_rank) ? $('<div/>', {
-		class: 'talent-tooltip-rank-next',
+		class: 'next',
 		text: "\nNext Rank:\n",
 	}).append($('<div/>', {
-		class: 'talent-tooltip-description',
+		class: 'description',
 		text: talentCopy.description(),
 	})) : (req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn')) ? null : $('<div/>', {
 		class: tooltipFooter.color,
 		text: tooltipFooter.text,
 	})
 
-
-	let targetTooltip = targetTalent.closest('.talent-slot').find('.tooltip-container')
-	targetTooltip.append($('<div/>', {
-		class: 'talent-tooltip',
-	})
+	tooltipContainer.append($('<div/>', {
+		class: 'tooltip-container',
+		})
 		.append($('<div/>', {
-			class: 'talent-tooltip-title',
+			class: 'title',
 			text: name,
 		}))
 		.append($('<div/>', {
-			class: 'talent-tooltip-rank',
+			class: 'rank',
 			text: "Rank " + talentObj.invested + "/" + talentObj.maxRank,
 		}))
 		.append($('<div/>', {
-			class: 'talent-tooltip-req',
+			class: 'req',
 			text: req_text,
 		}))
 		.append($('<div/>', {
-			class: 'talent-tooltip-description',
+			class: 'description',
 			text: description,
 		}))
 		.append(next_rank_ele)
