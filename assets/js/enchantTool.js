@@ -158,14 +158,14 @@ function calculateData() {
 function materialsTooltip() {
     $(".results").on({
         mouseenter: e => {
-            console.log("clientX: ", e.clientX)
-            console.log("clientY: ", e.clientY)
-            console.log("screenX: ", e.screenX)
-            console.log("screenY: ", e.screenY)
+            // console.log("clientX: ", e.clientX)
+            // console.log("clientY: ", e.clientY)
+            // console.log("screenX: ", e.screenX)
+            // console.log("screenY: ", e.screenY)
 
             const closestMat = $( e.target ).closest('.materials-list').find('.materials-name')
 
-            const tooltipContainer = $("#tooltip-container")
+            const tooltipContainer = $("#tooltip")
 
             // let closestTooltip = $( e.target ).closest( $('.materials-list')).find('div.tooltip-container')
 
@@ -185,9 +185,9 @@ function materialsTooltip() {
 
                 // tooltipContainer.attr("style", `position: relative; top: ${e.offsetY}px; left: ${e.offsetX}px;`)
                 tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; visiblity: visible;`)
-
-                console.log('relatedTarget: ', e.relatedTarget)
-                console.log('target: ', e.target)
+                //
+                // console.log('relatedTarget: ', e.relatedTarget)
+                // console.log('target: ', e.target)
                 const thisMat = allMaterials[sanitize(matName)]
 
 
@@ -218,20 +218,38 @@ function materialsTooltip() {
                     text: `"${thisMat.description}"`,
                 }) : null
 
+
                 tooltipContainer.append($('<div/>', {
-                    class: 'enchant-tooltip',
-                 }).append($('<div/>', {
+                    class: 'tooltip-container',
+                    }).append($('<div/>', {
                     class: `title ${rarity}`,
                     text: matName,
-                })).append(BoP).append(unique).append(requiredLevel).append(use).append(description)
-            )
+                    })).append(BoP).append(unique).append(requiredLevel).append(use).append(description)
+                )
+                // console.log('getBoundClientRect: ', tooltipContainer.getBoundingClientRect())
+                console.log('e.pageX: ', e.pageX)
+
+                console.log('e.pageY: ', e.pageY)
+
+                console.log('window.innerWidth: ', window.innerWidth)
+
+                console.log('window.innerHeight: ', window.innerHeight)
+
+                console.log('Tooltip width: ', tooltipContainer.innerWidth())
+                console.log('Tooltip height: ', tooltipContainer.innerHeight())
+
+                let distanceFromTop = tooltipContainer.offset().top - $(window).scrollTop()
+
+                console.log('distance from top of window: ', distanceFromTop)
+                // console.log('tooltipContainer.position(): ', tooltipContainer.position())
+
 
             }
         },
         mouseleave: e => {
             $(".results").find('.materials-name').removeClass('underlined')
-            $("#tooltip-container").hide()
-            $("#tooltip-container").children().remove()
+            $("#tooltip").hide()
+            $("#tooltip").children().remove()
             // $(".results").find( $('div.tooltip-container') ).children().remove()
 
             // const targetMaterial = $( e.target ).closest('.materials-list').find('div.tooltip-container')
@@ -261,7 +279,7 @@ function showEnchantEffect() {
     $('.enchantHolder').on({
         mouseenter: e=> {
             console.log($(e.target))
-            const tooltipContainer = $("#tooltip-container")
+            const tooltipContainer = $("#tooltip")
             console.log()
             const targetEnchant = $(e.target)
             let a = targetEnchant.text()
@@ -280,16 +298,16 @@ function showEnchantEffect() {
                 const slotName = titleCase(slot.toLowerCase())
 
                 let title = $('<div/>', {
-                   class: `enchant-tooltip title spell`,
+                   class: `tooltip-container title spell`,
                    text: `Enchant ${slotName} - ${enchName}`,
                    style: 'display: block; visibility: hidden;'
                 })
 
 
-                console.log('title.outerWidth(): ', title.outerWidth())
-                console.log('title.innerWidth(): ', title.innerWidth())
-                console.log('title.offset.left: ', title.offset().left)
-                console.log('title.width(): ', title.width())
+                // console.log('title.outerWidth(): ', title.outerWidth())
+                // console.log('title.innerWidth(): ', title.innerWidth())
+                console.log('e.pageY: ', e.pageY)
+                console.log('e.pageX: ', e.pageX)
 
                 const offset = title.offset()
 
@@ -299,8 +317,9 @@ function showEnchantEffect() {
                 e.stopPropagation()
                 const width = tooltipContainer.width()
 
+
                 console.log('width: ', width)
-                tooltipContainer.attr("style", `max-width: ${width*1.1+10}px; visibility: visible;`)
+                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; max-width: ${width*1.1+10}px; visibility: visible;`)
 
                 title.attr("style", "visibility: visible;")
                 tooltipContainer.append($('<div/>', {
@@ -311,9 +330,9 @@ function showEnchantEffect() {
             }
         },
         mouseleave: e=>  {
-            const tooltipContainer = $("#tooltip-container")
-            $("#tooltip-container").children().remove()
-            $("#tooltip-container").hide()
+            const tooltipContainer = $("#tooltip")
+            $("#tooltip").children().remove()
+            $("#tooltip").hide()
         }
     })
 }
