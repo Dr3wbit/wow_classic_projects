@@ -1,13 +1,8 @@
 $(document).ready(initializeApp)
 
 function initializeApp() {
-
 	applyClickHandlers()
-	$(window).scroll(() => {
-		if ($(document).scrollTop() > 88.2) {
-			$('.content-selection-container').css('top', '130px')
-		}
-		});
+	scrollSpyOffset()
 }
 
 
@@ -31,18 +26,18 @@ function applyClickHandlers() {
 			clickedFilter.append(classMarker)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
-			const selectedClass = context.classes.find(function(a) {
+			const selectedClass = context.classes.find(function (a) {
 				return a.name == clickedID;
 			});
-			$(window).scrollTop(120);
+			$(window).scrollTop(94.5);
 			populateData(selectedClass);
 		},
 
 		mouseenter: e => {
 			const hoveredFilter = $(e.target)
-			if(hoveredFilter.hasClass('selected')){
+			if (hoveredFilter.hasClass('selected')) {
 				return
-			}else{
+			} else {
 				hoveredFilter.append(classMarkerGhost)
 			}
 		},
@@ -52,6 +47,21 @@ function applyClickHandlers() {
 	})
 }
 
+function scrollSpyOffset() {
+	let navOffset = $('.navbar').height() + $('#class_selection').height() + 10;
+	$('.list-group-item').click(function (e) {
+		var href = $(this).attr('href');
+			console.log($(href))
+			e.preventDefault();
+			$('html, body').animate({
+				scrollTop: $(href).offset().top - navOffset
+			}, 1000, function () { 
+				return window.history.pushState(null, null, href);
+			})
+	});
+}
+
+
 function populateData(data) {
 	let template = $('#handlebars-demo').html();
 	let templateScript = Handlebars.compile(template);
@@ -59,10 +69,10 @@ function populateData(data) {
 	const pve = Object.assign({}, data);
 	const pvp = Object.assign({}, data);
 
-	pve.specs = pve.specs.filter(function(a) {
+	pve.specs = pve.specs.filter(function (a) {
 		return a.focus == 'PvE';
 	})
-	pvp.specs = pvp.specs.filter(function(a) {
+	pvp.specs = pvp.specs.filter(function (a) {
 		return a.focus == 'PvP';
 	})
 
