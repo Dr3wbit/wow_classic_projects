@@ -36,9 +36,6 @@ function findSlot(selection) {
 }
 
 function getenchantData(dataObject, dataKeys, slot) {
-    console.log('dataObject: ', dataObject)
-    console.log('dataKeys: ', dataKeys)
-
     let slotEnchants = null
     let enchantToAppend = []
     for (let i = 0; i < dataKeys.length; i++) {
@@ -121,8 +118,6 @@ function calculateData() {
     materialArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
     let material = Object.keys(counts)
     for (let i = 0; i < material.length; i++) {
-        console.log(material[i])
-        console.log(counts[material[i]])
         let matCat = allMaterials[material[i]].category
 
         let imageType = (!(material[i]=='gold' || material[i]=='silver')) ? 'jpg' : 'gif'
@@ -144,10 +139,6 @@ function calculateData() {
             class: `materials-name rarity ${allMaterials[material[i]].rarity}`,
         }))
 
-        // .append($('<div/>', {
-        //     class: 'tooltip-container',
-        // }))
-
         materialsToAppend.push(materialsContainer)
     }
     $('.results').append(materialsToAppend)
@@ -158,16 +149,9 @@ function calculateData() {
 function materialsTooltip() {
     $(".results").on({
         mouseenter: e => {
-            // console.log("clientX: ", e.clientX)
-            // console.log("clientY: ", e.clientY)
-            // console.log("screenX: ", e.screenX)
-            // console.log("screenY: ", e.screenY)
 
             const closestMat = $( e.target ).closest('.materials-list').find('.materials-name')
-
             const tooltipContainer = $("#tooltip")
-
-            // let closestTooltip = $( e.target ).closest( $('.materials-list')).find('div.tooltip-container')
 
             let matName = closestMat.text()
 
@@ -178,18 +162,8 @@ function materialsTooltip() {
 
                 closestMat.addClass('underlined')
                 tooltipContainer.children().remove()
-
-                // $(".results").find( $('div.tooltip-container') ).children().remove()
-
-                // tooltipContainer.attr("style", `top: ${e.clientY}px; left: ${e.clientX}px;`)
-
-                // tooltipContainer.attr("style", `position: relative; top: ${e.offsetY}px; left: ${e.offsetX}px;`)
                 tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; visiblity: visible;`)
-                //
-                // console.log('relatedTarget: ', e.relatedTarget)
-                // console.log('target: ', e.target)
                 const thisMat = allMaterials[sanitize(matName)]
-
 
                 const rarity = thisMat.rarity
 
@@ -226,34 +200,14 @@ function materialsTooltip() {
                     text: matName,
                     })).append(BoP).append(unique).append(requiredLevel).append(use).append(description)
                 )
-                // console.log('getBoundClientRect: ', tooltipContainer.getBoundingClientRect())
-                // console.log('e.pageX: ', e.pageX)
-                //
-                // console.log('e.pageY: ', e.pageY)
-                //
-                // console.log('window.innerWidth: ', window.innerWidth)
-                //
-                // console.log('window.innerHeight: ', window.innerHeight)
-                //
-                // console.log('Tooltip width: ', tooltipContainer.innerWidth())
-                // console.log('Tooltip height: ', tooltipContainer.innerHeight())
-
                 let distanceFromTop = tooltipContainer.offset().top - $(window).scrollTop()
-
-                console.log('distance from top of window: ', distanceFromTop)
-                // console.log('tooltipContainer.position(): ', tooltipContainer.position())
-
-
             }
         },
         mouseleave: e => {
             $(".results").find('.materials-name').removeClass('underlined')
             $("#tooltip").hide()
             $("#tooltip").children().remove()
-            // $(".results").find( $('div.tooltip-container') ).children().remove()
 
-            // const targetMaterial = $( e.target ).closest('.materials-list').find('div.tooltip-container')
-            // targetMaterial.children().remove()
         }
     })
 }
@@ -273,14 +227,10 @@ function sanitize(str) {
 }
 
 
-
-
 function showEnchantEffect() {
     $('.enchantHolder').on({
         mouseenter: e=> {
-            console.log($(e.target))
             const tooltipContainer = $("#tooltip")
-            console.log()
             const targetEnchant = $(e.target)
             let a = targetEnchant.text()
             let matched = a.match(/([\w\s]+):/)
@@ -288,7 +238,6 @@ function showEnchantEffect() {
             if (matched) {
                 const selection = $("div.itemslot.enchantable.focus")
                 const slot = selection.attr("id")
-                console.log('slot: ', slot)
 
                 const b = sanitize(matched[1].trim())
 
@@ -303,22 +252,13 @@ function showEnchantEffect() {
                    style: 'display: block; visibility: hidden;'
                 })
 
-
-                // console.log('title.outerWidth(): ', title.outerWidth())
-                // console.log('title.innerWidth(): ', title.innerWidth())
-                console.log('e.pageY: ', e.pageY)
-                console.log('e.pageX: ', e.pageX)
-
                 const offset = title.offset()
-
-
                 tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px;`)
                 tooltipContainer.append(title)
                 e.stopPropagation()
                 const width = tooltipContainer.width()
 
 
-                console.log('width: ', width)
                 tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; max-width: ${width*1.1+10}px; visibility: visible;`)
 
                 title.attr("style", "visibility: visible;")
@@ -330,7 +270,6 @@ function showEnchantEffect() {
             }
         },
         mouseleave: e=>  {
-            const tooltipContainer = $("#tooltip")
             $("#tooltip").children().remove()
             $("#tooltip").hide()
         }
