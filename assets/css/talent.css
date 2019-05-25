@@ -147,15 +147,16 @@
 }
 
 .talent-tooltip-description {
-    color: rgba(255, 205, 85, 1) !important;
-    white-space: pre-line;
+    color: rgba(255, 205, 85, 0.95) !important;
+    /* white-space: pre-line; */
+    line-height: normal;
 }
 
 .talent-tooltip{
     all: revert;
     font-family: Verdana;
     font-size: 100%;
-    min-width: 280px;
+    min-width: 240px;
     position: absolute;
     left: 40px;
     bottom: 40px;

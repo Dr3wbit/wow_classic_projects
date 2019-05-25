@@ -184,7 +184,7 @@ function materialsTooltip() {
                 // tooltipContainer.attr("style", `top: ${e.clientY}px; left: ${e.clientX}px;`)
 
                 // tooltipContainer.attr("style", `position: relative; top: ${e.offsetY}px; left: ${e.offsetX}px;`)
-                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px;`)
+                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; visiblity: visible;`)
 
                 console.log('relatedTarget: ', e.relatedTarget)
                 console.log('target: ', e.target)
@@ -313,7 +313,7 @@ function showEnchantEffect() {
 
                 console.log('width: ', width)
 
-                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; max-width: ${width*1.1+10}px`)
+                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; max-width: ${width*1.1+10}px; visibility: visible;`)
 
                 title.attr("style", "visibility: visible;")
                 tooltipContainer.append($('<div/>', {

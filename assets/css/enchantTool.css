@@ -127,8 +127,8 @@
     background-image: url("../images/equipment_slots/belt.png")
 }
 
-#bracers {
-    background-image: url("../images/equipment_slots/bracers.png")
+#bracer {
+    background-image: url("../images/equipment_slots/bracer.png")
 }
 
 #cloak {
@@ -151,12 +151,12 @@
     background-image: url("../images/equipment_slots/legs.png")
 }
 
-#mainhand {
-    background-image: url("../images/equipment_slots/mainhand.png")
+#weapon {
+    background-image: url("../images/equipment_slots/weapon.png")
 }
 
-#offhand {
-    background-image: url("../images/equipment_slots/offhand.png")
+#shield {
+    background-image: url("../images/equipment_slots/shield.png")
 }
 
 #ranged {
@@ -270,8 +270,8 @@
     text-decoration: none;
     color: azure;
     pointer-events: none;
-    -webkit-text-stroke: 0.01rem black;
     z-index: 10;
+    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
 }
 
 .underlined {
@@ -282,7 +282,7 @@
     font-size: 100%;
     text-align: left;
     line-height: 17px;
-    /* max-width: 320px; */
+    max-width: 320px;
     position: absolute;
     display: block;
     background-color: rgba(0, 0, 30, 0.85) !important;
@@ -293,7 +293,6 @@
     margin: 5px;
     border-radius: 4px;
     box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
-    /* padding-right: 5px; */
     z-index: 500000;
 }
 
