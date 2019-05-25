@@ -927,12 +927,13 @@ function updateTooltip(e) {
 	tooltipContainer.append(testElem)
 
 	let windowCoefficient = window.innerHeight/$(e.target).offset().top
+	console.log('coeff: ', windowCoefficient)
 
-	if (windowCoefficient < 1) {
+	if (windowCoefficient < 1.3) {
 		let a = $(e.target).offset().top + 45
 		top = a - tooltipContainer.height()
 	}
-	else if (window.innerHeight <  ($(e.target).offset().top*1.4)) {
+	else if (windowCoefficient >= 1.3 && windowCoefficient < 2) {
 		// set tooltip vertically centered with talent
 		let a = (tooltipContainer.height() - 40)/2
 		top = $(e.target).offset().top - (a+20)
