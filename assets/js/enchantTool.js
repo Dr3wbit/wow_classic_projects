@@ -227,16 +227,16 @@ function materialsTooltip() {
                     })).append(BoP).append(unique).append(requiredLevel).append(use).append(description)
                 )
                 // console.log('getBoundClientRect: ', tooltipContainer.getBoundingClientRect())
-                console.log('e.pageX: ', e.pageX)
-
-                console.log('e.pageY: ', e.pageY)
-
-                console.log('window.innerWidth: ', window.innerWidth)
-
-                console.log('window.innerHeight: ', window.innerHeight)
-
-                console.log('Tooltip width: ', tooltipContainer.innerWidth())
-                console.log('Tooltip height: ', tooltipContainer.innerHeight())
+                // console.log('e.pageX: ', e.pageX)
+                //
+                // console.log('e.pageY: ', e.pageY)
+                //
+                // console.log('window.innerWidth: ', window.innerWidth)
+                //
+                // console.log('window.innerHeight: ', window.innerHeight)
+                //
+                // console.log('Tooltip width: ', tooltipContainer.innerWidth())
+                // console.log('Tooltip height: ', tooltipContainer.innerHeight())
 
                 let distanceFromTop = tooltipContainer.offset().top - $(window).scrollTop()
 
