@@ -254,17 +254,6 @@ function sanitize(str) {
     return str.toLowerCase().replace(/\s+/g, '_')
 }
 
-// function iconHover() {
-//     $(".materials-name").on({
-//         mouseover: e => {
-//             console.log($(e.target))
-//
-//             let mat = $( e.target ).closest('.materials-list').find('.materials-name')
-//             mat.attr('style', "text-decoration: underline;")
-//
-//         }
-//     })
-// }
 
 
 
@@ -310,10 +299,8 @@ function showEnchantEffect() {
                 e.stopPropagation()
                 const width = tooltipContainer.width()
 
-
                 console.log('width: ', width)
-
-                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; max-width: ${width*1.1+10}px; visibility: visible;`)
+                tooltipContainer.attr("style", `max-width: ${width*1.1+10}px; visibility: visible;`)
 
                 title.attr("style", "visibility: visible;")
                 tooltipContainer.append($('<div/>', {
@@ -321,18 +308,6 @@ function showEnchantEffect() {
                     text: thisEnch.description,
                     style: 'max-width: inherit; font-size: 12px;'
                 }))
-
-
-                //
-                // tooltipContainer.append($('<div/>', {
-                //     class: 'enchant-tooltip',
-                // }).append(title).append($('<div/>', {
-                //     class: 'description',
-                //     text: thisEnch.description,
-                //     style: 'max-width: inherit;'
-                // })))
-
-
             }
         },
         mouseleave: e=>  {
