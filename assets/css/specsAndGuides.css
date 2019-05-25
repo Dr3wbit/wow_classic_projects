@@ -1,10 +1,10 @@
 
 .list-group-item {
     width: 152px;
-    height: 30px;
+    height: 70px;
     margin-left: -76px;
     font-size: 100%;
-    line-height: 1;
+    line-height: 3.5;
     border: none;
     background-color: transparent;
     display: initial;
@@ -12,7 +12,7 @@
     cursor: pointer;
     transition: all .1s ease-in;
     position: absolute;
-    top: 45%;
+    top: 30%;
     left: 50%;
     text-align: center;
 }
@@ -58,16 +58,19 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
+    transition: all .1s ease-in;
 }
 
 
-.information-selection.selected {
+.information-selection.selected{
     color: azure !important;
+    background-image: url(../images/hanging_sign_selected.png);
 }
 
 .information-selection:hover {
 
     color: azure !important;
+    background-image: url(../images/hanging_sign_selected.png);
 }
 
 
