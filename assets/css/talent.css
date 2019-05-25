@@ -147,7 +147,7 @@
 .talent-tooltip-description {
     color: rgba(255, 205, 85, 0.95) !important;
     /* white-space: pre-line; */
-    line-height: normal;
+    /* line-height: normal; */
 }
 
 .talent-tooltip{
@@ -166,7 +166,7 @@
     margin: 5px;
     margin-right: 8px;
     border-radius: 5px;
-    z-index: 999;
+    z-index: 10005;
     text-align: left;
     box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
 }
