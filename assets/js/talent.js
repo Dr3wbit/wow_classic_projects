@@ -396,8 +396,6 @@ function populateTables(reset = false) {
 	}
 	resetTree()
 	// navbarCollapse()
-
-
 }
 
 function applySelectionMarker() {
@@ -927,7 +925,6 @@ function updateTooltip(e) {
 	tooltipContainer.append(testElem)
 
 	let windowCoefficient = window.innerHeight/$(e.target).offset().top
-	console.log('coeff: ', windowCoefficient)
 
 	if (windowCoefficient < 1.3) {
 		let a = $(e.target).offset().top + 45
