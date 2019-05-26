@@ -11,16 +11,12 @@ function initializeApp() {
 	applyClickHandlers();
 	$(".consume-form").on({
 		'change': (e) => {
-			// console.log("this: ", $( e.target ) )
 			$('.consume-form').submit(getMaterials(selectedData))
 		},
 		blur: (e) => {
 			$('.consume-form').submit(getMaterials(selectedData))
 		},
-		// 'keyup': (e) => {
-		// 	// console.log("this: ", $( e.target ) )
-		// 	$('.consume-form').submit(getMaterials(selectedData))
-		// }
+
 	})
 	$("#warrior").click()
 }
@@ -64,7 +60,7 @@ function applyClickHandlers() {
 
 				mouseenter: (e) => {
 					// $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
-					bigdaddytooltip(e)
+					updateTooltip(e)
 				},
 				mouseleave: (e) => {
 					// $(e.currentTarget.children[1]).addClass('tooltip-hidden')
@@ -265,7 +261,7 @@ function titleCase(s){
 
 }
 
-function bigdaddytooltip(e) {
+function updateTooltip(e) {
 	const targetElement = $(e.target)
 	const name = targetElement.closest($('.consume-block')).attr('name')
 	let properName = ''
@@ -340,13 +336,12 @@ function getTooltipPosition(e, tooltip) {
 
 	this.coords = {}
 
+	// coeffs measure aproximately the % of the visible and usable screen the cursor is at (aka visible bottom of page to bottom of class selection bar)
 	let xCoeff = ($(e.target).offset().left/window.innerWidth)*100
 	let distanceFromTop = $(e.target).offset().top - $(window).scrollTop()
 	let yCoeff = (distanceFromTop/window.innerHeight)*100
-	
+
 	console.log('yCoeff: ', yCoeff)
-
-
 
 	let left = 0
 
@@ -376,129 +371,4 @@ function getTooltipPosition(e, tooltip) {
 
 	return this.coords
 
-	//old
-
 }
-
-// }
-// // NEW !
-// function updateTooltip(e) {
-// 	const targetTalent = $(e.target)
-// 	const name = targetTalent.attr('name')
-// 	const tree = targetTalent.closest('div.talentTable')[0].id
-//
-// 	const found = classData.trees.find(function (x) {
-// 		return x.name == tree
-// 	})
-//
-// 	const j = targetTalent.attr('data-j')
-// 	const k = targetTalent.attr('data-k')
-//
-// 	const talentObj = found.data[j][k]
-// 	const talentCopy = Object.assign({}, talentObj)
-// 	const requiredTalentPoints = talentObj.requiredTalentPoints
-//
-// 	let description
-// 	let next_rank = true
-// 	let req_text = ''
-// 	let tooltipFooter = {}
-//
-// 	const locked = $(e.target).hasClass('locked')
-//
-// 	if (talentObj.invested == 0) {
-// 		next_rank = false
-// 		talentCopy.invested++
-// 		tooltipFooter.text = 'Click to learn'
-// 		tooltipFooter.color = 'learn'
-// 		description = talentCopy.description()
-// 	}
-//
-// 	if (talentObj.maxRank == 1) {
-// 		next_rank = false
-// 		talentCopy.invested = talentCopy.maxRank
-// 		description = talentCopy.description()
-// 	}
-//
-// 	if (talentObj.invested == talentObj.maxRank) {
-// 		tooltipFooter.text = 'Right-click to unlearn'
-// 		tooltipFooter.color = 'unlearn'
-//
-// 		next_rank = false
-// 		description = talentCopy.description()
-// 	}
-//
-// 	if (talentObj.maxRank > 1 && talentObj.invested > 0 && next_rank) {
-// 		talentCopy.invested++
-// 		// description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
-// 		description = talentObj.description()
-//
-// 	}
-// 	if (talentPointsSpent[tree].total() < requiredTalentPoints) {
-// 		req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
-// 	}
-//
-// 	if (locked) {
-// 		const coords = talentCopy.locked
-// 		const prereq = Object.assign({}, found.data[coords[0]][coords[1]])
-// 		const points_remaining = prereq.maxRank - prereq.invested
-// 		const plural = (points_remaining > 1) ? 's' : ''
-// 		req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text  //Figure out how to get the talent and points needed to unlock for this text
-// 	}
-//
-// 	const tooltipContainer = $("#tooltip")
-//
-// 	let top = 0
-// 	let left = $(e.target).offset().left + 45
-// 	let distanceFromTop = $(e.target).offset().top - $(window).scrollTop()
-//
-// 	const next_rank_ele = (next_rank) ? $('<div/>', {
-// 		class: 'next',
-// 		text: "\nNext Rank:\n",
-// 	}).append($('<div/>', {
-// 		class: 'description',
-// 		text: talentCopy.description(),
-// 	})) : (req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn')) ? null : $('<div/>', {
-// 		class: tooltipFooter.color,
-// 		text: tooltipFooter.text,
-// 	})
-//
-// 	const testElem = $('<div/>', {
-// 		class: 'tooltip-container',
-// 		})
-// 		.append($('<div/>', {
-// 			class: 'title',
-// 			text: name,
-// 		}))
-// 		.append($('<div/>', {
-// 			class: 'rank',
-// 			text: "Rank " + talentObj.invested + "/" + talentObj.maxRank,
-// 		}))
-// 		.append($('<div/>', {
-// 			class: 'req',
-// 			text: req_text,
-// 		}))
-// 		.append($('<div/>', {
-// 			class: 'description',
-// 			text: description,
-// 		}))
-// 		.append(next_rank_ele)
-//
-// 	tooltipContainer.append(testElem)
-//
-// 	let windowCoefficient = window.innerHeight/$(e.target).offset().top
-//
-// 	if (windowCoefficient < 1.3) {
-// 		let a = $(e.target).offset().top + 45
-// 		top = a - tooltipContainer.height()
-// 	}
-// 	else if (windowCoefficient >= 1.3 && windowCoefficient < 2) {
-// 		// set tooltip vertically centered with talent
-// 		let a = (tooltipContainer.height() - 40)/2
-// 		top = $(e.target).offset().top - (a+20)
-// 	} else {
-// 		top = $(e.target).offset().top + 10
-// 	}
-//
-// 	tooltipContainer.attr("style", `top: ${top}px; left: ${left}px; visiblity: visible;`)
-//
-// }
