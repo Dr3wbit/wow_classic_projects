@@ -21,6 +21,7 @@
     background-position: left 1px top 1px;
     background-repeat: no-repeat;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+    pointer-events: all
 }
 
 .talent-container:active:not(.grayed):not(.locked){
@@ -58,22 +59,29 @@
     height: 42px;
     margin: 8px;
     position: relative;
+    /* user-select: none;
+    pointer-events: none; */
 
 }
 
 .talentTable {
     margin-left: 5px;
     margin-bottom: 15px;
-
     background-color: grey;
     background-size: 100% 100%;
     border: 2px solid black;
-    user-select: none;
+}
+
+.talentTable>.row{
+    /* user-select: none;
+    pointer-events: none; */
 }
 
 .treeTitle {
     color: azure;
     margin-top: 10px;
+    /* user-select: none;
+    pointer-events: none; */
 }
 
 .spentPoints {
@@ -525,6 +533,27 @@ svg.icon:hover path{
 }
 .side-nav-trigger:hover{
     background-image: linear-gradient(to right,rgb(25, 25, 25), rgb(35, 35, 35),rgb(25, 25, 25));
+}
+
+.trigger-icon{
+    background: url(../images/icons/medium/side_toggle_arrow.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 18px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 44%;
+    pointer-events: none;
+}
+
+.iconSwitch{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 }
 
 .minimized{
