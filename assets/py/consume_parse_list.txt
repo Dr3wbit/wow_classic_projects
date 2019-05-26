@@ -48,3 +48,9 @@ thorium_grenade
 iron_grenade
 free_action_potion
 goblin_sapper_charge
+elixir_of_the_giants
+blinding_powder
+flash_powder
+elixir_of_firepower
+elixir_of_greater_firepower
+arcane_elixir
