@@ -325,7 +325,7 @@ function bigdaddytooltip(e) {
 		})).append(BoP).append(unique).append(requirements).append(use).append(description)
 	)
 
-	let xy = getTooltipPosition(e, tooltipContainer.height())
+	let xy = getTooltipPosition(e, tooltipContainer)
 	let left = xy.x
 	let top = xy.y
 
@@ -333,35 +333,51 @@ function bigdaddytooltip(e) {
 	tooltipContainer.attr("style", `top: ${top}px; left: ${left}px; visiblity: visible;`)
 }
 
-function getTooltipPosition(e, height) {
+function getTooltipPosition(e, tooltip) {
+
+	let width = tooltip.width()
+	let height = tooltip.height()
 
 	this.coords = {}
 
-	let xCoeff = window.innerWidth/$(e.target).offset().left
-	console.log('xCoeff :', xCoeff)
-
-	let yCoeff = window.innerHeight/$(e.target).offset().top
-
+	let xCoeff = ($(e.target).offset().left/window.innerWidth)*100
+	let distanceFromTop = $(e.target).offset().top - $(window).scrollTop()
+	let yCoeff = (distanceFromTop/window.innerHeight)*100
+	
 	console.log('yCoeff: ', yCoeff)
-	let left = $(e.target).offset().left + 45
+
+
+
+	let left = 0
+
 	let top = 0
 
-	if (yCoeff < 1.3) {
-		let a = $(e.target).offset().top + 45
-		top = a - height
+	if (xCoeff > 50) {
+		left = $(e.target).offset().left - 25 - width
+	} else {
+		left = $(e.target).offset().left + 45
+
 	}
-	else if (yCoeff >= 1.3 && yCoeff < 2) {
-		// set tooltip vertically centered with talent
+	if (yCoeff < 30) {
+		top = $(e.target).offset().top + height/2 - 10
+
+	}
+	else if (yCoeff >= 30 && yCoeff < 75) {
+		// sets tooltip vertically centered with talent
 		let a = (height - 40)/2
 		top = $(e.target).offset().top - (a+20)
 	} else {
-		top = $(e.target).offset().top + 10
+		let a = $(e.target).offset().top + 30
+		top = a - height
 	}
 
 	this.coords.x = left
 	this.coords.y = top
 
 	return this.coords
+
+	//old
+
 }
 
 // }
