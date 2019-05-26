@@ -4,6 +4,8 @@ from urllib.parse import urlparse
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+import time
 from selenium.common import exceptions
 
 driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver"))
@@ -12,13 +14,8 @@ prof_text = {'Fished':'fishing', 'Gathered':'herbalism', 'Mined':'mining',
 			'Disenchanted':'enchanting', 'Skinned':'skinning'}
 
 other_text = {'Dropped': 'drop', 'Sold': 'vendor'}
+
 image_size = 'medium'
-
-all_consumes = {}
-#
-# with open("all_materials_json.js", 'r') as f:
-# 	all_materials = json.load(f)
-
 
 r1 = re.compile(r'spell=[\d]+?\/([\w\-]+)', re.M)
 get_url = re.compile(r'url\(\"(https://wow\.zamimg\.com.+?\.jpg)', re.M)
@@ -28,27 +25,39 @@ item_grabber = re.compile(r"item\=(\d+)")
 p = re.compile('\-')
 space_replacer = re.compile('\s')
 numberRE = re.compile("(\d+)")
-
 word_exceptions = ['of', 'the']
 
-# materials_filename = "icon_download_list_total.txt"
-consumes_filename = "consume_parse_list.txt"
+materials_list_filename = "all_materials_list.txt"
+consumes_list_filename = "consume_parse_list.txt"
+all_consumes_json_file = "all_consumes_json.js"
+all_materials_json_file = "all_materials_json.js"
 
-# with open(materials_filename, 'r') as f:
-# 	content = f.read()
-# 	materials_list = content.split()
+all_consumes = ''
+materials_list = ''
+all_materials = ''
 
-# materials_list_copy = materials_list.copy()
+with open(all_materials_json_file, 'r') as f:
+	all_materials = json.load(f)
 
-with open(consumes_filename, 'r') as f:
+with open(all_consumes_json_file, 'r') as f:
+	all_consumes = json.load(f)
+
+with open(materials_list_filename, 'r') as f:
+	content = f.read()
+	materials_list = content.split()
+
+
+
+
+with open(consumes_list_filename, 'r') as f:
 	content = f.read()
 	consumes_list = content.split()
 
-consumes_list_copy = consumes_list.copy()
 
 def main():
 	# image_size = input("image size (small / medium / large )") or 'small'
 	# image_size = 'small'
+
 
 	choice = 'wowhead'
 	if choice == 'classicdb':
@@ -56,15 +65,17 @@ def main():
 	else:
 		use_wowhead()
 
-	# with open(materials_filename, 'w') as f:
-	# 		for item in materials_list_copy:
-	# 			f.write(item+"\n")
 
-	# with open('all_materials_json.js', 'w') as f:
-	# 	json.dump(all_materials, f, indent=4)
 
-	with open('all_consumes_json.js', 'w') as f:
+	with open(all_materials_json_file, 'w') as f:
 		json.dump(all_materials, f, indent=4)
+
+	with open(all_consumes_json_file, 'w') as f:
+		json.dump(all_consumes, f, indent=4)
+
+	with open(materials_list_filename, 'w') as f:
+			for item in materials_list:
+				f.write(item+"\n")
 
 
 
@@ -81,13 +92,23 @@ def title_case(s):
 	return(c)
 
 def sanitize(s):
-	print('s: ', s)
 	a = s.strip().replace(' ', '_')
 	a = a.replace('\n', '')
 	b = a.lower()
-
-	print('b: ', b)
 	return(b)
+
+def get_rarity(class_name):
+	rarity = ''
+	if class_name == 'q1':
+		 rarity = 'common'
+	elif class_name == 'q2':
+		rarity = 'uncommon'
+	elif class_name == 'q3':
+		rarity = 'rare'
+	else:
+		rarity = 'epic'
+	return rarity
+
 
 def use_classicdb():
 	BASE_URL = "https://classicdb.ch/?items"
@@ -95,7 +116,7 @@ def use_classicdb():
 	driver.implicitly_wait(5)
 	try:
 		if choice == 'materials':
-			# materials_filename = input('enter filepath for list of icons to be downloaded') or "icon_download_list.txt"
+			# materials_list_filename = input('enter filepath for list of icons to be downloaded') or "icon_download_list.txt"
 			for item in materials_list:
 
 				try:
@@ -158,21 +179,12 @@ def use_classicdb():
 					class_name = b.get_attribute('class')
 
 					if (item not in all_materials.keys()):
+
 						all_materials[item] = {}
 
 						all_materials[item]['category'] = folder_name
+						all_materials[item]['rarity'] = get_rarity(class_name)
 
-						if class_name == 'q1':
-							 rarity = 'common'
-						elif class_name == 'q2':
-							rarity = 'uncommon'
-						elif class_name == 'q3':
-							rarity = 'rare'
-						else:
-							rarity = 'epic'
-
-						print(item, " : ", rarity, ', ', folder_name)
-						all_materials[item]['rarity'] = rarity
 
 
 					icon = driver.find_element(By.CSS_SELECTOR, "div#minibox + div")
@@ -209,15 +221,14 @@ def use_wowhead():
 	BASE_URL = "https://classic.wowhead.com/search?q=%27"
 	driver.get(BASE_URL)
 	driver.implicitly_wait(5)
-
 	link_list = []
-
-
-
 	driver.implicitly_wait(5)
-
 	for item in consumes_list:
 		try:
+			# if item in all_consumes.keys():
+			# 	if 'url' in all_consumes[item].keys():
+			# 		continue
+			# else:
 			all_consumes[item] = {}
 
 			search_bar = driver.find_element(By.CSS_SELECTOR, 'div.header-search').find_element(By.TAG_NAME, 'input')
@@ -246,7 +257,10 @@ def use_wowhead():
 			for row in rows:
 				link = row.find_elements(By.TAG_NAME, 'td')[2].find_element(By.TAG_NAME, 'a')
 				if link.text == search_text:
-					link_list.append(link.get_attribute('href'))
+					my_link = link.get_attribute('href')
+
+					link_list.append(my_link)
+					all_consumes[item]['url'] = my_link
 
 		except:
 			print('error')
@@ -255,67 +269,147 @@ def use_wowhead():
 	print('number of links: ', len(link_list))
 
 	for link in link_list:
-		match = item_grabber.search(link)
+		try:
+			match = item_grabber.search(link)
 
-		if not match:
-			continue
+			if not match:
+				continue
 
-		else:
-			item_number = match.group(1)
-			this_link = "https://classicdb.ch/?item="+str(item_number)
-			driver.get(this_link)
-			driver.implicitly_wait(3)
-
-		tables = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1].find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'table')
-
-		item_name = tables[0].find_element(By.TAG_NAME, 'b').text
-		item = sanitize(item_name)
-
-		whole_text = tables[0].find_element(By.TAG_NAME, 'td').text
-		new_text = whole_text.replace(item_name, '')
-		if new_text.startswith('Binds'):
-			all_consumes[item]['bop'] = True
-
-		if new_text.endswith('Unique'):
-			all_consumes[item]['unique'] = True
-
-
-		if 'Requires' in new_text:
-			match = numberRE.search(new_text)
-			req_lvl = match.group(1)
-			if 'Engineering' in new_text:
-
-				all_consumes[item]['req'] = 'engineering_{}'.format(req_lvl)
 			else:
-				all_consumes[item]['req'] = req_lvl
+				item_number = match.group(1)
+				this_link = "https://classicdb.ch/?item="+str(item_number)
+				driver.get(this_link)
+				driver.implicitly_wait(3)
 
-		# second table has
-		spans = tables[1].find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'span')
-		if len(spans) > 1:
-			old_text = spans[0].text
+			tables = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1].find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'table')
+			b = tables[0].find_element(By.TAG_NAME, 'b')
+			class_name = b.attr('class')
+			all_consumes[item]['rarity'] = get_rarity(class_name)
+
+			item_name = b.text
+			item = sanitize(item_name)
+
+			whole_text = tables[0].find_element(By.TAG_NAME, 'td').text
+			new_text = whole_text.replace(item_name, '')
+			if new_text.startswith('Binds'):
+				all_consumes[item]['bop'] = True
+
+			if new_text.endswith('Unique'):
+				all_consumes[item]['unique'] = True
+
+
+			if 'Requires' in new_text:
+				match = numberRE.search(new_text)
+				req_lvl = match.group(1)
+				if 'Engineering' in new_text:
+
+					all_consumes[item]['req'] = 'engineering_{}'.format(req_lvl)
+				else:
+					all_consumes[item]['req'] = req_lvl
+
+			spans = tables[-1].find_elements(By.TAG_NAME, 'span')
+
+			# print(item_name, ' spans: ', len(spans))
+
+			if len(spans) > 1:
+				old_text = spans[0].text
+				all_consumes[item]['description'] = spans[1].text
+
+			else:
+
+				old_text = tables[-1].text
+
+			# print(item_name, ' use: ', old_text)
+
 			use = old_text.replace('Use: ', '')
-
 			all_consumes[item]['use'] = use
-			all_consumes['description'] = spans[1].text
+
+			tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
+			tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
+
+			tab_found = False
+			for tab in tabs:
+				if tab.text.startswith('Created'):
+					tab_found = True
+					tab_link = tab.find_element(By.TAG_NAME, 'a')
+					if tab_link.get_attribute('class') != 'selected':
+						tab_link.click()
+						driver.implicitly_wait(1)
+					break
 
 
-		continue
+			if tab_found:
 
-		tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
-		tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
+				all_consumes[item]['materials'] = {}
 
-		is_prof = False
-		folder_name = ''
+				created_tab = driver.find_element(By.ID, 'tab-created-by')
+				materials = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[2].find_elements(By.CSS_SELECTOR, 'div.iconmedium')
 
-		for tab in tabs:
-			div = tab.find_element(By.TAG_NAME, 'div')
-			tab_text = div.get_attribute('textContent')
+				for mat in materials:
 
-			if tab_text.startswith('Created'):
-				div.click()
-				driver.implicitly_wait(2)
-				break
+					mat_link = mat.find_element(By.TAG_NAME, 'a')
+					quantity = mat_link.get_attribute('rel')
+					layers = driver.find_element(By.ID, 'layers')
 
+					tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
+
+					ActionChains(driver).move_to_element(mat).perform()
+
+
+					time.sleep(0.5)
+
+					tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
+
+					this_mat = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b')
+					mat_name = this_mat.text
+					class_name = this_mat.get_attribute('class')
+
+					all_consumes[item]['materials'][mat_name] = quantity
+
+					if mat_name not in materials_list:
+						materials_list.append(mat_name)
+
+					if mat_name not in all_materials.keys():
+
+						print('new material added: ', mat_name)
+
+						all_materials[mat_name] = {}
+						all_materials[mat_name]['rarity'] = get_rarity(class_name)
+
+						mat_link.click()
+
+						driver.implicitly_wait(2)
+
+						tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
+						tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
+
+						is_prof = False
+						category = ''
+
+						for tab in tabs:
+							div = tab.find_element(By.TAG_NAME, 'div')
+							tab_text = div.get_attribute('textContent')
+
+							if tab_text.startswith(tuple(prof_text.keys())):
+								is_prof = True
+								key = tab_text.split()[0]
+								category = prof_text[key]
+								break
+
+							elif ((not category and not is_prof) and tab_text.startswith(tuple(other_text.keys()))):
+								key = tab_text.split()[0]
+								category = other_text[key]
+								break
+
+							elif not category and not is_prof:
+								category = 'other'
+
+						all_materials[mat_name]['category'] = category
+
+
+
+		except:
+			print('error with {}'.format(link))
 
 
 
@@ -423,6 +517,35 @@ def get_images():
 		except:
 			print("error")
 			driver.close()
+
+
+def test_run():
+	BASE_URL = "https://classicdb.ch/?item=9155#created-by"
+	driver.get(BASE_URL)
+	driver.implicitly_wait(5)
+
+	# all_consumes[item]['materials'] = {}
+	created_tab = driver.find_element(By.ID, 'tab-created-by')
+	materials = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[2].find_elements(By.CSS_SELECTOR, 'div.iconmedium')
+
+	for mat in materials:
+
+		quantity = mat.find_element(By.TAG_NAME, 'a').get_attribute('rel')
+		layers = driver.find_element(By.ID, 'layers')
+
+		tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
+
+		ActionChains(driver).move_to_element(mat).perform()
+
+
+		time.sleep(0.5)
+
+		tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
+
+		mat_name = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b').text
+		print(mat_name, ': ', quantity)
+
+		ActionChains(driver).reset_actions()
 
 
 main()
