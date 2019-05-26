@@ -72,6 +72,16 @@ function applyClickHandlers() {
 	specNameValidator()
 	addClassName()
 	addAllottedPoints()
+	preventInspect()
+}
+
+function preventInspect(){
+	$('#talentCalc').on({
+		contextmenu: e => {
+			e.preventDefault()
+			return false
+		},
+	})
 }
 
 function addAllottedPoints(){
@@ -371,12 +381,15 @@ function removeSavedSpec(name, existingSpecs) {
 function sideNav(){
 	sideNav = $('.savedSpecs')
 	navTrigger = $('.side-nav-trigger')
+	icon = $('.trigger-icon')
 	navTrigger.on({
 		click: e => {
 			if(sideNav.hasClass('minimized')){
 				sideNav.removeClass('minimized')
+				icon.removeClass('iconSwitch')
 			}else{
 				sideNav.addClass('minimized')
+				icon.addClass('iconSwitch')
 			}
 		},
 	})
