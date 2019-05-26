@@ -32,11 +32,14 @@
     <link rel="stylesheet" type="text/css" href="assets/css/global.css">
     <link rel="stylesheet" type="text/css" href="assets/css/consumeTool.css">
     <script src="assets/js/consumes.js"></script>
+    <script src="assets/js/all_consumes.js"></script>
+
     <script src="assets/js/consumeTool.js"></script>
     <script src="assets/js/handlebars-v4.1.2.js"></script>
     <!-- Nav Bar -->
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/templatesCompiled.js"></script>
+
 </head>
 
 <body>
@@ -91,7 +94,7 @@
     <div class="category-container" name="{{name}}">
         <div class="category-title" name="{{name}}">{{name}}</div>
         {{#each data}}
-        <div class="consume-block">
+        <div class="consume-block" name="{{sanitize name}}">
             <div class="icon-container">
                 <img class="consume-img" src="assets/images/icon_border_2.png" style="background-image: url(assets/images/consumes/{{img}})">
                 <div class="consume-tooltip tooltip-hidden">
@@ -99,9 +102,6 @@
                     {{effect}}
                 </div>
             </div>
-            <!-- <div class="consume-title">{{name}}
-                <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" type="number" maxlength="3" min="0" step="1" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)" onkeydown="return event.keyCode !== 69">
-            </div> -->
             <div class="consume-title">{{name}}
                 <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" type="number" maxlength="3" min="0" step={{#if step}}"{{step}}"{{else}}"1"{{/if}}>
             </div>
@@ -111,4 +111,6 @@
     {{/each}}
 </script>
 
+<script src="assets/js/helpers.js"></script>
+<div id="tooltip"></div>
 </html>
