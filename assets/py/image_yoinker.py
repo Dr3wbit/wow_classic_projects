@@ -14,50 +14,57 @@ prof_text = {'Fished':'fishing', 'Gathered':'herbalism', 'Mined':'mining',
 other_text = {'Dropped': 'drop', 'Sold': 'vendor'}
 image_size = 'medium'
 
-with open("all_materials_json.js", 'r') as f:
-	all_materials = json.load(f)
+all_consumes = {}
+#
+# with open("all_materials_json.js", 'r') as f:
+# 	all_materials = json.load(f)
 
 
 r1 = re.compile(r'spell=[\d]+?\/([\w\-]+)', re.M)
 get_url = re.compile(r'url\(\"(https://wow\.zamimg\.com.+?\.jpg)', re.M)
 class_from_url = re.compile(r"url\(\"(https://wow\.zamimg\.com.+?\/class\_(\w+)\.jpg)", re.M)
 icon_re = re.compile(r"'(\w*)'")
+item_grabber = re.compile(r"item\=(\d+)")
 p = re.compile('\-')
 space_replacer = re.compile('\s')
+numberRE = re.compile("(\d+)")
 
 word_exceptions = ['of', 'the']
 
-materials_filename = "icon_download_list_total.txt"
+# materials_filename = "icon_download_list_total.txt"
 consumes_filename = "consume_parse_list.txt"
 
-with open(materials_filename, 'r') as f:
-	content = f.read()
-	materials_list = content.split()
+# with open(materials_filename, 'r') as f:
+# 	content = f.read()
+# 	materials_list = content.split()
+
+# materials_list_copy = materials_list.copy()
 
 with open(consumes_filename, 'r') as f:
 	content = f.read()
 	consumes_list = content.split()
 
 consumes_list_copy = consumes_list.copy()
-materials_list_copy = materials_list.copy()
 
 def main():
 	# image_size = input("image size (small / medium / large )") or 'small'
 	# image_size = 'small'
 
-	choice = 'classicdb'
+	choice = 'wowhead'
 	if choice == 'classicdb':
 		use_classicdb()
 	else:
 		use_wowhead()
 
-	with open(materials_filename, 'w') as f:
-			for item in materials_list_copy:
-				f.write(item+"\n")
+	# with open(materials_filename, 'w') as f:
+	# 		for item in materials_list_copy:
+	# 			f.write(item+"\n")
 
-	with open('all_materials_json.js', 'w') as f:
+	# with open('all_materials_json.js', 'w') as f:
+	# 	json.dump(all_materials, f, indent=4)
+
+	with open('all_consumes_json.js', 'w') as f:
 		json.dump(all_materials, f, indent=4)
-
 
 
 
@@ -72,6 +79,15 @@ def title_case(s):
 
 	c = ' '.join(word_list)
 	return(c)
+
+def sanitize(s):
+	print('s: ', s)
+	a = s.strip().replace(' ', '_')
+	a = a.replace('\n', '')
+	b = a.lower()
+
+	print('b: ', b)
+	return(b)
 
 def use_classicdb():
 	BASE_URL = "https://classicdb.ch/?items"
@@ -202,11 +218,27 @@ def use_wowhead():
 
 	for item in consumes_list:
 		try:
+			all_consumes[item] = {}
+
 			search_bar = driver.find_element(By.CSS_SELECTOR, 'div.header-search').find_element(By.TAG_NAME, 'input')
+			search_bar.clear()
 			search_text = title_case(item)
+			print('search_text: ', search_text)
 			search_bar.send_keys(search_text)
 			search_bar.send_keys(Keys.ENTER)
 			driver.implicitly_wait(3)
+
+			selected_tab = driver.find_element(By.CSS_SELECTOR, 'a.selected')
+
+			if not selected_tab.text.startswith('Items'):
+				tabs = driver.find_element(By.CSS_SELECTOR, 'div.tabs-container').find_element(By.CSS_SELECTOR, 'ul.tabs').find_elements(By.TAG_NAME, 'li')
+				for tab in tabs:
+					this_link = tab.find_element(By.TAG_NAME, 'a')
+					tab_text = this_link.find_element(By.TAG_NAME, 'div').text
+					if tab_text.startswith('Items'):
+						this_link.click()
+						driver.implicitly_wait(2)
+
 
 			parent = driver.find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody')
 			rows = parent.find_elements(By.TAG_NAME, 'tr')
@@ -216,8 +248,74 @@ def use_wowhead():
 				if link.text == search_text:
 					link_list.append(link.get_attribute('href'))
 
+		except:
+			print('error')
+			print('number of links: ', len(link_list))
+
+	print('number of links: ', len(link_list))
+
 	for link in link_list:
-		pass
+		match = item_grabber.search(link)
+
+		if not match:
+			continue
+
+		else:
+			item_number = match.group(1)
+			this_link = "https://classicdb.ch/?item="+str(item_number)
+			driver.get(this_link)
+			driver.implicitly_wait(3)
+
+		tables = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1].find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'table')
+
+		item_name = tables[0].find_element(By.TAG_NAME, 'b').text
+		item = sanitize(item_name)
+
+		whole_text = tables[0].find_element(By.TAG_NAME, 'td').text
+		new_text = whole_text.replace(item_name, '')
+		if new_text.startswith('Binds'):
+			all_consumes[item]['bop'] = True
+
+		if new_text.endswith('Unique'):
+			all_consumes[item]['unique'] = True
+
+
+		if 'Requires' in new_text:
+			match = numberRE.search(new_text)
+			req_lvl = match.group(1)
+			if 'Engineering' in new_text:
+
+				all_consumes[item]['req'] = 'engineering_{}'.format(req_lvl)
+			else:
+				all_consumes[item]['req'] = req_lvl
+
+		# second table has
+		spans = tables[1].find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'span')
+		if len(spans) > 1:
+			old_text = spans[0].text
+			use = old_text.replace('Use: ', '')
+
+			all_consumes[item]['use'] = use
+			all_consumes['description'] = spans[1].text
+
+
+		continue
+
+		tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
+		tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
+
+		is_prof = False
+		folder_name = ''
+
+		for tab in tabs:
+			div = tab.find_element(By.TAG_NAME, 'div')
+			tab_text = div.get_attribute('textContent')
+
+			if tab_text.startswith('Created'):
+				div.click()
+				driver.implicitly_wait(2)
+				break
+
 
 
 
