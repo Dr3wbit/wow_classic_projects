@@ -218,18 +218,39 @@
 
 
 .materials-name {
+    position: relative;
+    pointer-events: auto;
+    top: 1px;
+}
+
+/* old */
+/* .materials-name {
     position: absolute;
     left: 22px;
     pointer-events: auto;
     padding-left: 5px;
     top: 1px;
-}
+} */
 
 .materials-list {
     position: relative;
     margin-bottom: 4px;
 }
 
+.amount {
+    font-size: 12px;
+    position: relative;
+    margin-right: 5px;
+    /* left: -8px;
+    top: 6px; */
+    text-decoration: none;
+    color: azure;
+    pointer-events: none;
+    z-index: 10;
+    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
+}
+
+/*
 .amount {
     font-size: 11px;
     position: relative;
@@ -241,7 +262,7 @@
     pointer-events: none;
     z-index: 10;
     text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
-}
+} */
 
 .underlined {
     text-decoration: underline;

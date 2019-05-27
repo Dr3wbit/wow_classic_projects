@@ -558,5 +558,45 @@
         "bop": true,
         "req": 45,
         "use": "Restores 394 to 457 mana and 394 to 457 health. (cooldown 2 min)"
+    },
+    "winter_squid": {
+        "rarity": "common",
+        "category": "other"
+    },
+    "khadgar's_whisker": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "raw_nightfin_snapper": {
+        "rarity": "common",
+        "category": "other"
+    },
+    "imbued_vial": {
+        "rarity": "common",
+        "category": "vendor"
+    },
+    "": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "runn_tum_tuber": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "mystery_meat": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "purple_lotus": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "arthas'_tears": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "tender_crab_meat": {
+        "rarity": "common",
+        "category": "drop"
     }
 }
