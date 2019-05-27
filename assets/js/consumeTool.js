@@ -11,16 +11,12 @@ function initializeApp() {
 	applyClickHandlers();
 	$(".consume-form").on({
 		'change': (e) => {
-			// console.log("this: ", $( e.target ) )
 			$('.consume-form').submit(getMaterials(selectedData))
 		},
 		blur: (e) => {
 			$('.consume-form').submit(getMaterials(selectedData))
 		},
-		// 'keyup': (e) => {
-		// 	// console.log("this: ", $( e.target ) )
-		// 	$('.consume-form').submit(getMaterials(selectedData))
-		// }
+
 	})
 	$("#warrior").click()
 }
@@ -28,7 +24,6 @@ function initializeApp() {
 function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
-
 
 function applyClickHandlers() {
 	const classMarker = $('<div/>', {
@@ -63,17 +58,16 @@ function applyClickHandlers() {
 				},
 
 				mouseenter: (e) => {
-					$(e.currentTarget.children[1]).removeClass('tooltip-hidden')
+					// $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
+					updateTooltip(e)
 				},
 				mouseleave: (e) => {
-					$(e.currentTarget.children[1]).addClass('tooltip-hidden')
+					// $(e.currentTarget.children[1]).addClass('tooltip-hidden')
+					$("#tooltip").hide()
+					$("#tooltip").children().remove()
 				},
 
                 mousedown: (e) => {
-
-					// e.preventDefault()
-
-
                     if (e.which === 1) {
 
 						let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
@@ -111,8 +105,6 @@ function applyClickHandlers() {
 		}
 	})
 }
-
-
 
 function clearForm() {
 	$('.consume-form').empty()
@@ -189,6 +181,7 @@ function findMaterials(name, category, data, inputValue) {
 
 function appendMaterials(materials) {
 	$('.results').empty()
+
 	let totalMaterialCount = []
 	materials.forEach((item) => {
 		let resultConsume = $('<div/>', {
@@ -247,83 +240,50 @@ function calculateTotals(materialTotals) {
 	$('.results').append(totalTitle)
 }
 
-function titleCase(s){
-    const spaceRE = /\_/g
-    let a = s.replace(spaceRE, ' ')
-    let strArr = a.split(' ')
-    strArr.forEach(function(word, i) {
-        if (word != ('of' || 'the') && typeof(word)=='string'){
-            strArr[i] = word.charAt(0).toUpperCase() + word.slice(1)
-        }
-    })
-    return strArr.join(' ')
 
-}
+function updateTooltip(e) {
+	const targetElement = $(e.target)
+	const name = targetElement.closest($('.consume-block')).attr('name')
+	let properName = ''
 
-function materialsTooltip() {
-    $(".results").on({
-        mouseenter: e => {
-            const closestMat = $( e.target ).closest('.materials-list').find('.materials-name')
-            let closestTooltip = $( e.target ).closest( $('.materials-list')).find('div.tooltip-container')
+	if (name.startsWith('dirg')) {
+		properName = "Dirge’s Kickin’ Chimaerok Chops"
+	} else if(name == 'roids') {
+		properName = "R.O.I.D.S."
+	} else {
+		properName = utilities.titleCase(name)
+	}
 
-            let matName = closestMat.text()
+	const thisConsume = allConsumes[name]
+	const rarity = thisConsume.rarity
 
-            if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
-                return
-            } else {
-                $(".results").find('.materials-name').removeClass('underlined')
-                //
-                closestMat.addClass('underlined')
-                $(".results").find( $('div.tooltip-container') ).children().remove()
+	const tooltipElems = [{class: `title ${rarity}`,text: properName}]
 
 
 
-                const thisMat = allMaterials[sanitize(matName)]
+	if (thisConsume.bop) {
+		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
+	}
+	if (thisConsume.unique) {
+		tooltipElems.push({class: 'unique', text: "Unique",})
+	}
 
+	let requirementText = ''
+	if (name == 'goblin_rocket_boots') {
+		requirementText = "Binds when equipped\nFeet\t\t\t\t\t\t\t\t\t\t    Cloth\n41 Armor\nDurability 35 / 35"
+	} else {
+		requirementText = (thisConsume.req) ? ((thisConsume.req.toString().startsWith('engi') || thisConsume.req.toString().startsWith('first')) ? utilities.titleCase(thisConsume.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisConsume.req}`) : false
+	}
 
-                const rarity = thisMat.rarity
+	if (thisConsume.req || thisConsume.stats) {
+		tooltipElems.push({class: 'requiredLevel', text: requirementText})
+	}
+	if (thisConsume.use) {
+		tooltipElems.push({class: 'use', text: `Use: ${thisConsume.use}`})
+	}
+	if (thisConsume.description) {
+		tooltipElems.push({class: 'description', text: `"${thisConsume.description}"`})
+	}
 
-                const BoP = (thisMat.bop) ? $('<div/>', {
-                    class: 'bop',
-                    text: "Binds when picked up",
-                }) : null
-
-                const unique = (thisMat.unique) ? $('<div/>', {
-                    class: 'unique',
-                    text: "Unique",
-                }) : null
-
-                const requiredLevel = (thisMat.req) ? $('<div/>', {
-                    class: 'requiredLevel',
-                    text: `Requires Level ${thisMat.req}`,
-                }) : null
-
-                const use = (thisMat.use) ? $('<div/>', {
-                    class: 'use',
-                    text: `Use: ${thisMat.use}`,
-                }) : null
-
-                const description = (thisMat.description) ? $('<div/>', {
-                    class: 'description',
-                    text: `"${thisMat.description}"`,
-                }) : null
-
-                closestTooltip.append($('<div/>', {
-                    class: 'consume-tooltip',
-                 }).append($('<div/>', {
-                    class: `title ${rarity}`,
-                    text: matName,
-                })).append(BoP).append(unique).append(requiredLevel).append(use).append(description)
-            )
-
-            }
-        },
-        mouseleave: e => {
-            $(".results").find('.materials-name').removeClass('underlined')
-            $(".results").find( $('div.tooltip-container') ).children().remove()
-
-            // const targetMaterial = $( e.target ).closest('.materials-list').find('div.tooltip-container')
-            // targetMaterial.children().remove()
-        }
-    })
+	utilities.bigdaddytooltip(e, tooltipElems)
 }

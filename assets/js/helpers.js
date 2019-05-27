@@ -18,9 +18,8 @@ Handlebars.registerHelper('needsExtraDiv', function(item){
     }
 });
 
-
 function janitor(str) {
-    return str.replace(" ", "_").toLowerCase()
+    return str.toLowerCase().replace(/\s+/g, '_').replace(/[’'\.]/g, '')
 }
 
 
