@@ -60,61 +60,9 @@ const utilities = {
 				text: item.text,
 			}))
 		})
-
 		tooltip.append(container)
 		let coords = utilities.getTooltipPosition(e, tooltip)
 
 		tooltip.attr("style", `top: ${coords.y}px; left: ${coords.x}px; visiblity: visible;`)
-
 	}
-}
-
-
-
-// consumeTool.js
-function updateTooltip(e) {
-	const targetElement = $(e.target)
-	const name = targetElement.closest($('.consume-block')).attr('name')
-	let properName = ''
-
-	if (name.startsWith('dirg')) {
-		properName = "Dirge’s Kickin’ Chimaerok Chops"
-	} else if(name == 'roids') {
-		properName = "R.O.I.D.S."
-	} else {
-		properName = titleCase(name)
-	}
-
-	const tooltipElems = [{class: `title ${rarity}`,text: properName}]
-
-	const thisConsume = allConsumes[name]
-
-
-	const rarity = thisConsume.rarity
-
-	if (thisConsume.bop) {
-		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
-	}
-	if (thisConsume.unique) {
-		tooltipElems.push({class: 'unique', text: "Unique",})
-	}
-
-	let requirementText = ''
-	if (name == 'goblin_rocket_boots') {
-		requirementText = "Binds when equipped\nFeet\t\t\t\t\t\t\t\t\t\t    Cloth\n41 Armor\nDurability 35 / 35"
-	} else {
-		requirementText = (thisConsume.req) ? ((thisConsume.req.toString().startsWith('engi') || thisConsume.req.toString().startsWith('first')) ? titleCase(thisConsume.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisConsume.req}`) : false
-	}
-
-	if (thisConsume.req || thisConsume.stats) {
-		tooltipElems.push({class: 'requiredLevel', text: requirementText})
-	}
-	if (thisConsume.use) {
-		tooltipElems.push({class: 'use', text: `Use: ${thisConsume.use}`})
-	}
-	if (thisConsume.description) {
-		tooltipElems.push({class: 'description', text: `"${thisConsume.description}"`})
-	}
-
-	utilities.bigdaddytooltip(e, tooltipElems)
 }
