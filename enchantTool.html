@@ -47,106 +47,100 @@
     <div id="nav-container" class="container"></div>
     <div class="container titleSplash">
         <div class="page-title">Enchant Tool
-            <div class="p-3 page-description">A Classic World of Warcraft Enchanting Tool! Click a gear slot and choose from the availible enchants to see what materials you need.</div>
+            <div class="p-3 page-description">A Classic World of Warcraft Enchanting Tool! Click a gear slot and choose
+                from the availible enchants to see what materials you need.</div>
         </div>
-        <div class="row class-selection nav-is-sticky"></div>
+        <div class="row class-selection nav-is-sticky">
+                <div class="col-lg-4 col-12 columnTitle">Choose Enchant(s)</div>
+                <div class="col-lg-4 columnTitle d-none d-lg-block">Selected Enchants</div>
+                <div class="col-lg-4 columnTitle d-none d-lg-block">Total Materials</div>
+        </div>
     </div>
     <div class="container">
         <div class="row mainBody">
-            <div class="col"></div>
-            <div class="col-12 col-lg-6 mainDisplay">
+            <div class="col-12 col-lg-4 enchantOptionContainer pageColumn">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-2 left-slots">
+                        <div class="itemslot enchantable " id="head" data-toggle="tooltip" data-placement="left"
+                            title="Head"></div>
+                        <div class="itemslot not-enchantable " id="neck" data-toggle="tooltip"
+                            data-placement="left" data-placement="left" title="Neck"></div>
+                        <div class="itemslot not-enchantable " id="shoulders" data-toggle="tooltip"
+                            data-placement="left" title="Shoulders"></div>
+                        <div class="itemslot enchantable " id="cloak" data-toggle="tooltip" data-placement="left"
+                            title="Cloak"></div>
+                        <div class="itemslot enchantable " id="chest" data-toggle="tooltip" data-placement="left"
+                            title="Chest"></div>
+                        <div class="itemslot not-enchantable " id="shirt" data-toggle="tooltip"
+                            data-placement="left" title="Shirt"></div>
+                        <div class="itemslot not-enchantable " id="tabard" data-toggle="tooltip"
+                            data-placement="left" title="Tabard"></div>
+                        <div class="itemslot enchantable " id="bracer" data-toggle="tooltip"
+                            data-placement="left" title="Bracer"></div>
+                    </div>
+                    <div class="col">
                         <div class="row">
-                            <div class="col-3">
-                                <div class="itemslot enchantable mx-auto" id="head" data-toggle="tooltip"
-                                    data-placement="left" title="Head"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="neck" data-toggle="tooltip"
-                                    data-placement="left" data-placement="left" title="Neck"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="shoulders" data-toggle="tooltip"
-                                    data-placement="left" title="Shoulders"></div>
-                                <div class="itemslot enchantable mx-auto" id="cloak" data-toggle="tooltip"
-                                    data-placement="left" title="Cloak"></div>
-                                <div class="itemslot enchantable mx-auto" id="chest" data-toggle="tooltip"
-                                    data-placement="left" title="Chest"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="shirt" data-toggle="tooltip"
-                                    data-placement="left" title="Shirt"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="tabard" data-toggle="tooltip"
-                                    data-placement="left" title="Tabard"></div>
-                                <div class="itemslot enchantable mx-auto" id="bracer" data-toggle="tooltip"
-                                    data-placement="left" title="Bracer"></div>
-                            </div>
-                            <div class="col-6">
-                                <div class="row">
-                                    <div class="enchantOptions">
-                                        <div class="bookImg">
-                                            <div class="enchantHolder">
-                                                <div class="enchant-slot-title" style="font-size:110%">Click a Slot to
-                                                    Enchant</div>
-                                            </div>
-                                        </div>
+                            <div class="enchantOptions">
+                                <div class="bookImg">
+                                    <div class="enchantHolder">
+                                        <div class="enchant-slot-title" style="font-size:110%">Click a Slot to
+                                            Enchant</div>
                                     </div>
-                                    <div class="col selected-enchant"></div>
-
                                 </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="itemslot enchantable mx-auto" id="gloves" data-toggle="tooltip"
-                                    data-placement="left" title="Gloves"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="belt" data-toggle="tooltip"
-                                    data-placement="left" title="Belt"></div>
-                                <div class="itemslot enchantable mx-auto" id="legs" data-toggle="tooltip"
-                                    data-placement="left" title="Legs"></div>
-                                <div class="itemslot enchantable mx-auto" id="boots" data-toggle="tooltip"
-                                    data-placement="left" title="Boots"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="ring" data-toggle="tooltip"
-                                    data-placement="left" title="Ring"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="ring" data-toggle="tooltip"
-                                    data-placement="left" title="Ring"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="trinket" data-toggle="tooltip"
-                                    data-placement="left" title="Trinket"></div>
-                                <div class="itemslot not-enchantable mx-auto" id="trinket" data-toggle="tooltip"
-                                    data-placement="left" title="Trinket"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col"></div>
-                            <div class="col-2">
-                                <div class="itemslot enchantable" id="weapon" data-toggle="tooltip"
-                                    data-placement="left" title="Main Hand"></div>
-                            </div>
-                            <div class="col-2">
-                                <div class="itemslot enchantable" id="shield" data-toggle="tooltip"
-                                    data-placement="left" title="shield"></div>
-                            </div>
-                            <div class="col-2">
-                                <div class="itemslot not-enchantable" id="ranged" data-toggle="tooltip"
-                                    data-placement="left" title="Ranged"></div>
-                            </div>
-                            <div class="col"></div>
-                        </div>
-                        <div class="mt-2"></div>
-                        <div class="row">
-                            <div class="col">
-                                <button class="btn btn-dark" type="button" onclick="clearData()">Reset All</button>
                             </div>
                         </div>
                     </div>
+                    <div class="col-2 right-slots">
+                        <div class="itemslot enchantable " id="gloves" data-toggle="tooltip"
+                            data-placement="left" title="Gloves"></div>
+                        <div class="itemslot not-enchantable " id="belt" data-toggle="tooltip"
+                            data-placement="left" title="Belt"></div>
+                        <div class="itemslot enchantable " id="legs" data-toggle="tooltip" data-placement="left"
+                            title="Legs"></div>
+                        <div class="itemslot enchantable " id="boots" data-toggle="tooltip" data-placement="left"
+                            title="Boots"></div>
+                        <div class="itemslot not-enchantable " id="ring" data-toggle="tooltip"
+                            data-placement="left" title="Ring"></div>
+                        <div class="itemslot not-enchantable " id="ring" data-toggle="tooltip"
+                            data-placement="left" title="Ring"></div>
+                        <div class="itemslot not-enchantable " id="trinket" data-toggle="tooltip"
+                            data-placement="left" title="Trinket"></div>
+                        <div class="itemslot not-enchantable " id="trinket" data-toggle="tooltip"
+                            data-placement="left" title="Trinket"></div>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-12 bottom-slots">
+                        <div class="itemslot enchantable d-inline-block" id="weapon" data-toggle="tooltip" data-placement="left"
+                            title="Main Hand"></div>
+
+                        <div class="itemslot enchantable d-inline-block" id="shield" data-toggle="tooltip" data-placement="left"
+                            title="shield"></div>
+
+                        <div class="itemslot not-enchantable d-inline-block" id="ranged" data-toggle="tooltip" data-placement="left"
+                            title="Ranged"></div>
+                    </div>
+                </div>
+                
+                <!-- <div class="row">
+                    <div class="col">
+                        <button class="btn btn-dark" type="button" onclick="clearData()">Reset All</button>
+                    </div>
+                </div> -->
             </div>
-            <div class="col"></div>
-            <div class="col-12 col-lg-4 leftSideBar">
+            <div class="col-12 columnTitle d-lg-none">Selected Enchants</div>
+            <div class="col-12 col-lg-4 selectedEnchantContainer pageColumn">
+                <div class="selected-enchant"></div>
+            </div>
+            <div class="col-12 columnTitle d-lg-none">Total Materials</div>
+            <div class="col-12 col-lg-4 materialContainer pageColumn">
                 <div class="totalContainer">
-                    <div class="totalTitle">Totals</div>
                     <div class="results"></div>
                 </div>
             </div>
-            <div class="col d-none d-lg-block"></div>
         </div>
     </div>
     </div>
-
-
     <footer class="footer">
         <span class="text-muted">&copy Ony Buff 2019</span>
     </footer>
