@@ -296,7 +296,6 @@
 .materials-list {
     position: relative;
     margin-top: 3px;
-}
 
 .amount {
     font-size: 12px;
@@ -309,21 +308,9 @@
     pointer-events: none;
     z-index: 10;
     text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
+
 }
 
-/*
-.amount {
-    font-size: 11px;
-    position: relative;
-    margin-right: 5px;
-    left: -8px;
-    top: 6px;
-    text-decoration: none;
-    color: azure;
-    pointer-events: none;
-    z-index: 10;
-    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
-} */
 
 .underlined {
     text-decoration: underline;
