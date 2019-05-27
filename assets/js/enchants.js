@@ -970,7 +970,7 @@ const enchants = {
 			description: 'Permanently enchant a melee weapon to often inflict a curse on the target reducing their melee damage.',
 			effect: 'Unholy'
 		},
-		'winter\'s_might': {
+		winters_might: {
 			materials: {
 				greater_mystic_essence: 3,
 				vision_dust: 3,
@@ -978,10 +978,10 @@ const enchants = {
 				wintersbite: 2,
 			},
 			description: 'Permanently enchant a weapon to grant up to 7 additional frost damage when casting frost spells.',
-			effect: "Winter's Might"
+			effect: "Frost Spell Damage +7"
 		}
 	},
-	'2h weapon': {
+	weapon_2h: {
 		agility: {
 			materials: {
 				large_brilliant_shard: 10,

@@ -129,20 +129,51 @@ function calculateData() {
             src: "assets/images/icons/small/icon_border.png",
             style: `background-image: url(assets/images/icons/small/materials/${matCat}/${material[i]}.${imageType});`,
         })).append($('<span/>', {
-            text: `${counts[material[i]]}`,
-            class: 'amount',
-        })).append($('<span/>', {
-            text: `${counts[material[i]]}`,
-            style: "position:absolute; white-space:nowrap; color: black; left: 14px; top: 8px; font-size: 11px; z-index: 4; pointer-events: none;"
-        })).append($('<span/>', {
             text: utilities.titleCase(material[i]),
             class: `materials-name rarity ${allMaterials[material[i]].rarity}`,
+        })).append($('<span/>', {
+            text: ` [${counts[material[i]]}]`,
+            class: 'amount',
         }))
 
         materialsToAppend.push(materialsContainer)
     }
     $('.results').append(materialsToAppend)
 }
+// NOTE !old
+//
+// function calculateData() {
+//     $('.results').empty()
+//     let materialsToAppend = []
+//     let counts = {};
+//     materialArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+//     let material = Object.keys(counts)
+//     for (let i = 0; i < material.length; i++) {
+//         let matCat = allMaterials[material[i]].category
+//
+//         let imageType = (!(material[i]=='gold' || material[i]=='silver')) ? 'jpg' : 'gif'
+//
+//         let materialsContainer = $('<div/>', {
+//             class: 'materials-list',
+//         }).append($('<img/>', {
+//             class: 'icon-small',
+//             src: "assets/images/icons/small/icon_border.png",
+//             style: `background-image: url(assets/images/icons/small/materials/${matCat}/${material[i]}.${imageType});`,
+//         })).append($('<span/>', {
+//             text: `${counts[material[i]]}`,
+//             class: 'amount',
+//         })).append($('<span/>', {
+//             text: `${counts[material[i]]}`,
+//             style: "position:absolute; white-space:nowrap; color: black; left: 14px; top: 8px; font-size: 11px; z-index: 4; pointer-events: none;"
+//         })).append($('<span/>', {
+//             text: utilities.titleCase(material[i]),
+//             class: `materials-name rarity ${allMaterials[material[i]].rarity}`,
+//         }))
+//
+//         materialsToAppend.push(materialsContainer)
+//     }
+//     $('.results').append(materialsToAppend)
+// }
 
 
 
@@ -179,7 +210,7 @@ function materialsTooltip() {
                 if (thisMat.description) {
                     tooltipElems.push({class: 'description', text:`"${thisMat.description}"`})
                 }
-               
+
 				utilities.bigdaddytooltip(e, tooltipElems)
             }
         },
