@@ -149,5 +149,24 @@
     "arcane_elixir": {
         "url": "https://classic.wowhead.com/item=9155"
     },
-    "description": "\"Best Served Chilled\""
+    "description": "\"Best Served Chilled\"",
+    "dragonbreath_chili": {
+        "url": "https://classic.wowhead.com/item=12217"
+    },
+    "brilliant_mana_oil": {
+        "url": "https://classic.wowhead.com/item=20748"
+    },
+    "gift_of_arthas": {
+        "url": "https://classic.wowhead.com/item=9088"
+    },
+    "major_trolls_blood_potion": {},
+    "blessed_sunfruit": {
+        "url": "https://classic.wowhead.com/item=13810"
+    },
+    "monster_omelete": {},
+    "spiced_chili_crab": {
+        "url": "https://classic.wowhead.com/item=12216"
+    },
+    "juju_escape": {},
+    "juju_chill": {}
 }
