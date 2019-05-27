@@ -178,7 +178,8 @@ def use_classicdb():
 
 					class_name = b.get_attribute('class')
 
-					if (item not in all_materials.keys()):
+					if (sanitize(item) not in all_materials.keys()):
+						sanitzed_name = sanitize(item)
 
 						all_materials[item] = {}
 
@@ -225,69 +226,79 @@ def use_wowhead():
 	driver.implicitly_wait(5)
 	for item in consumes_list:
 		try:
-			# if item in all_consumes.keys():
-			# 	if 'url' in all_consumes[item].keys():
-			# 		continue
-			# else:
-			all_consumes[item] = {}
+			if item not in all_consumes.keys():
+				all_consumes[item] = {}
 
-			search_bar = driver.find_element(By.CSS_SELECTOR, 'div.header-search').find_element(By.TAG_NAME, 'input')
-			search_bar.clear()
-			search_text = title_case(item)
-			print('search_text: ', search_text)
-			search_bar.send_keys(search_text)
-			search_bar.send_keys(Keys.ENTER)
-			driver.implicitly_wait(3)
+				# if all_consumes[item]
 
-			selected_tab = driver.find_element(By.CSS_SELECTOR, 'a.selected')
+				search_bar = driver.find_element(By.CSS_SELECTOR, 'div.header-search').find_element(By.TAG_NAME, 'input')
+				search_bar.clear()
+				search_text = title_case(item)
+				print('search_text: ', search_text)
+				search_bar.send_keys(search_text)
+				search_bar.send_keys(Keys.ENTER)
+				driver.implicitly_wait(3)
 
-			if not selected_tab.text.startswith('Items'):
-				tabs = driver.find_element(By.CSS_SELECTOR, 'div.tabs-container').find_element(By.CSS_SELECTOR, 'ul.tabs').find_elements(By.TAG_NAME, 'li')
-				for tab in tabs:
-					this_link = tab.find_element(By.TAG_NAME, 'a')
-					tab_text = this_link.find_element(By.TAG_NAME, 'div').text
-					if tab_text.startswith('Items'):
-						this_link.click()
-						driver.implicitly_wait(2)
+				selected_tab = driver.find_element(By.CSS_SELECTOR, 'a.selected')
+
+				if not selected_tab.text.startswith('Items'):
+					tabs = driver.find_element(By.CSS_SELECTOR, 'div.tabs-container').find_element(By.CSS_SELECTOR, 'ul.tabs').find_elements(By.TAG_NAME, 'li')
+					for tab in tabs:
+						this_link = tab.find_element(By.TAG_NAME, 'a')
+						tab_text = this_link.find_element(By.TAG_NAME, 'div').text
+						if tab_text.startswith('Items'):
+							this_link.click()
+							driver.implicitly_wait(2)
 
 
-			parent = driver.find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody')
-			rows = parent.find_elements(By.TAG_NAME, 'tr')
+				parent = driver.find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody')
+				rows = parent.find_elements(By.TAG_NAME, 'tr')
 
-			for row in rows:
-				link = row.find_elements(By.TAG_NAME, 'td')[2].find_element(By.TAG_NAME, 'a')
-				if link.text == search_text:
-					my_link = link.get_attribute('href')
+				for row in rows:
+					link = row.find_elements(By.TAG_NAME, 'td')[2].find_element(By.TAG_NAME, 'a')
+					if link.text == search_text:
+						my_link = link.get_attribute('href')
 
-					link_list.append(my_link)
-					all_consumes[item]['url'] = my_link
+						link_list.append(my_link)
+						all_consumes[item]['url'] = my_link
+			else:
+				print('{} URL found, next'.format(item))
+				link_list.append(all_consumes[item]['url'])
 
 		except:
 			print('error')
 			print('number of links: ', len(link_list))
 
-	print('number of links: ', len(link_list))
+		# print('number of links: ', len(link_list))
+				# if 'url' in all_consumes[item].keys():
+
+			# else if not all_consumes[item]['url']:
+
 
 	for link in link_list:
 		try:
 			match = item_grabber.search(link)
 
 			if not match:
+				print('no match')
 				continue
 
 			else:
 				item_number = match.group(1)
-				this_link = "https://classicdb.ch/?item="+str(item_number)
+				this_link = "https://classicdb.ch/?item="+str(item_number)+"#created-by"
 				driver.get(this_link)
 				driver.implicitly_wait(3)
 
+
 			tables = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1].find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'table')
 			b = tables[0].find_element(By.TAG_NAME, 'b')
-			class_name = b.attr('class')
+			class_name = b.get_attribute('class')
 			all_consumes[item]['rarity'] = get_rarity(class_name)
 
 			item_name = b.text
 			item = sanitize(item_name)
+
+			print('Now searching for: {}'.format(item_name))
 
 			whole_text = tables[0].find_element(By.TAG_NAME, 'td').text
 			new_text = whole_text.replace(item_name, '')
@@ -324,87 +335,93 @@ def use_wowhead():
 			use = old_text.replace('Use: ', '')
 			all_consumes[item]['use'] = use
 
-			tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
+			tab_parent = driver.find_elements(By.CSS_SELECTOR, 'ul.tabs')[0]
 			tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
 
 			tab_found = False
-			for tab in tabs:
-				if tab.text.startswith('Created'):
-					tab_found = True
-					tab_link = tab.find_element(By.TAG_NAME, 'a')
-					if tab_link.get_attribute('class') != 'selected':
-						tab_link.click()
-						driver.implicitly_wait(1)
-					break
+			created_tab = driver.find_element(By.ID, 'tab-created-by')
+			# for tab in tabs:
+			# 	print('tab text:', tab.text)
+			# 	if tab.text.startswith('Created'):
+			# 		tab_found = True
+			# 		tab_link = tab.find_element(By.TAG_NAME, 'a')
+			# 		found_tab = tab_link
+			# 		print('Found tab')
+			# 		continue
+
+					# if tab_link.get_attribute('class') != 'selected':
+
+			#
+			# if tab_found:
+			# 	found_tab.click()
+			# 	driver.implicitly_wait(1)
+
+			all_consumes[item]['materials'] = {}
+
+			created_tab = driver.find_element(By.ID, 'tab-created-by')
+			materials = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[2].find_elements(By.CSS_SELECTOR, 'div.iconmedium')
+
+			for mat in materials:
+
+				mat_link = mat.find_element(By.TAG_NAME, 'a')
+				quantity = mat_link.get_attribute('rel')
+				layers = driver.find_element(By.ID, 'layers')
+
+				tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
+
+				ActionChains(driver).move_to_element(mat).perform()
 
 
-			if tab_found:
+				time.sleep(0.5)
 
-				all_consumes[item]['materials'] = {}
+				tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
 
-				created_tab = driver.find_element(By.ID, 'tab-created-by')
-				materials = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[2].find_elements(By.CSS_SELECTOR, 'div.iconmedium')
+				this_mat = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b')
+				mat_name = sanitize(this_mat.text)
+				class_name = this_mat.get_attribute('class')
 
-				for mat in materials:
+				all_consumes[item]['materials'][mat_name] = quantity
 
-					mat_link = mat.find_element(By.TAG_NAME, 'a')
-					quantity = mat_link.get_attribute('rel')
-					layers = driver.find_element(By.ID, 'layers')
+				print(mat_name, ':', quantity)
+				if mat_name not in materials_list:
+					materials_list.append(mat_name)
 
-					tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
+				if mat_name not in all_materials.keys():
 
-					ActionChains(driver).move_to_element(mat).perform()
+					print('new material added: ', mat_name)
 
+					all_materials[mat_name] = {}
+					all_materials[mat_name]['rarity'] = get_rarity(class_name)
 
-					time.sleep(0.5)
+					mat_link.click()
 
-					tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
+					driver.implicitly_wait(2)
 
-					this_mat = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b')
-					mat_name = this_mat.text
-					class_name = this_mat.get_attribute('class')
+					tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
+					tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
 
-					all_consumes[item]['materials'][mat_name] = quantity
+					is_prof = False
+					category = ''
 
-					if mat_name not in materials_list:
-						materials_list.append(mat_name)
+					for tab in tabs:
+						div = tab.find_element(By.TAG_NAME, 'div')
+						tab_text = div.get_attribute('textContent')
 
-					if mat_name not in all_materials.keys():
+						if tab_text.startswith(tuple(prof_text.keys())):
+							is_prof = True
+							key = tab_text.split()[0]
+							category = prof_text[key]
+							break
 
-						print('new material added: ', mat_name)
+						elif ((not category and not is_prof) and tab_text.startswith(tuple(other_text.keys()))):
+							key = tab_text.split()[0]
+							category = other_text[key]
+							break
 
-						all_materials[mat_name] = {}
-						all_materials[mat_name]['rarity'] = get_rarity(class_name)
+						elif not category and not is_prof:
+							category = 'other'
 
-						mat_link.click()
-
-						driver.implicitly_wait(2)
-
-						tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
-						tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
-
-						is_prof = False
-						category = ''
-
-						for tab in tabs:
-							div = tab.find_element(By.TAG_NAME, 'div')
-							tab_text = div.get_attribute('textContent')
-
-							if tab_text.startswith(tuple(prof_text.keys())):
-								is_prof = True
-								key = tab_text.split()[0]
-								category = prof_text[key]
-								break
-
-							elif ((not category and not is_prof) and tab_text.startswith(tuple(other_text.keys()))):
-								key = tab_text.split()[0]
-								category = other_text[key]
-								break
-
-							elif not category and not is_prof:
-								category = 'other'
-
-						all_materials[mat_name]['category'] = category
+					all_materials[mat_name]['category'] = category
 
 
 
@@ -520,7 +537,7 @@ def get_images():
 
 
 def test_run():
-	BASE_URL = "https://classicdb.ch/?item=9155#created-by"
+	BASE_URL = "http://classicdb.ch/?item=18262"
 	driver.get(BASE_URL)
 	driver.implicitly_wait(5)
 
