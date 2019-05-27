@@ -171,6 +171,7 @@ body {
     transition: all .2s ease-in;
     border-top: 4px solid transparent;
     position: relative;
+    user-select: none;
 }
 
 .nav-is-sticky {
@@ -182,12 +183,12 @@ body {
 
 .classMarker {
     position: absolute;
-    background-image: url(../images/icons/medium/orange_filter_marker.png);
+    background-image: url(../images/icons/medium/orange_filter_marker_alt.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 20px;
     width: 30px;
-    top: -14px;
+    top: -8px;
     left: 50%;
     margin-left: -15px;
     user-select: none;
@@ -196,12 +197,12 @@ body {
 
 .classMarkerGhost {
     position: absolute;
-    background-image: url(../images/icons/medium/orange_filter_marker.png);
+    background-image: url(../images/icons/medium/orange_filter_marker_alt.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 20px;
     width: 30px;
-    top: -14px;
+    top: -8px;
     left: 50%;
     margin-left: -15px;
     filter: grayscale(100%);
