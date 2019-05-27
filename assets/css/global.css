@@ -441,3 +441,64 @@ ul {
 .legendary {
     color: rgba(255, 128, 0, 0.95);
 }
+
+.req, .unlearn {
+    color: rgba(255,33,45,0.95);
+    /* color: red !important; */
+    white-space: pre-line;
+}
+
+.learn {
+    color: rgba(23, 253, 23, 0.95) !important;
+}
+
+.next {
+    white-space: pre-line;
+}
+
+.description{
+    color: rgba(255, 205, 85, 1) !important;
+    white-space: pre-line;
+    padding-right: 5px;
+}
+
+.title{
+    line-height: 15px;
+    font-size: 14px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+#tooltip {
+    font-size: 100%;
+    text-align: left;
+    line-height: 17px;
+    max-width: 320px;
+    position: absolute;
+    display: block;
+    background-color: rgba(0, 0, 30, 0.85) !important;
+    color: rgba(240,255,255,0.95);
+    pointer-events: none;
+    border: 1px solid #b6bbc0;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    z-index: 500000;
+    text-shadow: -0.01rem -0.01rem 0.01rem black;
+}
+
+.use {
+    color: rgba(30,255,0,0.95);
+    font-size: 95%;
+}
+
+
+.unique, .bop, .requiredLevel, .rank {
+    font-size: 95%;
+    color: rgba(240,255,255,0.95);
+}
+
+.spell {
+    color: rgba(127,172,244,1);
+}
