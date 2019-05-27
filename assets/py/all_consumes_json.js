@@ -97,7 +97,9 @@
     "elemental_sharpening_stone": {
         "url": "https://classic.wowhead.com/item=18262"
     },
-    "sagefish_delight": {},
+    "sagefish_delight": {
+        "url": "https://classic.wowhead.com/item=21217"
+    },
     "cerebral_cortex_compound": {
         "url": "https://classic.wowhead.com/item=8423"
     },
