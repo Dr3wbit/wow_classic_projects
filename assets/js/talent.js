@@ -409,8 +409,6 @@ function populateTables(reset = false) {
 	}
 	resetTree()
 	// navbarCollapse()
-
-
 }
 
 function applySelectionMarker() {
@@ -740,17 +738,6 @@ function combineTalents(d) {
 	return talent_arr.flat().reverse()
 }
 
-// name janitor, example: Curse of Exhaustion --> curse_of_exhaustion
-// NOTE: not sure this is still needed
-function name_sanitizer(arr) {
-	const talent_arr = arr
-	var regex = /\s/ig
-	talent_arr.forEach(function (item, index) {
-		item.name = item.name.toLowerCase().replace(regex, '_')
-	})
-	return talent_arr
-}
-
 function talentHandler() {
 
 	$(".talent").on({
@@ -863,7 +850,6 @@ function updateTooltip(e) {
 		talentCopy.invested++
 		tooltipFooter.text = 'Click to learn'
 		tooltipFooter.color = 'learn'
-
 		description = talentCopy.description()
 	}
 
@@ -899,65 +885,24 @@ function updateTooltip(e) {
 		req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text  //Figure out how to get the talent and points needed to unlock for this text
 	}
 
-	const tooltipContainer = $("#tooltip")
 
-	let top = 0
-	let left = $(e.target).offset().left + 45
-	let distanceFromTop = $(e.target).offset().top - $(window).scrollTop()
+	const tooltipElems = [
+		{class: 'title', text: name},
+		{class: 'rank', text: "Rank " + talentObj.invested + "/" + talentObj.maxRank},
+		{class: 'req', text: req_text},
+		{class: 'description', text: description} ]
 
-	const next_rank_ele = (next_rank) ? $('<div/>', {
-		class: 'next',
-		text: "\nNext Rank:\n",
-	}).append($('<div/>', {
-		class: 'description',
-		text: talentCopy.description(),
-	})) : (req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn')) ? null : $('<div/>', {
-		class: tooltipFooter.color,
-		text: tooltipFooter.text,
-	})
+	if (next_rank) {
+		tooltipElems.push({class: 'next', text: "\nNext Rank:\n"})
+		tooltipElems.push({class: 'description', text: talentCopy.description()})
 
-	const testElem = $('<div/>', {
-		class: 'tooltip-container',
-		})
-		.append($('<div/>', {
-			class: 'title',
-			text: name,
-		}))
-		.append($('<div/>', {
-			class: 'rank',
-			text: "Rank " + talentObj.invested + "/" + talentObj.maxRank,
-		}))
-		.append($('<div/>', {
-			class: 'req',
-			text: req_text,
-		}))
-		.append($('<div/>', {
-			class: 'description',
-			text: description,
-		}))
-		.append(next_rank_ele)
-
-	tooltipContainer.append(testElem)
-
-	let windowCoefficient = window.innerHeight/$(e.target).offset().top
-	console.log('coeff: ', windowCoefficient)
-
-	if (windowCoefficient < 1.3) {
-		let a = $(e.target).offset().top + 45
-		top = a - tooltipContainer.height()
-	}
-	else if (windowCoefficient >= 1.3 && windowCoefficient < 2) {
-		// set tooltip vertically centered with talent
-		let a = (tooltipContainer.height() - 40)/2
-		top = $(e.target).offset().top - (a+20)
-	} else {
-		top = $(e.target).offset().top + 10
+	} else if (!(req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn'))) {
+		tooltipElems.push({class: tooltipFooter.color, text: tooltipFooter.text})
 	}
 
-	tooltipContainer.attr("style", `top: ${top}px; left: ${left}px; visiblity: visible;`)
+	utilities.bigdaddytooltip(e, tooltipElems)
 
 }
-
 
 function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
 
@@ -1347,31 +1292,6 @@ function preBuiltSpec(hash = '') {
 	})
 }
 
-
-//polyfill
-// .flat()
-if (!Array.prototype.flat) {
-	Array.prototype.flat = function () {
-		var depth = arguments[0];
-		depth = depth === undefined ? 1 : Math.floor(depth);
-		if (depth < 1) return Array.prototype.slice.call(this);
-		return (function flat(arr, depth) {
-			var len = arr.length >>> 0;
-			var flattened = [];
-			var i = 0;
-			while (i < len) {
-				if (i in arr) {
-					var el = arr[i];
-					if (Array.isArray(el) && depth > 0)
-						flattened = flattened.concat(flat(el, depth - 1));
-					else flattened.push(el);
-				}
-				i++;
-			}
-			return flattened;
-		})(this, depth);
-	};
-}
 
 function arrowClassChanger(talName, add, lockOrGray) {
 	//
