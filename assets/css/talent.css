@@ -59,9 +59,6 @@
     height: 42px;
     margin: 8px;
     position: relative;
-    /* user-select: none;
-    pointer-events: none; */
-
 }
 
 .talentTable {
@@ -72,16 +69,9 @@
     border: 2px solid black;
 }
 
-.talentTable>.row{
-    /* user-select: none;
-    pointer-events: none; */
-}
-
 .treeTitle {
     color: azure;
     margin-top: 10px;
-    /* user-select: none;
-    pointer-events: none; */
 }
 
 .spentPoints {
@@ -536,10 +526,10 @@ svg.icon:hover path{
 }
 
 .trigger-icon{
-    background: url(../images/icons/medium/side_toggle_arrow.png);
+    background: url(../images/icons/medium/side_toggle_arrow_alt.png);
     background-size: contain;
     background-repeat: no-repeat;
-    height: 30px;
+    height: 34px;
     width: 18px;
     position: sticky;
     position: -webkit-sticky;
@@ -648,7 +638,7 @@ div.modal-body {
     position: absolute;
     bottom: -5px;
     left: 23px;
-    background-image: url('../images/icons/medium/promptArrow.png');
+    background-image: url('../images/icons/medium/promptArrow_alt.png');
     height: 30px;
     width: 52px;
     background-size: contain;
