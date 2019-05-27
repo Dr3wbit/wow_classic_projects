@@ -54,3 +54,12 @@ flash_powder
 elixir_of_firepower
 elixir_of_greater_firepower
 arcane_elixir
+dragonbreath_chili
+brilliant_mana_oil
+gift_of_arthas
+major_trolls_blood_potion
+blessed_sunfruit
+monster_omelete
+spiced_chili_crab
+juju_escape
+juju_chill

@@ -12,247 +12,109 @@ const utilities = {
 	    })
 	    return strArr.join(' ')
 	},
-}
+	getTooltipPosition: function(e, tooltip) {
+		let width = tooltip.width(), height = tooltip.height()
+		this.coords = {}
 
+		// coeffs measure aproximately the % of the visible and usable screen the cursor is at (aka visible bottom of page to bottom of class selection bar)
+		let xCoeff = ($(e.target).offset().left/window.innerWidth)*100
+		let distanceFromTop = $(e.target).offset().top - $(window).scrollTop()
+		let yCoeff = (distanceFromTop/window.innerHeight)*100
 
-function bigdaddytooltip(e) {
-	const targetElement = $(e.target)
-}
+		let left = 0, top = 0
 
+		if (xCoeff > 50) {
+			left = $(e.target).offset().left - 25 - width
+		} else {
+			left = $(e.target).offset().left + 45
 
-function updateTooltip(e) {
-	const targetTalent = $(e.target)
-	const name = targetTalent.attr('name')
-	const tree = targetTalent.closest('div.talentTable')[0].id
+		}
+		if (yCoeff < 30) {
+			top = $(e.target).offset().top + height/2 - 30
 
-	const found = classData.trees.find(function (x) {
-		return x.name == tree
-	})
+		}
+		else if (yCoeff >= 30 && yCoeff < 75) {
+			// sets tooltip vertically centered with talent
+			let a = (height - 40)/2
+			top = $(e.target).offset().top - (a+20)
+		} else {
+			let a = $(e.target).offset().top + 30
+			top = a - height
+		}
+		this.coords.x = left
+		this.coords.y = top
+		return this.coords
+	},
+	bigdaddytooltip: function(e, ...args) {
+		const targetElement = $(e.target)
+		const tooltip = $("#tooltip")
+		const elems = args[0]
 
-	const j = targetTalent.attr('data-j')
-	const k = targetTalent.attr('data-k')
-
-	const talentObj = found.data[j][k]
-	const talentCopy = Object.assign({}, talentObj)
-	const requiredTalentPoints = talentObj.requiredTalentPoints
-
-	let description
-	let next_rank = true
-	let req_text = ''
-	let tooltipFooter = {}
-
-	const locked = $(e.target).hasClass('locked')
-
-	if (talentObj.invested == 0) {
-		next_rank = false
-		talentCopy.invested++
-		tooltipFooter.text = 'Click to learn'
-		tooltipFooter.color = 'learn'
-		description = talentCopy.description()
-	}
-
-	if (talentObj.maxRank == 1) {
-		next_rank = false
-		talentCopy.invested = talentCopy.maxRank
-		description = talentCopy.description()
-	}
-
-	if (talentObj.invested == talentObj.maxRank) {
-		tooltipFooter.text = 'Right-click to unlearn'
-		tooltipFooter.color = 'unlearn'
-
-		next_rank = false
-		description = talentCopy.description()
-	}
-
-	if (talentObj.maxRank > 1 && talentObj.invested > 0 && next_rank) {
-		talentCopy.invested++
-		// description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
-		description = talentObj.description()
-
-	}
-	if (talentPointsSpent[tree].total() < requiredTalentPoints) {
-		req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
-	}
-
-	if (locked) {
-		const coords = talentCopy.locked
-		const prereq = Object.assign({}, found.data[coords[0]][coords[1]])
-		const points_remaining = prereq.maxRank - prereq.invested
-		const plural = (points_remaining > 1) ? 's' : ''
-		req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text  //Figure out how to get the talent and points needed to unlock for this text
-	}
-
-	const tooltipContainer = $("#tooltip")
-
-	let top = 0
-	let left = $(e.target).offset().left + 45
-	let distanceFromTop = $(e.target).offset().top - $(window).scrollTop()
-
-	const next_rank_ele = (next_rank) ? $('<div/>', {
-		class: 'next',
-		text: "\nNext Rank:\n",
-	}).append($('<div/>', {
-		class: 'description',
-		text: talentCopy.description(),
-	})) : (req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn')) ? null : $('<div/>', {
-		class: tooltipFooter.color,
-		text: tooltipFooter.text,
-	})
-
-	const testElem = $('<div/>', {
-		class: 'tooltip-container',
+		const container = $('<div/>', {
+			class: 'tooltip-container',
 		})
-		.append($('<div/>', {
-			class: 'title',
-			text: name,
-		}))
-		.append($('<div/>', {
-			class: 'rank',
-			text: "Rank " + talentObj.invested + "/" + talentObj.maxRank,
-		}))
-		.append($('<div/>', {
-			class: 'req',
-			text: req_text,
-		}))
-		.append($('<div/>', {
-			class: 'description',
-			text: description,
-		}))
-		.append(next_rank_ele)
 
-	tooltipContainer.append(testElem)
+		elems.forEach(function(item) {
+			container.append($('<div/>', {
+				class: item.class,
+				text: item.text,
+			}))
+		})
 
-	let windowCoefficient = window.innerHeight/$(e.target).offset().top
+		tooltip.append(container)
+		let coords = utilities.getTooltipPosition(e, tooltip)
 
-	if (windowCoefficient < 1.3) {
-		let a = $(e.target).offset().top + 45
-		top = a - tooltipContainer.height()
+		tooltip.attr("style", `top: ${coords.y}px; left: ${coords.x}px; visiblity: visible;`)
+
 	}
-	else if (windowCoefficient >= 1.3 && windowCoefficient < 2) {
-		// set tooltip vertically centered with talent
-		let a = (tooltipContainer.height() - 40)/2
-		top = $(e.target).offset().top - (a+20)
+}
+
+
+
+// consumeTool.js
+function updateTooltip(e) {
+	const targetElement = $(e.target)
+	const name = targetElement.closest($('.consume-block')).attr('name')
+	let properName = ''
+
+	if (name.startsWith('dirg')) {
+		properName = "Dirge’s Kickin’ Chimaerok Chops"
+	} else if(name == 'roids') {
+		properName = "R.O.I.D.S."
 	} else {
-		top = $(e.target).offset().top + 10
+		properName = titleCase(name)
 	}
 
-	tooltipContainer.attr("style", `top: ${top}px; left: ${left}px; visiblity: visible;`)
+	const tooltipElems = [{class: `title ${rarity}`,text: properName}]
 
-}
-
-
-function showEnchantEffect() {
-    $('.enchantHolder').on({
-        mouseenter: e=> {
-            const tooltipContainer = $("#tooltip")
-            const targetEnchant = $(e.target)
-            let a = targetEnchant.text()
-            let matched = a.match(/([\w\s]+):/)
-
-            if (matched) {
-                const selection = $("div.itemslot.enchantable.focus")
-                const slot = selection.attr("id")
-
-                const b = sanitize(matched[1].trim())
-
-                const thisEnch = enchants[slot][b]
-
-                const enchName = titleCase(b)
-                const slotName = titleCase(slot.toLowerCase())
-
-                let title = $('<div/>', {
-                   class: `tooltip-container title spell`,
-                   text: `Enchant ${slotName} - ${enchName}`,
-                   style: 'display: block; visibility: hidden;'
-                })
-
-                const offset = title.offset()
-                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px;`)
-                tooltipContainer.append(title)
-                e.stopPropagation()
-                const width = tooltipContainer.width()
+	const thisConsume = allConsumes[name]
 
 
-                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; max-width: ${width*1.1+10}px; visibility: visible;`)
+	const rarity = thisConsume.rarity
 
-                title.attr("style", "visibility: visible;")
-                tooltipContainer.append($('<div/>', {
-                    class: 'description',
-                    text: thisEnch.description,
-                    style: 'max-width: inherit; font-size: 12px;'
-                }))
-            }
-        },
-        mouseleave: e=>  {
-            $("#tooltip").children().remove()
-            $("#tooltip").hide()
-        }
-    })
-}
+	if (thisConsume.bop) {
+		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
+	}
+	if (thisConsume.unique) {
+		tooltipElems.push({class: 'unique', text: "Unique",})
+	}
 
-function materialsTooltip() {
-    $(".results").on({
-        mouseenter: e => {
+	let requirementText = ''
+	if (name == 'goblin_rocket_boots') {
+		requirementText = "Binds when equipped\nFeet\t\t\t\t\t\t\t\t\t\t    Cloth\n41 Armor\nDurability 35 / 35"
+	} else {
+		requirementText = (thisConsume.req) ? ((thisConsume.req.toString().startsWith('engi') || thisConsume.req.toString().startsWith('first')) ? titleCase(thisConsume.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisConsume.req}`) : false
+	}
 
-            const closestMat = $( e.target ).closest('.materials-list').find('.materials-name')
-            const tooltipContainer = $("#tooltip")
+	if (thisConsume.req || thisConsume.stats) {
+		tooltipElems.push({class: 'requiredLevel', text: requirementText})
+	}
+	if (thisConsume.use) {
+		tooltipElems.push({class: 'use', text: `Use: ${thisConsume.use}`})
+	}
+	if (thisConsume.description) {
+		tooltipElems.push({class: 'description', text: `"${thisConsume.description}"`})
+	}
 
-            let matName = closestMat.text()
-
-            if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
-                return
-            } else {
-                $(".results").find('.materials-name').removeClass('underlined')
-
-                closestMat.addClass('underlined')
-                tooltipContainer.children().remove()
-                tooltipContainer.attr("style", `top: ${e.pageY}px; left: ${e.pageX}px; visiblity: visible;`)
-                const thisMat = allMaterials[sanitize(matName)]
-
-                const rarity = thisMat.rarity
-
-                const BoP = (thisMat.bop) ? $('<div/>', {
-                    class: 'bop',
-                    text: "Binds when picked up",
-                }) : null
-
-                const unique = (thisMat.unique) ? $('<div/>', {
-                    class: 'unique',
-                    text: "Unique",
-                }) : null
-
-                const requiredLevel = (thisMat.req) ? $('<div/>', {
-                    class: 'requiredLevel',
-                    text: `Requires Level ${thisMat.req}`,
-                }) : null
-
-                const use = (thisMat.use) ? $('<div/>', {
-                    class: 'use',
-                    text: `Use: ${thisMat.use}`,
-                }) : null
-
-                const description = (thisMat.description) ? $('<div/>', {
-                    class: 'description',
-                    text: `"${thisMat.description}"`,
-                }) : null
-
-
-                tooltipContainer.append($('<div/>', {
-                    class: 'tooltip-container',
-                    }).append($('<div/>', {
-                    class: `title ${rarity}`,
-                    text: matName,
-                    })).append(BoP).append(unique).append(requiredLevel).append(use).append(description)
-                )
-                let distanceFromTop = tooltipContainer.offset().top - $(window).scrollTop()
-            }
-        },
-        mouseleave: e => {
-            $(".results").find('.materials-name').removeClass('underlined')
-            $("#tooltip").hide()
-            $("#tooltip").children().remove()
-
-        }
-    })
+	utilities.bigdaddytooltip(e, tooltipElems)
 }
