@@ -57,18 +57,18 @@ def main():
 	else:
 		search_classicdb()
 
-	with open('/Users/ktuten/Desktop/enchant_data.txt', 'w') as f:
+	with open('enchant_data.txt', 'w') as f:
 		f.write(str(all_enchants))
 
 	driver.close()
 	print("finished\n\n")
 	print(all_enchants)
 
-	with open('all_materials.dictionary', 'wb') as f:
-		pickle.dump(all_materials, f)
-
-	with open('enchants.dictionary', 'wb') as f:
-		pickle.dump(all_enchants, f)
+	# with open('all_materials.dictionary', 'wb') as f:
+	# 	pickle.dump(all_materials, f)
+	#
+	# with open('enchants.dictionary', 'wb') as f:
+	# 	pickle.dump(all_enchants, f)
 
 
 	print('materials_list: ', len(materials_list))
@@ -322,6 +322,106 @@ def search_classicdb():
 		except:
 			print('error')
 
+def parse_consumes():
+
+	BASE_URL = "https://classic.wowhead.com/items"
+	driver.get(BASE_URL)
+	driver.implicitly_wait(5)
+
+	# go = input('page finished loading?')
+
+	for slot in slots:
+		all_enchants[slot] = {}
+
+		# search_bar = driver.find_element(By.CSS_SELECTOR, 'span.listview-quicksearch').find_element(By.TAG_NAME, 'input')
+
+		search_bar = driver.find_element(By.ID, 'filter-facet-name')
+
+		search_bar.send_keys(slot)
+		search_bar.send_keys(Keys.ENTER)
+
+		driver.implicitly_wait(3)
+
+		# parent = driver.find_element(By.ID, 'tab-recipes').find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody')
+		# rows = driver.find_element(By.ID, 'tab-recipes').find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'tr')
+
+		parent = driver.find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody')
+		rows = parent.find_elements(By.TAG_NAME, 'tr')
+
+		#
+		# for k,v in enumerate(range(len(rows))):
+		# 	print(k)
+
+		for row in rows:
+			row_divs = row.find_elements(By.TAG_NAME, 'td')
+
+			link = row.find_elements(By.TAG_NAME, 'td')[2]
+			# link = row_divs[2].find_element(By.TAG_NAME, 'a')
+			img = row.find_elements(By.TAG_NAME, 'td')[1].find_element(By.CSS_SELECTOR, 'div.iconmedium')
+
+			ench_text = row.find_elements(By.TAG_NAME, 'td')[2].text
+			match = name_catcher_v2.search(ench_text)
+			ench_name = sanitize(match.group(1))
+			try:
+				effect = match.group(1)
+			except:
+				print('no match')
+
+			all_enchants[slot][ench_name] = {}
+
+			hover = ActionChains(driver).move_to_element(img)
+			hover.perform()
+
+			driver.implicitly_wait(1)
+
+			tooltip = driver.find_element(By.CSS_SELECTOR, 'div.wowhead-tooltip').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'tr')[0].find_element(By.TAG_NAME, 'td').find_element(By.TAG_NAME, 'table')
+			description = tooltip.find_element(By.CSS_SELECTOR, 'span.q').text
+
+			all_enchants[slot][ench_name]['description'] = description
+			match = effect_finder.search(description)
+			if match:
+				effect = "{} {}".format(match.group(2), match.group(1))
+
+			all_enchants[slot][ench_name]['effect'] = effect
+
+			ActionChains(driver).reset_actions()
+
+			mat_list = row.find_elements(By.TAG_NAME, 'td')[3].find_elements(By.CSS_SELECTOR, 'div.iconmedium')
+
+			all_enchants[slot][ench_name]['materials'] = {}
+
+			for j,mat in enumerate(mat_list):
+				ActionChains(driver).move_to_element(row.find_elements(By.TAG_NAME, 'td')[3].find_elements(By.CSS_SELECTOR, 'div.iconmedium')[j]).perform()
+				driver.implicitly_wait(1)
+
+				tooltip_text = driver.find_elements(By.CSS_SELECTOR, 'div.wowhead-tooltip')[0].find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'tr')[0].find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'table')[0].find_element(By.TAG_NAME, 'b').text
+
+				# hover_2.perform()
+				driver.implicitly_wait(1)
+
+				mat_name = sanitize(tooltip_text)
+
+				quantity = 1
+
+				if check_element_exists_by_css(mat, 'span.glow'):
+					quantity = driver.find_element(By.ID, 'tab-recipes').row.find_elements(By.TAG_NAME, 'td')[3].find_elements(By.CSS_SELECTOR, 'div.iconmedium')[j].find_element(By.CSS_SELECTOR, 'span.glow').find_elements(By.TAG_NAME, 'div')[0].text
+				ActionChains(driver).reset_actions()
+
+				all_enchants[slot][ench_name]['materials'][mat_name] = quantity
+				print(all_enchants)
+
+
+
+				# print(mats[0].text)
+
+			print(all_enchants)
+			#
+			# table = driver.find_element(By.ID, 'spelldetails')
+			# rows = table.find_elements(By.TAG_NAME, 'tr')
+			# effect = rows[5].find_element(By.CSS_SELECTOR, 'span.q2')
+			# all_enchants[slot][ench_name]['effect'] = effect.text
+			# driver.back()
+			# driver.implicitly_wait(2)
 
 
 main()

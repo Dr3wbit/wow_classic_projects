@@ -4,57 +4,78 @@ from urllib.parse import urlparse
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+import time
 from selenium.common import exceptions
 
+driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver"))
 
 prof_text = {'Fished':'fishing', 'Gathered':'herbalism', 'Mined':'mining',
 			'Disenchanted':'enchanting', 'Skinned':'skinning'}
 
 other_text = {'Dropped': 'drop', 'Sold': 'vendor'}
+
 image_size = 'medium'
-
-with open("all_materials_json.js", 'r') as f:
-	all_materials = json.load(f)
-
 
 r1 = re.compile(r'spell=[\d]+?\/([\w\-]+)', re.M)
 get_url = re.compile(r'url\(\"(https://wow\.zamimg\.com.+?\.jpg)', re.M)
 class_from_url = re.compile(r"url\(\"(https://wow\.zamimg\.com.+?\/class\_(\w+)\.jpg)", re.M)
 icon_re = re.compile(r"'(\w*)'")
-
-# jannys
+item_grabber = re.compile(r"item\=(\d+)")
 p = re.compile('\-')
 space_replacer = re.compile('\s')
+numberRE = re.compile("(\d+)")
 word_exceptions = ['of', 'the']
 
-materials_filename = "icon_download_list_total.txt"
+materials_list_filename = "all_materials_list.txt"
+consumes_list_filename = "consume_parse_list.txt"
+all_consumes_json_file = "all_consumes_json.js"
+all_materials_json_file = "all_materials_json.js"
 
-with open(materials_filename, 'r') as f:
+all_consumes = ''
+materials_list = ''
+all_materials = ''
+
+with open(all_materials_json_file, 'r') as f:
+	all_materials = json.load(f)
+
+with open(all_consumes_json_file, 'r') as f:
+	all_consumes = json.load(f)
+
+with open(materials_list_filename, 'r') as f:
 	content = f.read()
 	materials_list = content.split()
 
-materials_list_copy = materials_list.copy()
+
+
+
+with open(consumes_list_filename, 'r') as f:
+	content = f.read()
+	consumes_list = content.split()
+
 
 def main():
-	# choice = input("image category:") or "materials"
-	choice = 'materials'
 	# image_size = input("image size (small / medium / large )") or 'small'
 	# image_size = 'small'
 
-	# if choice == "materials":
-	# 	BASE_URL = "https://classicdb.ch/?items"
-	# else:
-	# 	BASE_URL = "https://classic.wowhead.com/talent-calc"
 
-	get_images(choice)
+	choice = 'wowhead'
+	if choice == 'classicdb':
+		use_classicdb()
+	else:
+		use_wowhead()
 
-	with open(materials_filename, 'w') as f:
-			for item in materials_list_copy:
-				f.write(item+"\n")
 
-	with open('all_materials_json.js', 'w') as f:
+
+	with open(all_materials_json_file, 'w') as f:
 		json.dump(all_materials, f, indent=4)
 
+	with open(all_consumes_json_file, 'w') as f:
+		json.dump(all_consumes, f, indent=4)
+
+	with open(materials_list_filename, 'w') as f:
+			for item in materials_list:
+				f.write(item+"\n")
 
 
 
@@ -70,14 +91,32 @@ def title_case(s):
 	c = ' '.join(word_list)
 	return(c)
 
-def get_images(choice):
-	driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver"))
+def sanitize(s):
+	a = s.strip().replace(' ', '_')
+	a = a.replace('\n', '')
+	b = a.lower()
+	return(b)
+
+def get_rarity(class_name):
+	rarity = ''
+	if class_name == 'q1':
+		 rarity = 'common'
+	elif class_name == 'q2':
+		rarity = 'uncommon'
+	elif class_name == 'q3':
+		rarity = 'rare'
+	else:
+		rarity = 'epic'
+	return rarity
+
+
+def use_classicdb():
 	BASE_URL = "https://classicdb.ch/?items"
 	driver.get(BASE_URL)
 	driver.implicitly_wait(5)
 	try:
 		if choice == 'materials':
-			# materials_filename = input('enter filepath for list of icons to be downloaded') or "icon_download_list.txt"
+			# materials_list_filename = input('enter filepath for list of icons to be downloaded') or "icon_download_list.txt"
 			for item in materials_list:
 
 				try:
@@ -140,21 +179,12 @@ def get_images(choice):
 					class_name = b.get_attribute('class')
 
 					if (item not in all_materials.keys()):
+
 						all_materials[item] = {}
 
 						all_materials[item]['category'] = folder_name
+						all_materials[item]['rarity'] = get_rarity(class_name)
 
-						if class_name == 'q1':
-							 rarity = 'common'
-						elif class_name == 'q2':
-							rarity = 'uncommon'
-						elif class_name == 'q3':
-							rarity = 'rare'
-						else:
-							rarity = 'epic'
-
-						print(item, " : ", rarity, ', ', folder_name)
-						all_materials[item]['rarity'] = rarity
 
 
 					icon = driver.find_element(By.CSS_SELECTOR, "div#minibox + div")
@@ -186,138 +216,336 @@ def get_images(choice):
 			driver.close()
 	except:
 		print('error')
-		# else:
-		#
-		# 	class_icons_parent = driver.find_element(By.CLASS_NAME, 'ctc-classes-inner')
-		# 	class_icons = class_icons_parent.find_elements(By.CLASS_NAME, 'iconmedium')
-		# 	talent_trees_container = driver.find_element(By.CLASS_NAME, 'ctc-tree-container')
-		# 	talent_trees = talent_trees_container.find_elements(By.CLASS_NAME, 'ctc-tree')
-		#
-		# 	icontype = input('icon type:') or 'talent'
-		#
-		# 	if icontype == 'class':
-		# 		for icon in class_icons:
-		# 			icon.click()
-		# 			driver.implicitly_wait(2)
-		#
-		# 			class_icon_style = icon.find_element(By.TAG_NAME, 'ins').get_attribute("style")
-		# 			class_icon_match = class_from_url.search(class_icon_style)
-		#
-		# 			class_name = class_icon_match.group(2)
-		# 			# print("class: ", class_name)
-		#
-		# 			for tree in talent_trees:
-		#
-		# 				t = tree.find_element(By.CLASS_NAME, 'ctc-tree-header')
-		#
-		# 				tree_n = t.find_element(By.TAG_NAME, 'b').text
-		#
-		# 				tree_name = space_replacer.sub('_', tree_n)
-		# 				tree_name = tree_name.lower()
-		#
-		# 				folder_path = class_name+"/"+tree_name
-		# 				# print("tree: ", tree_name)
-		#
-		# 				small_icon_ele = t.find_element(By.TAG_NAME, 'span').find_element(By.TAG_NAME, 'ins')
-		# 				icon_style = small_icon_ele.get_attribute("style")
-		#
-		# 				img_match = get_url.search(icon_style)
-		# 				img_url = img_match.group(1)
-		#
-		#
-		# 				img_filename = "small_"+tree_name+"_icon.jpg"
-		#
-		# 				path = folder_path+"/"+img_filename
-		#
-		#
-		# 				if not os.path.exists(folder_path):
-		# 					os.makedirs(folder_path)
-		#
-		# 				urllib.request.urlretrieve(img_url, path)
-		# 		driver.close()
-		#
-		# 	else:
-		# 		try:
-		# 			for tree in talent_trees:
-		#
-		# 				tree_n = tree.find_element(By.CLASS_NAME, 'ctc-tree-header').find_element(By.TAG_NAME, 'b').text
-		# 				tree_name = space_replacer.sub('_', tree_n)
-		# 				tree_name = tree_name.lower()
-		#
-		# 				folder_path = class_name+"/"+tree_name
-		# 				tree_style = tree.find_element(By.CLASS_NAME, 'ctc-tree-talents').get_attribute("style")
-		#
-		# 				bg = get_url.search(tree_style)
-		# 				bg_url = bg.group(1)
-		#
-		# 				background_filename = tree_name+"_background.jpg"
-		# 				bg_path = folder_path+"/"+background_filename
-		#
-		#
-		# 				if not os.path.exists(folder_path):
-		# 					os.makedirs(folder_path)
-		#
-		# 				urllib.request.urlretrieve(bg_url, bg_path)
-		# 				talent_icons = tree.find_elements(By.CLASS_NAME, 'ctc-tree-talent')
-		#
-		# 				for item in talent_icons:
-		# 					img_elem = item.find_element(By.TAG_NAME, 'ins')
-		# 					link_elem = item.find_element(By.TAG_NAME, 'a')
-		#
-		# 					href = link_elem.get_attribute("href")
-		#
-		# 					# gets spell name via url redirect
-		# 					response = urllib.request.urlopen(href)
-		# 					f = response.geturl()
-		# 					m1 = r1.search(f)
-		# 					n = m1.group(1)
-		#
-		# 					# replace the dashes with underscores
-		# 					spell_name = p.sub('_', n)
-		#
-		# 					# get the url for the actual image
-		# 					style = img_elem.get_attribute("style")
-		# 					m2 = get_url.search(style)
-		# 					url = m2.group(1)
-		#
-		# 					file_name = spell_name+".jpg"
-		# 					path = folder_path+"/"+file_name
-		#
-		# 					# print("file path: ", path)
-		# 					# download and save the image
-		# 					urllib.request.urlretrieve(url, path)
-		# 		except:
-		# 			print("error")
-		# 			driver.close()
+
+def use_wowhead():
+	BASE_URL = "https://classic.wowhead.com/search?q=%27"
+	driver.get(BASE_URL)
+	driver.implicitly_wait(5)
+	link_list = []
+	driver.implicitly_wait(5)
+	for item in consumes_list:
+		try:
+			# if item in all_consumes.keys():
+			# 	if 'url' in all_consumes[item].keys():
+			# 		continue
+			# else:
+			all_consumes[item] = {}
+
+			search_bar = driver.find_element(By.CSS_SELECTOR, 'div.header-search').find_element(By.TAG_NAME, 'input')
+			search_bar.clear()
+			search_text = title_case(item)
+			print('search_text: ', search_text)
+			search_bar.send_keys(search_text)
+			search_bar.send_keys(Keys.ENTER)
+			driver.implicitly_wait(3)
+
+			selected_tab = driver.find_element(By.CSS_SELECTOR, 'a.selected')
+
+			if not selected_tab.text.startswith('Items'):
+				tabs = driver.find_element(By.CSS_SELECTOR, 'div.tabs-container').find_element(By.CSS_SELECTOR, 'ul.tabs').find_elements(By.TAG_NAME, 'li')
+				for tab in tabs:
+					this_link = tab.find_element(By.TAG_NAME, 'a')
+					tab_text = this_link.find_element(By.TAG_NAME, 'div').text
+					if tab_text.startswith('Items'):
+						this_link.click()
+						driver.implicitly_wait(2)
+
+
+			parent = driver.find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody')
+			rows = parent.find_elements(By.TAG_NAME, 'tr')
+
+			for row in rows:
+				link = row.find_elements(By.TAG_NAME, 'td')[2].find_element(By.TAG_NAME, 'a')
+				if link.text == search_text:
+					my_link = link.get_attribute('href')
+
+					link_list.append(my_link)
+					all_consumes[item]['url'] = my_link
+
+		except:
+			print('error')
+			print('number of links: ', len(link_list))
+
+	print('number of links: ', len(link_list))
+
+	for link in link_list:
+		try:
+			match = item_grabber.search(link)
+
+			if not match:
+				continue
+
+			else:
+				item_number = match.group(1)
+				this_link = "https://classicdb.ch/?item="+str(item_number)
+				driver.get(this_link)
+				driver.implicitly_wait(3)
+
+			tables = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1].find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'table')
+			b = tables[0].find_element(By.TAG_NAME, 'b')
+			class_name = b.attr('class')
+			all_consumes[item]['rarity'] = get_rarity(class_name)
+
+			item_name = b.text
+			item = sanitize(item_name)
+
+			whole_text = tables[0].find_element(By.TAG_NAME, 'td').text
+			new_text = whole_text.replace(item_name, '')
+			if new_text.startswith('Binds'):
+				all_consumes[item]['bop'] = True
+
+			if new_text.endswith('Unique'):
+				all_consumes[item]['unique'] = True
+
+
+			if 'Requires' in new_text:
+				match = numberRE.search(new_text)
+				req_lvl = match.group(1)
+				if 'Engineering' in new_text:
+
+					all_consumes[item]['req'] = 'engineering_{}'.format(req_lvl)
+				else:
+					all_consumes[item]['req'] = req_lvl
+
+			spans = tables[-1].find_elements(By.TAG_NAME, 'span')
+
+			# print(item_name, ' spans: ', len(spans))
+
+			if len(spans) > 1:
+				old_text = spans[0].text
+				all_consumes[item]['description'] = spans[1].text
+
+			else:
+
+				old_text = tables[-1].text
+
+			# print(item_name, ' use: ', old_text)
+
+			use = old_text.replace('Use: ', '')
+			all_consumes[item]['use'] = use
+
+			tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
+			tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
+
+			tab_found = False
+			for tab in tabs:
+				if tab.text.startswith('Created'):
+					tab_found = True
+					tab_link = tab.find_element(By.TAG_NAME, 'a')
+					if tab_link.get_attribute('class') != 'selected':
+						tab_link.click()
+						driver.implicitly_wait(1)
+					break
+
+
+			if tab_found:
+
+				all_consumes[item]['materials'] = {}
+
+				created_tab = driver.find_element(By.ID, 'tab-created-by')
+				materials = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[2].find_elements(By.CSS_SELECTOR, 'div.iconmedium')
+
+				for mat in materials:
+
+					mat_link = mat.find_element(By.TAG_NAME, 'a')
+					quantity = mat_link.get_attribute('rel')
+					layers = driver.find_element(By.ID, 'layers')
+
+					tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
+
+					ActionChains(driver).move_to_element(mat).perform()
+
+
+					time.sleep(0.5)
+
+					tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
+
+					this_mat = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b')
+					mat_name = this_mat.text
+					class_name = this_mat.get_attribute('class')
+
+					all_consumes[item]['materials'][mat_name] = quantity
+
+					if mat_name not in materials_list:
+						materials_list.append(mat_name)
+
+					if mat_name not in all_materials.keys():
+
+						print('new material added: ', mat_name)
+
+						all_materials[mat_name] = {}
+						all_materials[mat_name]['rarity'] = get_rarity(class_name)
+
+						mat_link.click()
+
+						driver.implicitly_wait(2)
+
+						tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
+						tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
+
+						is_prof = False
+						category = ''
+
+						for tab in tabs:
+							div = tab.find_element(By.TAG_NAME, 'div')
+							tab_text = div.get_attribute('textContent')
+
+							if tab_text.startswith(tuple(prof_text.keys())):
+								is_prof = True
+								key = tab_text.split()[0]
+								category = prof_text[key]
+								break
+
+							elif ((not category and not is_prof) and tab_text.startswith(tuple(other_text.keys()))):
+								key = tab_text.split()[0]
+								category = other_text[key]
+								break
+
+							elif not category and not is_prof:
+								category = 'other'
+
+						all_materials[mat_name]['category'] = category
+
+
+
+		except:
+			print('error with {}'.format(link))
 
 
 
 
-# parent = driver.find_element(By.ID, "minibox")
-# sibling = driver.find_element_by_xpath("//div[@id='minibox']/following-sibling::div")
-#
-# onclick = sibling.get_attribute("onclick") #ShowIconName('inv_misc_stonetablet_07')"
+def get_images():
+	class_icons_parent = driver.find_element(By.CLASS_NAME, 'ctc-classes-inner')
+	class_icons = class_icons_parent.find_elements(By.CLASS_NAME, 'iconmedium')
+	talent_trees_container = driver.find_element(By.CLASS_NAME, 'ctc-tree-container')
+	talent_trees = talent_trees_container.find_elements(By.CLASS_NAME, 'ctc-tree')
+
+	icontype = input('icon type:') or 'talent'
+
+	if icontype == 'class':
+		for icon in class_icons:
+			icon.click()
+			driver.implicitly_wait(2)
+
+			class_icon_style = icon.find_element(By.TAG_NAME, 'ins').get_attribute("style")
+			class_icon_match = class_from_url.search(class_icon_style)
+
+			class_name = class_icon_match.group(2)
+			# print("class: ", class_name)
+
+			for tree in talent_trees:
+
+				t = tree.find_element(By.CLASS_NAME, 'ctc-tree-header')
+
+				tree_n = t.find_element(By.TAG_NAME, 'b').text
+
+				tree_name = space_replacer.sub('_', tree_n)
+				tree_name = tree_name.lower()
+
+				folder_path = class_name+"/"+tree_name
+				# print("tree: ", tree_name)
+
+				small_icon_ele = t.find_element(By.TAG_NAME, 'span').find_element(By.TAG_NAME, 'ins')
+				icon_style = small_icon_ele.get_attribute("style")
+
+				img_match = get_url.search(icon_style)
+				img_url = img_match.group(1)
 
 
-# regex search the onclick result "inv_misc_stonetablet_07.jpg"
+				img_filename = "small_"+tree_name+"_icon.jpg"
 
-# use request to fill
-
-# https://classicdb.ch/images/icons/large/
-
-# https://classicdb.ch/images/icons/medium/inv_misc_stonetablet_07.jpg
+				path = folder_path+"/"+img_filename
 
 
-# materials_list = {'herbalism':[], 'mining':[], 'skinning':[], 'enchanting':[], 'vendor':[], 'fishing':[], 'drop':[]}
-#
-# fishing = 'Fished in' #any tab
-# herbalism = 'Gathered from' #any tab
-# mining = 'Mined from' #any tab
-# enchanting = 'Disenchanted from' #any tab
-# skinning = 'Skinned from' #any tab
-#
-# # if not any of the above
-# vendor = 'Sold by' #first tab
-# drop = 'Dropped by' #first tab
+				if not os.path.exists(folder_path):
+					os.makedirs(folder_path)
+
+				urllib.request.urlretrieve(img_url, path)
+		driver.close()
+
+
+	else:
+		try:
+			for tree in talent_trees:
+
+				tree_n = tree.find_element(By.CLASS_NAME, 'ctc-tree-header').find_element(By.TAG_NAME, 'b').text
+				tree_name = space_replacer.sub('_', tree_n)
+				tree_name = tree_name.lower()
+
+				folder_path = class_name+"/"+tree_name
+				tree_style = tree.find_element(By.CLASS_NAME, 'ctc-tree-talents').get_attribute("style")
+
+				bg = get_url.search(tree_style)
+				bg_url = bg.group(1)
+
+				background_filename = tree_name+"_background.jpg"
+				bg_path = folder_path+"/"+background_filename
+
+
+				if not os.path.exists(folder_path):
+					os.makedirs(folder_path)
+
+				urllib.request.urlretrieve(bg_url, bg_path)
+				talent_icons = tree.find_elements(By.CLASS_NAME, 'ctc-tree-talent')
+
+				for item in talent_icons:
+					img_elem = item.find_element(By.TAG_NAME, 'ins')
+					link_elem = item.find_element(By.TAG_NAME, 'a')
+
+					href = link_elem.get_attribute("href")
+
+					# gets spell name via url redirect
+					response = urllib.request.urlopen(href)
+					f = response.geturl()
+					m1 = r1.search(f)
+					n = m1.group(1)
+
+					# replace the dashes with underscores
+					spell_name = p.sub('_', n)
+
+					# get the url for the actual image
+					style = img_elem.get_attribute("style")
+					m2 = get_url.search(style)
+					url = m2.group(1)
+
+					file_name = spell_name+".jpg"
+					path = folder_path+"/"+file_name
+
+					# print("file path: ", path)
+					# download and save the image
+					urllib.request.urlretrieve(url, path)
+		except:
+			print("error")
+			driver.close()
+
+
+def test_run():
+	BASE_URL = "https://classicdb.ch/?item=9155#created-by"
+	driver.get(BASE_URL)
+	driver.implicitly_wait(5)
+
+	# all_consumes[item]['materials'] = {}
+	created_tab = driver.find_element(By.ID, 'tab-created-by')
+	materials = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[2].find_elements(By.CSS_SELECTOR, 'div.iconmedium')
+
+	for mat in materials:
+
+		quantity = mat.find_element(By.TAG_NAME, 'a').get_attribute('rel')
+		layers = driver.find_element(By.ID, 'layers')
+
+		tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
+
+		ActionChains(driver).move_to_element(mat).perform()
+
+
+		time.sleep(0.5)
+
+		tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
+
+		mat_name = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b').text
+		print(mat_name, ': ', quantity)
+
+		ActionChains(driver).reset_actions()
+
 
 main()
