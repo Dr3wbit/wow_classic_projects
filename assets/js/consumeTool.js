@@ -25,7 +25,6 @@ function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
 
-
 function applyClickHandlers() {
 	const classMarker = $('<div/>', {
 		class: 'classMarker',
@@ -69,11 +68,6 @@ function applyClickHandlers() {
 				},
 
                 mousedown: (e) => {
-
-
-					// e.preventDefault()
-
-
                     if (e.which === 1) {
 
 						let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
@@ -111,8 +105,6 @@ function applyClickHandlers() {
 		}
 	})
 }
-
-
 
 function clearForm() {
 	$('.consume-form').empty()
@@ -248,18 +240,6 @@ function calculateTotals(materialTotals) {
 	$('.results').append(totalTitle)
 }
 
-function titleCase(s){
-    const spaceRE = /\_/g
-    let a = s.replace(spaceRE, ' ')
-    let strArr = a.split(' ')
-    strArr.forEach(function(word, i) {
-        if (word != ('of' || 'the') && typeof(word)=='string'){
-            strArr[i] = word.charAt(0).toUpperCase() + word.slice(1)
-        }
-    })
-    return strArr.join(' ')
-
-}
 
 function updateTooltip(e) {
 	const targetElement = $(e.target)
@@ -271,104 +251,39 @@ function updateTooltip(e) {
 	} else if(name == 'roids') {
 		properName = "R.O.I.D.S."
 	} else {
-		properName = titleCase(name)
+		properName = utilities.titleCase(name)
 	}
 
 	const thisConsume = allConsumes[name]
-
-	const tooltipContainer = $("#tooltip")
 	const rarity = thisConsume.rarity
 
-	const BoP = (thisConsume.bop) ? $('<div/>', {
-		class: 'bop',
-		text: "Binds when picked up",
-	}) : null
+	const tooltipElems = [{class: `title ${rarity}`,text: properName}]
 
-	const unique = (thisConsume.unique) ? $('<div/>', {
-		class: 'unique',
-		text: "Unique",
-	}) : null
+
+
+	if (thisConsume.bop) {
+		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
+	}
+	if (thisConsume.unique) {
+		tooltipElems.push({class: 'unique', text: "Unique",})
+	}
 
 	let requirementText = ''
 	if (name == 'goblin_rocket_boots') {
 		requirementText = "Binds when equipped\nFeet\t\t\t\t\t\t\t\t\t\t    Cloth\n41 Armor\nDurability 35 / 35"
 	} else {
-		requirementText = (thisConsume.req) ? ((thisConsume.req.toString().startsWith('engi') || thisConsume.req.toString().startsWith('first')) ? titleCase(thisConsume.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisConsume.req}`) : false
-	}
-	// requirementText = (thisConsume.req.startsWith('engineering')) ? thisConsume.req.replace('engineering_', 'Engineering (')+')' : `Requires Level ${thisConsume.req}`
-	const requirements = (thisConsume.req || thisConsume.stats) ? $('<div/>', {
-		class: 'requiredLevel',
-		text: requirementText,
-	}) : null
-
-	const use = (thisConsume.use) ? $('<div/>', {
-		class: 'use',
-		text: `Use: ${thisConsume.use}`,
-	}) : null
-
-	const description = (thisConsume.description) ? $('<div/>', {
-		class: 'description',
-		text: `"${thisConsume.description}"`,
-	}) : null
-
-
-
-	tooltipContainer.append($('<div/>', {
-		class: 'tooltip-container',
-		}).append($('<div/>', {
-		class: `title ${rarity}`,
-		text: properName,
-		})).append(BoP).append(unique).append(requirements).append(use).append(description)
-	)
-
-	let xy = getTooltipPosition(e, tooltipContainer)
-	let left = xy.x
-	let top = xy.y
-
-
-	tooltipContainer.attr("style", `top: ${top}px; left: ${left}px; visiblity: visible;`)
-}
-
-function getTooltipPosition(e, tooltip) {
-
-	let width = tooltip.width()
-	let height = tooltip.height()
-
-	this.coords = {}
-
-	// coeffs measure aproximately the % of the visible and usable screen the cursor is at (aka visible bottom of page to bottom of class selection bar)
-	let xCoeff = ($(e.target).offset().left/window.innerWidth)*100
-	let distanceFromTop = $(e.target).offset().top - $(window).scrollTop()
-	let yCoeff = (distanceFromTop/window.innerHeight)*100
-
-	console.log('yCoeff: ', yCoeff)
-
-	let left = 0
-
-	let top = 0
-
-	if (xCoeff > 50) {
-		left = $(e.target).offset().left - 25 - width
-	} else {
-		left = $(e.target).offset().left + 45
-
-	}
-	if (yCoeff < 30) {
-		top = $(e.target).offset().top + height/2 - 10
-
-	}
-	else if (yCoeff >= 30 && yCoeff < 75) {
-		// sets tooltip vertically centered with talent
-		let a = (height - 40)/2
-		top = $(e.target).offset().top - (a+20)
-	} else {
-		let a = $(e.target).offset().top + 30
-		top = a - height
+		requirementText = (thisConsume.req) ? ((thisConsume.req.toString().startsWith('engi') || thisConsume.req.toString().startsWith('first')) ? utilities.titleCase(thisConsume.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisConsume.req}`) : false
 	}
 
-	this.coords.x = left
-	this.coords.y = top
+	if (thisConsume.req || thisConsume.stats) {
+		tooltipElems.push({class: 'requiredLevel', text: requirementText})
+	}
+	if (thisConsume.use) {
+		tooltipElems.push({class: 'use', text: `Use: ${thisConsume.use}`})
+	}
+	if (thisConsume.description) {
+		tooltipElems.push({class: 'description', text: `"${thisConsume.description}"`})
+	}
 
-	return this.coords
-
+	utilities.bigdaddytooltip(e, tooltipElems)
 }
