@@ -186,6 +186,14 @@
     border-style: groove;
 }
 
+.filterOptions{
+    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
+    box-shadow: inset 0 0 5px rgb(40, 40, 40);
+    border: 1px solid black;
+    margin-left: 5px;
+    color: azure;
+}
+
 #belt {
     background-image: url("../images/equipment_slots/belt.png")
 }
