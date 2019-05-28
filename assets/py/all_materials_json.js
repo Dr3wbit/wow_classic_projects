@@ -412,7 +412,7 @@
     },
     "libram_of_voracity": {
         "category": "drop",
-        "unique": "Unique",
+        "unique": true,
         "req": 50,
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
@@ -491,7 +491,7 @@
         "rarity": "common"
     },
     "frost_oil": {
-        "category": "drop",
+        "category": "alchemy",
         "rarity": "common",
         "req": 30,
         "use": "When applied to a melee weapon it gives a 10% chance of casting Frostbolt at the opponent when it hits. Lasts 30 minutes."
@@ -575,10 +575,6 @@
         "rarity": "common",
         "category": "vendor"
     },
-    "": {
-        "rarity": "common",
-        "category": "drop"
-    },
     "runn_tum_tuber": {
         "rarity": "common",
         "category": "drop"
@@ -591,11 +587,23 @@
         "rarity": "common",
         "category": "drop"
     },
-    "arthas'_tears": {
+    "arthas_tears": {
+        "rarity": "common",
+        "category": "herbalism"
+    },
+    "tender_crab_meat": {
         "rarity": "common",
         "category": "drop"
     },
-    "tender_crab_meat": {
+    "refreshing_spring_water": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "raw_greater_sagefish": {
+        "rarity": "common",
+        "category": "mining"
+    },
+    "small_flame_sac": {
         "rarity": "common",
         "category": "drop"
     }
