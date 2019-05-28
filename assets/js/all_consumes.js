@@ -49,7 +49,7 @@ const allConsumes = {
 	grilled_squid: {
 		url: 'https://classic.wowhead.com/item=13928',
 		req: 35,
-		use: 'Restores 874.8 health over 27 sec. Must remain seated while eating. If you eat for 10 seconds will also increase your Agility by 162 for 10 min.',
+		use: 'Restores 874.8 health over 27 sec. Must remain seated while eating. If you eat for 10 seconds will also increase your Agility by 10 for 10 min.',
 		rarity: 'common',
 		materials: {
 			winter_squid: 1,
@@ -220,8 +220,9 @@ const allConsumes = {
 	},
 	goblin_rocket_boots: {
 		url: 'https://classic.wowhead.com/item=7189',
+		req: "Binds when equipped\nFeet\t\t\t\t\t\t\t\t\t\t    Cloth\n41 Armor\nDurability 35 / 35",
 		use: 'These dangerous looking boots significantly increase your run speed for 20 sec. They are prone to explode however, so use with caution. (cooldown 5 min)',
-		rarity: 'common',
+		rarity: 'uncommon',
 		stats: true,
 		materials: {
 			black_mageweave_boots: 1,
@@ -235,7 +236,7 @@ const allConsumes = {
 	nightfin_soup: {
 		url: 'https://classic.wowhead.com/item=13931',
 		req: 35,
-		use: 'Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 162 Mana every 5 seconds for 10 min.',
+		use: 'Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 8 Mana every 5 seconds for 10 min.',
 		rarity: 'common',
 		materials: {
 			raw_nightfin_snapper: 1,
@@ -339,7 +340,14 @@ const allConsumes = {
 		req: 55,
 		use: 'Restores 2550 health over 30 sec.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain 25 Stamina for 15 min.',
         profession: 'cooking',
-        name: "Dirge’s Kickin’ Chimaerok Chops"
+        name: "Dirge’s Kickin’ Chimaerok Chops",
+		materials: {
+			hot_spices: 0.2,
+			goblin_rocket_fuel: 0.2,
+			deeprock_salt: 0.2,
+			chimaerok_tenderloin: 0.2,
+		},
+		step: 5
     },
 	flask_of_distilled_wisdom: {
 		url: 'https://classic.wowhead.com/item=13511',
@@ -390,7 +398,7 @@ const allConsumes = {
 		url: 'https://classic.wowhead.com/item=13455',
 		req: 46,
 		use: 'Increases armor by 2000 for 2 min. (cooldown 2 min)',
-		rarity: 'uncommon',
+		rarity: 'common',
 		materials: {
 			stonescale_oil: 3,
             crystal_vial: 1,
@@ -426,6 +434,10 @@ const allConsumes = {
 		description: '"Best Served Chilled"',
 		use: 'Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
 		rarity: 'common',
+		materials: {
+			basilisk_brain: 10,
+			vulture_gizzard: 2
+		}
 	},
 	living_action_potion: {
 		url: 'https://classic.wowhead.com/item=20008',
@@ -469,7 +481,12 @@ const allConsumes = {
 		unique: true,
 		use: 'Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
 		rarity: 'common',
-        profession: 'quest'
+        profession: 'quest',
+		materials: {
+			scorpok_pincer: 3,
+			vulture_gizzard: 2,
+			blasted_boar_lung: 1
+		}
 	},
 	elixir_of_the_sages: {
 		url: 'https://classic.wowhead.com/item=13447',
@@ -562,8 +579,11 @@ const allConsumes = {
 		url: 'https://classic.wowhead.com/item=5530',
 		req: 34,
 		use: '',
-		materials: {},
+		materials: {
+			fadeleaf: 0.33
+		},
 		rarity: 'common',
+		step: 3
 	},
 	flash_powder: {},
 	elixir_of_firepower: {
@@ -664,9 +684,14 @@ const allConsumes = {
 	blessed_sunfruit: {
 		url: 'https://classic.wowhead.com/item=13810',
 		req: 45,
+		rep: "Requires Argent Dawn - Revered",
 		use: 'Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Strength by 10 for 10 min.',
 		rarity: 'common',
+		materials: {
+			gold: 1,
+		},
         profession: 'vendor',
+		step: 5
 	},
 	monster_omelete: {},
 	spiced_chili_crab: {
