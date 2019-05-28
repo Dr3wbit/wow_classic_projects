@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/consumeTool.css">
     <script src="assets/js/consumes.js"></script>
     <script src="assets/js/utilities.js"></script>
+    <script src="assets/js/all_materials.js"></script>
 
     <script src="assets/js/all_consumes.js"></script>
 
@@ -105,7 +106,7 @@
                 </div>
             </div>
             <div class="consume-title">{{name}}
-                <input class="consume-input" name="{{name}}" category="{{profession.name}}" placeholder="Amount" type="number" maxlength="3" min="0" step={{#if step}}"{{step}}"{{else}}"1"{{/if}}>
+                <input class="consume-input" name="{{sanitize name}}" category="{{profession.name}}" placeholder="Amount" type="number" step={{#if step}}"{{step}}"{{else}}"1"{{/if}}>
             </div>
         </div>
         {{/each}}
