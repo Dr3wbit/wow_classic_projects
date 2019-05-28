@@ -53,18 +53,7 @@ function applyClickHandlers() {
 				return a.name == "all"
 			})
 
-			// const defaultDataTest = allConsumes
-			// console.log('defaultData: ', defaultData)
-			// console.log('testDefaultData: ', defaultDataTest)
-			//
-
 			const classDataTest = []
-
-			// classSpecificConsumes[clickedID].forEach(function(consume_name) {
-			// 	classDataTest.push(allConsumes[consume_name])
-			// })
-
-			// console.log('classDataTest: ', classDataTest)
 
 			const classData = consumes.find((a) => {
 				return a.name == clickedID;
@@ -201,7 +190,6 @@ function materialsTooltip() {
             const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
             let matName = closestMat.text()
 			let name = utilities.sanitize(matName)
-			console.log('name', name)
             if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
                 return
             } else {
@@ -217,7 +205,6 @@ function materialsTooltip() {
 					requirementText = (materialObject.req) ? ((materialObject.req.toString().startsWith('engi') || materialObject.req.toString().startsWith('first')) ? utilities.titleCase(materialObject.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${materialObject.req}`) : null
 				}
 
-				console.log('matName: ', matName)
 				const rarity = materialObject.rarity
 				let properName = (materialObject.name) ? materialObject.name : matName
 
@@ -282,7 +269,6 @@ function appendMaterials(consumables) {
 		if (!(item.amount > 0)) {
 			return
 		} else {
-			console.log(item)
 			let consumeName = (item.data.name) ? item.data.name : utilities.titleCase(item.name)
 			let resultConsume = $('<div/>', {
 				class: `consumes-list-item ${item.data.rarity}`,
@@ -290,7 +276,6 @@ function appendMaterials(consumables) {
 			})
 			let materialsToAppend = []
 			for (let [name, value] of Object.entries(item.data.materials)) {
-				console.log('name: ', name)
 				let matObject = allMaterials[name]
 				let category = matObject.category
 				let rarity = matObject.rarity
