@@ -607,4 +607,16 @@ const allMaterials = {
 		rarity: 'common',
 		category: 'drop',
 	},
+	snickerfang_jowl: {
+		rarity: 'common',
+		category: 'drop'
+	},
+	blasted_boar_lung: {
+		rarity: 'common',
+		category: 'drop'
+	},
+	scorpok_pincer: {
+		rarity: 'common',
+		category: 'drop'
+	},
 }
