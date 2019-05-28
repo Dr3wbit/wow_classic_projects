@@ -203,9 +203,12 @@ winter_squid
 khadgar's_whisker
 raw_nightfin_snapper
 imbued_vial
-
 runn_tum_tuber
 mystery_meat
 purple_lotus
 arthas'_tears
 tender_crab_meat
+refreshing_spring_water
+
+raw_greater_sagefish
+small_flame_sac
