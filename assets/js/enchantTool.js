@@ -5,28 +5,66 @@ let materialArray = [];
 $(document).ready(initializeApp)
 
 function initializeApp() {
-    applyClickHandlers();
+    applyClickHandlers()
+    initialFilter()
+    materialsTooltip()
+    showEnchantEffect()
 }
 
 function applyClickHandlers() {
+    radioOption()
+    enchantOption()
+
+}
+
+function initialFilter() {
+    $('#endGameRadio').click()
+}
+
+function enchantOption() {
     $(".enchantable").on({
         click: e => {
             $(".enchantable").removeClass('focus')
             $(".enchantHolder").empty()
             const clickedSlot = $(e.target)
             clickedSlot.addClass('focus')
-            findSlot(clickedSlot)
+            const filter = $('.filterApplied').val()
+            findSlot(clickedSlot, filter)
         },
-
     })
-    materialsTooltip()
-    showEnchantEffect()
 }
 
-function findSlot(selection) {
+function radioOption() {
+    $(".form-check-input").on({
+        click: e => {
+            $(".form-check-input").removeClass('filterApplied')
+            $(e.target).addClass('filterApplied')
+            let clickedSlot = $(".enchantable.focus")
+            if(clickedSlot.length > 0){
+                $(".enchantHolder").empty()
+                findSlot(clickedSlot, e.target.value)
+            }
+        }
+    })
+}
+
+function findSlot(selection, filter) {
     const slot = selection.attr("id")
     const dataObject = enchants[slot]
-    const dataKeys = Object.keys(enchants[slot])
+    let dataKeys = []
+
+    if (filter === "end_game"){
+        dataKeys = Object.keys(enchants[slot])
+        let filteredKeys = []
+        dataKeys.forEach(key => {
+            if(dataObject[key].filter === "end_game"){
+                filteredKeys.push(key)
+            }
+        })
+        dataKeys = filteredKeys
+    }else{
+        dataKeys = Object.keys(enchants[slot])
+    }
     const enchantData = getenchantData(dataObject, dataKeys, slot)
     $('.enchantHolder').append($('<div/>', {
         text: slot.toUpperCase(),
