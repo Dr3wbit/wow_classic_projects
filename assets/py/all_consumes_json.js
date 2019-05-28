@@ -76,14 +76,19 @@
         "rarity": "common",
         "materials": {
             "wintersbite": "2",
-            "khadgar's_whisker": "1",
+            "khadgars_whisker": "1",
             "leaded_vial": "1"
         },
         "profession": "alchemy"
     },
     "juju_flurry": {
         "use": "Increases the target's attack speed by 3% for 20 sec. (1 Min Cooldown)",
-        "bop": true
+        "bop": true,
+        "profession": "quest",
+        "materials": {
+            "frostsaber_eko": 1
+        },
+        "step": 3
     },
     "greater_fire_protection_potion": {
         "url": "https://classic.wowhead.com/item=13457",
@@ -188,8 +193,7 @@
         "rarity": "common",
         "materials": {
             "gromsblood": "3",
-            "crystal_vial": "1",
-            "": "1"
+            "crystal_vial": "1"
         },
         "profession": "alchemy"
     },
@@ -201,13 +205,19 @@
         "materials": {
             "mountain_silversage": "2",
             "plaguebloom": "2",
-            "crystal_vial": "1"
+            "crystal_vial": 1,
+            "": "1"
         },
         "profession": "alchemy"
     },
     "juju_might": {
         "use": "Increases attack power by 40 for 10 min. (1 Min Cooldown)",
-        "bop": true
+        "bop": true,
+        "profession": "quest",
+        "materials": {
+            "frostmaul_eko": 1
+        },
+        "step": 3
     },
     "goblin_rocket_boots": {
         "url": "https://classic.wowhead.com/item=7189",
@@ -308,7 +318,12 @@
     },
     "juju_power": {
         "use": "Increases the target's Strength by 30 for 30 min. (1 Min Cooldown)",
-        "bop": true
+        "bop": true,
+        "profession": "quest",
+        "materials": {
+            "winterfall_eko": 1
+        },
+        "step": 3
     },
     "elixir_of_shadow_power": {
         "url": "https://classic.wowhead.com/item=9264",
@@ -323,7 +338,9 @@
     },
     "dirges_kickin_chimaerok_chops": {
         "req": 55,
-        "use": "Restores 2550 health over 30 sec.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain 25 Stamina for 15 min."
+        "use": "Restores 2550 health over 30 sec.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain 25 Stamina for 15 min.",
+        "profession": "cooking",
+        "name": "Dirge\u2019s Kickin\u2019 Chimaerok Chops"
     },
     "flask_of_distilled_wisdom": {
         "url": "https://classic.wowhead.com/item=13511",
@@ -342,9 +359,11 @@
         "use": "Inflicts 340 to 460 Fire damage in a 5 yard radius. (1 Min Cooldown)",
         "req": "engineering250",
         "materials": {
-            "dense_blasting_powder": 2,
-            "runecloth": 3
-        }
+            "dense_blasting_powder": 1,
+            "runecloth": 1.5
+        },
+        "profession": "engineering",
+        "step": 2
     },
     "greater_arcane_elixir": {
         "url": "https://classic.wowhead.com/item=13454",
@@ -375,7 +394,7 @@
         "rarity": "uncommon",
         "materials": {
             "stonescale_oil": "3",
-            "": "1",
+            "crystal_vial": "1",
             "thorium_ore": "1"
         },
         "profession": "alchemy"
@@ -396,7 +415,8 @@
         "req": "30",
         "use": "Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.",
         "materials": {
-            "raw_greater_sagefish": "1"
+            "raw_greater_sagefish": "1",
+            "hot_spices": "1"
         },
         "profession": "cooking",
         "rarity": "common"
@@ -449,7 +469,8 @@
         "url": "https://classic.wowhead.com/item=8412",
         "unique": true,
         "use": "Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)",
-        "rarity": "common"
+        "rarity": "common",
+        "profession": "quest"
     },
     "elixir_of_the_sages": {
         "url": "https://classic.wowhead.com/item=13447",
@@ -497,7 +518,8 @@
             "dense_blasting_powder": "3",
             "runecloth": "3"
         },
-        "profession": "engineering"
+        "profession": "engineering",
+        "step": 3
     },
     "iron_grenade": {
         "url": "https://classic.wowhead.com/item=4390",
@@ -509,7 +531,8 @@
             "heavy_blasting_powder": "1",
             "silk_cloth": "1"
         },
-        "profession": "engineering"
+        "profession": "engineering",
+        "step": 3
     },
     "free_action_potion": {
         "url": "https://classic.wowhead.com/item=5634",
@@ -582,12 +605,24 @@
     },
     "juju_ember": {
         "use": "Increases Fire resistance by 15 for 10 min. (1 Min Cooldown)",
-        "bop": true
+        "bop": true,
+        "profession": "quest",
+        "materials": {
+            "shardtooth_eko": 1
+        },
+        "step": 3
     },
     "roids": {
         "use": "Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (1 Hour Cooldown)",
         "bop": true,
-        "description": "Robust Operational Imbue Derived From Snickerfang"
+        "description": "Robust Operational Imbue Derived From Snickerfang",
+        "profession": "quest",
+        "name": "R.O.I.D.S.",
+        "materials": {
+            "snickerfang_jowl": 3,
+            "blasted_boar_lung": 2,
+            "scorpok_pincer": 1
+        }
     },
     "dragonbreath_chili": {
         "url": "https://classic.wowhead.com/item=12217",
@@ -596,7 +631,8 @@
         "rarity": "common",
         "materials": {
             "mystery_meat": "1",
-            "small_flame_sac": "1"
+            "small_flame_sac": "1",
+            "hot_spices": "1"
         },
         "profession": "cooking"
     },
@@ -619,7 +655,7 @@
         "use": "Increases resistance to shadow by 10. If an enemy strikes the imbiber, the attacker has a 30% chance of being inflicted with disease that increases their damage taken by 8 for 3 min. Lasts for 30 min.",
         "rarity": "common",
         "materials": {
-            "arthas'_tears": "1",
+            "arthas_tears": "1",
             "blindweed": "1",
             "crystal_vial": "1"
         },
@@ -630,7 +666,8 @@
         "url": "https://classic.wowhead.com/item=13810",
         "req": "45",
         "use": "Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Strength by 10 for 10 min.",
-        "rarity": "common"
+        "rarity": "common",
+        "profession": "vendor"
     },
     "monster_omelete": {},
     "spiced_chili_crab": {
@@ -643,9 +680,23 @@
         },
         "profession": "cooking"
     },
-    "juju_escape": {},
-    "juju_chill": {
-        "rarity": "common"
+    "juju_escape": {
+        "rarity": "common",
+        "bop": true,
+        "profession": "quest",
+        "materials": {
+            "ice_thistle_eko": 1
+        },
+        "step": 3
     },
-    "spell_fire_selfdestruct": {}
+    "juju_chill": {
+        "rarity": "common",
+        "bop": true,
+        "profession": "quest",
+        "use": "Increase Frost resistance by 15 for 10 min. (1 Min Cooldown)",
+        "materials": {
+            "chillwind_eko": 1
+        },
+        "step": 3
+    }
 }

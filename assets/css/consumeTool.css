@@ -127,7 +127,7 @@ input:focus {
  margin-bottom: 10px;
 }
 
-.result-consume {
+.consumes-list-item {
     font-size: 100%;
     border: 1px solid black;
     border-radius: 5px;
@@ -138,15 +138,8 @@ input:focus {
     display: inline-block
 }
 
-.total-materials {
-    font-size: 100%;
-    text-align: left;
-    /* background-color: azure; */
-    padding-left: 5px;
-    /* color: black; */
-}
-
 .totalTitle {
+    text-align: center;
     font-size: 100%;
     font-style: bold;
     margin-top: 10px;
