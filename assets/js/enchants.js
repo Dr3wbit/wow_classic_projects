@@ -8,6 +8,7 @@ const enchants = {
 			effect: 'Agility +5'
 		},
 		greater_agility: {
+			filter: "end_game",
 			materials: {
 				greater_eternal_essence: 8,
 			},
@@ -15,6 +16,7 @@ const enchants = {
 			effect: 'Agility +7'
 		},
 		greater_stamina: {
+			filter: "end_game",
 			materials: {
 				dream_dust: 10,
 			},
@@ -53,6 +55,7 @@ const enchants = {
 			effect: 'Minor Agility'
 		},
 		minor_speed: {
+			filter: "end_game",
 			materials: {
 				small_radiant_shard: 1,
 				aquamarine: 1,
@@ -69,6 +72,7 @@ const enchants = {
 			effect: 'Minor Stamina'
 		},
 		spirit: {
+			filter: "end_game",
 			materials: {
 				greater_eternal_essence: 2,
 				lesser_eternal_essence: 1,
@@ -86,6 +90,7 @@ const enchants = {
 	},
 	bracer: {
 		deflection: {
+			filter: "end_game",
 			materials: {
 				greater_nether_essence: 1,
 				dream_dust: 2,
@@ -94,6 +99,7 @@ const enchants = {
 			effect: 'Defense +3'
 		},
 		greater_intellect: {
+			filter: "end_game",
 			materials: {
 				lesser_eternal_essence: 3,
 			},
@@ -101,6 +107,7 @@ const enchants = {
 			effect: 'Intellect +7'
 		},
 		greater_spirit: {
+			filter: "end_game",
 			materials: {
 				lesser_nether_essence: 3,
 				vision_dust: 1,
@@ -124,6 +131,7 @@ const enchants = {
 			effect: 'Strength +7'
 		},
 		healing_power: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 2,
 				illusion_dust: 20,
@@ -251,6 +259,7 @@ const enchants = {
 			effect: 'Strength +5'
 		},
 		superior_spirit: {
+			filter: "end_game",
 			materials: {
 				lesser_eternal_essence: 3,
 				dream_dust: 10,
@@ -259,6 +268,7 @@ const enchants = {
 			effect: 'Spirit +9'
 		},
 		superior_stamina: {
+			filter: "end_game",
 			materials: {
 				illusion_dust: 15,
 			},
@@ -266,6 +276,7 @@ const enchants = {
 			effect: 'Stamina +9'
 		},
 		superior_strength: {
+			filter: "end_game",
 			materials: {
 				illusion_dust: 6,
 				greater_eternal_essence: 6,
@@ -284,6 +295,7 @@ const enchants = {
 			effect: 'Defense'
 		},
 		dodge: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 3,
 				large_brilliant_shard: 8,
@@ -308,6 +320,7 @@ const enchants = {
 			effect: 'Greater Defense'
 		},
 		greater_fire_resistance: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 3,
 				large_brilliant_shard: 8,
@@ -317,6 +330,7 @@ const enchants = {
 			effect: 'Greater Fire Resistance'
 		},
 		greater_nature_resistance: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 2,
 				large_brilliant_shard: 8,
@@ -326,6 +340,7 @@ const enchants = {
 			effect: 'Greater Nature Resistance'
 		},
 		greater_resistance: {
+			filter: "end_game",
 			materials: {
 				lesser_eternal_essence: 2,
 				heart_of_fire: 1,
@@ -338,6 +353,7 @@ const enchants = {
 			effect: 'Greater Resistance'
 		},
 		lesser_agility: {
+			filter: "end_game",
 			materials: {
 				lesser_nether_essence: 2,
 			},
@@ -392,6 +408,7 @@ const enchants = {
 			effect: 'Minor Resistance'
 		},
 		resistance: {
+			filter: "end_game",
 			materials: {
 				lesser_nether_essence: 1,
 			},
@@ -408,6 +425,7 @@ const enchants = {
 			effect: 'Stealth'
 		},
 		subtlety: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 4,
 				large_brilliant_shard: 6,
@@ -417,6 +435,7 @@ const enchants = {
 			effect: 'Subtlety'
 		},
 		superior_defense: {
+			filter: "end_game",
 			materials: {
 				illusion_dust: 8,
 			},
@@ -427,6 +446,7 @@ const enchants = {
 	shield: {
 		frost_resistance: {
 			materials: {
+				filter: "end_game",
 				large_radiant_shard: 1,
 				frost_oil: 1,
 			},
@@ -442,6 +462,7 @@ const enchants = {
 			effect: 'Spirit +7'
 		},
 		greater_stamina: {
+			filter: "end_game",
 			materials: {
 				dream_dust: 10,
 			},
@@ -449,6 +470,7 @@ const enchants = {
 			effect: 'Stamina +7'
 		},
 		lesser_block: {
+			filter: "end_game",
 			materials: {
 				greater_mystic_essence: 2,
 				vision_dust: 2,
@@ -530,6 +552,7 @@ const enchants = {
 			effect: 'mana +50'
 		},
 		greater_stats: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 4,
 				illusion_dust: 15,
@@ -581,6 +604,7 @@ const enchants = {
 			effect: 'Lesser Stats'
 		},
 		major_health: {
+			filter: "end_game",
 			materials: {
 				illusion_dust: 6,
 				small_brilliant_shard: 1,
@@ -589,6 +613,7 @@ const enchants = {
 			effect: 'health +100'
 		},
 		major_mana: {
+			filter: "end_game",
 			materials: {
 				greater_eternal_essence: 3,
 				small_brilliant_shard: 1,
@@ -637,6 +662,7 @@ const enchants = {
 		},
 		stats: {
 			materials: {
+				filter: "end_game",
 				large_radiant_shard: 1,
 				dream_dust: 3,
 				greater_nether_essence: 2,
@@ -686,6 +712,7 @@ const enchants = {
 			effect: 'Agility +5'
 		},
 		fire_power: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 2,
 				large_brilliant_shard: 10,
@@ -703,6 +730,7 @@ const enchants = {
 			effect: 'Fishing'
 		},
 		frost_power: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 3,
 				large_brilliant_shard: 10,
@@ -712,6 +740,7 @@ const enchants = {
 			effect: 'Frost Power'
 		},
 		greater_agility: {
+			filter: "end_game",
 			materials: {
 				lesser_eternal_essence: 3,
 				illusion_dust: 3,
@@ -720,6 +749,7 @@ const enchants = {
 			effect: 'Agility +7'
 		},
 		greater_strength: {
+			filter: "end_game",
 			materials: {
 				greater_eternal_essence: 4,
 				illusion_dust: 4,
@@ -728,6 +758,7 @@ const enchants = {
 			effect: 'Strength +7'
 		},
 		healing_power: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 3,
 				large_brilliant_shard: 8,
@@ -761,6 +792,7 @@ const enchants = {
 			effect: 'Minor Haste'
 		},
 		riding_skill: {
+			filter: "end_game",
 			materials: {
 				large_radiant_shard: 2,
 				dream_dust: 3,
@@ -769,6 +801,7 @@ const enchants = {
 			effect: 'Riding Skill'
 		},
 		shadow_power: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 3,
 				large_brilliant_shard: 10,
@@ -794,6 +827,7 @@ const enchants = {
 			effect: 'Strength +5'
 		},
 		superior_agility: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 3,
 				large_brilliant_shard: 8,
@@ -803,6 +837,7 @@ const enchants = {
 			effect: 'Superior Agility'
 		},
 		threat: {
+			filter: "end_game",
 			materials: {
 				nexus_crystal: 4,
 				large_brilliant_shard: 6,
@@ -814,6 +849,7 @@ const enchants = {
 	},
 	weapon: {
 		agility: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 6,
 				greater_eternal_essence: 6,
@@ -824,6 +860,7 @@ const enchants = {
 			effect: 'Agility +15'
 		},
 		crusader: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 4,
 				righteous_orb: 2,
@@ -857,6 +894,7 @@ const enchants = {
 			effect: 'Greater Striking'
 		},
 		icy_chill: {
+			filter: "end_game",
 			materials: {
 				small_brilliant_shard: 4,
 				essence_of_water: 1,
@@ -902,6 +940,7 @@ const enchants = {
 			effect: 'Lifestealing'
 		},
 		mighty_intellect: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 15,
 				greater_eternal_essence: 12,
@@ -911,6 +950,7 @@ const enchants = {
 			effect: 'Intellect +22'
 		},
 		mighty_spirit: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 10,
 				greater_eternal_essence: 8,
@@ -937,6 +977,7 @@ const enchants = {
 			effect: 'Minor Striking'
 		},
 		strength: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 6,
 				greater_eternal_essence: 6,
@@ -955,6 +996,7 @@ const enchants = {
 			effect: '+3 Damage'
 		},
 		superior_striking: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 2,
 				greater_eternal_essence: 10,
@@ -983,6 +1025,7 @@ const enchants = {
 	},
 	weapon_2h: {
 		agility: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 10,
 				greater_eternal_essence: 6,
@@ -1032,6 +1075,7 @@ const enchants = {
 			effect: '+3 Spirit'
 		},
 		major_intellect: {
+			filter: "end_game",
 			materials: {
 				greater_eternal_essence: 12,
 				large_brilliant_shard: 2,
@@ -1040,6 +1084,7 @@ const enchants = {
 			effect: 'Intellect +9'
 		},
 		major_spirit: {
+			filter: "end_game",
 			materials: {
 				greater_eternal_essence: 12,
 				large_brilliant_shard: 2,
@@ -1056,6 +1101,7 @@ const enchants = {
 			effect: 'Weapon Damage +9'
 		},
 		superior_impact: {
+			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 4,
 				illusion_dust: 10,
@@ -1067,6 +1113,7 @@ const enchants = {
 	head: {
 
 		arcanum_of_focus: {
+			filter: "end_game",
 			name: 'Arcanum of Focus',
 			effect: '+8 Spell DMG/HEAL',
 			materials: {
@@ -1078,6 +1125,7 @@ const enchants = {
 		},
 
 		lesser_arcanum_of_constitution: {
+			filter: "end_game",
 			name: 'Arcanum of Constitution',
 			effect: '+100 Health',
 			materials: {
@@ -1090,6 +1138,7 @@ const enchants = {
 		},
 
 		lesser_arcanum_of_rumination: {
+			filter: "end_game",
 			name: 'Arcanum of Rumination',
 			effect: '+150 Mana',
 			materials: {
@@ -1103,6 +1152,7 @@ const enchants = {
 		},
 
 		lesser_arcanum_of_voracity: {
+			filter: "end_game",
 			name: 'Arcanum of Voracity',
 			effect: '+8 to Single Stat',
 			materials: {
@@ -1115,6 +1165,7 @@ const enchants = {
 		},
 
 		lesser_arcanum_of_resilience: {
+			filter: "end_game",
 			name: 'Arcanum of Resilience',
 			effect: '+20 Fire Res',
 			materials: {
@@ -1130,6 +1181,7 @@ const enchants = {
 	legs: {
 
 		arcanum_of_focus: {
+			filter: "end_game",
 			name: 'Arcanum of Focus',
 			effect: '+8 Spell DMG/HEAL',
 			materials: {
@@ -1141,6 +1193,7 @@ const enchants = {
 		},
 
 		lesser_arcanum_of_constitution: {
+			filter: "end_game",
 			name: 'Arcanum of Constitution',
 			effect: '+100 Health',
 			materials: {
@@ -1153,6 +1206,7 @@ const enchants = {
 		},
 
 		lesser_arcanum_of_rumination: {
+			filter: "end_game",
 			name: 'Arcanum of Rumination',
 			effect: '+150 Mana',
 			materials: {
@@ -1166,6 +1220,7 @@ const enchants = {
 		},
 
 		lesser_arcanum_of_voracity: {
+			filter: "end_game",
 			name: 'Arcanum of Voracity',
 			effect: '+8 to Single Stat',
 			materials: {
@@ -1178,6 +1233,7 @@ const enchants = {
 		},
 
 		lesser_arcanum_of_resilience: {
+			filter: "end_game",
 			name: 'Arcanum of Resilience',
 			effect: '+20 Fire Res',
 			materials: {
