@@ -54,6 +54,7 @@ const allMaterials = {
 		rarity: 'common',
 	},
 	black_mageweave_boots: {
+		req: "Binds when equipped\nFeet\t\t\t\t\t\tCloth\n41 Armor\n+11 Spirit\n+7 Intellect\nDurability 35 / 35\nRequires Level 41",
 		category: 'tailoring',
 		rarity: 'uncommon',
 	},
@@ -348,7 +349,7 @@ const allMaterials = {
 		bop: true,
 		category: 'other',
 		rarity: 'common',
-		use: 'Increases the target\'s Spirit by 30 for 30 min. (cooldown 5 min)',
+		use: "Increases the target's Spirit by 30 for 30 min. (cooldown 5 min)",
 	},
 	large_brilliant_shard: {
 		category: 'enchanting',
@@ -533,6 +534,7 @@ const allMaterials = {
 	wintersbite: {
 		category: 'herbalism',
 		rarity: 'common',
+		name: "Winter's Bite"
 	},
 	fire_oil: {
 		category: 'alchemy',
@@ -562,14 +564,19 @@ const allMaterials = {
 	winter_squid: {
 		rarity: 'common',
 		category: 'fishing',
+		use: "Restores 874.8 health over 27 sec. Must remain seated while eating.",
+		req: 35
 	},
 	khadgars_whisker: {
 		rarity: 'common',
 		category: 'herbalism',
+		name: "Khadgar's Whisker"
 	},
 	raw_nightfin_snapper: {
 		rarity: 'common',
 		category: 'other',
+		use: "Restores 874.8 health over 27 sec. Must remain seated while eating.",
+		req: 35
 	},
 	imbued_vial: {
 		rarity: 'common',
@@ -578,6 +585,8 @@ const allMaterials = {
 	runn_tum_tuber: {
 		rarity: 'common',
 		category: 'drop',
+		use: "Restores 1392 health over 30 sec. Must remain seated while eating.",
+		req: 45
 	},
 	mystery_meat: {
 		rarity: 'common',
@@ -598,10 +607,13 @@ const allMaterials = {
 	refreshing_spring_water: {
 		rarity: 'common',
 		category: 'vendor',
+		use: 'Restores 151.2 mana over 18 sec. Must remain seated while drinking.'
 	},
 	raw_greater_sagefish: {
 		rarity: 'common',
 		category: 'fishing',
+		use: "Restores 874.8 health over 27 sec. Must remain seated while eating.",
+		req: 30
 	},
 	small_flame_sac: {
 		rarity: 'common',
@@ -618,5 +630,33 @@ const allMaterials = {
 	scorpok_pincer: {
 		rarity: 'common',
 		category: 'drop'
+	},
+	winterfall_eko: {
+		rarity: 'common',
+		category: 'drop',
+		name: "Winterfall E'ko"
+	},
+	frostmaul_eko: {
+		rarity: 'common',
+		category: 'drop',
+		name: "Frostmaul E'ko"
+	},
+	shardtooth_eko: {
+		rarity: 'common',
+		category: 'drop',
+		name: "Shardtooth E'ko"
+	},
+	frostsaber_eko: {
+		rarity: 'common',
+		category: 'drop',
+		name: "Shardtooth E'ko"
+	},
+	basilisk_brain: {
+		rarity: 'common',
+		category: 'drop',
+	},
+	vulture_gizzard: {
+		rarity: 'common',
+		category: 'drop',
 	},
 }

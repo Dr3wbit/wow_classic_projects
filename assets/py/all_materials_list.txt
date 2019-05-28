@@ -209,6 +209,8 @@ purple_lotus
 arthas'_tears
 tender_crab_meat
 refreshing_spring_water
-
 raw_greater_sagefish
 small_flame_sac
+khadgars_whisker
+
+arthas_tears
