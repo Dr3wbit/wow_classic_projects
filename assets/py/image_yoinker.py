@@ -18,19 +18,23 @@ other_text = {'Dropped': 'drop', 'Sold': 'vendor'}
 image_size = 'medium'
 
 r1 = re.compile(r'spell=[\d]+?\/([\w\-]+)', re.M)
+get_img_name = re.compile(r"medium\/([\w]+\.jpg)")
 get_url = re.compile(r'url\(\"(https://wow\.zamimg\.com.+?\.jpg)', re.M)
 class_from_url = re.compile(r"url\(\"(https://wow\.zamimg\.com.+?\/class\_(\w+)\.jpg)", re.M)
 icon_re = re.compile(r"'(\w*)'")
 item_grabber = re.compile(r"item\=(\d+)")
-p = re.compile('\-')
-space_replacer = re.compile('\s')
-numberRE = re.compile("(\d+)")
+p = re.compile(r'\-')
+space_replacer = re.compile(r'\s')
+numberRE = re.compile(r"(\d+)")
+get_profRE = re.compile(r"([a-z ]+)([ \d]*)", re.I)
+
 word_exceptions = ['of', 'the']
 
 materials_list_filename = "all_materials_list.txt"
 consumes_list_filename = "consume_parse_list.txt"
 all_consumes_json_file = "all_consumes_json.js"
 all_materials_json_file = "all_materials_json.js"
+DOWNLOAD_URL = "https://wow.zamimg.com/images/wow/icons/small/"
 
 all_consumes = ''
 materials_list = ''
@@ -356,10 +360,15 @@ def use_wowhead():
 			# 	found_tab.click()
 			# 	driver.implicitly_wait(1)
 
-			all_consumes[item]['materials'] = {}
+			if not (all_consumes[item]['materials']):
+				all_consumes[item]['materials'] = {}
 
 			created_tab = driver.find_element(By.ID, 'tab-created-by')
 			materials = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[2].find_elements(By.CSS_SELECTOR, 'div.iconmedium')
+			t = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[3].text
+			match = get_profRE.search(t)
+			if match:
+				all_consumes[item]['profession'] = lower(match.group(1))
 
 			for mat in materials:
 
@@ -422,6 +431,21 @@ def use_wowhead():
 							category = 'other'
 
 					all_materials[mat_name]['category'] = category
+
+
+				filepath = "../images/icons/small/materials/"+all_materials[mat_name]['category']+"/"+mat_name+".jpg"
+
+
+				if not os.path.exists(filepath):
+
+
+					style = mat.find_element(By.TAG_NAME, 'ins').get_attribute('style')
+					match = get_img_name.search(style)
+					if match:
+						file_name = match.group(1)
+						img_url = DOWNLOAD_URL+file_name
+						urllib.request.urlretrieve(img_url, filepath)
+
 
 
 
