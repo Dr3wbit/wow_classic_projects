@@ -1658,7 +1658,7 @@ const consumes = [
 ]
 
 
-const classSpecificConsumes = {
+const classConsumeList = {
     druid: [],
     hunter: [],
     mage: [],
