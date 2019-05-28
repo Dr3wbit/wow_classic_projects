@@ -8,7 +8,8 @@
             "dream_dust": "1",
             "dreamfoil": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "swiftness_potion": {
         "url": "https://classic.wowhead.com/item=2459",
@@ -19,7 +20,8 @@
             "swiftthistle": "1",
             "briarthorn": "1",
             "empty_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "lesser_invisibility_potion": {
         "url": "https://classic.wowhead.com/item=3823",
@@ -30,7 +32,8 @@
             "fadeleaf": "1",
             "wild_steelbloom": "1",
             "leaded_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "dense_weightstone": {
         "url": "https://classic.wowhead.com/item=12643",
@@ -40,7 +43,8 @@
         "materials": {
             "dense_stone": "1",
             "runecloth": "1"
-        }
+        },
+        "profession": "blacksmithing"
     },
     "grilled_squid": {
         "url": "https://classic.wowhead.com/item=13928",
@@ -48,8 +52,10 @@
         "use": "Restores 874.8 health over 27 sec. Must remain seated while eating. If you eat for 10 seconds will also increase your Agility by 162 for 10 min.",
         "rarity": "common",
         "materials": {
-            "winter_squid": "1"
-        }
+            "winter_squid": "1",
+            "soothing_spices": "1"
+        },
+        "profession": "cooking"
     },
     "greater_frost_protection_potion": {
         "url": "https://classic.wowhead.com/item=13456",
@@ -60,7 +66,8 @@
             "elemental_water": "1",
             "dreamfoil": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "elixir_of_frost_power": {
         "url": "https://classic.wowhead.com/item=17708",
@@ -69,8 +76,10 @@
         "rarity": "common",
         "materials": {
             "wintersbite": "2",
-            "khadgar's_whisker": "1"
-        }
+            "khadgar's_whisker": "1",
+            "leaded_vial": "1"
+        },
+        "profession": "alchemy"
     },
     "juju_flurry": {
         "use": "Increases the target's attack speed by 3% for 20 sec. (1 Min Cooldown)",
@@ -85,7 +94,8 @@
             "elemental_fire": "1",
             "dreamfoil": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "greater_nature_protection_potion": {
         "url": "https://classic.wowhead.com/item=13458",
@@ -96,7 +106,8 @@
             "elemental_earth": "1",
             "dreamfoil": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "invisibility_potion": {
         "url": "https://classic.wowhead.com/item=9172",
@@ -107,7 +118,8 @@
             "ghost_mushroom": "1",
             "sungrass": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "elixir_of_fortitude": {
         "url": "https://classic.wowhead.com/item=3825",
@@ -118,7 +130,8 @@
             "wild_steelbloom": "1",
             "goldthorn": "1",
             "leaded_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "flask_of_supreme_power": {
         "url": "https://classic.wowhead.com/item=13512",
@@ -130,7 +143,8 @@
             "mountain_silversage": "10",
             "black_lotus": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "major_healing_potion": {
         "url": "https://classic.wowhead.com/item=13446",
@@ -141,7 +155,8 @@
             "golden_sansam": "2",
             "mountain_silversage": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "smoked_desert_dumplings": {
         "url": "https://classic.wowhead.com/item=20452",
@@ -151,7 +166,8 @@
         "materials": {
             "sandworm_meat": "1",
             "soothing_spices": "1"
-        }
+        },
+        "profession": "cooking"
     },
     "oil_of_immolation": {
         "url": "https://classic.wowhead.com/item=8956",
@@ -162,7 +178,8 @@
             "firebloom": "1",
             "goldthorn": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "mighty_rage_potion": {
         "url": "https://classic.wowhead.com/item=13442",
@@ -171,8 +188,10 @@
         "rarity": "common",
         "materials": {
             "gromsblood": "3",
-            "crystal_vial": "1"
-        }
+            "crystal_vial": "1",
+            "": "1"
+        },
+        "profession": "alchemy"
     },
     "elixir_of_the_mongoose": {
         "url": "https://classic.wowhead.com/item=13452",
@@ -183,7 +202,8 @@
             "mountain_silversage": "2",
             "plaguebloom": "2",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "juju_might": {
         "use": "Increases attack power by 40 for 10 min. (1 Min Cooldown)",
@@ -200,7 +220,8 @@
             "heavy_leather": "4",
             "goblin_rocket_fuel": "2",
             "unstable_trigger": "1"
-        }
+        },
+        "profession": "engineering"
     },
     "nightfin_soup": {
         "url": "https://classic.wowhead.com/item=13931",
@@ -208,8 +229,10 @@
         "use": "Restores 874.8 health over 27 sec. Must remain seated while eating. Also restores 162 Mana every 5 seconds for 10 min.",
         "rarity": "common",
         "materials": {
-            "raw_nightfin_snapper": "1"
-        }
+            "raw_nightfin_snapper": "1",
+            "refreshing_spring_water": "1"
+        },
+        "profession": "cooking"
     },
     "flask_of_the_titans": {
         "url": "https://classic.wowhead.com/item=13510",
@@ -221,7 +244,8 @@
             "stonescale_oil": "10",
             "black_lotus": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "arcane_bomb": {
         "url": "https://classic.wowhead.com/item=16040",
@@ -232,7 +256,8 @@
             "delicate_arcanite_converter": "1",
             "thorium_bar": "3",
             "runecloth": "1"
-        }
+        },
+        "profession": "engineering"
     },
     "dense_sharpening_stone": {
         "url": "https://classic.wowhead.com/item=12404",
@@ -241,7 +266,8 @@
         "rarity": "common",
         "materials": {
             "dense_stone": "1"
-        }
+        },
+        "profession": "blacksmithing"
     },
     "elixir_of_superior_defense": {
         "url": "https://classic.wowhead.com/item=13445",
@@ -252,7 +278,8 @@
             "stonescale_oil": "2",
             "sungrass": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "major_rejuvenation_potion": {
         "url": "https://classic.wowhead.com/item=18253",
@@ -264,7 +291,8 @@
             "golden_sansam": "4",
             "dreamfoil": "4",
             "imbued_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "greater_shadow_protection_potion": {
         "url": "https://classic.wowhead.com/item=13459",
@@ -275,7 +303,8 @@
             "shadow_oil": "1",
             "dreamfoil": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "juju_power": {
         "use": "Increases the target's Strength by 30 for 30 min. (1 Min Cooldown)",
@@ -289,7 +318,8 @@
         "materials": {
             "ghost_mushroom": "3",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "dirges_kickin_chimaerok_chops": {
         "req": 55,
@@ -305,7 +335,8 @@
             "icecap": "10",
             "black_lotus": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "dense_dynamite": {
         "use": "Inflicts 340 to 460 Fire damage in a 5 yard radius. (1 Min Cooldown)",
@@ -320,7 +351,12 @@
         "req": "47",
         "use": "Increases spell damage by up to 35 for 1 hr.",
         "rarity": "common",
-        "materials": {}
+        "materials": {
+            "dreamfoil": "3",
+            "mountain_silversage": "1",
+            "crystal_vial": "1"
+        },
+        "profession": "alchemy"
     },
     "heavy_runecloth_bandage": {
         "url": "https://classic.wowhead.com/item=14530",
@@ -329,7 +365,8 @@
         "rarity": "common",
         "materials": {
             "runecloth": "2"
-        }
+        },
+        "profession": "first aid"
     },
     "greater_stoneshield_potion": {
         "url": "https://classic.wowhead.com/item=13455",
@@ -338,17 +375,32 @@
         "rarity": "uncommon",
         "materials": {
             "stonescale_oil": "3",
-            "": "1"
-        }
+            "": "1",
+            "thorium_ore": "1"
+        },
+        "profession": "alchemy"
     },
     "elemental_sharpening_stone": {
         "url": "https://classic.wowhead.com/item=18262",
         "rarity": "common",
         "req": "50",
         "use": "Increase critical chance on a melee weapon by 2% for 30 minutes.",
-        "materials": {}
+        "materials": {
+            "elemental_earth": "2",
+            "dense_stone": "3"
+        },
+        "profession": "blacksmithing"
     },
-    "sagefish_delight": {},
+    "sagefish_delight": {
+        "url": "https://classic.wowhead.com/item=21217",
+        "req": "30",
+        "use": "Restores 0 health and 0 mana over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Mana every 5 seconds for 15 min.",
+        "materials": {
+            "raw_greater_sagefish": "1"
+        },
+        "profession": "cooking",
+        "rarity": "common"
+    },
     "cerebral_cortex_compound": {
         "url": "https://classic.wowhead.com/item=8423",
         "unique": true,
@@ -366,7 +418,8 @@
             "mountain_silversage": "2",
             "heart_of_the_wild": "2",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "restorative_potion": {
         "url": "https://classic.wowhead.com/item=9030",
@@ -377,7 +430,8 @@
             "elemental_earth": "1",
             "goldthorn": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "limited_invulnerability_potion": {
         "url": "https://classic.wowhead.com/item=3387",
@@ -388,7 +442,8 @@
             "blindweed": "2",
             "ghost_mushroom": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "ground_scorpok_assay": {
         "url": "https://classic.wowhead.com/item=8412",
@@ -405,7 +460,8 @@
             "dreamfoil": "1",
             "plaguebloom": "2",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "major_mana_potion": {
         "url": "https://classic.wowhead.com/item=13444",
@@ -416,7 +472,8 @@
             "dreamfoil": "3",
             "icecap": "2",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "runn_tum_tuber_surprise": {
         "url": "https://classic.wowhead.com/item=18254",
@@ -424,8 +481,10 @@
         "use": "Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Intellect by 358 for 10 min.",
         "rarity": "common",
         "materials": {
-            "runn_tum_tuber": "1"
-        }
+            "runn_tum_tuber": "1",
+            "soothing_spices": "1"
+        },
+        "profession": "cooking"
     },
     "thorium_grenade": {
         "url": "https://classic.wowhead.com/item=15993",
@@ -437,7 +496,8 @@
             "thorium_bar": "3",
             "dense_blasting_powder": "3",
             "runecloth": "3"
-        }
+        },
+        "profession": "engineering"
     },
     "iron_grenade": {
         "url": "https://classic.wowhead.com/item=4390",
@@ -448,7 +508,8 @@
             "iron_bar": "1",
             "heavy_blasting_powder": "1",
             "silk_cloth": "1"
-        }
+        },
+        "profession": "engineering"
     },
     "free_action_potion": {
         "url": "https://classic.wowhead.com/item=5634",
@@ -459,7 +520,8 @@
             "blackmouth_oil": "2",
             "stranglekelp": "1",
             "leaded_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "goblin_sapper_charge": {
         "url": "https://classic.wowhead.com/item=10646",
@@ -470,10 +532,17 @@
             "mageweave_cloth": "1",
             "solid_blasting_powder": "3",
             "unstable_trigger": "1"
-        }
+        },
+        "profession": "engineering"
     },
     "elixir_of_the_giants": {},
-    "blinding_powder": {},
+    "blinding_powder": {
+        "url": "https://classic.wowhead.com/item=5530",
+        "req": "34",
+        "use": "",
+        "materials": {},
+        "rarity": "common"
+    },
     "flash_powder": {},
     "elixir_of_firepower": {
         "url": "https://classic.wowhead.com/item=6373",
@@ -484,7 +553,8 @@
             "fire_oil": "2",
             "kingsblood": "1",
             "leaded_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "elixir_of_greater_firepower": {
         "url": "https://classic.wowhead.com/item=21546",
@@ -495,7 +565,8 @@
             "fire_oil": "3",
             "firebloom": "3",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "arcane_elixir": {
         "url": "https://classic.wowhead.com/item=9155",
@@ -506,7 +577,8 @@
             "blindweed": "1",
             "goldthorn": "1",
             "crystal_vial": "1"
-        }
+        },
+        "profession": "alchemy"
     },
     "juju_ember": {
         "use": "Increases Fire resistance by 15 for 10 min. (1 Min Cooldown)",
@@ -523,8 +595,10 @@
         "use": "Occasionally belch flame at enemies struck in melee for the next 10 min.",
         "rarity": "common",
         "materials": {
-            "mystery_meat": "1"
-        }
+            "mystery_meat": "1",
+            "small_flame_sac": "1"
+        },
+        "profession": "cooking"
     },
     "brilliant_mana_oil": {
         "url": "https://classic.wowhead.com/item=20748",
@@ -534,8 +608,10 @@
         "rarity": "common",
         "materials": {
             "large_brilliant_shard": "2",
-            "purple_lotus": "3"
-        }
+            "purple_lotus": "3",
+            "imbued_vial": "1"
+        },
+        "profession": "enchanting"
     },
     "gift_of_arthas": {
         "url": "https://classic.wowhead.com/item=9088",
@@ -543,8 +619,11 @@
         "use": "Increases resistance to shadow by 10. If an enemy strikes the imbiber, the attacker has a 30% chance of being inflicted with disease that increases their damage taken by 8 for 3 min. Lasts for 30 min.",
         "rarity": "common",
         "materials": {
-            "arthas'_tears": "1"
-        }
+            "arthas'_tears": "1",
+            "blindweed": "1",
+            "crystal_vial": "1"
+        },
+        "profession": "alchemy"
     },
     "major_trolls_blood_potion": {},
     "blessed_sunfruit": {
@@ -559,11 +638,14 @@
         "req": "40",
         "use": "Restores 1392 health over 30 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 12 Stamina and Spirit for 15 min.",
         "materials": {
-            "tender_crab_meat": "1"
-        }
+            "tender_crab_meat": "1",
+            "hot_spices": "2"
+        },
+        "profession": "cooking"
     },
     "juju_escape": {},
     "juju_chill": {
         "rarity": "common"
-    }
+    },
+    "spell_fire_selfdestruct": {}
 }
