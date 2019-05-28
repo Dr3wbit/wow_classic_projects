@@ -24,3 +24,25 @@
     border-radius: 5px;
     padding: 10px
 }
+
+.discordLink {
+    background-image: url(../images/icons/discord_link.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 160px;
+    cursor: pointer;
+    position: relative;
+}
+
+.discordLink:hover{
+    filter: invert(100%)
+}
+
+.clickable {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;     
+    z-index: 1;
+  }
