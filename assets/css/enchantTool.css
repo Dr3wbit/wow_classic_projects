@@ -181,7 +181,9 @@
 }
 
 .focus {
-    border: 3px greenyellow solid
+    border: 2px greenyellow solid;
+    border-radius: 5px;
+    border-style: groove;
 }
 
 #belt {
@@ -284,18 +286,11 @@
     top: 1px;
 }
 
-/* old */
-/* .materials-name {
-    position: absolute;
-    left: 22px;
-    pointer-events: auto;
-    padding-left: 5px;
-    top: 1px;
-} */
 
 .materials-list {
     position: relative;
     margin-top: 3px;
+}
 
 .amount {
     font-size: 12px;
