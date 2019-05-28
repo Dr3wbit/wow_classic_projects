@@ -1,18 +1,18 @@
 
 .list-group-item {
     width: 152px;
-    height: 70px;
+    height: 60px;
     margin-left: -76px;
     font-size: 100%;
     line-height: 3.5;
     border: none;
     background-color: transparent;
     display: initial;
-    color: rgb(72, 85, 104);
+    color: rgb(76, 87, 104);
     cursor: pointer;
     transition: all .1s ease-in;
     position: absolute;
-    top: 30%;
+    top: 10%;
     left: 50%;
     text-align: center;
 }
@@ -21,17 +21,21 @@
   color: azure !important;
   border: none;
   background-color: transparent;
-}
-
-.list-group-item.active:hover {
-  color: azure !important;
-  border: none;
-  background-color: transparent;
+      text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .list-group-item:hover {
   color: azure !important;
   border-color: transparent;
+        text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .information-container {
@@ -50,11 +54,11 @@
 .information-selection {
     margin-left: 15px;
     width: 152px;
-    min-height: 90px;
+    min-height: 60px;
     margin-bottom: -6px;
     padding-right: 0px !important;
     color: #9FA3A9;
-    background-image: url(../images/hanging_sign.png);
+    background-image: url(../images/hanging_sign_small.png);
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
@@ -64,13 +68,13 @@
 
 .information-selection.selected{
     color: azure !important;
-    background-image: url(../images/hanging_sign_selected.png);
+    background-image: url(../images/hanging_sign_small_selected.png);
 }
 
 .information-selection:hover {
 
     color: azure !important;
-    background-image: url(../images/hanging_sign_selected.png);
+    background-image: url(../images/hanging_sign_small_selected.png);
 }
 
 
@@ -91,9 +95,13 @@
     text-align: left;
     font-size: 120%;
     min-height: 100%;
-    padding-top: 20px;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.calcLink {
+    margin: auto;
+    font-size: 120%;
 }
 
 .content-title {
