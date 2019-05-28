@@ -39,6 +39,7 @@ DOWNLOAD_URL = "https://wow.zamimg.com/images/wow/icons/small/"
 all_consumes = ''
 materials_list = ''
 all_materials = ''
+link_list = []
 
 with open(all_materials_json_file, 'r') as f:
 	all_materials = json.load(f)
@@ -221,53 +222,57 @@ def use_classicdb():
 			driver.close()
 	except:
 		print('error')
+def get_item_urls(item):
+
+	search_bar = driver.find_element(By.CSS_SELECTOR, 'div.header-search').find_element(By.TAG_NAME, 'input')
+	search_bar.clear()
+	search_text = title_case(item)
+	print('search_text: ', search_text)
+	search_bar.send_keys(search_text)
+	search_bar.send_keys(Keys.ENTER)
+	driver.implicitly_wait(3)
+
+	selected_tab = driver.find_element(By.CSS_SELECTOR, 'a.selected')
+
+	if not selected_tab.text.startswith('Items'):
+		tabs = driver.find_element(By.CSS_SELECTOR, 'div.tabs-container').find_element(By.CSS_SELECTOR, 'ul.tabs').find_elements(By.TAG_NAME, 'li')
+		for tab in tabs:
+			this_link = tab.find_element(By.TAG_NAME, 'a')
+			tab_text = this_link.find_element(By.TAG_NAME, 'div').text
+			if tab_text.startswith('Items'):
+				this_link.click()
+				driver.implicitly_wait(2)
+
+
+	parent = driver.find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody')
+	rows = parent.find_elements(By.TAG_NAME, 'tr')
+
+	for row in rows:
+		link = row.find_elements(By.TAG_NAME, 'td')[2].find_element(By.TAG_NAME, 'a')
+		if link.text == search_text:
+			my_link = link.get_attribute('href')
+
+			link_list.append(my_link)
+			all_consumes[item]['url'] = my_link
 
 def use_wowhead():
 	BASE_URL = "https://classic.wowhead.com/search?q=%27"
 	driver.get(BASE_URL)
 	driver.implicitly_wait(5)
-	link_list = []
 	driver.implicitly_wait(5)
 	for item in consumes_list:
 		try:
 			if item not in all_consumes.keys():
+
 				all_consumes[item] = {}
+				get_item_urls(item)
 
-				# if all_consumes[item]
-
-				search_bar = driver.find_element(By.CSS_SELECTOR, 'div.header-search').find_element(By.TAG_NAME, 'input')
-				search_bar.clear()
-				search_text = title_case(item)
-				print('search_text: ', search_text)
-				search_bar.send_keys(search_text)
-				search_bar.send_keys(Keys.ENTER)
-				driver.implicitly_wait(3)
-
-				selected_tab = driver.find_element(By.CSS_SELECTOR, 'a.selected')
-
-				if not selected_tab.text.startswith('Items'):
-					tabs = driver.find_element(By.CSS_SELECTOR, 'div.tabs-container').find_element(By.CSS_SELECTOR, 'ul.tabs').find_elements(By.TAG_NAME, 'li')
-					for tab in tabs:
-						this_link = tab.find_element(By.TAG_NAME, 'a')
-						tab_text = this_link.find_element(By.TAG_NAME, 'div').text
-						if tab_text.startswith('Items'):
-							this_link.click()
-							driver.implicitly_wait(2)
-
-
-				parent = driver.find_element(By.CSS_SELECTOR, 'div.listview-scroller').find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody')
-				rows = parent.find_elements(By.TAG_NAME, 'tr')
-
-				for row in rows:
-					link = row.find_elements(By.TAG_NAME, 'td')[2].find_element(By.TAG_NAME, 'a')
-					if link.text == search_text:
-						my_link = link.get_attribute('href')
-
-						link_list.append(my_link)
-						all_consumes[item]['url'] = my_link
 			else:
-				print('{} URL found, next'.format(item))
-				link_list.append(all_consumes[item]['url'])
+				if 'url' not in all_consumes[item].keys():
+					get_item_urls(item)
+				else:
+					print('{} URL found, next'.format(item))
+					link_list.append(all_consumes[item]['url'])
 
 		except:
 			print('error')
@@ -277,7 +282,6 @@ def use_wowhead():
 				# if 'url' in all_consumes[item].keys():
 
 			# else if not all_consumes[item]['url']:
-
 
 	for link in link_list:
 		try:
@@ -291,8 +295,8 @@ def use_wowhead():
 				item_number = match.group(1)
 				this_link = "https://classicdb.ch/?item="+str(item_number)+"#created-by"
 				driver.get(this_link)
-				driver.implicitly_wait(3)
-
+				time.sleep(0.5)
+				# driver.implicitly_wait(3)
 
 			tables = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1].find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'td').find_elements(By.TAG_NAME, 'table')
 			b = tables[0].find_element(By.TAG_NAME, 'b')
@@ -312,7 +316,6 @@ def use_wowhead():
 			if new_text.endswith('Unique'):
 				all_consumes[item]['unique'] = True
 
-
 			if 'Requires' in new_text:
 				match = numberRE.search(new_text)
 				req_lvl = match.group(1)
@@ -323,44 +326,21 @@ def use_wowhead():
 					all_consumes[item]['req'] = req_lvl
 
 			spans = tables[-1].find_elements(By.TAG_NAME, 'span')
-
-			# print(item_name, ' spans: ', len(spans))
-
 			if len(spans) > 1:
 				old_text = spans[0].text
 				all_consumes[item]['description'] = spans[1].text
 
 			else:
-
 				old_text = tables[-1].text
-
-			# print(item_name, ' use: ', old_text)
 
 			use = old_text.replace('Use: ', '')
 			all_consumes[item]['use'] = use
-
 			tab_parent = driver.find_elements(By.CSS_SELECTOR, 'ul.tabs')[0]
 			tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
-
-			tab_found = False
 			created_tab = driver.find_element(By.ID, 'tab-created-by')
-			# for tab in tabs:
-			# 	print('tab text:', tab.text)
-			# 	if tab.text.startswith('Created'):
-			# 		tab_found = True
-			# 		tab_link = tab.find_element(By.TAG_NAME, 'a')
-			# 		found_tab = tab_link
-			# 		print('Found tab')
-			# 		continue
 
-					# if tab_link.get_attribute('class') != 'selected':
-
-			#
-			# if tab_found:
-			# 	found_tab.click()
-			# 	driver.implicitly_wait(1)
-
-			if not (all_consumes[item]['materials']):
+			if 'materials' not in all_consumes[item].keys():
+				print('attempting to get materials list for {}, '.format(item))
 				all_consumes[item]['materials'] = {}
 
 			created_tab = driver.find_element(By.ID, 'tab-created-by')
@@ -368,91 +348,75 @@ def use_wowhead():
 			t = created_tab.find_element(By.CSS_SELECTOR, 'table.listview-mode-default').find_element(By.TAG_NAME, 'tbody').find_elements(By.TAG_NAME, 'td')[3].text
 			match = get_profRE.search(t)
 			if match:
-				all_consumes[item]['profession'] = lower(match.group(1))
+				all_consumes[item]['profession'] = match.group(1).lower()
+				print(item, ": ", all_consumes[item]['profession'])
 
 			for mat in materials:
-
-				mat_link = mat.find_element(By.TAG_NAME, 'a')
-				quantity = mat_link.get_attribute('rel')
-				layers = driver.find_element(By.ID, 'layers')
-
-				tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
-
-				ActionChains(driver).move_to_element(mat).perform()
-
-
-				time.sleep(0.5)
-
-				tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
-
-				this_mat = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b')
-				mat_name = sanitize(this_mat.text)
-				class_name = this_mat.get_attribute('class')
-
-				all_consumes[item]['materials'][mat_name] = quantity
-
-				print(mat_name, ':', quantity)
-				if mat_name not in materials_list:
-					materials_list.append(mat_name)
-
-				if mat_name not in all_materials.keys():
-
-					print('new material added: ', mat_name)
-
-					all_materials[mat_name] = {}
-					all_materials[mat_name]['rarity'] = get_rarity(class_name)
-
-					mat_link.click()
-
-					driver.implicitly_wait(2)
-
-					tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
-					tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
-
-					is_prof = False
-					category = ''
-
-					for tab in tabs:
-						div = tab.find_element(By.TAG_NAME, 'div')
-						tab_text = div.get_attribute('textContent')
-
-						if tab_text.startswith(tuple(prof_text.keys())):
-							is_prof = True
-							key = tab_text.split()[0]
-							category = prof_text[key]
-							break
-
-						elif ((not category and not is_prof) and tab_text.startswith(tuple(other_text.keys()))):
-							key = tab_text.split()[0]
-							category = other_text[key]
-							break
-
-						elif not category and not is_prof:
-							category = 'other'
-
-					all_materials[mat_name]['category'] = category
-
-
-				filepath = "../images/icons/small/materials/"+all_materials[mat_name]['category']+"/"+mat_name+".jpg"
-
-
-				if not os.path.exists(filepath):
-
-
-					style = mat.find_element(By.TAG_NAME, 'ins').get_attribute('style')
-					match = get_img_name.search(style)
-					if match:
-						file_name = match.group(1)
-						img_url = DOWNLOAD_URL+file_name
-						urllib.request.urlretrieve(img_url, filepath)
-
-
-
+				try:
+					get_materials(item, mat)
+				except:
+					print('error getting {} for {}'.format(mat, item))
 
 		except:
 			print('error with {}'.format(link))
 
 
+def get_materials(item, mat):
+	mat_link = mat.find_element(By.TAG_NAME, 'a')
+	quantity = mat_link.get_attribute('rel')
+	layers = driver.find_element(By.ID, 'layers')
+	tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
+	ActionChains(driver).move_to_element(mat).perform()
+	time.sleep(0.5)
+	tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
+	this_mat = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b')
+	mat_name = sanitize(this_mat.text)
+	class_name = this_mat.get_attribute('class')
+	all_consumes[item]['materials'][mat_name] = quantity
+	print(mat_name, ':', quantity)
+	if mat_name not in materials_list:
+		materials_list.append(mat_name)
+
+	if mat_name not in all_materials.keys():
+		print('new material added: ', mat_name)
+		all_materials[mat_name] = {}
+		all_materials[mat_name]['rarity'] = get_rarity(class_name)
+		mat_link.click()
+		time.sleep(0.2)
+		tab_parent = driver.find_element(By.CSS_SELECTOR, 'ul.tabs')
+		tabs = tab_parent.find_elements(By.TAG_NAME, 'li')
+		is_prof = False
+		category = ''
+
+		for tab in tabs:
+			div = tab.find_element(By.TAG_NAME, 'div')
+			tab_text = div.get_attribute('textContent')
+
+			if tab_text.startswith(tuple(prof_text.keys())):
+				is_prof = True
+				key = tab_text.split()[0]
+				category = prof_text[key]
+				break
+			elif ((not category and not is_prof) and tab_text.startswith(tuple(other_text.keys()))):
+				key = tab_text.split()[0]
+				category = other_text[key]
+				break
+			elif not category and not is_prof:
+				category = 'other'
+
+		all_materials[mat_name]['category'] = category
+
+	filepath = "../images/icons/small/materials/"+all_materials[mat_name]['category']+"/"+mat_name+".jpg"
+	if not os.path.exists(filepath):
+		print('no image for {}'.format(mat_name))
+		style = mat.find_element(By.TAG_NAME, 'ins').get_attribute('style')
+		match = get_img_name.search(style)
+		if match:
+			file_name = match.group(1)
+			img_url = DOWNLOAD_URL+file_name
+			print('found image for {}'.format(mat_name))
+
+			urllib.request.urlretrieve(img_url, filepath)
 
 
 def get_images():
