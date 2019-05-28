@@ -19,6 +19,17 @@ function initializeApp() {
 
 	})
 	$("#warrior").click()
+
+	$(".consume-input").on({
+		input: (e)=>{
+			let lengthLimit = (e.target.attributes.maxlength.value)
+			let currentInput = e.target.value
+			if (currentInput.length > lengthLimit){
+				$(e.target).val(currentInput.slice(0, lengthLimit))
+			}
+		}
+	})
+
 }
 
 function stepValidator(n, step) {

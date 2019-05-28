@@ -181,7 +181,9 @@
 }
 
 .focus {
-    border: 3px greenyellow solid
+    border: 2px greenyellow solid;
+    border-radius: 5px;
+    border-style: groove;
 }
 
 #belt {
