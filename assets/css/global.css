@@ -504,3 +504,46 @@ ul {
 .spell {
     color: rgba(127,172,244,1);
 }
+
+.icon-small {
+    height: 22px;
+    width: 22px;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: left 3px top 3px;
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+}
+
+
+
+.tooltip-container {
+    font-size: 100%;
+}
+
+
+.materials-name {
+    position: relative;
+    pointer-events: auto;
+    top: 1px;
+}
+
+
+.materials-list {
+    position: relative;
+    margin-top: 3px;
+}
+
+.amount {
+    font-size: 12px;
+    position: relative;
+    margin-right: 5px;
+    /* left: -8px;
+    top: 6px; */
+    text-decoration: none;
+    color: azure;
+    pointer-events: none;
+    z-index: 10;
+    text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
+
+}
