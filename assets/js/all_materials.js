@@ -168,7 +168,7 @@ const allMaterials = {
 		rarity: 'common',
 	},
 	thorium_widget: {
-		category: 'drop',
+		category: 'engineering',
 		rarity: 'common',
 	},
 	heavy_blasting_powder: {
