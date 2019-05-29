@@ -6,55 +6,55 @@
     "libram_of_rapidity": {
         "category": "drop",
         "unique": "Unique",
-        "req": 50,
+        "req": "50",
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
     },
     "libram_of_protection": {
         "category": "drop",
         "unique": "Unique",
-        "req": 50,
+        "req": "50",
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
     },
     "unstable_trigger": {
-        "category": "other",
+        "category": "engineering",
         "rarity": "common"
     },
     "delicate_arcanite_converter": {
-        "category": "other",
+        "category": "engineering",
         "rarity": "common"
     },
     "blackmouth_oil": {
-        "category": "other",
+        "category": "alchemy",
         "rarity": "common"
     },
     "thorium_bar": {
-        "category": "other",
+        "category": "blacksmithing",
         "rarity": "common"
     },
     "dense_blasting_powder": {
-        "category": "other",
+        "category": "engineering",
         "rarity": "common"
     },
     "mithril_tube": {
-        "category": "other",
+        "category": "engineering",
         "rarity": "common"
     },
     "iron_bar": {
-        "category": "other",
+        "category": "blacksmithing",
         "rarity": "common"
     },
     "shadow_oil": {
-        "category": "other",
+        "category": "alchemy",
         "rarity": "common"
     },
     "stonescale_oil": {
-        "category": "other",
+        "category": "alchemy",
         "rarity": "common"
     },
     "black_mageweave_boots": {
-        "category": "other",
+        "category": "tailoring",
         "rarity": "uncommon"
     },
     "dense_stone": {
@@ -150,7 +150,7 @@
         "rarity": "common"
     },
     "goblin_rocket_fuel": {
-        "category": "drop",
+        "category": "engineering",
         "rarity": "common",
         "description": "Used by Goblin Engineers to power their creations"
     },
@@ -171,7 +171,7 @@
         "rarity": "common"
     },
     "heavy_blasting_powder": {
-        "category": "drop",
+        "category": "engineering",
         "rarity": "common"
     },
     "deeprock_salt": {
@@ -183,7 +183,7 @@
         "rarity": "common"
     },
     "solid_blasting_powder": {
-        "category": "drop",
+        "category": "engineering",
         "rarity": "common"
     },
     "hot_spices": {
@@ -213,7 +213,7 @@
     "libram_of_focus": {
         "category": "drop",
         "unique": "Unique",
-        "req": 50,
+        "req": "50",
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
     },
@@ -232,7 +232,7 @@
     "libram_of_rumination": {
         "category": "drop",
         "unique": "Unique",
-        "req": 50,
+        "req": "50",
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
     },
@@ -268,13 +268,13 @@
         "category": "other",
         "rarity": "common",
         "bop": true,
-        "req": 45,
+        "req": "45",
         "use": "Restores 700 to 901 health. (cooldown 2 min)"
     },
     "libram_of_tenacity": {
         "category": "drop",
         "unique": "Unique",
-        "req": 50,
+        "req": "50",
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
     },
@@ -336,7 +336,7 @@
     "libram_of_constitution": {
         "category": "drop",
         "unique": "Unique",
-        "req": 50,
+        "req": "50",
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
     },
@@ -357,7 +357,7 @@
     "libram_of_resilience": {
         "category": "drop",
         "unique": "Unique",
-        "req": 50,
+        "req": "50",
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
     },
@@ -413,7 +413,7 @@
     "libram_of_voracity": {
         "category": "drop",
         "unique": true,
-        "req": 50,
+        "req": "50",
         "description": "Dark runes skitter across the surface.",
         "rarity": "uncommon"
     },
@@ -485,15 +485,15 @@
         "rarity": "rare"
     },
     "shadow_protection_potion": {
-        "req": 17,
+        "req": "17",
         "use": "Absorbs 675 to 1126 shadow damage. Lasts 1 hr. (cooldown 2 min)",
         "category": "other",
         "rarity": "common"
     },
     "frost_oil": {
-        "category": "alchemy",
+        "category": "drop",
         "rarity": "common",
-        "req": 30,
+        "req": "30",
         "use": "When applied to a melee weapon it gives a 10% chance of casting Frostbolt at the opponent when it hits. Lasts 30 minutes."
     },
     "large_glowing_shard": {
@@ -505,7 +505,7 @@
         "rarity": "rare"
     },
     "truesilver_bar": {
-        "category": "other",
+        "category": "blacksmithing",
         "rarity": "uncommon"
     },
     "kingsblood": {
@@ -521,9 +521,9 @@
         "rarity": "common"
     },
     "elixir_of_demonslaying": {
-        "category": "drop",
+        "category": "alchemy",
         "rarity": "common",
-        "req": 40,
+        "req": "40",
         "use": "Increases attack power by 265 against demons. Lasts 5 min."
     },
     "large_fang": {
@@ -535,7 +535,7 @@
         "rarity": "common"
     },
     "fire_oil": {
-        "category": "other",
+        "category": "alchemy",
         "rarity": "common"
     },
     "gold": {
@@ -556,16 +556,16 @@
         "category": "other",
         "rarity": "common",
         "bop": true,
-        "req": 45,
+        "req": "45",
         "use": "Restores 394 to 457 mana and 394 to 457 health. (cooldown 2 min)"
     },
     "winter_squid": {
         "rarity": "common",
-        "category": "other"
+        "category": "fishing"
     },
-    "khadgar's_whisker": {
+    "khadgars_whisker": {
         "rarity": "common",
-        "category": "drop"
+        "category": "herbalism"
     },
     "raw_nightfin_snapper": {
         "rarity": "common",
@@ -585,7 +585,7 @@
     },
     "purple_lotus": {
         "rarity": "common",
-        "category": "drop"
+        "category": "herbalism"
     },
     "arthas_tears": {
         "rarity": "common",
@@ -597,14 +597,30 @@
     },
     "refreshing_spring_water": {
         "rarity": "common",
-        "category": "drop"
+        "category": "vendor"
     },
     "raw_greater_sagefish": {
         "rarity": "common",
-        "category": "mining"
+        "category": "fishing"
     },
     "small_flame_sac": {
         "rarity": "common",
         "category": "drop"
+    },
+    "snickerfang_jowl": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "blasted_boar_lung": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "scorpok_pincer": {
+        "rarity": "common",
+        "category": "drop"
+    },
+    "": {
+        "rarity": "common",
+        "category": "vendor"
     }
 }
