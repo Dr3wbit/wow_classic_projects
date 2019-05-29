@@ -57,7 +57,7 @@ function findSlot(selection, filter) {
         dataKeys = Object.keys(enchants[slot])
         let filteredKeys = []
         dataKeys.forEach(key => {
-            if(dataObject[key].filter === "end_game"){
+            if(dataObject[key].end_game){
                 filteredKeys.push(key)
             }
         })
