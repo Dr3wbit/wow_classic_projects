@@ -680,7 +680,18 @@ const allConsumes = {
 		},
 		profession: 'alchemy',
 	},
-	major_trolls_blood_potion: {},
+	major_trolls_blood_potion: {
+        req: 53,
+        use: "Regenerate 20 health every 5 sec for 1 hr.",
+        rarity: "common",
+        materials: {
+            gromsblood: 1,
+            plaguebloom: 2,
+            crystal_vial: 1
+        },
+        profession: 'alchemy',
+        name: "Major Troll's Blood Potion"
+    },
 	blessed_sunfruit: {
 		url: 'https://classic.wowhead.com/item=13810',
 		req: 45,
@@ -693,7 +704,15 @@ const allConsumes = {
         profession: 'vendor',
 		step: 5
 	},
-	monster_omelete: {},
+	monster_omelete: {
+        req: 40,
+        use: "Restores 1392 health over 30 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 12 Stamina and Spirit for 15 min.",
+        materials: {
+            giant_egg: 1,
+            soothing_spices: 2,
+        },
+        profession: 'cooking',
+    },
 	spiced_chili_crab: {
 		url: 'https://classic.wowhead.com/item=12216',
 		req: 40,

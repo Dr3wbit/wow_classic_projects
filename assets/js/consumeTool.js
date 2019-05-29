@@ -166,17 +166,13 @@ function getMaterials(data) {
 		} else {
 			const name = formValues[item].attributes.name.value
 			const consumeObject = allConsumes[name]
-
 			const category = consumeObject.profession
-
 			const inputValue = stepValidator(formValues[item].value, formValues[item].attributes.step.value)
 			if (inputValue != formValues[item].value) {
 				$(`.consume-input[name="${name}"]`).val( parseInt(inputValue) ).delay( 3000 )
 			}
 
-
 			materials.push({name:name, data:consumeObject, amount:inputValue})
-
 		}
 	})
 	appendMaterials(materials)
@@ -186,7 +182,6 @@ function getMaterials(data) {
 function materialsTooltip() {
     $(".results").on({
         mouseenter: e => {
-
             const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
             let matName = closestMat.text()
 			let name = utilities.sanitize(matName)
@@ -224,7 +219,6 @@ function materialsTooltip() {
                 if (materialObject.description) {
                     tooltipElems.push({class: 'description', text:`"${materialObject.description}"`})
                 }
-
 				utilities.bigdaddytooltip(e, tooltipElems)
             }
         },
@@ -232,7 +226,6 @@ function materialsTooltip() {
             $(".results").find('.materials-name').removeClass('underlined')
             $("#tooltip").hide()
             $("#tooltip").children().remove()
-
         }
     })
 }
@@ -300,7 +293,6 @@ function appendMaterials(consumables) {
 		            text: ` [${totalMaterialCount[name]}]`,
 		            class: 'amount',
 		        }))
-
 				materialsToAppend.push(resultMaterials)
 			}
 			resultConsume.append(materialsToAppend)
@@ -323,7 +315,6 @@ function calculateTotals(totals) {
 		let rarity = matObject.rarity
 		let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
 		let imageName = (properName.endsWith("E'ko")) ? "eko" : name
-
 		let matElement = $('<div/>', {
 			class: 'materials-list-item',
 		}).append($('<img/>', {
@@ -347,15 +338,10 @@ function calculateTotals(totals) {
 function updateTooltip(e) {
 	const targetElement = $(e.target)
 	const name = targetElement.closest($('.consume-block')).attr('name')
-
 	const consumeObj = allConsumes[name]
 	const properName = (allConsumes[name].name) ? allConsumes[name].name : utilities.titleCase(name)
 	const rarity = consumeObj.rarity
-
 	const tooltipElems = [{class: `title ${rarity}`,text: properName}]
-
-
-
 	if (consumeObj.bop) {
 		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
 	}
