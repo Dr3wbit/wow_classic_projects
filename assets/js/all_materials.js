@@ -307,7 +307,7 @@ const allMaterials = {
 		use: 'Turn three lesser eternal essences into a greater one.',
 	},
 	black_diamond: {
-		category: 'mining',
+		category: 'drop',
 		rarity: 'uncommon',
 	},
 	essence_of_earth: {
