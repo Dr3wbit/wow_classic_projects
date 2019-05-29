@@ -31,7 +31,7 @@ get_profRE = re.compile(r"([a-z ]+)([ \d]*)", re.I)
 word_exceptions = ['of', 'the']
 
 materials_list_filename = "all_materials_list.txt"
-consumes_list_filename = "consume_parse_list.txt"
+# consumes_list_filename = "consume_parse_list.txt"
 all_consumes_json_file = "all_consumes_json.js"
 all_materials_json_file = "all_materials_json.js"
 DOWNLOAD_URL = "https://wow.zamimg.com/images/wow/icons/small/"
@@ -53,10 +53,10 @@ with open(materials_list_filename, 'r') as f:
 
 
 
-
-with open(consumes_list_filename, 'r') as f:
-	content = f.read()
-	consumes_list = content.split()
+#
+# with open(consumes_list_filename, 'r') as f:
+# 	content = f.read()
+# 	consumes_list = content.split()
 
 
 def main():
@@ -98,7 +98,7 @@ def title_case(s):
 
 def sanitize(s):
 	a = s.strip().replace(' ', '_')
-	a = a.replace('\n', '')
+	a = a.replace('\n', '').replace("'", "")
 	b = a.lower()
 	return(b)
 
@@ -222,6 +222,7 @@ def use_classicdb():
 			driver.close()
 	except:
 		print('error')
+
 def get_item_urls(item):
 
 	search_bar = driver.find_element(By.CSS_SELECTOR, 'div.header-search').find_element(By.TAG_NAME, 'input')
@@ -260,19 +261,20 @@ def use_wowhead():
 	driver.get(BASE_URL)
 	driver.implicitly_wait(5)
 	driver.implicitly_wait(5)
-	for item in consumes_list:
+	for item in all_consumes:
 		try:
-			if item not in all_consumes.keys():
+			# if item not in all_consumes.keys():
+			#
+			# 	all_consumes[item] = {}
+			# 	get_item_urls(item)
 
-				all_consumes[item] = {}
+			# else:
+
+			if 'url' not in all_consumes[item].keys():
 				get_item_urls(item)
-
 			else:
-				if 'url' not in all_consumes[item].keys():
-					get_item_urls(item)
-				else:
-					print('{} URL found, next'.format(item))
-					link_list.append(all_consumes[item]['url'])
+				print('{} URL found, next'.format(item))
+				link_list.append(all_consumes[item]['url'])
 
 		except:
 			print('error')
@@ -353,6 +355,7 @@ def use_wowhead():
 
 			for mat in materials:
 				try:
+
 					get_materials(item, mat)
 				except:
 					print('error getting {} for {}'.format(mat, item))
@@ -361,12 +364,16 @@ def use_wowhead():
 			print('error with {}'.format(link))
 
 
-def get_materials(item, mat):
-	mat_link = mat.find_element(By.TAG_NAME, 'a')
+def get_materials(item, mat_elem):
+
+	mat_image_url = mat_elem.find_element(By.TAG_NAME, 'ins')
+
+	mat_link = mat_elem.find_element(By.TAG_NAME, 'a')
+
 	quantity = mat_link.get_attribute('rel')
 	layers = driver.find_element(By.ID, 'layers')
 	tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[0]
-	ActionChains(driver).move_to_element(mat).perform()
+	ActionChains(driver).move_to_element(mat_elem).perform()
 	time.sleep(0.5)
 	tooltip = layers.find_element(By.CSS_SELECTOR, 'div.tooltip')
 	this_mat = tooltip.find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'tbody').find_element(By.TAG_NAME, 'tr').find_element(By.TAG_NAME, 'table').find_element(By.TAG_NAME, 'b')
@@ -408,18 +415,24 @@ def get_materials(item, mat):
 
 	filepath = "../images/icons/small/materials/"+all_materials[mat_name]['category']+"/"+mat_name+".jpg"
 	if not os.path.exists(filepath):
-		print('no image for {}'.format(mat_name))
-		style = mat.find_element(By.TAG_NAME, 'ins').get_attribute('style')
-		match = get_img_name.search(style)
-		if match:
-			file_name = match.group(1)
-			img_url = DOWNLOAD_URL+file_name
-			print('found image for {}'.format(mat_name))
-
-			urllib.request.urlretrieve(img_url, filepath)
+		print('attempting to download image for ${}'.format(mat_name))
+		download_image(filepath, mat_elem, mat_name)
 
 
-def get_images():
+def download_image(filepath, mat_elem, name):
+
+	style = mat_elem.find_element(By.TAG_NAME, 'ins').get_attribute('style')
+	match = get_img_name.search(style)
+	if match:
+		file_name = match.group(1)
+		img_url = DOWNLOAD_URL+file_name
+		print('found image for {}'.format(name))
+
+		urllib.request.urlretrieve(img_url, filepath)
+
+
+
+def get_images_old():
 	class_icons_parent = driver.find_element(By.CLASS_NAME, 'ctc-classes-inner')
 	class_icons = class_icons_parent.find_elements(By.CLASS_NAME, 'iconmedium')
 	talent_trees_container = driver.find_element(By.CLASS_NAME, 'ctc-tree-container')
