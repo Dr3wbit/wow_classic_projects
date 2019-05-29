@@ -574,7 +574,7 @@ const allMaterials = {
 	},
 	raw_nightfin_snapper: {
 		rarity: 'common',
-		category: 'other',
+		category: 'fishing',
 		use: "Restores 874.8 health over 27 sec. Must remain seated while eating.",
 		req: 35
 	},
