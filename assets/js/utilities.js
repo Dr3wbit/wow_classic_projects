@@ -24,13 +24,19 @@ const utilities = {
 		let left = 0, top = 0
 		let header = ($("#talentHeader").length) ? $("#talentHeader") : $("div.page-title")
 		let classSelection = $("#class_selection")
+
 		if (xCoeff > 50) {
 			left = Math.round(element.offset().left) - 25 - width
 		} else {
-			left = Math.round(element.offset().left) + element.width()+5
+			left = Math.round(element.offset().left) + element.width() + 5
 		}
+
 		if (yCoeff < 30) {
 			top = Math.max(header.position().top, classSelection.position().top) + 35
+			let percDiff = Math.round((1 - top/element.offset().top)*100)
+			if (percDiff >= 10) {
+				top = Math.floor(element.offset().top)
+			}
 		}
 		else if (yCoeff >= 30 && yCoeff < 70) {
 			// sets tooltip vertically centered with talent
