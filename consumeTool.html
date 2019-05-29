@@ -100,10 +100,7 @@
         <div class="consume-block" name="{{sanitize name}}">
             <div class="icon-container">
                 <img class="consume-img" src="assets/images/icon_border_2.png" style="background-image: url(assets/images/consumes/{{img}})">
-                <div class="consume-tooltip tooltip-hidden">
-                    <div class="consume-tooltip-title" style="color:azure; font-size: 14px">{{name}}</div>
-                    {{effect}}
-                </div>
+                
             </div>
             <div class="consume-title">{{name}}
                 <input class="consume-input" name="{{sanitize name}}" category="{{profession.name}}" placeholder="Amount" type="number" step={{#if step}}"{{step}}"{{else}}"1"{{/if}}>
