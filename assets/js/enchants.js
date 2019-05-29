@@ -764,8 +764,13 @@ const enchants = {
 				large_brilliant_shard: 8,
 				righteous_orb: 1,
 			},
+<<<<<<< HEAD
 			description: 'Permanently enchant gloves to increase the caster\'s healing spells by up to 30.',
 			effect: 'Healing Spells +30'
+=======
+			description: "Permanently enchant gloves to increase the caster's healing spells by up to 30.",
+			effect: 'Healing Power'
+>>>>>>> 91dfd77bc5e4ec269ee8d2185d92548cf5510507
 		},
 		herbalism: {
 			materials: {

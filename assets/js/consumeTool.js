@@ -53,18 +53,7 @@ function applyClickHandlers() {
 				return a.name == "all"
 			})
 
-			// const defaultDataTest = allConsumes
-			// console.log('defaultData: ', defaultData)
-			// console.log('testDefaultData: ', defaultDataTest)
-			//
-
 			const classDataTest = []
-
-			// classSpecificConsumes[clickedID].forEach(function(consume_name) {
-			// 	classDataTest.push(allConsumes[consume_name])
-			// })
-
-			// console.log('classDataTest: ', classDataTest)
 
 			const classData = consumes.find((a) => {
 				return a.name == clickedID;
@@ -129,6 +118,8 @@ function applyClickHandlers() {
 			$('.classMarkerGhost').remove()
 		}
 	})
+
+	materialsTooltip()
 }
 
 function clearForm() {
@@ -191,6 +182,60 @@ function getMaterials(data) {
 	appendMaterials(materials)
 }
 
+
+function materialsTooltip() {
+    $(".results").on({
+        mouseenter: e => {
+
+            const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
+            let matName = closestMat.text()
+			let name = utilities.sanitize(matName)
+            if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
+                return
+            } else {
+                $(".results").find('.materials-name').removeClass('underlined')
+                closestMat.addClass('underlined')
+				$("#tooltip").children().remove()
+				$("#tooltip").hide()
+                const materialObject = allMaterials[name]
+				let requirementText = ''
+				if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
+					requirementText = materialObject.req
+				} else {
+					requirementText = (materialObject.req) ? ((materialObject.req.toString().startsWith('engi') || materialObject.req.toString().startsWith('first')) ? utilities.titleCase(materialObject.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${materialObject.req}`) : null
+				}
+
+				const rarity = materialObject.rarity
+				let properName = (materialObject.name) ? materialObject.name : matName
+
+				const tooltipElems = [{class: `title ${rarity}`, text: matName}]
+                if (materialObject.bop) {
+                    tooltipElems.push({class:'bop', text: "Binds when picked up"})
+                }
+                if (materialObject.unique) {
+                    tooltipElems.push({class: 'unique', text: "Unique",})
+                }
+				if (materialObject.req){
+                    tooltipElems.push({class: 'requiredLevel', text: requirementText})
+                }
+                if (materialObject.use) {
+                    tooltipElems.push({class: 'use', text: `Use: ${materialObject.use}`})
+                }
+                if (materialObject.description) {
+                    tooltipElems.push({class: 'description', text:`"${materialObject.description}"`})
+                }
+
+				utilities.bigdaddytooltip(e, tooltipElems)
+            }
+        },
+        mouseleave: e => {
+            $(".results").find('.materials-name').removeClass('underlined')
+            $("#tooltip").hide()
+            $("#tooltip").children().remove()
+
+        }
+    })
+}
 // function findMaterials(name, category, data, inputValue) {
 //
 //
@@ -224,28 +269,30 @@ function appendMaterials(consumables) {
 		if (!(item.amount > 0)) {
 			return
 		} else {
+			let consumeName = (item.data.name) ? item.data.name : utilities.titleCase(item.name)
 			let resultConsume = $('<div/>', {
-				class: `result-consume ${item.data.rarity}`,
-				text: utilities.titleCase(item.name) + ' : ' + `[${item.amount}]`,
+				class: `consumes-list-item ${item.data.rarity}`,
+				text: consumeName+ ` [${item.amount}]`,
 			})
 			let materialsToAppend = []
 			for (let [name, value] of Object.entries(item.data.materials)) {
-				console.log('name: ', name)
 				let matObject = allMaterials[name]
 				let category = matObject.category
 				let rarity = matObject.rarity
 				let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
+				let imageName = (properName.endsWith("E'ko")) ? "eko" : name
+
 				if (!(totalMaterialCount[name])) {
 					totalMaterialCount[name] = Math.round(value*item.amount)
 				} else {
 					totalMaterialCount[name] = Math.round((totalMaterialCount[name]+value)*item.amount)
 				}
 				let resultMaterials = $('<div/>', {
-					class: 'total-materials',
+					class: 'materials-list-item',
 				}).append($('<img/>', {
 		            class: 'icon-small',
 		            src: "assets/images/icons/small/icon_border.png",
-		            style: `background-image: url(assets/images/icons/small/materials/${category}/${name}.jpg);`,
+		            style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
 		        })).append($('<span/>', {
 		            text: properName,
 		            class: `materials-name ${rarity}`,
@@ -275,12 +322,14 @@ function calculateTotals(totals) {
 		let category = matObject.category
 		let rarity = matObject.rarity
 		let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
+		let imageName = (properName.endsWith("E'ko")) ? "eko" : name
+
 		let matElement = $('<div/>', {
-			class: 'total-materials',
+			class: 'materials-list-item',
 		}).append($('<img/>', {
 			class: 'icon-small',
 			src: "assets/images/icons/small/icon_border.png",
-			style: `background-image: url(assets/images/icons/small/materials/${category}/${name}.jpg);`,
+			style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
 		})).append($('<span/>', {
 			text: properName,
 			class: `materials-name ${rarity}`,
@@ -315,8 +364,8 @@ function updateTooltip(e) {
 	}
 
 	let requirementText = ''
-	if (name == 'goblin_rocket_boots') {
-		requirementText = "Binds when equipped\nFeet\t\t\t\t\t\t\t\t\t\t    Cloth\n41 Armor\nDurability 35 / 35"
+	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
+		requirementText = consumeObj.req
 	} else {
 		requirementText = (consumeObj.req) ? ((consumeObj.req.toString().startsWith('engi') || consumeObj.req.toString().startsWith('first')) ? utilities.titleCase(consumeObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${consumeObj.req}`) : false
 	}
