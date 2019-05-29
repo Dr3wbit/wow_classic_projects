@@ -1,7 +1,7 @@
 
 const utilities = {
 	sanitize: function(str) {
-	    return str.toLowerCase().replace(/\s+/g, '_')
+	    return str.toLowerCase().replace(/\s+/g, '_').replace("'", "")
 	},
 	titleCase: function(str) {
 	    let strArr = str.replace(/\_/g, ' ').split(' ')
