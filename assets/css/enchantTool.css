@@ -265,3 +265,8 @@
 .tooltip-container {
     font-size: 100%;
 }
+
+.form-check-label {
+    position: relative;
+    top: 2px;
+}
