@@ -52,7 +52,7 @@ const enchants = {
 				lesser_astral_essence: 2,
 			},
 			description: 'Permanently enchant a pair of boots so they increase the wearer\'s Agility by 1.',
-			effect: 'Minor Agility'
+			effect: 'Agility +1'
 		},
 		minor_speed: {
 			filter: "end_game",
@@ -69,7 +69,7 @@ const enchants = {
 				strange_dust: 8,
 			},
 			description: 'Permanently enchant a pair of boots so they increase the wearer\'s Stamina by 1.',
-			effect: 'Minor Stamina'
+			effect: 'Stamina +1'
 		},
 		spirit: {
 			filter: "end_game",
@@ -161,28 +161,28 @@ const enchants = {
 				greater_astral_essence: 2,
 			},
 			description: 'Permanently enchant a bracer so it increases the wearer\'s Intellect by 3.',
-			effect: 'Lesser Intellect'
+			effect: 'Intellect +3'
 		},
 		lesser_spirit: {
 			materials: {
 				lesser_astral_essence: 2,
 			},
 			description: 'Permanently enchant a bracer so it increases the wearer\'s Spirit by 3.',
-			effect: 'Lesser Spirit'
+			effect: 'Spirit +3'
 		},
 		lesser_stamina: {
 			materials: {
 				soul_dust: 2,
 			},
 			description: 'Permanently enchant a bracer so it increases the wearer\'s Stamina by 3.',
-			effect: 'Lesser Stamina'
+			effect: 'Stamina +3'
 		},
 		lesser_strength: {
 			materials: {
 				soul_dust: 2,
 			},
 			description: 'Permanently enchant a bracer so it increases the wearer\'s Strength by 3.',
-			effect: 'Lesser Strength'
+			effect: 'Strength +3'
 		},
 		mana_regeneration: {
 			materials: {
@@ -191,7 +191,7 @@ const enchants = {
 				essence_of_water: 2,
 			},
 			description: 'Permanently enchants bracers to restore 4 mana every 5 seconds.',
-			effect: 'Mana Regeneration'
+			effect: '4 mp5'
 		},
 		minor_agility: {
 			materials: {
@@ -199,7 +199,7 @@ const enchants = {
 				greater_magic_essence: 1,
 			},
 			description: 'Permanently enchant bracers so they increase the wearer\'s Agility by 1.',
-			effect: 'Minor Agility'
+			effect: 'Agility +1'
 		},
 		minor_deflect: {
 			materials: {
@@ -207,35 +207,35 @@ const enchants = {
 				strange_dust: 1,
 			},
 			description: 'Permanently enchant bracers so that the defense skill of the wearer is increased by 1.',
-			effect: 'Minor Deflect'
+			effect: 'Defense +1'
 		},
 		minor_health: {
 			materials: {
 				strange_dust: 1,
 			},
 			description: 'Permanently enchant bracers to increase the health of the wearer by 5.',
-			effect: 'Minor Health'
+			effect: 'Health +5'
 		},
 		minor_spirit: {
 			materials: {
 				lesser_magic_essence: 2,
 			},
 			description: 'Permanently enchant bracers so they increase the wearer\'s Spirit by 1.',
-			effect: 'Minor Spirit'
+			effect: 'Spirit +1'
 		},
 		minor_stamina: {
 			materials: {
 				strange_dust: 3,
 			},
 			description: 'Permanently enchant bracers so they increase the wearer\'s Stamina by 1.',
-			effect: 'Minor Stamina'
+			effect: 'Stamina +1'
 		},
 		minor_strength: {
 			materials: {
 				strange_dust: 5,
 			},
 			description: 'Permanently enchant bracers so they increase the wearer\'s Strength by 1.',
-			effect: 'Minor Strength'
+			effect: 'Strength +1'
 		},
 		spirit: {
 			materials: {
@@ -292,7 +292,7 @@ const enchants = {
 				soul_dust: 3,
 			},
 			description: 'Permanently enchant a cloak to give 30 additional armor.',
-			effect: 'Defense'
+			effect: 'Armor +30'
 		},
 		dodge: {
 			filter: "end_game",
@@ -302,7 +302,7 @@ const enchants = {
 				guardian_stone: 8,
 			},
 			description: 'Permanently enchant a cloak to give a 1% chance to dodge.',
-			effect: 'Dodge'
+			effect: '1% dodge'
 		},
 		fire_resistance: {
 			materials: {
@@ -310,14 +310,14 @@ const enchants = {
 				elemental_fire: 1,
 			},
 			description: 'Permanently enchant a cloak to give 7 Fire Resistance.',
-			effect: 'Fire Resistance'
+			effect: 'Fire Resistance +7'
 		},
 		greater_defense: {
 			materials: {
 				vision_dust: 3,
 			},
 			description: 'Permanently enchant a cloak to give 50 additional armor.',
-			effect: 'Greater Defense'
+			effect: 'Armor +50'
 		},
 		greater_fire_resistance: {
 			filter: "end_game",
@@ -327,7 +327,7 @@ const enchants = {
 				essence_of_fire: 4,
 			},
 			description: 'Permanently enchant a cloak to give 15 fire resistance.',
-			effect: 'Greater Fire Resistance'
+			effect: 'Fire Resistance +15'
 		},
 		greater_nature_resistance: {
 			filter: "end_game",
@@ -337,7 +337,7 @@ const enchants = {
 				living_essence: 4,
 			},
 			description: 'Permanently enchant a cloak to give 15 nature resistance.',
-			effect: 'Greater Nature Resistance'
+			effect: 'Nature Resistance +15'
 		},
 		greater_resistance: {
 			filter: "end_game",
@@ -350,7 +350,7 @@ const enchants = {
 				ichor_of_undeath: 1,
 			},
 			description: 'Permanently enchant a cloak to give 5 to all resistances.',
-			effect: 'Greater Resistance'
+			effect: 'All Resistance +5'
 		},
 		lesser_agility: {
 			filter: "end_game",
@@ -358,7 +358,7 @@ const enchants = {
 				lesser_nether_essence: 2,
 			},
 			description: 'Permanently enchant a cloak to give 3 Agility.',
-			effect: 'Lesser Agility'
+			effect: 'Agility +3'
 		},
 		lesser_fire_resistance: {
 			materials: {
@@ -366,7 +366,7 @@ const enchants = {
 				lesser_astral_essence: 1,
 			},
 			description: 'Permanently enchant a cloak so that it increases resistance to fire by 5.',
-			effect: 'Lesser Fire Resistance'
+			effect: 'Fire Resistance +3'
 		},
 		lesser_protection: {
 			materials: {
@@ -374,7 +374,7 @@ const enchants = {
 				small_glimmering_shard: 1,
 			},
 			description: 'Permanently enchant a cloak to increase armor by 20.',
-			effect: 'Lesser Protection'
+			effect: 'Armor +20'
 		},
 		lesser_shadow_resistance: {
 			materials: {
@@ -382,7 +382,7 @@ const enchants = {
 				shadow_protection_potion: 1,
 			},
 			description: 'Permanently enchant a cloak so that it increases resistance to shadow by 10.',
-			effect: 'Lesser Shadow Resistance'
+			effect: 'Shadow Resistance +10'
 		},
 		minor_agility: {
 			materials: {
@@ -397,7 +397,7 @@ const enchants = {
 				greater_magic_essence: 1,
 			},
 			description: 'Enchant a cloak to provide 10 additional points of armor.',
-			effect: 'Minor Protection'
+			effect: 'Armor +10'
 		},
 		minor_resistance: {
 			materials: {
@@ -405,7 +405,7 @@ const enchants = {
 				lesser_magic_essence: 2,
 			},
 			description: 'Permanently enchant a cloak so that it increases the resistance to all schools of magic by 1.',
-			effect: 'Minor Resistance'
+			effect: 'All Resistance +1'
 		},
 		resistance: {
 			filter: "end_game",
@@ -413,7 +413,7 @@ const enchants = {
 				lesser_nether_essence: 1,
 			},
 			description: 'Permanently enchant a cloak to give 3 to all resistances.',
-			effect: 'Resistance'
+			effect: 'All Resistance +3'
 		},
 		stealth: {
 			materials: {
@@ -440,7 +440,7 @@ const enchants = {
 				illusion_dust: 8,
 			},
 			description: 'Permanently enchant a cloak to give 70 additional armor.',
-			effect: 'Superior Defense'
+			effect: 'Armor +70'
 		}
 	},
 	shield: {
@@ -451,7 +451,7 @@ const enchants = {
 				frost_oil: 1,
 			},
 			description: 'Permanently enchant a shield to give +8 Frost Resistance.',
-			effect: 'Frost Resistance'
+			effect: 'Frost Resistance +8'
 		},
 		greater_spirit: {
 			materials: {
@@ -477,7 +477,7 @@ const enchants = {
 				large_glowing_shard: 1,
 			},
 			description: 'Permanently enchant a shield to give +2% chance to block.',
-			effect: 'Lesser Block'
+			effect: '2% Block'
 		},
 		lesser_protection: {
 			materials: {
@@ -486,7 +486,7 @@ const enchants = {
 				small_glimmering_shard: 1,
 			},
 			description: 'Permanently enchant a shield to increase its armor by 30.',
-			effect: 'Lesser Protection'
+			effect: 'Armor +30'
 		},
 		lesser_spirit: {
 			materials: {
@@ -494,7 +494,7 @@ const enchants = {
 				strange_dust: 4,
 			},
 			description: 'Permanently enchant a shield to give 3 spirit.',
-			effect: 'Lesser Spirit'
+			effect: 'Spirit +3'
 		},
 		lesser_stamina: {
 			materials: {
@@ -502,7 +502,7 @@ const enchants = {
 				soul_dust: 1,
 			},
 			description: 'Permanently enchant a shield to give 3 Stamina.',
-			effect: 'Lesser Stamina'
+			effect: 'Stamina +3'
 		},
 		minor_stamina: {
 			materials: {
@@ -510,7 +510,7 @@ const enchants = {
 				strange_dust: 2,
 			},
 			description: 'Permanently enchant a shield so that it increases the Stamina of the bearer by 1.',
-			effect: 'Minor Stamina'
+			effect: 'Stamina +1'
 		},
 		spirit: {
 			materials: {
@@ -518,7 +518,7 @@ const enchants = {
 				vision_dust: 1,
 			},
 			description: 'Permanently enchant a shield to give 5 Spirit.',
-			effect: 'Spirit'
+			effect: 'Spirit +5'
 		},
 		stamina: {
 			materials: {
@@ -542,14 +542,14 @@ const enchants = {
 				soul_dust: 3,
 			},
 			description: 'Permanently enchant a piece of chest armor to give +35 health.',
-			effect: 'health +35'
+			effect: 'Health +35'
 		},
 		greater_mana: {
 			materials: {
 				greater_mystic_essence: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor to give +50 mana.',
-			effect: 'mana +50'
+			effect: 'Mana +50'
 		},
 		greater_stats: {
 			filter: "end_game",
@@ -559,7 +559,7 @@ const enchants = {
 				greater_eternal_essence: 10,
 			},
 			description: 'Permanently enchant a piece of chest armor to grant +4 to all stats.',
-			effect: 'Greater Stats'
+			effect: '+4 All Stats'
 		},
 		health: {
 			materials: {
@@ -567,7 +567,7 @@ const enchants = {
 				lesser_astral_essence: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor to increase the health of the wearer by 25.',
-			effect: 'Health'
+			effect: 'Health +25'
 		},
 		lesser_absorption: {
 			materials: {
@@ -584,7 +584,7 @@ const enchants = {
 				lesser_magic_essence: 2,
 			},
 			description: 'Permanently enchant a piece of chest armor so that it increases the health of the wearer by 15.',
-			effect: 'Lesser Health'
+			effect: 'Health +15'
 		},
 		lesser_mana: {
 			materials: {
@@ -592,7 +592,7 @@ const enchants = {
 				lesser_magic_essence: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor so that it increases the mana of the wearer by 20.',
-			effect: 'Lesser Mana'
+			effect: 'Mana +20'
 		},
 		lesser_stats: {
 			materials: {
@@ -601,7 +601,7 @@ const enchants = {
 				large_glowing_shard: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor to grant +2 to all stats.',
-			effect: 'Lesser Stats'
+			effect: '+2 All Stats'
 		},
 		major_health: {
 			filter: "end_game",
@@ -610,7 +610,7 @@ const enchants = {
 				small_brilliant_shard: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor to grant +100 health.',
-			effect: 'health +100'
+			effect: 'Health +100'
 		},
 		major_mana: {
 			filter: "end_game",
@@ -619,7 +619,7 @@ const enchants = {
 				small_brilliant_shard: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor to give +100 mana.',
-			effect: 'mana +100'
+			effect: 'Mana +100'
 		},
 		mana: {
 			materials: {
@@ -627,7 +627,7 @@ const enchants = {
 				lesser_astral_essence: 2,
 			},
 			description: 'Permanently enchant a piece of chest armor to increase the mana of the wearer by 30.',
-			effect: 'Mana'
+			effect: 'Mana +30'
 		},
 		minor_absorption: {
 			materials: {
@@ -642,14 +642,14 @@ const enchants = {
 				strange_dust: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor so that it increases the health of the wearer by 5.',
-			effect: 'Minor Health'
+			effect: 'Health +5'
 		},
 		minor_mana: {
 			materials: {
 				lesser_magic_essence: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor so that it increases the mana of the wearer by 5.',
-			effect: 'Minor Mana'
+			effect: 'Mana +5'
 		},
 		minor_stats: {
 			materials: {
@@ -658,7 +658,7 @@ const enchants = {
 				large_glimmering_shard: 1,
 			},
 			description: 'Permanently enchant a piece of chest armor to grant +1 to all stats.',
-			effect: 'Minor Stats'
+			effect: '+1 All Stats'
 		},
 		stats: {
 			materials: {
@@ -668,14 +668,14 @@ const enchants = {
 				greater_nether_essence: 2,
 			},
 			description: 'Permanently enchant a piece of chest armor to grant +3 to all stats.',
-			effect: 'Stats'
+			effect: '+3 All Stats'
 		},
 		superior_health: {
 			materials: {
 				vision_dust: 6,
 			},
 			description: 'Permanently enchant a piece of chest armor to grant +50 health.',
-			effect: 'health +50'
+			effect: 'Health +50'
 		},
 		superior_mana: {
 			materials: {
@@ -683,7 +683,7 @@ const enchants = {
 				lesser_nether_essence: 2,
 			},
 			description: 'Permanently enchant a piece of chest armor to give +65 mana.',
-			effect: 'mana +65'
+			effect: 'Mana +65'
 		}
 	},
 	gloves: {
@@ -693,7 +693,7 @@ const enchants = {
 				sungrass: 3,
 			},
 			description: 'Permanently enchant gloves to grant +5 herbalism skill.',
-			effect: 'Advanced Herbalism'
+			effect: 'Herbalism +5'
 		},
 		advanced_mining: {
 			materials: {
@@ -701,7 +701,7 @@ const enchants = {
 				truesilver_bar: 3,
 			},
 			description: 'Permanently enchant gloves to grant +5 mining skill.',
-			effect: 'Advanced Mining'
+			effect: 'Mining +5'
 		},
 		agility: {
 			materials: {
@@ -719,7 +719,7 @@ const enchants = {
 				essence_of_fire: 4,
 			},
 			description: 'Permanently enchant gloves to increase fire damage by up to 20.',
-			effect: 'Fire Power'
+			effect: 'Fire Damage +20'
 		},
 		fishing: {
 			materials: {
@@ -727,7 +727,7 @@ const enchants = {
 				blackmouth_oil: 3,
 			},
 			description: 'Permanently enchant gloves to grant +2 fishing skill.',
-			effect: 'Fishing'
+			effect: 'Fishing +2'
 		},
 		frost_power: {
 			filter: "end_game",
@@ -737,7 +737,7 @@ const enchants = {
 				essence_of_water: 4,
 			},
 			description: 'Permanently enchant gloves to increase frost damage by up to 20.',
-			effect: 'Frost Power'
+			effect: 'Frost Damage +20'
 		},
 		greater_agility: {
 			filter: "end_game",
@@ -764,8 +764,13 @@ const enchants = {
 				large_brilliant_shard: 8,
 				righteous_orb: 1,
 			},
+<<<<<<< HEAD
+			description: 'Permanently enchant gloves to increase the caster\'s healing spells by up to 30.',
+			effect: 'Healing Spells +30'
+=======
 			description: "Permanently enchant gloves to increase the caster's healing spells by up to 30.",
 			effect: 'Healing Power'
+>>>>>>> 91dfd77bc5e4ec269ee8d2185d92548cf5510507
 		},
 		herbalism: {
 			materials: {
@@ -773,7 +778,7 @@ const enchants = {
 				kingsblood: 3,
 			},
 			description: 'Permanently enchant gloves to grant +2 herbalism skill.',
-			effect: 'Herbalism'
+			effect: 'Herbalism +2'
 		},
 		mining: {
 			materials: {
@@ -781,7 +786,7 @@ const enchants = {
 				iron_ore: 3,
 			},
 			description: 'Permanently enchant gloves to grant +2 mining skill.',
-			effect: 'Mining'
+			effect: 'Mining +2'
 		},
 		minor_haste: {
 			materials: {
@@ -808,7 +813,7 @@ const enchants = {
 				essence_of_undeath: 6,
 			},
 			description: 'Permanently enchant gloves to increase shadow damage by up to 20.',
-			effect: 'Shadow Power'
+			effect: 'Shadow Damage +20'
 		},
 		skinning: {
 			materials: {
@@ -816,7 +821,7 @@ const enchants = {
 				green_whelp_scale: 3,
 			},
 			description: 'Permanently enchant gloves to grant +5 skinning skill.',
-			effect: 'Skinning'
+			effect: 'Skinning +5'
 		},
 		strength: {
 			materials: {
@@ -834,7 +839,7 @@ const enchants = {
 				essence_of_air: 4,
 			},
 			description: 'Permanently enchant gloves to increase agility by 15.',
-			effect: 'Superior Agility'
+			effect: 'Agility +15'
 		},
 		threat: {
 			filter: "end_game",
@@ -844,7 +849,7 @@ const enchants = {
 				larval_acid: 8,
 			},
 			description: 'Permanently enchant gloves to increase threat from all attacks and spells by 2%.',
-			effect: 'Threat'
+			effect: '2% Threat'
 		}
 	},
 	weapon: {
@@ -891,7 +896,7 @@ const enchants = {
 				greater_nether_essence: 2,
 			},
 			description: 'Permanently enchant a Melee Weapon to do 4 additional points of damage.',
-			effect: 'Greater Striking'
+			effect: '+4 Damage'
 		},
 		icy_chill: {
 			filter: "end_game",
@@ -902,7 +907,7 @@ const enchants = {
 				icecap: 1,
 			},
 			description: 'Permanently enchant a melee weapon to often chill the target reducing their movement and attack speed.',
-			effect: 'Icy'
+			effect: 'Icy Chill'
 		},
 		lesser_beastslayer: {
 			materials: {
@@ -974,7 +979,7 @@ const enchants = {
 				small_glimmering_shard: 1,
 			},
 			description: 'Permanently enchant a Melee Weapon to do 1 additional point of damage.',
-			effect: 'Minor Striking'
+			effect: '+1 Damage'
 		},
 		strength: {
 			filter: "end_game",
@@ -1020,12 +1025,11 @@ const enchants = {
 				wintersbite: 2,
 			},
 			description: 'Permanently enchant a weapon to grant up to 7 additional frost damage when casting frost spells.',
-			effect: "Frost Spell Damage +7"
-		}
-	},
-	weapon_2h: {
-		agility: {
+			effect: "Frost Damage +7"
+		},
+		agility_2h: {
 			filter: "end_game",
+			two_handed: true,
 			materials: {
 				large_brilliant_shard: 10,
 				greater_eternal_essence: 6,
@@ -1036,14 +1040,16 @@ const enchants = {
 			effect: 'Agility +25'
 		},
 		greater_impact: {
+			two_handed: true,
 			materials: {
 				large_radiant_shard: 2,
 				dream_dust: 2,
 			},
 			description: 'Permanently enchant a two-handed melee weapon to do +7 damage.',
-			effect: 'Weapon Damage +7'
+			effect: '+7 Damage'
 		},
 		impact: {
+			two_handed: true,
 			materials: {
 				vision_dust: 4,
 				large_glowing_shard: 1,
@@ -1052,6 +1058,7 @@ const enchants = {
 			effect: '+5 Damage'
 		},
 		lesser_impact: {
+			two_handed: true,
 			materials: {
 				soul_dust: 3,
 				large_glimmering_shard: 1,
@@ -1060,21 +1067,24 @@ const enchants = {
 			effect: '+3 Damage'
 		},
 		lesser_intellect: {
+			two_handed: true,
 			materials: {
 				greater_magic_essence: 3,
 			},
 			description: 'Permanently enchant a Two-Handed Melee Weapon to add 3 to intellect.',
-			effect: '+3 Intellect'
+			effect: 'Intellect +3'
 		},
 		lesser_spirit: {
+			two_handed: true,
 			materials: {
 				lesser_astral_essence: 1,
 				strange_dust: 6,
 			},
 			description: 'Permanently enchant a Two-Handed Melee Weapon to add 3 to Spirit.',
-			effect: '+3 Spirit'
+			effect: 'Spirit +3'
 		},
 		major_intellect: {
+			two_handed: true,
 			filter: "end_game",
 			materials: {
 				greater_eternal_essence: 12,
@@ -1084,6 +1094,7 @@ const enchants = {
 			effect: 'Intellect +9'
 		},
 		major_spirit: {
+			two_handed: true,
 			filter: "end_game",
 			materials: {
 				greater_eternal_essence: 12,
@@ -1093,23 +1104,26 @@ const enchants = {
 			effect: 'Spirit +9'
 		},
 		minor_impact: {
+			two_handed: true,
 			materials: {
 				strange_dust: 4,
 				small_glimmering_shard: 1,
 			},
 			description: 'Permanently enchant a Two-Handed Melee Weapon to do 2 additional points of damage.',
-			effect: 'Weapon Damage +9'
+			effect: 'Damage +2'
 		},
 		superior_impact: {
+			two_handed: true,
 			filter: "end_game",
 			materials: {
 				large_brilliant_shard: 4,
 				illusion_dust: 10,
 			},
 			description: 'Permanently enchant a two-handed melee weapon to do +9 damage.',
-			effect: 'Weapon Damage +9'
+			effect: 'Damage +9'
 		}
 	},
+
 	head: {
 
 		arcanum_of_focus: {
@@ -1167,7 +1181,7 @@ const enchants = {
 		lesser_arcanum_of_resilience: {
 			filter: "end_game",
 			name: 'Arcanum of Resilience',
-			effect: '+20 Fire Res',
+			effect: '+20 Fire Resistance',
 			materials: {
 				black_diamond: 1,
 				crystal_spire: 4,
@@ -1235,7 +1249,7 @@ const enchants = {
 		lesser_arcanum_of_resilience: {
 			filter: "end_game",
 			name: 'Arcanum of Resilience',
-			effect: '+20 Fire Res',
+			effect: '+20 Fire Resistance',
 			materials: {
 				black_diamond: 1,
 				crystal_spire: 4,

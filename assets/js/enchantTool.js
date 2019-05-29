@@ -82,12 +82,17 @@ function getenchantData(dataObject, dataKeys, slot) {
             text: utilities.titleCase(dataKeys[i]) + " : " + dataObject[dataKeys[i]].effect,
         }).on({
             click: e => {
+                let mod = false
                 $('.enchantOption').removeClass('focus')
                 const clickedEnchant = $(e.target)
                 clickedEnchant.addClass('focus')
+                let text = slot.toUpperCase() + " : " +dataObject[dataKeys[i]].effect
+                if (dataObject[dataKeys[i]].two_handed === true) {
+                    text = "[2H] " + slot.toUpperCase() + " : " +dataObject[dataKeys[i]].effect
+                }
                 $('<div/>', {
                     class: 'enchantInfo',
-                    text: slot.toUpperCase() + " : " + dataObject[dataKeys[i]].effect,
+                    text: text
                 }).prepend($('<button/>', {
                     class: 'delete',
                     enchantData: dataKeys[i],
