@@ -30,7 +30,6 @@ const utilities = {
 		} else {
 			left = Math.round(element.offset().left) + element.width() + 5
 		}
-
 		if (yCoeff < 30) {
 			top = Math.max(header.position().top, classSelection.position().top) + 35
 			let percDiff = Math.round((1 - top/element.offset().top)*100)
