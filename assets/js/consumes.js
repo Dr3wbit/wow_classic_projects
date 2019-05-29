@@ -257,6 +257,7 @@ const consumes = [
                             deeprock_salt: 0.2,
                             chimaerok_tenderloin: 0.2,
                         },
+                        step: 5
                     },
                 ],
             },
