@@ -496,7 +496,7 @@ ul {
 
 
 .unique, .bop, .requiredLevel, .rank {
-    font-size: 95%;
+    font-size: 100%;
     color: rgba(240,255,255,0.95);
     white-space: pre;
 }
