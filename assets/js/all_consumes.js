@@ -9,7 +9,7 @@ const allConsumes = {
 			dreamfoil: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	swiftness_potion: {
 		url: 'https://classic.wowhead.com/item=2459',
@@ -21,7 +21,7 @@ const allConsumes = {
 			briarthorn: 1,
 			empty_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	lesser_invisibility_potion: {
 		url: 'https://classic.wowhead.com/item=3823',
@@ -33,7 +33,7 @@ const allConsumes = {
 			wild_steelbloom: 1,
 			leaded_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	dense_weightstone: {
 		url: 'https://classic.wowhead.com/item=12643',
@@ -44,7 +44,7 @@ const allConsumes = {
 			dense_stone: 1,
 			runecloth: 1,
 		},
-		profession: 'blacksmithing',
+		category: 'blacksmithing',
 	},
 	grilled_squid: {
 		url: 'https://classic.wowhead.com/item=13928',
@@ -55,7 +55,7 @@ const allConsumes = {
 			winter_squid: 1,
 			soothing_spices: 1,
 		},
-		profession: 'cooking',
+		category: 'cooking',
 	},
 	greater_frost_protection_potion: {
 		url: 'https://classic.wowhead.com/item=13456',
@@ -67,7 +67,7 @@ const allConsumes = {
 			dreamfoil: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	elixir_of_frost_power: {
 		url: 'https://classic.wowhead.com/item=17708',
@@ -79,12 +79,12 @@ const allConsumes = {
 			khadgars_whisker: 1,
 			leaded_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	juju_flurry: {
 		use: "Increases the target's attack speed by 3% for 20 sec. (1 Min Cooldown)",
 		bop: true,
-        profession: 'quest',
+        category: 'quest',
         materials: {
             frostsaber_eko: 1
         },
@@ -100,7 +100,7 @@ const allConsumes = {
 			dreamfoil: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	greater_nature_protection_potion: {
 		url: 'https://classic.wowhead.com/item=13458',
@@ -112,7 +112,7 @@ const allConsumes = {
 			dreamfoil: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	invisibility_potion: {
 		url: 'https://classic.wowhead.com/item=9172',
@@ -124,7 +124,7 @@ const allConsumes = {
 			sungrass: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	elixir_of_fortitude: {
 		url: 'https://classic.wowhead.com/item=3825',
@@ -136,7 +136,7 @@ const allConsumes = {
 			goldthorn: 1,
 			leaded_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	flask_of_supreme_power: {
 		url: 'https://classic.wowhead.com/item=13512',
@@ -149,7 +149,7 @@ const allConsumes = {
 			black_lotus: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	major_healing_potion: {
 		url: 'https://classic.wowhead.com/item=13446',
@@ -161,7 +161,7 @@ const allConsumes = {
 			mountain_silversage: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	smoked_desert_dumplings: {
 		url: 'https://classic.wowhead.com/item=20452',
@@ -172,7 +172,7 @@ const allConsumes = {
 			sandworm_meat: 1,
 			soothing_spices: 1,
 		},
-		profession: 'cooking',
+		category: 'cooking',
 	},
 	oil_of_immolation: {
 		url: 'https://classic.wowhead.com/item=8956',
@@ -184,7 +184,7 @@ const allConsumes = {
 			goldthorn: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	mighty_rage_potion: {
 		url: 'https://classic.wowhead.com/item=13442',
@@ -195,7 +195,7 @@ const allConsumes = {
 			gromsblood: 3,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	elixir_of_the_mongoose: {
 		url: 'https://classic.wowhead.com/item=13452',
@@ -207,12 +207,12 @@ const allConsumes = {
 			plaguebloom: 2,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	juju_might: {
 		use: 'Increases attack power by 40 for 10 min. (1 Min Cooldown)',
 		bop: true,
-        profession: 'quest',
+        category: 'quest',
         materials: {
             frostmaul_eko: 1
         },
@@ -231,7 +231,7 @@ const allConsumes = {
 			goblin_rocket_fuel: 2,
 			unstable_trigger: 1,
 		},
-		profession: 'engineering',
+		category: 'engineering',
 	},
 	nightfin_soup: {
 		url: 'https://classic.wowhead.com/item=13931',
@@ -242,7 +242,7 @@ const allConsumes = {
 			raw_nightfin_snapper: 1,
 			refreshing_spring_water: 1,
 		},
-		profession: 'cooking',
+		category: 'cooking',
 	},
 	flask_of_the_titans: {
 		url: 'https://classic.wowhead.com/item=13510',
@@ -255,7 +255,7 @@ const allConsumes = {
 			black_lotus: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	arcane_bomb: {
 		url: 'https://classic.wowhead.com/item=16040',
@@ -267,7 +267,7 @@ const allConsumes = {
 			thorium_bar: 3,
 			runecloth: 1,
 		},
-		profession: 'engineering',
+		category: 'engineering',
 	},
 	dense_sharpening_stone: {
 		url: 'https://classic.wowhead.com/item=12404',
@@ -277,7 +277,7 @@ const allConsumes = {
 		materials: {
 			dense_stone: 1,
 		},
-		profession: 'blacksmithing',
+		category: 'blacksmithing',
 	},
 	elixir_of_superior_defense: {
 		url: 'https://classic.wowhead.com/item=13445',
@@ -289,7 +289,7 @@ const allConsumes = {
 			sungrass: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	major_rejuvenation_potion: {
 		url: 'https://classic.wowhead.com/item=18253',
@@ -302,7 +302,7 @@ const allConsumes = {
 			dreamfoil: 4,
 			imbued_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	greater_shadow_protection_potion: {
 		url: 'https://classic.wowhead.com/item=13459',
@@ -314,12 +314,12 @@ const allConsumes = {
 			dreamfoil: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	juju_power: {
 		use: "Increases the target's Strength by 30 for 30 min. (1 Min Cooldown)",
 		bop: true,
-        profession: 'quest',
+        category: 'quest',
         materials: {
             winterfall_eko: 1
         },
@@ -334,12 +334,12 @@ const allConsumes = {
 			ghost_mushroom: 3,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	dirges_kickin_chimaerok_chops: {
 		req: 55,
 		use: 'Restores 2550 health over 30 sec.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain 25 Stamina for 15 min.',
-        profession: 'cooking',
+        category: 'cooking',
         name: "Dirge’s Kickin’ Chimaerok Chops",
 		materials: {
 			hot_spices: 0.2,
@@ -360,7 +360,7 @@ const allConsumes = {
 			black_lotus: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	dense_dynamite: {
 		use: 'Inflicts 340 to 460 Fire damage in a 5 yard radius. (1 Min Cooldown)',
@@ -369,7 +369,7 @@ const allConsumes = {
 			dense_blasting_powder: 1,
 			runecloth: 1.5,
 		},
-        profession: 'engineering',
+        category: 'engineering',
         step: 2
 	},
 	greater_arcane_elixir: {
@@ -382,7 +382,7 @@ const allConsumes = {
 			mountain_silversage: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	heavy_runecloth_bandage: {
 		url: 'https://classic.wowhead.com/item=14530',
@@ -392,7 +392,7 @@ const allConsumes = {
 		materials: {
 			runecloth: 2,
 		},
-		profession: 'first aid',
+		category: 'first aid',
 	},
 	greater_stoneshield_potion: {
 		url: 'https://classic.wowhead.com/item=13455',
@@ -404,7 +404,7 @@ const allConsumes = {
             crystal_vial: 1,
 			thorium_ore: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	elemental_sharpening_stone: {
 		url: 'https://classic.wowhead.com/item=18262',
@@ -415,7 +415,7 @@ const allConsumes = {
 			elemental_earth: 2,
 			dense_stone: 3,
 		},
-		profession: 'blacksmithing',
+		category: 'blacksmithing',
 	},
 	sagefish_delight: {
 		url: 'https://classic.wowhead.com/item=21217',
@@ -425,7 +425,7 @@ const allConsumes = {
 			raw_greater_sagefish: 1,
             hot_spices: 1,
 		},
-		profession: 'cooking',
+		category: 'cooking',
 		rarity: 'common',
 	},
 	cerebral_cortex_compound: {
@@ -450,7 +450,7 @@ const allConsumes = {
 			heart_of_the_wild: 2,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	restorative_potion: {
 		url: 'https://classic.wowhead.com/item=9030',
@@ -462,7 +462,7 @@ const allConsumes = {
 			goldthorn: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	limited_invulnerability_potion: {
 		url: 'https://classic.wowhead.com/item=3387',
@@ -474,14 +474,14 @@ const allConsumes = {
 			ghost_mushroom: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	ground_scorpok_assay: {
 		url: 'https://classic.wowhead.com/item=8412',
 		unique: true,
 		use: 'Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
 		rarity: 'common',
-        profession: 'quest',
+        category: 'quest',
 		materials: {
 			scorpok_pincer: 3,
 			vulture_gizzard: 2,
@@ -498,7 +498,7 @@ const allConsumes = {
 			plaguebloom: 2,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	major_mana_potion: {
 		url: 'https://classic.wowhead.com/item=13444',
@@ -510,7 +510,7 @@ const allConsumes = {
 			icecap: 2,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	runn_tum_tuber_surprise: {
 		url: 'https://classic.wowhead.com/item=18254',
@@ -521,7 +521,7 @@ const allConsumes = {
 			runn_tum_tuber: 1,
 			soothing_spices: 1,
 		},
-		profession: 'cooking',
+		category: 'cooking',
 	},
 	thorium_grenade: {
 		url: 'https://classic.wowhead.com/item=15993',
@@ -534,7 +534,7 @@ const allConsumes = {
 			dense_blasting_powder: 1,
 			runecloth: 1,
 		},
-		profession: 'engineering',
+		category: 'engineering',
         step: 3
 	},
 	iron_grenade: {
@@ -547,7 +547,7 @@ const allConsumes = {
 			heavy_blasting_powder: 0.34,
 			silk_cloth: 0.34,
 		},
-		profession: 'engineering',
+		category: 'engineering',
         step: 3
 	},
 	free_action_potion: {
@@ -560,7 +560,7 @@ const allConsumes = {
 			stranglekelp: 1,
 			leaded_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	goblin_sapper_charge: {
 		url: 'https://classic.wowhead.com/item=10646',
@@ -572,7 +572,7 @@ const allConsumes = {
 			solid_blasting_powder: 3,
 			unstable_trigger: 1,
 		},
-		profession: 'engineering',
+		category: 'engineering',
 	},
 	elixir_of_the_giants: {},
 	blinding_powder: {
@@ -596,7 +596,7 @@ const allConsumes = {
 			kingsblood: 1,
 			leaded_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	elixir_of_greater_firepower: {
 		url: 'https://classic.wowhead.com/item=21546',
@@ -608,7 +608,7 @@ const allConsumes = {
 			firebloom: 3,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	arcane_elixir: {
 		url: 'https://classic.wowhead.com/item=9155',
@@ -620,12 +620,12 @@ const allConsumes = {
 			goldthorn: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	juju_ember: {
 		use: 'Increases Fire resistance by 15 for 10 min. (1 Min Cooldown)',
 		bop: true,
-        profession: 'quest',
+        category: 'quest',
         materials: {
             shardtooth_eko: 1
         },
@@ -635,7 +635,7 @@ const allConsumes = {
 		use: 'Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (1 Hour Cooldown)',
 		bop: true,
 		description: 'Robust Operational Imbue Derived From Snickerfang',
-        profession: 'quest',
+        category: 'quest',
         name: "R.O.I.D.S.",
         materials: {
             snickerfang_jowl: 3,
@@ -653,7 +653,7 @@ const allConsumes = {
 			mystery_meat: 1,
 			small_flame_sac: 1,
 		},
-		profession: 'cooking',
+		category: 'cooking',
 	},
 	brilliant_mana_oil: {
 		url: 'https://classic.wowhead.com/item=20748',
@@ -666,7 +666,7 @@ const allConsumes = {
 			purple_lotus: 3,
 			imbued_vial: 1,
 		},
-		profession: 'enchanting',
+		category: 'enchanting',
 	},
 	gift_of_arthas: {
 		url: 'https://classic.wowhead.com/item=9088',
@@ -678,7 +678,7 @@ const allConsumes = {
 			blindweed: 1,
 			crystal_vial: 1,
 		},
-		profession: 'alchemy',
+		category: 'alchemy',
 	},
 	major_trolls_blood_potion: {
         req: 53,
@@ -689,7 +689,7 @@ const allConsumes = {
             plaguebloom: 2,
             crystal_vial: 1
         },
-        profession: 'alchemy',
+        category: 'alchemy',
         name: "Major Troll's Blood Potion"
     },
 	blessed_sunfruit: {
@@ -699,9 +699,9 @@ const allConsumes = {
 		use: 'Restores 1933.2 health over 27 sec. Must remain seated while eating. Also increases your Strength by 10 for 10 min.',
 		rarity: 'common',
 		materials: {
-			gold: 1,
+			gold: 1
 		},
-        profession: 'vendor',
+        category: 'vendor',
 		step: 5
 	},
 	monster_omelete: {
@@ -711,7 +711,7 @@ const allConsumes = {
             giant_egg: 1,
             soothing_spices: 2,
         },
-        profession: 'cooking',
+        category: 'cooking',
     },
 	spiced_chili_crab: {
 		url: 'https://classic.wowhead.com/item=12216',
@@ -721,12 +721,12 @@ const allConsumes = {
 			tender_crab_meat: 1,
 			hot_spices: 2,
 		},
-		profession: 'cooking',
+		category: 'cooking',
 	},
 	juju_escape: {
 		rarity: 'common',
         bop: true,
-        profession: 'quest',
+        category: 'quest',
         materials: {
             ice_thistle_eko: 1
         },
@@ -735,11 +735,18 @@ const allConsumes = {
 	juju_chill: {
 		rarity: 'common',
         bop: true,
-        profession: 'quest',
+        category: 'quest',
         use: "Increase Frost resistance by 15 for 10 min. (1 Min Cooldown)",
         materials: {
             chillwind_eko: 1,
         },
         step: 3
 	},
+    winterfall_firewater: {
+        req: 45,
+        rarity: 'common',
+        category: 'drop',
+        materials: {},
+        use: "Increases your melee attack power by 35 and size for 20 min. (cooldown 1 min)",
+    }
 }
