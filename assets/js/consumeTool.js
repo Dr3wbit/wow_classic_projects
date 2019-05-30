@@ -177,6 +177,7 @@ function getMaterials(data) {
 			materials.push({name:name, data:consumeObject, amount:inputValue})
 		}
 	})
+	console.log('consumables: ', materials)
 	appendMaterials(materials)
 }
 
@@ -277,93 +278,185 @@ function materialsTooltip() {
     })
 }
 
+
 function appendMaterials(consumables) {
 
 	let totalMaterialCount = {}
-	consumables.forEach(function(item) {
-		if (!(item.amount > 0)) {
-			return
-		} else {
-			let materialsListParent
+	consumables.forEach(function(consume) {
+		let consumeItemElement = $(`#${consume.name}`)
+		if (consumeItemElement.length) {
+			consumeItemElement.find($('span.amount')).text(` [${consume.amount}]`)
 
-			let consumeItemElement =  $(`div.consumes-list-item[name='${item.name}']`)
-
-			if (consumeItemElement.length) {
-				consumeItemElement.find($('span.amount')).text(`[${item.amount}]`)
-				materialsListParent = $(`#${item.name}_collapse`)
-
-				for (let [name, value] of Object.entries(item.data.materials)) {
-					if (!(totalMaterialCount[name])) {
-						totalMaterialCount[name] = Math.round(value*item.amount)
-					} else {
-						totalMaterialCount[name] = Math.round((totalMaterialCount[name]+value)*item.amount)
-					}
-					$(`.materials-list-item[name='${item.name}_${name}']`).find($("span.amount")).text(` [${totalMaterialCount[name]}]`)
-				}
-			} else {
-				let consumeName = (item.data.name) ? item.data.name : utilities.titleCase(item.name)
-
-				let consumeCollapseLink = $('<a/>', {
-					href: `#${item.name}_collapse`,
-					role: 'button'
-				})
-				consumeCollapseLink.attr("data-toggle", "collapse")
-				let consumeElement = $('<div/>', {
-					class: "consumes-list-item",
-					name: `${item.name}`
-					})
-					.append(consumeCollapseLink
-						.append($('<span/>', {
-							class:`${item.data.rarity} plus`,
-							text: "+",
-							})).append($('<span/>', {
-							class:`${item.data.rarity}`,
-							text: ` ${consumeName}`,
-							})).append($('<span/>', {
-							class:`${item.data.rarity} amount`,
-							text: ` [${item.amount}]`,
-						}))
-				)
-				let materialsListParent = $('<div/>', {
-					class: 'materials-list collapse',
-					id: `${item.name}_collapse`,
-				})
-				consumeElement.append(materialsListParent)
-				for (let [name, value] of Object.entries(item.data.materials)) {
-					let matObject = allMaterials[name]
-					let category = matObject.category
-					let rarity = matObject.rarity
-					let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
-					let imageName = (properName.endsWith("E'ko")) ? "eko" : name
-
-					if (!(totalMaterialCount[name])) {
-						totalMaterialCount[name] = Math.round(value*item.amount)
-					} else {
-						totalMaterialCount[name] = Math.round((totalMaterialCount[name]+value)*item.amount)
-					}
-					let materialsListItemElement = $('<div/>', {
-						class: 'materials-list-item',
-						name: `${item.name}_${name}`
-					}).append($('<img/>', {
-			            class: 'icon-small',
-			            src: "assets/images/icons/small/icon_border.png",
-			            style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
-			        })).append($('<span/>', {
-			            text: `${properName}`,
-			            class: `materials-name ${rarity}`,
-			        })).append($('<span/>', {
-			            text: ` [${totalMaterialCount[name]}]`,
-			            class: 'amount',
-			        }))
-					materialsListParent.append(materialsListItemElement)
-				}
-				consumeElement.append(materialsListParent)
-				$('#results').append(consumeElement)
+			for (let [name, matsPer] of Object.entries(consume.data.materials)) {
+				totalMaterialCount[name] = (!(totalMaterialCount[name])) ? Math.round(matsPer * consume.amount) : Math.round((matsPer * consume.amount) + totalMaterialCount[name])
+				console.log(totalMaterialCount)
+				$(`.materials-list-item[name='${consume.name}_${name}']`).find($("span.amount")).text(` [${Math.round(matsPer * consume.amount)}]`)
 			}
+		} else {
+			let consumeName = (consume.data.name) ? consume.data.name : utilities.titleCase(consume.name)
+			let consumeCollapseLink = $('<a/>', {
+				href: `#${consume.name}_collapse`,
+				role: 'button'
+			})
+			consumeCollapseLink.attr("data-toggle", "collapse")
+			let consumeElement = $('<div/>', {
+				class: "consumes-list-item",
+				id: `${consume.name}`
+				})
+				.append(consumeCollapseLink
+					.append($('<span/>', {
+						class:`${consume.data.rarity} plus`,
+						text: "+",
+						})).append($('<span/>', {
+						class:`${consume.data.rarity}`,
+						text: ` ${consumeName}`,
+						})).append($('<span/>', {
+						class:`${consume.data.rarity} amount`,
+						text: ` [${consume.amount}]`,
+					}))
+			)
+			materialsListParent = $('<div/>', {
+				class: 'materials-list collapse',
+				id: `${consume.name}_collapse`,
+			})
+			consumeElement.append(materialsListParent)
+
+
+
+			for (let [name, matsPer] of Object.entries(consume.data.materials)) {
+				let matObject = allMaterials[name]
+				let category = matObject.category
+				let rarity = matObject.rarity
+				let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
+				let imageName = (properName.endsWith("E'ko")) ? "eko" : name
+
+				if (!(totalMaterialCount[name])) {
+					totalMaterialCount[name] = Math.round(matsPer * consume.amount)
+				} else {
+					totalMaterialCount[name] = Math.round((matsPer * consume.amount) + totalMaterialCount[name])
+				}
+				let materialsListItemElement = $('<div/>', {
+					class: 'materials-list-item',
+					name: `${consume.name}_${name}`
+				}).append($('<img/>', {
+					class: 'icon-small',
+					src: "assets/images/icons/small/icon_border.png",
+					style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
+				})).append($('<span/>', {
+					text: `${properName}`,
+					class: `materials-name ${rarity}`,
+				})).append($('<span/>', {
+					text: ` [${Math.round(matsPer * consume.amount)}]`,
+					class: 'amount',
+				}))
+				materialsListParent.append(materialsListItemElement)
+			}
+			consumeElement.append(materialsListParent)
+			$('#results').append(consumeElement)
+
 		}
 	})
 	calculateTotals(totalMaterialCount)
 }
+
+//
+// 	//old
+// 	let totalMaterialCount = {}
+//
+// 	consumables.forEach(function(item) {
+// 		if (!(item.amount > 0)) {
+// 			return
+// 		} else {
+// 			let materialsListParent
+// 			console.log('item.name: ', item.name, ' item.amount: ', item.amount)
+// 			let consumeItemElement = $(`#${item.name}`)
+// 			// let consumeItemElement =  $(`div.consumes-list-item[name='${item.name}']`)
+//
+// 			if (consumeItemElement.length) {
+// 				consumeItemElement.find($('span.amount')).text(`[${item.amount}]`)
+// 				// materialsListParent = $(`#${item.name}_collapse`)
+//
+// 				for (let [name, value] of Object.entries(item.data.materials)) {
+// 					if (!(totalMaterialCount[name])) {
+// 						totalMaterialCount[name] = Math.round(value*item.amount)
+// 					} else {
+// 						totalMaterialCount[name] = Math.round((totalMaterialCount[name]+value)*item.amount)
+// 					}
+//
+// 					console.log('name: ', name, ' value: ', value)
+//
+// 					// let totalMaterialCount[name] = (!(totalMaterialCount[name])) ? Math.round(value*item.amount) : Math.round((totalMaterialCount[name]+value)*item.amount)
+//
+// 					// console.log(`totalMaterialCount[${name}]: `, totalMaterialCount[name])
+// 					// console.log("totalMaterialCount: ", totalMaterialCount)
+//
+// 					$(`.materials-list-item[name='${item.name}_${name}']`).find($("span.amount")).text(` [${totalMaterialCount[name]}]`)
+// 				}
+// 			}
+// 			else {
+// 				let consumeName = (item.data.name) ? item.data.name : utilities.titleCase(item.name)
+//
+// 				let consumeCollapseLink = $('<a/>', {
+// 					href: `#${item.name}_collapse`,
+// 					role: 'button'
+// 				})
+// 				consumeCollapseLink.attr("data-toggle", "collapse")
+// 				let consumeElement = $('<div/>', {
+// 					class: "consumes-list-item",
+// 					id: `${item.name}`
+// 					})
+// 					.append(consumeCollapseLink
+// 						.append($('<span/>', {
+// 							class:`${item.data.rarity} plus`,
+// 							text: "+",
+// 							})).append($('<span/>', {
+// 							class:`${item.data.rarity}`,
+// 							text: ` ${consumeName}`,
+// 							})).append($('<span/>', {
+// 							class:`${item.data.rarity} amount`,
+// 							text: ` [${item.amount}]`,
+// 						}))
+// 				)
+// 				materialsListParent = $('<div/>', {
+// 					class: 'materials-list collapse',
+// 					id: `${item.name}_collapse`,
+// 				})
+// 				consumeElement.append(materialsListParent)
+// 				for (let [name, value] of Object.entries(item.data.materials)) {
+// 					let matObject = allMaterials[name]
+// 					let category = matObject.category
+// 					let rarity = matObject.rarity
+// 					let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
+// 					let imageName = (properName.endsWith("E'ko")) ? "eko" : name
+//
+// 					if (!(totalMaterialCount[name])) {
+// 						totalMaterialCount[name] = Math.round(value * item.amount)
+// 					} else {
+// 						totalMaterialCount[name] = Math.round((totalMaterialCount[name]+value)*item.amount)
+// 					}
+// 					let materialsListItemElement = $('<div/>', {
+// 						class: 'materials-list-item',
+// 						name: `${item.name}_${name}`
+// 					}).append($('<img/>', {
+// 			            class: 'icon-small',
+// 			            src: "assets/images/icons/small/icon_border.png",
+// 			            style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
+// 			        })).append($('<span/>', {
+// 			            text: `${properName}`,
+// 			            class: `materials-name ${rarity}`,
+// 			        })).append($('<span/>', {
+// 			            text: ` [${totalMaterialCount[name]}]`,
+// 			            class: 'amount',
+// 			        }))
+// 					materialsListParent.append(materialsListItemElement)
+// 				}
+// 				consumeElement.append(materialsListParent)
+// 				$('#results').append(consumeElement)
+// 			}
+// 		}
+// 	})
+// 	calculateTotals(totalMaterialCount)
+// }
 
 
 
