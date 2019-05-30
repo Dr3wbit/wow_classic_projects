@@ -136,8 +136,7 @@ input:focus {
     margin-bottom: 10px;
     color: azure;
     width: 253px;
-    display: inline-block
-    pointer-events: auto;
+    display: inline-block;
 }
 
 .totalTitle {
@@ -150,4 +149,19 @@ input:focus {
     border-radius: 5px;
     border: 1px black solid;
     color: azure;
+}
+
+.consumes-list-item a{
+    pointer-events: auto;
+}
+
+.consumes-list-item a:hover{
+    pointer-events: auto;
+    color: inherit;
+}
+
+span.plus {
+    text-decoration: bold;
+    font-size: 15px;
+    color: rgba(240, 255, 255, 0.95);
 }
