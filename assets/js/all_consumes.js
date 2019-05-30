@@ -408,7 +408,7 @@ const allConsumes = {
 	},
 	elemental_sharpening_stone: {
 		url: 'https://classic.wowhead.com/item=18262',
-		rarity: 'common',
+		rarity: 'uncommon',
 		req: 50,
 		use: 'Increase critical chance on a melee weapon by 2% for 30 minutes.',
 		materials: {

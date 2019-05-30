@@ -263,10 +263,20 @@ function appendMaterials(consumables) {
 			return
 		} else {
 			let consumeName = (item.data.name) ? item.data.name : utilities.titleCase(item.name)
-			let resultConsume = $('<div/>', {
-				class: `consumes-list-item ${item.data.rarity}`,
-				text: consumeName+ ` [${item.amount}]`,
+			let resultConsume = $('<button/>', {
+				class: `consumes-list-item ${item.data.rarity} btn btn-link collapse show`,
+				text: `(+) ${consumeName}  [${item.amount}]`,
+				type: 'button',
+				name: item.name
 			})
+			resultConsume.attr("data-toggle", "collapse")
+			// .append($('<button/>', {
+			// 	text: `(+) ${consumeName}  [${item.amount}]`,
+			// 	class: `btn btn-link ${item.data.rarity}`,
+			// 	type: 'button',
+			// 	data: {"toggle": "collapse"},
+			// }))
+
 			let materialsToAppend = []
 			for (let [name, value] of Object.entries(item.data.materials)) {
 				let matObject = allMaterials[name]
@@ -293,6 +303,7 @@ function appendMaterials(consumables) {
 		            text: ` [${totalMaterialCount[name]}]`,
 		            class: 'amount',
 		        }))
+				resultMaterials.attr("data-parent", item.name)
 				materialsToAppend.push(resultMaterials)
 			}
 			resultConsume.append(materialsToAppend)
@@ -301,6 +312,14 @@ function appendMaterials(consumables) {
 		}
 	})
 	calculateTotals(totalMaterialCount)
+}
+
+function collapseConsume() {
+	$(".consumes-list-item").on({
+		mousedown: e => {
+			$(e.target).collapse()
+		}
+	})
 }
 
 function calculateTotals(totals) {
