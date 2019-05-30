@@ -10,7 +10,7 @@ function initializeApp() {
 function applyClickHandlers() {
 	const defaultSelection = $('#warrior')
 	defaultSelection.addClass('selected')
-	populateData(context.classes[0]);
+	handlebarsPopulateData(context.classes[0]);
 	const classMarker = $('<div/>', {
 		class: 'classMarker',
 	})
@@ -30,7 +30,7 @@ function applyClickHandlers() {
 			const selectedClass = context.classes.find(function (a) {
 				return a.name == clickedID;
 			});
-			populateData(selectedClass);
+			handlebarsPopulateData(selectedClass);
 			$('html, body').animate({
 				scrollTop: 94.5
 			}, 800, function () { 
@@ -67,12 +67,12 @@ function scrollSpyOffset() {
 
 function updateBackground(){
 	$(window).on('activate.bs.scrollspy', function () {
-				$('.list-group-item').parent().removeClass('selected')
-				$('.active').parent().addClass('selected')
+		$('.list-group-item').parent().removeClass('selected')
+		$('.active').parent().addClass('selected')
 	});
 }
 
-function populateData(data) {
+function handlebarsPopulateData(data) {
 	let template = $('#specAndGuides-block-template').html();
 	let templateScript = Handlebars.compile(template);
 

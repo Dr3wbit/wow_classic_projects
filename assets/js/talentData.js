@@ -1,5 +1,6 @@
 const talentData = {
-	classes: [{
+	classes: [
+		{
 			name: 'warlock',
 			tree_talents: [{
 					name: 'Affliction',
