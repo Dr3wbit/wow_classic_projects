@@ -28,12 +28,10 @@ Object.values(translationTable).forEach(function (item, index) {
 	reversedTable[item] = repl
 })
 
-$(document).ready(function () {
-	initializeApp()
-})
+$(document).ready(initializeApp)
 
 function initializeApp() {
-	console.log('init')
+	//console.log('init')
 
 	applyClickHandlers()
 	updateSavedSpecs()
@@ -132,7 +130,6 @@ function specChoiceRadios(){
 	})
 }
 
-
 function exportSpec() {
 	$("#export").on({
 		click: e => {
@@ -180,9 +177,7 @@ function exportSpec() {
 			$('#export').popover('enable')
 		},
 	})
-
 }
-
 
 function resetTree() {
 	$('.resetTree').on({
@@ -291,8 +286,6 @@ function getSpecName() {
 	})
 }
 
-
-
 function checkForSavedSpecs() {
 	let existingSpecs = localStorage.getItem('savedSpecs');
 	if (existingSpecs) {
@@ -395,8 +388,7 @@ function sideNav(){
 	})
 }
 
-
-function populateTables(reset = false) {
+function handlebarsPopulateTables(reset = false) {
 	//Retrieve the template data from the HTML
 	let template = $('#talentTree-block-template').html();
 	//Compile the template data into a function
@@ -658,7 +650,7 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 
 	classData = { trees: finalData }
 
-	populateTables(reset)
+	handlebarsPopulateTables(reset)
 
 	if (reset) {
 		resetAll()
@@ -681,7 +673,6 @@ function buildClassData(e = null, cl = '', hash = '', reset = false) {
 
 	updateTalentHeader() //function call needed here for switching to different class
 }
-
 
 function mapTalentsToTableData(trees, tal_arr) {
 	trees.forEach(function (tree, index) {
@@ -794,10 +785,7 @@ function mouseDownHandler(e = null, talent, tree) {
 		var targetTalent = $(`img.talent[name="${talentObj.name}"]`)
 		var e = true
 	}
-
-
 	pointSpender(talentObj, e, treeName)
-
 
 	targetTalent.closest(".talentTable").find(".talentFooter span.talentFooter-spentPoints").text("(" + talentPointsSpent[treeName].total() + ")")
 
@@ -808,7 +796,6 @@ function mouseDownHandler(e = null, talent, tree) {
 	}
 
 	updateTalentHeader()
-
 }
 
 function updateTalentHeader() {
@@ -1102,7 +1089,6 @@ function pointSpender(talent, e, tree, targetTal) {
 	}
 }
 
-
 // needs optimization
 function talentLocker(tree = '') {
 
@@ -1291,7 +1277,6 @@ function preBuiltSpec(hash = '') {
 		})
 	})
 }
-
 
 function arrowClassChanger(talName, add, lockOrGray) {
 	//
