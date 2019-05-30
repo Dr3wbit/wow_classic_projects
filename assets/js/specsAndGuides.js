@@ -73,7 +73,7 @@ function updateBackground(){
 }
 
 function populateData(data) {
-	let template = $('#handlebars-demo').html();
+	let template = $('#specAndGuides-block-template').html();
 	let templateScript = Handlebars.compile(template);
 
 	const pve = Object.assign({}, data);
