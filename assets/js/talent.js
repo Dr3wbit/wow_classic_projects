@@ -398,7 +398,7 @@ function sideNav(){
 
 function populateTables(reset = false) {
 	//Retrieve the template data from the HTML
-	let template = $('#handlebars-demo2').html();
+	let template = $('#talentTree-block-template').html();
 	//Compile the template data into a function
 	let templateScript = Handlebars.compile(template);
 	let talent_html = templateScript(classData);
