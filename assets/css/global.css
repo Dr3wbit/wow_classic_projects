@@ -555,22 +555,15 @@ ul {
 .results {
     font-size: 100%;
     text-align: left;
-    /* background-color: azure; */
     padding-left: 5px;
     pointer-events: none;
 }
 
 #thanks {
     box-shadow: rgba(255,255,255,.1) 0 1px 0, rgba(0,0,0,.8) 0 1px 7px 0 inset, 0px 0px 2px rgba(0,0,0,0.7);
-    /* background-image: url(../images/textured_background.png); */
     background-size: cover;
     border: 1px rgba(0, 0, 0, 0.5);
     text-align: left;
-}
-
-.bgbox {
-    background-color: rgba(0,0,0,.3);
-    box-shadow: rgba(255,255,255,.1) 0 1px 0, rgba(0,0,0,.8) 0 1px 7px 0 inset;
 }
 
 #thanks.jumbotron {
@@ -578,10 +571,6 @@ ul {
     border-radius: 2px;
     color: rgba(240, 255, 255, 1);
 }
-
-/* #thanks p {
-    font-size: 13px;
-} */
 
 .fancy {
     font-family: "Snell Roundhand", cursive;
