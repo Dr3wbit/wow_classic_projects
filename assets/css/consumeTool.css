@@ -137,6 +137,7 @@ input:focus {
     color: azure;
     width: 253px;
     display: inline-block
+    pointer-events: auto;
 }
 
 .totalTitle {
