@@ -284,13 +284,15 @@
   margin-left: 5px;
   width:100%;
   max-width: 718px;
-  border: 2px solid black;
+  border-top: 1px solid black;
+  border-bottom: 2px solid black;
+
   color: rgba(240, 240, 255, 0.95);
-  background: #343a40;
+  background: -webkit-linear-gradient(360deg, #1C1C1C 10%, #545b62 360%); background: -moz-linear-gradient(360deg, #1C1C1C 10%, #545b62 360%); background: linear-gradient(360deg, #1C1C1C 10%, #545b62 360%);
   display: flex;
   font-size: 14px;
   position: relative;
-  text-shadow: -0.02rem -0.02rem 0.02rem black;
+  /* text-shadow: -0.02rem -0.02rem 0.02rem black; */
 }
 
 @media only screen and (max-width: 1200px) {

@@ -14,6 +14,12 @@ const translationTable = {
 	50: 'E', 51: 'F', 52: 'G', 53: 'H', 54: 'I', 55: 'J', 07: 'Y', 08: 'Z'
 }
 
+const reversedTable = {}
+Object.values(translationTable).forEach(function (item, index) {
+	let repl = (Object.keys(translationTable)[index].length > 1) ? Object.keys(translationTable)[index] : "0" + Object.keys(translationTable)[index]
+	reversedTable[item] = repl
+})
+
 function TalentSpec(url, className, name, points) {
 	this.url = url
 	this.className = className
@@ -21,17 +27,9 @@ function TalentSpec(url, className, name, points) {
 	this.points = points
 }
 
-const reversedTable = {}
-
-Object.values(translationTable).forEach(function (item, index) {
-	let repl = (Object.keys(translationTable)[index].length > 1) ? Object.keys(translationTable)[index] : "0" + Object.keys(translationTable)[index]
-	reversedTable[item] = repl
-})
-
 $(document).ready(initializeApp)
 
 function initializeApp() {
-	//console.log('init')
 
 	applyClickHandlers()
 	updateSavedSpecs()
@@ -66,10 +64,10 @@ function applyClickHandlers() {
 	getSpecName()
 	saveSpec()
 	sideNav()
-	specChoiceRadios()
+	// specChoiceRadios()
 	specNameValidator()
 	addClassName()
-	addAllottedPoints()
+	// addAllottedPoints()
 	preventInspect()
 }
 
@@ -82,13 +80,13 @@ function preventInspect(){
 	})
 }
 
-function addAllottedPoints(){
-	$("#addAllottedPoints").on({
-		change: e => {
-			console.log('to be added...')
-		}
-	})
-}
+// function addAllottedPoints(){
+// 	$("#addAllottedPoints").on({
+// 		change: e => {
+// 			console.log('to be added...')
+// 		}
+// 	})
+// }
 
 function addClassName(){
 	$("#addClassName").on({
@@ -100,7 +98,6 @@ function addClassName(){
 				$("#specName").val(proposedSpecName+` [${talentPointsSpent.className}]`)
 			} else {
 				let proposedSpecName = $("#specName").val()
-
 				let newName = proposedSpecName.replace(classRemoveRE2, '')
 
 				$("#specName").val(newName)
@@ -111,22 +108,22 @@ function addClassName(){
 	})
 }
 
-function specChoiceRadios(){
-	$("#specNameChoice").on({
-		change: e => {
-			console.log('specChoiceRadios')
-			let choice = $("input[name='nameChoice']:checked").val()
-			if (choice=='current') {
-				let savedSpecClassText = $('div.specItem.specSelected').text()
-				$("#specName").val(savedSpecClassText)
-				$("#specName").addClass('disabled')
-			} else {
-				$("#specName").removeClass('disabled')
-				$("#specName").val('')
-			}
-		}
-	})
-}
+// function specChoiceRadios(){
+// 	$("#specNameChoice").on({
+// 		change: e => {
+// 			console.log('specChoiceRadios')
+// 			let choice = $("input[name='nameChoice']:checked").val()
+// 			if (choice=='current') {
+// 				let savedSpecClassText = $('div.specItem.specSelected').text()
+// 				$("#specName").val(savedSpecClassText)
+// 				$("#specName").addClass('disabled')
+// 			} else {
+// 				$("#specName").removeClass('disabled')
+// 				$("#specName").val('')
+// 			}
+// 		}
+// 	})
+// }
 
 function exportSpec() {
 	$("#export").on({
@@ -187,7 +184,6 @@ function resetTree() {
 function specNameValidator(){
 	$("#specName").on({
 		keyup: e=> {
-			// input valdiation needs improving - will accept 18 spaces
 			const validNameRE = /^([\w. -]{2,18})$/
 			let proposedSpecName = ($("#specName").val()).trim()
 
@@ -202,9 +198,7 @@ function specNameValidator(){
 					e.preventDefault()
 					return false
 				})
-
 			} else {
-
 				$("#specNameValidation").text('')
 				$("#confirmSpecName").removeClass('disabled')
 				$("#saveSpec").bind("submit", saveSpec())
@@ -230,7 +224,7 @@ function saveSpec(){
 			let specName = ($("#specName").val()).trim()
 
 			if (specName) {
-
+				console.log($("div.specItem.specSelected"))
 				let treeNames = talentPointsSpent.treeNames
 				let mySpec = new TalentSpec(specURL, talentPointsSpent.className,specName.toString(), [talentPointsSpent[treeNames[0]].total(), talentPointsSpent[treeNames[1]].total(), talentPointsSpent[treeNames[2]].total()])
 				let name = mySpec.name
@@ -247,7 +241,7 @@ function saveSpec(){
 				}
 				// $(`div.specItem[name='${name}']`).addClass('specSelected')
 			} else {
-				// alert('Spec not saved, you must provide a unique name')
+				return false
 			}
 			$("#specSaverPrompt").modal('hide')
 
@@ -262,15 +256,14 @@ function getSpecName() {
 
 			if (talentPointsSpent.grandTotal() == 0){
 				alert('Unable to save empty spec')
-				return
+				return false
 			}
-
 			if ($("#talentLock").hasClass('unlock')) {
 				$("#talentLock").trigger("click")
 			}
-
 			let currentSelectedSpec = $("div.specItem.specSelected")
 			if (currentSelectedSpec.length) {
+
 				$("#useCurrentSpec").removeClass('disabled')
 			} else {
 				$("#useCurrentSpec").addClass('disabled')
@@ -1154,16 +1147,6 @@ function talentUnlocker(tree = '') {
 			})
 		}
 	})
-	// talentPointsSpent.locked = false
-	// let url = new URL(document.location)
-	// let params = url.searchParams
-	// let lockButton = $("#talentLock")
-	//
-	// lockButton.removeClass("lock").addClass("unlock")
-	// lockButton.attr('title', 'Unlocked')
-	//
-	// params.delete('L')
-	// history.replaceState(null, null, url)
 }
 
 function urlBuilder() {
