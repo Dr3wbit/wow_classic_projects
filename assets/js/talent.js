@@ -66,7 +66,7 @@ function applyClickHandlers() {
 	sideNav()
 	// specChoiceRadios()
 	specNameValidator()
-	addClassName()
+	// addClassName()
 	// addAllottedPoints()
 	preventInspect()
 }
@@ -88,25 +88,25 @@ function preventInspect(){
 // 	})
 // }
 
-function addClassName(){
-	$("#addClassName").on({
-		change: e => {
-			const classRemoveRE = /^([\w.-]{2,18})/
-			const classRemoveRE2 = / \[\w+\]/
-			if ($("#addClassName:checked").length) {
-				let proposedSpecName = $("#specName").val()
-				$("#specName").val(proposedSpecName+` [${talentPointsSpent.className}]`)
-			} else {
-				let proposedSpecName = $("#specName").val()
-				let newName = proposedSpecName.replace(classRemoveRE2, '')
-
-				$("#specName").val(newName)
-
-				// let matched = proposedSpecName.search(classRemoveRE)
-			}
-		}
-	})
-}
+// function addClassName(){
+// 	$("#addClassName").on({
+// 		change: e => {
+// 			const classRemoveRE = /^([\w.-]{2,18})/
+// 			const classRemoveRE2 = / \[\w+\]/
+// 			if ($("#addClassName:checked").length) {
+// 				let proposedSpecName = $("#specName").val()
+// 				$("#specName").val(proposedSpecName+` [${talentPointsSpent.className}]`)
+// 			} else {
+// 				let proposedSpecName = $("#specName").val()
+// 				let newName = proposedSpecName.replace(classRemoveRE2, '')
+//
+// 				$("#specName").val(newName)
+//
+// 				// let matched = proposedSpecName.search(classRemoveRE)
+// 			}
+// 		}
+// 	})
+// }
 
 // function specChoiceRadios(){
 // 	$("#specNameChoice").on({
@@ -224,7 +224,7 @@ function saveSpec(){
 			let specName = ($("#specName").val()).trim()
 
 			if (specName) {
-				console.log($("div.specItem.specSelected"))
+
 				let treeNames = talentPointsSpent.treeNames
 				let mySpec = new TalentSpec(specURL, talentPointsSpent.className,specName.toString(), [talentPointsSpent[treeNames[0]].total(), talentPointsSpent[treeNames[1]].total(), talentPointsSpent[treeNames[2]].total()])
 				let name = mySpec.name
@@ -261,12 +261,15 @@ function getSpecName() {
 			if ($("#talentLock").hasClass('unlock')) {
 				$("#talentLock").trigger("click")
 			}
-			let currentSelectedSpec = $("div.specItem.specSelected")
-			if (currentSelectedSpec.length) {
 
-				$("#useCurrentSpec").removeClass('disabled')
+			let currentSelectedSpec = $("div.specItem.specSelected")
+
+			if (currentSelectedSpec.length) {
+				let name = currentSelectedSpec.attr('name')
+				$("#specName").val(name)
+				// $("#useCurrentSpec").removeClass('disabled')
 			} else {
-				$("#useCurrentSpec").addClass('disabled')
+				// $("#useCurrentSpec").addClass('disabled')
 			}
 			$("#specSaverPrompt").modal('show')
 

@@ -96,28 +96,44 @@ body {
 }
 
 
+/* .navbar-texture {
+    background: linear-gradient(rgba(20, 20, 20, 0.95), rgba(0, 0, 0, 0.9) ,rgba(20, 20, 20, 0.95)), url(../images/brushedsteel.jpg);
+    background-size: 100%, cover;
+    background-repeat: no-repeat, repeat;
+} */
+
 .navbar {
     background-color: black;
-    background-image: linear-gradient(rgb(20, 20, 20), black ,rgb(20, 20, 20));
     border-top: 2px black solid;
     border-bottom: 2px black solid;
     padding: 0;
     padding-bottom: 0;
     z-index: 1030;
+
+    background: -webkit-linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(196, 202, 208, 0.75) 360%), url(../images/brushedsteel.jpg);
+    background: -moz-linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(196, 202, 208, 0.75) 360%), url(../images/brushedsteel.jpg);
+    background: linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(196, 202, 208, 0.75) 360%), url(../images/brushedsteel.jpg);
+    background-size: 100%, cover;
+    background-repeat: no-repeat, repeat;
+
+    /* background: linear-gradient(rgba(20, 20, 20, 0.95), rgba(0, 0, 0, 0.95) ,rgba(20, 20, 20, 0.95)), url(../images/brushedsteel.jpg);
+    background-size: 100%, cover;
+    background-repeat: no-repeat, repeat; */
+
 }
 
 
 .navbar-brand{
     padding-left: 70px;
     padding-right: 20px;
-    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
+    /* background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20)); */
     box-shadow: inset 0 0 5px rgb(40, 40, 40);
     border: 1px solid black;
     margin: 0;
 }
 
 .navbar-brand:hover{
-    background-image: linear-gradient(black, rgb(20, 20, 20), black);
+    /* background-image: linear-gradient(black, rgb(20, 20, 20), black); */
     box-shadow: inset 0 0 5px black;
 }
 
@@ -138,15 +154,15 @@ body {
 .nav-item {
     min-width: 140px;
     min-height: 50px;
-    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
-    box-shadow: inset 0 0 5px rgb(40, 40, 40);
+    /* background-image: linear-gradient(rgb(20, 20, 20), black, rgb(20, 20, 20)); */
+    box-shadow: inset 0 0 1px rgb(40, 40, 40);
     border: 1px solid black;
     color: azure !important
 }
 
 .nav-item:hover {
-    background-image: linear-gradient(black, rgb(20, 20, 20), black);
-    box-shadow: inset 0 0 5px black;
+    /* background-image: linear-gradient(black, rgb(20, 20, 20), black); */
+    box-shadow: inset 0 0 4px black;
 }
 
 .nav-item-selected {
@@ -177,7 +193,12 @@ body {
 
 .nav-is-sticky {
 
-    background: -webkit-linear-gradient(360deg, #1C1C1C 10%, #ced4da 360%); background: -moz-linear-gradient(360deg, #1C1C1C 10%, #ced4da 360%); background: linear-gradient(360deg, #1C1C1C 10%, #ced4da 360%);
+    background: -webkit-linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(206, 212, 218, 0.5) 360%), url(../images/brushedsteel.jpg);
+    background: -moz-linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(206, 212, 218, 0.5) 360%), url(../images/brushedsteel.jpg);
+    background: linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(206, 212, 218, 0.5) 360%), url(../images/brushedsteel.jpg);
+    background-size: 100%, cover;
+    background-repeat: no-repeat, repeat;
+
     border-bottom: 2px solid black;
     border-top: 1px solid black;
     top: 53px;
