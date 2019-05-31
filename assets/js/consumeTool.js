@@ -182,52 +182,6 @@ function getMaterials(data) {
 	appendMaterials(materials)
 }
 
-
-// function materialsTooltip() {
-// 	$("#materials-list-item").on({
-// 		mouseenter: e => {
-//
-//
-// 			$( e.target).find('.materials-name').addClass('underlined')
-//
-// 			const materialObject = allMaterials[name]
-// 			let requirementText = ''
-// 			if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-// 				requirementText = materialObject.req
-// 			} else {
-// 				requirementText = (materialObject.req) ? ((materialObject.req.toString().startsWith('engi') || materialObject.req.toString().startsWith('first')) ? utilities.titleCase(materialObject.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${materialObject.req}`) : null
-// 			}
-//
-// 			const rarity = materialObject.rarity
-// 			let properName = (materialObject.name) ? materialObject.name : matName
-//
-// 			const tooltipElems = [{class: `title ${rarity}`, text: matName}]
-// 			if (materialObject.bop) {
-// 				tooltipElems.push({class:'bop', text: "Binds when picked up"})
-// 			}
-// 			if (materialObject.unique) {
-// 				tooltipElems.push({class: 'unique', text: "Unique",})
-// 			}
-// 			if (materialObject.req){
-// 				tooltipElems.push({class: 'requiredLevel', text: requirementText})
-// 			}
-// 			if (materialObject.use) {
-// 				tooltipElems.push({class: 'use', text: `Use: ${materialObject.use}`})
-// 			}
-// 			if (materialObject.description) {
-// 				tooltipElems.push({class: 'description', text:`"${materialObject.description}"`})
-// 			}
-// 			utilities.bigdaddytooltip(e, tooltipElems)
-//
-// 		},
-// 		mouseleave: e => {
-//             $("#results").find('.materials-name').removeClass('underlined')
-//             $("#tooltip").hide()
-//             $("#tooltip").children().remove()
-// 		}
-// 	})
-// }
-//
 function materialsTooltip() {
     $("#results").on({
         mouseenter: e => {
@@ -448,31 +402,3 @@ function updateTooltip(e) {
 	}
 	utilities.bigdaddytooltip(e, tooltipElems)
 }
-//
-// function consumeItemEventHandler() {
-//
-// 	$('.materials-list').on({
-// 		mouseenter: e=> {
-// 			console.log('mouseenter')
-//
-// 			$(e.target).find($('span.consume-name')).addClass('underline')
-// 			$(e.target).find($('span.plus')).addClass('blue')
-// 		},
-// 		mouseleave: e=> {
-// 			console.log('mouseleave')
-//
-// 			$(e.target).find($('span.consume-name')).removeClass('underline')
-// 			$(e.target).find($('span.plus')).removeClass('blue')
-//
-// 		},
-// 		'shown.bs.collapse': e=> {
-// 			console.log('shown')
-// 			$(e.target).find($('span.plus')).text('+')
-// 		},
-// 		'hidden.bs.collapse': e=> {
-// 			console.log('hidden')
-//
-// 			$(e.target).find($('span.plus')).removeClass('-')
-// 		},
-// 	})
-// }
