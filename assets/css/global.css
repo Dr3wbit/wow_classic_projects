@@ -176,11 +176,32 @@ body {
 }
 
 .nav-is-sticky {
-    background-image: linear-gradient(rgb(30, 30, 30), black,rgb(30, 30, 30));
+
+    background: -webkit-linear-gradient(360deg, #1C1C1C 10%, #ced4da 360%); background: -moz-linear-gradient(360deg, #1C1C1C 10%, #ced4da 360%); background: linear-gradient(360deg, #1C1C1C 10%, #ced4da 360%);
     border-bottom: 2px solid black;
     border-top: 1px solid black;
-    top: 53px
+    top: 53px;
+    box-shadow:inset -.01rem -.01rem 1px 0.01rem rgba(128,128,128,0.25);
 }
+
+/* .nav-is-sticky {
+    /* neat gradient creates a curved lip-like edge*/
+    /*
+    background-image: linear-gradient(rgb(73, 80, 87)20%, rgb(62, 68, 74)40% 50%, rgba(55, 60, 68, 0.9) 2.2rem, rgb(52, 56, 60)50% 60%, rgb(41, 43, 45)80%, rgb(30, 30, 30)100%);
+    background: linear-gradient(
+      to bottom,
+      #5d9634,
+      #5d9634 50%,
+      #538c2b 50%,
+      #538c2b
+      ); */
+/* The rectangle in which to repeat.
+   It can be fully wide in this case */
+   /* background-size: 100% 0.05rem;
+   top: 53px;
+   border-bottom: 2px solid black;
+   box-shadow:inset -.01rem -.01rem 1px 0.01rem rgba(0, 0, 255, 1);
+} */
 
 .classMarker {
     position: absolute;
@@ -206,7 +227,7 @@ body {
     top: -8px;
     left: 50%;
     margin-left: -15px;
-    filter: grayscale(100%);
+    filter: grayscale(70%);
     user-select: none;
     pointer-events: none;
 }
@@ -216,7 +237,7 @@ body {
     justify-content: center;
     font-size: 14px;
     min-height: 43px;
-
+    text-shadow: -0.02rem -0.02rem 0.02rem rgba(30,30,30, 0.95);
 }
 
 @media only screen and (max-width: 992px) {
@@ -552,35 +573,4 @@ ul {
     text-align: left;
     padding-left: 5px;
     pointer-events: none;
-}
-
-#thanks {
-    box-shadow: rgba(255,255,255,.1) 0 1px 0, rgba(0,0,0,.8) 0 1px 7px 0 inset, 0px 0px 2px rgba(0,0,0,0.7);
-    background-size: cover;
-    border: 1px rgba(0, 0, 0, 0.5);
-    text-align: left;
-}
-
-#thanks.jumbotron {
-    background-color: #171b1f;
-    border-radius: 2px;
-    color: rgba(240, 255, 255, 1);
-}
-
-.fancy {
-    font-family: "Snell Roundhand", cursive;
-}
-
-.jumbotron-title {
-    text-align: center;
-}
-
-p.thank {
-    font-size: 13px;
-    margin-bottom: 3px;
-
-}
-
-p.testing a{
-    text-decoration: underline;
 }
