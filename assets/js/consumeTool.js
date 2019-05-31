@@ -120,6 +120,7 @@ function applyClickHandlers() {
 	})
 
 	materialsTooltip()
+	// consumeItemEventHandler()
 }
 
 function clearForm() {
@@ -182,51 +183,51 @@ function getMaterials(data) {
 }
 
 
-function materialsTooltip() {
-	$("#materials-list-item").on({
-		mouseenter: e => {
-
-
-			$( e.target).find('.materials-name').addClass('underlined')
-
-			const materialObject = allMaterials[name]
-			let requirementText = ''
-			if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-				requirementText = materialObject.req
-			} else {
-				requirementText = (materialObject.req) ? ((materialObject.req.toString().startsWith('engi') || materialObject.req.toString().startsWith('first')) ? utilities.titleCase(materialObject.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${materialObject.req}`) : null
-			}
-
-			const rarity = materialObject.rarity
-			let properName = (materialObject.name) ? materialObject.name : matName
-
-			const tooltipElems = [{class: `title ${rarity}`, text: matName}]
-			if (materialObject.bop) {
-				tooltipElems.push({class:'bop', text: "Binds when picked up"})
-			}
-			if (materialObject.unique) {
-				tooltipElems.push({class: 'unique', text: "Unique",})
-			}
-			if (materialObject.req){
-				tooltipElems.push({class: 'requiredLevel', text: requirementText})
-			}
-			if (materialObject.use) {
-				tooltipElems.push({class: 'use', text: `Use: ${materialObject.use}`})
-			}
-			if (materialObject.description) {
-				tooltipElems.push({class: 'description', text:`"${materialObject.description}"`})
-			}
-			utilities.bigdaddytooltip(e, tooltipElems)
-
-		},
-		mouseleave: e => {
-            $("#results").find('.materials-name').removeClass('underlined')
-            $("#tooltip").hide()
-            $("#tooltip").children().remove()
-		}
-	})
-}
-
+// function materialsTooltip() {
+// 	$("#materials-list-item").on({
+// 		mouseenter: e => {
+//
+//
+// 			$( e.target).find('.materials-name').addClass('underlined')
+//
+// 			const materialObject = allMaterials[name]
+// 			let requirementText = ''
+// 			if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
+// 				requirementText = materialObject.req
+// 			} else {
+// 				requirementText = (materialObject.req) ? ((materialObject.req.toString().startsWith('engi') || materialObject.req.toString().startsWith('first')) ? utilities.titleCase(materialObject.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${materialObject.req}`) : null
+// 			}
+//
+// 			const rarity = materialObject.rarity
+// 			let properName = (materialObject.name) ? materialObject.name : matName
+//
+// 			const tooltipElems = [{class: `title ${rarity}`, text: matName}]
+// 			if (materialObject.bop) {
+// 				tooltipElems.push({class:'bop', text: "Binds when picked up"})
+// 			}
+// 			if (materialObject.unique) {
+// 				tooltipElems.push({class: 'unique', text: "Unique",})
+// 			}
+// 			if (materialObject.req){
+// 				tooltipElems.push({class: 'requiredLevel', text: requirementText})
+// 			}
+// 			if (materialObject.use) {
+// 				tooltipElems.push({class: 'use', text: `Use: ${materialObject.use}`})
+// 			}
+// 			if (materialObject.description) {
+// 				tooltipElems.push({class: 'description', text:`"${materialObject.description}"`})
+// 			}
+// 			utilities.bigdaddytooltip(e, tooltipElems)
+//
+// 		},
+// 		mouseleave: e => {
+//             $("#results").find('.materials-name').removeClass('underlined')
+//             $("#tooltip").hide()
+//             $("#tooltip").children().remove()
+// 		}
+// 	})
+// }
+//
 function materialsTooltip() {
     $("#results").on({
         mouseenter: e => {
@@ -274,7 +275,17 @@ function materialsTooltip() {
             $("#results").find('.materials-name').removeClass('underlined')
             $("#tooltip").hide()
             $("#tooltip").children().remove()
-        }
+        },
+		'shown.bs.collapse': e=> {
+			let targetID = $(e.target).attr('id').replace('_collapse', '')
+			$(`#${targetID}`).find('span.plus').text('-')
+		},
+		'hidden.bs.collapse': e=> {
+
+			let targetID = $(e.target).attr('id').replace('_collapse', '')
+
+			$(`#${targetID}`).find('span.plus').text('+')
+		},
     })
 }
 
@@ -289,38 +300,34 @@ function appendMaterials(consumables) {
 
 			for (let [name, matsPer] of Object.entries(consume.data.materials)) {
 				totalMaterialCount[name] = (!(totalMaterialCount[name])) ? Math.round(matsPer * consume.amount) : Math.round((matsPer * consume.amount) + totalMaterialCount[name])
-				console.log(totalMaterialCount)
-				$(`.materials-list-item[name='${consume.name}_${name}']`).find($("span.amount")).text(` [${Math.round(matsPer * consume.amount)}]`)
+				// console.log(totalMaterialCount)
+				$(`.materials-list-item[name='${consume.name}_${name}']`).find($("span.amount")).text(`[${Math.round(matsPer * consume.amount)}]`)
 			}
 		} else {
 			let consumeName = (consume.data.name) ? consume.data.name : utilities.titleCase(consume.name)
-			let consumeCollapseLink = $('<a/>', {
+			let consumeElement = $('<a/>', {
 				href: `#${consume.name}_collapse`,
-				role: 'button'
-			})
-			consumeCollapseLink.attr("data-toggle", "collapse")
-			let consumeElement = $('<div/>', {
+				role: 'button',
 				class: "consumes-list-item",
-				id: `${consume.name}`
-				})
-				.append(consumeCollapseLink
-					.append($('<span/>', {
-						class:`${consume.data.rarity} plus`,
-						text: "+",
-						})).append($('<span/>', {
-						class:`${consume.data.rarity}`,
-						text: ` ${consumeName}`,
-						})).append($('<span/>', {
-						class:`${consume.data.rarity} amount`,
-						text: ` [${consume.amount}]`,
-					}))
-			)
+				id: `${consume.name}`,
+			})
+			consumeElement.attr("data-toggle", "collapse")
+
+			consumeElement.append($('<span/> ', {
+					class:`${consume.data.rarity} plus`,
+					text: "+",
+				})).append(" ").append($('<span/>', {
+					class:`${consume.data.rarity} consume-name`,
+					text: `${consumeName}`,
+				})).append(" ").append($('<span/>', {
+					class:`${consume.data.rarity} amount`,
+					text:`[${consume.amount}]`,
+				}))
+
 			materialsListParent = $('<div/>', {
 				class: 'materials-list collapse',
 				id: `${consume.name}_collapse`,
 			})
-			consumeElement.append(materialsListParent)
-
 
 
 			for (let [name, matsPer] of Object.entries(consume.data.materials)) {
@@ -345,119 +352,22 @@ function appendMaterials(consumables) {
 				})).append($('<span/>', {
 					text: `${properName}`,
 					class: `materials-name ${rarity}`,
-				})).append($('<span/>', {
-					text: ` [${Math.round(matsPer * consume.amount)}]`,
+				})).append(" ").append($('<span/>', {
+					text: `[${Math.round(matsPer * consume.amount)}]`,
 					class: 'amount',
 				}))
 				materialsListParent.append(materialsListItemElement)
 			}
-			consumeElement.append(materialsListParent)
-			$('#results').append(consumeElement)
+
+			// materialsListParent.insertAfter(consumeElement)
+
+			// consumeElement.append(materialsListParent)
+			$('#results').append(consumeElement, materialsListParent)
 
 		}
 	})
 	calculateTotals(totalMaterialCount)
 }
-
-//
-// 	//old
-// 	let totalMaterialCount = {}
-//
-// 	consumables.forEach(function(item) {
-// 		if (!(item.amount > 0)) {
-// 			return
-// 		} else {
-// 			let materialsListParent
-// 			console.log('item.name: ', item.name, ' item.amount: ', item.amount)
-// 			let consumeItemElement = $(`#${item.name}`)
-// 			// let consumeItemElement =  $(`div.consumes-list-item[name='${item.name}']`)
-//
-// 			if (consumeItemElement.length) {
-// 				consumeItemElement.find($('span.amount')).text(`[${item.amount}]`)
-// 				// materialsListParent = $(`#${item.name}_collapse`)
-//
-// 				for (let [name, value] of Object.entries(item.data.materials)) {
-// 					if (!(totalMaterialCount[name])) {
-// 						totalMaterialCount[name] = Math.round(value*item.amount)
-// 					} else {
-// 						totalMaterialCount[name] = Math.round((totalMaterialCount[name]+value)*item.amount)
-// 					}
-//
-// 					console.log('name: ', name, ' value: ', value)
-//
-// 					// let totalMaterialCount[name] = (!(totalMaterialCount[name])) ? Math.round(value*item.amount) : Math.round((totalMaterialCount[name]+value)*item.amount)
-//
-// 					// console.log(`totalMaterialCount[${name}]: `, totalMaterialCount[name])
-// 					// console.log("totalMaterialCount: ", totalMaterialCount)
-//
-// 					$(`.materials-list-item[name='${item.name}_${name}']`).find($("span.amount")).text(` [${totalMaterialCount[name]}]`)
-// 				}
-// 			}
-// 			else {
-// 				let consumeName = (item.data.name) ? item.data.name : utilities.titleCase(item.name)
-//
-// 				let consumeCollapseLink = $('<a/>', {
-// 					href: `#${item.name}_collapse`,
-// 					role: 'button'
-// 				})
-// 				consumeCollapseLink.attr("data-toggle", "collapse")
-// 				let consumeElement = $('<div/>', {
-// 					class: "consumes-list-item",
-// 					id: `${item.name}`
-// 					})
-// 					.append(consumeCollapseLink
-// 						.append($('<span/>', {
-// 							class:`${item.data.rarity} plus`,
-// 							text: "+",
-// 							})).append($('<span/>', {
-// 							class:`${item.data.rarity}`,
-// 							text: ` ${consumeName}`,
-// 							})).append($('<span/>', {
-// 							class:`${item.data.rarity} amount`,
-// 							text: ` [${item.amount}]`,
-// 						}))
-// 				)
-// 				materialsListParent = $('<div/>', {
-// 					class: 'materials-list collapse',
-// 					id: `${item.name}_collapse`,
-// 				})
-// 				consumeElement.append(materialsListParent)
-// 				for (let [name, value] of Object.entries(item.data.materials)) {
-// 					let matObject = allMaterials[name]
-// 					let category = matObject.category
-// 					let rarity = matObject.rarity
-// 					let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
-// 					let imageName = (properName.endsWith("E'ko")) ? "eko" : name
-//
-// 					if (!(totalMaterialCount[name])) {
-// 						totalMaterialCount[name] = Math.round(value * item.amount)
-// 					} else {
-// 						totalMaterialCount[name] = Math.round((totalMaterialCount[name]+value)*item.amount)
-// 					}
-// 					let materialsListItemElement = $('<div/>', {
-// 						class: 'materials-list-item',
-// 						name: `${item.name}_${name}`
-// 					}).append($('<img/>', {
-// 			            class: 'icon-small',
-// 			            src: "assets/images/icons/small/icon_border.png",
-// 			            style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
-// 			        })).append($('<span/>', {
-// 			            text: `${properName}`,
-// 			            class: `materials-name ${rarity}`,
-// 			        })).append($('<span/>', {
-// 			            text: ` [${totalMaterialCount[name]}]`,
-// 			            class: 'amount',
-// 			        }))
-// 					materialsListParent.append(materialsListItemElement)
-// 				}
-// 				consumeElement.append(materialsListParent)
-// 				$('#results').append(consumeElement)
-// 			}
-// 		}
-// 	})
-// 	calculateTotals(totalMaterialCount)
-// }
-
 
 
 function calculateTotals(totals) {
@@ -494,8 +404,8 @@ function calculateTotals(totals) {
 			})).append($('<span/>', {
 				text: properName,
 				class: `materials-name ${rarity}`,
-			})).append($('<span/>', {
-				text: ` [${value}]`,
+			})).append(" ").append($('<span/>', {
+				text: `[${value}]`,
 				class: 'amount',
 			}))
 
@@ -520,7 +430,6 @@ function updateTooltip(e) {
 	if (consumeObj.unique) {
 		tooltipElems.push({class: 'unique', text: "Unique",})
 	}
-
 	let requirementText = ''
 	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
 		requirementText = consumeObj.req
@@ -537,6 +446,33 @@ function updateTooltip(e) {
 	if (consumeObj.description) {
 		tooltipElems.push({class: 'description', text: `"${consumeObj.description}"`})
 	}
-
 	utilities.bigdaddytooltip(e, tooltipElems)
 }
+//
+// function consumeItemEventHandler() {
+//
+// 	$('.materials-list').on({
+// 		mouseenter: e=> {
+// 			console.log('mouseenter')
+//
+// 			$(e.target).find($('span.consume-name')).addClass('underline')
+// 			$(e.target).find($('span.plus')).addClass('blue')
+// 		},
+// 		mouseleave: e=> {
+// 			console.log('mouseleave')
+//
+// 			$(e.target).find($('span.consume-name')).removeClass('underline')
+// 			$(e.target).find($('span.plus')).removeClass('blue')
+//
+// 		},
+// 		'shown.bs.collapse': e=> {
+// 			console.log('shown')
+// 			$(e.target).find($('span.plus')).text('+')
+// 		},
+// 		'hidden.bs.collapse': e=> {
+// 			console.log('hidden')
+//
+// 			$(e.target).find($('span.plus')).removeClass('-')
+// 		},
+// 	})
+// }
