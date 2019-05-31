@@ -3330,10 +3330,9 @@ const talentData = {
 					image: "weapon_expertise.jpg"
 				}, {
 					name: 'Aggression',
-					x: 2,
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return 2 * this.invested
 					},
 					description: function() {
 						return `Increases the damage of your Sinister Strike and Eviscerate abilities by ${this.y()}%.`
@@ -3401,10 +3400,9 @@ const talentData = {
 					image: "camouflage.jpg"
 				}, {
 					name: 'Initiative',
-					x: 25,
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return 25 * this.invested
 					},
 					description: function() {
 						return `Gives you a ${this.y()}% chance to add an additional combo point to your target when using your Ambush, Garrote, or Cheap Shot ability.`
@@ -3419,10 +3417,9 @@ const talentData = {
 					image: "ghostly_strike.jpg"
 				}, {
 					name: 'Improved Ambush',
-					x: 15,
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return 15 * this.invested
 					},
 					description: function() {
 						return `Increases the critical strike chance of your Ambush ability by ${this.y()}%.`
@@ -3430,10 +3427,9 @@ const talentData = {
 					image: "improved_ambush.jpg"
 				}, {
 					name: 'Setup',
-					x: 15,
 					maxRank: 3,
 					y: function() {
-						return this.x * this.invested
+						return 15 * this.invested
 					},
 					description: function() {
 						return `Gives you a ${this.y()}% chance to add a combo point to your target after dodging their attack or fully resisting one of their spells.`
@@ -3454,10 +3450,11 @@ const talentData = {
 					name: 'Serrated Blades',
 					maxRank: 3,
 					y: function() {
-						return 10*this.invested
+						let lvl = talentPointsSpent.grandTotal() + 9
+						return [((lvl - 10)*2*this.invested), this.invested*10]
 					},
 					description: function() {
-						return `Causes your attacks to ignore 0 of your target's Armor and increases the damage dealt by your Rupture ability by ${this.y()}%.  The amount of Armor reduced increases with your level.`
+						return `Causes your attacks to ignore ${this.y()[0]} of your target's Armor and increases the damage dealt by your Rupture ability by ${this.y()[1]}%.  The amount of Armor reduced increases with your level.`
 					},
 					unlocks: "Hemorrhage",
 					image: "serrated_blades.jpg"
@@ -3483,10 +3480,9 @@ const talentData = {
 					image: "preparation.jpg"
 				}, {
 					name: 'Dirty Deeds',
-					x: 10,
 					maxRank: 2,
 					y: function() {
-						return this.x * this.invested
+						return 10 * this.invested
 					},
 					description: function() {
 						return `Reduces the Energy cost of your Cheap Shot and Garrote abilities by ${this.y()}.`
@@ -3502,10 +3498,9 @@ const talentData = {
 					image: "hemorrhage.jpg"
 				}, {
 					name: 'Deadliness',
-					x: 2,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 2 * this.invested
 					},
 					description: function() {
 						return `Increases your Attack Power by ${this.y()}%.`
@@ -3528,10 +3523,9 @@ const talentData = {
 				name: 'Elemental',
 				talents: [{
 					name: 'Convection',
-					x: 2,
 					maxRank: 5,
 					y: function() {
-						return this.x * this.invested
+						return 2 * this.invested
 					},
 					description: function() {
 						return `Reduces the mana cost of your Shock, Lightning Bolt and Chain Lightning spells by ${this.y()}%.`
