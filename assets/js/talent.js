@@ -116,12 +116,10 @@ function specChoiceRadios(){
 		change: e => {
 			console.log('specChoiceRadios')
 			let choice = $("input[name='nameChoice']:checked").val()
-
 			if (choice=='current') {
 				let savedSpecClassText = $('div.specItem.specSelected').text()
 				$("#specName").val(savedSpecClassText)
 				$("#specName").addClass('disabled')
-
 			} else {
 				$("#specName").removeClass('disabled')
 				$("#specName").val('')
@@ -145,9 +143,6 @@ function exportSpec() {
 				container: "#export",
 				template: '<div class="popover customPopover bg-dark text-white" role="tooltip"><div class="arrow text-white"></div><h3 class="popover-header bg-dark text-white"></h3><div class="popover-body bg-dark text-white"></div></div>'
 			})
-
-			// template: '<div class="popover bg-dark text-white" role="tooltip"><div class="arrow bg-dark text-white"></div><h3 class="popover-header bg-dark text-white"></h3><div class="popover-body bg-dark text-white"></div></div>'
-
 
 			// not all browsers support navigator.clipboard.writeText()
 			navigator.clipboard.writeText(url.toString()).then(function () {
