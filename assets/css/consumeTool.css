@@ -128,15 +128,16 @@ input:focus {
 }
 
 .consumes-list-item {
-    text-indent: 2px;
     font-size: 100%;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: rgba(22, 22, 22, 0.6);
-    margin-bottom: 10px;
-    color: azure;
+    /* border: 1px solid black; */
+    /* border-radius: 5px; */
+    /* background-color: rgba(22, 22, 22, 0.6); */
+    /* margin-bottom: 5px; */
+    color: rgba(240, 255, 255, 0.95);
     width: 253px;
-    display: inline-block
+    display: inline-block;
+    pointer-events: auto;
+    margin-top: 3px;
 }
 
 .totalTitle {
@@ -149,4 +150,78 @@ input:focus {
     border-radius: 5px;
     border: 1px black solid;
     color: azure;
+}
+
+.consumes-list-item a{
+    pointer-events: auto;
+}
+
+.consumes-list-item a:hover{
+    /* pointer-events: auto; */
+    color: inherit;
+}
+
+span.plus {
+    text-decoration: bold;
+    font-size: 15px;
+    color: rgba(240, 255, 255, 0.95);
+}
+
+.blue {
+    color: rgba(0, 37, 255, 1);
+}
+/* .materials-list {
+    color: green;
+} */
+.materials-list *{
+    text-indent: 10px;
+}
+
+.materials-list div:last-child{
+    margin-bottom: 5px;
+    color: lime;
+}
+
+.materials-list-item {
+    position: relative;
+    margin-top: 3px;
+    text-align: left;
+}
+
+.icon-small {
+    box-shadow: none;
+}
+
+.circle{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(44, 108, 128);
+    position: relative;
+}
+
+.circle::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: rgba(240, 255,255,0.95);
+    height: 13px;
+    margin-top: -7px;
+    top: 50%;
+    left: 6px;
+    right: 6px;
+    z-index: 9;
+}
+
+.circle::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 11px;
+    margin-left: -6px;
+    left: 50%;
+    top: 6px;
+    bottom: 6px;
+    z-index: 9;
 }

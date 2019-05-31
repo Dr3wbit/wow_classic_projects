@@ -546,11 +546,6 @@ ul {
     text-decoration: underline;
 }
 
-.materials-list-item {
-    position: relative;
-    margin-top: 3px;
-    text-align: left;
-}
 
 .results {
     font-size: 100%;
