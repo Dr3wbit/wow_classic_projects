@@ -95,29 +95,34 @@ body {
     border: 1px gray solid !important
 }
 
-
 .navbar {
     background-color: black;
-    background-image: linear-gradient(rgb(20, 20, 20), black ,rgb(20, 20, 20));
     border-top: 2px black solid;
     border-bottom: 2px black solid;
     padding: 0;
     padding-bottom: 0;
     z-index: 1030;
+    transition: all .1s ease-in;
+
+    background: -webkit-linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(196, 202, 208, 0.75) 360%), url(../images/brushedsteel.jpg);
+    background: -moz-linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(196, 202, 208, 0.75) 360%), url(../images/brushedsteel.jpg);
+    background: linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(196, 202, 208, 0.75) 360%), url(../images/brushedsteel.jpg);
+    background-size: 100%, cover;
+    background-repeat: no-repeat, repeat;
+
+
 }
 
 
 .navbar-brand{
     padding-left: 70px;
     padding-right: 20px;
-    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
     box-shadow: inset 0 0 5px rgb(40, 40, 40);
     border: 1px solid black;
     margin: 0;
 }
 
 .navbar-brand:hover{
-    background-image: linear-gradient(black, rgb(20, 20, 20), black);
     box-shadow: inset 0 0 5px black;
 }
 
@@ -138,20 +143,23 @@ body {
 .nav-item {
     min-width: 140px;
     min-height: 50px;
-    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
-    box-shadow: inset 0 0 5px rgb(40, 40, 40);
-    border: 1px solid black;
+    box-shadow: inset 0 0 1px rgb(40, 40, 40);
+    border-right: 1px solid black;
+    border-right: 1px solid black;
     color: azure !important
 }
 
-.nav-item:hover {
-    background-image: linear-gradient(black, rgb(20, 20, 20), black);
-    box-shadow: inset 0 0 5px black;
-}
+/* .nav-item:hover {
+    transition: all .1s ease-in;
+    box-shadow: inset 0 0 4px black;
+} */
 
+.nav-item:hover {
+    box-shadow: inset 0 0 4px black;
+}
 .nav-item-selected {
-    background-image: linear-gradient(black, rgb(30, 30, 30), black);
-    box-shadow: inset 0 0 5px black;
+    background-image: linear-gradient(rgba(28,28,28,0.95), rgba(40, 40, 40, 0.95), rgba(20,20,20,0.95));
+    box-shadow: inset 0 0 5px black, rgba(255,255,255,.1) 0 1px 0;
 }
 .nav-link-selected {
     color: #ff3604 !important;
@@ -176,11 +184,37 @@ body {
 }
 
 .nav-is-sticky {
-    background-image: linear-gradient(rgb(30, 30, 30), black,rgb(30, 30, 30));
+
+    background: -webkit-linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(206, 212, 218, 0.5) 360%), url(../images/brushedsteel.jpg);
+    background: -moz-linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(206, 212, 218, 0.5) 360%), url(../images/brushedsteel.jpg);
+    background: linear-gradient(360deg, rgba(10, 10, 10, 0.9) 20%, rgba(206, 212, 218, 0.5) 360%), url(../images/brushedsteel.jpg);
+    background-size: 100%, cover;
+    background-repeat: no-repeat, repeat;
+
     border-bottom: 2px solid black;
     border-top: 1px solid black;
-    top: 53px
+    top: 53px;
+    box-shadow:inset -.01rem -.01rem 1px 0.01rem rgba(128,128,128,0.25);
 }
+
+/* .nav-is-sticky {
+    /* neat gradient creates a curved lip-like edge*/
+    /*
+    background-image: linear-gradient(rgb(73, 80, 87)20%, rgb(62, 68, 74)40% 50%, rgba(55, 60, 68, 0.9) 2.2rem, rgb(52, 56, 60)50% 60%, rgb(41, 43, 45)80%, rgb(30, 30, 30)100%);
+    background: linear-gradient(
+      to bottom,
+      #5d9634,
+      #5d9634 50%,
+      #538c2b 50%,
+      #538c2b
+      ); */
+/* The rectangle in which to repeat.
+   It can be fully wide in this case */
+   /* background-size: 100% 0.05rem;
+   top: 53px;
+   border-bottom: 2px solid black;
+   box-shadow:inset -.01rem -.01rem 1px 0.01rem rgba(0, 0, 255, 1);
+} */
 
 .classMarker {
     position: absolute;
@@ -206,7 +240,7 @@ body {
     top: -8px;
     left: 50%;
     margin-left: -15px;
-    filter: grayscale(100%);
+    filter: grayscale(70%);
     user-select: none;
     pointer-events: none;
 }
@@ -216,7 +250,7 @@ body {
     justify-content: center;
     font-size: 14px;
     min-height: 43px;
-
+    text-shadow: -0.02rem -0.02rem 0.02rem rgba(30,30,30, 0.95);
 }
 
 @media only screen and (max-width: 992px) {
@@ -554,35 +588,9 @@ ul {
     pointer-events: none;
 }
 
-#thanks {
-    box-shadow: rgba(255,255,255,.1) 0 1px 0, rgba(0,0,0,.8) 0 1px 7px 0 inset, 0px 0px 2px rgba(0,0,0,0.7);
-    background-size: cover;
-    border: 1px rgba(0, 0, 0, 0.5);
-    text-align: left;
-}
-
-#thanks.jumbotron {
-    background-color: #171b1f;
-    border-radius: 2px;
-    color: rgba(240, 255, 255, 1);
-}
 
 .fancy {
     font-family: "Snell Roundhand", cursive;
-}
-
-.jumbotron-title {
-    text-align: center;
-}
-
-p.thank {
-    font-size: 13px;
-    margin-bottom: 3px;
-
-}
-
-p.testing a{
-    text-decoration: underline;
 }
 
 .discordLink {
