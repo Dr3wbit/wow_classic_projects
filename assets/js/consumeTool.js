@@ -120,11 +120,12 @@ function applyClickHandlers() {
 	})
 
 	materialsTooltip()
+	// consumeItemEventHandler()
 }
 
 function clearForm() {
 	$('.consume-form').empty()
-	$('.results').empty()
+	$('#results').empty()
 }
 
 function combineData(defaultData, classData) {
@@ -159,6 +160,8 @@ function populateConsumeBlocks(data) {
 function getMaterials(data) {
 	let materials = []
 	const formValues = $('.consume-input')
+	console.log('data: ', data)
+
 	formValues.map((item) => {
 
 		if (!(formValues[item].value)) {
@@ -175,12 +178,12 @@ function getMaterials(data) {
 			materials.push({name:name, data:consumeObject, amount:inputValue})
 		}
 	})
+	console.log('consumables: ', materials)
 	appendMaterials(materials)
 }
 
-
 function materialsTooltip() {
-    $(".results").on({
+    $("#results").on({
         mouseenter: e => {
             const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
             let matName = closestMat.text()
@@ -188,7 +191,7 @@ function materialsTooltip() {
             if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
                 return
             } else {
-                $(".results").find('.materials-name').removeClass('underlined')
+                $("#results").find('.materials-name').removeClass('underlined')
                 closestMat.addClass('underlined')
 				$("#tooltip").children().remove()
 				$("#tooltip").hide()
@@ -223,62 +226,65 @@ function materialsTooltip() {
             }
         },
         mouseleave: e => {
-            $(".results").find('.materials-name').removeClass('underlined')
+            $("#results").find('.materials-name').removeClass('underlined')
             $("#tooltip").hide()
             $("#tooltip").children().remove()
-        }
+        },
+		'shown.bs.collapse': e=> {
+			let targetID = $(e.target).attr('id').replace('_collapse', '')
+			$(`#${targetID}`).find('span.plus').text('-')
+		},
+		'hidden.bs.collapse': e=> {
+
+			let targetID = $(e.target).attr('id').replace('_collapse', '')
+
+			$(`#${targetID}`).find('span.plus').text('+')
+		},
     })
 }
-// function findMaterials(name, category, data, inputValue) {
-//
-//
-// 	const profession = data.find((a) => {
-// 		return a.name == category
-// 	})
-//
-// 	const item = profession.data.find((a) => {
-// 		return a.name == name
-// 	})
-// 	let materialsToAppend = []
-// 	Object.keys(item.materials).map(key => {
-// 		materialsToAppend.push({
-// 			[key]: Math.ceil(item.materials[key] * inputValue)
-// 		})
-// 	});
-// 	// console.log('name: ', item.name, ' materialsToAppend: ',materialsToAppend, ' inputValue ', inputValue)
-//
-// 	return {
-// 		name: [item.name],
-// 		materials: materialsToAppend,
-// 		amount: inputValue
-// 	}
-// }
+
 
 function appendMaterials(consumables) {
-	$('.results').empty()
 
 	let totalMaterialCount = {}
-	consumables.forEach(function(item) {
-		if (!(item.amount > 0)) {
-			return
-		} else {
-			let consumeName = (item.data.name) ? item.data.name : utilities.titleCase(item.name)
-			let resultConsume = $('<button/>', {
-				class: `consumes-list-item ${item.data.rarity} btn btn-link collapse show`,
-				text: `(+) ${consumeName}  [${item.amount}]`,
-				type: 'button',
-				name: item.name
-			})
-			resultConsume.attr("data-toggle", "collapse")
-			// .append($('<button/>', {
-			// 	text: `(+) ${consumeName}  [${item.amount}]`,
-			// 	class: `btn btn-link ${item.data.rarity}`,
-			// 	type: 'button',
-			// 	data: {"toggle": "collapse"},
-			// }))
+	consumables.forEach(function(consume) {
+		let consumeItemElement = $(`#${consume.name}`)
+		if (consumeItemElement.length) {
+			consumeItemElement.find($('span.amount')).text(` [${consume.amount}]`)
 
-			let materialsToAppend = []
-			for (let [name, value] of Object.entries(item.data.materials)) {
+			for (let [name, matsPer] of Object.entries(consume.data.materials)) {
+				totalMaterialCount[name] = (!(totalMaterialCount[name])) ? Math.round(matsPer * consume.amount) : Math.round((matsPer * consume.amount) + totalMaterialCount[name])
+				// console.log(totalMaterialCount)
+				$(`.materials-list-item[name='${consume.name}_${name}']`).find($("span.amount")).text(`[${Math.round(matsPer * consume.amount)}]`)
+			}
+		} else {
+			let consumeName = (consume.data.name) ? consume.data.name : utilities.titleCase(consume.name)
+			let consumeElement = $('<a/>', {
+				href: `#${consume.name}_collapse`,
+				role: 'button',
+				class: "consumes-list-item",
+				id: `${consume.name}`,
+			})
+			consumeElement.attr("data-toggle", "collapse")
+
+			consumeElement.append($('<span/> ', {
+					class:`${consume.data.rarity} plus`,
+					text: "+",
+				})).append(" ").append($('<span/>', {
+					class:`${consume.data.rarity} consume-name`,
+					text: `${consumeName}`,
+				})).append(" ").append($('<span/>', {
+					class:`${consume.data.rarity} amount`,
+					text:`[${consume.amount}]`,
+				}))
+
+			materialsListParent = $('<div/>', {
+				class: 'materials-list collapse',
+				id: `${consume.name}_collapse`,
+			})
+
+
+			for (let [name, matsPer] of Object.entries(consume.data.materials)) {
 				let matObject = allMaterials[name]
 				let category = matObject.category
 				let rarity = matObject.rarity
@@ -286,71 +292,82 @@ function appendMaterials(consumables) {
 				let imageName = (properName.endsWith("E'ko")) ? "eko" : name
 
 				if (!(totalMaterialCount[name])) {
-					totalMaterialCount[name] = Math.round(value*item.amount)
+					totalMaterialCount[name] = Math.round(matsPer * consume.amount)
 				} else {
-					totalMaterialCount[name] = Math.round((totalMaterialCount[name]+value)*item.amount)
+					totalMaterialCount[name] = Math.round((matsPer * consume.amount) + totalMaterialCount[name])
 				}
-				let resultMaterials = $('<div/>', {
+				let materialsListItemElement = $('<div/>', {
 					class: 'materials-list-item',
+					name: `${consume.name}_${name}`
 				}).append($('<img/>', {
-		            class: 'icon-small',
-		            src: "assets/images/icons/small/icon_border.png",
-		            style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
-		        })).append($('<span/>', {
-		            text: properName,
-		            class: `materials-name ${rarity}`,
-		        })).append($('<span/>', {
-		            text: ` [${totalMaterialCount[name]}]`,
-		            class: 'amount',
-		        }))
-				resultMaterials.attr("data-parent", item.name)
-				materialsToAppend.push(resultMaterials)
+					class: 'icon-small',
+					src: "assets/images/icons/small/icon_border.png",
+					style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
+				})).append($('<span/>', {
+					text: `${properName}`,
+					class: `materials-name ${rarity}`,
+				})).append(" ").append($('<span/>', {
+					text: `[${Math.round(matsPer * consume.amount)}]`,
+					class: 'amount',
+				}))
+				materialsListParent.append(materialsListItemElement)
 			}
-			resultConsume.append(materialsToAppend)
 
-			$('.results').append(resultConsume)
+			// materialsListParent.insertAfter(consumeElement)
+
+			// consumeElement.append(materialsListParent)
+			$('#results').append(consumeElement, materialsListParent)
+
 		}
 	})
 	calculateTotals(totalMaterialCount)
 }
 
-function collapseConsume() {
-	$(".consumes-list-item").on({
-		mousedown: e => {
-			$(e.target).collapse()
-		}
-	})
-}
 
 function calculateTotals(totals) {
-	let totalTitle = $('<div/>', {
+
+	let totalsElement = $("#totalMaterials")
+
+	let totalTitle = ($("#totalTitle").length) ? $("#totalTitle") : $('<div/>', {
 		class: 'totalTitle',
-		text: "Totals"
+		text: "Totals",
+		id: 'totalTitle'
 	})
 
 	for (let [name, value] of Object.entries(totals)) {
-		let matObject = allMaterials[name]
-		let category = matObject.category
-		let rarity = matObject.rarity
-		let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
-		let imageName = (properName.endsWith("E'ko")) ? "eko" : name
-		let matElement = $('<div/>', {
-			class: 'materials-list-item',
-		}).append($('<img/>', {
-			class: 'icon-small',
-			src: "assets/images/icons/small/icon_border.png",
-			style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
-		})).append($('<span/>', {
-			text: properName,
-			class: `materials-name ${rarity}`,
-		})).append($('<span/>', {
-			text: ` [${value}]`,
-			class: 'amount',
-		}))
 
-		totalTitle.append(matElement)
+		let matElement = $(`div.materials-list-item[name='${name}']`)
+
+		// already exists, update it
+		if (matElement.length) {
+			matElement.find($('span.amount')).text(` [${value}]`)
+		} else {
+			let matObject = allMaterials[name]
+			let category = matObject.category
+			let rarity = matObject.rarity
+			let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
+			let imageName = (properName.endsWith("E'ko")) ? "eko" : name
+
+			let matElement = $('<div/>', {
+				class: 'materials-list-item',
+				name: `${name}`,
+			}).append($('<img/>', {
+				class: 'icon-small',
+				src: "assets/images/icons/small/icon_border.png",
+				style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
+			})).append($('<span/>', {
+				text: properName,
+				class: `materials-name ${rarity}`,
+			})).append(" ").append($('<span/>', {
+				text: `[${value}]`,
+				class: 'amount',
+			}))
+
+			totalTitle.append(matElement)
+		}
+
 	}
-	$('.results').append(totalTitle)
+	$('#results').append(totalTitle)
 }
 
 
@@ -367,7 +384,6 @@ function updateTooltip(e) {
 	if (consumeObj.unique) {
 		tooltipElems.push({class: 'unique', text: "Unique",})
 	}
-
 	let requirementText = ''
 	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
 		requirementText = consumeObj.req
@@ -384,6 +400,5 @@ function updateTooltip(e) {
 	if (consumeObj.description) {
 		tooltipElems.push({class: 'description', text: `"${consumeObj.description}"`})
 	}
-
 	utilities.bigdaddytooltip(e, tooltipElems)
 }
