@@ -577,7 +577,8 @@ ul {
 
 p.thank {
     font-size: 13px;
-    line-height: 2px;
+    margin-bottom: 3px;
+
 }
 
 p.testing a{

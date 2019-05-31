@@ -34,10 +34,11 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/global.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/specsAndGuides.css">
 
-	<script src="assets/js/specsAndGuidesData.js"></script>
+    <script src="assets/js/specsAndGuidesData.js"></script>
 	<script src="assets/js/handlebars-v4.1.2.js"></script>
-	<!-- Nav Bar -->
+	<!-- Nav Bar and Class Bar -->
 	<script src="assets/js/nav.js"></script>
+	<script src="assets/js/filter_selection.js"></script>
 	<script src="assets/js/templatesCompiled.js"></script>
 </head>
 
@@ -49,19 +50,7 @@
 		</div>
 	</div>
 
-	<div class="container mainBody">
-		<div class="row class-selection sticky-top pt-1 nav-is-sticky" id="class_selection">
-			<div class="class-filter class-icon" id="warrior">Warrior</div>
-			<div class="class-filter class-icon" id="mage">Mage</div>
-			<div class="class-filter class-icon" id="druid">Druid</div>
-			<div class="class-filter class-icon" id="paladin">Paladin</div>
-			<div class="class-filter class-icon" id="shaman">Shaman</div>
-			<div class="class-filter class-icon" id="warlock">Warlock</div>
-			<div class="class-filter class-icon" id="priest">Priest</div>
-			<div class="class-filter class-icon" id="hunter">Hunter</div>
-			<div class="class-filter class-icon" id="rogue">Rogue</div>
-		</div>
-
+	<div id="main-container" class="container mainBody">
 		<div class="row">
 			<div class="content-selection-container col-2 d-none d-lg-block list-group sticky-top align-self-start"
 				id="scroll_parent">
@@ -101,6 +90,7 @@
 	</footer>
 
 </body>
+
 <script id="specAndGuides-block-template" type="text/x-handlebars-template">
 
   {{#each specs as |spec|}}
