@@ -31,9 +31,12 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/global.css">
     <link rel="stylesheet" type="text/css" href="assets/css/talent.css">
-    <script src="assets/js/handlebars-v4.1.2.js"></script>
-    <!-- Nav Bar -->
+	
+	<script src="assets/js/handlebars-v4.1.2.js"></script>
+
+    <!-- Nav Bar and Class Bar -->
     <script src="assets/js/nav.js"></script>
+	<script src="assets/js/filter_selection.js"></script>
     <script src="assets/js/polyfill.js"></script>
     <script src="assets/js/utilities.js"></script>
 
@@ -61,19 +64,7 @@
             <div class="trigger-icon"></div>
         </div>
     </div>
-    <div class="container mainBody">
-
-        <div class="row class-selection pt-1 nav-is-sticky sticky-top" id="class_selection">
-            <div class="class-filter class-icon" id="warrior">Warrior</div>
-            <div class="class-filter class-icon" id="mage">Mage</div>
-            <div class="class-filter class-icon" id="druid">Druid</div>
-            <div class="class-filter class-icon" id="paladin">Paladin</div>
-            <div class="class-filter class-icon" id="shaman">Shaman</div>
-            <div class="class-filter class-icon" id="warlock">Warlock</div>
-            <div class="class-filter class-icon" id="priest">Priest</div>
-            <div class="class-filter class-icon" id="hunter">Hunter</div>
-            <div class="class-filter class-icon" id="rogue">Rogue</div>
-        </div>
+    <div id="main-container" class="container mainBody">
         <div class="row justify-content-center">
             <div id="talentHeader">
                 <span id="allottedTalentPoints" class="col-3 text-left">(0/0/0)</span>
@@ -109,17 +100,16 @@
     <div class="talentTable" id="{{tree.name}}" style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{sanitize tree.name}}_background.jpg');">
         <div class="treeTitle col">
         {{#each data}}
-        <div class="row">
+            <div class="row">
             {{#each this as |item itemKey|}}
 
                 {{#if this}}
                     <div class="talent-slot">
-
                         <div class="talent-container">
-                        <img class="talent{{#if locked}} locked{{/if}}{{#if j}} grayed{{/if}}"
-                            src="assets/images/icon_border_2.png"
-                            style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
-                            name="{{name}}" data-j={{j}} data-k={{k}} {{#if unlocks}}data-unlocks="{{unlocks}}"{{/if}}>
+                            <img class="talent{{#if locked}} locked{{/if}}{{#if j}} grayed{{/if}}"
+                                src="assets/images/icon_border_2.png"
+                                style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/{{image}}');"
+                                name="{{name}}" data-j={{j}} data-k={{k}} {{#if unlocks}}data-unlocks="{{unlocks}}"{{/if}}>
                             <div class="spentPoints {{#if locked}}locked {{/if}}{{#if item.j}}grayed{{/if}}">{{invested}}</div>
                         </div>
                         {{#if unlocks}}
@@ -142,20 +132,18 @@
                     </div>
                 {{else}}
                     <div class="openSlot"></div>
-            {{/if}}
+                {{/if}}
             {{/each}}
-        </div>
+            </div>
         {{/each}}
+        </div>
+        <div class="talentFooter">
+            <span class="treeName" style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/small_{{sanitize tree.name}}_icon.jpg');">{{tree.name}}</span>
+
+            <span class="talentFooter-spentPoints">(0)</span>
+            <button type="button" class="resetTree" title="Clear" id="clear{{tree.name}}"></button>
+        </div>
     </div>
-    <div class="talentFooter">
-      <span class="treeName" style="background-image: url('assets/images/talent_spells/{{className}}/{{sanitize tree.name}}/small_{{sanitize tree.name}}_icon.jpg');">{{tree.name}}</span>
-
-      <span class="talentFooter-spentPoints">(0)</span>
-      <button type="button" class="resetTree" title="Clear" id="clear{{tree.name}}"></button>
-
-
-    </div>
-</div>
     {{/each}}
 </script>
 

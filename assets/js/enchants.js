@@ -859,6 +859,19 @@ const enchants = {
 			description: 'Permanently enchant a melee weapon to grant +15 Agility.',
 			effect: 'Agility +15'
 		},
+		spell_power: {
+			end_game: true,
+			materials: {
+				large_brilliant_shard: 4,
+				greater_eternal_essence: 12,
+				essence_of_air: 4,
+				essence_of_fire: 4,
+				essence_of_water: 4,
+				golden_pearl: 2,
+			},
+			description: 'Permanently enchant a weapon to add up to 30 damage to spells.',
+			effect: 'Spell Damage +30'
+		},
 		crusader: {
 			end_game: true,
 			materials: {
@@ -1130,7 +1143,8 @@ const enchants = {
 				pristine_black_diamond: 1,
 				large_brilliant_shard: 4,
 				skin_of_shadow: 2
-			}
+			},
+			description: 'Permanently adds +8 to your Healing and Damage from spells to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		},
 
 		lesser_arcanum_of_constitution: {
@@ -1143,7 +1157,8 @@ const enchants = {
 				libram_of_constitution: 1,
 				night_dragons_breath: 4,
 				gold: 30
-			}
+			},
+			description: 'Permanently adds 100 hit points to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		},
 
 		lesser_arcanum_of_rumination: {
@@ -1170,7 +1185,8 @@ const enchants = {
 				whipper_root_tuber: 4,
 				crystal_force: 4,
 				gold: 30
-			}
+			},
+			description: 'Permanently adds 8 of chosen stat to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		},
 
 		lesser_arcanum_of_resilience: {
@@ -1183,7 +1199,8 @@ const enchants = {
 				burning_essence: 1,
 				libram_of_resilience: 1,
 				gold: 30
-			}
+			},
+			description: 'Permanently adds 20 fire resistance to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		}
 	},
 
@@ -1198,7 +1215,8 @@ const enchants = {
 				pristine_black_diamond: 1,
 				large_brilliant_shard: 4,
 				skin_of_shadow: 2
-			}
+			},
+			description: 'Permanently adds +8 to your Healing and Damage from spells to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		},
 
 		lesser_arcanum_of_constitution: {
@@ -1211,7 +1229,8 @@ const enchants = {
 				libram_of_constitution: 1,
 				night_dragons_breath: 4,
 				gold: 30
-			}
+			},
+			description: "Permanently adds 100 hit points to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
 		},
 
 		lesser_arcanum_of_rumination: {
@@ -1238,7 +1257,8 @@ const enchants = {
 				whipper_root_tuber: 4,
 				crystal_force: 4,
 				gold: 30
-			}
+			},
+			description: 'Permanently adds 8 of chosen stat to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		},
 
 		lesser_arcanum_of_resilience: {
@@ -1251,7 +1271,8 @@ const enchants = {
 				burning_essence: 1,
 				libram_of_resilience: 1,
 				gold: 30
-			}
+			},
+			description: 'Permanently adds 20 fire resistance to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot.'
 		}
 	}
 }
