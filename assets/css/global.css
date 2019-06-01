@@ -81,12 +81,12 @@ body {
 .navbar-logo-text {
     font-family: Aeio;
     font-size: 25px;
-    color: #ff3604 !important;
+    color: rgba(255, 54, 4, 0.95) !important;
     text-shadow:
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000;
+        -1px -1px 0 rgba(0, 0, 0, 0.5),
+        2px -2px 0 rgba(0, 0, 0, 0.5),
+        -2px 2px 0 rgba(0, 0, 0, 0.5),
+        2px 2px 0 rgba(0, 0, 0, 0.5);
     vertical-align: bottom;
 }
 
@@ -130,7 +130,7 @@ body {
 .nav-link:hover {
     outline: none;
     background-color: transparent;
-    color: #ff3604 !important;
+    color: rgba(255, 54, 4, 0.95) !important;
    }
 
 .nav-item {
@@ -153,7 +153,8 @@ body {
 }
 
 .nav-link-selected {
-    color: #ff3604 !important;
+    color: rgba(255, 54, 4, 0.95) !important;
+    text-shadow: -0.02rem -0.02rem 0.03rem rgba(30,30,30, 0.95), -0.02rem -0.01rem 0.02rem rgba(30,30,30, 0.95);;
 }
 
 /* ``````````````````CLASS SELECTION````````````````````` */
@@ -593,8 +594,9 @@ ul {
     cursor: pointer;
     padding: 10px;
     position: relative;
-    margin-left: auto;
-    margin-right: 20px;
+    margin-left: 150px;
+    top: 4px;
+    /* margin-right: 20px; */
 }
 
 @media only screen and (max-width: 992px) {
@@ -613,7 +615,6 @@ ul {
     width: 100%;
     left: 0;
     top: 0;
-    position: absolute;     
+    position: absolute;
     z-index: 1;
   }
-
