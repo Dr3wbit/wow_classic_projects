@@ -579,3 +579,41 @@ ul {
     background-repeat: no-repeat, repeat;
     box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
 }
+
+.fancy {
+    font-family: "Snell Roundhand", cursive;
+}
+
+.discordLink {
+    background-image: url(../images/icons/discord_link.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 180px;
+    height: 40px;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 992px) {
+    .discordLink {
+        margin: auto
+    }
+
+}
+
+.discordLink:hover{
+    filter: invert(100%)
+}
+
+.clickable {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;     
+    z-index: 1;
+  }
+
