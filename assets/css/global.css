@@ -112,6 +112,8 @@ body {
     padding-right: 20px;
     box-shadow: inset 0 0 5px rgb(40, 40, 40);
     border: 1px solid black;
+    border-top: 0;
+    border-bottom: 0;
     margin: 0;
 }
 
@@ -593,10 +595,8 @@ ul {
     height: 40px;
     cursor: pointer;
     padding: 10px;
+    margin-left: auto;
     position: relative;
-    margin-left: 150px;
-    top: 4px;
-    /* margin-right: 20px; */
 }
 
 @media only screen and (max-width: 992px) {
