@@ -18,7 +18,7 @@
 .pageColumn{
     background-image: url("../images/textured_background.png");
     background-size: cover;
-    border: 1px azure solid;
+    border: 1px rgba(240, 255, 255, .95) solid;
     min-height: 475px;
     max-height: 475px;
     color: #1EFF00;
@@ -117,10 +117,8 @@
 }
 
 .columnTitle {
-    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
-    box-shadow: inset 0 0 5px rgb(40, 40, 40);
     border: 1px solid black;
-    color: azure;
+    color: rgba(240, 255, 255, .95);
     line-height: 38px;
 }
 

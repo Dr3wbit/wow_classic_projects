@@ -232,6 +232,10 @@ body {
         padding-left: 15px;
         padding-right: 20px;
     }
+    .class-filter {
+        min-width: 58px;
+        font-size: 95%;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -240,7 +244,7 @@ body {
     .class-filter {
       background-position: 95 100%;
       background-size: 100% 105%;
-      /* transition: all .2s ease-in; */
+      min-width: 25px;
       font-size: 0;
     }
 
@@ -250,6 +254,12 @@ body {
         border: 2px solid black;
         margin-left: 0;
         margin: 2px
+    }
+
+    .class-selection {
+        justify-content: center;
+        min-height: 0;
+        text-shadow: -0.02rem -0.02rem 0.02rem rgba(30,30,30, 0.95);
     }
 
     #warrior {
