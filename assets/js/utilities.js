@@ -22,7 +22,10 @@ const utilities = {
 		let distanceFromTop = element.offset().top - $(window).scrollTop()
 		let yCoeff = (distanceFromTop/window.innerHeight)*100
 		let left = 0, top = 0
-		let header = ($("#talentHeader").length) ? $("#talentHeader") : $("div.page-title")
+
+		// let header = ($("#talentHeader").length) ? $("#talentHeader") : $("div.page-title")
+
+		let header = ($("#talentHeader").length) ? $("#talentHeader") : $("#class_selection")
 		let classSelection = $("#class_selection")
 
 		if (xCoeff > 50) {
@@ -33,6 +36,8 @@ const utilities = {
 
 		if (yCoeff < 30) {
 			top = Math.max(header.position().top, classSelection.position().top) + 35
+			// top = classSelection.position().top + 35
+
 			let percDiff = Math.round((1 - top/element.offset().top)*100)
 			if (percDiff >= 10) {
 				top = Math.floor(element.offset().top)
