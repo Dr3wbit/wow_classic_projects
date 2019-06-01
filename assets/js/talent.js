@@ -780,7 +780,7 @@ function mouseDownHandler(e = null, talent, tree) {
 
 	targetTalent.closest(".talentTable").find(".talentFooter span.talentFooter-spentPoints").text("(" + talentPointsSpent[treeName].total() + ")")
 
-	console.log(targetTalent.attr('name') + " : " + talentObj.invested)
+	// console.log(targetTalent.attr('name') + " : " + talentObj.invested)
 	if (manuallyClicked) {
 		urlBuilder()
 		updateTooltip(e)
