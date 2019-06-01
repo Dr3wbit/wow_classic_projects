@@ -147,9 +147,9 @@ input:focus {
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: black;
-    border-radius: 5px;
+    border-radius: 2px;
     border: 1px black solid;
-    color: azure;
+    color: rgba(240, 255, 255, 0.95);
 }
 
 .consumes-list-item a{
@@ -162,9 +162,13 @@ input:focus {
 }
 
 span.plus {
-    text-decoration: bold;
     font-size: 15px;
     color: rgba(240, 255, 255, 0.95);
+    pointer-events: none;
+}
+
+.consume-name {
+    pointer-events: none;
 }
 
 .blue {
@@ -177,11 +181,6 @@ span.plus {
     text-indent: 10px;
 }
 
-.materials-list div:last-child{
-    margin-bottom: 5px;
-    color: lime;
-}
-
 .materials-list-item {
     position: relative;
     margin-top: 3px;
@@ -192,7 +191,7 @@ span.plus {
     box-shadow: none;
 }
 
-.circle{
+.circle {
     border-radius: 50%;
     width: 15px;
     height: 15px;
@@ -217,11 +216,17 @@ span.plus {
     content: " ";
     position: absolute;
     display: block;
-    background-color: #fff;
+    background-color: rgba(240, 255,255,0.95);
     width: 11px;
     margin-left: -6px;
     left: 50%;
     top: 6px;
     bottom: 6px;
     z-index: 9;
+}
+
+#totals-divider {
+    margin: 2px 6px 12px 6px;
+    border-color: rgba(240, 255,255,0.95);
+
 }
