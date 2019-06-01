@@ -160,7 +160,6 @@ function populateConsumeBlocks(data) {
 function getMaterials(data) {
 	let materials = []
 	const formValues = $('.consume-input')
-	console.log('data: ', data)
 
 	formValues.map((item) => {
 
@@ -178,13 +177,16 @@ function getMaterials(data) {
 			materials.push({name:name, data:consumeObject, amount:inputValue})
 		}
 	})
-	console.log('consumables: ', materials)
 	appendMaterials(materials)
 }
 
 function materialsTooltip() {
     $("#results").on({
         mouseenter: e => {
+
+			if ($(e.target).hasClass("consumes-list-item")) {
+				return false
+			}
             const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
             let matName = closestMat.text()
 			let name = utilities.sanitize(matName)
@@ -326,13 +328,20 @@ function appendMaterials(consumables) {
 
 function calculateTotals(totals) {
 
-	let totalsElement = $("#totalMaterials")
 
 	let totalTitle = ($("#totalTitle").length) ? $("#totalTitle") : $('<div/>', {
 		class: 'totalTitle',
 		text: "Totals",
 		id: 'totalTitle'
 	})
+
+	let divider = $("#totals-divider")
+
+	if (!(divider.length)) {
+		totalTitle.append($('<hr>', {
+			id: "totals-divider",
+		}))
+	}
 
 	for (let [name, value] of Object.entries(totals)) {
 
