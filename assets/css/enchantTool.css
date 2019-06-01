@@ -117,8 +117,6 @@
 }
 
 .columnTitle {
-    /* background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
-    box-shadow: inset 0 0 5px rgb(40, 40, 40); */
     border: 1px solid black;
     color: rgba(240, 255, 255, 0.95);
     line-height: 38px;

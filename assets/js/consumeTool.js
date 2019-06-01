@@ -36,17 +36,17 @@ function stepValidator(n, step) {
 }
 
 function applyClickHandlers() {
-	const classMarker = $('<div/>', {
-		class: 'classMarker',
-	})
-	const classMarkerGhost = $('<div/>', {
-		class: 'classMarkerGhost',
-	})
+	// const classMarker = $('<div/>', {
+	// 	class: 'classMarker',
+	// })
+	// const classMarkerGhost = $('<div/>', {
+	// 	class: 'classMarkerGhost',
+	// })
 	$('.class-filter').on({
 		click: e => {
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
-			clickedFilter.append(classMarker)
+			// clickedFilter.append(classMarker)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
 			const defaultData = consumes.find((a) => {
@@ -106,17 +106,17 @@ function applyClickHandlers() {
 
 			})
 		},
-		mouseenter: e => {
-			const hoveredFilter = $(e.target)
-			if(hoveredFilter.hasClass('selected')){
-				return
-			}else{
-				hoveredFilter.append(classMarkerGhost)
-			}
-		},
-		mouseleave: e => {
-			$('.classMarkerGhost').remove()
-		}
+		// mouseenter: e => {
+		// 	const hoveredFilter = $(e.target)
+		// 	if(hoveredFilter.hasClass('selected')){
+		// 		return
+		// 	}else{
+		// 		hoveredFilter.append(classMarkerGhost)
+		// 	}
+		// },
+		// mouseleave: e => {
+		// 	$('.classMarkerGhost').remove()
+		// }
 	})
 
 	materialsTooltip()
@@ -160,7 +160,6 @@ function populateConsumeBlocks(data) {
 function getMaterials(data) {
 	let materials = []
 	const formValues = $('.consume-input')
-	console.log('data: ', data)
 
 	formValues.map((item) => {
 
@@ -178,13 +177,16 @@ function getMaterials(data) {
 			materials.push({name:name, data:consumeObject, amount:inputValue})
 		}
 	})
-	console.log('consumables: ', materials)
 	appendMaterials(materials)
 }
 
 function materialsTooltip() {
     $("#results").on({
         mouseenter: e => {
+
+			if ($(e.target).hasClass("consumes-list-item")) {
+				return false
+			}
             const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
             let matName = closestMat.text()
 			let name = utilities.sanitize(matName)
@@ -326,13 +328,20 @@ function appendMaterials(consumables) {
 
 function calculateTotals(totals) {
 
-	let totalsElement = $("#totalMaterials")
 
 	let totalTitle = ($("#totalTitle").length) ? $("#totalTitle") : $('<div/>', {
 		class: 'totalTitle',
 		text: "Totals",
 		id: 'totalTitle'
 	})
+
+	let divider = $("#totals-divider")
+
+	if (!(divider.length)) {
+		totalTitle.append($('<hr>', {
+			id: "totals-divider",
+		}))
+	}
 
 	for (let [name, value] of Object.entries(totals)) {
 
