@@ -531,6 +531,8 @@ function resetAll() {
 
 function resetTalentTree(tree, e) {
 
+	console.log('\nresetting tree: ', tree)
+
 	let found = classData.trees.find(function (x) {
 		return x.name == tree
 	})
@@ -579,8 +581,6 @@ function resetTalentTree(tree, e) {
 	} else {
 		talentUnlocker()
 	}
-	// urlBuilder()
-
 }
 
 function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
@@ -976,7 +976,6 @@ function pointSpender(talent, e, tree, targetTal) {
 				let t = $(`img.talent[name="${tal.name}"]`)
 				t.removeClass('grayed') // ungray talent element
 				t.closest('.talent-container').find(".spentPoints").first().removeClass('grayed') // ungray spentPoints element
-
 				if (tal.locked) { // if talent object has locked property, also has arrows
 					arrowClassChanger(tal.name, false, 'grayed')
 				}
@@ -1059,6 +1058,8 @@ function pointSpender(talent, e, tree, targetTal) {
 				unlocks.forEach(function (n) {
 					let par = $(`img.talent[name="${n}"]`).addClass('locked') //NOTE: locks talent element
 					par.closest('.talent-container').find(".spentPoints").first().addClass('locked') //NOTE: locks points spent element
+
+					console.log('locking talent: ', n)
 					arrowClassChanger(n, true, 'locked')
 				})
 			}
@@ -1097,6 +1098,7 @@ function pointSpender(talent, e, tree, targetTal) {
 // needs optimization
 function talentLocker(tree = '') {
 
+	// console.log('\nlocking\n')
 	let treeNames = []
 	if (!tree) { // defaults to all trees
 		treeNames = talentPointsSpent.treeNames
@@ -1127,13 +1129,24 @@ function talentLocker(tree = '') {
 		t.addClass('grayed')
 		t.closest('.talent-slot').find(".spentPoints").addClass('grayed')
 		if (tal.locked) {
+			console.log('graying: ', tal.name)
 			arrowClassChanger(tal.name, true, 'grayed')
 		}
-	})
+		if (tal.unlocks) {
+			let unlocks = (!Array.isArray(tal.unlocks)) ? Array(tal.unlocks) : tal.unlocks
+			unlocks.forEach(function (n) {
+				let par = $(`img.talent[name="${n}"]`).addClass('locked')
+				par.closest('.talent-container').find(".spentPoints").first().addClass('locked')
 
+				console.log('locking talent: ', n)
+				arrowClassChanger(n, true, 'locked')
+			})
+		}
+	})
 }
 
 function talentUnlocker(tree = '') {
+	// console.log('\nunlocking\n')
 	let treeNames = []
 	if (!tree) { // defaults to all trees
 		treeNames = talentPointsSpent.treeNames
@@ -1157,9 +1170,12 @@ function talentUnlocker(tree = '') {
 					t.removeClass('grayed')
 					t.closest('.talent-slot').find('.spentPoints').first().removeClass('grayed')
 					if (tal.locked) {
+						console.log('ungraying: ', tal.name)
+
 						arrowClassChanger(tal.name, false, 'grayed')
 
 					}
+
 				}
 			})
 		}
@@ -1275,6 +1291,13 @@ function preBuiltSpec(hash = '') {
 
 function arrowClassChanger(talName, add, lockOrGray) {
 	//
+
+	let addOrRemove = 'add'
+
+	if (!add) {
+		addOrRemove = 'remove'
+	}
+	console.log('talent name: ', talName, ` ${addOrRemove} ${lockOrGray} `)
 	let arrows = $(`div.talentcalc-arrow[data-unlocks="${talName}"]`)
 	arrows.each(function () {
 		if (add) {
