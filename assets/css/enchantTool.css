@@ -25,7 +25,7 @@
     border: 1px solid #78797a;
 }
 .enchantOptionContainer {
-    border-top-left-radius: 5px;
+    border-top-left-radius: 1px;
     border-bottom-left-radius: 5px;
 }
 
@@ -33,7 +33,7 @@
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    border-top-right-radius: 5px;
+    border-top-right-radius: 1px;
     border-bottom-right-radius: 5px;
 }
 
@@ -120,6 +120,7 @@
     border: 1px solid black;
     color: rgba(240, 255, 255, 0.95);
     line-height: 38px;
+    box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
 }
 
 .enchant-slot-title {
@@ -177,11 +178,11 @@
 }
 
 .filterOptions{
-    background-image: linear-gradient(rgb(20, 20, 20), black,rgb(20, 20, 20));
+    background-image: linear-gradient(rgb(20, 20, 20), black, rgb(20, 20, 20));
     box-shadow: inset 0 0 5px rgb(40, 40, 40);
     border: 1px solid black;
     margin-left: 5px;
-    color: azure;
+    color: rgba(240, 255, 255, 0.95);
 }
 
 #belt {
@@ -273,4 +274,8 @@
     position: relative;
     margin-top: 3px;
     text-align: left;
+}
+
+.nav-is-sticky {
+    padding-top: 0 !important;
 }
