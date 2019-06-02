@@ -183,8 +183,12 @@ function getMaterials(data) {
 function materialsTooltip() {
     $("#results").on({
         mouseenter: e => {
+			e.preventDefault()
+
 
 			if ($(e.target).hasClass("consumes-list-item")) {
+
+				$(e.target).find("span.consume-name").addClass('underlined')
 				return false
 			}
             const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
@@ -228,7 +232,9 @@ function materialsTooltip() {
             }
         },
         mouseleave: e => {
-            $("#results").find('.materials-name').removeClass('underlined')
+            $("#results").find(".materials-name, .consume-name").removeClass('underlined')
+			// $("#results").find('.consume-name').removeClass('underlined')
+
             $("#tooltip").hide()
             $("#tooltip").children().remove()
         },

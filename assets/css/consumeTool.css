@@ -152,11 +152,12 @@ input:focus {
     color: rgba(240, 255, 255, 0.95);
 }
 
-.consumes-list-item a{
+a.consumes-list-item {
     pointer-events: auto;
+    text-decoration: none;
 }
 
-.consumes-list-item a:hover{
+a.consumes-list-item:hover {
     /* pointer-events: auto; */
     color: inherit;
 }

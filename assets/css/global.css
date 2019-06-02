@@ -38,17 +38,14 @@ body {
 .page-title {
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     font-size: 300%;
-    color: azure;
 }
 .page-description {
-    color: azure;
     font-size: 12px;
 }
 
 .titleSplash {
     background-image: url(../images/title_splash.png);
     background-size: cover;
-    color: azure;
 }
 
 @font-face {
@@ -167,14 +164,15 @@ body {
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
     position: relative;
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
-    border-right: 1px solid black;
+    border-right: 1px solid rgba(0, 0, 0, .95);
     padding-top: 8px;
     min-width: 70px;
     margin-bottom: 1px;
+    border-radius: 1px;
 }
 
 .class-filter:first-child{
-    border-left: 1px solid black;
+    border-left: 1px solid rgba(0, 0, 0, .95);
 }
 
 .class-filter:hover{
@@ -188,8 +186,8 @@ body {
 
 .nav-is-sticky {
     border-bottom: 2px solid black;
-    /* border-top: 1px solid black; */
     top: 53px;
+    padding-top: .1rem !important;
 }
 
 /* .classMarker {
@@ -400,7 +398,7 @@ ul {
 
 .mainHeader {
     text-align: left;
-    color: azure
+    color: rgba(240, 255, 255, 0.95);
 }
 
 
@@ -413,7 +411,7 @@ ul {
     height: 18px;
     width: 18px;
     float: left;
-    color: azure;
+    color: rgba(240, 255, 255, 0.95);
     border: none;
     cursor: pointer;
     margin-right: 6px;
@@ -466,12 +464,11 @@ ul {
 
 .req, .unlearn {
     color: rgba(255,33,45,0.95);
-    /* color: red !important; */
     white-space: pre-line;
 }
 
 .learn {
-    color: rgba(23, 253, 23, 0.95) !important;
+    color: rgba(23, 253, 23, 0.95);
 }
 
 .next {
@@ -479,7 +476,7 @@ ul {
 }
 
 .description{
-    color: rgba(255, 205, 85, 1) !important;
+    color: rgba(255, 205, 85, 1);
     white-space: pre-line;
     padding-right: 5px;
 }
@@ -552,10 +549,8 @@ ul {
     font-size: 12px;
     position: relative;
     margin-right: 5px;
-    /* left: -8px;
-    top: 6px; */
     text-decoration: none;
-    color: azure;
+    color: rgba(240, 255, 255, 0.95);
     pointer-events: none;
     z-index: 10;
     text-shadow: -0.01rem -0.01rem 0.01rem black, -0.01rem 0.01rem 0.01rem grey;
