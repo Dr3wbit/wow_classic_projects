@@ -148,15 +148,6 @@ def remove_description(x):
 	name = x.group(2)
 	description_arr = x.group(4)
 
-	# print("group(1)", x.group(1))
-	# print("group(2)", x.group(2))
-	# print("group(3)", x.group(3))
-	# print("group(4)", x.group(4))
-
-	print("\nName: ", name, "\n", description_arr, "\n")
-
-	print("group(3): ",x.group(3))
-
 	remove = input("Press enter to remove description")
 
 	if remove == '':
@@ -170,71 +161,19 @@ with open(READ_FROM, 'r') as f:
 
 	if x == 1:
 		num_matches = r2.findall(content, re.M)
-		print("number of matches: ", len(num_matches), "\n")
 		content_new = r2.sub(set_coefficient, content)
 	if x == 2:
 		num_matches = r3.findall(content, re.M)
-		print("number of matches: ", len(num_matches), "\n")
 		content_new = r3.sub(set_coefficient, content)
 
 	if x == 3:
 		num_matches = r4.findall(content, re.M)
-		print("number of matches: ", len(num_matches), "\n")
 		content_new = r4.sub(remove_description, content)
 	else:
 		num_matches = r1.findall(content, re.M)
-		print("number of matches", len(num_matches))
-
 		content_new = r1.sub(get_replacement, content)
 
 
 
 with open(WRITE_TO, 'w') as f:
 	f.write(content_new)
-
-
-
-
-
-
-# new_str = matched.expand(r"\1\2\3${this.y()}\5")
-
-
-# print(matched.groups())
-
-
-# repl = re.compile(r"$1$2$3\{this\.y\(\)\}$5")
-# print(matched.group('num'))
-
-
-#
-# // replacing icon name with talent name
-# \'([\w]+\s?[\w]+)\',(?=\s+?maxRank)([.\s\w\:\,\[\]\'\%{}\\]+?iconname: ')(\w+)
-#
-# // getting icon name
-# (iconname)(: ')(\w+?\s?)?(\w+?\s?\w+?)'
-#
-# // getting n: <spell name>
-# n: '(\w+(\s|s)?\w+)+'
-#
-# // find and replace single quoted strings containing escaped apostrophes with double quotes, and remove the escape '\'
-# '(.*?\w*?)\\(\'\w*?.*?)'
-# "$1$2"
-#
-#
-# (description: )(\[\')([\w\s%.\,\-]+)('?\],)
-# $1function() {\rreturn `$3`\r},\r$&
-#
-# (description: )(\[\')([\w\s%.\,\-]+)(',.*?\],)
-# y: function() {\rreturn this.x * this.invested\r},\r\t$1function() {\rreturn `$3`\r},\r$&
-#
-# x: \d+?,\s.*+,description: function\(\)\ {\s+return `([\w,%\s']*).`
-#
-# x: \d+?,\s.*\s+description: function\(\)\ {\s+return `([\w,%\s']*).`
-#
-# (x: )(?<num>\d+?)(,[\s\w:,(){}.*]+?description: function\(\)\ {\s+return `[\w,%\s']*)(\k<num>)(.*?\.`)
-# $1$2\${this.y()}$4
-#
-# (x: )(?\d+?)(,[\s\w:,(){}.*]+?description: function\(\)\ {\s+return `[\w,%\s']*)($1)(.*?\.`)
-#
-#
