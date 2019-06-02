@@ -5,6 +5,8 @@ const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}/g //only looks for repeats of a/b/c/d/
 const re2 = /([a-z])\d/g
 const re3 = /(?:.* \[)(.+)(?:\] .)/
 
+const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
+
 const translationTable = {
 	00: 'a', 01: 'b', 02: 'c', 03: 'd', 04: 'e', 05: 'f',
 	10: 'g', 11: 'h', 12: 'i', 13: 'j', 14: 'k', 15: 'l',
@@ -34,24 +36,30 @@ function initializeApp() {
 	applyClickHandlers()
 	updateSavedSpecs()
 
-	const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
+
 	var reset = (performance.navigation.type == 1) ? true : false
 	let myURL = new URL(document.location)
-
+	let className
 	if (myURL.search) {
 		let params = myURL.searchParams
 		if (params.has('class')) {
-			let className = params.get('class')
-			if (CLASS_ARR.some(function (name) { return className == name })) {
+			let findClass = params.get('class')
+			if (CLASS_ARR.some(function (name) { return findClass == name })) {
+				className = params.get('class')
 				if (myURL.hash == '') {
 					reset = true
 				}
-				buildClassData(null, className, myURL.hash, reset)
+				// buildClassData(null, className, myURL.hash, reset)
+			} else {
+				// className = 'warrior'
 			}
 		}
 	} else {
-		buildClassData(null, 'warrior', myURL.hash, true)
+
+		// buildClassData(null, 'warrior', myURL.hash, reset)
 	}
+	buildClassData(null, className, myURL.hash, reset)
+
 }
 
 function applyClickHandlers() {
@@ -325,11 +333,17 @@ function updateSavedSpecs() {
 						let hash = myURL.hash
 
 						history.replaceState(null, null, myURL)
-						if (hasClass && hash) {
 
-							let cl = params.get('class')
+						if (hasClass && hash) {
+							let cl
+							let findClass = params.get('class')
+
+							if (CLASS_ARR.some(function (x) { return findClass == x })) {
+								cl = params.get('class')
+							}
 							talentPointsSpent = {}
 							classData = {}
+
 							buildClassData(null, cl, myURL.hash, false)
 						}
 					}
@@ -569,7 +583,7 @@ function resetTalentTree(tree, e) {
 
 }
 
-function buildClassData(e = null, cl = '', hash = '', reset = false) {
+function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 	let className = cl
 	let url = new URL(document.location)
 	let params = url.searchParams
