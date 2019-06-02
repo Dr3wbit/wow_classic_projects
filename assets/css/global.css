@@ -616,8 +616,8 @@ ul {
   }
 
 @keyframes glowing-text {
-    0% { text-shadow: 0 0 -1px inherit; }
-    40% { text-shadow: 0 0 2px inherit; }
-    60% { text-shadow: 0 0 2px inherit; }
-    100% { text-shadow: 0 0 -1px inherit; }
+    0% { text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15); }
+    40% { text-shadow: 0 0 2px rgba(165, 165, 243, 0.15); }
+    60% { text-shadow: 0 0 2px rgba(165, 165, 243, 0.15); }
+    100% { text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15); }
 }
