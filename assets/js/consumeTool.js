@@ -36,17 +36,11 @@ function stepValidator(n, step) {
 }
 
 function applyClickHandlers() {
-	// const classMarker = $('<div/>', {
-	// 	class: 'classMarker',
-	// })
-	// const classMarkerGhost = $('<div/>', {
-	// 	class: 'classMarkerGhost',
-	// })
+
 	$('.class-filter').on({
 		click: e => {
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
-			// clickedFilter.append(classMarker)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
 			const defaultData = consumes.find((a) => {
@@ -72,11 +66,9 @@ function applyClickHandlers() {
 				},
 
 				mouseenter: (e) => {
-					// $(e.currentTarget.children[1]).removeClass('tooltip-hidden')
 					updateTooltip(e)
 				},
 				mouseleave: (e) => {
-					// $(e.currentTarget.children[1]).addClass('tooltip-hidden')
 					$("#tooltip").hide()
 					$("#tooltip").children().remove()
 				},
@@ -99,28 +91,14 @@ function applyClickHandlers() {
 								return (parseInt(val) >= parseInt(step) ) ? parseInt(val) - parseInt(step) : 0
 							})
 							$(".consume-form").trigger('change')
-							// console.log(typeof($(e.target).closest('.consume-block')))
-
                     }
                }
 
 			})
 		},
-		// mouseenter: e => {
-		// 	const hoveredFilter = $(e.target)
-		// 	if(hoveredFilter.hasClass('selected')){
-		// 		return
-		// 	}else{
-		// 		hoveredFilter.append(classMarkerGhost)
-		// 	}
-		// },
-		// mouseleave: e => {
-		// 	$('.classMarkerGhost').remove()
-		// }
-	})
 
+	})
 	materialsTooltip()
-	// consumeItemEventHandler()
 }
 
 function clearForm() {
@@ -233,8 +211,6 @@ function materialsTooltip() {
         },
         mouseleave: e => {
             $("#results").find(".materials-name, .consume-name").removeClass('underlined')
-			// $("#results").find('.consume-name').removeClass('underlined')
-
             $("#tooltip").hide()
             $("#tooltip").children().remove()
         },
@@ -250,7 +226,6 @@ function materialsTooltip() {
 		},
     })
 }
-
 
 function appendMaterials(consumables) {
 
@@ -320,10 +295,6 @@ function appendMaterials(consumables) {
 				}))
 				materialsListParent.append(materialsListItemElement)
 			}
-
-			// materialsListParent.insertAfter(consumeElement)
-
-			// consumeElement.append(materialsListParent)
 			$('#results').append(consumeElement, materialsListParent)
 
 		}

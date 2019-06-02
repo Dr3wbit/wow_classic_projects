@@ -438,7 +438,7 @@ svg.icon:hover path{
 }
 
 .savedSpecs{
-    color: azure;
+    color: rgba(240, 255, 255, 0.95);
     position: fixed;
     z-index: 1025;
     background-color: rgba(0, 0, 0, 0.95);
@@ -455,6 +455,8 @@ svg.icon:hover path{
     -webkit-transform: translateX(-85%);
     animation: slide-in 1s forwards;
     -webkit-animation: slide-in 1s forwards;
+    border-bottom: 5px solid rgba(66, 220, 163, 0.95);
+    border-top: 3px solid rgba(66, 220, 163, 0.95);
 }
 
 .savedSpecs::-webkit-scrollbar {
@@ -475,7 +477,7 @@ svg.icon:hover path{
 }
 
 .trigger-icon{
-    background: url(../images/icons/medium/side_toggle_arrow_alt.png);
+    /* background: url(../images/icons/medium/side_toggle_arrow_alt.png); */
     background-size: contain;
     background-repeat: no-repeat;
     height: 34px;
@@ -484,6 +486,8 @@ svg.icon:hover path{
     position: -webkit-sticky;
     top: 44%;
     pointer-events: none;
+    font-size: 18px;
+    color: rgba(240, 255, 255, 0.95);
 }
 
 .iconSwitch{

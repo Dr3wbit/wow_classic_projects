@@ -78,7 +78,8 @@ body {
 .navbar-logo-text {
     font-family: Aeio;
     font-size: 25px;
-    color: rgba(255, 54, 4, 0.95) !important;
+    color: rgba(187, 0, 0, 1);
+    /* color: rgba(255, 54, 4, 0.95) !important; */
     text-shadow:
         -1px -1px 0 rgba(0, 0, 0, 0.5),
         2px -2px 0 rgba(0, 0, 0, 0.5),
@@ -129,7 +130,7 @@ body {
 .nav-link:hover {
     outline: none;
     background-color: transparent;
-    color: rgba(255, 54, 4, 0.95) !important;
+    color: rgba(187, 0, 0, 1) !important;
    }
 
 .nav-item {
@@ -152,7 +153,7 @@ body {
 }
 
 .nav-link-selected {
-    color: rgba(255, 54, 4, 0.95) !important;
+    color: rgba(160, 0, 0, 1) !important;
     text-shadow: -0.02rem -0.02rem 0.03rem rgba(30,30,30, 0.95), -0.02rem -0.01rem 0.02rem rgba(30,30,30, 0.95);;
 }
 
