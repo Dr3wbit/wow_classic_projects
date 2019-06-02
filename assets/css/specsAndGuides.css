@@ -18,18 +18,12 @@
 }
 
 .list-group-item.active {
-  color: azure !important;
   border: none;
   background-color: transparent;
-      text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -0.01rem -0.01rem 0.01rem #000, 0.01rem -0.01rem 0 #000;
 }
 
 .list-group-item:hover {
-  color: azure !important;
   border-color: transparent;
         text-shadow:
     -1px -1px 0 #000,
@@ -86,7 +80,7 @@
     padding-bottom: 20px;
     border: 10px dotted;
     border-image-source: url('../images/wow_menu_border.png');
-    border-image-slice: 10; 
+    border-image-slice: 10;
 }
 
 
@@ -138,4 +132,3 @@
         margin-left: 0;
     }
   }
-
