@@ -22,7 +22,7 @@
     min-height: 475px;
     max-height: 475px;
     color: #1EFF00;
-    border: 1px solid #78797a;
+    /* border: 1px solid #78797a; */
 }
 .enchantOptionContainer {
     border-top-left-radius: 1px;

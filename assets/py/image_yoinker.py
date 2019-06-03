@@ -431,7 +431,7 @@ def download_image(filepath, mat_elem, name):
 		urllib.request.urlretrieve(img_url, filepath)
 
 
-
+# OLD
 def get_images_old():
 	class_icons_parent = driver.find_element(By.CLASS_NAME, 'ctc-classes-inner')
 	class_icons = class_icons_parent.find_elements(By.CLASS_NAME, 'iconmedium')
