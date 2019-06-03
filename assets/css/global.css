@@ -78,7 +78,7 @@ body {
 .navbar-logo-text {
     font-family: Aeio;
     font-size: 25px;
-    color: rgba(255, 54, 4, 0.95) !important;
+    color: rgba(255, 54, 4, 0.9) !important;
     text-shadow:
         -1px -1px 0 rgba(0, 0, 0, 0.5),
         2px -2px 0 rgba(0, 0, 0, 0.5),
@@ -120,16 +120,17 @@ body {
 
 .nav-link {
     padding: 11px;
-    font-size: 14px;
-    color: rgba(240, 255, 255, 0.95) !important;
+    font-size: 15px;
+    color: rgba(240, 255, 255, 0.9) !important;
     font-family: OpenSans, Arial, Helvetica, sans-serif;
-    font-weight: bold
+    /* font-weight: lighter */
    }
 
 .nav-link:hover {
     outline: none;
     background-color: transparent;
-    color: rgba(255, 54, 4, 0.95) !important;
+
+    color: rgba(255, 54, 4, 0.9) !important;
    }
 
 .nav-item {
@@ -138,7 +139,7 @@ body {
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
     border-right: 1px solid black;
     border-right: 1px solid black;
-    color: rgba(240, 255, 255, 0.95) !important;
+    color: rgba(240, 255, 255, 0.9) !important;
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
 }
 
@@ -152,8 +153,8 @@ body {
 }
 
 .nav-link-selected {
-    color: rgba(255, 54, 4, 0.95) !important;
-    text-shadow: -0.02rem -0.02rem 0.03rem rgba(30,30,30, 0.95), -0.02rem -0.01rem 0.02rem rgba(30,30,30, 0.95);;
+    color: rgba(255, 54, 4, 0.9) !important;
+    /* text-shadow: -0.02rem -0.02rem 0.03rem rgba(30,30,30, 0.95), -0.02rem -0.01rem 0.02rem rgba(30,30,30, 0.95); */
 }
 
 /* ``````````````````CLASS SELECTION````````````````````` */
@@ -463,7 +464,7 @@ ul {
 }
 
 .req, .unlearn {
-    color: rgba(255,33,45,0.95);
+    color: rgba(245,33,45,0.95);
     white-space: pre-line;
 }
 
@@ -613,3 +614,10 @@ ul {
     position: absolute;
     z-index: 1;
   }
+
+@keyframes glowing-text {
+    0% { text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15); }
+    40% { text-shadow: 0 0 2px rgba(165, 165, 243, 0.15); }
+    60% { text-shadow: 0 0 2px rgba(165, 165, 243, 0.15); }
+    100% { text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15); }
+}
