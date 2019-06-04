@@ -88,51 +88,6 @@ function preventInspect(){
 	})
 }
 
-// function addAllottedPoints(){
-// 	$("#addAllottedPoints").on({
-// 		change: e => {
-// 			console.log('to be added...')
-// 		}
-// 	})
-// }
-
-// function addClassName(){
-// 	$("#addClassName").on({
-// 		change: e => {
-// 			const classRemoveRE = /^([\w.-]{2,18})/
-// 			const classRemoveRE2 = / \[\w+\]/
-// 			if ($("#addClassName:checked").length) {
-// 				let proposedSpecName = $("#specName").val()
-// 				$("#specName").val(proposedSpecName+` [${talentPointsSpent.className}]`)
-// 			} else {
-// 				let proposedSpecName = $("#specName").val()
-// 				let newName = proposedSpecName.replace(classRemoveRE2, '')
-//
-// 				$("#specName").val(newName)
-//
-// 				// let matched = proposedSpecName.search(classRemoveRE)
-// 			}
-// 		}
-// 	})
-// }
-
-// function specChoiceRadios(){
-// 	$("#specNameChoice").on({
-// 		change: e => {
-// 			console.log('specChoiceRadios')
-// 			let choice = $("input[name='nameChoice']:checked").val()
-// 			if (choice=='current') {
-// 				let savedSpecClassText = $('div.specItem.specSelected').text()
-// 				$("#specName").val(savedSpecClassText)
-// 				$("#specName").addClass('disabled')
-// 			} else {
-// 				$("#specName").removeClass('disabled')
-// 				$("#specName").val('')
-// 			}
-// 		}
-// 	})
-// }
-
 function exportSpec() {
 	$("#export").on({
 		click: e => {
@@ -301,7 +256,6 @@ function updateSavedSpecs() {
 	if (existingSpecs) {
 		specList = Object.entries(existingSpecs)
 		for (const [name,item] of specList) {
-			// console.log(item)
 				let capitalizedClassName = item.className.substr(0,1).toUpperCase()+item.className.substr(1);
 			let specContainer = $('<div/>', {
 				class: 'specContainer',
@@ -530,8 +484,6 @@ function resetAll() {
 }
 
 function resetTalentTree(tree, e) {
-
-	console.log('\nresetting tree: ', tree)
 
 	let found = classData.trees.find(function (x) {
 		return x.name == tree
@@ -794,7 +746,6 @@ function mouseDownHandler(e = null, talent, tree) {
 
 	targetTalent.closest(".talentTable").find(".talentFooter span.talentFooter-spentPoints").text("(" + talentPointsSpent[treeName].total() + ")")
 
-	// console.log(targetTalent.attr('name') + " : " + talentObj.invested)
 	if (manuallyClicked) {
 		urlBuilder()
 		updateTooltip(e)
@@ -905,7 +856,6 @@ function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
 
 	let decision = false
 	if (!tier_unlocked) {
-		console.log(`Tiers ${locked_tier} and above are locked, unable to remove points`)
 	}
 
 	if (((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a, b) => (a + b)) - tier_check * 5) > 0) &&
@@ -1059,7 +1009,6 @@ function pointSpender(talent, e, tree, targetTal) {
 					let par = $(`img.talent[name="${n}"]`).addClass('locked') //NOTE: locks talent element
 					par.closest('.talent-container').find(".spentPoints").first().addClass('locked') //NOTE: locks points spent element
 
-					console.log('locking talent: ', n)
 					arrowClassChanger(n, true, 'locked')
 				})
 			}
@@ -1129,7 +1078,6 @@ function talentLocker(tree = '') {
 		t.addClass('grayed')
 		t.closest('.talent-slot').find(".spentPoints").addClass('grayed')
 		if (tal.locked) {
-			console.log('graying: ', tal.name)
 			arrowClassChanger(tal.name, true, 'grayed')
 		}
 		if (tal.unlocks) {
@@ -1138,7 +1086,6 @@ function talentLocker(tree = '') {
 				let par = $(`img.talent[name="${n}"]`).addClass('locked')
 				par.closest('.talent-container').find(".spentPoints").first().addClass('locked')
 
-				console.log('locking talent: ', n)
 				arrowClassChanger(n, true, 'locked')
 			})
 		}
@@ -1146,7 +1093,6 @@ function talentLocker(tree = '') {
 }
 
 function talentUnlocker(tree = '') {
-	// console.log('\nunlocking\n')
 	let treeNames = []
 	if (!tree) { // defaults to all trees
 		treeNames = talentPointsSpent.treeNames
@@ -1170,8 +1116,6 @@ function talentUnlocker(tree = '') {
 					t.removeClass('grayed')
 					t.closest('.talent-slot').find('.spentPoints').first().removeClass('grayed')
 					if (tal.locked) {
-						console.log('ungraying: ', tal.name)
-
 						arrowClassChanger(tal.name, false, 'grayed')
 
 					}
@@ -1297,7 +1241,6 @@ function arrowClassChanger(talName, add, lockOrGray) {
 	if (!add) {
 		addOrRemove = 'remove'
 	}
-	console.log('talent name: ', talName, ` ${addOrRemove} ${lockOrGray} `)
 	let arrows = $(`div.talentcalc-arrow[data-unlocks="${talName}"]`)
 	arrows.each(function () {
 		if (add) {
