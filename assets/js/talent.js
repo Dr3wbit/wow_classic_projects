@@ -278,7 +278,6 @@ function updateSavedSpecs() {
 						$('.specItem').removeClass('specSelected')
 						$(e.target).addClass('specSelected')
 
-
 						resetAll()
 
 						let myURL = new URL(item.url.href)
@@ -318,9 +317,6 @@ function updateSavedSpecs() {
 	let checkIfEmpty = $('.specList').children()
 	if (checkIfEmpty.length === 0){
 		$('.specList').text("To save a spec, fill out your talents then click the save icon (top right of calculator). We use cookies to save your specs on this page, so aslong as you don't clear cookies on us, your specs will be here forever!")
-		// $('.saveSpec').append($('<div/>',{
-		// 	class: 'promptArrow'
-		// }))
 	}
 }
 
@@ -359,21 +355,13 @@ function handlebarsPopulateTables(reset = false) {
 		resetHandler()
 	}
 	resetTree()
-	// navbarCollapse()
 }
 
-// function applySelectionMarker() {
-// 	$('.class-filter').children().remove()
-// 	const classMarker = $('<div/>', {
-// 		class: 'classMarker',
-// 	})
-// 	$('.selected').append(classMarker)
-// }
+
 
 function classSelectionHandler() {
 	$('.class-filter').on({
 		click: e => {
-			// applySelectionMarker()
 			buildClassData(e, '', '', true)
 			let selectedSpec = $('div.specItem.specSelected')
 			if (selectedSpec){
@@ -392,24 +380,8 @@ function classSelectionHandler() {
 					selectedSpec.removeClass('specSelected')
 				}
 			}
-			// let className = $('.class-filter.selected')[0].id
-			// let oldTitle = document.title
-			// document.title = (oldTitle+' '+className)
+
 		},
-		// mouseenter: e => {
-		// 	const classMarkerGhost = $('<div/>', {
-		// 		class: 'classMarkerGhost',
-		// 	})
-		// 	const hoveredFilter = $(e.target)
-		// 	if(hoveredFilter.hasClass('selected')){
-		// 		return
-		// 	}else{
-		// 		hoveredFilter.append(classMarkerGhost)
-		// 	}
-		// },
-		// mouseleave: e => {
-		// 	$('.classMarkerGhost').remove()
-		// }
 	})
 }
 
@@ -467,9 +439,6 @@ function resetAll() {
 	talentPointsSpent.hardLocked = false
 	talentPointsSpent.softLocked = false
 
-	// classData.trees.forEach(function (item) {
-	// 	treeNames.push(item.name)
-	// })
 	treeNames.forEach(function (tree) {
 		resetTalentTree(tree)
 	})
@@ -546,7 +515,6 @@ function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 	if (cl) {
 		$('.class-filter').removeClass('selected')
 		$(`#${className}`).addClass('selected')
-		// $(`#${className}`).find('img').addClass(`${className}`)
 		params.set('class', className)
 		history.replaceState(null, className, url)
 	}
@@ -556,12 +524,9 @@ function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 	else {
 		$('.class-filter').removeClass('selected')
 		const clickedFilter = $(e.target)
-		console.log('clickedFilter: ', clickedFilter)
 
 		clickedFilter.addClass('selected')
 		className = clickedFilter[0].id
-		console.log('className: ', className)
-		// $('.talentHeader').text(className)
 
 		params.set('class', className)
 		params.delete('L')
@@ -575,7 +540,6 @@ function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 		return a.name == className;
 	})
 
-	console.log('selectedClass: ', selectedClass)
 	let treeNames = []
 
 	selectedClass.tree_talents.forEach(function (item, index) {
@@ -612,7 +576,6 @@ function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 
 	classData = { trees: finalData }
 
-	console.log('classData: ', classData)
 	handlebarsPopulateTables(reset)
 
 	if (reset) {

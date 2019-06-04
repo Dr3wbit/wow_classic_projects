@@ -11,20 +11,12 @@ function applyClickHandlers() {
 	const defaultSelection = $('#warrior')
 	defaultSelection.addClass('selected')
 	handlebarsPopulateData(context.classes[0]);
-	// const classMarker = $('<div/>', {
-	// 	class: 'classMarker',
-	// })
-	// const classMarkerGhost = $('<div/>', {
-	// 	class: 'classMarkerGhost',
-	// })
-	// defaultSelection.append(classMarker)
+
 
 	$('.class-filter').on({
 		click: e => {
-			// $('.class-filter').children().remove()
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
-			// clickedFilter.append(classMarker)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
 			const selectedClass = context.classes.find(function (a) {
