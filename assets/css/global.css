@@ -73,6 +73,11 @@ body {
     src: url('../fonts/FrizQuadrataStdRegular.otf');
 }
 
+@font-face {
+    font-family: 'SnellRoundhand';
+    src: url('../fonts/snellbt-regular.otf')
+}
+
 /* ````````````````````````NAV`````````````````` */
 
 .navbar-logo-text {
@@ -93,13 +98,13 @@ body {
 }
 
 .navbar {
-    background-color: black;
     border-top: 2px black solid;
-    border-bottom: 2px black solid;
+    border-bottom: 2px #8787ed solid;
     padding: 0;
     padding-bottom: 0;
     z-index: 1030;
     transition: all .2s ease-in;
+
 
 }
 
@@ -107,7 +112,7 @@ body {
 .navbar-brand{
     padding-left: 70px;
     padding-right: 20px;
-    box-shadow: inset 0 0 5px rgb(40, 40, 40);
+    /* box-shadow: inset 0 0 5px rgb(40, 40, 40); */
     border: 1px solid black;
     border-top: 0;
     border-bottom: 0;
@@ -121,24 +126,15 @@ body {
 .nav-link {
     padding: 11px;
     font-size: 15px;
-    /* color: #909caf !important; */
-    color: #909caf !important;
-
-    /* color: rgba(240, 255, 255, 0.9) !important; */
-
-    font-family: OpenSans, Arial, Helvetica, sans-serif;
+    color: rgba(240, 255, 255, 0.9) !important;
+    /* font-family: Arial, Helvetica, sans-serif; */
    }
 
 .nav-link:hover {
     outline: none;
     background-color: transparent;
-    color: rgba(66, 220, 163, 0.85) !important;
+    color: #909caf !important;
 
-    /* color: rgb(91, 79, 60) !important; */
-    /* color: #909caf !important; */
-
-    /* color: rgba(240, 255, 255, 0.9) !important; */
-    /* color: rgba(255, 54, 4, 0.9) !important; */
    }
 
 .nav-item {
@@ -147,8 +143,6 @@ body {
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
     border-right: 1px solid black;
     border-right: 1px solid black;
-    /* color: rgba(66, 220, 163, 0.65) !important; */
-
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
 }
 
@@ -163,10 +157,7 @@ body {
 }
 
 .nav-link-selected {
-    /* color: rgba(255, 54, 4, 0.9) !important; */
-    color: rgba(240, 255, 255, 0.9) !important;
-    /* color: #909caf !important; */
-    /* color: rgb(111, 99, 80); */
+    color: #909caf !important;
 
     /* text-shadow: -0.02rem -0.02rem 0.03rem rgba(30,30,30, 0.95), -0.02rem -0.01rem 0.02rem rgba(30,30,30, 0.95); */
 }
@@ -215,8 +206,8 @@ body {
 
 .class-selection {
     justify-content: center;
-    font-size: 14px;
-    min-height: 45px;
+    /* font-size: 14px; */
+    /* min-height: 45px; */
     text-shadow: -0.02rem -0.02rem 0.02rem rgba(30,30,30, 0.95);
 }
 
@@ -641,7 +632,7 @@ ul {
 }
 
 .steel-textured {
-    background: -webkit-linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
+    background: -webkit-linear-gradient(360deg, rgba(0, 0, 0, 0.65) 40%, rgba(0, 0, 0, 0.85) 80%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background: -moz-linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background: linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background-size: 100%, cover;
@@ -650,7 +641,7 @@ ul {
 }
 
 .fancy {
-    font-family: "Snell Roundhand", cursive;
+    font-family: SnellRoundhand, cursive;
 }
 
 .discordLink {
