@@ -173,22 +173,27 @@ body {
 
 /* ``````````````````CLASS SELECTION````````````````````` */
 
+
 .class-filter {
     font-size: 110%;
     cursor: pointer;
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
     position: relative;
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
-    border-right: 1px solid rgba(0, 0, 0, .95);
-    padding-top: 8px;
-    min-width: 70px;
-    margin-bottom: 1px;
-    border-radius: 1px;
+    /* border-right: 1px solid rgba(0, 0, 0, .95); */
+    /* padding-top: 8px; */
+    /* min-width: 70px; */
+    margin: 5px 7px;
+    border-radius: 5px;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
 }
 
-.class-filter:first-child{
+/* .class-filter:first-child{
     border-left: 1px solid rgba(0, 0, 0, .95);
-}
+} */
 
 .class-filter:hover{
     box-shadow: inset 0 0 4px black;
@@ -197,43 +202,16 @@ body {
 .class-filter.selected {
     background-image: linear-gradient(rgba(28,28,28,0.8), rgba(40, 40, 40, 0.85), rgba(20,20,20,0.8));
     box-shadow: inset 0 0 5px black, rgba(255,255,255,.1) 0 1px 0;
+    /* border-color: unset; */
 }
+
+
 
 .nav-is-sticky {
     border-bottom: 2px solid black;
     top: 53px;
     padding-top: .1rem !important;
 }
-
-/* .classMarker {
-    position: absolute;
-    background-image: url(../images/icons/medium/orange_filter_marker_alt.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 30px;
-    top: -8px;
-    left: 50%;
-    margin-left: -15px;
-    user-select: none;
-    pointer-events: none;
-}
-
-.classMarkerGhost {
-    position: absolute;
-    background-image: url(../images/icons/medium/orange_filter_marker_alt.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 30px;
-    top: -8px;
-    left: 50%;
-    margin-left: -15px;
-    filter: grayscale(70%);
-    user-select: none;
-    pointer-events: none;
-} */
-
 
 .class-selection {
     justify-content: center;
@@ -279,7 +257,7 @@ body {
     }
 
     #warrior {
-        background-image: url("../images/icons/medium/class_warrior.jpg");
+        background-image: url("../images/icons/medium/warrior.jpg");
         color: #C79C6E;
     }
 
@@ -329,76 +307,154 @@ body {
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
 
 #warrior {
-    color: #C79C6E
+    color: #C79C6E;
+    border-color: #C79C6E;
+
 }
 
 #mage {
-    color: #40C7EB
+    color: #40C7EB;
+    border-color: #40C7EB;
+
 }
 
 #druid {
-    color: #FF7D0A
+    color: #FF7D0A;
+    border-color: #FF7D0A;
 }
 
 #paladin {
-    color: #F58CBA
+    color: #F58CBA;
+    border-color: #F58CBA;
 }
 
 #shaman {
-    color: #0070DE
+    color: #0070DE;
+    border-color: #0070DE;
 }
 
 #warlock {
-    color: #8787ED
+    color: #8787ED;
+    border-color: #8787ED;
+
 }
 
 #priest {
-    color: #FFFFFF
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+
 }
 
 #hunter {
-    color: #ABD473
+    color: #ABD473;
+    border-color: #ABD473;
 }
 
 #rogue {
-    color: #FFF569
+    color: #FFF569;
+    border-color: #FFF569;
+
 }
 
 .warrior {
-    color: #C79C6E
+    color: #C79C6E;
+    border-color: #C79C6E;
+
 }
 
 .mage {
-    color: #40C7EB
+    color: #40C7EB;
+    border-color: #40C7EB;
 }
 
 .druid {
-    color: #FF7D0A
+    color: #FF7D0A;
+    border-color: #FF7D0A;
 }
 
 .paladin {
-    color: #F58CBA
+    color: #F58CBA;
+    border-color: #F58CBA;
 }
 
 .shaman {
-    color: #0070DE
+    color: #0070DE;
+    border-color: #0070DE;
 }
 
 .warlock {
-    color: #8787ED
+    color: #8787ED;
+    border-color: #8787ED;
 }
 
 .priest {
-    color: #FFFFFF
+    color: #FFFFFF;
+    border-color: #FFFFFF;
 }
 
 .hunter {
-    color: #ABD473
+    color: #ABD473;
+    border-color: #ABD473;
 }
 
 .rogue {
-    color: #FFF569
+    color: #FFF569;
+    border-color: #FFF569;
 }
+
+
+.class-icon {
+    height: 60px;
+    width: 60px;
+    background-size: 56px 56px;
+    background-repeat: no-repeat;
+    /* border: 1px solid; */
+    border-width: 2px;
+    border-style: ridge;
+    border-radius: 6px;
+    border-color: rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+    -webkit-filter: grayscale(40%);
+    -moz-filter: grayscale(40%);
+      -o-filter: grayscale(40%);
+     -ms-filter: grayscale(40%);
+         filter: grayscale(40%);
+     -moz-transition: all 0.1s ease-in;
+     -o-transition: all 0.1s ease-in;
+     -webkit-transition: all 0.1s ease-in;
+     transition: all 0.1s ease-in;
+     pointer-events: none;
+}
+
+.class-filter.selected img{
+    transform: scale(0.98);
+
+    border-color: inherit;
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+      -o-filter: grayscale(0%);
+     -ms-filter: grayscale(0%);
+         filter: grayscale(0%);
+}
+
+.class-filter:hover img{
+
+    border-color: inherit;
+    box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+                inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+                inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+
+}
+
+.class-filter:active img{
+    transform: scale(0.97);
+
+}
+
+
+/* .class-icon:active {
+    transform: scale(0.97);
+} */
 
 .disabled {
     opacity: 0.2;

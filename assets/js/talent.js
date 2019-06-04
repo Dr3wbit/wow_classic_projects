@@ -317,10 +317,10 @@ function updateSavedSpecs() {
 
 	let checkIfEmpty = $('.specList').children()
 	if (checkIfEmpty.length === 0){
-		$('.specList').text('To save a spec, fill out your talents then click the save icon (top right of calculator) and give your spec a name. We use cookies to save your specs on this page so aslong as you dont clear cookies on us, your specs will be here forever!')
-		$('.saveSpec').append($('<div/>',{
-			class: 'promptArrow'
-		}))
+		$('.specList').text("To save a spec, fill out your talents then click the save icon (top right of calculator). We use cookies to save your specs on this page, so aslong as you don't clear cookies on us, your specs will be here forever!")
+		// $('.saveSpec').append($('<div/>',{
+		// 	class: 'promptArrow'
+		// }))
 	}
 }
 
@@ -362,18 +362,18 @@ function handlebarsPopulateTables(reset = false) {
 	// navbarCollapse()
 }
 
-function applySelectionMarker() {
-	$('.class-filter').children().remove()
-	const classMarker = $('<div/>', {
-		class: 'classMarker',
-	})
-	$('.selected').append(classMarker)
-}
+// function applySelectionMarker() {
+// 	$('.class-filter').children().remove()
+// 	const classMarker = $('<div/>', {
+// 		class: 'classMarker',
+// 	})
+// 	$('.selected').append(classMarker)
+// }
 
 function classSelectionHandler() {
 	$('.class-filter').on({
 		click: e => {
-			applySelectionMarker()
+			// applySelectionMarker()
 			buildClassData(e, '', '', true)
 			let selectedSpec = $('div.specItem.specSelected')
 			if (selectedSpec){
@@ -396,20 +396,20 @@ function classSelectionHandler() {
 			// let oldTitle = document.title
 			// document.title = (oldTitle+' '+className)
 		},
-		mouseenter: e => {
-			const classMarkerGhost = $('<div/>', {
-				class: 'classMarkerGhost',
-			})
-			const hoveredFilter = $(e.target)
-			if(hoveredFilter.hasClass('selected')){
-				return
-			}else{
-				hoveredFilter.append(classMarkerGhost)
-			}
-		},
-		mouseleave: e => {
-			$('.classMarkerGhost').remove()
-		}
+		// mouseenter: e => {
+		// 	const classMarkerGhost = $('<div/>', {
+		// 		class: 'classMarkerGhost',
+		// 	})
+		// 	const hoveredFilter = $(e.target)
+		// 	if(hoveredFilter.hasClass('selected')){
+		// 		return
+		// 	}else{
+		// 		hoveredFilter.append(classMarkerGhost)
+		// 	}
+		// },
+		// mouseleave: e => {
+		// 	$('.classMarkerGhost').remove()
+		// }
 	})
 }
 
@@ -546,31 +546,36 @@ function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 	if (cl) {
 		$('.class-filter').removeClass('selected')
 		$(`#${className}`).addClass('selected')
+		// $(`#${className}`).find('img').addClass(`${className}`)
 		params.set('class', className)
 		history.replaceState(null, className, url)
 	}
-
+	else if ($('.class-filter.selected') == $(e.target)) {
+		return
+	}
 	else {
-		if ($('.class-filter.selected') == $(e.target)) {
-			return
-		}
 		$('.class-filter').removeClass('selected')
 		const clickedFilter = $(e.target)
+		console.log('clickedFilter: ', clickedFilter)
+
 		clickedFilter.addClass('selected')
 		className = clickedFilter[0].id
-		$('.talentHeader').text(className)
+		console.log('className: ', className)
+		// $('.talentHeader').text(className)
 
 		params.set('class', className)
 		params.delete('L')
 		url.hash = '#'
 		history.replaceState(null, className, url)
 	}
-	applySelectionMarker()
+
+	// applySelectionMarker()
 
 	const selectedClass = talentData.classes.find(function (a) {
 		return a.name == className;
 	})
 
+	console.log('selectedClass: ', selectedClass)
 	let treeNames = []
 
 	selectedClass.tree_talents.forEach(function (item, index) {
@@ -607,6 +612,7 @@ function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 
 	classData = { trees: finalData }
 
+	console.log('classData: ', classData)
 	handlebarsPopulateTables(reset)
 
 	if (reset) {
