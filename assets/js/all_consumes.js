@@ -392,7 +392,7 @@ const allConsumes = {
 		materials: {
 			runecloth: 2,
 		},
-		category: 'first aid',
+		category: 'first_aid',
 	},
 	greater_stoneshield_potion: {
 		url: 'https://classic.wowhead.com/item=13455',
