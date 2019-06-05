@@ -4,31 +4,32 @@ let materialArray = []
 $(document).ready(initializeApp)
 
 function initializeApp() {
-	$(".consume-form").submit(function(e) {
-		e.preventDefault()
 
-	});
+	// $(".consume-form").submit(function(e) {
+	// 	e.preventDefault()
+	//
+	// });
 	applyClickHandlers();
-	$(".consume-form").on({
-		'change': (e) => {
-			$('.consume-form').submit(getMaterials(selectedData))
-		},
-		blur: (e) => {
-			$('.consume-form').submit(getMaterials(selectedData))
-		},
+	// $(".consume-form").on({
+	// 	'change': (e) => {
+	// 		$('.consume-form').submit(getMaterials(selectedData))
+	// 	},
+	// 	blur: (e) => {
+	// 		$('.consume-form').submit(getMaterials(selectedData))
+	// 	},
+	//
+	// })
+	// $("#warrior").click()
 
-	})
-	$("#warrior").click()
-
-	$(".consume-input").on({
-		input: (e)=>{
-			let lengthLimit = 3
-			let currentInput = e.target.value
-			if (currentInput.length > lengthLimit){
-				$(e.target).val(currentInput.slice(0, lengthLimit))
-			}
-		}
-	})
+	// $(".consume-input").on({
+	// 	input: (e)=>{
+	// 		let lengthLimit = 3
+	// 		let currentInput = e.target.value
+	// 		if (currentInput.length > lengthLimit){
+	// 			$(e.target).val(currentInput.slice(0, lengthLimit))
+	// 		}
+	// 	}
+	// })
 }
 
 function stepValidator(n, step) {
@@ -36,79 +37,161 @@ function stepValidator(n, step) {
 }
 
 function applyClickHandlers() {
-
 	selectionHandler()
-	materialsTooltip()
+	// materialsTooltip()
+	recipesHandler()
 }
 
 function selectionHandler() {
-	$('.class-filter').on({
+	$('.prof-filter').on({
 		click: e => {
 
-			$('.class-filter').removeClass('selected')
-			const clickedFilter = $(e.target)
-			clickedFilter.addClass('selected')
-			const clickedID = clickedFilter[0].id
-			const defaultData = consumes.find((a) => {
-				return a.name == "all"
+			$('.prof-filter').removeClass('selected')
+			$(e.target).addClass('selected')
+			const profName = $(e.target)[0].id
+
+			const profDataArr = []
+			Object.entries(allConsumes).forEach(function(val, ind) {
+				if (val[1].category == profName){
+					if (!(val[1].name)) {
+						val[1].name = utilities.titleCase(val[0])
+					}
+					profDataArr.push(val)
+				}
 			})
+			const profDataObject = Object.fromEntries(profDataArr)
+			populateConsumeBlocks(profDataObject)
 
-			const classDataTest = []
-
-			const classData = consumes.find((a) => {
-				return a.name == clickedID;
-			})
-
-			const fullData = combineData(defaultData.data, classData.data)
-			selectedData = fullData
-			clearForm()
-			populateConsumeBlocks({
-				professions: fullData
-			})
-
-			$('.icon-container').on({
-				contextmenu: e => {
-					e.preventDefault()
-				},
-
-				mouseenter: (e) => {
-					updateTooltip(e)
-				},
-				mouseleave: (e) => {
-					$("#tooltip").hide()
-					$("#tooltip").children().remove()
-				},
-
-                mousedown: (e) => {
-                    if (e.which === 1) {
-
-						let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
-						let step = input.attr('step')
-						input.val(function(i, val) {
-							return ( parseInt(val) || 0 ) + parseInt(step)
-						})
-						$(".consume-form").trigger('change')
-
-                    } else if (e.which === 3){
-
-							let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
-							let step = input.attr('step')
-							input.val(function(i, val) {
-								return (parseInt(val) >= parseInt(step) ) ? parseInt(val) - parseInt(step) : 0
-							})
-							$(".consume-form").trigger('change')
-                    }
-               }
-
-			})
+			// $('.icon-container').on({
+			// 	contextmenu: e => {
+			// 		e.preventDefault()
+			// 	},
+			//
+			// 	mouseenter: (e) => {
+			// 		updateTooltip(e)
+			// 	},
+			// 	mouseleave: (e) => {
+			// 		$("#tooltip").hide()
+			// 		$("#tooltip").children().remove()
+			// 	},
+			//
+            //     mousedown: (e) => {
+            //         if (e.which === 1) {
+			//
+			// 			let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
+			// 			let step = input.attr('step')
+			// 			input.val(function(i, val) {
+			// 				return ( parseInt(val) || 0 ) + parseInt(step)
+			// 			})
+			// 			$(".consume-form").trigger('change')
+			//
+            //         } else if (e.which === 3){
+			//
+			// 				let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
+			// 				let step = input.attr('step')
+			// 				input.val(function(i, val) {
+			// 					return (parseInt(val) >= parseInt(step) ) ? parseInt(val) - parseInt(step) : 0
+			// 				})
+			// 				$(".consume-form").trigger('change')
+            //         }
+            //    }
+			//
+			// })
 		},
 
 	})
 }
+
+function recipesHandler() {
+	$("#recipe_list").on({
+		mouseenter: e => {
+			$(".prof-item-recipe").on({
+				mouseenter: e => {
+					clearTooltip()
+					// e.preventDefault()
+					console.log('mouseenter')
+					let name = $(e.target).attr('name')
+					console.log('name: ', name)
+					updatetooltip(e)
+				},
+				mouseleave: e => {
+					console.log('mouseleave')
+					// $("#tooltip").hide()
+					// $("#tooltip").children().remove()
+					clearTooltip()
+
+
+				},
+				mousedown: e => {
+					console.log('mousedown')
+					addItem()
+				}
+			})
+		},
+		mouseleave: e => {
+			console.log('mouseleave')
+			// $("#tooltip").hide()
+			// $("#tooltip").children().remove()
+			clearTooltip()
+
+		}
+	})
+}
+
+function populateConsumeBlocks(data) {
+	let template = $('#consume-block-template').html();
+	let templateScript = Handlebars.compile(template);
+	let consume_html = templateScript(data);
+	$('#recipe_list').html(consume_html);
+}
+
 function clearForm() {
 	$('.consume-form').empty()
 	$('#results').empty()
 }
+
+function clearTooltip() {
+	$("#tooltip").empty()
+	$("#tooltip").hide()
+}
+
+function addItem() {
+	//
+}
+
+function updatetooltip(e) {
+	const targetElement = $(e.target)
+	console.log(targetElement)
+	const name = targetElement.attr('name')
+	const consumeObj = allConsumes[name]
+	const properName = (allConsumes[name].name) ? allConsumes[name].name : utilities.titleCase(name)
+	const rarity = consumeObj.rarity
+	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
+	if (consumeObj.bop) {
+		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
+	}
+	if (consumeObj.unique) {
+		tooltipElems.push({class: 'unique', text: "Unique",})
+	}
+	let requirementText = ''
+	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
+		requirementText = consumeObj.req
+	} else {
+		requirementText = (consumeObj.req) ? ((consumeObj.req.toString().startsWith('engi') || consumeObj.req.toString().startsWith('first')) ? utilities.titleCase(consumeObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${consumeObj.req}`) : false
+	}
+
+	if (consumeObj.req || consumeObj.stats) {
+		tooltipElems.push({class: 'requiredLevel', text: requirementText})
+	}
+	if (consumeObj.use) {
+		tooltipElems.push({class: 'use', text: `Use: ${consumeObj.use}`})
+	}
+	if (consumeObj.description) {
+		tooltipElems.push({class: 'description', text: `"${consumeObj.description}"`})
+	}
+	utilities.bigdaddytooltip(e, tooltipElems)
+}
+
 
 function combineData(defaultData, classData) {
 	let combinedData = []
@@ -132,13 +215,6 @@ function removeEmptyCategory(dataToClean) {
 	return refinedData
 }
 
-function populateConsumeBlocks(data) {
-	let template = $('#consume-block-template').html();
-	let templateScript = Handlebars.compile(template);
-	let consume_html = templateScript(data);
-	$('#consume-form').html(consume_html);
-}
-
 function getMaterials(data) {
 	let materials = []
 	const formValues = $('.consume-input')
@@ -155,7 +231,6 @@ function getMaterials(data) {
 			if (inputValue != formValues[item].value) {
 				$(`.consume-input[name="${name}"]`).val( parseInt(inputValue) ).delay( 3000 )
 			}
-
 			materials.push({name:name, data:consumeObject, amount:inputValue})
 		}
 	})
@@ -165,7 +240,7 @@ function getMaterials(data) {
 function materialsTooltip() {
     $("#results").on({
         mouseenter: e => {
-			e.preventDefault()
+			// e.preventDefault()
 
 
 			if ($(e.target).hasClass("consumes-list-item")) {
@@ -358,37 +433,4 @@ function calculateTotals(totals) {
 
 	}
 	$('#results').append(totalTitle)
-}
-
-
-function updateTooltip(e) {
-	const targetElement = $(e.target)
-	const name = targetElement.closest($('.consume-block')).attr('name')
-	const consumeObj = allConsumes[name]
-	const properName = (allConsumes[name].name) ? allConsumes[name].name : utilities.titleCase(name)
-	const rarity = consumeObj.rarity
-	const tooltipElems = [{class: `title ${rarity}`,text: properName}]
-	if (consumeObj.bop) {
-		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
-	}
-	if (consumeObj.unique) {
-		tooltipElems.push({class: 'unique', text: "Unique",})
-	}
-	let requirementText = ''
-	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-		requirementText = consumeObj.req
-	} else {
-		requirementText = (consumeObj.req) ? ((consumeObj.req.toString().startsWith('engi') || consumeObj.req.toString().startsWith('first')) ? utilities.titleCase(consumeObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${consumeObj.req}`) : false
-	}
-
-	if (consumeObj.req || consumeObj.stats) {
-		tooltipElems.push({class: 'requiredLevel', text: requirementText})
-	}
-	if (consumeObj.use) {
-		tooltipElems.push({class: 'use', text: `Use: ${consumeObj.use}`})
-	}
-	if (consumeObj.description) {
-		tooltipElems.push({class: 'description', text: `"${consumeObj.description}"`})
-	}
-	utilities.bigdaddytooltip(e, tooltipElems)
 }

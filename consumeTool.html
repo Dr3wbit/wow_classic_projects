@@ -75,10 +75,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact</a>
                 </li>
+
             </ul>
-            <div class="discordLink" >
-                    <a href="https://discord.gg/MKfVQhm" target="_blank"><span class="clickable"></span></a>
-            </div>
+
+                <div class="discordLink" >
+                        <a href="https://discord.gg/MKfVQhm" target="_blank"><span class="clickable"></span></a>
+                </div>
         </div>
     </nav>
 </div>
@@ -91,36 +93,58 @@
 </div>
 
     <div id="main-container" class="container mainBody">
-        <div class="row class-selection sticky-top pt-1 nav-is-sticky steel-textured" id="class_selection">
-            <div class="class-filter selected" id="warrior">
-                <img class="class-icon warrior" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/warrior.jpg');">
+        <div class="row prof-selection sticky-top pt-1 nav-is-sticky steel-textured" id="prof_selection">
+            <div class="prof-filter selected" id="engineering">
+                <img class="prof-icon engineering" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/engineering.jpg');">
             </div>
-            <div class="class-filter" id="mage">
-                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/mage.jpg');">
+            <div class="prof-filter" id="alchemy">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/alchemy.jpg');">
             </div>
-            <div class="class-filter" id="druid">
-                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/druid.jpg');">
+            <div class="prof-filter" id="cooking">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/cooking.jpg');">
             </div>
-            <div class="class-filter" id="paladin">
-                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/paladin.jpg');">
+            <div class="prof-filter" id="blacksmithing">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/blacksmithing.jpg');">
             </div>
-            <div class="class-filter" id="shaman">
-                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/shaman.jpg');">
+            <div class="prof-filter" id="enchanting">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/enchanting.jpg');">
             </div>
-            <div class="class-filter" id="warlock">
-                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/warlock.jpg');">
+            <div class="prof-filter" id="skinning">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/skinning.jpg');">
             </div>
-            <div class="class-filter" id="priest">
-                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/priest.jpg');">
+            <div class="prof-filter" id="herbalism">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/herbalism.jpg');">
             </div>
-            <div class="class-filter" id="hunter">
-                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/hunter.jpg');">
+            <div class="prof-filter" id="mining">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/mining.jpg');">
             </div>
-            <div class="class-filter" id="rogue">
-                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/rogue.jpg');">
+            <div class="prof-filter" id="fishing">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/fishing.jpg');">
+            </div>
+            <div class="prof-filter" id="first_aid">
+                <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/first_aid.jpg');">
             </div>
     </div>
+    <div class="row prof-header">
 
+        <div class="col-lg-4 col-12 columnTitle">Recipes</div>
+        <div class="col-lg-4 columnTitle d-none d-lg-block">Items</div>
+        <div class="col-lg-4 columnTitle d-none d-lg-block">Materials</div>
+    </div>
+    <div class="row">
+    <div class="col-12 col-lg-4 pageColumn" id="recipe_list">
+    </div>
+    <div class="col-12 col-lg-4 pageColumn" id="total_items">
+        <div class="selected-enchant"></div>
+    </div>
+    <div class="col-12 col-lg-4 materialContainer pageColumn" id="total_materials">
+        <div class="totalContainer">
+            <!-- <div class="results"></div> -->
+        </div>
+    </div>
+</div> <!-- row -->
+
+<!-- old
         <div class="row">
             <div class="col-xl-9 consume-container">
                 <div class="row">
@@ -140,33 +164,28 @@
                 <div class="results" id="#totalMaterials">
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
+
+<!-- New -->
+
+    </div> <!-- main-container -->
 
     <footer class="footer">
         <span class="text-muted">&copy Ony Buff 2019</span>
     </footer>
-
 </body>
 
 <script id="consume-block-template" type="text/x-handlebars-template">
-    {{#each professions as |profession|}}
-    <div class="category-container" name="{{name}}">
-        <div class="category-title" name="{{name}}">{{name}}</div>
-        {{#each data}}
-        <div class="consume-block" name="{{sanitize name}}">
-            <div class="icon-container">
-                <img class="consume-img" src="assets/images/icon_border_2.png" style="background-image: url(assets/images/consumes/{{img}})">
-
-            </div>
-            <div class="consume-title">{{name}}
-                <input class="consume-input" name="{{sanitize name}}" category="{{profession.name}}" placeholder="Amount" type="number" step={{#if step}}"{{step}}"{{else}}"1"{{/if}}>
-            </div>
-        </div>
-        {{/each}}
+    {{#each this}}
+    <div class="prof-item-recipe {{this.rarity}}" name="{{@key}}">
+        <img class="icon-small" src="assets/images/icons/small/icon_border.png"
+        style="background-image: url(assets/images/icons/consumes/{{@key}}.jpg);">
+        <span class="consume-name">{{this.name}}</span>
     </div>
     {{/each}}
 </script>
+
+
 
 <script src="assets/js/helpers.js"></script>
 <div id="tooltip" style="visibility: hidden;"></div>
