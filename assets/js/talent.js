@@ -37,7 +37,8 @@ function initializeApp() {
 	updateSavedSpecs()
 
 
-	var reset = (performance.navigation.type == 1) ? true : false
+	var refresh = (performance.navigation.type == 1) ? true : false
+	let reset = false
 	let myURL = new URL(document.location)
 	let className
 	if (myURL.search) {
@@ -48,16 +49,22 @@ function initializeApp() {
 				className = params.get('class')
 				if (myURL.hash == '') {
 					reset = true
+				} else {
+					reset = false
 				}
 				// buildClassData(null, className, myURL.hash, reset)
 			} else {
+				reset = true
 				// className = 'warrior'
 			}
 		}
 	} else {
+		reset = true
 
 		// buildClassData(null, 'warrior', myURL.hash, reset)
 	}
+	reset = (refresh) ? true : reset
+
 	buildClassData(null, className, myURL.hash, reset)
 
 }
@@ -362,7 +369,16 @@ function handlebarsPopulateTables(reset = false) {
 function classSelectionHandler() {
 	$('.class-filter').on({
 		click: e => {
-			buildClassData(e, '', '', true)
+			let cl
+			if ($('.class-filter.selected') == $(e.target)) {
+				console.log('selected: ', $('.class-filter.selected'))
+				console.log('target: ', $(e.target))
+				return false
+			}
+			else {
+				cl = $(e.target)[0].id
+			}
+			buildClassData(e, cl, '', true)
 			let selectedSpec = $('div.specItem.specSelected')
 			if (selectedSpec){
 				let savedSpecClassText = selectedSpec.text()
@@ -433,6 +449,7 @@ function resetHandler() {
 
 function resetAll() {
 
+	console.log('reset all')
 	let className = $('.class-filter.selected')[0].id
 	let treeNames = talentPointsSpent.treeNames
 
@@ -505,6 +522,7 @@ function resetTalentTree(tree, e) {
 }
 
 function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
+	console.log('building class data')
 	let className = cl
 	let url = new URL(document.location)
 	let params = url.searchParams
@@ -517,9 +535,6 @@ function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 		$(`#${className}`).addClass('selected')
 		params.set('class', className)
 		history.replaceState(null, className, url)
-	}
-	else if ($('.class-filter.selected') == $(e.target)) {
-		return
 	}
 	else {
 		$('.class-filter').removeClass('selected')

@@ -37,8 +37,14 @@ function stepValidator(n, step) {
 
 function applyClickHandlers() {
 
+	selectionHandler()
+	materialsTooltip()
+}
+
+function selectionHandler() {
 	$('.class-filter').on({
 		click: e => {
+
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
 			clickedFilter.addClass('selected')
@@ -98,9 +104,7 @@ function applyClickHandlers() {
 		},
 
 	})
-	materialsTooltip()
 }
-
 function clearForm() {
 	$('.consume-form').empty()
 	$('#results').empty()

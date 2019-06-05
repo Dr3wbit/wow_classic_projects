@@ -96,7 +96,7 @@ body {
 
 .navbar {
     border-top: 2px black solid;
-    border-bottom: 2px #8787ed solid;
+    border-bottom: 2px rgba(135, 135, 237, 0.7) solid;
     padding: 0;
     padding-bottom: 0;
     z-index: 1030;
