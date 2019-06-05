@@ -44,3 +44,22 @@
 }
 
 
+
+.recent-news{
+	order: 2;
+}
+.site-content {
+	flex: 0 0 100%;
+	max-width: 100%;
+	order: 1;
+}
+@media (min-width: 992px){
+    .site-content {
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+		order: 2;
+    }
+	.recent-news{
+		order: 1;
+	}
+}
