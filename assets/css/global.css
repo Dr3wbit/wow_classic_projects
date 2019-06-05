@@ -17,6 +17,7 @@ body {
 }
 
 .footer {
+    /* border-top: 2px rgba(167,20,20,0.95) solid; */
     width: 100%;
     height: 3vh;
     position: absolute;
@@ -83,12 +84,8 @@ body {
 .navbar-logo-text {
     font-family: Aeio;
     font-size: 25px;
-    color: rgba(255, 54, 4, 0.9) !important;
-    text-shadow:
-        -1px -1px 0 rgba(0, 0, 0, 0.5),
-        2px -2px 0 rgba(0, 0, 0, 0.5),
-        -2px 2px 0 rgba(0, 0, 0, 0.5),
-        2px 2px 0 rgba(0, 0, 0, 0.5);
+    color: rgba(167, 20, 20, 0.95) !important;
+    text-shadow: -0.01rem -1px 0 #343a40, 1px -1px 0 rgba(52, 58, 64, 0.15), -0.01rem 1px 0 #212529, 1px 1px 0 #c79c6e73;
     vertical-align: bottom;
 }
 
@@ -104,8 +101,6 @@ body {
     padding-bottom: 0;
     z-index: 1030;
     transition: all .2s ease-in;
-
-
 }
 
 
@@ -209,6 +204,7 @@ body {
     /* font-size: 14px; */
     /* min-height: 45px; */
     text-shadow: -0.02rem -0.02rem 0.02rem rgba(30,30,30, 0.95);
+    border-top: 3px solid black;
 }
 
 @media only screen and (max-width: 992px) {
