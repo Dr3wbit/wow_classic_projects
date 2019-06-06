@@ -604,11 +604,11 @@ ul {
 }
 
 
-.materials-name {
+/* .materials-name {
     position: relative;
     pointer-events: auto;
     top: 1px;
-}
+} */
 
 
 .amount {
