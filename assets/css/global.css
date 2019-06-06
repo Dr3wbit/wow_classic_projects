@@ -84,28 +84,36 @@ body {
     src: url('../fonts/lifecraft.ttf')
 }
 
+@font-face {
+    font-family: 'morpheus';
+    src: url('../fonts/morpheus.ttf')
+}
 /* ````````````````````````NAV`````````````````` */
 
 /* #navbarSupportedContent li{
     border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7);
 } */
-/* .navbar-logo-text {
-    font-family: lifecraft;
-    font-size: 30px;
-    color: rgba(215, 40, 10, 1) !important;
-    color: rgba(167, 20, 20, 0.95) !important;
-    text-shadow: -0.01rem -1px 0 #343a40, 1px -1px 0 rgba(52, 58, 64, 0.15), -0.01rem 1px 0 #212529, 1px 1px 0 #f5f5f54a;
-    vertical-align: bottom;
-    font-weight: lighter;
-} */
-
 .navbar-logo-text {
+    font-family: lifecraft;
+    font-size: 35px;
+    color: rgba(215, 40, 10, 1) !important;
+    /*v1 text-shadow: -0.01rem -1px 0 #343a40, 0.8px 0.7px 0.1px #000000fa, 1.2px 1.3px 0 #2e98ff, -0.01rem 1px 0 #212529, 0.5px 1px 0 #f5f5f54a; */
+    /*v2 text-shadow: -0.01rem -1px 0 #343a40, 0.8px 0.7px 0.1px #000000fa, 1.2px 1.3px 0 #55789bd9, -0.01rem 1px 0 #212529, 0.5px 1px 0 #f5f5f54a; */
+    text-shadow: -0.01rem -1px 0 #343a40, 0.8px 0.7px 0.1px #000000fa, 1.2px 1.3px 0 #442e1a, -0.01rem 1px 0 #212529, 0.5px 1px 0 #f5f5f54a, -0.5px 0 1px #00000087;
+    vertical-align: bottom;
+    /* font-weight: lighter; */
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: .2px #000000;
+    letter-spacing: 1px;
+}
+
+/* .navbar-logo-text {
     font-family: Aeio;
     font-size: 25px;
     color: rgba(215, 40, 10, 1) !important;
     text-shadow: -0.01rem -1px 0 #343a40, 1px -1px 0 rgba(52, 58, 64, 0.15), -0.01rem 1px 0 #212529, 1px 1px 0 #f5f5f54a;
     vertical-align: bottom;
-}
+} */
 
 .navbar-toggler {
     background-color: black;
@@ -129,10 +137,15 @@ body {
     border: 1px solid black;
     border-top: 0;
     margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
     /* border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7); */
 
 }
 
+.navbar-brand img{
+    vertical-align: top;
+}
 .navbar-brand:hover{
     box-shadow: inset 0 0 5px black;
 }
@@ -669,7 +682,7 @@ ul {
 
 .discordLink {
     background-image: url(../images/icons/discord_link.png);
-    background-size: 180px 40px;
+    background-size: contain;
     background-repeat: no-repeat;
     width: 180px;
     height: 40px;
