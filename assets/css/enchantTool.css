@@ -274,6 +274,11 @@
     position: relative;
     margin-top: 3px;
     text-align: left;
+    pointer-events: auto;
+}
+
+.materials-name {
+    pointer-events: auto;
 }
 
 .nav-is-sticky {

@@ -14,8 +14,14 @@ const utilities = {
 	},
 	getTooltipPosition: function(e, tooltip) {
 		let width = tooltip.width(), height = tooltip.height()
-		this.coords = {}
 		let element = $(e.target)
+
+		// let width = (element.find('span').length) ? element.find('span').width()+45 : tooltip.width()+5
+
+		console.log('span width: ', element.find('span').width())
+		console.log('tooltip width: ', tooltip.width())
+
+		this.coords = {}
 
 		// coeffs measure aproximately the % of the visible and usable screen the cursor is at (aka visible bottom of page to bottom of class selection bar)
 		let xCoeff = (element.offset().left/window.innerWidth)*100
@@ -28,7 +34,8 @@ const utilities = {
 		let header = ($("#talentHeader").length) ? $("#talentHeader") : $("#class_selection")
 		let classSelection = $("#class_selection")
 
-		if (xCoeff > 50) {
+
+		if (xCoeff > 50) { //right half of page
 			left = Math.round(element.offset().left) - 25 - width
 		} else {
 			left = Math.round(element.offset().left) + element.width() + 5

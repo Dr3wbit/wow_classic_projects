@@ -110,7 +110,7 @@ span.plus {
     border-radius: 1px;
     /* align-items: center; */
     pointer-events: auto;
-    padding-left: 15px;
+    text-indent: 15px;
 }
 
 .prof-item-recipe img,span{
@@ -151,12 +151,12 @@ span.plus {
     border-radius: 1px;
     /* align-items: center; */
     pointer-events: auto;
-    padding-left: 15px;
+    text-indent: 15px;
 }
 
-.crafted-list-item img,span{
+/* .crafted-list-item img,span{
     pointer-events: none;
-}
+} */
 
 
 
@@ -169,9 +169,8 @@ span.plus {
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    /* align-items: center; */
     pointer-events: auto;
-    padding-left: 15px;
+    text-indent: 15px;
 }
 
 .materials-list-item.amount{
