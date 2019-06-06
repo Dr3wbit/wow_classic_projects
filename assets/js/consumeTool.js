@@ -21,7 +21,7 @@ function applyClickHandlers() {
 function selectionHandler() {
 	$('.prof-filter').on({
 		click: e => {
-
+			e.preventDefault()
 			$('.prof-filter').removeClass('selected')
 			$(e.target).addClass('selected')
 			const profName = $(e.target)[0].id
@@ -48,7 +48,6 @@ function recipesHandler() {
 			$(".prof-item-recipe").on({
 				mouseenter: e => {
 					clearTooltip()
-					let name = $(e.target).attr('name')
 					updatetooltip(e)
 				},
 				mouseleave: e => {
@@ -56,6 +55,7 @@ function recipesHandler() {
 				},
 				mousedown: e => {
 					addCraftedItem(e)
+					e.stopImmediatePropagation()
 				}
 			})
 		},
@@ -88,6 +88,7 @@ function craftedItemsHandler() {
 function totalMaterialsList() {
 	$("#total_materials").on({
 		mouseenter: e => {
+			e.preventDefault()
 			$(".materials-list-item").on({
 				mouseenter: e => {
 					clearTooltip()
@@ -150,32 +151,39 @@ function addCraftedItem(e) {
 		}))
 		totalItems.append(craftedItem)
 	}
-	updateMaterialsList(craftedItemObj, updatedAmount)
+	updateMaterialsList(craftedItemObj, numAdded)
 }
-function updateMaterialsList(craftedItemObj, craftedItemAmount) {
+
+function updateMaterialsList(craftedItemObj, numAdded) {
 	let totalMats = $("#total_materials")
-	for (let [name, matsPer] of Object.entries(craftedItemObj.materials)) {
+	for (let [name, matStep] of Object.entries(craftedItemObj.materials)) {
 		let materialsObj = allMaterials[name]
 		let properName = (materialsObj.name) ? materialsObj.name : utilities.titleCase(name)
-		let materialsCount = Math.round(craftedItemAmount * matsPer)
+		let materialsCount = 0
+		let craftedStep = (craftedItemObj.step) ? craftedItemObj.step : 1
+		let amountAdded = Math.round(numAdded * matStep * craftedStep)
 		let materialListItem = $(`.materials-list-item[name='${name}']`)
 
 		if (materialListItem.length) {
+			let currentAmount = parseInt(materialListItem.find($("span.amount")).text().match(NUMBRE)[1])
+			materialsCount = currentAmount + amountAdded
 			materialListItem.find($("span.amount")).text(`[${materialsCount}]`)
+
 		} else {
+			let image_name = (name.endsWith('eko')) ? ('eko') : name
 			materialsListItem = $('<div/>', {
 				class: 'materials-list-item',
 				name: `${name}`
 			}).append($('<img/>', {
 				class: 'icon-small',
 				src: "assets/images/icons/small/icon_border.png",
-				style: `background-image: url(assets/images/icons/small/${name}.jpg);`,
+				style: `background-image: url(assets/images/icons/small/${image_name}.jpg);`,
 			})).append($('<span/>', {
 				class: `material-name ${materialsObj.rarity}`,
 				text: `${properName}`,
 			})).append(" ").append($('<span/>', {
 				class: 'amount',
-				text: `[${materialsCount}]`,
+				text: `[${amountAdded}]`,
 			}))
 
 			totalMats.append(materialsListItem)
@@ -188,7 +196,6 @@ function updatetooltip(e, matOrConsume='consume') {
 	if (targetElement.hasClass('test')) {
 		//
 	}
-
 	const name = targetElement.attr('name')
 	const thisObj = (matOrConsume=='consume') ? allConsumes[name] : allMaterials[name]
 	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)

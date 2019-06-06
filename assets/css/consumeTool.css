@@ -163,7 +163,6 @@ span.plus {
 .materials-list-item {
     font-size: 95%;
     margin-top: 1px;
-    cursor: pointer;
     border: 2px black solid;
     background-color: black;
     display: block;
