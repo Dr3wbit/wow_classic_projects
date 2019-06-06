@@ -753,3 +753,29 @@ const allConsumes = {
         use: "Increases your melee attack power by 35 and size for 20 min. (cooldown 1 min)",
     }
 }
+
+
+// 
+const suggestedConsumeList = {
+    druid: [],
+    hunter: [],
+    mage: [],
+    paladin: [],
+    priest: [],
+    rogue: [],
+    shaman: [],
+    warlock: [],
+    warrior: [
+        'greater_arcane_protection_potion','greater_fire_protection_potion',
+        'greater_frost_protection_potion','greater_nature_protection_potion',
+        'greater_shadow_protection_potion', 'elixir_of_fortitude', 'flask_of_the_titans',
+        'limited_invulnerability_potion', 'major_healing_potion', 'restorative_potion',
+        'swiftness_potion', 'invisibility_potion', 'lesser_invisibility_potion',
+        'oil_of_immolation', 'elixir_of_the_mongoose', 'elixir_of_superior_defense',
+        'arcane_bomb', 'dense_dynamite', 'goblin_sapper_charge', 'iron_grenade',
+        'thorium_grenade', 'goblin_rocket_boots', 'dirges_kickin_chimaerok_chops',
+        'smoked_desert_dumplings', 'dense_sharpening_stones', 'dense_weightstone',
+        'elemental_sharpening_stone', 'heavy_runecloth_bandage', 'juju_flurry',
+        'juju_power', 'juju_might', 'roids',
+    ],
+}
