@@ -134,13 +134,9 @@
     <div class="row">
     <div class="col-12 col-lg-4 pageColumn" id="recipe_list">
     </div>
-    <div class="col-12 col-lg-4 pageColumn" id="total_items">
-        <div class="selected-enchant"></div>
+    <div class="col-12 col-lg-4 pageColumn" id="total_crafted">
     </div>
-    <div class="col-12 col-lg-4 materialContainer pageColumn" id="total_materials">
-        <div class="totalContainer">
-            <!-- <div class="results"></div> -->
-        </div>
+    <div class="col-12 col-lg-4 pageColumn" id="total_materials">
     </div>
 </div> <!-- row -->
 
@@ -181,6 +177,10 @@
         <img class="icon-small" src="assets/images/icons/small/icon_border.png"
         style="background-image: url(assets/images/icons/consumes/{{@key}}.jpg);">
         <span class="consume-name">{{this.name}}</span>
+        {{!each this.materials}}
+        {{!-- <img class="icon-small" src="assets/images/icons/small/icon_border.png"
+        style="background-image: url(assets/images/icons/small/{{@key}}.jpg);"> --}}
+        {{!-- {{/each}} --}}
     </div>
     {{/each}}
 </script>
