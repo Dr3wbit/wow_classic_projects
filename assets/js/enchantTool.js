@@ -92,8 +92,9 @@ function getenchantData(dataObject, dataKeys, slot) {
                 }
                 $('<div/>', {
                     class: 'enchantInfo',
+                }).append($('<span/>', {
                     text: text
-                }).prepend($('<button/>', {
+                })).prepend($('<button/>', {
                     class: 'delete',
                     enchantData: dataKeys[i],
                     itemslot: slot
@@ -170,7 +171,7 @@ function calculateData() {
         }).append($('<img/>', {
             class: 'icon-small',
             src: "assets/images/icons/small/icon_border.png",
-            style: `background-image: url(assets/images/icons/small/materials/${matCat}/${material[i]}.${imageType});`,
+            style: `background-image: url(assets/images/icons/small/${material[i]}.${imageType});`,
         })).append($('<span/>', {
             text: utilities.titleCase(material[i]),
             class: `materials-name rarity ${allMaterials[material[i]].rarity}`,
@@ -192,7 +193,7 @@ function materialsTooltip() {
             let matName = closestMat.text()
 
             if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
-                return
+                return false
             } else {
                 $(".results").find('.materials-name').removeClass('underlined')
                 closestMat.addClass('underlined')

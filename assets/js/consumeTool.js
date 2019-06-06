@@ -171,7 +171,7 @@ function updateMaterialsList(craftedItemObj, craftedItemAmount) {
 				src: "assets/images/icons/small/icon_border.png",
 				style: `background-image: url(assets/images/icons/small/${name}.jpg);`,
 			})).append($('<span/>', {
-				class: `${materialsObj.rarity}`,
+				class: `material-name ${materialsObj.rarity}`,
 				text: `${properName}`,
 			})).append(" ").append($('<span/>', {
 				class: 'amount',
@@ -185,6 +185,10 @@ function updateMaterialsList(craftedItemObj, craftedItemAmount) {
 
 function updatetooltip(e, matOrConsume='consume') {
 	const targetElement = $(e.target)
+	if (targetElement.hasClass('test')) {
+		//
+	}
+
 	const name = targetElement.attr('name')
 	const thisObj = (matOrConsume=='consume') ? allConsumes[name] : allMaterials[name]
 	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
