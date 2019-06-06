@@ -205,13 +205,15 @@ body {
     box-shadow: inset 0 0 4px black;
 }
 
-.class-filter.selected, .prof-filter.selected {
+.class-filter.selected {
     background-image: linear-gradient(rgba(28,28,28,0.8), rgba(40, 40, 40, 0.85), rgba(20,20,20,0.8));
     box-shadow: inset 0 0 5px black, rgba(255,255,255,.1) 0 1px 0;
-    /* border-color: unset; */
+    border-color: unset;
 }
 
 .prof-filter.selected {
+    background-image: linear-gradient(rgba(28,28,28,0.8), rgba(40, 40, 40, 0.85), rgba(20,20,20,0.8));
+    box-shadow: inset 0 0 5px black, rgba(255,255,255,.1) 0 1px 0;
     border-color: rgb(231, 186, 0);
     color: rgb(231, 186, 0);
 }
@@ -320,7 +322,7 @@ body {
 
 #warrior {
     color: #C79C6E;
-    border-color: #C79C6E;
+    border-color: #C79C6E !important;
 
 }
 
@@ -438,7 +440,7 @@ body {
      pointer-events: none;
 }
 
-.class-filter.selected, .prof-filter.selected img{
+.class-filter.selected img, .prof-filter.selected img{
     transform: scale(0.98);
 
     border-color: inherit;
@@ -449,7 +451,7 @@ body {
          filter: grayscale(0%);
 }
 
-.class-filter:hover, .prof-filter:hover img{
+.class-filter:hover img, .prof-filter:hover img{
 
     border-color: inherit;
     box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
@@ -458,7 +460,7 @@ body {
 
 }
 
-.class-filter:active, .prof-filter:active img{
+.class-filter:active img, .prof-filter:active img{
     transform: scale(0.97);
 
 }

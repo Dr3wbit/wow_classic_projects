@@ -15,18 +15,7 @@ const utilities = {
 	getTooltipPosition: function(e, tooltip) {
 		let width = tooltip.width(), height = tooltip.height()
 		let element = $(e.target)
-
-		// let width = (element.find('span').length) ? element.find('span').width()+45 : tooltip.width()+5
 		let span = element.find('span')
-		let testWidth
-		if (span.length) {
-			testWidth = span.offset().left + span.width() + 20
-			// console.log('span width: ',span.width())
-			// console.log('span offset left: ', span.offset().left)
-		}
-
-		// console.log('tooltip width: ', tooltip.width())
-		// console.log('pageX:', e.pageX)
 
 		this.coords = {}
 
@@ -38,8 +27,8 @@ const utilities = {
 
 		// let header = ($("#talentHeader").length) ? $("#talentHeader") : $("div.page-title")
 
-		let header = ($("#talentHeader").length) ? $("#talentHeader") : $("#class_selection")
-		let classSelection = $("#class_selection")
+		let header = ($("#talentHeader").length) ? $("#talentHeader") : $("#prof_header")
+		let selectionElement = ($("#class_selection").length) ? $("#class_selection") : $("#prof_selection")
 
 
 		if (xCoeff <= 50) { //left half of page
@@ -50,20 +39,11 @@ const utilities = {
 			}
 		} else {
 			left = Math.round(element.offset().left) - 25 - tooltip.width()
-
 		}
 
-		// old \\
-		// if (xCoeff > 50) { //right half of page
-		// 	left = Math.round(element.offset().left) - 25 - width
-		// } else {
-		// 	left = Math.round(element.offset().left) + element.width() + 5
-		// }
 
 		if (yCoeff < 30) {
-			top = Math.max(header.position().top, classSelection.position().top) + 35
-			// top = classSelection.position().top + 35
-
+			top = Math.max(header.position().top, selectionElement.position().top) + 35
 			let percDiff = Math.round((1 - top/element.offset().top)*100)
 			if (percDiff >= 10) {
 				top = Math.floor(element.offset().top)
