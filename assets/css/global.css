@@ -81,9 +81,9 @@ body {
 
 /* ````````````````````````NAV`````````````````` */
 
-#navbarSupportedContent li{
+/* #navbarSupportedContent li{
     border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7);
-}
+} */
 .navbar-logo-text {
     font-family: Aeio;
     font-size: 25px;
@@ -114,7 +114,7 @@ body {
     border: 1px solid black;
     border-top: 0;
     margin: 0;
-    border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7);
+    /* border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7); */
 
 }
 
@@ -143,7 +143,7 @@ body {
     border-right: 1px solid black;
     border-right: 1px solid black;
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
-    border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7);
+    /* border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7); */
 }
 
 .nav-item:hover {
