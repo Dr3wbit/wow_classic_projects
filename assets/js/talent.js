@@ -37,7 +37,8 @@ function initializeApp() {
 	updateSavedSpecs()
 
 
-	var reset = (performance.navigation.type == 1) ? true : false
+	var refresh = (performance.navigation.type == 1) ? true : false
+	let reset = false
 	let myURL = new URL(document.location)
 	let className
 	if (myURL.search) {
@@ -48,16 +49,22 @@ function initializeApp() {
 				className = params.get('class')
 				if (myURL.hash == '') {
 					reset = true
+				} else {
+					reset = false
 				}
 				// buildClassData(null, className, myURL.hash, reset)
 			} else {
+				reset = true
 				// className = 'warrior'
 			}
 		}
 	} else {
+		reset = true
 
 		// buildClassData(null, 'warrior', myURL.hash, reset)
 	}
+	reset = (refresh) ? true : reset
+
 	buildClassData(null, className, myURL.hash, reset)
 
 }
@@ -87,51 +94,6 @@ function preventInspect(){
 		},
 	})
 }
-
-// function addAllottedPoints(){
-// 	$("#addAllottedPoints").on({
-// 		change: e => {
-// 			console.log('to be added...')
-// 		}
-// 	})
-// }
-
-// function addClassName(){
-// 	$("#addClassName").on({
-// 		change: e => {
-// 			const classRemoveRE = /^([\w.-]{2,18})/
-// 			const classRemoveRE2 = / \[\w+\]/
-// 			if ($("#addClassName:checked").length) {
-// 				let proposedSpecName = $("#specName").val()
-// 				$("#specName").val(proposedSpecName+` [${talentPointsSpent.className}]`)
-// 			} else {
-// 				let proposedSpecName = $("#specName").val()
-// 				let newName = proposedSpecName.replace(classRemoveRE2, '')
-//
-// 				$("#specName").val(newName)
-//
-// 				// let matched = proposedSpecName.search(classRemoveRE)
-// 			}
-// 		}
-// 	})
-// }
-
-// function specChoiceRadios(){
-// 	$("#specNameChoice").on({
-// 		change: e => {
-// 			console.log('specChoiceRadios')
-// 			let choice = $("input[name='nameChoice']:checked").val()
-// 			if (choice=='current') {
-// 				let savedSpecClassText = $('div.specItem.specSelected').text()
-// 				$("#specName").val(savedSpecClassText)
-// 				$("#specName").addClass('disabled')
-// 			} else {
-// 				$("#specName").removeClass('disabled')
-// 				$("#specName").val('')
-// 			}
-// 		}
-// 	})
-// }
 
 function exportSpec() {
 	$("#export").on({
@@ -301,7 +263,6 @@ function updateSavedSpecs() {
 	if (existingSpecs) {
 		specList = Object.entries(existingSpecs)
 		for (const [name,item] of specList) {
-			// console.log(item)
 				let capitalizedClassName = item.className.substr(0,1).toUpperCase()+item.className.substr(1);
 			let specContainer = $('<div/>', {
 				class: 'specContainer',
@@ -323,7 +284,6 @@ function updateSavedSpecs() {
 					} else {
 						$('.specItem').removeClass('specSelected')
 						$(e.target).addClass('specSelected')
-
 
 						resetAll()
 
@@ -363,10 +323,7 @@ function updateSavedSpecs() {
 
 	let checkIfEmpty = $('.specList').children()
 	if (checkIfEmpty.length === 0){
-		$('.specList').text('To save a spec, fill out your talents then click the save icon (top right of calculator) and give your spec a name. We use cookies to save your specs on this page so aslong as you dont clear cookies on us, your specs will be here forever!')
-		$('.saveSpec').append($('<div/>',{
-			class: 'promptArrow'
-		}))
+		$('.specList').text("To save a spec, fill out your talents then click the save icon (top right of calculator). We use cookies to save your specs on this page, so aslong as you don't clear cookies on us, your specs will be here forever!")
 	}
 }
 
@@ -405,22 +362,23 @@ function handlebarsPopulateTables(reset = false) {
 		resetHandler()
 	}
 	resetTree()
-	// navbarCollapse()
 }
 
-function applySelectionMarker() {
-	$('.class-filter').children().remove()
-	const classMarker = $('<div/>', {
-		class: 'classMarker',
-	})
-	$('.selected').append(classMarker)
-}
+
 
 function classSelectionHandler() {
 	$('.class-filter').on({
 		click: e => {
-			applySelectionMarker()
-			buildClassData(e, '', '', true)
+			let cl
+			if ($('.class-filter.selected') == $(e.target)) {
+				console.log('selected: ', $('.class-filter.selected'))
+				console.log('target: ', $(e.target))
+				return false
+			}
+			else {
+				cl = $(e.target)[0].id
+			}
+			buildClassData(e, cl, '', true)
 			let selectedSpec = $('div.specItem.specSelected')
 			if (selectedSpec){
 				let savedSpecClassText = selectedSpec.text()
@@ -438,24 +396,8 @@ function classSelectionHandler() {
 					selectedSpec.removeClass('specSelected')
 				}
 			}
-			// let className = $('.class-filter.selected')[0].id
-			// let oldTitle = document.title
-			// document.title = (oldTitle+' '+className)
+
 		},
-		mouseenter: e => {
-			const classMarkerGhost = $('<div/>', {
-				class: 'classMarkerGhost',
-			})
-			const hoveredFilter = $(e.target)
-			if(hoveredFilter.hasClass('selected')){
-				return
-			}else{
-				hoveredFilter.append(classMarkerGhost)
-			}
-		},
-		mouseleave: e => {
-			$('.classMarkerGhost').remove()
-		}
 	})
 }
 
@@ -507,15 +449,13 @@ function resetHandler() {
 
 function resetAll() {
 
+	console.log('reset all')
 	let className = $('.class-filter.selected')[0].id
 	let treeNames = talentPointsSpent.treeNames
 
 	talentPointsSpent.hardLocked = false
 	talentPointsSpent.softLocked = false
 
-	// classData.trees.forEach(function (item) {
-	// 	treeNames.push(item.name)
-	// })
 	treeNames.forEach(function (tree) {
 		resetTalentTree(tree)
 	})
@@ -530,8 +470,6 @@ function resetAll() {
 }
 
 function resetTalentTree(tree, e) {
-
-	console.log('\nresetting tree: ', tree)
 
 	let found = classData.trees.find(function (x) {
 		return x.name == tree
@@ -584,6 +522,7 @@ function resetTalentTree(tree, e) {
 }
 
 function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
+	console.log('building class data')
 	let className = cl
 	let url = new URL(document.location)
 	let params = url.searchParams
@@ -597,23 +536,20 @@ function buildClassData(e = null, cl = 'warrior', hash = '', reset = false) {
 		params.set('class', className)
 		history.replaceState(null, className, url)
 	}
-
 	else {
-		if ($('.class-filter.selected') == $(e.target)) {
-			return
-		}
 		$('.class-filter').removeClass('selected')
 		const clickedFilter = $(e.target)
+
 		clickedFilter.addClass('selected')
 		className = clickedFilter[0].id
-		$('.talentHeader').text(className)
 
 		params.set('class', className)
 		params.delete('L')
 		url.hash = '#'
 		history.replaceState(null, className, url)
 	}
-	applySelectionMarker()
+
+	// applySelectionMarker()
 
 	const selectedClass = talentData.classes.find(function (a) {
 		return a.name == className;
@@ -794,7 +730,6 @@ function mouseDownHandler(e = null, talent, tree) {
 
 	targetTalent.closest(".talentTable").find(".talentFooter span.talentFooter-spentPoints").text("(" + talentPointsSpent[treeName].total() + ")")
 
-	// console.log(targetTalent.attr('name') + " : " + talentObj.invested)
 	if (manuallyClicked) {
 		urlBuilder()
 		updateTooltip(e)
@@ -905,7 +840,6 @@ function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
 
 	let decision = false
 	if (!tier_unlocked) {
-		console.log(`Tiers ${locked_tier} and above are locked, unable to remove points`)
 	}
 
 	if (((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a, b) => (a + b)) - tier_check * 5) > 0) &&
@@ -1059,7 +993,6 @@ function pointSpender(talent, e, tree, targetTal) {
 					let par = $(`img.talent[name="${n}"]`).addClass('locked') //NOTE: locks talent element
 					par.closest('.talent-container').find(".spentPoints").first().addClass('locked') //NOTE: locks points spent element
 
-					console.log('locking talent: ', n)
 					arrowClassChanger(n, true, 'locked')
 				})
 			}
@@ -1129,7 +1062,6 @@ function talentLocker(tree = '') {
 		t.addClass('grayed')
 		t.closest('.talent-slot').find(".spentPoints").addClass('grayed')
 		if (tal.locked) {
-			console.log('graying: ', tal.name)
 			arrowClassChanger(tal.name, true, 'grayed')
 		}
 		if (tal.unlocks) {
@@ -1138,7 +1070,6 @@ function talentLocker(tree = '') {
 				let par = $(`img.talent[name="${n}"]`).addClass('locked')
 				par.closest('.talent-container').find(".spentPoints").first().addClass('locked')
 
-				console.log('locking talent: ', n)
 				arrowClassChanger(n, true, 'locked')
 			})
 		}
@@ -1146,7 +1077,6 @@ function talentLocker(tree = '') {
 }
 
 function talentUnlocker(tree = '') {
-	// console.log('\nunlocking\n')
 	let treeNames = []
 	if (!tree) { // defaults to all trees
 		treeNames = talentPointsSpent.treeNames
@@ -1170,8 +1100,6 @@ function talentUnlocker(tree = '') {
 					t.removeClass('grayed')
 					t.closest('.talent-slot').find('.spentPoints').first().removeClass('grayed')
 					if (tal.locked) {
-						console.log('ungraying: ', tal.name)
-
 						arrowClassChanger(tal.name, false, 'grayed')
 
 					}
@@ -1297,7 +1225,6 @@ function arrowClassChanger(talName, add, lockOrGray) {
 	if (!add) {
 		addOrRemove = 'remove'
 	}
-	console.log('talent name: ', talName, ` ${addOrRemove} ${lockOrGray} `)
 	let arrows = $(`div.talentcalc-arrow[data-unlocks="${talName}"]`)
 	arrows.each(function () {
 		if (add) {

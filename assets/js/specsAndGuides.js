@@ -11,20 +11,12 @@ function applyClickHandlers() {
 	const defaultSelection = $('#warrior')
 	defaultSelection.addClass('selected')
 	handlebarsPopulateData(context.classes[0]);
-	const classMarker = $('<div/>', {
-		class: 'classMarker',
-	})
-	const classMarkerGhost = $('<div/>', {
-		class: 'classMarkerGhost',
-	})
-	defaultSelection.append(classMarker)
+
 
 	$('.class-filter').on({
 		click: e => {
-			$('.class-filter').children().remove()
 			$('.class-filter').removeClass('selected')
 			const clickedFilter = $(e.target)
-			clickedFilter.append(classMarker)
 			clickedFilter.addClass('selected')
 			const clickedID = clickedFilter[0].id
 			const selectedClass = context.classes.find(function (a) {
@@ -33,7 +25,7 @@ function applyClickHandlers() {
 			handlebarsPopulateData(selectedClass);
 			$('html, body').animate({
 				scrollTop: 94.5
-			}, 800, function () { 
+			}, 800, function () {
 				return window.history.pushState(null, null, '#pve_specs');
 			})
 		},
@@ -43,11 +35,11 @@ function applyClickHandlers() {
 			if (hoveredFilter.hasClass('selected')) {
 				return
 			} else {
-				hoveredFilter.append(classMarkerGhost)
+				// hoveredFilter.append(classMarkerGhost)
 			}
 		},
 		mouseleave: e => {
-			$('.classMarkerGhost').remove()
+			// $('.classMarkerGhost').remove()
 		}
 	})
 }
@@ -59,7 +51,7 @@ function scrollSpyOffset() {
 			e.preventDefault();
 			$('html, body').animate({
 				scrollTop: $(href).offset().top - navOffset
-			}, 800, function () { 
+			}, 800, function () {
 				return window.history.pushState(null, null, href);
 			})
 	});
