@@ -17,6 +17,7 @@ body {
 }
 
 .footer {
+    /* border-top: 2px rgba(167,20,20,0.95) solid; */
     width: 100%;
     height: 3vh;
     position: absolute;
@@ -73,17 +74,21 @@ body {
     src: url('../fonts/FrizQuadrataStdRegular.otf');
 }
 
+@font-face {
+    font-family: 'SnellRoundhand';
+    src: url('../fonts/snellbt-regular.otf')
+}
+
 /* ````````````````````````NAV`````````````````` */
 
+/* #navbarSupportedContent li{
+    border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7);
+} */
 .navbar-logo-text {
     font-family: Aeio;
     font-size: 25px;
-    color: rgba(255, 54, 4, 0.9) !important;
-    text-shadow:
-        -1px -1px 0 rgba(0, 0, 0, 0.5),
-        2px -2px 0 rgba(0, 0, 0, 0.5),
-        -2px 2px 0 rgba(0, 0, 0, 0.5),
-        2px 2px 0 rgba(0, 0, 0, 0.5);
+    color: rgba(167, 20, 20, 0.95) !important;
+    text-shadow: -0.01rem -1px 0 #343a40, 1px -1px 0 rgba(52, 58, 64, 0.15), -0.01rem 1px 0 #212529, 1px 1px 0 #c79c6e73;
     vertical-align: bottom;
 }
 
@@ -93,25 +98,24 @@ body {
 }
 
 .navbar {
-    background-color: black;
     border-top: 2px black solid;
-    border-bottom: 2px black solid;
+    border-bottom: 2px rgba(135, 135, 237, 0.7) solid;
     padding: 0;
     padding-bottom: 0;
     z-index: 1030;
     transition: all .2s ease-in;
-
 }
 
 
 .navbar-brand{
     padding-left: 70px;
     padding-right: 20px;
-    box-shadow: inset 0 0 5px rgb(40, 40, 40);
+    /* box-shadow: inset 0 0 5px rgb(40, 40, 40); */
     border: 1px solid black;
     border-top: 0;
-    border-bottom: 0;
     margin: 0;
+    /* border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7); */
+
 }
 
 .navbar-brand:hover{
@@ -122,15 +126,14 @@ body {
     padding: 11px;
     font-size: 15px;
     color: rgba(240, 255, 255, 0.9) !important;
-    font-family: OpenSans, Arial, Helvetica, sans-serif;
-    /* font-weight: lighter */
+    /* font-family: Arial, Helvetica, sans-serif; */
    }
 
 .nav-link:hover {
     outline: none;
     background-color: transparent;
+    color: #909caf !important;
 
-    color: rgba(255, 54, 4, 0.9) !important;
    }
 
 .nav-item {
@@ -139,8 +142,8 @@ body {
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
     border-right: 1px solid black;
     border-right: 1px solid black;
-    color: rgba(240, 255, 255, 0.9) !important;
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
+    /* border-bottom: 0.01rem solid rgba(240, 255, 255, 0.7); */
 }
 
 .nav-item:hover {
@@ -150,39 +153,52 @@ body {
 .nav-item-selected {
     background-image: linear-gradient(rgba(28,28,28,0.8), rgba(40, 40, 40, 0.85), rgba(20,20,20,0.8));
     box-shadow: inset 0 0 5px black, rgba(255,255,255,.1) 0 1px 0;
+    /* color: rgba(240, 255, 255, 0.9) !important; */
 }
 
 .nav-link-selected {
-    color: rgba(255, 54, 4, 0.9) !important;
+    color: #909caf !important;
+
     /* text-shadow: -0.02rem -0.02rem 0.03rem rgba(30,30,30, 0.95), -0.02rem -0.01rem 0.02rem rgba(30,30,30, 0.95); */
 }
 
 /* ``````````````````CLASS SELECTION````````````````````` */
 
-.class-filter {
+
+.class-filter, .prof-filter {
     font-size: 110%;
     cursor: pointer;
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
     position: relative;
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
-    border-right: 1px solid rgba(0, 0, 0, .95);
-    padding-top: 8px;
-    min-width: 70px;
-    margin-bottom: 1px;
-    border-radius: 1px;
+    /* border-right: 1px solid rgba(0, 0, 0, .95); */
+    /* padding-top: 8px; */
+    /* min-width: 70px; */
+    margin: 5px 7px;
+    border-radius: 5px;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
 }
 
-.class-filter:first-child{
+/* .class-filter:first-child{
     border-left: 1px solid rgba(0, 0, 0, .95);
-}
+} */
 
-.class-filter:hover{
+.class-filter:hover, .prof-filter:hover{
     box-shadow: inset 0 0 4px black;
 }
 
-.class-filter.selected {
+.class-filter.selected, .prof-filter.selected {
     background-image: linear-gradient(rgba(28,28,28,0.8), rgba(40, 40, 40, 0.85), rgba(20,20,20,0.8));
     box-shadow: inset 0 0 5px black, rgba(255,255,255,.1) 0 1px 0;
+    /* border-color: unset; */
+}
+
+.prof-filter.selected {
+    border-color: rgb(231, 186, 0);
+    color: rgb(231, 186, 0);
 }
 
 .nav-is-sticky {
@@ -191,41 +207,12 @@ body {
     padding-top: .1rem !important;
 }
 
-/* .classMarker {
-    position: absolute;
-    background-image: url(../images/icons/medium/orange_filter_marker_alt.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 30px;
-    top: -8px;
-    left: 50%;
-    margin-left: -15px;
-    user-select: none;
-    pointer-events: none;
-}
-
-.classMarkerGhost {
-    position: absolute;
-    background-image: url(../images/icons/medium/orange_filter_marker_alt.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 30px;
-    top: -8px;
-    left: 50%;
-    margin-left: -15px;
-    filter: grayscale(70%);
-    user-select: none;
-    pointer-events: none;
-} */
-
-
-.class-selection {
+.class-selection, .prof-selection {
     justify-content: center;
-    font-size: 14px;
-    min-height: 45px;
+    /* font-size: 14px; */
+    /* min-height: 45px; */
     text-shadow: -0.02rem -0.02rem 0.02rem rgba(30,30,30, 0.95);
+    border-top: 3px solid black;
 }
 
 @media only screen and (max-width: 992px) {
@@ -234,7 +221,7 @@ body {
         padding-left: 15px;
         padding-right: 20px;
     }
-    .class-filter {
+    .class-filter, .prof-filter {
         min-width: 58px;
         font-size: 95%;
     }
@@ -243,14 +230,14 @@ body {
 @media only screen and (max-width: 768px) {
 
 
-    .class-filter {
+    .class-filter, .prof-filter  {
       background-position: 95 100%;
       background-size: 100% 105%;
       min-width: 25px;
       font-size: 0;
     }
 
-    .class-icon {
+    .class-icon, .prof-icon {
         height: 30px;
         width: 30px;
         border: 2px solid black;
@@ -258,14 +245,14 @@ body {
         margin: 2px
     }
 
-    .class-selection {
+    .class-selection, .prof-selection {
         justify-content: center;
         min-height: 0;
         text-shadow: -0.02rem -0.02rem 0.02rem rgba(30,30,30, 0.95);
     }
 
     #warrior {
-        background-image: url("../images/icons/medium/class_warrior.jpg");
+        background-image: url("../images/icons/medium/warrior.jpg");
         color: #C79C6E;
     }
 
@@ -315,76 +302,154 @@ body {
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
 
 #warrior {
-    color: #C79C6E
+    color: #C79C6E;
+    border-color: #C79C6E;
+
 }
 
 #mage {
-    color: #40C7EB
+    color: #40C7EB;
+    border-color: #40C7EB;
+
 }
 
 #druid {
-    color: #FF7D0A
+    color: #FF7D0A;
+    border-color: #FF7D0A;
 }
 
 #paladin {
-    color: #F58CBA
+    color: #F58CBA;
+    border-color: #F58CBA;
 }
 
 #shaman {
-    color: #0070DE
+    color: #0070DE;
+    border-color: #0070DE;
 }
 
 #warlock {
-    color: #8787ED
+    color: #8787ED;
+    border-color: #8787ED;
+
 }
 
 #priest {
-    color: #FFFFFF
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+
 }
 
 #hunter {
-    color: #ABD473
+    color: #ABD473;
+    border-color: #ABD473;
 }
 
 #rogue {
-    color: #FFF569
+    color: #FFF569;
+    border-color: #FFF569;
+
 }
 
 .warrior {
-    color: #C79C6E
+    color: #C79C6E;
+    border-color: #C79C6E;
+
 }
 
 .mage {
-    color: #40C7EB
+    color: #40C7EB;
+    border-color: #40C7EB;
 }
 
 .druid {
-    color: #FF7D0A
+    color: #FF7D0A;
+    border-color: #FF7D0A;
 }
 
 .paladin {
-    color: #F58CBA
+    color: #F58CBA;
+    border-color: #F58CBA;
 }
 
 .shaman {
-    color: #0070DE
+    color: #0070DE;
+    border-color: #0070DE;
 }
 
 .warlock {
-    color: #8787ED
+    color: #8787ED;
+    border-color: #8787ED;
 }
 
 .priest {
-    color: #FFFFFF
+    color: #FFFFFF;
+    border-color: #FFFFFF;
 }
 
 .hunter {
-    color: #ABD473
+    color: #ABD473;
+    border-color: #ABD473;
 }
 
 .rogue {
-    color: #FFF569
+    color: #FFF569;
+    border-color: #FFF569;
 }
+
+
+.class-icon, .prof-icon {
+    height: 60px;
+    width: 60px;
+    background-size: 56px 56px;
+    background-repeat: no-repeat;
+    /* border: 1px solid; */
+    border-width: 2px;
+    border-style: ridge;
+    border-radius: 6px;
+    border-color: rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+    -webkit-filter: grayscale(40%);
+    -moz-filter: grayscale(40%);
+      -o-filter: grayscale(40%);
+     -ms-filter: grayscale(40%);
+         filter: grayscale(40%);
+     -moz-transition: all 0.1s ease-in;
+     -o-transition: all 0.1s ease-in;
+     -webkit-transition: all 0.1s ease-in;
+     transition: all 0.1s ease-in;
+     pointer-events: none;
+}
+
+.class-filter.selected, .prof-filter.selected img{
+    transform: scale(0.98);
+
+    border-color: inherit;
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+      -o-filter: grayscale(0%);
+     -ms-filter: grayscale(0%);
+         filter: grayscale(0%);
+}
+
+.class-filter:hover, .prof-filter:hover img{
+
+    border-color: inherit;
+    box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+                inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+                inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+
+}
+
+.class-filter:active, .prof-filter:active img{
+    transform: scale(0.97);
+
+}
+
+
+/* .class-icon:active {
+    transform: scale(0.97);
+} */
 
 .disabled {
     opacity: 0.2;
@@ -539,11 +604,11 @@ ul {
 }
 
 
-.materials-name {
+/* .materials-name {
     position: relative;
     pointer-events: auto;
     top: 1px;
-}
+} */
 
 
 .amount {
@@ -571,7 +636,7 @@ ul {
 }
 
 .steel-textured {
-    background: -webkit-linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
+    background: -webkit-linear-gradient(360deg, rgba(0, 0, 0, 0.65) 40%, rgba(0, 0, 0, 0.85) 80%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background: -moz-linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background: linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background-size: 100%, cover;
@@ -580,12 +645,12 @@ ul {
 }
 
 .fancy {
-    font-family: "Snell Roundhand", cursive;
+    font-family: SnellRoundhand, cursive;
 }
 
 .discordLink {
     background-image: url(../images/icons/discord_link.png);
-    background-size: contain;
+    background-size: 180px 40px;
     background-repeat: no-repeat;
     width: 180px;
     height: 40px;
@@ -620,4 +685,21 @@ ul {
     40% { text-shadow: 0 0 2px rgba(165, 165, 243, 0.15); }
     60% { text-shadow: 0 0 2px rgba(165, 165, 243, 0.15); }
     100% { text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15); }
+}
+
+.columnTitle {
+    border: 1px solid black;
+    color: rgba(240, 255, 255, 0.95);
+    line-height: 38px;
+    box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
+}
+
+.pageColumn{
+    background-image: url("../images/textured_background.png");
+    background-size: cover;
+    border: 1px rgba(240, 255, 255, 0.95) solid;
+    min-height: 475px;
+    max-height: 475px;
+    color: #1EFF00;
+    /* border: 1px solid #78797a; */
 }

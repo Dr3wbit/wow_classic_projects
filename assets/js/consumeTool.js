@@ -1,34 +1,11 @@
-let selectedData = {}
-let materialArray = []
+// let selectedData = {}
+// let materialArray = []
+const NUMBRE = /\[(\d+)\]/
 
 $(document).ready(initializeApp)
 
 function initializeApp() {
-	$(".consume-form").submit(function(e) {
-		e.preventDefault()
-
-	});
 	applyClickHandlers();
-	$(".consume-form").on({
-		'change': (e) => {
-			$('.consume-form').submit(getMaterials(selectedData))
-		},
-		blur: (e) => {
-			$('.consume-form').submit(getMaterials(selectedData))
-		},
-
-	})
-	$("#warrior").click()
-
-	$(".consume-input").on({
-		input: (e)=>{
-			let lengthLimit = 3
-			let currentInput = e.target.value
-			if (currentInput.length > lengthLimit){
-				$(e.target).val(currentInput.slice(0, lengthLimit))
-			}
-		}
-	})
 }
 
 function stepValidator(n, step) {
@@ -36,334 +13,191 @@ function stepValidator(n, step) {
 }
 
 function applyClickHandlers() {
+	selectionHandler()
+	recipesHandler()
+	craftedItemsHandler()
+	totalMaterialsList()
+	$("#engineering").click()
+}
 
-	$('.class-filter').on({
+function selectionHandler() {
+	$('.prof-filter').on({
 		click: e => {
-			$('.class-filter').removeClass('selected')
-			const clickedFilter = $(e.target)
-			clickedFilter.addClass('selected')
-			const clickedID = clickedFilter[0].id
-			const defaultData = consumes.find((a) => {
-				return a.name == "all"
+
+			$('.prof-filter').removeClass('selected')
+			$(e.target).addClass('selected')
+			const profName = $(e.target)[0].id
+
+			const profDataArr = []
+			Object.entries(allConsumes).forEach(function(val, ind) {
+				if (val[1].category == profName){
+					if (!(val[1].name)) {
+						val[1].name = utilities.titleCase(val[0])
+					}
+					profDataArr.push(val)
+				}
 			})
-
-			const classDataTest = []
-
-			const classData = consumes.find((a) => {
-				return a.name == clickedID;
-			})
-
-			const fullData = combineData(defaultData.data, classData.data)
-			selectedData = fullData
-			clearForm()
-			populateConsumeBlocks({
-				professions: fullData
-			})
-
-			$('.icon-container').on({
-				contextmenu: e => {
-					e.preventDefault()
-				},
-
-				mouseenter: (e) => {
-					updateTooltip(e)
-				},
-				mouseleave: (e) => {
-					$("#tooltip").hide()
-					$("#tooltip").children().remove()
-				},
-
-                mousedown: (e) => {
-                    if (e.which === 1) {
-
-						let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
-						let step = input.attr('step')
-						input.val(function(i, val) {
-							return ( parseInt(val) || 0 ) + parseInt(step)
-						})
-						$(".consume-form").trigger('change')
-
-                    } else if (e.which === 3){
-
-							let input = $( e.target ).closest('.consume-block').find( $('input') ).first()
-							let step = input.attr('step')
-							input.val(function(i, val) {
-								return (parseInt(val) >= parseInt(step) ) ? parseInt(val) - parseInt(step) : 0
-							})
-							$(".consume-form").trigger('change')
-                    }
-               }
-
-			})
+			const profDataObject = Object.fromEntries(profDataArr)
+			populateConsumeBlocks(profDataObject)
 		},
 
 	})
-	materialsTooltip()
 }
 
-function clearForm() {
-	$('.consume-form').empty()
-	$('#results').empty()
-}
+function recipesHandler() {
+	$("#recipe_list").on({
+		mouseenter: e => {
+			$(".prof-item-recipe").on({
+				mouseenter: e => {
+					clearTooltip()
+					let name = $(e.target).attr('name')
+					updatetooltip(e)
+				},
+				mouseleave: e => {
+					clearTooltip()
+				},
+				mousedown: e => {
+					addCraftedItem(e)
+				}
+			})
+		},
+		mouseleave: e => {
+			clearTooltip()
 
-function combineData(defaultData, classData) {
-	let combinedData = []
-	defaultData.map((item, index) => {
-		combinedData.push({
-			name: item.name,
-			data: item.data.concat(classData[index].data)
-		})
-	})
-	const cleanedData = removeEmptyCategory(combinedData)
-	return cleanedData
-}
-
-function removeEmptyCategory(dataToClean) {
-	let refinedData = []
-	dataToClean.map((item) => {
-		if (item.data.length > 0) {
-			refinedData.push(item)
 		}
 	})
-	return refinedData
 }
+
+function craftedItemsHandler() {
+	$("#total_crafted").on({
+		mouseenter: e => {
+			$(".crafted-list-item").on({
+				mouseenter: e => {
+					clearTooltip()
+					updatetooltip(e)
+				},
+				mouseleave: e => {
+					clearTooltip()
+				},
+			})
+		},
+		mouseleave: e => {
+			clearTooltip()
+		}
+	})
+}
+
+function totalMaterialsList() {
+	$("#total_materials").on({
+		mouseenter: e => {
+			$(".materials-list-item").on({
+				mouseenter: e => {
+					clearTooltip()
+					updatetooltip(e)
+				},
+				mouseleave: e => {
+					clearTooltip()
+				},
+			})
+		},
+		mouseleave: e => {
+			clearTooltip()
+		}
+	})
+}
+
 
 function populateConsumeBlocks(data) {
 	let template = $('#consume-block-template').html();
 	let templateScript = Handlebars.compile(template);
 	let consume_html = templateScript(data);
-	$('#consume-form').html(consume_html);
+	$('#recipe_list').html(consume_html);
 }
 
-function getMaterials(data) {
-	let materials = []
-	const formValues = $('.consume-input')
-
-	formValues.map((item) => {
-
-		if (!(formValues[item].value)) {
-			return
-		} else {
-			const name = formValues[item].attributes.name.value
-			const consumeObject = allConsumes[name]
-			const category = consumeObject.profession
-			const inputValue = stepValidator(formValues[item].value, formValues[item].attributes.step.value)
-			if (inputValue != formValues[item].value) {
-				$(`.consume-input[name="${name}"]`).val( parseInt(inputValue) ).delay( 3000 )
-			}
-
-			materials.push({name:name, data:consumeObject, amount:inputValue})
-		}
-	})
-	appendMaterials(materials)
+function clearTooltip() {
+	$("#tooltip").empty()
+	$("#tooltip").hide()
 }
 
-function materialsTooltip() {
-    $("#results").on({
-        mouseenter: e => {
-			e.preventDefault()
+function addCraftedItem(e) {
 
+	let totalItems = $("#total_crafted")
+	let name = $(e.target).attr('name')
+	let craftedItemObj = allConsumes[name]
+	let craftedItem = $(`div.crafted-list-item[name='${name}']`)
+	let step = (craftedItemObj.step) ? craftedItemObj.step : 1
+	let numAdded = 1 // for <input> support
+	let updatedAmount = 0
 
-			if ($(e.target).hasClass("consumes-list-item")) {
+	if (craftedItem.length) {
+		let amountStr = craftedItem.find($('span.amount')).text()
+		let currentAmount = parseInt(amountStr.match(NUMBRE)[1])
+		updatedAmount = currentAmount + (step * numAdded)
+		craftedItem.find($('span.amount')).text(`[${updatedAmount}]`)
 
-				$(e.target).find("span.consume-name").addClass('underlined')
-				return false
-			}
-            const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
-            let matName = closestMat.text()
-			let name = utilities.sanitize(matName)
-            if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
-                return
-            } else {
-                $("#results").find('.materials-name').removeClass('underlined')
-                closestMat.addClass('underlined')
-				$("#tooltip").children().remove()
-				$("#tooltip").hide()
-                const materialObject = allMaterials[name]
-				let requirementText = ''
-				if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-					requirementText = materialObject.req
-				} else {
-					requirementText = (materialObject.req) ? ((materialObject.req.toString().startsWith('engi') || materialObject.req.toString().startsWith('first')) ? utilities.titleCase(materialObject.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${materialObject.req}`) : null
-				}
+	} else {
 
-				const rarity = materialObject.rarity
-				let properName = (materialObject.name) ? materialObject.name : matName
-
-				const tooltipElems = [{class: `title ${rarity}`, text: matName}]
-                if (materialObject.bop) {
-                    tooltipElems.push({class:'bop', text: "Binds when picked up"})
-                }
-                if (materialObject.unique) {
-                    tooltipElems.push({class: 'unique', text: "Unique",})
-                }
-				if (materialObject.req){
-                    tooltipElems.push({class: 'requiredLevel', text: requirementText})
-                }
-                if (materialObject.use) {
-                    tooltipElems.push({class: 'use', text: `Use: ${materialObject.use}`})
-                }
-                if (materialObject.description) {
-                    tooltipElems.push({class: 'description', text:`"${materialObject.description}"`})
-                }
-				utilities.bigdaddytooltip(e, tooltipElems)
-            }
-        },
-        mouseleave: e => {
-            $("#results").find(".materials-name, .consume-name").removeClass('underlined')
-            $("#tooltip").hide()
-            $("#tooltip").children().remove()
-        },
-		'shown.bs.collapse': e=> {
-			let targetID = $(e.target).attr('id').replace('_collapse', '')
-			$(`#${targetID}`).find('span.plus').text('-')
-		},
-		'hidden.bs.collapse': e=> {
-
-			let targetID = $(e.target).attr('id').replace('_collapse', '')
-
-			$(`#${targetID}`).find('span.plus').text('+')
-		},
-    })
-}
-
-function appendMaterials(consumables) {
-
-	let totalMaterialCount = {}
-	consumables.forEach(function(consume) {
-		let consumeItemElement = $(`#${consume.name}`)
-		if (consumeItemElement.length) {
-			consumeItemElement.find($('span.amount')).text(` [${consume.amount}]`)
-
-			for (let [name, matsPer] of Object.entries(consume.data.materials)) {
-				totalMaterialCount[name] = (!(totalMaterialCount[name])) ? Math.round(matsPer * consume.amount) : Math.round((matsPer * consume.amount) + totalMaterialCount[name])
-				// console.log(totalMaterialCount)
-				$(`.materials-list-item[name='${consume.name}_${name}']`).find($("span.amount")).text(`[${Math.round(matsPer * consume.amount)}]`)
-			}
-		} else {
-			let consumeName = (consume.data.name) ? consume.data.name : utilities.titleCase(consume.name)
-			let consumeElement = $('<a/>', {
-				href: `#${consume.name}_collapse`,
-				role: 'button',
-				class: "consumes-list-item",
-				id: `${consume.name}`,
-			})
-			consumeElement.attr("data-toggle", "collapse")
-
-			consumeElement.append($('<span/> ', {
-					class:`${consume.data.rarity} plus`,
-					text: "+",
-				})).append(" ").append($('<span/>', {
-					class:`${consume.data.rarity} consume-name`,
-					text: `${consumeName}`,
-				})).append(" ").append($('<span/>', {
-					class:`${consume.data.rarity} amount`,
-					text:`[${consume.amount}]`,
-				}))
-
-			materialsListParent = $('<div/>', {
-				class: 'materials-list collapse',
-				id: `${consume.name}_collapse`,
-			})
-
-
-			for (let [name, matsPer] of Object.entries(consume.data.materials)) {
-				let matObject = allMaterials[name]
-				let category = matObject.category
-				let rarity = matObject.rarity
-				let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
-				let imageName = (properName.endsWith("E'ko")) ? "eko" : name
-
-				if (!(totalMaterialCount[name])) {
-					totalMaterialCount[name] = Math.round(matsPer * consume.amount)
-				} else {
-					totalMaterialCount[name] = Math.round((matsPer * consume.amount) + totalMaterialCount[name])
-				}
-				let materialsListItemElement = $('<div/>', {
-					class: 'materials-list-item',
-					name: `${consume.name}_${name}`
-				}).append($('<img/>', {
-					class: 'icon-small',
-					src: "assets/images/icons/small/icon_border.png",
-					style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
-				})).append($('<span/>', {
-					text: `${properName}`,
-					class: `materials-name ${rarity}`,
-				})).append(" ").append($('<span/>', {
-					text: `[${Math.round(matsPer * consume.amount)}]`,
-					class: 'amount',
-				}))
-				materialsListParent.append(materialsListItemElement)
-			}
-			$('#results').append(consumeElement, materialsListParent)
-
-		}
-	})
-	calculateTotals(totalMaterialCount)
-}
-
-
-function calculateTotals(totals) {
-
-
-	let totalTitle = ($("#totalTitle").length) ? $("#totalTitle") : $('<div/>', {
-		class: 'totalTitle',
-		text: "Totals",
-		id: 'totalTitle'
-	})
-
-	let divider = $("#totals-divider")
-
-	if (!(divider.length)) {
-		totalTitle.append($('<hr>', {
-			id: "totals-divider",
+		updatedAmount = step * numAdded
+		craftedItem = $('<div/>', {
+			class: 'crafted-list-item',
+			name: `${name}`
+		}).append($('<img/>', {
+			class: 'icon-small',
+			src: "assets/images/icons/small/icon_border.png",
+			style: `background-image: url(assets/images/icons/consumes/${name}.jpg);`,
+		})).append($('<span/>', {
+			class: `crafted-name ${craftedItemObj.rarity}`,
+			text: `${craftedItemObj.name}`,
+		})).append(" ").append($('<span/>', {
+			class: 'amount',
+			text: `[${updatedAmount}]`,
 		}))
+		totalItems.append(craftedItem)
 	}
+	updateMaterialsList(craftedItemObj, updatedAmount)
+}
 
-	for (let [name, value] of Object.entries(totals)) {
+function updateMaterialsList(craftedItemObj, craftedItemAmount) {
 
-		let matElement = $(`div.materials-list-item[name='${name}']`)
+	let totalMats = $("#total_materials")
 
-		// already exists, update it
-		if (matElement.length) {
-			matElement.find($('span.amount')).text(` [${value}]`)
+	for (let [name, matsPer] of Object.entries(craftedItemObj.materials)) {
+		let materialsObj = allMaterials[name]
+		let properName = (materialsObj.name) ? materialsObj.name : utilities.titleCase(name)
+		let materialsCount = Math.round(craftedItemAmount * matsPer)
+		let materialListItem = $(`.materials-list-item[name='${name}']`)
+
+		if (materialListItem.length) {
+			materialListItem.find($("span.amount")).text(`[${materialsCount}]`)
 		} else {
-			let matObject = allMaterials[name]
-			let category = matObject.category
-			let rarity = matObject.rarity
-			let properName = (matObject.name) ? matObject.name : utilities.titleCase(name)
-			let imageName = (properName.endsWith("E'ko")) ? "eko" : name
 
-			let matElement = $('<div/>', {
+			materialsListItem = $('<div/>', {
 				class: 'materials-list-item',
-				name: `${name}`,
+				name: `${name}`
 			}).append($('<img/>', {
 				class: 'icon-small',
 				src: "assets/images/icons/small/icon_border.png",
-				style: `background-image: url(assets/images/icons/small/materials/${category}/${imageName}.jpg);`,
+				style: `background-image: url(assets/images/icons/small/${name}.jpg);`,
 			})).append($('<span/>', {
-				text: properName,
-				class: `materials-name ${rarity}`,
+				class: `${materialsObj.rarity}`,
+				text: `${properName}`,
 			})).append(" ").append($('<span/>', {
-				text: `[${value}]`,
 				class: 'amount',
+				text: `[${materialsCount}]`,
 			}))
 
-			totalTitle.append(matElement)
+			totalMats.append(materialsListItem)
 		}
-
 	}
-	$('#results').append(totalTitle)
 }
 
-
-function updateTooltip(e) {
+function updatetooltip(e) {
 	const targetElement = $(e.target)
-	const name = targetElement.closest($('.consume-block')).attr('name')
+	const name = targetElement.attr('name')
 	const consumeObj = allConsumes[name]
 	const properName = (allConsumes[name].name) ? allConsumes[name].name : utilities.titleCase(name)
 	const rarity = consumeObj.rarity
-	const tooltipElems = [{class: `title ${rarity}`,text: properName}]
+	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
 	if (consumeObj.bop) {
 		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
 	}

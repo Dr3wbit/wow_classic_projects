@@ -370,7 +370,8 @@ const allConsumes = {
 			runecloth: 1.5,
 		},
         category: 'engineering',
-        step: 2
+        step: 2,
+		rarity: 'common'
 	},
 	greater_arcane_elixir: {
 		url: 'https://classic.wowhead.com/item=13454',
@@ -392,7 +393,7 @@ const allConsumes = {
 		materials: {
 			runecloth: 2,
 		},
-		category: 'first aid',
+		category: 'first_aid',
 	},
 	greater_stoneshield_potion: {
 		url: 'https://classic.wowhead.com/item=13455',
@@ -712,6 +713,7 @@ const allConsumes = {
             soothing_spices: 2,
         },
         category: 'cooking',
+		rarity: 'common'
     },
 	spiced_chili_crab: {
 		url: 'https://classic.wowhead.com/item=12216',
@@ -722,6 +724,7 @@ const allConsumes = {
 			hot_spices: 2,
 		},
 		category: 'cooking',
+		rarity: 'common'
 	},
 	juju_escape: {
 		rarity: 'common',

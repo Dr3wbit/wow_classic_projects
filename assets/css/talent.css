@@ -455,8 +455,8 @@ svg.icon:hover path{
     -webkit-transform: translateX(-85%);
     animation: slide-in 1s forwards;
     -webkit-animation: slide-in 1s forwards;
-    border-bottom: 5px solid rgba(66, 220, 163, 0.65);
-    border-top: 3px solid rgba(66, 220, 163, 0.65);
+    border-bottom: 5px solid #909caf;
+    border-top: 3px solid #909caf;
     border-bottom-right-radius: 1px;
     border-top-right-radius: 1px;
     box-shadow: -0.01rem -0.01rem 0.1rem 0.1rem black;
@@ -464,7 +464,6 @@ svg.icon:hover path{
 
 .minimized{
     animation: slide-out 1s forwards, glowing 5000ms 0.9s infinite alternate-reverse, glowing-text 5000ms 0.9s infinite;
-
     -webkit-animation: slide-out 1s forwards, glowing 5000ms 0.9s infinite alternate-reverse, glowing-text 5000ms 0.9s infinite alternate-reverse;
 }
 
@@ -508,8 +507,6 @@ svg.icon:hover path{
     -ms-filter: "FlipH";
 }
 
-
-
 @keyframes slide-in {
     100% { transform: translateX(0%); }
 }
@@ -527,7 +524,6 @@ svg.icon:hover path{
     0% { -webkit-transform: translateX(0%); }
     100% { -webkit-transform: translateX(-85%); }
 }
-
 
 .form-check-label {
     position: relative;
@@ -633,5 +629,18 @@ div.modal-body {
   65% { box-shadow: 0.02rem 0.02rem 0.5rem 1px rgba(165, 165, 243, 0.55), 0.04rem 0.04rem 0.5rem 1px rgba(211, 158, 0, 0.4), -0.01rem -0.01rem 0.1rem 0.1rem black; }
   85% { box-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.30), -0.02rem -0.02rem 0.5rem 1px rgba(211, 158, 0, 0.3), -0.01rem -0.01rem 0.1rem 0.1rem black; }
   100% { box-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.15), -0.01rem -0.01rem 0.5rem 1px rgba(211, 158, 0, 0.2), -0.01rem -0.01rem 0.1rem 0.1rem black; }
+
+}
+
+
+@keyframes glowing-text {
+
+  0% { text-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.15), -0.02rem -0.02rem 0.5rem 1px rgba(211, 158, 0, 0.1)}
+  10% { text-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.25), -0.02rem -0.02rem 0.5rem 1px rgba(211, 158, 0, 0.2)}
+  20% { text-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.35), -0.01rem -0.01rem 0.5rem 1px rgba(211, 158, 0, 0.3)}
+  40% { text-shadow: 0.02rem 0.02rem 0.5rem 1px rgba(165, 165, 243, 0.55), 0.04rem 0.04rem 0.5rem 1px rgba(211, 158, 0, 0.4)}
+  65% { text-shadow: 0.02rem 0.02rem 0.5rem 1px rgba(165, 165, 243, 0.55), 0.04rem 0.04rem 0.5rem 1px rgba(211, 158, 0, 0.4)}
+  85% { text-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.30), -0.02rem -0.02rem 0.5rem 1px rgba(211, 158, 0, 0.3)}
+  100% { text-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.15), -0.01rem -0.01rem 0.5rem 1px rgba(211, 158, 0, 0.2)}
 
 }

@@ -25,142 +25,15 @@ input:focus {
     background-color: rgb(173, 255, 179)
 }
 
-.consume-block {
-    display: inline-block;
-    background-color: rgba(0, 0, 0, 0.89);
-    border: 2px solid rgb(82, 82, 82);
-    border-style: ridge;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    font-size: 100%;
-}
-
-.consume-form {
-    color: azure;
-}
-
-.consume-img {
-    height: 45px;
-    width: 45px;
-    background-size: contain;
-}
-
-.consume-title {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-left: 5px;
-    margin-right: 1px;
-    width: 195px;
-}
-
-
-
-.consumePrompt {
-    background-color: #030001e1;
-    font-size: 120%;
-    border: 1px solid azure;
-    border-radius: 5px;
-    color: azure !important;
-    font-family: Quattro;
-    padding: 5px;
-    margin: 50px;
-}
-
-.consume-tooltip{
-    font-size: 100%;
-    text-align: left;
-    line-height: 17px;
-    min-width: 245px;
-    position: absolute;
-    left: 40px;
-    bottom: 40px;
-    background-color: rgba(0, 0, 30, 0.85);
-    color: #1EFF00;
-    pointer-events: none;
-    border: 1px solid #b6bbc0;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    z-index: 1025;
-    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
-    padding-right: 5px;
-}
-
-.consume-tooltip.description{
-    padding:8px 4px 1px 9px;
-}
-
-.consume-tooltip-title{
-    min-width: 185px;
-    line-height: 17px;
-    font-size: 13px;
-    color: azure;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-right: 8px;
-}
-
-.tooltip-hidden{
-    display: none
-}
-
-.icon-container{
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.category-container {
- border: 2px solid black;
- margin-bottom: 10px;
- background-color: rgba(0, 0, 0, 0.6);
- border-radius: 5px
-}
-
-.category-title {
- font-size: 120%;
- border: 1px solid black;
- background-color: rgba(53, 53, 53, 0.4);
- margin-bottom: 10px;
-}
-
-.consumes-list-item {
-    font-size: 100%;
-    /* border: 1px solid black; */
-    /* border-radius: 5px; */
-    /* background-color: rgba(22, 22, 22, 0.6); */
-    /* margin-bottom: 5px; */
-    color: rgba(240, 255, 255, 0.95);
-    width: 253px;
-    display: inline-block;
-    pointer-events: auto;
-    margin-top: 3px;
-}
-
-.totalTitle {
-    text-align: center;
-    font-size: 100%;
-    font-style: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: black;
-    border-radius: 2px;
-    border: 1px black solid;
-    color: rgba(240, 255, 255, 0.95);
-}
-
-a.consumes-list-item {
+/* a.crafted-list-item {
     pointer-events: auto;
     text-decoration: none;
 }
 
-a.consumes-list-item:hover {
-    /* pointer-events: auto; */
+a.crafted-list-item:hover {
+    pointer-events: auto;
     color: inherit;
-}
+} */
 
 span.plus {
     font-size: 15px;
@@ -168,9 +41,9 @@ span.plus {
     pointer-events: none;
 }
 
-.consume-name {
+/* .crafted-name {
     pointer-events: none;
-}
+} */
 
 .blue {
     color: rgba(0, 37, 255, 1);
@@ -178,19 +51,6 @@ span.plus {
 /* .materials-list {
     color: green;
 } */
-.materials-list *{
-    text-indent: 10px;
-}
-
-.materials-list-item {
-    position: relative;
-    margin-top: 3px;
-    text-align: left;
-}
-
-.icon-small {
-    box-shadow: none;
-}
 
 .circle {
     border-radius: 50%;
@@ -230,4 +90,88 @@ span.plus {
     margin: 2px 6px 12px 6px;
     border-color: rgba(240, 255,255,0.95);
 
+}
+
+.prof-header {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1px;
+}
+
+.prof-item-recipe {
+    font-size: 90%;
+    margin-top: 1px;
+    cursor: pointer;
+    border: 2px black solid;
+    background-color: black;
+    display: block;
+    text-overflow: ellipsis;
+    border-radius: 1px;
+    /* align-items: center; */
+    pointer-events: auto;
+    padding-left: 15px;
+}
+
+.prof-item-recipe img,span{
+    pointer-events: none;
+}
+
+.background-diff {
+    background-color: inherit;
+}
+
+
+#recipe_list {
+    overflow-y: scroll;
+    text-align: left;
+    pointer-events: none;
+}
+
+#total_materials {
+    overflow-y: scroll;
+    text-align: left;
+    pointer-events: none;
+}
+
+#total_crafted {
+    overflow-y: scroll;
+    text-align: left;
+    pointer-events: none;
+}
+
+.crafted-list-item {
+    font-size: 95%;
+    margin-top: 1px;
+    cursor: pointer;
+    border: 2px black solid;
+    background-color: black;
+    display: block;
+    text-overflow: ellipsis;
+    border-radius: 1px;
+    /* align-items: center; */
+    pointer-events: auto;
+    padding-left: 15px;
+}
+
+.crafted-list-item img,span{
+    pointer-events: none;
+}
+
+.materials-list-item {
+    font-size: 95%;
+    margin-top: 1px;
+    cursor: pointer;
+    border: 2px black solid;
+    background-color: black;
+    display: block;
+    text-overflow: ellipsis;
+    border-radius: 1px;
+    /* align-items: center; */
+    pointer-events: auto;
+    padding-left: 15px;
+}
+
+.materials-list-item img,span{
+    pointer-events: none;
 }

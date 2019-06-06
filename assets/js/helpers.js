@@ -4,7 +4,7 @@ Handlebars.registerHelper('sanitize', janitor);
 
 
 Handlebars.registerHelper('className', function (str='') {
-    let selected = $('.class-filter.selected').text()
+    let selected = $('.class-filter.selected')[0].id
 	return janitor(selected)
 });
 
