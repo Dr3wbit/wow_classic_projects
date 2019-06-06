@@ -89,7 +89,7 @@ body {
     font-size: 25px;
     color: rgba(215, 40, 10, 1) !important;
     /* color: rgba(167, 20, 20, 0.95) !important; */
-    text-shadow: -0.01rem -1px 0 #343a40, 1px -1px 0 rgba(52, 58, 64, 0.15), -0.01rem 1px 0 #212529, 1px 1px 0 #c79c6e73;
+    text-shadow: -0.01rem -1px 0 #343a40, 1px -1px 0 rgba(52, 58, 64, 0.15), -0.01rem 1px 0 #212529, 1px 1px 0 #f5f5f54a;
     vertical-align: bottom;
 }
 
