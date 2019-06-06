@@ -649,7 +649,12 @@ const allMaterials = {
 	frostsaber_eko: {
 		rarity: 'common',
 		category: 'drop',
-		name: "Shardtooth E'ko"
+		name: "Frostsaber E'ko"
+	},
+	ice_thistle_eko: {
+		rarity: 'common',
+		category: 'drop',
+		name: "Ice Thistle E'ko"
 	},
 	basilisk_brain: {
 		rarity: 'common',

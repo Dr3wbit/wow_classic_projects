@@ -84,7 +84,7 @@ const allConsumes = {
 	juju_flurry: {
 		use: "Increases the target's attack speed by 3% for 20 sec. (1 Min Cooldown)",
 		bop: true,
-        category: 'quest',
+        category: 'other',
         materials: {
             frostsaber_eko: 1
         },
@@ -212,7 +212,7 @@ const allConsumes = {
 	juju_might: {
 		use: 'Increases attack power by 40 for 10 min. (1 Min Cooldown)',
 		bop: true,
-        category: 'quest',
+        category: 'other',
         materials: {
             frostmaul_eko: 1
         },
@@ -319,7 +319,7 @@ const allConsumes = {
 	juju_power: {
 		use: "Increases the target's Strength by 30 for 30 min. (1 Min Cooldown)",
 		bop: true,
-        category: 'quest',
+        category: 'other',
         materials: {
             winterfall_eko: 1
         },
@@ -438,7 +438,8 @@ const allConsumes = {
 		materials: {
 			basilisk_brain: 10,
 			vulture_gizzard: 2
-		}
+		},
+		category: 'other'
 	},
 	living_action_potion: {
 		url: 'https://classic.wowhead.com/item=20008',
@@ -482,7 +483,7 @@ const allConsumes = {
 		unique: true,
 		use: 'Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
 		rarity: 'common',
-        category: 'quest',
+        category: 'other',
 		materials: {
 			scorpok_pincer: 3,
 			vulture_gizzard: 2,
@@ -626,7 +627,7 @@ const allConsumes = {
 	juju_ember: {
 		use: 'Increases Fire resistance by 15 for 10 min. (1 Min Cooldown)',
 		bop: true,
-        category: 'quest',
+        category: 'other',
         materials: {
             shardtooth_eko: 1
         },
@@ -636,13 +637,14 @@ const allConsumes = {
 		use: 'Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (1 Hour Cooldown)',
 		bop: true,
 		description: 'Robust Operational Imbue Derived From Snickerfang',
-        category: 'quest',
+        category: 'other',
         name: "R.O.I.D.S.",
         materials: {
             snickerfang_jowl: 3,
             blasted_boar_lung: 2,
             scorpok_pincer: 1,
-        }
+        },
+		rarity: 'common',
 
 	},
 	dragonbreath_chili: {
@@ -702,7 +704,7 @@ const allConsumes = {
 		materials: {
 			gold: 1
 		},
-        category: 'vendor',
+        category: 'other',
 		step: 5
 	},
 	monster_omelete: {
@@ -729,7 +731,7 @@ const allConsumes = {
 	juju_escape: {
 		rarity: 'common',
         bop: true,
-        category: 'quest',
+        category: 'other',
         materials: {
             ice_thistle_eko: 1
         },
@@ -738,7 +740,7 @@ const allConsumes = {
 	juju_chill: {
 		rarity: 'common',
         bop: true,
-        category: 'quest',
+        category: 'other',
         use: "Increase Frost resistance by 15 for 10 min. (1 Min Cooldown)",
         materials: {
             chillwind_eko: 1,
@@ -748,14 +750,14 @@ const allConsumes = {
     winterfall_firewater: {
         req: 45,
         rarity: 'common',
-        category: 'drop',
-        materials: {},
+        category: 'other',
+        materials: {winterfall_firewater: 1},
         use: "Increases your melee attack power by 35 and size for 20 min. (cooldown 1 min)",
     }
 }
 
 
-// 
+//
 const suggestedConsumeList = {
     druid: [],
     hunter: [],
