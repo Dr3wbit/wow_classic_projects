@@ -158,6 +158,8 @@ span.plus {
     pointer-events: none;
 }
 
+
+
 .materials-list-item {
     font-size: 95%;
     margin-top: 1px;
@@ -172,6 +174,6 @@ span.plus {
     padding-left: 15px;
 }
 
-.materials-list-item img,span{
+.materials-list-item.amount{
     pointer-events: none;
 }

@@ -1,5 +1,3 @@
-// let selectedData = {}
-// let materialArray = []
 const NUMBRE = /\[(\d+)\]/
 
 $(document).ready(initializeApp)
@@ -93,7 +91,7 @@ function totalMaterialsList() {
 			$(".materials-list-item").on({
 				mouseenter: e => {
 					clearTooltip()
-					updatetooltip(e)
+					updatetooltip(e, 'material')
 				},
 				mouseleave: e => {
 					clearTooltip()
@@ -105,7 +103,6 @@ function totalMaterialsList() {
 		}
 	})
 }
-
 
 function populateConsumeBlocks(data) {
 	let template = $('#consume-block-template').html();
@@ -120,7 +117,6 @@ function clearTooltip() {
 }
 
 function addCraftedItem(e) {
-
 	let totalItems = $("#total_crafted")
 	let name = $(e.target).attr('name')
 	let craftedItemObj = allConsumes[name]
@@ -156,11 +152,8 @@ function addCraftedItem(e) {
 	}
 	updateMaterialsList(craftedItemObj, updatedAmount)
 }
-
 function updateMaterialsList(craftedItemObj, craftedItemAmount) {
-
 	let totalMats = $("#total_materials")
-
 	for (let [name, matsPer] of Object.entries(craftedItemObj.materials)) {
 		let materialsObj = allMaterials[name]
 		let properName = (materialsObj.name) ? materialsObj.name : utilities.titleCase(name)
@@ -170,7 +163,6 @@ function updateMaterialsList(craftedItemObj, craftedItemAmount) {
 		if (materialListItem.length) {
 			materialListItem.find($("span.amount")).text(`[${materialsCount}]`)
 		} else {
-
 			materialsListItem = $('<div/>', {
 				class: 'materials-list-item',
 				name: `${name}`
@@ -191,34 +183,34 @@ function updateMaterialsList(craftedItemObj, craftedItemAmount) {
 	}
 }
 
-function updatetooltip(e) {
+function updatetooltip(e, matOrConsume='consume') {
 	const targetElement = $(e.target)
 	const name = targetElement.attr('name')
-	const consumeObj = allConsumes[name]
-	const properName = (allConsumes[name].name) ? allConsumes[name].name : utilities.titleCase(name)
-	const rarity = consumeObj.rarity
+	const thisObj = (matOrConsume=='consume') ? allConsumes[name] : allMaterials[name]
+	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
+	const rarity = thisObj.rarity
 	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
-	if (consumeObj.bop) {
+	if (thisObj.bop) {
 		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
 	}
-	if (consumeObj.unique) {
+	if (thisObj.unique) {
 		tooltipElems.push({class: 'unique', text: "Unique",})
 	}
 	let requirementText = ''
 	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-		requirementText = consumeObj.req
+		requirementText = thisObj.req
 	} else {
-		requirementText = (consumeObj.req) ? ((consumeObj.req.toString().startsWith('engi') || consumeObj.req.toString().startsWith('first')) ? utilities.titleCase(consumeObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${consumeObj.req}`) : false
+		requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? utilities.titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
 	}
 
-	if (consumeObj.req || consumeObj.stats) {
+	if (thisObj.req || thisObj.stats) {
 		tooltipElems.push({class: 'requiredLevel', text: requirementText})
 	}
-	if (consumeObj.use) {
-		tooltipElems.push({class: 'use', text: `Use: ${consumeObj.use}`})
+	if (thisObj.use) {
+		tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
 	}
-	if (consumeObj.description) {
-		tooltipElems.push({class: 'description', text: `"${consumeObj.description}"`})
+	if (thisObj.description) {
+		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
 	}
 	utilities.bigdaddytooltip(e, tooltipElems)
 }
