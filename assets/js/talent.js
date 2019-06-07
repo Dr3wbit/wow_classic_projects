@@ -188,7 +188,7 @@ function saveSpec(){
 
 		submit: e=> {
 			e.preventDefault()
-			let specData = checkForSavedSpecs()
+			let oldSpecs = checkForSavedSpecs()
 			let specURL = document.location
 
 			let specName = ($("#specName").val()).trim()
@@ -199,9 +199,9 @@ function saveSpec(){
 				let mySpec = new TalentSpec(specURL, talentPointsSpent.className,specName.toString(), [talentPointsSpent[treeNames[0]].total(), talentPointsSpent[treeNames[1]].total(), talentPointsSpent[treeNames[2]].total()])
 				let name = mySpec.name
 				let newSpec = {[name.toString()]: mySpec}
-				let specObject = Object.assign({}, specData, newSpec)
+				let allSpecs = Object.assign({}, oldSpecs, newSpec)
 
-				localStorage.setItem('savedSpecs', JSON.stringify(specObject));
+				localStorage.setItem('savedSpecs', JSON.stringify(allSpecs));
 				updateSavedSpecs()
 				let currentSelectedSpec = $("div.specItem.specSelected")
 
@@ -318,7 +318,7 @@ function updateSavedSpecs() {
 			$('.specList').append(specContainer)
 		}
 	} else {
-		localStorage.clear()
+		localStorage.remove('savedSpecs')
 	}
 
 	let checkIfEmpty = $('.specList').children()
