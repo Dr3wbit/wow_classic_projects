@@ -190,42 +190,43 @@ function updateMaterialsList(craftedItemObj, numAdded) {
 		}
 	}
 }
-//
-// function updatetooltip(e, matOrConsume='consume') {
-// 	const targetElement = $(e.target)
-// 	if (targetElement.hasClass('test')) {
-// 		//
-// 	}
-// 	const name = targetElement.attr('name')
-// 	const thisObj = (matOrConsume=='consume') ? allConsumes[name] : allMaterials[name]
-// 	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
-// 	const rarity = thisObj.rarity
-// 	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
-// 	if (thisObj.bop) {
-// 		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
-// 	}
-// 	if (thisObj.unique) {
-// 		tooltipElems.push({class: 'unique', text: "Unique",})
-// 	}
-// 	let requirementText = ''
-// 	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-// 		requirementText = thisObj.req
-// 	} else {
-// 		requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? utilities.titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
-// 	}
-//
-// 	if (thisObj.req || thisObj.stats) {
-// 		tooltipElems.push({class: 'requiredLevel', text: requirementText})
-// 	}
-// 	if (thisObj.use) {
-// 		tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
-// 	}
-// 	if (thisObj.description) {
-// 		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
-// 	}
-// 	utilities.bigdaddytooltip(e, tooltipElems)
-// }
-//
+
+
+function updatetooltip(e, matOrConsume='consume') {
+	const targetElement = $(e.target)
+	if (targetElement.hasClass('test')) {
+		//
+	}
+	const name = targetElement.attr('name')
+	const thisObj = (matOrConsume=='consume') ? allConsumes[name] : allMaterials[name]
+	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
+	const rarity = thisObj.rarity
+	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
+	if (thisObj.bop) {
+		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
+	}
+	if (thisObj.unique) {
+		tooltipElems.push({class: 'unique', text: "Unique",})
+	}
+	let requirementText = ''
+	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
+		requirementText = thisObj.req
+	} else {
+		requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? utilities.titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
+	}
+
+	if (thisObj.req || thisObj.stats) {
+		tooltipElems.push({class: 'requiredLevel', text: requirementText})
+	}
+	if (thisObj.use) {
+		tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
+	}
+	if (thisObj.description) {
+		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
+	}
+	utilities.bigdaddytooltip(e, tooltipElems)
+}
+
 //
 // function materialsTooltip() {
 //     $("#results").on({
