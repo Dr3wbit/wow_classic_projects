@@ -91,6 +91,17 @@
     </div>
 </div>
 
+<div class="savedLists row" id="sideNav">
+    <div class="col savedListsContainer">
+        <div class="specList">
+        </div>
+    </div>
+    <a id="navTrigger" class="col side-nav-trigger btn-block" role="button">
+        <div class="trigger-icon">&#62;</div>
+    </a>
+</div>
+
+
     <div id="main-container" class="container mainBody">
         <div class="row prof-selection sticky-top pt-1 nav-is-sticky steel-textured" id="prof_selection">
             <div class="prof-filter selected" id="engineering">
@@ -127,23 +138,24 @@
                 <img class="prof-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/professions/samwise.jpg');">
             </div>
     </div>
-    <div class="row prof-header">
+    <div class="container-fluid">
+    <div class="row justify-content-center prof-header">
 
-        <div class="col-lg-4 col-12 columnTitle">Recipes</div>
-        <div class="col-lg-4 columnTitle d-none d-lg-block">Items
+        <div class="col-lg-3 col-12 columnTitle">Recipes</div>
+        <div class="col-lg-3 columnTitle d-none d-lg-block">Items
             <button type="button" class="float-right align-middle saveConsumeList" title="Save" style="margin-left: auto;"></button>
         </div>
-        <div class="col-lg-4 columnTitle d-none d-lg-block">Materials</div>
+        <div class="col-lg-3 columnTitle d-none d-lg-block">Materials</div>
     </div>
-    <div class="row">
-    <div class="col-12 col-lg-4 pageColumn" id="recipe_list">
+    <div class="row justify-content-center">
+    <div class="col-12 col-lg-3 pageColumn" id="recipe_list">
     </div>
-    <div class="col-12 col-lg-4 pageColumn" id="total_crafted">
+    <div class="col-12 col-lg-3 pageColumn" id="total_crafted">
     </div>
-    <div class="col-12 col-lg-4 pageColumn" id="total_materials">
+    <div class="col-12 col-lg-3 pageColumn" id="total_materials">
     </div>
 </div> <!-- row -->
-
+</div>
     </div> <!-- main-container -->
 
     <footer class="footer">
@@ -183,7 +195,7 @@
             </div>
             <input type="text" name="saveConsumeList" id="consumeListName" class="form-control-sm saveConsumeList" placeholder="Name this list..." aria-label="Text..." aria-describedby="basic-addon1" autocomplete="off" required=True>
             <div class="input-group-append">
-              <button type="submit" class="input-group-text btn-sm btn-primary" id="confirmSpecName" style="border-radius: 0 2px 2px 0;">Confirm</button>
+              <button type="submit" class="input-group-text btn-sm btn-primary float-right" id="confirmListName" style="border-radius: 0 2px 2px 0;">Confirm</button>
             </div>
             <div id="nameValidation" class="form-text"></div>
           </div>

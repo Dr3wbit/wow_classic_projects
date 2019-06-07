@@ -16,7 +16,8 @@ function applyClickHandlers() {
 	craftedItemsHandler()
 	totalMaterialsList()
 	consumeListSaver()
-
+	sideNav()
+	savedLists()
 	$("#engineering").click()
 }
 
@@ -254,42 +255,69 @@ function updatetooltip(e, matOrConsume='consume') {
 function consumeListSaver() {
 	$("button.saveConsumeList").on({
 		click: e => {
-
 			$("#consumeListPrompt").modal('show')
 		}
 	})
-
 	$("input.saveConsumeList, form.saveConsumeList").on({
 		submit: e=> {
 			e.preventDefault()
-
 			let myConsumeList = {}
-
 			let allCraftedItems
 			let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
-
 			$("a.crafted-list-item").each(function(elem) {
 				let amountStr = $( this ).find($('span.amount')).text()
 				let currentAmount = parseInt(amountStr.match(NUMBRE)[1])
 				let name = $( this ).attr('name')
 				myConsumeList[name] = currentAmount
 			})
-
 			let listName = $("#consumeListName").val()
-
-			console.log('listname: ', listName)
-
 			let newList = {[listName.toString()]: myConsumeList}
-
 			let allLists = Object.assign({}, oldLists, newList)
 			localStorage.setItem('consumeLists', JSON.stringify(allLists))
-
-
 			let localConsumeLists = localStorage.getItem('consumeLists')
-			console.log('preparse: ', localConsumeLists)
-			console.log('postparse: ', JSON.parse(localConsumeLists))
-
 			$("#consumeListPrompt").modal('hide')
 		}
 	})
+}
+
+function sideNav(){
+	$("#navTrigger").on({
+		click: e => {
+			if ($("#sideNav").hasClass('minimized')) {
+				$("#sideNav").removeClass('minimized')
+				$(".trigger-icon").removeClass('iconSwitch')
+			} else {
+				$("#sideNav").addClass('minimized')
+				$(".trigger-icon").addClass('iconSwitch')
+			}
+		},
+	})
+}
+
+function savedLists() {
+	//
+	let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
+	if (oldLists) {
+		for (let [listName, consumes] of Object.entries(oldLists)) {
+			console.log('listName: ', listName, '\n consumes ', consumes)
+			let closeButton = $('<button/>', {
+				class: "close"
+			})
+
+			closeButton.append($('<span/>', {
+				text: '×',
+			}))
+
+			let savedList = $('<div/>', {
+					class: 'saved-list',
+				})
+
+			savedList.append($('<span/>', {
+					class: 'saved-list-name',
+					text: listName,
+				}), closeButton)
+
+			$(".savedListsContainer").append(savedList)
+		}
+	}
 }
