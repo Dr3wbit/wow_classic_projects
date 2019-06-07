@@ -48,9 +48,6 @@ span.plus {
 .blue {
     color: rgba(0, 37, 255, 1);
 }
-/* .materials-list {
-    color: green;
-} */
 
 .circle {
     border-radius: 50%;
@@ -174,4 +171,8 @@ span.plus {
 
 .materials-list-item.amount{
     pointer-events: none;
+}
+
+.materials-list *{
+    text-indent: 30px;
 }
