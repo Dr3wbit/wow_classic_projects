@@ -52,16 +52,13 @@ function initializeApp() {
 				} else {
 					reset = false
 				}
-				// buildClassData(null, className, myURL.hash, reset)
 			} else {
 				reset = true
-				// className = 'warrior'
 			}
 		}
 	} else {
 		reset = true
 
-		// buildClassData(null, 'warrior', myURL.hash, reset)
 	}
 	reset = (refresh) ? true : reset
 
@@ -79,10 +76,7 @@ function applyClickHandlers() {
 	getSpecName()
 	saveSpec()
 	sideNav()
-	// specChoiceRadios()
 	specNameValidator()
-	// addClassName()
-	// addAllottedPoints()
 	preventInspect()
 }
 
@@ -263,13 +257,12 @@ function updateSavedSpecs() {
 	if (existingSpecs) {
 		specList = Object.entries(existingSpecs)
 		for (const [name,item] of specList) {
-				let capitalizedClassName = item.className.substr(0,1).toUpperCase()+item.className.substr(1);
 			let specContainer = $('<div/>', {
 				class: 'specContainer',
 			})
 			let specInfo = $('<div/>', {
 				class: `specInfo ${item.className}`,
-				text: ` ${capitalizedClassName} (${item.points[0]}/${item.points[1]}/${item.points[2]})`,
+				text: ` ${utilities.titleCase(item.className)} (${item.points[0]}/${item.points[1]}/${item.points[2]})`,
 			})
 			let specItem = $('<div/>', {
 				class: 'specItem',
