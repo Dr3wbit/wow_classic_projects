@@ -176,3 +176,27 @@ span.plus {
 .materials-list *{
     text-indent: 30px;
 }
+
+button.saveConsumeList{
+    background-image: url(../images/icons/save_icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-image:  contain no-repeat; */
+    height: 18px;
+    width: 16px;
+    border: none;
+    margin-right: 4px;
+    vertical-align: text-bottom;
+    background-color: transparent;
+}
+
+#consumeListName {
+    width: 65%;
+    font-size: 12px;
+    padding-left: 5px;
+}
+
+#saveConsumeList >* {
+    width: 100%;
+    margin-left: 10px;
+}

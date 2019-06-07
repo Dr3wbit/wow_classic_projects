@@ -15,6 +15,8 @@ function applyClickHandlers() {
 	recipesHandler()
 	craftedItemsHandler()
 	totalMaterialsList()
+	consumeListSaver()
+
 	$("#engineering").click()
 }
 
@@ -247,4 +249,47 @@ function updatetooltip(e, matOrConsume='consume') {
 		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
 	}
 	utilities.bigdaddytooltip(e, tooltipElems)
+}
+
+function consumeListSaver() {
+	$("button.saveConsumeList").on({
+		click: e => {
+
+			$("#consumeListPrompt").modal('show')
+		}
+	})
+
+	$("input.saveConsumeList, form.saveConsumeList").on({
+		submit: e=> {
+			e.preventDefault()
+
+			let myConsumeList = {}
+
+			let allCraftedItems
+			let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
+
+			$("a.crafted-list-item").each(function(elem) {
+				let amountStr = $( this ).find($('span.amount')).text()
+				let currentAmount = parseInt(amountStr.match(NUMBRE)[1])
+				let name = $( this ).attr('name')
+				myConsumeList[name] = currentAmount
+			})
+
+			let listName = $("#consumeListName").val()
+
+			console.log('listname: ', listName)
+
+			let newList = {[listName.toString()]: myConsumeList}
+
+			let allLists = Object.assign({}, oldLists, newList)
+			localStorage.setItem('consumeLists', JSON.stringify(allLists))
+
+
+			let localConsumeLists = localStorage.getItem('consumeLists')
+			console.log('preparse: ', localConsumeLists)
+			console.log('postparse: ', JSON.parse(localConsumeLists))
+
+			$("#consumeListPrompt").modal('hide')
+		}
+	})
 }
