@@ -171,7 +171,7 @@ body {
 .nav-link:hover {
     outline: none;
     background-color: transparent;
-    color: #909caf !important;
+    /* color: #909caf !important; */
 
    }
 

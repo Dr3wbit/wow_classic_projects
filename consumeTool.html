@@ -57,7 +57,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark col-12 steel-textured">
         <a class="navbar-brand" href="index">
             <img src="assets/images/onybuff_logo_lightblue.png" width="33" height="40" alt="">
-            <span class="navbar-logo-text">Ony Buff</span>
+            <!-- <span class="navbar-logo-text">Ony Buff</span> -->
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -99,8 +99,13 @@
 
 <div class="savedLists row" id="sideNav">
     <div class="col savedListsContainer">
-        <div class="specList">
+        <div class="savedListsTitle">
+            <a class="btn-sm float-left" role="button" aria-label="Save consume list" title="Save"
+                style="padding: 1px 0 5px 0;">
+                <span class="glyphicon glyphicon-hdd" style="color: rgba(40,167,69,0.95); display: initial;" aria-hidden="true"></span>
+            </a>
         </div>
+        <div class="clearfix"></div>
     </div>
     <a id="navTrigger" class="col side-nav-trigger btn-block" role="button">
         <div class="trigger-icon">&#62;</div>
@@ -152,6 +157,7 @@
             <a class="btn-lg saveConsumeList float-right" role="button" aria-label="Save consume list" title="Save">
                 <span class="glyphicon glyphicon-align-right glyphicon-floppy-disk" style="color: rgba(240,255,255,0.95);" aria-hidden="true"></span>
             </a>
+            <div class="clearfix"></div>
         </div>
         <div class="col-lg-3 columnTitle d-none d-lg-block">Materials</div>
     </div>
