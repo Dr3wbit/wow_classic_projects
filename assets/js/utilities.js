@@ -12,10 +12,10 @@ const utilities = {
 	    })
 	    return strArr.join(' ')
 	},
-	getTooltipPosition: function(e, tooltip) {
+	getTooltipPosition: function(targetElement, tooltip) {
 		let width = tooltip.width(), height = tooltip.height()
-		let element = $(e.target)
-		let span = element.find('span')
+		let element = targetElement
+		let spans = element.find('span')
 
 		this.coords = {}
 
@@ -32,8 +32,14 @@ const utilities = {
 
 
 		if (xCoeff <= 50) { //left half of page
-			if (span.length) {
-				left = Math.round(span.offset().left + span.width() + 25)
+			if (spans.length) {
+				let totalWidth = 0
+				spans.each(function(elem) {
+					totalWidth += $( this ).width()
+				})
+				// left = Math.round(spans.offset().left + spans.width() + 25)
+				left = Math.round(spans.offset().left+totalWidth+45)
+
 			} else {
 				left = Math.round(element.offset().left) + element.width() + 5
 			}
@@ -63,8 +69,7 @@ const utilities = {
 		this.coords.y = top
 		return this.coords
 	},
-	bigdaddytooltip: function(e, ...args) {
-		const targetElement = $(e.target)
+	bigdaddytooltip: function(targetElement, ...args) {
 		const tooltip = $("#tooltip")
 		const elems = args[0]
 
@@ -79,7 +84,7 @@ const utilities = {
 			}))
 		})
 		tooltip.append(container)
-		let coords = utilities.getTooltipPosition(e, tooltip)
+		let coords = utilities.getTooltipPosition(targetElement, tooltip)
 
 		tooltip.attr("style", `top: ${coords.y}px; left: ${coords.x}px; visiblity: visible;`)
 	}
