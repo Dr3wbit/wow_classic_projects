@@ -89,11 +89,21 @@ span.plus {
 
 }
 
-.prof-header {
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+.prof-header > div{
+    border-top: 2px groove black;
+    border-bottom: 2px groove black;
+    border-left: 1px aliceblue solid;
+    border-right: 1px aliceblue solid;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 1px;
+}
+
+.prof-header > div:first-child{
+    border-left: none;
+}
+
+.prof-header > div:last-child{
+    border-right: none;
 }
 
 .prof-item-recipe {
@@ -190,6 +200,10 @@ button.saveConsumeList{
     background-color: transparent;
 }
 
+a.saveConsumeList{
+    cursor: pointer;
+}
+
 #consumeListName {
     width: 65%;
     font-size: 12px;
@@ -203,7 +217,7 @@ button.saveConsumeList{
 
 
 
-.specItem{
+.saved-list{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -212,9 +226,10 @@ button.saveConsumeList{
     cursor: pointer;
     text-align: left;
     max-width: 188px;
+    margin-bottom: 1px;
 }
 
-.specItem:hover{
+.saved-list:hover{
     background-color: #6d6e70;
 }
 
@@ -233,6 +248,9 @@ button.saveConsumeList{
     background-image: url(../images/naga_sketch.png);
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 1px 0;
+    border-radius: 1px;
+    border-right: 6px solid fuchsia;
 }
 
 /* .savedSpecsTitle {
@@ -254,8 +272,8 @@ button.saveConsumeList{
     min-height: 50vh;
     max-height: 50vh;
     overflow-y: scroll;
-    max-width: 230px;
-    min-width: 230px;
+    max-width: 200px;
+    min-width: 200px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     transform: translateX(-85%);
@@ -356,4 +374,13 @@ button.saveConsumeList{
 
 .savedConsumeList {
     margin: 8px 0px 8px 5px;
+}
+
+.saveConsumeList {
+    padding: 0;
+    line-height: inherit;
+}
+
+.saved-list a{
+    cursor: pointer;
 }
