@@ -227,19 +227,20 @@ a.saveConsumeList{
     text-align: left;
     max-width: 188px;
     margin-bottom: 1px;
+    padding-top: 2px;
 }
 
 .saved-list:hover{
     background-color: #6d6e70;
 }
 
-.specSelected{
-    background-color: #ff3604;
-    color: black;
+.saved-list.selected{
+    background-color: rgba(0,0,120, 1);
+    border-top: 2px black solid;
 }
 
-.specSelected:hover{
-    background-color: #ff3604;
+.saved-list.selected:hover{
+    background-color: rgba(10,10,160, 1);
 }
 
 .savedListsContainer{
@@ -250,7 +251,7 @@ a.saveConsumeList{
     background-repeat: no-repeat;
     margin: 1px 0;
     border-radius: 1px;
-    border-right: 6px solid fuchsia;
+    border-right: 6px solid whitesmoke;
 }
 
 /* .savedSpecsTitle {
@@ -381,6 +382,26 @@ a.saveConsumeList{
     line-height: inherit;
 }
 
-.saved-list a{
-    cursor: pointer;
+
+
+.trashcan {
+    padding: 1px;
+    position: relative;
+    width: 20px;
+    right: 8px;
+    border: 0;
+}
+
+.trashcan:hover span{
+    color: rgba(187, 0, 0, 1) !important;
+}
+
+.pageColumn {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.glyphicon-trash {
+    right: 10px;
+    display: initial;
 }
