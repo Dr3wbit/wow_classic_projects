@@ -52,16 +52,13 @@ function initializeApp() {
 				} else {
 					reset = false
 				}
-				// buildClassData(null, className, myURL.hash, reset)
 			} else {
 				reset = true
-				// className = 'warrior'
 			}
 		}
 	} else {
 		reset = true
 
-		// buildClassData(null, 'warrior', myURL.hash, reset)
 	}
 	reset = (refresh) ? true : reset
 
@@ -79,10 +76,7 @@ function applyClickHandlers() {
 	getSpecName()
 	saveSpec()
 	sideNav()
-	// specChoiceRadios()
 	specNameValidator()
-	// addClassName()
-	// addAllottedPoints()
 	preventInspect()
 }
 
@@ -188,7 +182,7 @@ function saveSpec(){
 
 		submit: e=> {
 			e.preventDefault()
-			let specData = checkForSavedSpecs()
+			let oldSpecs = checkForSavedSpecs()
 			let specURL = document.location
 
 			let specName = ($("#specName").val()).trim()
@@ -199,9 +193,9 @@ function saveSpec(){
 				let mySpec = new TalentSpec(specURL, talentPointsSpent.className,specName.toString(), [talentPointsSpent[treeNames[0]].total(), talentPointsSpent[treeNames[1]].total(), talentPointsSpent[treeNames[2]].total()])
 				let name = mySpec.name
 				let newSpec = {[name.toString()]: mySpec}
-				let specObject = Object.assign({}, specData, newSpec)
+				let allSpecs = Object.assign({}, oldSpecs, newSpec)
 
-				localStorage.setItem('savedSpecs', JSON.stringify(specObject));
+				localStorage.setItem('savedSpecs', JSON.stringify(allSpecs));
 				updateSavedSpecs()
 				let currentSelectedSpec = $("div.specItem.specSelected")
 
@@ -263,13 +257,12 @@ function updateSavedSpecs() {
 	if (existingSpecs) {
 		specList = Object.entries(existingSpecs)
 		for (const [name,item] of specList) {
-				let capitalizedClassName = item.className.substr(0,1).toUpperCase()+item.className.substr(1);
 			let specContainer = $('<div/>', {
 				class: 'specContainer',
 			})
 			let specInfo = $('<div/>', {
 				class: `specInfo ${item.className}`,
-				text: ` ${capitalizedClassName} (${item.points[0]}/${item.points[1]}/${item.points[2]})`,
+				text: ` ${utilities.titleCase(item.className)} (${item.points[0]}/${item.points[1]}/${item.points[2]})`,
 			})
 			let specItem = $('<div/>', {
 				class: 'specItem',
@@ -318,7 +311,7 @@ function updateSavedSpecs() {
 			$('.specList').append(specContainer)
 		}
 	} else {
-		localStorage.clear()
+		localStorage.remove('savedSpecs')
 	}
 
 	let checkIfEmpty = $('.specList').children()
