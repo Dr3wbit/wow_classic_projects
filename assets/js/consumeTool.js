@@ -13,7 +13,7 @@ function stepValidator(n, step) {
 function applyClickHandlers() {
 	selectionHandler()
 	recipesHandler()
-	craftedItemsHandler()
+	accordionHandler()
 	totalMaterialsList()
 	consumeListSaver()
 	sideNav()
@@ -57,7 +57,8 @@ function recipesHandler() {
 					clearTooltip()
 				},
 				mousedown: e => {
-					addCraftedItem(e)
+					let name = $(e.target).attr('name')
+					addCraftedItem(name)
 					e.stopImmediatePropagation()
 				}
 			})
@@ -68,7 +69,7 @@ function recipesHandler() {
 	})
 }
 
-function craftedItemsHandler() {
+function accordionHandler() {
 	$("#total_crafted").on({
 		'shown.bs.collapse': e=> {
 			let targetID = $(e.target).attr('id').replace('_collapse', '')
@@ -128,9 +129,8 @@ function clearTooltip() {
 	$("#tooltip").hide()
 }
 
-function addCraftedItem(e) {
+function addCraftedItem(name) {
 	let totalItems = $("#total_crafted")
-	let name = $(e.target).attr('name')
 	let craftedItemObj = allConsumes[name]
 	let craftedItem = $(`a.crafted-list-item[name='${name}']`)
 
