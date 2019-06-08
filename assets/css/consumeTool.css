@@ -35,11 +35,7 @@ a.crafted-list-item:hover {
     color: inherit;
 } */
 
-span.plus {
-    font-size: 15px;
-    color: rgba(240, 255, 255, 0.95);
-    pointer-events: none;
-}
+
 
 /* .crafted-name {
     pointer-events: none;
@@ -158,7 +154,7 @@ span.plus {
     border-radius: 1px;
     /* align-items: center; */
     pointer-events: auto;
-    text-indent: 15px;
+    /* text-indent: 15px; */
 }
 
 /* .crafted-list-item img,span{
@@ -228,6 +224,7 @@ a.saveConsumeList{
     max-width: 188px;
     margin-bottom: 1px;
     padding-top: 2px;
+    margin-left: 1px;
 }
 
 .saved-list:hover{
@@ -251,7 +248,7 @@ a.saveConsumeList{
     background-repeat: no-repeat;
     margin: 1px 0;
     border-radius: 1px;
-    border-right: 6px solid whitesmoke;
+    border-right: 6px solid black;
 }
 
 /* .savedSpecsTitle {
@@ -288,6 +285,12 @@ a.saveConsumeList{
     box-shadow: -0.01rem -0.01rem 0.1rem 0.1rem black;
     text-align: left;
     text-indent: 10px;
+}
+
+.savedListsTitle {
+    padding-top: 1px;
+    padding-bottom: 5px;
+    margin-top: 4px;
 }
 
 .minimized{
@@ -383,25 +386,7 @@ a.saveConsumeList{
 }
 
 
-
-.trashcan {
-    padding: 1px;
-    position: relative;
-    width: 20px;
-    right: 8px;
-    border: 0;
-}
-
-.trashcan:hover span{
-    color: rgba(187, 0, 0, 1) !important;
-}
-
 .pageColumn {
     padding-left: 1px;
     padding-right: 1px;
-}
-
-.glyphicon-trash {
-    right: 10px;
-    display: initial;
 }

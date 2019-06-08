@@ -405,20 +405,24 @@ svg.icon:hover path{
     cursor: pointer;
     text-align: left;
     max-width: 188px;
+    padding-left: 6px;
+    padding-top: 2px;
 }
 
+
+
+.specItem.selected:hover{
+    background-color: rgba(10,10,160, 1);
+}
+
+.specItem.selected {
+    background-color: rgba(0,0,120, 1);
+    /* border-top: 2px black solid; */
+}
 .specItem:hover{
     background-color: #6d6e70;
 }
 
-.specSelected{
-    background-color: #ff3604;
-    color: black;
-}
-
-.specSelected:hover{
-    background-color: #ff3604;
-}
 
 .savedSpecsContainer{
     padding: 5px;
@@ -426,15 +430,17 @@ svg.icon:hover path{
     background-image: url(../images/naga_sketch.png);
     background-size: cover;
     background-repeat: no-repeat;
+    /* border-top: 15px solid black; */
 }
 
 .savedSpecsTitle {
-    font-size: 14px;
-    color: azure;
-    border-bottom: 1px solid azure;
-    margin-left: 4px;
-    margin-bottom: 8px;
-    padding-bottom: 4px;
+    /* font-size: 14px; */
+    /* color: azure; */
+    /* border-bottom: 1px solid azure; */
+    margin-left: 8px;
+    margin-top: 4px;
+    /* margin-bottom: 8px; */
+    /* padding-bottom: 4px; */
 }
 
 .savedSpecs{
@@ -582,7 +588,7 @@ div.modal-body {
     font-size: 85%;
     justify-content: space-evenly;
     width: 100%;
-    border-radius: 5px 5px 0 0;
+    border-radius: 3px 3px 0 0;
     user-select: none;
 }
 
@@ -643,4 +649,13 @@ div.modal-body {
   85% { text-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.30), -0.02rem -0.02rem 0.5rem 1px rgba(211, 158, 0, 0.3)}
   100% { text-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.15), -0.01rem -0.01rem 0.5rem 1px rgba(211, 158, 0, 0.2)}
 
+}
+
+
+.glyphicon-trash {
+    right: 0;
+}
+
+.glyphicon {
+    padding: 0;
 }
