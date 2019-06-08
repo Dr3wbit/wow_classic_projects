@@ -88,7 +88,8 @@ const allConsumes = {
         materials: {
             frostsaber_eko: 1
         },
-        step: 3
+        step: 3,
+		rarity: 'common'
 	},
 	greater_fire_protection_potion: {
 		url: 'https://classic.wowhead.com/item=13457',
@@ -216,7 +217,8 @@ const allConsumes = {
         materials: {
             frostmaul_eko: 1
         },
-        step: 3
+        step: 3,
+		rarity: 'common'
 	},
 	goblin_rocket_boots: {
 		url: 'https://classic.wowhead.com/item=7189',
@@ -323,7 +325,8 @@ const allConsumes = {
         materials: {
             winterfall_eko: 1
         },
-        step: 3
+        step: 3,
+		rarity: 'common',
 	},
 	elixir_of_shadow_power: {
 		url: 'https://classic.wowhead.com/item=9264',
@@ -631,7 +634,8 @@ const allConsumes = {
         materials: {
             shardtooth_eko: 1
         },
-        step: 3
+        step: 3,
+		rarity: 'common'
 	},
 	roids: {
 		use: 'Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (1 Hour Cooldown)',
