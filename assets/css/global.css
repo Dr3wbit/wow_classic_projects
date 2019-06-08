@@ -752,3 +752,42 @@ ul {
     /* color: #1EFF00; */
     /* border: 1px solid #78797a; */
 }
+
+
+.plus {
+    font-size: 95%;
+    padding: 1px;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    /* margin-right: 3px; */
+    top: 2px;
+    /* display: initial; */
+    /* font-size: 15px;
+    color: rgba(240, 255, 255, 0.95);
+    pointer-events: none; */
+    float: left;
+    padding-left: 5px;
+}
+
+.glyphicon-triangle-right, .glyphicon-triangle-bottom {
+    display: initial;
+}
+
+.glyphicon-trash {
+    right: 10px;
+    display: initial;
+}
+
+.trashcan {
+    padding: 1px;
+    position: relative;
+    width: 20px;
+    right: 8px;
+    border: 0;
+}
+
+.trashcan:hover span{
+    color: rgba(187, 0, 0, 1) !important;
+}
