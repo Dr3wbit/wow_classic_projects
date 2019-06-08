@@ -15,6 +15,9 @@ function applyClickHandlers() {
 	recipesHandler()
 	craftedItemsHandler()
 	totalMaterialsList()
+	consumeListSaver()
+	sideNav()
+	savedLists()
 	$("#engineering").click()
 }
 
@@ -247,4 +250,115 @@ function updatetooltip(e, matOrConsume='consume') {
 		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
 	}
 	utilities.bigdaddytooltip(e, tooltipElems)
+}
+
+function consumeListSaver() {
+	$("a.saveConsumeList").on({
+		mouseenter: e => {
+			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-save")
+		},
+		mouseleave: e => {
+			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
+		},
+
+		click: e => {
+			$("#consumeListPrompt").modal('show')
+		}
+	})
+
+	$("#consumeListPrompt").on({
+		'shown.bs.modal': ()=> {
+			$("#consumeListName").focus()
+		},
+		'hidden.bs.modal': ()=> {
+			setTimeout(function a() {
+				$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
+			}, 1300)
+
+		},
+	})
+
+	$("input.saveConsumeList, form.saveConsumeList").on({
+		submit: e=> {
+			e.preventDefault()
+			let myConsumeList = {}
+			let allCraftedItems
+			let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
+			$("a.crafted-list-item").each(function(elem) {
+				let amountStr = $( this ).find($('span.amount')).text()
+				let currentAmount = parseInt(amountStr.match(NUMBRE)[1])
+				let name = $( this ).attr('name')
+				myConsumeList[name] = currentAmount
+			})
+			let listName = $("#consumeListName").val()
+			let newList = {[listName.toString()]: myConsumeList}
+			let allLists = Object.assign({}, oldLists, newList)
+			localStorage.setItem('consumeLists', JSON.stringify(allLists))
+			let localConsumeLists = localStorage.getItem('consumeLists')
+			$("#consumeListPrompt").modal('hide')
+
+
+			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-saved")
+			addSavedList(listName)
+		}
+	})
+}
+
+function sideNav(){
+	$("#navTrigger").on({
+		click: e => {
+			if ($("#sideNav").hasClass('minimized')) {
+				$("#sideNav").removeClass('minimized')
+				$(".trigger-icon").removeClass('iconSwitch')
+			} else {
+				$("#sideNav").addClass('minimized')
+				$(".trigger-icon").addClass('iconSwitch')
+			}
+		},
+	})
+}
+
+function savedLists() {
+
+	let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
+	if (oldLists) {
+		for (let [listName, consumes] of Object.entries(oldLists)) {
+			console.log('listName: ', name, '\n consumes ', consumes)
+			addSavedList(listName)
+		}
+	}
+}
+
+function removeSavedList(name) {
+	$(`div.saved-list[name='${name}']`).remove()
+	let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
+	delete oldLists[name]
+	let allLists = Object.assign({}, oldLists)
+	localStorage.setItem('consumeLists', JSON.stringify(allLists))
+}
+
+function addSavedList(name) {
+
+	let deleteBtn = $('<a/>', {
+		class: "btn-sm float-right",
+	}).on('click', function () {
+		removeSavedList(name)
+	})
+
+	deleteBtn.append($('<span/>', {
+		class: "glyphicon glyphicon-trash",
+		style: "color: azure;"
+	}))
+
+	let savedList = $('<div/>', {
+			class: 'saved-list',
+			name: name
+		})
+
+	savedList.append($('<span/>', {
+			class: 'saved-list-name',
+			text: name,
+		}), deleteBtn)
+
+	$(".savedListsContainer").append(savedList)
 }
