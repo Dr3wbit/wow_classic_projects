@@ -444,11 +444,11 @@ body {
     border-radius: 6px;
     border-color: rgba(0, 0, 0, 0.7);
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-    -webkit-filter: grayscale(40%);
-    -moz-filter: grayscale(40%);
-      -o-filter: grayscale(40%);
-     -ms-filter: grayscale(40%);
-         filter: grayscale(40%);
+    /* -webkit-filter: grayscale(20%);
+    -moz-filter: grayscale(20%);
+      -o-filter: grayscale(20%);
+     -ms-filter: grayscale(20%);
+         filter: grayscale(20%); */
      -moz-transition: all 0.1s ease-in;
      -o-transition: all 0.1s ease-in;
      -webkit-transition: all 0.1s ease-in;
@@ -460,11 +460,11 @@ body {
     transform: scale(0.98);
 
     border-color: inherit;
-    -webkit-filter: grayscale(0%);
+    /* -webkit-filter: grayscale(0%);
     -moz-filter: grayscale(0%);
       -o-filter: grayscale(0%);
      -ms-filter: grayscale(0%);
-         filter: grayscale(0%);
+         filter: grayscale(0%); */
 }
 
 .class-filter:hover img, .prof-filter:hover img{
@@ -473,6 +473,11 @@ body {
     box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
                 inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
                 inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+    -webkit-filter: grayscale(10%);
+    -moz-filter: grayscale(10%);
+      -o-filter: grayscale(10%);
+     -ms-filter: grayscale(10%);
+         filter: grayscale(10%);
 
 }
 
