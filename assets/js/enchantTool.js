@@ -219,7 +219,7 @@ function materialsTooltip() {
                     tooltipElems.push({class: 'description', text:`"${thisMat.description}"`})
                 }
 
-				utilities.bigdaddytooltip(e, tooltipElems)
+				utilities.bigdaddytooltip(closestMat, tooltipElems)
             }
         },
         mouseleave: e => {
@@ -247,7 +247,7 @@ function showEnchantEffect() {
         		const slotName = utilities.titleCase(slot.toLowerCase())
         		tooltipElems.push({class: "title spell", text: `Enchant ${slotName} - ${enchName}`,})
         		tooltipElems.push({class: "description", text: thisEnch.description})
-        		utilities.bigdaddytooltip(e, tooltipElems)
+        		utilities.bigdaddytooltip(targetEnchant, tooltipElems)
         	}
         },
         mouseleave: e=>  {

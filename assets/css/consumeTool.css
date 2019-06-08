@@ -35,11 +35,7 @@ a.crafted-list-item:hover {
     color: inherit;
 } */
 
-span.plus {
-    font-size: 15px;
-    color: rgba(240, 255, 255, 0.95);
-    pointer-events: none;
-}
+
 
 /* .crafted-name {
     pointer-events: none;
@@ -158,7 +154,7 @@ span.plus {
     border-radius: 1px;
     /* align-items: center; */
     pointer-events: auto;
-    text-indent: 15px;
+    /* text-indent: 15px; */
 }
 
 /* .crafted-list-item img,span{
@@ -383,25 +379,7 @@ a.saveConsumeList{
 }
 
 
-
-.trashcan {
-    padding: 1px;
-    position: relative;
-    width: 20px;
-    right: 8px;
-    border: 0;
-}
-
-.trashcan:hover span{
-    color: rgba(187, 0, 0, 1) !important;
-}
-
 .pageColumn {
     padding-left: 1px;
     padding-right: 1px;
-}
-
-.glyphicon-trash {
-    right: 10px;
-    display: initial;
 }

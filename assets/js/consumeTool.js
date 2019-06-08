@@ -33,7 +33,7 @@ function selectionHandler() {
 			Object.entries(allConsumes).forEach(function(val, ind) {
 				if (!(val[1].name)) {
 					val[1].name = utilities.titleCase(val[0])
-				}	
+				}
 				if (val[1].category == profName){
 					profDataArr.push(val)
 				}
@@ -73,11 +73,12 @@ function accordionHandler() {
 	$("#total_crafted").on({
 		'shown.bs.collapse': e=> {
 			let targetID = $(e.target).attr('id').replace('_collapse', '')
-			$(`a.crafted-list-item[name='${targetID}']`).find('span.plus').text('-')
+			$(`a.crafted-list-item[name='${targetID}']`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
+
 		},
 		'hidden.bs.collapse': e=> {
 			let targetID = $(e.target).attr('id').replace('_collapse', '')
-			$(`a.crafted-list-item[name='${targetID}']`).find('span.plus').text('+')
+			$(`a.crafted-list-item[name='${targetID}']`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
 		},
 		mouseenter: e => {
 			$(".crafted-list-item").on({
@@ -155,13 +156,17 @@ function savedLists() {
 function consumeListSaver() {
 	$("a.saveConsumeList").on({
 		mouseenter: e => {
-			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-save")
+			// $("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-save")
+			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-disk').addClass('glyphicon-floppy-save')
 		},
 		mouseleave: e => {
-			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
+			// $("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
+			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-save').addClass('glyphicon-floppy-disk')
 		},
-
 		click: e => {
+			$("a.saveConsumeList").unbind("mouseleave")
+			e.stopImmediatePropagation()
+			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-disk').addClass('glyphicon-floppy-save')
 			$("#consumeListPrompt").modal('show')
 		}
 	})
@@ -171,10 +176,12 @@ function consumeListSaver() {
 			$("#consumeListName").focus()
 		},
 		'hidden.bs.modal': ()=> {
+			$("a.saveConsumeList").bind("mouseleave", function() {
+				$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-save').addClass('glyphicon-floppy-disk')
+			})
 			setTimeout(function a() {
 				$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
 			}, 1300)
-
 		},
 	})
 
@@ -258,6 +265,18 @@ function addCraftedItem(name, numAdded=1) {
 		updateOrCreate(materialsListContainer, craftedItemObj, numAdded)
 
 	} else {
+
+		let plusButton = $('<a/>', {
+			class: "btn btn-sm plus",
+
+		})
+
+		plusButton.append($('<span/>', {
+			class: "glyphicon glyphicon-triangle-right",
+			style: "color: azure;"
+		}))
+
+
 		updatedAmount = step * numAdded
 		craftedItem = $('<a/>', {
 			class: "crafted-list-item",
@@ -266,10 +285,7 @@ function addCraftedItem(name, numAdded=1) {
 			role: "button",
 		})
 		craftedItem.attr("data-toggle", "collapse")
-		craftedItem.append($('<span/> ', {
-				class: "plus",
-				text: "+",
-			})).append($('<img/>', {
+		craftedItem.append(plusButton).append($('<img/>', {
 				class: 'icon-small',
 				src: "assets/images/icons/small/icon_border.png",
 				style: `background-image: url(assets/images/icons/consumes/${name}.jpg);`,
@@ -280,6 +296,21 @@ function addCraftedItem(name, numAdded=1) {
 				class: 'amount',
 				text: `[${updatedAmount}]`,
 			}))
+
+		// craftedItem.append($('<span/>', {
+		// 		class: "plus",
+		// 		text: "+",
+		// 	})).append($('<img/>', {
+		// 		class: 'icon-small',
+		// 		src: "assets/images/icons/small/icon_border.png",
+		// 		style: `background-image: url(assets/images/icons/consumes/${name}.jpg);`,
+		// 	})).append($('<span/>', {
+		// 		class: `crafted-name ${craftedItemObj.rarity}`,
+		// 		text: `${craftedItemObj.name}`,
+		// 	})).append(" ").append($('<span/>', {
+		// 		class: 'amount',
+		// 		text: `[${updatedAmount}]`,
+		// 	}))
 
 		materialsListContainer = $('<div/>', {
 			class: 'materials-list collapse',
@@ -371,8 +402,10 @@ function addSavedList(name) {
 
 
 function updatetooltip(e, matOrConsume='consume') {
+	console.log('updatetooltip')
 	const targetElement = $(e.target)
 	const name = targetElement.attr('name')
+	console.log('name: ', name)
 	const thisObj = (matOrConsume=='consume') ? allConsumes[name] : allMaterials[name]
 	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
 	const rarity = thisObj.rarity
@@ -399,5 +432,5 @@ function updatetooltip(e, matOrConsume='consume') {
 	if (thisObj.description) {
 		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
 	}
-	utilities.bigdaddytooltip(e, tooltipElems)
+	utilities.bigdaddytooltip(targetElement, tooltipElems)
 }

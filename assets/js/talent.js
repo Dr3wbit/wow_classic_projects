@@ -197,11 +197,11 @@ function saveSpec(){
 
 				localStorage.setItem('savedSpecs', JSON.stringify(allSpecs));
 				updateSavedSpecs()
-				let currentSelectedSpec = $("div.specItem.specSelected")
+				let currentSelectedSpec = $("div.specItem.selected")
 
 				if (!($(`div.specItem[name='${name}']`) == currentSelectedSpec)){
-					currentSelectedSpec.removeClass('specSelected')
-					$(`div.specItem[name='${name}']`).addClass('specSelected')
+					currentSelectedSpec.removeClass('selected')
+					$(`div.specItem[name='${name}']`).addClass('selected')
 				}
 				// $(`div.specItem[name='${name}']`).addClass('specSelected')
 			} else {
@@ -226,7 +226,7 @@ function getSpecName() {
 				$("#talentLock").trigger("click")
 			}
 
-			let currentSelectedSpec = $("div.specItem.specSelected")
+			let currentSelectedSpec = $("div.specItem.selected")
 
 			if (currentSelectedSpec.length) {
 				let name = currentSelectedSpec.attr('name')
@@ -272,11 +272,11 @@ function updateSavedSpecs() {
 				wowclassname: item.className
 			})
 				.on('click', (e) => {
-					if ($(e.target).hasClass('specSelected')) {
+					if ($(e.target).hasClass('selected')) {
 						return false
 					} else {
-						$('.specItem').removeClass('specSelected')
-						$(e.target).addClass('specSelected')
+						$('.specItem').removeClass('selected')
+						$(e.target).addClass('selected')
 
 						resetAll()
 
@@ -301,12 +301,25 @@ function updateSavedSpecs() {
 						}
 					}
 				})
-				.prepend($('<button/>', {
-					class: 'delete',
-					title: 'Delete'
-				}).on('click', ()=>{
+
+				let deleteBtn = $('<a/>', {
+					class: "btn btn-sm float-right trashcan",
+					title: "Delete",
+				}).on('click', function () {
 					removeSavedSpec(name, existingSpecs)
+				})
+
+				deleteBtn.append($('<span/>', {
+					class: "glyphicon glyphicon-trash glyphicon-custom",
+					style: "color: azure;"
 				}))
+				specItem.append(deleteBtn)
+				// .prepend($('<button/>', {
+				// 	class: 'delete',
+				// 	title: 'Delete'
+				// }).on('click', ()=>{
+				// 	removeSavedSpec(name, existingSpecs)
+				// }))
 				specContainer.append(specInfo, specItem)
 			$('.specList').append(specContainer)
 		}
@@ -372,7 +385,7 @@ function classSelectionHandler() {
 				cl = $(e.target)[0].id
 			}
 			buildClassData(e, cl, '', true)
-			let selectedSpec = $('div.specItem.specSelected')
+			let selectedSpec = $('div.specItem.selected')
 			if (selectedSpec){
 				let savedSpecClassText = selectedSpec.text()
 				let matched = savedSpecClassText.match(re3)
@@ -380,13 +393,13 @@ function classSelectionHandler() {
 					let className = matched[1]
 
 					if (!(className == talentPointsSpent.className)){
-						selectedSpec.removeClass('specSelected')
+						selectedSpec.removeClass('selected')
 					}
 				}
 				let specURL = selectedSpec.attr('href')
 				let currentURL = document.location
 				if(currentURL != specURL){
-					selectedSpec.removeClass('specSelected')
+					selectedSpec.removeClass('selected')
 				}
 			}
 
@@ -820,7 +833,7 @@ function updateTooltip(e) {
 		tooltipElems.push({class: tooltipFooter.color, text: tooltipFooter.text})
 	}
 
-	utilities.bigdaddytooltip(e, tooltipElems)
+	utilities.bigdaddytooltip(targetTalent, tooltipElems)
 
 }
 
