@@ -224,6 +224,7 @@ a.saveConsumeList{
     max-width: 188px;
     margin-bottom: 1px;
     padding-top: 2px;
+    margin-left: 1px;
 }
 
 .saved-list:hover{
@@ -247,7 +248,7 @@ a.saveConsumeList{
     background-repeat: no-repeat;
     margin: 1px 0;
     border-radius: 1px;
-    border-right: 6px solid whitesmoke;
+    border-right: 6px solid black;
 }
 
 /* .savedSpecsTitle {
@@ -284,6 +285,12 @@ a.saveConsumeList{
     box-shadow: -0.01rem -0.01rem 0.1rem 0.1rem black;
     text-align: left;
     text-indent: 10px;
+}
+
+.savedListsTitle {
+    padding-top: 1px;
+    padding-bottom: 5px;
+    margin-top: 4px;
 }
 
 .minimized{

@@ -38,7 +38,7 @@ const utilities = {
 					totalWidth += $( this ).width()
 				})
 				// left = Math.round(spans.offset().left + spans.width() + 25)
-				left = Math.round(spans.offset().left+totalWidth+25)
+				left = Math.round(spans.offset().left+totalWidth+45)
 
 			} else {
 				left = Math.round(element.offset().left) + element.width() + 5
