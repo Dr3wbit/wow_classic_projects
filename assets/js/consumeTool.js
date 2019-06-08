@@ -253,11 +253,31 @@ function updatetooltip(e, matOrConsume='consume') {
 }
 
 function consumeListSaver() {
-	$("button.saveConsumeList").on({
+	$("a.saveConsumeList").on({
+		mouseenter: e => {
+			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-save")
+		},
+		mouseleave: e => {
+			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
+		},
+
 		click: e => {
 			$("#consumeListPrompt").modal('show')
 		}
 	})
+
+	$("#consumeListPrompt").on({
+		'shown.bs.modal': ()=> {
+			$("#consumeListName").focus()
+		},
+		'hidden.bs.modal': ()=> {
+			setTimeout(function a() {
+				$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
+			}, 1300)
+
+		},
+	})
+
 	$("input.saveConsumeList, form.saveConsumeList").on({
 		submit: e=> {
 			e.preventDefault()
@@ -276,6 +296,10 @@ function consumeListSaver() {
 			localStorage.setItem('consumeLists', JSON.stringify(allLists))
 			let localConsumeLists = localStorage.getItem('consumeLists')
 			$("#consumeListPrompt").modal('hide')
+
+
+			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-saved")
+			addSavedList(listName)
 		}
 	})
 }
@@ -295,29 +319,46 @@ function sideNav(){
 }
 
 function savedLists() {
-	//
+
 	let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
 	if (oldLists) {
 		for (let [listName, consumes] of Object.entries(oldLists)) {
-			console.log('listName: ', listName, '\n consumes ', consumes)
-			let closeButton = $('<button/>', {
-				class: "close"
-			})
-
-			closeButton.append($('<span/>', {
-				text: '×',
-			}))
-
-			let savedList = $('<div/>', {
-					class: 'saved-list',
-				})
-
-			savedList.append($('<span/>', {
-					class: 'saved-list-name',
-					text: listName,
-				}), closeButton)
-
-			$(".savedListsContainer").append(savedList)
+			console.log('listName: ', name, '\n consumes ', consumes)
+			addSavedList(listName)
 		}
 	}
+}
+
+function removeSavedList(name) {
+	$(`div.saved-list[name='${name}']`).remove()
+	let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
+	delete oldLists[name]
+	let allLists = Object.assign({}, oldLists)
+	localStorage.setItem('consumeLists', JSON.stringify(allLists))
+}
+
+function addSavedList(name) {
+
+	let deleteBtn = $('<a/>', {
+		class: "btn-sm float-right",
+	}).on('click', function () {
+		removeSavedList(name)
+	})
+
+	deleteBtn.append($('<span/>', {
+		class: "glyphicon glyphicon-trash",
+		style: "color: azure;"
+	}))
+
+	let savedList = $('<div/>', {
+			class: 'saved-list',
+			name: name
+		})
+
+	savedList.append($('<span/>', {
+			class: 'saved-list-name',
+			text: name,
+		}), deleteBtn)
+
+	$(".savedListsContainer").append(savedList)
 }

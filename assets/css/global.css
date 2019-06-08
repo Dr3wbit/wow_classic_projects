@@ -96,7 +96,9 @@ body {
 .navbar-logo-text {
     font-family: lifecraft;
     font-size: 35px;
-    color: rgba(215, 40, 10, 1) !important;
+    color: fuchsia !important;
+
+    /* color: rgba(215, 40, 10, 1) !important; */
     /*v1 text-shadow: -0.01rem -1px 0 #343a40, 0.8px 0.7px 0.1px #000000fa, 1.2px 1.3px 0 #2e98ff, -0.01rem 1px 0 #212529, 0.5px 1px 0 #f5f5f54a; */
     /*v2 text-shadow: -0.01rem -1px 0 #343a40, 0.8px 0.7px 0.1px #000000fa, 1.2px 1.3px 0 #55789bd9, -0.01rem 1px 0 #212529, 0.5px 1px 0 #f5f5f54a; */
     text-shadow: -0.01rem -1px 0 #343a40, 0.8px 0.7px 0.1px #000000fa, 1.2px 1.3px 0 #442e1a, -0.01rem 1px 0 #212529, 0.5px 1px 0 #f5f5f54a, -0.5px 0 1px #00000087;
@@ -185,7 +187,8 @@ body {
 }
 
 .nav-link-selected {
-    color: #909caf !important;
+
+    color: fuchsia !important;
 
     /* text-shadow: -0.02rem -0.02rem 0.03rem rgba(30,30,30, 0.95), -0.02rem -0.01rem 0.02rem rgba(30,30,30, 0.95); */
 }
@@ -670,7 +673,7 @@ ul {
 .steel-textured {
     background: -webkit-linear-gradient(360deg, rgba(0, 0, 0, 0.65) 40%, rgba(0, 0, 0, 0.85) 80%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background: -moz-linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
-    background: linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
+    /* background: linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg); */
     background-size: 100%, cover;
     background-repeat: no-repeat, repeat;
     box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
