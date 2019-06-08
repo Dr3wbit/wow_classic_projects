@@ -656,6 +656,11 @@ const allMaterials = {
 		category: 'drop',
 		name: "Ice Thistle E'ko"
 	},
+	chillwind_eko: {
+		rarity: 'common',
+		category: 'drop',
+		name: "Chillwind E'ko"
+	},
 	basilisk_brain: {
 		rarity: 'common',
 		category: 'drop',
@@ -664,4 +669,14 @@ const allMaterials = {
 		rarity: 'common',
 		category: 'drop',
 	},
+	winterfall_firewater: {
+		rarity: 'common',
+		category: 'drop',
+		req: 45,
+		use: "Increases your melee attack power by 35 and size for 20 min. (cooldown 1 min)"
+	},
+	giant_egg: {
+		rarity: 'common',
+		category: 'drop'
+	}
 }
