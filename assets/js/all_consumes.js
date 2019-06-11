@@ -222,7 +222,7 @@ const allConsumes = {
 	},
 	goblin_rocket_boots: {
 		url: 'https://classic.wowhead.com/item=7189',
-		req: "Binds when equipped\nFeet\t\t\t\t\t\t\t\t\t\t    Cloth\n41 Armor\nDurability 35 / 35",
+		req: "Binds when equipped\nFeet\t\t\t\t\t\t\t\t\t\t  Cloth\n41 Armor\nDurability 35 / 35",
 		use: 'These dangerous looking boots significantly increase your run speed for 20 sec. They are prone to explode however, so use with caution. (cooldown 5 min)',
 		rarity: 'uncommon',
 		stats: true,
@@ -350,7 +350,8 @@ const allConsumes = {
 			deeprock_salt: 0.2,
 			chimaerok_tenderloin: 0.2,
 		},
-		step: 5
+		step: 5,
+		rarity: 'common',
     },
 	flask_of_distilled_wisdom: {
 		url: 'https://classic.wowhead.com/item=13511',
@@ -435,6 +436,7 @@ const allConsumes = {
 	cerebral_cortex_compound: {
 		url: 'https://classic.wowhead.com/item=8423',
 		unique: true,
+		bop: true,
 		description: '"Best Served Chilled"',
 		use: 'Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
 		rarity: 'common',
@@ -483,6 +485,7 @@ const allConsumes = {
 	},
 	ground_scorpok_assay: {
 		url: 'https://classic.wowhead.com/item=8412',
+		bop: true,
 		unique: true,
 		use: 'Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)',
 		rarity: 'common',
@@ -640,6 +643,7 @@ const allConsumes = {
 	roids: {
 		use: 'Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (1 Hour Cooldown)',
 		bop: true,
+		unique: true,
 		description: 'Robust Operational Imbue Derived From Snickerfang',
         category: 'other',
         name: "R.O.I.D.S.",
