@@ -582,7 +582,16 @@ const allConsumes = {
 		},
 		category: 'engineering',
 	},
-	elixir_of_the_giants: {},
+	elixir_of_giants: {
+		rarity: "common",
+		req: 38,
+		use: "Increases your Strength by 25 for 1 hr.",
+		category: "alchemy",
+		materials: {
+			gromsblood: 1,
+			sungrass: 1,
+			crystal_vial: 1
+	},
 	blinding_powder: {
 		url: 'https://classic.wowhead.com/item=5530',
 		req: 34,

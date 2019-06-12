@@ -5,14 +5,14 @@ const allMaterials = {
 	},
 	libram_of_rapidity: {
 		category: 'drop',
-		unique: 'Unique',
+		unique: true,
 		req: 50,
 		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon',
 	},
 	libram_of_protection: {
 		category: 'drop',
-		unique: 'Unique',
+		unique: true,
 		req: 50,
 		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon',
@@ -213,7 +213,7 @@ const allMaterials = {
 	},
 	libram_of_focus: {
 		category: 'drop',
-		unique: 'Unique',
+		unique: true,
 		req: 50,
 		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon',
@@ -232,7 +232,7 @@ const allMaterials = {
 	},
 	libram_of_rumination: {
 		category: 'drop',
-		unique: 'Unique',
+		unique: true,
 		req: 50,
 		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon',
@@ -274,7 +274,7 @@ const allMaterials = {
 	},
 	libram_of_tenacity: {
 		category: 'drop',
-		unique: 'Unique',
+		unique: true,
 		req: 50,
 		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon',
@@ -336,7 +336,7 @@ const allMaterials = {
 	},
 	libram_of_constitution: {
 		category: 'drop',
-		unique: 'Unique',
+		unique: true,
 		req: 50,
 		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon',
@@ -357,7 +357,7 @@ const allMaterials = {
 	},
 	libram_of_resilience: {
 		category: 'drop',
-		unique: 'Unique',
+		unique: true,
 		req: 50,
 		description: 'Dark runes skitter across the surface.',
 		rarity: 'uncommon',
