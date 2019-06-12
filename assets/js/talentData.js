@@ -3549,7 +3549,7 @@ const talentData = {
 						return [25*this.invested, 10*this.invested]
 					},
 					description: function() {
-						return `Increases the health of your Stoneclaw Totem by ${this.y()[0]}% and the radius of your Earthbind Totem by ${this.y()[0]}%.`
+						return `Increases the health of your Stoneclaw Totem by ${this.y()[0]}% and the radius of your Earthbind Totem by ${this.y()[1]}%.`
 					},
 					image: "earths_grasp.jpg"
 				}, {
