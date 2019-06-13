@@ -861,12 +861,11 @@ const talentData = {
 				talents: [{
 					name: 'Frost Warding',
 					maxRank: 2,
-					x: [15, 10],
 					y: function() {
-						return [this.x[0] * this.invested, this.x[1] * this.invested]
+						return [15 * this.invested, 10 * this.invested]
 					},
 					description: function() {
-						return `Increases the armor and resistances given by your Frost Armor and Ice Armor spells by ${this.y()[0]}%.  In addition, gives your Frost Ward a ${this.y()[0]}% chance to reflect Frost spells and effects while active.`
+						return `Increases the armor and resistances given by your Frost Armor and Ice Armor spells by ${this.y()[0]}%.  In addition, gives your Frost Ward a ${this.y()[1]}% chance to reflect Frost spells and effects while active.`
 					},
 					image: "frost_warding.jpg"
 				}, {
@@ -3661,7 +3660,7 @@ const talentData = {
 						return [10*this.invested, this.invested]
 					},
 					description: function() {
-						return `Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by ${this.y()[0]}% and reduces the cooldown of your Grounding Totem by ${this.y()[0]} sec.`
+						return `Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by ${this.y()[0]}% and reduces the cooldown of your Grounding Totem by ${this.y()[1]} sec.`
 					},
 					image: "guardian_totems.jpg"
 				}, {
