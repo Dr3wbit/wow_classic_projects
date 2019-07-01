@@ -1,0 +1,357 @@
+{% extends "base.html" %}
+
+	{% block title %}- Talent Calculator{% endblock title %}
+
+	{% load static %}
+	{% block extra_head %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/talent.css" %}">
+	{% endblock extra_head %}
+	{% block navbar %}{{block.super}}{% endblock navbar %}
+
+
+	{% block title_splash %}
+	<div class="container titleSplash">
+		<div class="page-title">
+			<div class="p-3 page-description"></div>
+		</div>
+	</div>
+	{% endblock title_splash %}
+
+	{% block saved_lists %}
+		<div class="saved-specs row">
+			<div class="col saved-specs-container">
+				<div class="saved-specs-title">
+					<a class="btn-sm float-left" role="button" aria-label="Save consume list"
+						style="padding: 0;">
+						<span class="glyphicon glyphicon-hdd" style="color: {% if user.is_authenticated %}rgba(40,167,69,0.95){% else %}rgba(220,53,69,0.95){% endif %};" aria-hidden="true"></span>
+					</a>
+				</div>
+				<div class="clearfix"></div>
+				<div class="spec-list">
+					{% if user.is_authenticated %}
+					{% for spec in user.spec_set.all %}
+					<div class="spec-container">
+						<div class="spec-info">
+							<span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span>
+							<span style="font-size: 90%;">({{ spec.treeallotted_set.all.0.invested }}/{{ spec.treeallotted_set.all.1.invested }}/{{ spec.treeallotted_set.all.2.invested }})
+						</div>
+						<div class="spec-list-item" role="button" data-wowclass="{{spec.wow_class.name}}" href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" name="{{spec.name}}">{{spec.name}}
+							<button class="btn btn-sm float-right trashcan" name="delete" title="Delete" value="{{spec.name}}" type="button">
+								<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
+							</button>
+						</div>
+					</div>
+					{% endfor %}
+					{% else %}
+					<p>
+					To save a spec, fill out your talents then click the save icon (login required:
+					<a id="discord-login" href="{% url 'social:begin' 'discord' %}?next={{ request.path }}"><span class="login discord"></span><svg id="Layer_1" height="20" width="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 532 130">
+						<path class="st0" d="M53.2 20.3H20v37.6l22.1 20V41.4H54c7.5 0 11.2 3.7 11.2 9.5v27.9c0 5.8-3.5 9.7-11.2 9.7H20v21.2h33.2c17.8.1 34.5-8.8 34.5-29.4V50.2c0-20.8-16.7-29.9-34.5-29.9zm174.1 60.1V49.6c0-11.1 19.8-13.7 25.8-2.5l18.3-7.5C264.3 23.7 251.1 19 240.2 19c-17.8 0-35.4 10.4-35.4 30.6v30.8c0 20.3 17.6 30.6 35 30.6 11.2 0 24.6-5.6 32-20.1l-19.6-9.1c-4.8 12.4-24.9 9.4-24.9-1.4zm-60.6-26.6c-6.9-1.5-11.5-4-11.8-8.3.4-10.4 16.3-10.7 25.6-.8l14.7-11.4C186 22 175.6 19 164.8 19c-16.3 0-32.1 9.2-32.1 26.8 0 17.1 13 26.2 27.3 28.4 7.3 1 15.4 3.9 15.2 9-.6 9.6-20.2 9.1-29.1-1.8L132 94.8c8.3 10.7 19.6 16.2 30.2 16.2 16.3 0 34.4-9.5 35.1-26.8 1-22-14.8-27.5-30.6-30.4zm-66.9 55.9h22.4V20.3H99.8v89.4zm377.7-89.4h-33.2v37.6l22.1 20V41.4h11.8c7.5 0 11.2 3.7 11.2 9.5v27.9c0 5.8-3.5 9.7-11.2 9.7h-34v21.2h33.2c17.8.1 34.5-8.8 34.5-29.4V50.2c.1-20.8-16.6-29.9-34.4-29.9zM314.6 19c-18.4 0-36.7 10.1-36.7 30.7v30.6c0 20.5 18.4 30.7 36.9 30.7 18.4 0 36.7-10.2 36.7-30.7V49.7c0-20.5-18.5-30.7-36.9-30.7zM329 80.3c0 6.4-7.2 9.7-14.3 9.7-7.2 0-14.4-3.2-14.4-9.7V49.7c0-6.6 7-10.1 14-10.1 7.3 0 14.7 3.2 14.7 10.1v30.6zm102.8-30.6c-.5-21-14.7-29.4-33-29.4h-35.5v89.5H386V81.3h4l20.6 28.4h28L414.4 79c10.8-3.4 17.4-12.7 17.4-29.3zm-32.6 12.1H386V41.4h13.2c14.2 0 14.2 20.4 0 20.4z"/>
+					</svg>
+				</a>)
+					{% endif %}
+				</p>
+				</div>
+			</div>
+			<div class="col side-nav-trigger">
+				<div class="trigger-icon">&#62;</div>
+			</div>
+		</div>
+	{% endblock saved_lists %}
+
+	{% block mainbody %}
+
+	<div class="mainBody container">
+	{% block class_selection %}
+	<div class="row class-selection sticky-top pt-1 nav-is-sticky steel-textured" id="class_selection">
+		{% for class in classes %}
+		<a class="class-filter {% if class == selected %}selected{% endif %}" id="{{class}}">
+			{% with "images/icons/large/class/"|add:class|add:".jpg" as class_image %}
+			<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}" style="background-image: url('{% static class_image %}');">
+			{% endwith %}
+		</a>
+		{% endfor %}
+	</div>
+	{% endblock class_selection %}
+	<div class="row justify-content-center">
+		<div id="talentHeader" class="steel-textured">
+			<span id="allottedTalentPoints" class="col-3 text-left">(0/0/0)</span>
+			<span id="requiredLevel" class="col-3">Required level:</span>
+			<span id="pointsRemaining" class="col-3 text-right">Points Left:</span>
+			<div id="buttonCity" class="col-3 btn-group">
+				<!-- <button type="button" id="resetTalents" class="talentcalc-button reset btn" title="Reset"></button> -->
+				<!-- <button type="button" id="talentLock" class="talentcalc-button unlock btn" title="Unlocked"></button> -->
+				<button class="btn btn-sm float-right" data-toggle="modal" data-target="#specSaverPrompt" aria-label="specSaverPrompt" title="Save"
+					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
+					<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+				</button>
+
+				<button id="export" data-container="#export" data-toggle="popover" data-placement="right"
+					class="btn btn-sm float-right" role="button" aria-label="export spec" title="Export"
+					style="margin: 0 2px 0 2px; padding: 0 2px 0 2px;">
+					<span class="glyphicon glyphicon-link" style="font-size: 15px;" aria-hidden="true"></span>
+				</button>
+
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center" id="talentCalc" align="center">
+		{% if first_load %}
+		{% include "talent_builder.html" %}
+		{% endif %}
+	</div>
+
+</div>
+	{% endblock mainbody %}
+
+<!-- Modal -->
+{% block modal %}
+<div class="modal fade" id="specSaverPrompt" tabindex="-1" role="dialog" aria-labelledby="specSaver" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content bg-dark text-white" style="box-shadow: rgba(0,0,0,.8) 0 1px 3px 0 inset; border-radius:2px;">
+	  <div class="modal-body">
+		  <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+			  <span aria-hidden="true">&times;</span>
+		  </button>
+		  <form method="post" id="save-spec">
+			  {% csrf_token %}
+		<div class="form-group row">
+		  <div class="input-group input-group-sm">
+			<div class="input-group-prepend">
+			  <div class="input-group-text" style="border-radius: 2px 0 0 2px;">name</div>
+			</div>
+			<input type="text" id="spec-name" class="form-control-sm" placeholder="spec name" aria-label="Text..." aria-describedby="basic-addon1" autocomplete="off" required=True>
+			<div class="input-group-append">
+			  <button type="submit" class="input-group-text btn-sm btn-primary" id="confirmSpecName" style="border-radius: 0 2px 2px 0;">Confirm</button>
+			</div>
+			<div id="specNameValidation" class="form-text"></div>
+		  </div>
+	   </div>
+	</form>
+	</div>
+	</div>
+	</div>
+	</div>
+	{% endblock modal %}
+
+	{% block javascript %}
+	<script src="{% static "js/utilities.js" %}"></script>
+	<script src="{% static "js/talentData.js" %}"></script>
+	<script src="{% static "js/talentTableData.js" %}"></script>
+	<script>
+
+function save_spec(class_name, spec_name) {
+
+	var spec_name = $("#spec-name").val();
+	var spec_ele = $(`.spec-list-item[name="${spec_name}"]`)
+	var spec_list_parent = $(".spec-list")
+	$.ajax({
+		headers: {"X-CSRFToken": "{{ csrf_token }}"},
+		url: '/ajax/save_spec/',
+		data: {
+			class_name: class_name,
+			spec_url: urlBuilder(),
+			spec_name: spec_name,
+			spent: [
+				[talentPointsSpent.treeNames[0], talentPointsSpent[talentPointsSpent.treeNames[0]].total()],
+				[talentPointsSpent.treeNames[1], talentPointsSpent[talentPointsSpent.treeNames[1]].total(),],
+				[talentPointsSpent.treeNames[2], talentPointsSpent[talentPointsSpent.treeNames[2]].total(),]
+			],
+		},
+		method: "POST",
+	  	dataType: 'json',
+		traditional: true,
+		beforesend: function (data) {
+			console.log('before send data: ', data)
+			//
+		},
+	  	success: function (data) {
+			if (data.spec_url) {
+				console.log('data: ', data)
+				if (spec_ele.length) {
+					// update it
+					// let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
+					// $("#allottedTalentPoints").text(a)
+				} else {
+					// create it
+					let spec_cont = $("<div/>", {
+						class: "spec-container",
+					})
+					let spec_info = $("<div/>", {
+						class: "spec-info",
+					}).append($("<span/>", {
+						class: class_name,
+						text: `${utilities.titleCase(class_name)}`
+					}), ' ', $("<span/>", {
+						style: "font-size: 90%;",
+						text: `(${data.spent[0]}/${data.spent[1]}/${data.spent[2]})`,
+					}))
+
+					let spec_item = $("<div/>", {
+						class: "spec-list-item progress-bar progress-bar-striped progress-bar-animated",
+						href: `${document.location.pathname}?${data.spec_url}`,
+						role: "button",
+						name: spec_name,
+						text: spec_name,
+						style: "height: unset; display: block;",
+					})
+					spec_item.attr("data-wowclass", class_name)
+					spec_item.on({
+					   click: e=> {
+						   var class_name = $( e.target ).attr('data-wowclass');
+						   var spec_name = $( e.target ).attr('name');
+						   update_class(class_name, spec_name)
+					   }
+					})
+
+					let trashcan = ($("<button/>", {
+						class: "btn btn-sm float-right trashcan",
+						name: "delete",
+						value: spec_name,
+						type: "button",
+						title: `delete ${spec_name}`
+					})).on({
+					   click: e=> {
+						   var saved_list = $( e.target ).val();
+						   delete_list(saved_list)
+					   }
+					})
+
+					trashcan.append($("<span/>", {
+						class: "glyphicon glyphicon-trash glyphicon-custom"
+					}))
+
+					spec_item.append(trashcan)
+					spec_cont.append(spec_info, spec_item)
+					spec_list_parent.append(spec_cont)
+					update_selected_spec(spec_name)
+				}
+			}
+	  	}
+	});
+}
+
+function delete_list(saved_list) {
+	var list_item = $(`.spec-list-item[name="${saved_list}"]`).closest(".spec-container");
+	$.ajax({
+	  url: '/ajax/delete_list/',
+	  data: {
+		'saved_list': saved_list
+	  },
+	  dataType: 'json',
+	  success: function (data) {
+		if (data.saved_list) {
+			list_name = data.saved_list.toString()
+			console.log('list_item: ', list_item);
+			list_item.empty().remove()
+		}
+	  }
+	});
+}
+
+function update_url(class_name, search='') {
+	console.log('updating url')
+	const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
+	let url = new URL(document.location)
+	url.pathname = `/talent_calc/${class_name}`
+	url.search = search
+	history.replaceState(null, null, url)
+}
+
+function update_selected_spec(spec_name) {
+	let spec_list_item = $(`.spec-list-item[name="${spec_name}"]`)
+	$(".spec-list-item").removeClass("progress-bar progress-bar-striped progress-bar-animated");
+	if (spec_list_item.length) {
+		spec_list_item.addClass("progress-bar progress-bar-striped progress-bar-animated");
+		spec_list_item.css({"height": "unset", "display":"block"})
+	}
+}
+
+function update_class(class_name, spec_name='') {
+	$.ajax({
+		url: `/talent_calc/${class_name}`,
+		data: {
+			'class_name': class_name,
+		},
+		dataType: 'html',
+		beforeSend: function() {
+			update_selected_spec(spec_name);
+		},
+		success: function (data) {
+			let selected = $("button.class-filter.selected").attr("id");
+			if (selected != class_name) {
+				console.log('reloading class')
+				$("#talentCalc").html(data);
+				$(".class-filter").removeClass('selected');
+				$(`#${class_name}`).addClass('selected');
+			}
+			if (!spec_name) {
+				resetAll();
+			}
+
+		},
+		complete: function (data) {
+			if (spec_name) {
+				$.ajax({
+					url: '/ajax/load_spec/',
+					data: {
+					'class_name': class_name,
+					'spec_name': spec_name
+					},
+					dataType: 'json',
+					success: function (data){
+						if (class_name) {
+							resetAll()
+							update_url(class_name, data.hash);
+							preBuiltSpec(data.hash);
+						}
+					}
+			   });
+			}
+		}
+	});
+}
+
+
+$(".trashcan").on({
+   click: e=> {
+	   var saved_list = $( e.target ).val();
+	   delete_list(saved_list);
+   }
+});
+
+$("#save-spec").on({
+   submit: e=> {
+	   e.preventDefault()
+	   var class_name = $(".class-filter.selected").attr("id")
+	   save_spec(class_name);
+	   $("#specSaverPrompt").modal('hide')
+   }
+});
+
+$(".class-filter").on({
+   click: e=> {
+	   console.log('class filter clicked')
+	   var class_name = $( e.target )[0].id;
+	   update_class(class_name);
+	   update_url(class_name, '');
+   }
+});
+
+$(".spec-list-item").on({
+   click: e=> {
+	   var class_name = $( e.target ).attr('data-wowclass');
+	   var spec_name = $( e.target ).attr('name');
+	   update_class(class_name, spec_name)
+   }
+});
+
+$('#specSaverPrompt').on({
+	'shown.bs.modal': ()=> {
+		$("#spec-name").focus()
+	},
+
+});
+
+ </script>
+	{% endblock javascript %}
