@@ -1,0 +1,82 @@
+{% if consumes %}
+{% load static %}
+    {% for consume,v in consumes.items %}
+    <div class="row">
+        <div class="col-8" style="flex: 62%; max-width: 62%; margin-right: 0; padding-right:0;">
+            <div class="prof-item-recipe" name="{{consume}}">
+                <span class="recipe-container {{v.rarity}}" name="{{consume}}">
+                {% with "images/icons/consumes/"|add:consume|add:".jpg" as item_image %}
+                <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
+                style="background-image: url({% static item_image %});">
+                {% endwith %}
+                <span class="consume-name">{{v.name}}</span>
+            </span>
+            </div>
+        </div>
+        <div class="col-4 reagant-list">
+            {% for mat_name,val in v.materials.items %}
+            <div class="reagant-list-container" name="{{mat_name}}">
+                <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
+                {% if "eko" in mat_name %}
+                style="background-image: url({% static "images/icons/medium/materials/eko.jpg" %});">
+                {% else %}
+                style="background-image: url({% static "images/icons/medium/materials/"|add:mat_name|add:".jpg" %});">
+                {% endif %}
+                {% if val.amount > 1 %}
+                <span class="count-container">
+                    <div class="material-count">{{val.amount}}</div>
+                    <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{{val.amount}}</div>
+                    <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{{val.amount}}</div>
+                    <div class="material-count" style="color: black; right: 3px; z-index: 4;">{{val.amount}}</div>
+                </span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    <script src="{% static "js/consumeTool.js" %}"></script>
+    <script>
+
+    $(".reagant-list-container").on({
+        mouseenter: e => {
+            let target = $(e.target).closest(".reagant-list-container")
+            updatetooltip(target, 'material')
+        },
+        mouseleave: e => {
+            clearTooltip()
+        },
+    });
+    $(".recipe-container").on({
+        mouseenter: e => {
+            clearTooltip()
+            let target = $(e.target).closest(".recipe-container")
+            // let name = $(e.target).closest(".recipe-container").attr('name')
+
+            updatetooltip(target, 'consume')
+        },
+        mouseleave: e => {
+            clearTooltip()
+        },
+        click: e => {
+            let name = $(e.target).closest(".recipe-container").attr('name')
+            if ((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) {
+                return false
+            }
+            addCraftedItem(name)
+        }
+
+    });
+
+    $(".material-container").on({
+        mouseenter: e => {
+            clearTooltip()
+            updatetooltip($(e.target).closest(".material-container"), 'material')
+        },
+        mouseleave: e => {
+            clearTooltip()
+        },
+    });
+
+    </script>
+ {% endif %}

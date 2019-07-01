@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts_and_styles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}">
+<script src="{% static "js/contact.js" %}"></script>
+{% endblock scripts_and_styles %}
+
+{% block navbar %}{{block.super}}{% endblock navbar %}
+
+
+{% block title_splash %}
+<body>
+    </div>
+    <div class="container titleSplash">
+        <div class="page-title">Contact
+            <div class="p-3 page-description">Have an idea you'd like to see on the website? Found a bug? Want to help out? Send us a
+                message and let us know about it!</div>
+        </div>
+    </div>
+    {% endblock title_splash %}
+
+    {% block class_selection %}
+    <div class="row class-selection nav-is-sticky steel-textured" id="class_selection">
+    </div>
+    {% endblock class_selection %}
+
+    {% block mainbody %}
+
+    <div class="container mainBody">
+        <div class="row about-section">
+            <div class="col-2"></div>
+            <div class="col-8 formContainer">
+                <div id="form-messages"></div>
+                <form id="ajax-contact" method="post" action="/assets/php/phpmailer/mail_handler.php">
+                    <div class="field">
+                        <!--<label for="name">Name:</label>-->
+                        <input class="mt-3" type="text" id="name" name="name" placeholder="Name" required style="width: 100%;">
+                    </div>
+
+                    <div class="field">
+                        <!--<label for="email">Email:</label>-->
+                        <input class="mt-3" type="subject" id="subject" name="subject"
+                            placeholder="Subject: Bug / Suggestion / Request" required
+                            style="width: 100%;">
+                    </div>
+
+                    <div class="field">
+                        <!--<label for="message">Message:</label>-->
+                        <textarea class="mt-3" id="message" name="message" placeholder="Message" rows="10" cols="59"
+                            required style="width: 100%;"></textarea>
+                    </div>
+                    <div class="field text-center">
+                        <button type="submit" class="btn btn-lg btn-dark mt-3">Send Message</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <br>
+      {# <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br> #}
+      {# <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a> #}
+
+    {% endblock mainbody %}
+
+</body>
+
+</html>
