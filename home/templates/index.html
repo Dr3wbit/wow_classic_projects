@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<script type="text/javascript" src="{% static "js/timer/jquery.countdown.js" %}"></script>
+<!--Timer-->
+<script type="text/javascript" src="{% static "js/timer/jquery.countdown.min.js" %}"></script>
+<!--Timer-->
+<link rel="stylesheet" type="text/css" href="{% static "css/landingPage.css" %}">
+<script src="{% static "js/landingPage.js" %}"></script>
+{% endblock extra_head %}
+
+{% block navbar %}{{block.super}}{% endblock navbar %}
+
+
+{% block title_splash %}
+    <div class="container titleSplash pt-5">
+        <div id="onybuff_carousel" class="carousel slide d-none d-md-block" data-ride="carousel" data-interval="4000"
+            data-pause="false">
+            <div class="carousel-inner">
+                <ol class="carousel-indicators">
+                    <li data-target="#onybuff_carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#onybuff_carousel" data-slide-to="1"></li>
+                    <li data-target="#onybuff_carousel" data-slide-to="2"></li>
+                    <li data-target="#onybuff_carousel" data-slide-to="3"></li>
+                    <li data-target="#onybuff_carousel" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-item active">
+                    <img src="{% static "images/carousel/warrior_if_carousel.jpg" %}" class="d-block w-100" alt="...">
+
+                    <div class="carousel-caption">
+                        <h1 style="font-family:Aeio; font-size:400%">Ony Buff</h1>
+                        <p>Getting you the information you need with minimal effort.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static "images/carousel/talent_carousel.png" %}" class="d-block w-100" alt="...">
+
+                    <div class="carousel-caption">
+                        <h2>Talent Calculator</h2>
+                        <p>Our talent calculator allows you to save your specs so you can reference them in the future
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static "images/carousel/enchant_carousel.png" %}" class="d-block w-100" alt="...">
+
+                    <div class="carousel-caption">
+                        <h2>Enchant Calculator</h2>
+                        <p>Calculate what materials you need to enchant your pre-raid BIS gear</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static "images/carousel/guides_carousel.png" %}" class="d-block w-100" alt="...">
+
+                    <div class="carousel-caption">
+                        <h2>Specs and Guides</h2>
+                        <p>Lists of specs, consumes for raids/pvp, and more...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+
+                    <img src="{% static "images/carousel/consume_carousel.png" %}" class="d-block w-100" alt="...">
+
+                    <div class="carousel-caption">
+                        <h2>Consume Calculator</h2>
+                        <p>Calculate what materials you need with our consumable calculator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 page-description">Classic World of Warcraft Tools for the Experienced Player</div>
+        <div class="row class-selection nav-is-sticky steel-textured"></div>
+    </div>
+    {% endblock title_splash %}
+
+    {% block mainbody %}
+    <div class="container mainBody pt-5">
+        <div class="row content-container">
+            <div class="col-12 mb-4 site-content">
+                <div class="sidebar-header">Site Content</div>
+                <div class="col sidebar-content">
+                    <a class="sidebar-ref" href="specsAndGuides">Specs & Guides</a>
+                    <p>If you need to know what consumes to bring to raid or a quick spec reference or you should check
+                        out our Specs & Guides.</p>
+                    <a class="sidebar-ref" href="consumeTool">Consumable Calculator</a>
+                    <p>Getting your consumables crafted buy a guildie or crafting them yourself? Use our Consumable Tool
+                        to find ot exactly what materials you need.</p>
+                    <a class="sidebar-ref" href="talent">Talent Calculator</a>
+                    <p>Want to mess around with your characters spec? Instead of wasting gold for an extra respec, plan
+                        it out first with our Talent Calculator.</p>
+                    <a class="sidebar-ref" href="enchantTool">Enchant Calculator</a>
+                    <p>Got your preraid bis or a shiney new peice of gear from Molten Core? Use our Enchant Tool to get
+                        all the correct materials before hitting up an enchanter.</p>
+                    <a class="sidebar-ref" href="contact">Contact Us</a>
+                    <p>Have an idea you'd like to see on the website? Found a bug? Send us a message and let us know
+                        about it!</p>
+                    <span>Classic WoW releases in:</span>
+                    <div class="countdown"></div>
+                </div>
+            </div>
+            <div class="card-container col-lg-8 col-12 recent-news">
+                <div class="card mb-3 bg-transparent border-light text-center">
+                    <div class="card-header bg-transparent border-light text-light">
+                        Recent News
+                    </div>
+                    <div class="card-body text-light">
+                        <h5 class="card-title text-center">WoW Classic Release Date</h5>
+                        <p class="card-text text-left">'World of Warcraft: Classic' is confirmed to release August
+                            26th @ 3PM (PDT)</p>
+                        <p class="card-text text-left">Current Content Release Plan</p>
+
+                        <ul class="card-text text-left">
+                            <li>
+                                Stage 1: Phase 1 (Classic Launch) | Molten Core | Onyxia | Maraudon | You can PvP
+                                one another in the world, but there is no tracking, and no formal rewards for doing
+                                so.
+                            </li>
+                            <br />
+                            <li>
+                                Stage 2: Dire Maul | Azuregos | Kazzak | Honor System (including Dishonorable Kills)
+                                | PvP Rank Rewards
+                            </li>
+                            <br />
+                            <li>
+                                Stage 3: Blackwing Lair | Darkmoon Faire | Darkmoon deck drops begin | Alterac
+                                Valley (version 1.12) | Warsong Gulch
+                            </li>
+                            <br />
+                            <li>
+                                Stage 4: Zul’Gurub | Green Dragons | Arathi Basin
+                            </li>
+                            <br />
+                            <li>
+                                Stage 5: Ahn’Qiraj War Effort begins | Ahn’Qiraj raids open when the war effort
+                                dictates | Dungeon loot reconfiguration: Tier 0.5 Dungeon gear, Relics, drop rates
+                                and location changes
+                            </li>
+                            <br />
+                            <li>
+                                Stage 6: Naxxramas | Scourge Invasion | World PvP objectives in Silithus and Eastern
+                                Plaguelands
+                            </li>
+                        </ul>
+                        <p>These plans are subject to change, but we wanted to provide an inside look at future
+                            plans.
+                            We look forward to continuing to hear your thoughts as we continue to bring WoW Classic
+                            to
+                            life.</p>
+                        <a href="https://us.forums.blizzard.com/en/wow/t/classic-pvp-content-plan/146049"
+                            class="btn btn-dark">Go To Article</a>
+                    </div>
+                    <div class="card-footer text-muted border-light">
+                        1/5/2019
+                    </div>
+                </div>
+                <div class=" pt-4">
+                    <div class="card mb-3 bg-transparent border-light text-center">
+                        <h5 class="card-header bg-transparent border-light text-light">
+                            Changelog
+                        </h5>
+                        <div class="card-body text-light">
+                            <p class="card-text text-left">4/29/2019</p>
+                            <ul class="card-text text-left">
+                                <li>
+                                    Added Specs and Guides Section.
+                                </li>
+                                <li>
+                                    Added Working Talent Calculator.
+                                </li>
+                                <li>
+                                    Updated Consume Tool to display more useful information.
+                                </li>
+                                <li>
+                                    Changed overall site style and design.
+                                </li>
+                            </ul>
+                            <p class="card-text text-left">1/5/2019</p>
+                            <ul class="card-text text-left">
+                                <li>
+                                    Initial Launch with consume tool and enchant tool.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-muted border-light">
+                            <p>We are constantly adding new things to Onybuff.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock mainbody %}
+
+
+    {% block footer %}
+    {# "not necessary, here to demonstrate block.super" #}
+    {{block.super}}
+    {% endblock footer %}
+
+</body>
+
+</html>
