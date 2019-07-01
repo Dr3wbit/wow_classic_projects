@@ -1,3 +1,17 @@
+Provisioning a new site
+=======================
+
+## Required packages:
+
+* nginx
+* python 3.6.x (django, gunicorn, virtualenv)
+* memcached
+* Git
+* certbot (SSL encryption)
+* sendmail
+* fail2ban
+
+
 installing memcached: https://memcached.org/downloads
 memcached -d -s /tmp/memcached.sock // running memcache as a daemon and listening via socket
 memcached -d -p <port> // running memcache as a daemon and listening to custom port, default to port 11211

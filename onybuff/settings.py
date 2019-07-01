@@ -19,14 +19,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6@vg%(9efv2cwrv#+esel2#n8y_z+tje$+1x*hj4wj@kcdkiq*'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 #SECURE_SSL_REDIRECT = True
-ALLOWED_HOSTS = ['dev.onybuff.org', '127.0.0.1']
+ALLOWED_HOSTS = ['dev.onybuff.com']
 #INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
 AUTHENTICATION_BACKENDS = [
 	'social_core.backends.discord.DiscordOAuth2',
@@ -147,8 +147,8 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/authorize'
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 
-SOCIAL_AUTH_DISCORD_KEY = 366621423554265108
-SOCIAL_AUTH_DISCORD_SECRET = "b9DSXL5_-afv4ywI5MG1x45byplGfXGV"
+SOCIAL_AUTH_DISCORD_KEY = os.environ['DISCORD_KEY']
+SOCIAL_AUTH_DISCORD_SECRET = os.environ['DISCORD_SECRET_KEY']
 SOCIAL_AUTH_DISCORD_EXTRA_DATA = [
 	("avatar", "avatar"),
 	("verified", "is_verified"),
