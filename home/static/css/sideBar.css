@@ -22,15 +22,18 @@
 
 .spec-list-item.selected {
     background-color: rgba(0,0,120, 1);
-    /* border-top: 2px black solid; */
 }
 .spec-list-item:hover{
     background-color: #6d6e70;
 }
 
+.spec-list {
+    border-bottom: #404040;
+}
+
 .saved-specs-title {
- background-color: #181818;
- height: 7vh;
+ background-color: #1C1C1C;
+ height: 8vh;
  border-right: 1px solid black;
  box-shadow: 0 4px 2px -4px #000000;
 }
@@ -49,10 +52,18 @@
     padding: 0;
 }
 
-.spec-list {
-    height: 90vh;
+.custom-saves {
     padding: 20px;
     overflow-y: scroll;
+    height: 82vh;
+}
+
+.custom-saves::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-saves::-webkit-scrollbar-thumb {
+    background-color: #404040;
 }
 
 .minimized{
