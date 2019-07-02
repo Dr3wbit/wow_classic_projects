@@ -20,7 +20,7 @@
     </div>
     {% endblock title_splash %}
 
-{% block saved_lists %}
+{% comment %} {% block saved_lists %}
 <div class="saved-lists row minimized" id="sideNav">
     <div class="col saved-lists-container">
         <div class="saved-lists-title">
@@ -60,13 +60,13 @@
         <div class="trigger-icon">&#62;</div>
     </a>
 </div>
-{% endblock saved_lists %}
+{% endblock saved_lists %} {% endcomment %}
 
 {% block mainbody %}
 <div class="mainBody container">
 
 {% block class_selection %}
-<div class="row prof-selection sticky-top pt-1 nav-is-sticky steel-textured" id="prof_selection">
+<div class="row prof-selection sticky-top" id="prof_selection">
 
     {% for prof in professions %}
     <a class="prof-filter {% if prof == selected %}selected{% endif %}" id="{{prof}}" href="{% url 'consumes' prof|default:"alchemy" %}">

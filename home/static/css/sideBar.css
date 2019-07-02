@@ -1,0 +1,131 @@
+
+
+
+.spec-list-item{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: #343a40;
+    user-select: none;
+    cursor: pointer;
+    text-align: left;
+    max-width: 188px;
+    padding-left: 6px;
+    padding-top: 2px;
+}
+
+
+
+.spec-list-item.selected:hover{
+    background-color: rgba(10,10,160, 1);
+}
+
+.spec-list-item.selected {
+    background-color: rgba(0,0,120, 1);
+    /* border-top: 2px black solid; */
+}
+.spec-list-item:hover{
+    background-color: #6d6e70;
+}
+
+.saved-specs-title {
+ background-color: #181818;
+ height: 7vh;
+ border-right: 1px solid black;
+ box-shadow: 0 4px 2px -4px #000000;
+}
+
+.saved-specs{
+    color: rgb(255, 255, 255);
+    position: fixed;
+    background-color: #151515;
+    display: inline-block;
+    height: 90vh;
+    width: 250px;
+}
+
+.saved-specs-container {
+    width: 100%;
+    padding: 0;
+}
+
+.spec-list {
+    height: 90vh;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.minimized{
+
+}
+
+.form-check-label {
+    position: relative;
+    right: 5px;
+}
+
+#specNameChoice {
+    text-align:left;
+    width: 100%;
+}
+#includeInName {
+    text-align:left;
+}
+
+
+.form-check-input {
+    position: relative;
+    margin-top: .3rem;
+    margin-right: 5px;
+}
+
+legend.col-form-label{
+    font-size: 15px;
+}
+
+div.modal-footer {
+    align-items: flex-start;
+}
+
+
+
+#specName {
+    width: 65%;
+    font-size: 12px;
+    padding-left: 5px;
+
+}
+
+.invalid-feedback {
+    text-align: left;
+    font-size: 95%;
+    display: block;
+    position: relative;
+    left: 60px;
+}
+
+.spec-info {
+    background-color: #141414;
+    font-size: 85%;
+    justify-content: space-evenly;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    user-select: none;
+}
+
+.spec-container {
+    margin: 8px 0px 8px 5px;
+}
+
+.glyphicon-trash {
+    right: 0;
+}
+
+.glyphicon {
+    padding: 0;
+}
+
+.progress-bar-striped {
+        background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,rgba(10, 10, 160, .75) 25%,rgba(10, 10, 160, .75) 50%,
+            rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,rgba(10, 10, 160, .75) 75%,rgba(10, 10, 160, .75));
+}
