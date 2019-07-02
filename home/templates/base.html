@@ -30,6 +30,7 @@
         crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/global.css"> -->
     <link rel="stylesheet" type="text/css" href="{% static "css/global.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/sideBar.css" %}">
     <script src="{% static "js/polyfill.js" %}"></script>
 
     {% block extra_head %}
@@ -39,10 +40,13 @@
 <body>
     {% block navbar %}{% include "nav.html" %}{% endblock navbar %}
 
+    {% comment %} 
     {% block title_splash %}
-    {% endblock title_splash %}
+    {% endblock title_splash %} 
+    {% endcomment %}
 
     {% block saved_lists %}
+    {% include "sideBar.html" %}
     {% endblock saved_lists %}
 
     {% block mainbody %}
