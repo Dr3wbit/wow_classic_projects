@@ -302,7 +302,8 @@
   max-width: 718px;
   border-top: 1px solid black;
   border-bottom: 2px solid black;
-  color: rgba(240, 240, 255, 0.95);
+  color: white;
+  background-color: #272727;
 
   display: flex;
   font-size: 14px;
