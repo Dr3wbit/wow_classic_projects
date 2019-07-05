@@ -70,8 +70,9 @@
 		{% endfor %}
 	</div>
 	{% endblock class_selection %}
+	<div class="mainContent">
 	<div class="row justify-content-center">
-		<div id="talentHeader" class="steel-textured">
+		<div id="talentHeader">
 			<span id="allottedTalentPoints" class="col-3 text-left">(0/0/0)</span>
 			<span id="requiredLevel" class="col-3">Required level:</span>
 			<span id="pointsRemaining" class="col-3 text-right">Points Left:</span>
@@ -97,6 +98,7 @@
 		{% include "talent_builder.html" %}
 		{% endif %}
 	</div>
+</div>
 
 </div>
 	{% endblock mainbody %}

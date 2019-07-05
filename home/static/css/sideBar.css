@@ -31,31 +31,37 @@
     border-bottom: #404040;
 }
 
-.saved-specs-title {
+.saved-title {
  background-color: #1C1C1C;
  height: 8vh;
- border-right: 1px solid black;
  box-shadow: 0 4px 2px -4px #000000;
 }
 
-.saved-specs{
+.saved{
     color: rgb(255, 255, 255);
     position: fixed;
-    background-color: #151515;
+    background-color: #181818;
     display: inline-block;
-    height: 90vh;
+    height: 93vh;
     width: 250px;
+    z-index: 1300;
 }
 
-.saved-specs-container {
+.saved-container {
     width: 100%;
     padding: 0;
 }
 
 .custom-saves {
     padding: 20px;
-    overflow-y: scroll;
+    overflow: hidden;
     height: 82vh;
+    margin-right: 10px;
+}
+
+.custom-saves:hover {
+    overflow-y: scroll;
+    margin-right: 0;
 }
 
 .custom-saves::-webkit-scrollbar {
@@ -66,8 +72,34 @@
     background-color: #404040;
 }
 
-.minimized{
+.side-min{
+    left: -220px;
+    background-color: transparent;
+}
 
+.side-bar-toggle{
+    position: absolute;
+    background-image: url("../images/icons/double-chevron.png");
+    background-size:100% 100%;
+    border: 1px solid black;
+    height: 8vh;
+    width: 30px;
+    right: 0;
+    background-color: #272727;
+}
+
+.side-bar-toggle:hover{
+    border-left: 1px solid #383838;    
+    border-right: 1px solid #383838;   
+}
+
+.flip-background {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 }
 
 .form-check-label {

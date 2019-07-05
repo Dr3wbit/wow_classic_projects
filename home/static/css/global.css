@@ -22,7 +22,8 @@ body {
     width: 100%;
     position: absolute;
     bottom: 0;
-    background-color: black;
+    background-color: #1C1C1C;
+    z-index: 1310;
 
 }
 
@@ -37,6 +38,11 @@ body {
     vertical-align: top;
     padding-left: 265px;
    }
+
+.mainContent {
+    min-height: 100%;
+    padding: 25px;
+}
 
 .page-title {
     font-family: OpenSans, Arial, Helvetica, sans-serif;
@@ -252,7 +258,7 @@ button.class-filter:focus,  button.class-filter:active{
     color: rgb(231, 186, 0);
 }
 
-.class-selection, .prof-selection {
+.class-selection, .prof-selection, .selection-header{
     user-select: none;
     top: 7vh;
     background-color: #1C1C1C;
