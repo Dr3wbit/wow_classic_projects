@@ -13,6 +13,10 @@ from django.core import serializers
 class IndexView(TemplateView):
 	template_name = "index.html"
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['specs'] = Spec.objects.all()
+		return context
 
 class TalentCalcTemplate(TemplateView):
 
