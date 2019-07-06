@@ -64,13 +64,13 @@
     margin-right: 0;
 }
 
-.custom-saves::-webkit-scrollbar {
+/* .custom-saves::-webkit-scrollbar {
     width: 10px;
 }
 
 .custom-saves::-webkit-scrollbar-thumb {
     background-color: #404040;
-}
+} */
 
 .side-min{
     left: -220px;
