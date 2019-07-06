@@ -1,156 +1,114 @@
 {% extends "base.html" %}
 
-    {% block title %}- Consume Tool{% endblock title %}
+{% block title %}- Consume Tool{% endblock title %}
 
-    {% load static %}
-    {% block extra_head %}
+{% load static %}
+{% block extra_head %}
 
-    <link rel="stylesheet" type="text/css" href="{% static "css/consumeTool.css" %}">
-    {% endblock extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/consumeTool.css" %}">
+{% endblock extra_head %}
 
-
-    {% block navbar %}{{block.super}}{% endblock navbar %}
-
-
-    {% block title_splash %}
-    <div class="container titleSplash">
-        <div class="page-title">
-            <div class="p-3 page-description"></div>
-        </div>
-    </div>
-    {% endblock title_splash %}
-
-{% block saved_lists %}
-<div class="saved-lists row minimized" id="sideNav">
-    <div class="col saved-lists-container">
-        <div class="saved-lists-title">
-            <a id="save-consume-list" class="btn-sm float-left" role="button" aria-label="Save consume list" title="Save"
-                style="padding: 1px 0 5px 0;">
-                <span class="glyphicon glyphicon-hdd" style="color: {% if user.is_authenticated %}rgba(40,167,69,0.95){% else %}rgba(220,53,69,0.95){% endif %};" aria-hidden="true"></span>
-            </a>
-        </div>
-        <div class="clearfix"></div>
-        <div class="spec-list">
-            {% if user.is_authenticated %}
-            {% for cl in user.consumelist_set.all %}
-            <div class="spec-container">
-                <div class="spec-info">
-                    <span class="">{{cl.name}}</span>
-                    <span style="font-size: 90%;">
-                </div>
-                <div class="consume-list" role="button" href="{% url 'consumes' cl.name %}?{{cl.hash}}" name="{{cl.name}}">{{cl.name}}
-                    <button class="btn btn-sm float-right trashcan" name="delete" title="Delete" value="{{cl.name}}" type="button">
-                        <span class="glyphicon glyphicon-trash glyphicon-custom"></span>
-                    </button>
-                </div>
-            </div>
-            {% endfor %}
-            {% else %}
-            <p>
-            To save a consume list, click the save icon (login required:
-            <a id="discord-login" href="{% url 'social:begin' 'discord' %}?next={{ request.path }}"><span class="login discord"></span><svg id="Layer_1" height="20" width="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 532 130">
-                <path class="st0" d="M53.2 20.3H20v37.6l22.1 20V41.4H54c7.5 0 11.2 3.7 11.2 9.5v27.9c0 5.8-3.5 9.7-11.2 9.7H20v21.2h33.2c17.8.1 34.5-8.8 34.5-29.4V50.2c0-20.8-16.7-29.9-34.5-29.9zm174.1 60.1V49.6c0-11.1 19.8-13.7 25.8-2.5l18.3-7.5C264.3 23.7 251.1 19 240.2 19c-17.8 0-35.4 10.4-35.4 30.6v30.8c0 20.3 17.6 30.6 35 30.6 11.2 0 24.6-5.6 32-20.1l-19.6-9.1c-4.8 12.4-24.9 9.4-24.9-1.4zm-60.6-26.6c-6.9-1.5-11.5-4-11.8-8.3.4-10.4 16.3-10.7 25.6-.8l14.7-11.4C186 22 175.6 19 164.8 19c-16.3 0-32.1 9.2-32.1 26.8 0 17.1 13 26.2 27.3 28.4 7.3 1 15.4 3.9 15.2 9-.6 9.6-20.2 9.1-29.1-1.8L132 94.8c8.3 10.7 19.6 16.2 30.2 16.2 16.3 0 34.4-9.5 35.1-26.8 1-22-14.8-27.5-30.6-30.4zm-66.9 55.9h22.4V20.3H99.8v89.4zm377.7-89.4h-33.2v37.6l22.1 20V41.4h11.8c7.5 0 11.2 3.7 11.2 9.5v27.9c0 5.8-3.5 9.7-11.2 9.7h-34v21.2h33.2c17.8.1 34.5-8.8 34.5-29.4V50.2c.1-20.8-16.6-29.9-34.4-29.9zM314.6 19c-18.4 0-36.7 10.1-36.7 30.7v30.6c0 20.5 18.4 30.7 36.9 30.7 18.4 0 36.7-10.2 36.7-30.7V49.7c0-20.5-18.5-30.7-36.9-30.7zM329 80.3c0 6.4-7.2 9.7-14.3 9.7-7.2 0-14.4-3.2-14.4-9.7V49.7c0-6.6 7-10.1 14-10.1 7.3 0 14.7 3.2 14.7 10.1v30.6zm102.8-30.6c-.5-21-14.7-29.4-33-29.4h-35.5v89.5H386V81.3h4l20.6 28.4h28L414.4 79c10.8-3.4 17.4-12.7 17.4-29.3zm-32.6 12.1H386V41.4h13.2c14.2 0 14.2 20.4 0 20.4z"/>
-            </svg>
-        </a>)
-            {% endif %}
-        </p>
-        </div>
-    </div>
-    <a id="navTrigger" class="col side-nav-trigger btn-block" role="button">
-        <div class="trigger-icon">&#62;</div>
-    </a>
-</div>
-{% endblock saved_lists %}
+{% block navbar %}{{block.super}}{% endblock navbar %}
 
 {% block mainbody %}
 <div class="mainBody container">
 
-{% block class_selection %}
-<div class="row prof-selection sticky-top pt-1 nav-is-sticky steel-textured" id="prof_selection">
+    {% block class_selection %}
+    <div class="row prof-selection sticky-top" id="prof_selection">
 
-    {% for prof in professions %}
-    <a class="prof-filter {% if prof == selected %}selected{% endif %}" id="{{prof}}" href="{% url 'consumes' prof|default:"alchemy" %}">
-        {% with "images/icons/large/professions/"|add:prof|add:".jpg" as prof_image %}
-        <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}" style="background-image: url('{% static prof_image %}');">
-        {% endwith %}
-    </a>
-    {% endfor %}
-</div>
-{% endblock class_selection %}
-
-<div class="row justify-content-center prof-header">
-
-    <div class="col-lg-8 col-12 columnTitle">Recipes</div>
-    <div class="col-lg-4 col-12 columnTitle d-none d-lg-block">
+        {% for prof in professions %}
+        <a class="prof-filter {% if prof == selected %}selected{% endif %}" id="{{prof}}"
+            href="{% url 'consumes' prof|default:"alchemy" %}">
+            {% with "images/icons/large/professions/"|add:prof|add:".jpg" as prof_image %}
+            <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}"
+                style="background-image: url('{% static prof_image %}');">
+            {% endwith %}
+        </a>
+        {% endfor %}
     </div>
-    <!-- <div class="col-lg-3 col-12 columnTitle d-none d-lg-block">Materials</div> -->
-</div>
-<div class="row justify-content-center">
-
-<div class="col-lg-8 col-12"></div>
-<div class="col-lg-4 col-12">
-</div>
-</div>
-
-<div class="row prof-header sticky-top" style="top: 128px;">
-<div class="col-lg-5 col-8 columnTitle">Name</div>
-<div class="col-lg-3 col-4 columnTitle">Reagants</div>
-<div class="col-lg-4 col-12 columnTitle">Items
-    <a id="open-consume-prompt" class="btn-lg saveConsumeList float-right" role="button" aria-label="Save consume list" title="Save" data-toggle="modal" data-target="#consume-list-prompt" aria-label="consume list prompt">
-        <span class="glyphicon glyphicon-align-right glyphicon-floppy-disk" style="color: rgba(240,255,255,0.95);" aria-hidden="true"></span>
-    </a>
-    <div class="clearfix"></div>
-</div>
-</div>
-
-<div class="row">
-    <div id="recipe_list" class="col-lg-8 col-8 pageColumn">
-    {% if something %}
-    {% include "consume_helper.html" %}
-    {% endif %}
-</div>
-<div id="totals_container" class="col-lg-4 col-4 pageColumn">
-    <div class="row"></div>
-        <div id="total_crafted" class="col-12"></div>
-        <hr class="col-xs-12" style="border-color: grey; margin-top: 0; margin-bottom: 0; width: 100%;">
-        <span id="separator">Totals</span>
-        <hr class="col-xs-12" style="border-color: grey; margin-top: 0; margin-bottom: 0; width: 100%;">
-        <div id="total_materials" class="col-12"></div>
+    {% endblock class_selection %}
+    <div class="mainContent container">
+    <div class="row justify-content-center prof-header">
+        <div class="col-lg-8 col-12 columnTitle">Recipes</div>
+        <div class="col-lg-4 col-12 columnTitle d-none d-lg-block">
+        </div>
+        <!-- <div class="col-lg-3 col-12 columnTitle d-none d-lg-block">Materials</div> -->
     </div>
-</div>
+    <div class="row prof-header sticky-top" style="top: 15vh;">
+        <div class="col-xl-8 col-12">
+            <div class="row">
+                    <div class="col-8 columnTitle">Name</div>
+                    <div class="col-4 columnTitle">Reagants</div>
+            </div>
+        </div>
+        <!-- <div class="col-xl-5 col-8 columnTitle">Name</div>
+        <div class="col-xl-3 col-4 columnTitle">Reagants</div> -->
+        <div class="col-xl-4 d-none d-xl-block columnTitle">Items
+            <!-- <a id="open-consume-prompt" class="btn-lg saveConsumeList float-right" role="button"
+                aria-label="Save consume list" title="Save" data-toggle="modal" data-target="#consume-list-prompt"
+                aria-label="consume list prompt">
+                <span class="glyphicon glyphicon-align-right glyphicon-floppy-disk"
+                    style="color: rgba(240,255,255,0.95);" aria-hidden="true"></span>
+            </a>
+            <div class="clearfix"></div> -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="recipe_list" class="col-xl-8 col-12 pageColumn custom-scroll-bar">
+            {% if something %}
+            {% include "consume_helper.html" %}
+            {% endif %}
+        </div>
+        <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
+            <div class="row">
+            <div id="total_crafted" class="col-12"></div>
+            <span id="separator" class="col-12">Totals</span>
+            <div id="total_materials" class="col-12"></div>
+        </div>
+        </div>
+    </div>
+    {% block save_form %}
+    {% include "save_form.html" %}
+    {% endblock save_form %}
+    </div>
 </div>
 {% endblock mainbody %}
 
 
 <!-- Modal -->
 {% block modal %}
-<div class="modal fade" id="consume-list-prompt" tabindex="-1" role="dialog" aria-labelledby="specSaver" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-	<div class="modal-content bg-dark text-white" style="box-shadow: rgba(0,0,0,.8) 0 1px 3px 0 inset; border-radius:2px;">
-	  <div class="modal-body">
-		  <button type="button" class="close" aria-label="Close" data-dismiss="modal">
-			  <span aria-hidden="true">&times;</span>
-		  </button>
-		  <form method="post" id="save-consume-list">
-			  {% csrf_token %}
-		<div class="form-group row">
-		  <div class="input-group input-group-sm">
-			<div class="input-group-prepend">
-			  <div class="input-group-text" style="border-radius: 2px 0 0 2px;">name</div>
-			</div>
-			<input type="text" id="list-name" class="form-control-sm" placeholder="list name" aria-label="Text..." aria-describedby="basic-addon1" autocomplete="off" required=True>
-			<div class="input-group-append">
-			  <button type="submit" class="input-group-text btn-sm btn-primary" id="confirm-list-name" style="border-radius: 0 2px 2px 0;">Confirm</button>
-			</div>
-			<div id="list-name-validation" class="form-text"></div>
-		  </div>
-	   </div>
-	</form>
-	</div>
-	</div>
-	</div>
-	</div>
-	{% endblock modal %}
+<div class="modal fade" id="consume-list-prompt" tabindex="-1" role="dialog" aria-labelledby="specSaver"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white"
+            style="box-shadow: rgba(0,0,0,.8) 0 1px 3px 0 inset; border-radius:2px;">
+            <div class="modal-body">
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form method="post" id="save-consume-list">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text" style="border-radius: 2px 0 0 2px;">name</div>
+                            </div>
+                            <input type="text" id="list-name" class="form-control-sm" placeholder="list name"
+                                aria-label="Text..." aria-describedby="basic-addon1" autocomplete="off" required=True>
+                            <div class="input-group-append">
+                                <button type="submit" class="input-group-text btn-sm btn-primary" id="confirm-list-name"
+                                    style="border-radius: 0 2px 2px 0;">Confirm</button>
+                            </div>
+                            <div id="list-name-validation" class="form-text"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock modal %}
 {% block javascript %}
 
 <script src="{% static "js/utilities.js" %}"></script>
@@ -159,157 +117,157 @@
 <script src="{% static "js/consumeTool.js" %}"></script>
 <script>
 
-// function update_url(class_name, search='') {
-//     const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
-//     let url = new URL(document.location)
-//     url.pathname = `/talent_calc/${class_name}`
-//     url.search = search
-//     history.replaceState(null, null, url)
-// }
+    // function update_url(class_name, search='') {
+    //     const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
+    //     let url = new URL(document.location)
+    //     url.pathname = `/talent_calc/${class_name}`
+    //     url.search = search
+    //     history.replaceState(null, null, url)
+    // }
 
-function update_prof(prof, spec_name='') {
-$.ajax({
-    url: `/consume_tool/${prof}`,
-    data: {
-        'prof': prof,
-    },
-    dataType: 'html',
+    function update_prof(prof, spec_name = '') {
+        $.ajax({
+            url: `/consume_tool/${prof}`,
+            data: {
+                'prof': prof,
+            },
+            dataType: 'html',
 
-    success: function (data) {
-        let selected = $("button.prof-filter.selected").attr("id");
-        if (selected != prof) {
-            $("#recipe_list").html(data);
-            $(".prof-filter").removeClass('selected');
-            $(`#${prof}`).addClass('selected');
+            success: function (data) {
+                let selected = $("button.prof-filter.selected").attr("id");
+                if (selected != prof) {
+                    $("#recipe_list").html(data);
+                    $(".prof-filter").removeClass('selected');
+                    $(`#${prof}`).addClass('selected');
+                }
+
+            }
+        });
+    }
+
+    function save_consume_list(list_name) {
+
+        var list_name = $("#list-name").val();
+        var spec_ele = $(`.consume-list-item[name="${list_name}"]`)
+        var spec_list_parent = $(".spec-list")
+        $.ajax({
+            headers: { "X-CSRFToken": "{{ csrf_token }}" },
+            url: '/ajax/save_spec/',
+            data: {
+                spec_url: urlBuilder(),
+                spec_name: spec_name,
+                spent: [
+                    [talentPointsSpent.treeNames[0], talentPointsSpent[talentPointsSpent.treeNames[0]].total()],
+                    [talentPointsSpent.treeNames[1], talentPointsSpent[talentPointsSpent.treeNames[1]].total(),],
+                    [talentPointsSpent.treeNames[2], talentPointsSpent[talentPointsSpent.treeNames[2]].total(),]
+                ],
+            },
+            method: "POST",
+            dataType: 'json',
+            traditional: true,
+            beforesend: function (data) {
+                //
+            },
+            success: function (data) {
+                if (data.spec_url) {
+                    if (spec_ele.length) {
+                        // update it
+                        // let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
+                        // $("#allottedTalentPoints").text(a)
+                    } else {
+                        // create it
+                        let spec_cont = $("<div/>", {
+                            class: "spec-container",
+                        })
+                        let spec_info = $("<div/>", {
+                            class: "spec-info",
+                        }).append($("<span/>", {
+                            class: class_name,
+                            text: `${utilities.titleCase(class_name)}`
+                        }), ' ', $("<span/>", {
+                            style: "font-size: 90%;",
+                            text: `(${data.spent[0]}/${data.spent[1]}/${data.spent[2]})`,
+                        }))
+
+                        let spec_item = $("<div/>", {
+                            class: "spec-list-item progress-bar progress-bar-striped progress-bar-animated",
+                            href: `${document.location.pathname}?${data.spec_url}`,
+                            role: "button",
+                            name: spec_name,
+                            text: spec_name,
+                            style: "height: unset; display: block;",
+                        })
+                        spec_item.attr("data-wowclass", class_name)
+                        spec_item.on({
+                            click: e => {
+                                var class_name = $(e.target).attr('data-wowclass');
+                                var spec_name = $(e.target).attr('name');
+                                update_class(class_name, spec_name)
+                            }
+                        })
+
+                        let trashcan = ($("<button/>", {
+                            class: "btn btn-sm float-right trashcan",
+                            name: "delete",
+                            value: spec_name,
+                            type: "button",
+                            title: `delete ${spec_name}`
+                        })).on({
+                            click: e => {
+                                var saved_list = $(e.target).val();
+                                delete_list(saved_list)
+                            }
+                        })
+
+                        trashcan.append($("<span/>", {
+                            class: "glyphicon glyphicon-trash glyphicon-custom"
+                        }))
+
+                        spec_item.append(trashcan)
+                        spec_cont.append(spec_info, spec_item)
+                        spec_list_parent.append(spec_cont)
+                        update_selected_spec(spec_name)
+                    }
+                }
+            }
+        });
+    }
+
+    $(".prof-filter").on({
+        click: e => {
+            e.preventDefault()
+            var prof = $(e.target)[0].id;
+            update_prof(prof);
+            // update_url(class_name, '');
         }
+    });
 
-    }
-});
-}
+    $(".consume-list").on({
+        click: e => {
+            var list_name = $(e.target).attr('name');
+            load_consume_list(list_name)
+        }
+    });
 
-function save_consume_list(list_name) {
+    $("#open-consume-prompt").on({
+        click: e => {
+            e.preventDefault()
+            $("#consume-list-prompt").modal('show')
+        }
+    });
 
-	var list_name = $("#list-name").val();
-	var spec_ele = $(`.consume-list-item[name="${list_name}"]`)
-	var spec_list_parent = $(".spec-list")
-	$.ajax({
-		headers: {"X-CSRFToken": "{{ csrf_token }}"},
-		url: '/ajax/save_spec/',
-		data: {
-			spec_url: urlBuilder(),
-			spec_name: spec_name,
-			spent: [
-				[talentPointsSpent.treeNames[0], talentPointsSpent[talentPointsSpent.treeNames[0]].total()],
-				[talentPointsSpent.treeNames[1], talentPointsSpent[talentPointsSpent.treeNames[1]].total(),],
-				[talentPointsSpent.treeNames[2], talentPointsSpent[talentPointsSpent.treeNames[2]].total(),]
-			],
-		},
-		method: "POST",
-	  	dataType: 'json',
-		traditional: true,
-		beforesend: function (data) {
-			//
-		},
-	  	success: function (data) {
-			if (data.spec_url) {
-				if (spec_ele.length) {
-					// update it
-					// let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
-					// $("#allottedTalentPoints").text(a)
-				} else {
-					// create it
-					let spec_cont = $("<div/>", {
-						class: "spec-container",
-					})
-					let spec_info = $("<div/>", {
-						class: "spec-info",
-					}).append($("<span/>", {
-						class: class_name,
-						text: `${utilities.titleCase(class_name)}`
-					}), ' ', $("<span/>", {
-						style: "font-size: 90%;",
-						text: `(${data.spent[0]}/${data.spent[1]}/${data.spent[2]})`,
-					}))
+    $("#consume-list-prompt").on({
+        'shown.bs.modal': () => {
+            $("#list-name").focus()
+        },
+    });
 
-					let spec_item = $("<div/>", {
-						class: "spec-list-item progress-bar progress-bar-striped progress-bar-animated",
-						href: `${document.location.pathname}?${data.spec_url}`,
-						role: "button",
-						name: spec_name,
-						text: spec_name,
-						style: "height: unset; display: block;",
-					})
-					spec_item.attr("data-wowclass", class_name)
-					spec_item.on({
-					   click: e=> {
-						   var class_name = $( e.target ).attr('data-wowclass');
-						   var spec_name = $( e.target ).attr('name');
-						   update_class(class_name, spec_name)
-					   }
-					})
-
-					let trashcan = ($("<button/>", {
-						class: "btn btn-sm float-right trashcan",
-						name: "delete",
-						value: spec_name,
-						type: "button",
-						title: `delete ${spec_name}`
-					})).on({
-					   click: e=> {
-						   var saved_list = $( e.target ).val();
-						   delete_list(saved_list)
-					   }
-					})
-
-					trashcan.append($("<span/>", {
-						class: "glyphicon glyphicon-trash glyphicon-custom"
-					}))
-
-					spec_item.append(trashcan)
-					spec_cont.append(spec_info, spec_item)
-					spec_list_parent.append(spec_cont)
-					update_selected_spec(spec_name)
-				}
-			}
-	  	}
-	});
-}
-
-$(".prof-filter").on({
-    click: e=> {
-        e.preventDefault()
-        var prof = $( e.target )[0].id;
-        update_prof(prof);
-        // update_url(class_name, '');
-    }
-});
-
-$(".consume-list").on({
-    click: e=> {
-        var list_name = $( e.target ).attr('name');
-        load_consume_list(list_name)
-    }
-});
-
-$("#open-consume-prompt").on({
-    click: e=> {
-        e.preventDefault()
-        $("#consume-list-prompt").modal('show')
-    }
-});
-
-$("#consume-list-prompt").on({
-    'shown.bs.modal': ()=> {
-		$("#list-name").focus()
-	},
-});
-
-$("#save-consume-list").on({
-    submit: e=> {
-        var list_name = $("#list-name").val()
-        save_consume_list()
-    }
-});
+    $("#save-consume-list").on({
+        submit: e => {
+            var list_name = $("#list-name").val()
+            save_consume_list()
+        }
+    });
 
 </script>
 {% endblock javascript %}

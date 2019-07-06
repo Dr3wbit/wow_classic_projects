@@ -2,7 +2,7 @@
 {% load static %}
     {% for consume,v in consumes.items %}
     <div class="row">
-        <div class="col-8" style="flex: 62%; max-width: 62%; margin-right: 0; padding-right:0;">
+        <div class="col-8">
             <div class="prof-item-recipe" name="{{consume}}">
                 <span class="recipe-container {{v.rarity}}" name="{{consume}}">
                 {% with "images/icons/consumes/"|add:consume|add:".jpg" as item_image %}

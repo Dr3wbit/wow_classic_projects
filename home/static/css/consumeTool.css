@@ -1,42 +1,6 @@
 
-.consume-container {
-    background-image: url("../images/alch_table_transparent_smaller.png");
-    background-size: cover;
-    padding: 10px;
-}
-
-.total-container {
-    background-image: url("../images/textured_background_white.png");
-    background-size: cover;
-    border-radius: 5px;
-    border: 1px black solid;
-    min-height: 200px;
-}
 
 
-.consume-input {
-    display: block;
-    background-color: rgba(240, 240, 240, 0.87);
-    text-align: center;
-    width: 100%;
-}
-
-input:focus {
-    background-color: rgb(173, 255, 179);
-}
-
-.pageColumn {
-    border-color: black;
-    padding-left: 1px;
-    padding-right: 1px;
-}
-
-.columnTitle {
-    font-size: 15px;
-    min-height: 0;
-    max-height: 32px;
-    line-height: normal;
-}
 
 .blue {
     color: rgba(0, 37, 255, 1);
@@ -83,12 +47,7 @@ input:focus {
 }
 
 .prof-header > div{
-    border-top: 2px groove black;
-    border-bottom: 2px groove black;
-    border-left: 1px aliceblue solid;
-    border-right: 1px aliceblue solid;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 1px;
+    background-color: #1C1C1C;
 }
 
 .prof-header > div:first-child{
@@ -116,15 +75,16 @@ input:focus {
 
 #totals_container {
     overflow-y: scroll;
-    height: 100%;
+    padding-top: 10px;
 }
 
 .crafted-list-item {
     font-size: 95%;
     margin-top: 1px;
+    padding: 1px;
     cursor: pointer;
     border: 2px black solid;
-    background-color: black;
+    background-color: #101010;
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
@@ -135,8 +95,8 @@ input:focus {
 .materials-list-item {
     font-size: 95%;
     margin-top: 1px;
-    border: 2px black solid;
-    background-color: black;
+    padding: 1px;
+    background-color: #101010;
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
@@ -148,11 +108,10 @@ input:focus {
     text-indent: 30px;
 }
 
-button.saveConsumeList{
+/* button.saveConsumeList{
     background-image: url(../images/icons/save_icon.png);
     background-size: contain;
     background-repeat: no-repeat;
-    /* background-image:  contain no-repeat; */
     height: 18px;
     width: 16px;
     border: none;
@@ -163,7 +122,7 @@ button.saveConsumeList{
 
 a.saveConsumeList{
     cursor: pointer;
-}
+} */
 
 #consumeListName {
     width: 65%;
@@ -203,7 +162,7 @@ a.saveConsumeList{
     background-color: rgba(10,10,160, 1);
 }
 
-.saved-lists-container{
+/* .saved-lists-container{
     padding: 5px;
     padding-top: 0px;
     background-image: url(../images/naga_sketch.png);
@@ -212,9 +171,9 @@ a.saveConsumeList{
     margin: 1px 0;
     border-radius: 1px;
     border-right: 6px solid black;
-}
+} */
 
-.saved-lists{
+/* .saved-lists{
     color: rgba(240, 255, 255, 0.95);
     position: fixed;
     z-index: 1025;
@@ -245,9 +204,9 @@ a.saveConsumeList{
     padding-top: 1px;
     padding-bottom: 5px;
     margin-top: 4px;
-}
+} */
 
-.minimized{
+/* .minimized{
     animation: slide-out 1s forwards, glowing 5000ms 0.9s infinite alternate-reverse, glowing-text 5000ms 0.9s infinite;
     -webkit-animation: slide-out 1s forwards, glowing 5000ms 0.9s infinite alternate-reverse, glowing-text 5000ms 0.9s infinite alternate-reverse;
 }
@@ -267,9 +226,9 @@ a.saveConsumeList{
 }
 .side-nav-trigger:hover{
     background-image: linear-gradient(to right,rgb(25, 25, 25), rgb(35, 35, 35),rgb(25, 25, 25));
-}
+} */
 
-.trigger-icon{
+/* .trigger-icon{
     background-size: contain;
     background-repeat: no-repeat;
     height: 34px;
@@ -289,9 +248,9 @@ a.saveConsumeList{
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
-}
+} */
 
-@keyframes slide-in {
+/* @keyframes slide-in {
     100% { transform: translateX(0%); }
 }
 
@@ -336,23 +295,27 @@ a.saveConsumeList{
 .saveConsumeList {
     padding: 0;
     line-height: inherit;
+} */
+
+
+#separator {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    width: 100%
 }
 
 
-
-.prof-item-recipe {
-    /* font-size: 90%; */
+/* .prof-item-recipe {
     margin-top: 1px;
     cursor: pointer;
     border: 2px black solid;
-    background-color: black;
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
     pointer-events: none;
     text-indent: 15px;
     user-select: none;
-}
+} */
 
 .icon-medium {
     width: 42px;
@@ -366,15 +329,14 @@ a.saveConsumeList{
     pointer-events: all;
 }
 
-.reagant-list {
+/* .reagant-list {
     margin-top: 1px;
     flex: 36%;
     max-width: 36%;
     border: 2px black solid;
     border-left: 2px solid white;
     border-radius: 1px;
-    background-color: black;
-}
+} */
 
 .recipe-container {
     pointer-events: auto;
@@ -390,6 +352,7 @@ a.saveConsumeList{
     text-align: left;
     pointer-events: auto;
     height: 100%;
+    border-right: 1px solid black;
 }
 
 .material-container {
@@ -434,34 +397,22 @@ a.saveConsumeList{
     z-index: 10;
 }
 
-.reagant-list-container {
-    position: relative;
-    display: inline-block;
-    float: left;
-}
-
 .amount {
     margin-right: 0;
     z-index: auto;
 }
 .prof-item-recipe {
-    /* font-size: 90%; */
-    margin-top: 1px;
+    margin-bottom: 4px;
     cursor: pointer;
-    border: 2px black solid;
-    background-color: black;
+
+    background-color: #101010;
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    /* align-items: center; */
     pointer-events: none;
     text-indent: 15px;
     user-select: none;
 }
-
-/* .prof-item-recipe img,span{
-    pointer-events: none;
-} */
 
 .icon-medium {
     width: 42px;
@@ -476,13 +427,8 @@ a.saveConsumeList{
 }
 
 .reagant-list {
-    margin-top: 1px;
-    flex: 36%;
-    max-width: 36%;
-    border: 2px black solid;
-    border-left: 2px solid white;
-    border-radius: 1px;
-    background-color: black;
+    margin-bottom: 4px;
+    background-color: #101010;
 }
 
 .recipe-container {
@@ -498,6 +444,7 @@ a.saveConsumeList{
     overflow-y: scroll;
     text-align: left;
     pointer-events: auto;
+    padding-top: 10px;
 }
 
 .material-container {

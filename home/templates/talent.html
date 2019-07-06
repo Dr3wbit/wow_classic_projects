@@ -17,10 +17,10 @@
 	</div>
 	{% endblock title_splash %}
 
-	{% block saved_lists %}
-		<div class="saved-specs row">
-			<div class="col saved-specs-container">
-				<div class="saved-specs-title">
+	{% comment %} {% block saved_lists %}
+		<div class="saved-specs">
+			<div class="saved-specs-container">
+				<div class="saved-specs-title">awdawdw
 					<a class="btn-sm float-left" role="button" aria-label="Save consume list"
 						style="padding: 0;">
 						<span class="glyphicon glyphicon-hdd" style="color: {% if user.is_authenticated %}rgba(40,167,69,0.95){% else %}rgba(220,53,69,0.95){% endif %};" aria-hidden="true"></span>
@@ -53,17 +53,14 @@
 				</p>
 				</div>
 			</div>
-			<div class="col side-nav-trigger">
-				<div class="trigger-icon">&#62;</div>
-			</div>
 		</div>
-	{% endblock saved_lists %}
+	{% endblock saved_lists %} {% endcomment %}
 
 	{% block mainbody %}
 
 	<div class="mainBody container">
 	{% block class_selection %}
-	<div class="row class-selection sticky-top pt-1 nav-is-sticky steel-textured" id="class_selection">
+	<div class="row class-selection sticky-top" id="class_selection">
 		{% for class in classes %}
 		<a class="class-filter {% if class == selected %}selected{% endif %}" id="{{class}}">
 			{% with "images/icons/large/class/"|add:class|add:".jpg" as class_image %}
@@ -73,8 +70,9 @@
 		{% endfor %}
 	</div>
 	{% endblock class_selection %}
+	<div class="mainContent">
 	<div class="row justify-content-center">
-		<div id="talentHeader" class="steel-textured">
+		<div id="talentHeader">
 			<span id="allottedTalentPoints" class="col-3 text-left">(0/0/0)</span>
 			<span id="requiredLevel" class="col-3">Required level:</span>
 			<span id="pointsRemaining" class="col-3 text-right">Points Left:</span>
@@ -100,6 +98,10 @@
 		{% include "talent_builder.html" %}
 		{% endif %}
 	</div>
+	{% block save_form %}
+    {% include "save_form.html" %}
+    {% endblock save_form %}
+</div>
 
 </div>
 	{% endblock mainbody %}
