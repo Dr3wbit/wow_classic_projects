@@ -5,10 +5,8 @@
 {% load static %}
 {% block extra_head %}
 
-<link rel="stylesheet" type="text/css" href="{% static "css/consumeTool.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/consume_tool.css" %}">
 {% endblock extra_head %}
-
-{% block navbar %}{{block.super}}{% endblock navbar %}
 
 {% block mainbody %}
 <div class="mainBody container">
@@ -114,7 +112,7 @@
 <script src="{% static "js/utilities.js" %}"></script>
 <script src="{% static "js/all_materials.js" %}"></script>
 <script src="{% static "js/all_consumes.js" %}"></script>
-<script src="{% static "js/consumeTool.js" %}"></script>
+<script src="{% static "js/consume_tool.js" %}"></script>
 <script>
 
     // function update_url(class_name, search='') {
