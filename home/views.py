@@ -117,14 +117,14 @@ class ConsumeToolTemplate(TemplateView):
 
 		else:
 			context["something"] = True
-			response = render(request, "consumeTool.html", context=context)
+			response = render(request, "consume_tool.html", context=context)
 
 		print(context)
 		return response
 
 
 class EnchantToolView(TemplateView):
-	template_name = "enchantTool.html"
+	template_name = "enchant_tool.html"
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -135,7 +135,7 @@ class EnchantToolView(TemplateView):
 		return context
 
 class SpecsAndGuidesView(TemplateView):
-	template_name = "specsAndGuides.html"
+	template_name = "specs_and_guides.html"
 
 class ContactView(TemplateView):
 	template_name = "contact.html"
@@ -272,7 +272,7 @@ def load_spec(request):
 # 	return response
 
 
-# 
+#
 # class LoginView(TemplateView):
 # 	pass
 #

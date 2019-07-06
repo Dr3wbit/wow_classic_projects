@@ -1,15 +1,8 @@
-{% load static %}
 <div class="saved">
 	<div class="saved-container">
 		<div class="saved-title">
 			<div class="side-bar-toggle"></div>
-			<a class="btn-sm float-left" role="button" aria-label="Save consume list" style="padding: 4px;">
-				<span class="glyphicon glyphicon-hdd"
-					style="color: {% if user.is_authenticated %}rgba(40,167,69,0.95){% else %}rgba(220,53,69,0.95){% endif %};"
-					aria-hidden="true"></span>
-			</a>
 		</div>
-		<div class="clearfix"></div>
 		<div class="custom-saves custom-scroll-bar">
 			<div class="spec-list">
 				{% if user.is_authenticated %}
@@ -67,30 +60,3 @@
 		</div>
 	</div>
 </div>
-
-{% block javascript %}
-<script>
-
-$(".side-bar-toggle").on({
-   click: e=> {
-	   let bool = $('.saved').hasClass('side-min')
-	   if(bool){
-			$('.saved').removeClass('side-min')
-			$('.mainBody').css({'padding-left': '265px'})
-			$('.custom-saves').css({'display': 'block'})
-			$('.side-bar-toggle').removeClass('flip-background')
-
-	   }else{
-		    $('.saved').addClass('side-min')
-			$('.mainBody').css({'padding-left': '15px'})
-			$('.custom-saves').css({'display': 'none'})
-			$('.side-bar-toggle').addClass('flip-background')
-	   }
-   }
-});
-
-
-
-
-</script>
-{% endblock javascript %}
