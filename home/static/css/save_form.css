@@ -1,0 +1,28 @@
+
+
+.saveBlock {
+    margin-top: 25px;
+    background-color: #1C1C1C;
+}
+
+.save-form-desc{
+    text-align: left;
+}
+
+.save-form-header{
+    box-shadow: 0 4px 2px -4px #000000;
+}
+
+.tag-container{
+    box-shadow: 0 4px 2px -4px #000000;
+}
+
+.save-form-header> div {
+    border: 1px solid black;
+    padding: 4px;
+}
+
+.tag-container> div {
+    border: 1px solid black;
+    padding: 4px;
+}

@@ -27,6 +27,14 @@ body {
 
 }
 
+.custom-scroll-bar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-thumb {
+    background-color: #404040;
+}
+
 .container {
     max-width: none !important;
 }
@@ -730,19 +738,19 @@ ul {
 
 .columnTitle {
     border: 1px solid black;
-    color: rgb(255, 255, 255);
-    line-height: 38px;
-    box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
+    color: white;
+    font-size: 16px;
+    max-height: 32px;
+    line-height: normal;
+    background-color: #272727;
+    box-shadow: 0 4px 2px -4px #000000;
 }
 
 .pageColumn{
-    background-image: url("../images/textured_background.png");
-    background-size: cover;
-    border: 1px rgb(255, 255, 255) solid;
-    min-height: 475px;
-    max-height: 475px;
-    /* color: #1EFF00; */
-    /* border: 1px solid #78797a; */
+    min-height: 65vh;
+    max-height: 65vh;
+    background-color: #1C1C1C;
+    box-shadow: 0 4px 2px -4px #000000;
 }
 
 

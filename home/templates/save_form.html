@@ -1,0 +1,33 @@
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
+{% endblock extra_head %}
+
+<form class="row saveBlock">
+    <div class="container">
+        <div class="row save-form-header">
+            <div class="col-1">SAVE?</div>
+            <div class="col-9 save-form-desc"> We save your specs and craftlists to our database for others to view and vote on.
+                Please choose to attach your discord name (not your id) to your save or have it display as anonymous.
+            </div>
+            <div class="col-2">Attach Name?</div>
+        </div>
+        <div class="row tag-container">
+            <div class="col-4">Select All Relevent Tags:</div>
+            <div class="col-8">tag filters</div>
+        </div>
+        <div class="row notes-container pt-3">
+            <span class="pl-5">Notes:</span>
+            <div class="col-12">
+                <textarea name="" id="" cols="100" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="row justify-content-center p-3">
+            <button class="btn btn-lg btn-dark">Save</button>
+        </div>
+    </div>
+</form>
+
+{% block javascript %}
+{% endblock javascript %}
