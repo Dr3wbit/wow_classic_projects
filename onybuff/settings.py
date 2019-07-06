@@ -26,7 +26,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DEBUG = True
 
 #SECURE_SSL_REDIRECT = True
-ALLOWED_HOSTS = ['dev.onybuff.com']
+ALLOWED_HOSTS = ['127.0.0.1','dev.onybuff.com','localhost']
 #INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
 AUTHENTICATION_BACKENDS = [
 	'social_core.backends.discord.DiscordOAuth2',
