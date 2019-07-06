@@ -4,7 +4,6 @@ import datetime, math, re, time
 from django.contrib.auth.models import User
 from social_django.models import UserSocialAuth
 
-
 nope = re.compile(r"[\-]")
 forbiden = re.compile(r"[\:\'\(\)]")
 
@@ -265,6 +264,9 @@ class Spec(models.Model):
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
 	private = models.BooleanField(default=False)
+
+	created = models.DateTimeField(auto_now_add=True)
+	updated = models.DateTimeField(auto_now=True)
 
 	def __str__(self):
 		return(self.name)

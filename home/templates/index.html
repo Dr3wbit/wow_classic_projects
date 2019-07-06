@@ -3,15 +3,10 @@
 
 {% block extra_head %}
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.js" %}"></script>
-<!--Timer-->
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.min.js" %}"></script>
-<!--Timer-->
 <link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
 <script src="{% static "js/landing_page.js" %}"></script>
 {% endblock extra_head %}
-
-{% block navbar %}{{block.super}}{% endblock navbar %}
-
 
 {% block title_splash %}
     <div class="container titleSplash pt-5">
@@ -103,6 +98,33 @@
                 </div>
             </div>
             <div class="card-container col-lg-8 col-12 recent-news">
+                <div class="card mb-3 bg-transparent border-light text-center">
+                    <div class="card-header bg-transparent border-light text-light">
+                        <button class="btn btn-sm float-left" title="Refresh"
+        					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
+        					<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        				</button>
+                        <!-- <div class="clearfix"></div> -->
+                        NEW SAVED SPECS
+                    </div>
+                {% for spec in specs %}
+                <div class="card-body text-light">
+                    <h5 class="card-title text-center">{{spec.name}}</h5>
+                    <p>By:<a href="">
+                    {% if not spec.private %}
+                    {{spec.user.disc_username}}
+                    {% else %}
+                    anonymous
+                    {% endif %}
+                </a></p>
+                    <p> Description: ---------------------- <br> -----------------</p>
+                    <span> Added: {{spec.created}}</span>
+                    <hr style="border: 1px solid white; width: 100%;"></hr>
+
+                </div>
+                {% endfor %}
+                </div>
+
                 <div class="card mb-3 bg-transparent border-light text-center">
                     <div class="card-header bg-transparent border-light text-light">
                         Recent News
