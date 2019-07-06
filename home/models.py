@@ -264,6 +264,7 @@ class Spec(models.Model):
 	name = models.CharField(max_length=30, default='')
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
+	private = models.BooleanField(default=False)
 
 	def __str__(self):
 		return(self.name)
@@ -291,6 +292,7 @@ class ConsumeList(models.Model):
 	name = models.CharField(max_length=30, default='')
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='testy test')
+	private = models.BooleanField(default=False)
 
 	def __str__(self):
 		return(self.tree.name)
