@@ -79,18 +79,18 @@
 
 .side-bar-toggle{
     position: absolute;
-    background-image: url("../images/icons/double-chevron.png");
     background-size:100% 100%;
     border: 1px solid black;
     height: 8vh;
     width: 30px;
     right: 0;
     background-color: #272727;
+    background-image: url("../images/icons/double-chevron.png");
 }
 
-.side-bar-toggle:hover{
-    border-left: 1px solid #383838;    
-    border-right: 1px solid #383838;   
+.side-bar-toggle:hover{  
+    background-image: url("../images/icons/double-chevron-dark.png");
+    background-color: #333333;
 }
 
 .flip-background {
