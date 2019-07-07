@@ -295,6 +295,8 @@ class Tag(models.Model):
 
 	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
 
+	def __str__(self):
+		return(self.name)
 
 class TreeAllotted(models.Model):
 	spec = models.ForeignKey('Spec', on_delete=models.CASCADE)

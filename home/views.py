@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted
+from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag
 from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page, never_cache

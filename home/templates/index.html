@@ -70,9 +70,9 @@
     {% endblock title_splash %}
 
     {% block mainbody %}
-    <div class="container mainBody">
+    <div class="mainBody container">
         <div class="row selection-header sticky-top">
-            <h2 class="my-auto font-weight-bold">Onybuff.com</h2>
+            <!-- <h2 class="my-auto font-weight-bold">Onybuff.com</h2> -->
         </div>
         <div class="row content-container mt-4">
             <div class="col-12 mb-4 site-content">
@@ -116,11 +116,15 @@
                     {% else %}
                     anonymous
                     {% endif %}
-                </a></p>
-                    <p> Description: ---------------------- <br> -----------------</p>
-                    <span> Added: {{spec.created}}</span>
+                    </a></p>
+                    <span> ---------------------- </span>
+                    <p> <span style="text-decoration: underline;">Description</span>: {{spec.description}}</p>
+                    <p><span style="text-decoration: underline;"> Added</span>:<span> {{spec.created}}</span></p>
+                    <br>
+                    {% for tag in spec.tags.all %}
+                    <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
+                    {% endfor %}
                     <hr style="border: 1px solid white; width: 100%;"></hr>
-
                 </div>
                 {% endfor %}
                 </div>
@@ -218,12 +222,7 @@
 
     {% endblock mainbody %}
 
-
     {% block footer %}
     {# "not necessary, here to demonstrate block.super" #}
     {{block.super}}
     {% endblock footer %}
-
-</body>
-
-</html>
