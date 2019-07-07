@@ -148,7 +148,8 @@ function resetHandler() {
 }
 
 function resetAll() {
-	let className = $('.class-filter.selected')[0].id
+	console.log('resetting all')
+	let className = $('.class-filter.selected').attr("id")
 	let treeNames = talentPointsSpent.treeNames
 
 	talentPointsSpent.hardLocked = false

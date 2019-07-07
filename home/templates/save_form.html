@@ -1,8 +1,9 @@
 {% load static %}
 
-{% block extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
-{% endblock extra_head %}
+
+<!-- NOTE: old form -->
+<h1>OLD</h1>
 
 <form class="row saveBlock">
     <div class="container">
@@ -83,5 +84,29 @@
     </div>
 </form>
 
-{% block javascript %}
-{% endblock javascript %}
+
+<!-- NOTE: new form -->
+<h1>NEW</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="fieldWrapper">
+        {{ form.name.errors }}
+        <label for="{{ form.name.id_for_label }}">Title:</label>
+        {{ form.name }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.description.errors }}
+        <label for="{{ form.description.id_for_label }}">Notes:</label>
+        {{ form.description }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.private.errors }}
+        <label for="{{ form.private.id_for_label }}">Private?</label>
+        {{ form.private }}
+    </div>
+    <div class="form-actions">
+      <button type="submit">Save</button>
+    </div>
+</form>

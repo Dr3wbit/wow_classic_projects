@@ -40,13 +40,16 @@
 <body>
     {% block navbar %}{% include "nav.html" %}{% endblock navbar %}
 
-
+    {% block title_splash %}
+    {% endblock title_splash %}
+    
     {# load cache #}
     {# cache 15 sidebar #}
 
     {% include "sidebar.html" %}
-    
+
     {# endcache #}
+
 
     {% block mainbody %}
     {% endblock mainbody %}

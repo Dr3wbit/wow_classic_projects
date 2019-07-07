@@ -4,7 +4,6 @@
 
 {% load static %}
 {% block extra_head %}
-
 <link rel="stylesheet" type="text/css" href="{% static "css/consume_tool.css" %}">
 {% endblock extra_head %}
 
@@ -66,9 +65,9 @@
         </div>
         </div>
     </div>
-    {% block save_form %}
+
     {% include "save_form.html" %}
-    {% endblock save_form %}
+    
     </div>
 </div>
 {% endblock mainbody %}

@@ -5,11 +5,7 @@
 <script src="{% static "js/contact.js" %}"></script>
 {% endblock scripts_and_styles %}
 
-{% block navbar %}{{block.super}}{% endblock navbar %}
-
-
 {% block title_splash %}
-<body>
     </div>
     <div class="container titleSplash">
         <div class="page-title">Contact
@@ -17,7 +13,7 @@
                 message and let us know about it!</div>
         </div>
     </div>
-    {% endblock title_splash %}
+ {% endblock title_splash %}
 
     {% block class_selection %}
     <div class="row class-selection nav-is-sticky steel-textured" id="class_selection">
@@ -31,6 +27,10 @@
             <div class="col-2"></div>
             <div class="col-8 formContainer">
                 <div id="form-messages"></div>
+
+                <!-- NOTE: old form -->
+                <h1>OLD</h1>
+
                 <form id="ajax-contact" method="post" action="/assets/php/phpmailer/mail_handler.php">
                     <div class="field">
                         <!--<label for="name">Name:</label>-->
@@ -53,16 +53,39 @@
                         <button type="submit" class="btn btn-lg btn-dark mt-3">Send Message</button>
                     </div>
                 </form>
+
+                <!-- NOTE: New form -->
+                <br><br>
+                <h1>NEW</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="fieldWrapper">
+                        <label for="{{ form.subject.id_for_label }}">Email subject:</label>
+                        {{ form.subject }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.message.errors }}
+                        <label for="{{ form.message.id_for_label }}">Your message:</label>
+                        {{ form.message }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.sender.errors }}
+                        <label for="{{ form.sender.id_for_label }}">Your email address:</label>
+                        {{ form.sender }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.cc_myself.errors }}
+                        <label for="{{ form.cc_myself.id_for_label }}">CC yourself?</label>
+                        {{ form.cc_myself }}
+                    </div>
+                    <div class="form-actions">
+                      <button type="submit">Send</button>
+                    </div>
+                </form>
             </div>
             <div class="col-2"></div>
         </div>
     </div>
     <br>
-      {# <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br> #}
-      {# <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a> #}
-
     {% endblock mainbody %}
-
-</body>
-
-</html>
