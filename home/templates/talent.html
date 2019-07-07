@@ -92,11 +92,12 @@
 			</div>
 		</div>
 	</div>
-	<div class="row justify-content-center" id="talentCalc" align="center">
+	<div class="row justify-content-center" id="talent_calc" align="center">
 		{% if first_load %}
 		{% include "talent_builder.html" %}
 		{% endif %}
 	</div>
+
 	{% block save_form %}
     {% include "save_form.html" %}
     {% endblock save_form %}
@@ -225,7 +226,7 @@ function save_spec(class_name, spec_name) {
 					spec_item.append(trashcan)
 					spec_cont.append(spec_info, spec_item)
 					spec_list_parent.append(spec_cont)
-					update_selected_spec(spec_name)
+					// update_selected_spec(spec_name)
 				}
 			}
 	  	}
@@ -279,7 +280,7 @@ function update_class(class_name, spec_name='') {
 			update_selected_spec(spec_name);
 		},
 		success: function (data) {
-			let selected = $("button.class-filter.selected").attr("id");
+			let selected = $("a.class-filter.selected").attr("id");
 			if (selected != class_name) {
 				console.log('reloading class')
 				$("#talent_calc").html(data);
@@ -289,7 +290,6 @@ function update_class(class_name, spec_name='') {
 			if (!spec_name) {
 				resetAll();
 			}
-
 		},
 		complete: function (data) {
 			if (spec_name) {
