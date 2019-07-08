@@ -1,16 +1,19 @@
 from django import forms
-from home.models import ConsumeList, Spec
+from home.models import ConsumeList, Spec, Tag
 
 
 class SpecForm(forms.ModelForm):
+    tags = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Tag.objects.all(), to_field_name="name")
     class Meta:
         model = Spec
-        fields = ['name', 'description', 'private']
-        
+        fields = ['name', 'description', 'private', 'tags']
+
+
 class ConsumeListForm(forms.ModelForm):
+    tags = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Tag.objects.all(), to_field_name="name")
     class Meta:
         model = ConsumeList
-        fields = ['name', 'description', 'private']
+        fields = ['name', 'description', 'private', 'tags']
 
 
 class ContactForm(forms.Form):

@@ -320,7 +320,8 @@ class ConsumeList(models.Model):
 	hash = models.CharField(max_length=100, default='testy test')
 	description = models.TextField(default='couple line of text...', max_length=300)
 	private = models.BooleanField(default=False)
-
+	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
+	
 	def __str__(self):
 		return(self.name)
 
