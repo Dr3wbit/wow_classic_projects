@@ -5,7 +5,7 @@ from django.core.cache import cache
 from django.views.decorators.cache import cache_page, never_cache
 from django.utils.decorators import method_decorator
 from django.db.models import Q
-from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
 
@@ -35,7 +35,6 @@ class TalentCalcTemplate(TemplateView):
 		class_name = context["selected"]
 		wow_class = WoWClass.objects.get(name=class_name)
 		talent_trees = wow_class.talenttree_set.all()
-		print('wow_class: ', wow_class)
 
 		context["talent_trees"] = []
 		blueprints = {}
@@ -58,6 +57,7 @@ class TalentCalcTemplate(TemplateView):
 		return(context)
 
 	def get(self, request, *args, **kwargs):
+
 		context = {}
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
@@ -67,10 +67,7 @@ class TalentCalcTemplate(TemplateView):
 			context = self.talent_architect(context)
 
 		if request.is_ajax():
-			print('is ajax')
 			response = render(request, "talent_builder.html", context=context)
-			print('response: ', response)
-			print('request: ', request)
 
 		else:
 			context["first_load"] = True
@@ -81,14 +78,19 @@ class TalentCalcTemplate(TemplateView):
 
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
+		class_name = self.kwargs.get("class", None)
+
 		context = {}
 		context['form'] = form
 
 		if form.is_valid():
-			response = save_spec(request)
+			response = save_spec(request, class_name)
 			# return HttpResponseRedirect('success')
+			return response
 
-		return response
+		else:
+			print('save failed, redirecting to previous page...')
+			return HttpResponseRedirect('talent_calc')
 
 
 class ConsumeToolTemplate(TemplateView):
@@ -143,12 +145,16 @@ class ConsumeToolTemplate(TemplateView):
 		form = self.form_class(request.POST)
 		context = {}
 		context['form'] = form
+		prof = self.kwargs.get("prof", None)
 
 		if form.is_valid():
-			response = save_spec(request)
+			response = save_consume_list(request)
 			# return HttpResponseRedirect('success')
+			return response
 
-		return response
+		else:
+			print('save failed, redirecting to previous page...')
+			return HttpResponseRedirect('consume_tool')
 
 class EnchantToolView(TemplateView):
 	template_name = "enchant_tool.html"
@@ -282,19 +288,30 @@ def delete_list(request):
 
 	return JsonResponse(data)
 
-def save_spec(request):
+def save_spec(request, class_name):
 	spec_url = request.POST.get('spec_url', None)
-	class_name = request.POST.get('class_name', None)
+	# class_name = request.POST.get('class_name', None)
+	print('save_spec: ', class_name)
 	spec_name = request.POST.get('spec_name', None)
 	spnt = request.POST.getlist('spent')
+	print('spnt')
 	data = dict(request.POST)
 	data['spent'] = []
 	spent = {}
 	for x in spnt:
 		y = x.split(',')
-		print(y)
-		data['spent'].append(y[1])
+		print('y: ', y)
+		print('x: ', x)
+		# data['spent'].append(y[1])
 		spent[y[0]] = y[1]
+
+		data['spent'].append(y)
+
+
+		# data['spent'].append(x)
+
+		# spent[y[0]] = y[1]
+
 	if request.user.is_authenticated:
 		user = request.user
 		if spec_url and class_name and spec_name:
@@ -337,3 +354,6 @@ def load_spec(request):
 			data['hash'] = spec.hash
 
 	return JsonResponse(data)
+
+def save_consume_list(request):
+	pass

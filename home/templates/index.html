@@ -105,11 +105,11 @@
         					<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
         				</button>
                         <!-- <div class="clearfix"></div> -->
-                        NEW SAVED SPECS
+                        <h5><span class="fix-me">NEW SAVED SPECS</span></h5>
                     </div>
                 {% for spec in specs %}
                 <div class="card-body text-light">
-                    <h5 class="card-title text-center">{{spec.name}}</h5>
+                    <h5 class="card-title text-center"><a href="talent_calc/{{spec.wow_class|lower}}?{{spec.hash}}">{{spec.name}}</a></h5>
                     <p>By:<a href="">
                     {% if not spec.private %}
                     {{spec.user.disc_username}}
@@ -117,10 +117,10 @@
                     anonymous
                     {% endif %}
                     </a></p>
-                    <span> ---------------------- </span>
+                    <span> -------------------- </span>
                     <p> <span style="text-decoration: underline;">Description</span>: {{spec.description}}</p>
                     <p><span style="text-decoration: underline;"> Added</span>:<span> {{spec.created}}</span></p>
-                    <br>
+
                     {% for tag in spec.tags.all %}
                     <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
                     {% endfor %}

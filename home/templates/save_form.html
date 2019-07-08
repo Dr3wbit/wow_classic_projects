@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
 
 <!-- NOTE: old form -->
-<h1>OLD</h1>
+<h1 class="fix-me">OLD</h1>
 
 <form class="row saveBlock">
     <div class="container">
@@ -86,10 +86,18 @@
 
 
 <!-- NOTE: new form -->
-<h1>NEW</h1>
+<h1 class="fix-me">NEW</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}
+
+    <div class="fieldWrapper">
+    {{ form.tags.errors }}
+    <label for="{{ form.tags.id_for_label }}">Tags:</label>
+    {% for checkbox in form.tags %}
+        <span class="checkbox">{{checkbox}}</span>
+    {% endfor %}
+    </div>
 
     <div class="fieldWrapper">
         {{ form.name.errors }}
@@ -106,7 +114,27 @@
         <label for="{{ form.private.id_for_label }}">Private?</label>
         {{ form.private }}
     </div>
+    <div class="fieldWrapper">
+        <input id="list_hash" type="hidden" value="test" name="hash">
+    </div>
+
+    {% if selected %}
+    <div class="fieldWrapper">
+        <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
+    </div>
+
+    <div class="fieldWrapper">
+        <input class="tree-input" id="tree1" type="hidden" value="Arms,10" name="spent" data-treename="a">
+    </div>
+    <div class="fieldWrapper">
+        <input class="tree-input" id="tree2" type="hidden" value="Fury,15" name="spent" data-treename="b">
+    </div>
+    <div class="fieldWrapper">
+        <input class="tree-input" id="tree3" type="hidden" value="Protection,10" name="spent" data-treename="c">
+    </div>
+    {% endif %}
+
     <div class="form-actions">
-      <button type="submit">Save</button>
+      <button id="save_list" type="submit">Save</button>
     </div>
 </form>
