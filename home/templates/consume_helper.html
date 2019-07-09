@@ -35,8 +35,34 @@
         </div>
     </div>
     {% endfor %}
-    <script src="{% static "js/consumeTool.js" %}"></script>
+    <script src="{% static "js/consume_tool.js" %}"></script>
     <script>
+
+    function update_consume_list(name) {
+        let prof = $("a.prof-filter.selected").attr("id")
+        console.log("prof: ", prof)
+        console.log(name)
+        if (!my_consume_list[prof]) {
+            my_consume_list[prof] = {}
+        }
+
+        if (!my_consume_list[prof][name]) {
+            my_consume_list[prof][name] = 0
+        }
+
+        my_consume_list[prof][name]++
+
+        mats = allConsumes[name].materials
+
+        for (let [k, v] of Object.entries(mats)) {
+            if (!my_consume_list['materials'][k]) {
+                my_consume_list['materials'][k] = 0
+            }
+            my_consume_list['materials'][k] = (my_consume_list['materials'][k]+v)
+        }
+        console.log(my_consume_list)
+
+    }
 
     $(".reagant-list-container").on({
         mouseenter: e => {
@@ -64,6 +90,7 @@
                 return false
             }
             addCraftedItem(name)
+            update_consume_list(name)
         }
 
     });

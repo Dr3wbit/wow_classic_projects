@@ -4,7 +4,6 @@ import datetime, math, re, time
 from django.contrib.auth.models import User
 from social_django.models import UserSocialAuth
 
-
 nope = re.compile(r"[\-]")
 forbiden = re.compile(r"[\:\'\(\)]")
 
@@ -110,7 +109,8 @@ class Crafted(models.Model):
 	step = models.PositiveSmallIntegerField(default=1)
 	materials = models.ManyToManyField('Material')
 	help_text = "Describes an item as a craftable or consumable"
-
+	# end_game = models.BooleanField(default=False)
+	
 	@property
 	def name(self):
 		return self.item.name
@@ -264,12 +264,41 @@ class Spec(models.Model):
 	name = models.CharField(max_length=30, default='')
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
+	private = models.BooleanField(default=False)
+	description = models.TextField(default='couple line of text...', max_length=300)
+	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
+	rating = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
+
+	created = models.DateTimeField(auto_now_add=True)
+	updated = models.DateTimeField(auto_now=True)
 
 	def __str__(self):
 		return(self.name)
 
 	class Meta:
 		unique_together = ['user', 'name']
+
+class Tag(models.Model):
+
+	TAG_NAME_CHOICES = (
+		('pvp', 'PvP'),
+		('wpvp', 'wPvP'),
+		('bgs', 'BGs'),
+		('pve', 'PvE'),
+		('meme', 'MeMe'),
+		('mc', 'MC'),
+		('bwl', 'BWL'),
+		('zg', 'ZG'),
+		('aq20', 'AQ20'),
+		('aq40', 'AQ40'),
+		('naxx', 'Naxx'),
+		('5man', '5-man'),
+	)
+
+	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
+
+	def __str__(self):
+		return(self.name)
 
 class TreeAllotted(models.Model):
 	spec = models.ForeignKey('Spec', on_delete=models.CASCADE)
@@ -291,9 +320,13 @@ class ConsumeList(models.Model):
 	name = models.CharField(max_length=30, default='')
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='testy test')
+	description = models.TextField(default='couple line of text...', max_length=300)
+	private = models.BooleanField(default=False)
+	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
+	rating = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
 
 	def __str__(self):
-		return(self.tree.name)
+		return(self.name)
 
 	class Meta:
 		unique_together = ['user', 'name']

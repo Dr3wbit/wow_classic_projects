@@ -2,14 +2,14 @@
 {% load static %}
 
     {% block extra_head %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/enchantTool.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/enchant_tool.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "js/enchants.js" %}">
     <script src="{% static "js/enchants.js" %}"></script>
 
     <script src="{% static "js/polyfill.js" %}"></script>
     <script src="{% static "js/utilities.js" %}"></script>
     <script src="{% static "js/all_materials.js" %}"></script>
-    <script src="{% static "js/enchantTool.js" %}"></script>
+    <script src="{% static "js/enchant_tool.js" %}"></script>
     {% endblock extra_head %}
 
     {% block navbar %}{{block.super}}{% endblock navbar %}

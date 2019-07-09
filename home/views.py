@@ -1,20 +1,25 @@
-from django.shortcuts import render
-from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted
+from django.shortcuts import render, redirect
+from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag
 from django.views.generic import RedirectView, TemplateView
-from . import talent_data_creator
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page, never_cache
 from django.utils.decorators import method_decorator
 from django.db.models import Q
-from django.http import JsonResponse
-from django.core import serializers
-
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
+from django.core import serializers, mail
+from home.forms import ContactForm, SpecForm, ConsumeListForm
 
 class IndexView(TemplateView):
 	template_name = "index.html"
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['specs'] = Spec.objects.all()
+		context['rangen'] = range(5)
+		return context
 
 class TalentCalcTemplate(TemplateView):
+	form_class = SpecForm
 
 	def setup(self, request, *args, **kwargs):
 		setup = super().setup(request, *args, **kwargs)
@@ -26,7 +31,6 @@ class TalentCalcTemplate(TemplateView):
 		return dispatch
 
 	def talent_architect(self, context):
-		# talent_data_creator.create(cl)
 		# const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}|f{2,}|E{2,}|F{2,}|J{2,}/g //looks for repeats of listed letters
 		# const re2 = /([a-zA-J])\d/g
 		class_name = context["selected"]
@@ -54,7 +58,9 @@ class TalentCalcTemplate(TemplateView):
 		return(context)
 
 	def get(self, request, *args, **kwargs):
+
 		context = {}
+		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
 		class_name = self.kwargs.get("class", None)
 		if class_name:
@@ -71,14 +77,29 @@ class TalentCalcTemplate(TemplateView):
 		return response
 
 
-class ConsumeToolTemplate(TemplateView):
+	def post(self, request, *args, **kwargs):
+		form = self.form_class(request.POST)
+		class_name = self.kwargs.get("class", None)
 
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		return context
+		context = {}
+		context['form'] = form
+
+		if form.is_valid():
+			response = save_spec(request, class_name)
+			# return HttpResponseRedirect('success')
+			return response
+
+		else:
+			print('save failed, redirecting to previous page...')
+			return HttpResponseRedirect('talent_calc')
+
+
+class ConsumeToolTemplate(TemplateView):
+	form_class = ConsumeListForm
 
 	def get(self, request, *args, **kwargs):
 		context = {}
+		context['form'] = self.form_class()
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
@@ -117,14 +138,27 @@ class ConsumeToolTemplate(TemplateView):
 
 		else:
 			context["something"] = True
-			response = render(request, "consumeTool.html", context=context)
+			response = render(request, "consume_tool.html", context=context)
 
-		print(context)
 		return response
 
+	def post(self, request, *args, **kwargs):
+		form = self.form_class(request.POST)
+		context = {}
+		context['form'] = form
+		prof = self.kwargs.get("prof", None)
+
+		if form.is_valid():
+			response = save_consume_list(request)
+			# return HttpResponseRedirect('success')
+			return response
+
+		else:
+			print('save failed, redirecting to previous page...')
+			return HttpResponseRedirect('consume_tool')
 
 class EnchantToolView(TemplateView):
-	template_name = "enchantTool.html"
+	template_name = "enchant_tool.html"
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -135,10 +169,58 @@ class EnchantToolView(TemplateView):
 		return context
 
 class SpecsAndGuidesView(TemplateView):
-	template_name = "specsAndGuides.html"
+	template_name = "specs_and_guides.html"
+
 
 class ContactView(TemplateView):
-	template_name = "contact.html"
+	form_class = ContactForm
+	template_name = 'contact.html'
+
+	# Handle GET HTTP requests
+	def get(self, request, *args, **kwargs):
+		context = {}
+		context['form'] = self.form_class()
+		return render(request, self.template_name, context)
+
+	# Handle POST HTTP requests
+	def post(self, request, *args, **kwargs):
+		form = self.form_class(request.POST)
+		context = {}
+
+		if form.is_valid():
+			subject = form.cleaned_data['subject']
+			message = form.cleaned_data['message']
+			sender = form.cleaned_data['sender']
+			cc_myself = form.cleaned_data['cc_myself']
+			recipients = ['admin@onybuff.org']
+
+			if cc_myself:
+				recipients.append(sender)
+			try:
+				mail.send_mail(subject, message, sender, recipients)
+
+			except mail.BadHeaderError:
+				return HttpResponse('Invalid header found.')
+
+			return HttpResponseRedirect('success')
+
+		context['form'] = form
+		return render(request, self.template_name, context)
+
+class SuccessView(TemplateView):
+	template_name = "success.html"
+
+# class ContactSuccessView(RedirectView):
+#
+# 	permanent = False
+# 	query_string = True
+# 	pattern_name = 'success'
+#
+# 	def get_redirect_url(self, *args, **kwargs):
+# 		article = get_object_or_404(Article, pk=kwargs['pk'])
+# 		article.update_counter()
+# 		return super().get_redirect_url(*args, **kwargs)
+
 #
 #
 # class ConsumesListView(ConsumeToolTemplate):
@@ -170,28 +252,28 @@ class ContactView(TemplateView):
 # 		dispatch = super().dispatch(request, *args, **kwargs)
 # 		return dispatch
 
-
-class TalentsRedirectView(RedirectView):
-	permanent = False
-	query_string = True
-	pattern_name = 'talent_calc'
-
-
-	def get_redirect_url(self, *args, **kwargs):
-		# article = get_object_or_404(Article, pk=kwargs['pk'])
-
-		redirect_url = super().get_redirect_url(*args, **kwargs)
-		# article.update_counter()
-		print(dir(redirect_url))
-		print('self: ', self)
-		print('dir self: ', dir(self))
-		print(self.args)
-		print(self.kwargs)
-		print(self.request)
-
-		print('\nredirect_url: ', redirect_url)
-
-		return redirect_url
+#
+# class TalentsRedirectView(RedirectView):
+# 	permanent = False
+# 	query_string = True
+# 	pattern_name = 'talent_calc'
+#
+#
+# 	def get_redirect_url(self, *args, **kwargs):
+# 		# article = get_object_or_404(Article, pk=kwargs['pk'])
+#
+# 		redirect_url = super().get_redirect_url(*args, **kwargs)
+# 		# article.update_counter()
+# 		print(dir(redirect_url))
+# 		print('self: ', self)
+# 		print('dir self: ', dir(self))
+# 		print(self.args)
+# 		print(self.kwargs)
+# 		print(self.request)
+#
+# 		print('\nredirect_url: ', redirect_url)
+#
+# 		return redirect_url
 
 def delete_list(request):
 	saved_list = request.GET.get('saved_list', None)
@@ -207,19 +289,30 @@ def delete_list(request):
 
 	return JsonResponse(data)
 
-def save_spec(request):
+def save_spec(request, class_name):
 	spec_url = request.POST.get('spec_url', None)
-	class_name = request.POST.get('class_name', None)
+	# class_name = request.POST.get('class_name', None)
+	print('save_spec: ', class_name)
 	spec_name = request.POST.get('spec_name', None)
 	spnt = request.POST.getlist('spent')
+	print('spnt')
 	data = dict(request.POST)
 	data['spent'] = []
 	spent = {}
 	for x in spnt:
 		y = x.split(',')
-		print(y)
-		data['spent'].append(y[1])
+		print('y: ', y)
+		print('x: ', x)
+		# data['spent'].append(y[1])
 		spent[y[0]] = y[1]
+
+		data['spent'].append(y)
+
+
+		# data['spent'].append(x)
+
+		# spent[y[0]] = y[1]
+
 	if request.user.is_authenticated:
 		user = request.user
 		if spec_url and class_name and spec_name:
@@ -231,7 +324,8 @@ def save_spec(request):
 				}
 			)
 			data['created'] = created
-			spec.save()
+			print('TEST RUN\n\n spec: ', spec)
+			# spec.save()
 
 			for k,v in spent.items():
 				tree_name = k
@@ -242,7 +336,8 @@ def save_spec(request):
 						'tree':tree, 'spec': spec, 'invested':invested
 					}
 				)
-				t.save()
+				print('\nt: ', t)
+				# t.save()
 
 			saved_list = Spec.objects.filter(name=spec_name).first()
 			if saved_list:
@@ -260,45 +355,6 @@ def load_spec(request):
 			data['hash'] = spec.hash
 
 	return JsonResponse(data)
-# def talent_builder(request):
-# 	context = {}
-# 	context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
-# 	class_name = request.GET.get('class_name', None)
-# 	if class_name:
-# 		context["selected"] = class_name
-# 		context = talent_architect(context)
-#
-# 	response = render(request, "talent_builder.html", context=context)
-# 	return response
 
-
-# 
-# class LoginView(TemplateView):
-# 	pass
-#
-# def talent_architect(context):
-# 	# talent_data_creator.create(cl)
-# 	# const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}|f{2,}|E{2,}|F{2,}|J{2,}/g //looks for repeats of listed letters
-# 	# const re2 = /([a-zA-J])\d/g
-# 	class_name = context["selected"]
-# 	wow_class = WoWClass.objects.get(name=class_name)
-# 	talent_trees = wow_class.talenttree_set.all()
-#
-# 	context["talent_trees"] = []
-# 	blueprints = {}
-#
-# 	for tree in talent_trees:
-# 		context["talent_trees"].append({'name':tree.name, 'sanitized':tree.sanitized})
-# 		tree_name = tree.sanitized
-# 		all_talents = iter(tree.talent_set.all())
-# 		blueprints[tree_name] = tree.architect
-# 		for outer_i, outer_v in enumerate(blueprints[tree_name]):
-# 			for inner_i, inner_v in enumerate(outer_v):
-# 				if inner_v:
-# 					next_tal = next(all_talents)
-# 					val = [inner_v] if type(inner_v) is not list else inner_v
-# 					val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
-# 					blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':str(next_tal.sanitized), 'unlocks':next_tal.unlocks}, 0)
-#
-# 	context["blueprints"] = blueprints
-# 	return(context)
+def save_consume_list(request):
+	pass

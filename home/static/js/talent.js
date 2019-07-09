@@ -148,7 +148,8 @@ function resetHandler() {
 }
 
 function resetAll() {
-	let className = $('.class-filter.selected')[0].id
+	console.log('resetting all')
+	let className = $('.class-filter.selected').attr("id")
 	let treeNames = talentPointsSpent.treeNames
 
 	talentPointsSpent.hardLocked = false
@@ -410,11 +411,14 @@ function updateTalentHeader() {
 
 	let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
 	$("#allottedTalentPoints").text(a)
+	$("#talents_spent").text(a)
+	
 	let requiredLevel = (talentPointsSpent.grandTotal() >= 1) ? talentPointsSpent.grandTotal() + 9 : "--"
 	$("#requiredLevel").text(`Required level: ${requiredLevel}`)
 	let pointsRemaining = 51 - talentPointsSpent.grandTotal()
 	$("#pointsRemaining").text(`Points left: ${pointsRemaining}`)
 
+	return a
 }
 
 function updateTooltip(e) {

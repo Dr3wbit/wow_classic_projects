@@ -6,7 +6,6 @@
 	{% block extra_head %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/talent.css" %}">
 	{% endblock extra_head %}
-	{% block navbar %}{{block.super}}{% endblock navbar %}
 
 
 	{% block title_splash %}
@@ -93,14 +92,18 @@
 			</div>
 		</div>
 	</div>
-	<div class="row justify-content-center" id="talentCalc" align="center">
+	<div class="row justify-content-center" id="talent_calc" align="center">
 		{% if first_load %}
 		{% include "talent_builder.html" %}
 		{% endif %}
 	</div>
-	{% block save_form %}
+
+	{% comment %}
+	{% if selected %}
     {% include "save_form.html" %}
-    {% endblock save_form %}
+	{% endif %}
+	{% endcomment %}
+
 </div>
 
 </div>
@@ -138,8 +141,8 @@
 
 	{% block javascript %}
 	<script src="{% static "js/utilities.js" %}"></script>
-	<script src="{% static "js/talentData.js" %}"></script>
-	<script src="{% static "js/talentTableData.js" %}"></script>
+	<script src="{% static "js/talent_data.js" %}"></script>
+	<script src="{% static "js/talent_table_data.js" %}"></script>
 	<script>
 
 function save_spec(class_name, spec_name) {
@@ -226,7 +229,7 @@ function save_spec(class_name, spec_name) {
 					spec_item.append(trashcan)
 					spec_cont.append(spec_info, spec_item)
 					spec_list_parent.append(spec_cont)
-					update_selected_spec(spec_name)
+					// update_selected_spec(spec_name)
 				}
 			}
 	  	}
@@ -280,17 +283,16 @@ function update_class(class_name, spec_name='') {
 			update_selected_spec(spec_name);
 		},
 		success: function (data) {
-			let selected = $("button.class-filter.selected").attr("id");
+			let selected = $("a.class-filter.selected").attr("id");
 			if (selected != class_name) {
 				console.log('reloading class')
-				$("#talentCalc").html(data);
+				$("#talent_calc").html(data);
 				$(".class-filter").removeClass('selected');
 				$(`#${class_name}`).addClass('selected');
 			}
 			if (!spec_name) {
 				resetAll();
 			}
-
 		},
 		complete: function (data) {
 			if (spec_name) {
@@ -352,8 +354,8 @@ $('#specSaverPrompt').on({
 	'shown.bs.modal': ()=> {
 		$("#spec-name").focus()
 	},
-
 });
+
 
  </script>
 	{% endblock javascript %}

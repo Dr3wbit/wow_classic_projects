@@ -3,15 +3,10 @@
 
 {% block extra_head %}
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.js" %}"></script>
-<!--Timer-->
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.min.js" %}"></script>
-<!--Timer-->
-<link rel="stylesheet" type="text/css" href="{% static "css/landingPage.css" %}">
-<script src="{% static "js/landingPage.js" %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
+<script src="{% static "js/landing_page.js" %}"></script>
 {% endblock extra_head %}
-
-{% block navbar %}{{block.super}}{% endblock navbar %}
-
 
 {% block title_splash %}
     <div class="container titleSplash pt-5">
@@ -75,9 +70,9 @@
     {% endblock title_splash %}
 
     {% block mainbody %}
-    <div class="container mainBody">
+    <div class="mainBody container">
         <div class="row selection-header sticky-top">
-            <h2 class="my-auto font-weight-bold">Onybuff.com</h2>
+            <!-- <h2 class="my-auto font-weight-bold">Onybuff.com</h2> -->
         </div>
         <div class="row content-container mt-4">
             <div class="col-12 mb-4 site-content">
@@ -103,6 +98,58 @@
                 </div>
             </div>
             <div class="card-container col-lg-8 col-12 recent-news">
+                <div class="card mb-3 bg-transparent border-light text-center">
+                    <div class="card-header bg-transparent border-light text-light">
+                        <button class="btn btn-sm float-left" title="Refresh"
+        					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
+        					<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        				</button>
+                        <!-- <div class="clearfix"></div> -->
+                        <h5><span class="fix-me">NEW SAVED SPECS</span></h5>
+                    </div>
+                {% for spec in specs %}
+                <div class="card-body text-light">
+                    <h5 class="card-title text-center"><a href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}">{{spec.name}}</a></h5>
+                    {% for n in rangen %}
+                        {% if n == rangen|first %}
+                        <a class="btn btn-sm float-right"
+                            style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true" title="Edit"></span>
+                        </a>
+                        {% else %}
+                        <a class="btn btn-sm float-right"
+                            style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true" title="Edit"></span>
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="clearfix"></div>
+                    <p>By:<a href="">
+                    {% if not spec.private %}
+                    {{spec.user.disc_username}}
+                    {% else %}
+                    anonymous
+                    {% endif %}
+                    </a></p>
+                    <span> -------------------- </span>
+                    <p> <span style="text-decoration: underline;">Description</span>: {{spec.description}}</p>
+                    <p><span style="text-decoration: underline;"> Added</span>:<span> {{spec.created}}</span></p>
+
+                    {% for tag in spec.tags.all %}
+                    <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
+                    {% endfor %}
+                    {% if spec.user.email == request.user.email %}
+                    <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
+                    type="button" role="button" {% comment %} href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" {% endcomment %}>
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
+                    </a>
+                    <div class="clearfix"></div>
+                    {% endif %}
+                    <hr style="border: 1px solid white; width: 100%;"></hr>
+                </div>
+                {% endfor %}
+                </div>
+
                 <div class="card mb-3 bg-transparent border-light text-center">
                     <div class="card-header bg-transparent border-light text-light">
                         Recent News
@@ -196,12 +243,7 @@
 
     {% endblock mainbody %}
 
-
     {% block footer %}
     {# "not necessary, here to demonstrate block.super" #}
     {{block.super}}
     {% endblock footer %}
-
-</body>
-
-</html>

@@ -1,6 +1,4 @@
 
-
-
 .spec-list-item{
     overflow: hidden;
     white-space: nowrap;
@@ -88,7 +86,7 @@
     background-image: url("../images/icons/double-chevron.png");
 }
 
-.side-bar-toggle:hover{  
+.side-bar-toggle:hover{
     background-image: url("../images/icons/double-chevron-dark.png");
     background-color: #333333;
 }
