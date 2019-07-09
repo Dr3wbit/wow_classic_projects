@@ -66,7 +66,9 @@
         </div>
     </div>
 
+    {% if user.is_authenticated %}
     {% include "save_form.html" %}
+    {% endif %}
 
     </div>
 </div>
@@ -114,16 +116,8 @@
 <script src="{% static "js/consume_tool.js" %}"></script>
 <script>
 
-    var my_consume_list = {};
-    my_consume_list['materials'] = {};
-    
-    // function update_url(class_name, search='') {
-    //     const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
-    //     let url = new URL(document.location)
-    //     url.pathname = `/talent_calc/${class_name}`
-    //     url.search = search
-    //     history.replaceState(null, null, url)
-    // }
+    var my_consume_list = [{}];
+    // my_consume_list['materials'] = {};
 
     function update_prof(prof, spec_name = '') {
         $.ajax({
