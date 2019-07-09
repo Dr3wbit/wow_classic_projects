@@ -204,7 +204,6 @@ function addCraftedItem(name, numAdded=1) {
 
 function updateOrCreate(parentElem, consume_name, numAdded) {
 	const NUMBRE = /\[(\d+)\]/
-	console.log('consume_name: ', consume_name)
 
 	let craftedItemObj = allConsumes[consume_name]
 	let craftedStep = (craftedItemObj.step) ? craftedItemObj.step : 1
