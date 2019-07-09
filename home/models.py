@@ -109,7 +109,7 @@ class Crafted(models.Model):
 	step = models.PositiveSmallIntegerField(default=1)
 	materials = models.ManyToManyField('Material')
 	help_text = "Describes an item as a craftable or consumable"
-	# end_game = models.BooleanField(default=False)
+	end_game = models.BooleanField(default=False)
 
 	@property
 	def name(self):

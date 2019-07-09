@@ -96,7 +96,10 @@ class TalentCalcTemplate(TemplateView):
 	def save_list(self, request):
 		url = request.POST.get('hash', None)
 		class_name = request.POST.get('wow_class', None)
-		private = request.POST.get('private', False)
+		private = request.POST.get('private', None)
+		if (private):
+			private = True
+
 		tags = request.POST.getlist('tags')
 		name = request.POST.get('name', None)
 		spnt = request.POST.getlist('spent')
@@ -237,6 +240,9 @@ class ConsumeToolTemplate(TemplateView):
 
 	def save_list(self, request):
 		private = request.POST.get('private', False)
+		if private:
+			private = True
+
 		tags = request.POST.getlist('tags')
 		name = request.POST.get('name', None)
 		spnt = request.POST.getlist('spent')
@@ -262,14 +268,16 @@ class ConsumeToolTemplate(TemplateView):
 			# data['spent'].append(y)
 			# data['spent'][y[0]] = y[1]
 
+		hash = self.url_builder(spent)
+		print('hash: ', hash)
 		data['spent'] = spent
-
+		data['hash'] = hash
 		if request.user.is_authenticated:
 			user = request.user
 			# c_list,_ = ConsumeList.objects.update_or_create(
 			# 	name=name, user=user, private=private,
-			# 	hash=url, description=description,
-			# 	defaults={'name': name, 'user':user, 'hash': url,
+			# 	hash=hash, description=description,
+			# 	defaults={'name': name, 'user':user, 'hash': hash,
 			# 		'description':description, 'private':private
 			# 	}
 			# )
@@ -292,6 +300,37 @@ class ConsumeToolTemplate(TemplateView):
 				# c_list.save()
 
 		return JsonResponse(data)
+
+
+	def url_builder(self, consume_list):
+		stringy_boy = ''
+
+		rle_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+		prof_str = {
+			'alchemy': 'AL', 'blacksmithing':'BS', 'cooking':'CK', 'engineering':'EN',
+			'enchanting': 'EC', 'first_aid':'FA', 'fishing':'FI', 'leatherworking': 'LW', 'other':'OT',
+			'tailoring': 'TL', 'skinning':'SK'
+			}
+		translator = {}
+		translator['professions'] = prof_str
+
+		for prof_name,crafted_list in consume_list.items():
+			stringy_boy = ''.join([stringy_boy, "&{}=".format(translator['professions'][prof_name])])
+
+			prof = Profession.objects.get(name=prof_name)
+
+			all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
+
+			translator[prof_name] = {}
+
+			for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
+				translator[prof_name][crafted.name] = k
+
+			for i,v in crafted_list.items():
+				stringy_boy = ''.join([stringy_boy, translator[prof_name][i], str(v)])
+
+		print(stringy_boy)
+		return(stringy_boy)
 
 class EnchantToolView(TemplateView):
 	template_name = "enchant_tool.html"
