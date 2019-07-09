@@ -2,152 +2,91 @@
 
 <link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
 
-<!-- NOTE: old form -->
-<div class="container">
-<h1 class="fix-me">OLD</h1>
-
-<form class="row saveBlock">
+<div class="row saveBlock">
+        <h1 class="saveTitle col-12">SAVE</h1>
     <div class="container">
-        <div class="row save-form-header">
-            <div class="col-1">SAVE?</div>
-            <div class="col-9 save-form-desc"> We save your specs and craftlists to our database for others to view and
-                vote on.
-                Please choose to attach your discord name (not your id) to your save or have it display as anonymous.
-            </div>
-            <div class="col-2">
-                <div class="row">
-                    <div class="col-12">Attach Name?</div>
-                    <div class="col-12 pt-1">
-                        <label class="radio-inline">
-                            <input type="radio" name="optradio" checked>Yes
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optradio">No
-                        </label>
-                    </div>
-                </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="fieldWrapper row">
+            {{ form.tags.errors }}
+            <label class="col-2"for="{{ form.tags.id_for_label }}">Tags:</label>
+            <div class="col-10 left-align">
+                    {% for checkbox in form.tags %}
+                    <span class="checkbox">{{checkbox}}</span>
+                    {% endfor %}
             </div>
         </div>
-        <div class="row tag-container">
-            <div class="col-2">Select All Relevent Tags:</div>
-            <div class="col-10 text-left">
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">MC
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">BWL
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">ZG
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">AQ20
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">AQ40
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">NAXX
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">5MAN
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">RAID
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">PVP
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">WPVP
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">BGS
-                </label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="">MEME
-                </label>
-            </div>
+
+        {% if "talent_calc" in request.path %}
+        <div class="fieldWrapper">
+            <span>
+                <label class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
+                <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
+            </span>
+            <span>
+                <label id="talents_spent" for="id_spent">(0/0/0)</label>
+                <input class="tree-input" id="tree0" type="hidden" value="Arms,10" name="spent">
+            </span>
+            <span>
+                <input class="tree-input" id="tree1" type="hidden" value="Fury,15" name="spent">
+            </span>
+            <span>
+                <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
+            </span>
         </div>
-        <div class="row name-save-container ">
-            <div class="col-2">Title: </div>
-            <input type="text" class="col-8">
+        {% else %}
+        {% endif %}
+
+        <div class="fieldWrapper row">
+            {{ form.name.errors }}
+            <label class="col-2" for="{{ form.name.id_for_label }}">Title:</label>
+            <div class="col-8 p-0">
+                    {{ form.name }}
+            </div>
             <div class="col-2"></div>
         </div>
-        <div class="row notes-container">
-            <div class="col-2">Notes: </div>
-            <textarea class="col-8" name="" id="" cols="97" rows="10"></textarea>
+        <div class="fieldWrapper row">
+            {{ form.description.errors }}
+            <label class="col-2" for="{{ form.description.id_for_label }}">Notes:</label>
+            <div class="col-8 p-0">
+                    {{ form.description }}
+            </div>
             <div class="col-2"></div>
         </div>
-        <div class="row justify-content-center p-3">
-            <button class="btn btn-lg btn-dark pl-5 pr-5">Save</button>
+        <div class="fieldWrapper row justify-content-center">
+            <div class="privateSelect col-12">
+                    {{ form.private.errors }}
+                    {{ form.private }}
+                    <label for="{{ form.private.id_for_label }}">Private?</label>
+            </div>
         </div>
-    </div>
-</form>
+        <div class="fieldWrapper row">
+            <input id="list_hash" type="hidden" value="test" name="hash">
+        </div>
 
+        {% if selected %}
+        <div class="fieldWrapper">
+            <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
+        </div>
 
-<!-- NOTE: new form -->
-<h1 class="fix-me">NEW</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
+        <div class="fieldWrapper">
+            <input class="tree-input" id="tree1" type="hidden" value="Arms,10" name="spent" data-treename="a">
+        </div>
+        <div class="fieldWrapper">
+            <input class="tree-input" id="tree2" type="hidden" value="Fury,15" name="spent" data-treename="b">
+        </div>
+        <div class="fieldWrapper">
+            <input class="tree-input" id="tree3" type="hidden" value="Protection,10" name="spent" data-treename="c">
+        </div>
+        {% endif %}
 
-    <div class="fieldWrapper">
-    {{ form.tags.errors }}
-    <label for="{{ form.tags.id_for_label }}">Tags:</label>
-    {% for checkbox in form.tags %}
-        <span class="checkbox">{{checkbox}}</span>
-    {% endfor %}
-    </div>
-
-    {% if "talent_calc" in request.path %}
-    <div class="fieldWrapper">
-        <span>
-            <label class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
-            <input id="wow_class" type="hidden" value="{{selected|title}}" name="wow_class">
-        </span>
-        <span>
-            <label id="talents_spent" for="id_spent">(0/0/0)</label>
-            <input class="tree-input" id="tree0" type="hidden" value="Arms,10" name="spent">
-        </span>
-        <span>
-            <input class="tree-input" id="tree1" type="hidden" value="Fury,15" name="spent">
-        </span>
-        <span>
-            <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
-        </span>
-    </div>
-    {% else %}
-    {% endif %}
-
-    <div class="fieldWrapper">
-        {{ form.name.errors }}
-        <label for="{{ form.name.id_for_label }}">Title:</label>
-        {{ form.name }}
-    </div>
-
-    <div class="fieldWrapper">
-        {{ form.description.errors }}
-        <label for="{{ form.description.id_for_label }}">Notes:</label>
-        {{ form.description }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.private.errors }}
-        <label for="{{ form.private.id_for_label }}">Private?</label>
-        {{ form.private }}
-    </div>
-    <div class="fieldWrapper">
-        <input id="list_hash" type="hidden" value="test" name="hash">
-    </div>
-
-    <div class="form-actions">
-       {% if "talent_calc" in request.path %}
-      <button id="spec_spec" type="submit">Save</button>
-      {% else %}
-      <button id="save_consume_list" type="submit">Save</button>
-      {% endif %}
-    </div>
-</form>
+        <div class="form-actions row justify-content-center">
+            <button id="save_spec" class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
+        </div>
+    </form>
+</div>
 </div>
 
 <script>
