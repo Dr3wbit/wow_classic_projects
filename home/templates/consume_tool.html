@@ -67,7 +67,7 @@
     </div>
 
     {% include "save_form.html" %}
-    
+
     </div>
 </div>
 {% endblock mainbody %}
@@ -114,6 +114,9 @@
 <script src="{% static "js/consume_tool.js" %}"></script>
 <script>
 
+    var my_consume_list = {};
+    my_consume_list['materials'] = {};
+    
     // function update_url(class_name, search='') {
     //     const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
     //     let url = new URL(document.location)

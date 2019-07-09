@@ -98,9 +98,12 @@
 		{% endif %}
 	</div>
 
-	{% block save_form %}
+	{% comment %}
+	{% if selected %}
     {% include "save_form.html" %}
-    {% endblock save_form %}
+	{% endif %}
+	{% endcomment %}
+
 </div>
 
 </div>
@@ -351,19 +354,8 @@ $('#specSaverPrompt').on({
 	'shown.bs.modal': ()=> {
 		$("#spec-name").focus()
 	},
-
 });
 
-$('#save_list').on({
-	click: e=> {
-		var tree_inputs = $(".tree-input")
-		$(tree_inputs[0]).val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
-		$(tree_inputs[1]).val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
-		$(tree_inputs[2]).val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[2]].total()}`)
-
-	    $('#save_list').submit();
-	},
-});
 
  </script>
 	{% endblock javascript %}

@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
 
 <!-- NOTE: old form -->
+<div class="container">
 <h1 class="fix-me">OLD</h1>
 
 <form class="row saveBlock">
@@ -99,11 +100,32 @@
     {% endfor %}
     </div>
 
+    {% if "talent_calc" in request.path %}
+    <div class="fieldWrapper">
+        <span>
+            <label class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
+            <input id="wow_class" type="hidden" value="{{selected|title}}" name="wow_class">
+        </span>
+        <span>
+            <label id="talents_spent" for="id_spent">(0/0/0)</label>
+            <input class="tree-input" id="tree0" type="hidden" value="Arms,10" name="spent">
+        </span>
+        <span>
+            <input class="tree-input" id="tree1" type="hidden" value="Fury,15" name="spent">
+        </span>
+        <span>
+            <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
+        </span>
+    </div>
+    {% else %}
+    {% endif %}
+
     <div class="fieldWrapper">
         {{ form.name.errors }}
         <label for="{{ form.name.id_for_label }}">Title:</label>
         {{ form.name }}
     </div>
+
     <div class="fieldWrapper">
         {{ form.description.errors }}
         <label for="{{ form.description.id_for_label }}">Notes:</label>
@@ -118,23 +140,38 @@
         <input id="list_hash" type="hidden" value="test" name="hash">
     </div>
 
-    {% if selected %}
-    <div class="fieldWrapper">
-        <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
-    </div>
-
-    <div class="fieldWrapper">
-        <input class="tree-input" id="tree1" type="hidden" value="Arms,10" name="spent" data-treename="a">
-    </div>
-    <div class="fieldWrapper">
-        <input class="tree-input" id="tree2" type="hidden" value="Fury,15" name="spent" data-treename="b">
-    </div>
-    <div class="fieldWrapper">
-        <input class="tree-input" id="tree3" type="hidden" value="Protection,10" name="spent" data-treename="c">
-    </div>
-    {% endif %}
-
     <div class="form-actions">
-      <button id="save_list" type="submit">Save</button>
+       {% if "talent_calc" in request.path %}
+      <button id="spec_spec" type="submit">Save</button>
+      {% else %}
+      <button id="save_consume_list" type="submit">Save</button>
+      {% endif %}
     </div>
 </form>
+</div>
+
+<script>
+$('#save_spec').on({
+	click: e=> {
+		var tree_inputs = $(".tree-input")
+        $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
+        $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
+        $("#tree2").val(`${talentPointsSpent.treeNames[2]},${talentPointsSpent[talentPointsSpent.treeNames[2]].total()}`)
+		$("#list_hash").val(urlBuilder())
+	    $('#save_list').submit();
+	},
+});
+
+$('#save_consume_list').on({
+	click: e=> {
+		var tree_inputs = $(".tree-input")
+		$("#list_hash").val(urlBuilder())
+	    $('#save_list').submit();
+	},
+});
+
+function build_consume_url() {
+
+}
+
+</script>
