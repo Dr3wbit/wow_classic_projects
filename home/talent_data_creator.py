@@ -1,5 +1,5 @@
 import json, os
-from home.models import WoWClass, Talent, TalentTree
+from home.models import WoWClass, Talent, TalentTree, Crafted, Profession
 
 def create(cl):
 	print('class: ', cl)
@@ -52,3 +52,37 @@ def url_builder(talent_trees):
 			if i < 2:
 				b = '07' if len(a)%2==0 else '7'
 				a = ''.join([a, b])
+
+
+
+##############################################################################
+## accepts dict in the following form consume_list = {'alchemy': {'arcane_elixir':1}, 'engineering': {'goblin_rocket_boots':2} }
+###############################################################################
+def consume_list_url_builder(consume_list):
+	stringy_boy = ''
+
+	rle_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	prof_str = {
+		'alchemy': 'AL', 'blacksmithing':'BS', 'cooking':'CK', 'engineering':'EN',
+		'enchanting': 'EC', 'first_aid':'FA', 'fishing':'FI', 'leatherworking': 'LW', 'other':'OT',
+		'tailoring': 'TL', 'skinning':'SK'
+		}
+	translator = {}
+	translator['professions'] = prof_str
+
+	for prof_name,crafted_list in consume_list.items():
+		stringy_boy = ''.join([stringy_boy, "&{}=".format(translator['professions']['prof_name'])])
+
+		prof = Profession.objects.get(name=prof_name)
+
+		all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
+
+		translator[prof.name] = {}
+
+		for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
+			translator[prof.name][crafted.name] = k
+
+		for i,v in crafted_list.items():
+			stringy_boy = ''.join([stringy_boy, translator['prof_name'][i], str(v)])
+
+	print(stringy_boy)

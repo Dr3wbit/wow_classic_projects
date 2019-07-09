@@ -109,7 +109,8 @@ class Crafted(models.Model):
 	step = models.PositiveSmallIntegerField(default=1)
 	materials = models.ManyToManyField('Material')
 	help_text = "Describes an item as a craftable or consumable"
-
+	# end_game = models.BooleanField(default=False)
+	
 	@property
 	def name(self):
 		return self.item.name
@@ -266,6 +267,7 @@ class Spec(models.Model):
 	private = models.BooleanField(default=False)
 	description = models.TextField(default='couple line of text...', max_length=300)
 	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
+	rating = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
 
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
@@ -321,7 +323,8 @@ class ConsumeList(models.Model):
 	description = models.TextField(default='couple line of text...', max_length=300)
 	private = models.BooleanField(default=False)
 	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
-	
+	rating = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
+
 	def __str__(self):
 		return(self.name)
 

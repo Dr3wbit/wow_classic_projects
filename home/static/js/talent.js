@@ -411,11 +411,14 @@ function updateTalentHeader() {
 
 	let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
 	$("#allottedTalentPoints").text(a)
+	$("#talents_spent").text(a)
+	
 	let requiredLevel = (talentPointsSpent.grandTotal() >= 1) ? talentPointsSpent.grandTotal() + 9 : "--"
 	$("#requiredLevel").text(`Required level: ${requiredLevel}`)
 	let pointsRemaining = 51 - talentPointsSpent.grandTotal()
 	$("#pointsRemaining").text(`Points left: ${pointsRemaining}`)
 
+	return a
 }
 
 function updateTooltip(e) {
