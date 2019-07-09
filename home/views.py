@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag
+from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList
 from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page, never_cache
@@ -85,13 +85,72 @@ class TalentCalcTemplate(TemplateView):
 		context['form'] = form
 
 		if form.is_valid():
-			response = save_spec(request, class_name)
+			response = self.save_list(request)
 			# return HttpResponseRedirect('success')
 			return response
 
 		else:
 			print('save failed, redirecting to previous page...')
 			return HttpResponseRedirect('talent_calc')
+
+	def save_list(self, request):
+		url = request.POST.get('hash', None)
+		class_name = request.POST.get('wow_class', None)
+		private = request.POST.get('private', False)
+		tags = request.POST.getlist('tags')
+		name = request.POST.get('name', None)
+		spnt = request.POST.getlist('spent')
+		description = request.POST.get('description')
+		data = dict(request.POST)
+		print(data)
+		data['spent'] = []
+		spent = {}
+
+		for x in spnt:
+			y = x.split(',')
+			# data['spent'].append(y[1])
+			a = y[0]
+			b = y[1]
+
+
+			spent[y[0]] = y[1]
+			data['spent'].append(y)
+
+
+		if request.user.is_authenticated:
+			user = request.user
+			if url and class_name and name:
+				wow_class = WoWClass.objects.get(name=class_name)
+				# spec,created = Spec.objects.update_or_create(
+				# 	name=name, user=user, wow_class=wow_class, private=private,
+				# 	hash=url, description=description,
+				#	defaults={'name': name, 'user':user,
+				# 		'wow_class':wow_class, 'hash': url, 'description':description, 'private':private
+				# 	}
+				# )
+				# for tag in tags:
+				# 	t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
+				# 	spec.tags.add(t)
+				# 	spec.save()
+				# spec.save()
+
+				for k,v in spent.items():
+					tree_name = k
+					invested = v
+					# tree = TalentTree.objects.get(name=tree_name, wow_class=wow_class)
+					# t,_ = TreeAllotted.objects.update_or_create(
+					# 	tree=tree, spec=spec, defaults={
+					# 		'tree':tree, 'spec': spec, 'invested':invested
+					# 	}
+					# )
+					# print('\nt: ', t)
+					# t.save()
+
+				# saved_list = Spec.objects.filter(name=spec_name).first()
+				# if saved_list:
+				# 	print('success')
+
+		return JsonResponse(data)
 
 
 class ConsumeToolTemplate(TemplateView):
@@ -107,30 +166,30 @@ class ConsumeToolTemplate(TemplateView):
 			]
 
 		prof = self.kwargs.get("prof", None)
-		context["consumes"] = {}
+		context["recipes"] = {}
 		context["selected"] = prof
 
-		print('\nprof: ', prof)
-
 		if prof=='other':
-			consumes = Crafted.objects.filter(prof=None)
-			# context["consumes"] = Crafted.objects.filter(prof=None)
+			recipes = Crafted.objects.filter(prof=None)
+			# context["recipes"] = Crafted.objects.filter(prof=None)
 		elif prof:
-			consumes = Crafted.objects.filter(prof__name=self.kwargs["prof"])
+			recipes = Crafted.objects.filter(prof__name=self.kwargs["prof"])
 
 		else:
-			consumes = []
+			recipes = []
 
-		for consume in consumes:
-			context["consumes"][consume.name] = {}
-			context["consumes"][consume.name]['rarity'] = consume.rarity
-			context["consumes"][consume.name]['name'] = str(consume)
-			context["consumes"][consume.name]['materials'] = {}
-			for mat in consume.materials.all():
-				context["consumes"][consume.name]['materials'][mat.name] = {}
-				context["consumes"][consume.name]['materials'][mat.name]['rarity'] = mat.rarity
-				context["consumes"][consume.name]['materials'][mat.name]['amount'] = int(consume.step*mat.amount)
-				context["consumes"][consume.name]['materials'][mat.name]['name'] = str(mat)
+		for recipe in recipes:
+			nombre = recipe.name
+			context["recipes"][nombre] = {}
+			context["recipes"][nombre]['rarity'] = recipe.rarity
+			context["recipes"][nombre]['name'] = str(recipe)
+			context["recipes"][nombre]['materials'] = {}
+			for mat in recipe.materials.all():
+				m_nombre = mat.name
+				context["recipes"][nombre]['materials'][m_nombre] = {}
+				context["recipes"][nombre]['materials'][m_nombre]['rarity'] = mat.rarity
+				context["recipes"][nombre]['materials'][m_nombre]['amount'] = int(recipe.step*mat.amount)
+				context["recipes"][nombre]['materials'][m_nombre]['name'] = str(mat)
 
 
 		if request.is_ajax():
@@ -148,14 +207,91 @@ class ConsumeToolTemplate(TemplateView):
 		context['form'] = form
 		prof = self.kwargs.get("prof", None)
 
+		print('consume form')
+
+		print(dir(request.POST))
+		print('all_consumes: ', request.POST.get('spent'))
 		if form.is_valid():
-			response = save_consume_list(request)
+			print('cnosume form valid')
+			response = self.save_list(request)
 			# return HttpResponseRedirect('success')
 			return response
 
 		else:
 			print('save failed, redirecting to previous page...')
 			return HttpResponseRedirect('consume_tool')
+
+	def delete_list(self, request):
+		saved_list = request.GET.get('saved_list', None)
+		data = {}
+		if request.user.is_authenticated:
+			user = request.user
+			if saved_list:
+				saved_spec = Spec.objects.filter(name=saved_list, user=user).first()
+				if saved_spec:
+					print('found spec, deleting')
+					data['saved_list'] = saved_spec.name
+					Spec.objects.get(name=saved_list, user=user).delete()
+
+		return JsonResponse(data)
+
+	def save_list(self, request):
+		private = request.POST.get('private', False)
+		tags = request.POST.getlist('tags')
+		name = request.POST.get('name', None)
+		spnt = request.POST.getlist('spent')
+		description = request.POST.get('description')
+		data = dict(request.POST)
+		print(data)
+		data['spent'] = []
+		spent = {}
+
+		for x in spnt:
+			y = x.split(',')
+			# data['spent'].append(y[1])
+			a = y[0]
+			b = y[1]
+			p = Crafted.objects.get(item__name=a).prof.name
+
+			if p not in spent.keys():
+				spent[p] = {}
+
+			spent[p][a] = b
+
+			# spent[y[0]] = y[1]
+			# data['spent'].append(y)
+			# data['spent'][y[0]] = y[1]
+
+		data['spent'] = spent
+
+		if request.user.is_authenticated:
+			user = request.user
+			# c_list,_ = ConsumeList.objects.update_or_create(
+			# 	name=name, user=user, private=private,
+			# 	hash=url, description=description,
+			# 	defaults={'name': name, 'user':user, 'hash': url,
+			# 		'description':description, 'private':private
+			# 	}
+			# )
+			print('\ntags:')
+			for tag in tags:
+				print(tag)
+				# t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
+				# c_list.tags.add(t)
+				# c_list.save()
+
+			print('\nconsumes:')
+			for x,y in spent.items():
+				print("{}:{}".format(x,y))
+				# z = Crafted.objects.get(item__name=x)
+				# c,_ = Consume.objects.update_or_create(
+				# 	invested=y, consume_list=c_list, item=z,
+				# 	defaults={'invested':y, 'consume_list':c_list, 'item':z}
+				# )
+				# c_list.consumes.add(c)
+				# c_list.save()
+
+		return JsonResponse(data)
 
 class EnchantToolView(TemplateView):
 	template_name = "enchant_tool.html"
@@ -210,70 +346,6 @@ class ContactView(TemplateView):
 class SuccessView(TemplateView):
 	template_name = "success.html"
 
-# class ContactSuccessView(RedirectView):
-#
-# 	permanent = False
-# 	query_string = True
-# 	pattern_name = 'success'
-#
-# 	def get_redirect_url(self, *args, **kwargs):
-# 		article = get_object_or_404(Article, pk=kwargs['pk'])
-# 		article.update_counter()
-# 		return super().get_redirect_url(*args, **kwargs)
-
-#
-#
-# class ConsumesListView(ConsumeToolTemplate):
-#
-# 	query_string = ''
-#
-# 	def setup(self, request, *args, **kwargs):
-# 		setup = super().setup(request, *args, **kwargs)
-# 		if request.META["QUERY_STRING"]:
-# 			self.query_string = request.META["QUERY_STRING"]
-# 			# print('query string: ', request.META["QUERY_STRING"])
-# 		return setup
-#
-# 	def get_context_data(self, **kwargs):
-#
-# 		context = super().get_context_data(**kwargs)
-# 		prof_choices = [x for x,y in Profession.PROFESSION_CHOICES]
-# 		if self.kwargs["prof"] in prof_choices:
-# 			context["consumes"] = Crafted.objects.filter(prof__name=self.kwargs["prof"])
-# 		else:
-# 			context["consumes"] = Crafted.objects.filter(prof=None)
-#
-#
-# 		context["selected"] = self.kwargs["prof"]
-# 		return context
-#
-# 	# @method_decorator(cache_page(9000)) #cache for 1 hour
-# 	def dispatch(self, request, *args, **kwargs):
-# 		dispatch = super().dispatch(request, *args, **kwargs)
-# 		return dispatch
-
-#
-# class TalentsRedirectView(RedirectView):
-# 	permanent = False
-# 	query_string = True
-# 	pattern_name = 'talent_calc'
-#
-#
-# 	def get_redirect_url(self, *args, **kwargs):
-# 		# article = get_object_or_404(Article, pk=kwargs['pk'])
-#
-# 		redirect_url = super().get_redirect_url(*args, **kwargs)
-# 		# article.update_counter()
-# 		print(dir(redirect_url))
-# 		print('self: ', self)
-# 		print('dir self: ', dir(self))
-# 		print(self.args)
-# 		print(self.kwargs)
-# 		print(self.request)
-#
-# 		print('\nredirect_url: ', redirect_url)
-#
-# 		return redirect_url
 
 def delete_list(request):
 	saved_list = request.GET.get('saved_list', None)
@@ -289,61 +361,6 @@ def delete_list(request):
 
 	return JsonResponse(data)
 
-def save_spec(request, class_name):
-	spec_url = request.POST.get('spec_url', None)
-	# class_name = request.POST.get('class_name', None)
-	print('save_spec: ', class_name)
-	spec_name = request.POST.get('spec_name', None)
-	spnt = request.POST.getlist('spent')
-	print('spnt')
-	data = dict(request.POST)
-	data['spent'] = []
-	spent = {}
-	for x in spnt:
-		y = x.split(',')
-		print('y: ', y)
-		print('x: ', x)
-		# data['spent'].append(y[1])
-		spent[y[0]] = y[1]
-
-		data['spent'].append(y)
-
-
-		# data['spent'].append(x)
-
-		# spent[y[0]] = y[1]
-
-	if request.user.is_authenticated:
-		user = request.user
-		if spec_url and class_name and spec_name:
-			wow_class = WoWClass.objects.get(name=class_name)
-			spec,created = Spec.objects.update_or_create(
-				name=spec_name, user=user, wow_class=wow_class,
-				hash=spec_url, defaults={'name': spec_name, 'user':user,
-					'wow_class':wow_class, 'hash': spec_url
-				}
-			)
-			data['created'] = created
-			print('TEST RUN\n\n spec: ', spec)
-			# spec.save()
-
-			for k,v in spent.items():
-				tree_name = k
-				invested = v
-				tree = TalentTree.objects.get(name=tree_name, wow_class=wow_class)
-				t,_ = TreeAllotted.objects.update_or_create(
-					tree=tree, spec=spec, defaults={
-						'tree':tree, 'spec': spec, 'invested':invested
-					}
-				)
-				print('\nt: ', t)
-				# t.save()
-
-			saved_list = Spec.objects.filter(name=spec_name).first()
-			if saved_list:
-				print('success')
-
-	return JsonResponse(data)
 
 def load_spec(request):
 	data = {}

@@ -56,7 +56,7 @@ def url_builder(talent_trees):
 
 
 ##############################################################################
-## accepts dict in the following form consume_list = {'alchemy': {'arcane_elixir':1}, 'engineering': {'goblin_rocket_boots':2} }
+## expects dict in the following form: consume_list = {'alchemy': {'arcane_elixir':1}, 'engineering': {'goblin_rocket_boots':2} }
 ###############################################################################
 def consume_list_url_builder(consume_list):
 	stringy_boy = ''

@@ -98,11 +98,9 @@
 		{% endif %}
 	</div>
 
-	{% comment %}
-	{% if selected %}
-    {% include "save_form.html" %}
+	{% if user.is_authenticated %}
+	{% include "save_form.html" %}
 	{% endif %}
-	{% endcomment %}
 
 </div>
 

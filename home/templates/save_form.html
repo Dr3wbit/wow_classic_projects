@@ -19,10 +19,11 @@
             </div>
         </div>
 
-        {% if "talent_calc" in request.path %}
         <div class="fieldWrapper">
+
+        {% if "talent_calc" in request.path %}
             <span>
-                <label class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
+                <label id="wow_class_label" class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
                 <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
             </span>
             <span>
@@ -35,9 +36,11 @@
             <span>
                 <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
             </span>
-        </div>
         {% else %}
+        <div id="all_consumes">
+        </div>
         {% endif %}
+        </div>
 
         <div class="fieldWrapper row">
             {{ form.name.errors }}
@@ -66,24 +69,13 @@
             <input id="list_hash" type="hidden" value="test" name="hash">
         </div>
 
-        {% if selected %}
-        <div class="fieldWrapper">
-            <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
-        </div>
-
-        <div class="fieldWrapper">
-            <input class="tree-input" id="tree1" type="hidden" value="Arms,10" name="spent" data-treename="a">
-        </div>
-        <div class="fieldWrapper">
-            <input class="tree-input" id="tree2" type="hidden" value="Fury,15" name="spent" data-treename="b">
-        </div>
-        <div class="fieldWrapper">
-            <input class="tree-input" id="tree3" type="hidden" value="Protection,10" name="spent" data-treename="c">
-        </div>
-        {% endif %}
 
         <div class="form-actions row justify-content-center">
+            {% if "talent_calc" in request.path %}
             <button id="save_spec" class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
+            {% else %}
+            <button id="save_consume_list" class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
+            {% endif %}
         </div>
     </form>
 </div>
@@ -103,14 +95,40 @@ $('#save_spec').on({
 
 $('#save_consume_list').on({
 	click: e=> {
-		var tree_inputs = $(".tree-input")
-		$("#list_hash").val(urlBuilder())
-	    $('#save_list').submit();
+        let spent = []
+
+        var all_consumes = $("#all_consumes")
+
+
+        // let spent = "blacksmithing,"
+        for (let [profname, v] of Object.entries(my_consume_list)) {
+
+            for (let [crafted, amount] of Object.entries(v)) {
+
+                all_consumes.append($('<input/>', {
+                    name:"spent",
+                    value: `${crafted},${amount}`,
+                    type: 'hidden'
+                }
+            ))
+
+                // let c = {name:crafted, amount:amount}
+                // console.log(c)
+                // prof.value.push(c)
+                // console.log(prof)
+
+            }
+        }
+
+        // console.log(spent)
+        // let sp = $.param(spent)
+        // console.log(sp)
+        // let spe = JSON.stringify(spent)
+        // console.log(spe)
+
+        // $("#all_consumes").val(JSON.stringify(my_consume_list))
+	    $('#save_consume_list').submit();
 	},
 });
-
-function build_consume_url() {
-
-}
 
 </script>

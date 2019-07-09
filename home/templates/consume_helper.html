@@ -1,11 +1,11 @@
-{% if consumes %}
+{% if recipes %}
 {% load static %}
-    {% for consume,v in consumes.items %}
+    {% for recipe,v in recipes.items %}
     <div class="row">
         <div class="col-8">
-            <div class="prof-item-recipe" name="{{consume}}">
-                <span class="recipe-container {{v.rarity}}" name="{{consume}}">
-                {% with "images/icons/consumes/"|add:consume|add:".jpg" as item_image %}
+            <div class="prof-item-recipe" name="{{recipe}}">
+                <span class="recipe-container {{v.rarity}}" name="{{recipe}}">
+                {% with "images/icons/consumes/"|add:recipe|add:".jpg" as item_image %}
                 <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
                 style="background-image: url({% static item_image %});">
                 {% endwith %}
@@ -40,8 +40,8 @@
 
     function update_consume_list(name) {
         let prof = $("a.prof-filter.selected").attr("id")
-        console.log("prof: ", prof)
-        console.log(name)
+
+
         if (!my_consume_list[prof]) {
             my_consume_list[prof] = {}
         }
@@ -52,15 +52,14 @@
 
         my_consume_list[prof][name]++
 
-        mats = allConsumes[name].materials
-
-        for (let [k, v] of Object.entries(mats)) {
-            if (!my_consume_list['materials'][k]) {
-                my_consume_list['materials'][k] = 0
-            }
-            my_consume_list['materials'][k] = (my_consume_list['materials'][k]+v)
-        }
-        console.log(my_consume_list)
+        // mats = allConsumes[name].materials
+        //
+        // for (let [k, v] of Object.entries(mats)) {
+        //     if (!my_consume_list['materials'][k]) {
+        //         my_consume_list['materials'][k] = 0
+        //     }
+        //     my_consume_list['materials'][k] = (my_consume_list['materials'][k]+v)
+        // }
 
     }
 
