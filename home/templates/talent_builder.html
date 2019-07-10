@@ -64,6 +64,9 @@
 		</div>
 	</div>
 	{% endfor %}
-
-{% include "save_form.html" %}
+<script>
+$("#wow_class").val("{{selected}}")
+$("#wow_class_label").text("{{selected|title}}")
+$("#wow_class_label").attr("class", "{{selected}}")
+</script>
 {% endif %}

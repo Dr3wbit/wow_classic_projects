@@ -5,7 +5,7 @@
 <div class="row saveBlock">
         <h1 class="saveTitle col-12">SAVE</h1>
     <div class="container">
-    <form method="post">
+    <form class="saved-list-form" method="post" data-url='{{ request.build_absolute_uri|safe }}'>
         {% csrf_token %}
         {{ form.non_field_errors }}
 
@@ -19,10 +19,11 @@
             </div>
         </div>
 
-        {% if "talent_calc" in request.path %}
         <div class="fieldWrapper">
+
+        {% if "talent_calc" in request.path %}
             <span>
-                <label class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
+                <label id="wow_class_label" class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
                 <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
             </span>
             <span>
@@ -35,9 +36,11 @@
             <span>
                 <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
             </span>
-        </div>
         {% else %}
+        <div id="all_consumes">
+        </div>
         {% endif %}
+        </div>
 
         <div class="fieldWrapper row">
             {{ form.name.errors }}
@@ -66,51 +69,204 @@
             <input id="list_hash" type="hidden" value="test" name="hash">
         </div>
 
-        {% if selected %}
-        <div class="fieldWrapper">
-            <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
-        </div>
-
-        <div class="fieldWrapper">
-            <input class="tree-input" id="tree1" type="hidden" value="Arms,10" name="spent" data-treename="a">
-        </div>
-        <div class="fieldWrapper">
-            <input class="tree-input" id="tree2" type="hidden" value="Fury,15" name="spent" data-treename="b">
-        </div>
-        <div class="fieldWrapper">
-            <input class="tree-input" id="tree3" type="hidden" value="Protection,10" name="spent" data-treename="c">
-        </div>
-        {% endif %}
 
         <div class="form-actions row justify-content-center">
-            <button id="save_spec" class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
+            {% if "talent_calc" in request.path %}
+            <button class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
+            {% else %}
+            <button class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
+            {% endif %}
         </div>
     </form>
 </div>
 </div>
 
 <script>
-$('#save_spec').on({
-	click: e=> {
-		var tree_inputs = $(".tree-input")
-        $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
-        $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
-        $("#tree2").val(`${talentPointsSpent.treeNames[2]},${talentPointsSpent[talentPointsSpent.treeNames[2]].total()}`)
-		$("#list_hash").val(urlBuilder())
-	    $('#save_list').submit();
-	},
-});
+// $('#save_spec').on({
+// 	click: e=> {
+// 		var tree_inputs = $(".tree-input")
+//         $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
+//         $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
+//         $("#tree2").val(`${talentPointsSpent.treeNames[2]},${talentPointsSpent[talentPointsSpent.treeNames[2]].total()}`)
+// 		$("#list_hash").val(urlBuilder())
+// 	    $('#save_list').submit();
+// 	},
+// });
 
-$('#save_consume_list').on({
-	click: e=> {
-		var tree_inputs = $(".tree-input")
-		$("#list_hash").val(urlBuilder())
-	    $('#save_list').submit();
-	},
-});
+// $('#save_consume_list').on({
+// 	click: e=> {
+//         let spent = []
+//         var all_consumes = $("#all_consumes")
+//
+//         for (let [profname, v] of Object.entries(my_consume_list)) {
+//             for (let [crafted, amount] of Object.entries(v)) {
+//                 all_consumes.append($('<input/>', {
+//                     name:"spent",
+//                     value: `${crafted},${amount}`,
+//                     type: 'hidden'
+//                 }
+//             ))
+//             }
+//         }
+// 	    $('#save_consume_list').submit();
+// 	},
+// });
 
-function build_consume_url() {
-
+function update_consume_inputs() {
+    var all_consumes = $("#all_consumes")
+    for (let [profname, v] of Object.entries(my_consume_list)) {
+        for (let [crafted, amount] of Object.entries(v)) {
+            all_consumes.append($('<input/>', {
+                name:"spent",
+                value: `${crafted},${amount}`,
+                type: 'hidden'
+            }
+        ))
+        }
+    }
 }
+
+function update_tree_inputs() {
+    $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
+    $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
+    $("#tree2").val(`${talentPointsSpent.treeNames[2]},${talentPointsSpent[talentPointsSpent.treeNames[2]].total()}`)
+    $("#list_hash").val(urlBuilder())
+}
+
+$(".saved-list-form").on({
+    submit: e=> {
+        if (window.location.pathname.includes("talent_calc")) {
+            update_tree_inputs()
+        } else {
+            update_consume_inputs()
+        }
+        e.preventDefault()
+        var $myForm = $(".saved-list-form")
+        var $formData = $myForm.serialize()
+        console.log('data: ', $formData)
+        var $thisURL = $myForm.attr('data-url') || window.location.href
+        $.ajax({
+            method: "POST",
+            url: $thisURL,
+            data: $formData,
+            success: savedListSuccess,
+            error: savedListError,
+        })
+    }
+})
+
+function savedListSuccess(data, textStatus, jqXHR){
+    append_list_item(data)
+    let message = data['message'] // <-- NOTE: do something with message
+    console.log(data)
+    console.log(textStatus)
+    console.log(jqXHR)
+    // $myForm.reset(); // reset form data
+}
+
+function savedListError(jqXHR, textStatus, errorThrown){
+    console.log(jqXHR)
+    console.log(textStatus)
+    console.log(errorThrown)
+}
+
+function append_list_item(data) {
+
+    let wow_class = data.wow_class
+    let name = data.name
+    let spec_cont = $("<div/>", {
+        class: "spec-container",
+    })
+    let spec_info = $("<div/>", {
+        class: "spec-info",
+    })
+
+    let child_text = (wow_class.length) ? `${utilities.titleCase(wow_class)}` : `${name}`
+    let spec_info_child = $("<span/>", {
+        text: child_text,
+    })
+    if (wow_class) {
+        spec_info_child.addClass(`${wow_class}`)
+        spec_info.append(spec_info_child, ' ', $("<span/>", {
+            style: "font-size: 90%;",
+            text: `(${data.spent[0]}/${data.spent[1]}/${data.spent[2]})`,
+        }))
+    } else {
+        spec_info.append(spec_info_child)
+    }
+
+    let spec_item = $("<div/>", {
+        class: "spec-list-item progress-bar-striped progress-bar-animated",
+        name: name,
+        text: name,
+        style: "position: relative;"
+    })
+    if (wow_class) {
+        spec_item.attr("data-wowclass", wow_class)
+    }
+
+    let link = ($("<a/>", {
+        href: `${document.location.pathname}?${data.hash}`,
+    }).append("<span/>", {
+        style: "left: 0; position: absolute; z-index: 9999; width: 100%; height: 100%;"
+    }))
+
+    let trashcan = ($("<button/>", {
+        class: "btn btn-sm float-right trashcan",
+        name: "delete",
+        value: name,
+        type: "button",
+        title: `delete ${name}`
+    })).on({
+       click: e=> {
+           $( e.target ).triggerHandler("click");
+       }
+    })
+
+    trashcan.append($("<span/>", {
+        class: "glyphicon glyphicon-trash glyphicon-custom"
+    }))
+
+    spec_item.append(link, trashcan)
+    spec_cont.append(spec_info, spec_item)
+
+    if (wow_class) {
+        $("#saved-specs").append(spec_cont)
+    } else {
+        $("#saved-consume-lists").append(spec_cont)
+    }
+}
+
+
+// function getCookie(name) {
+//     var cookieValue = null;
+//     if (document.cookie && document.cookie !== '') {
+//         var cookies = document.cookie.split(';');
+//         for (var i = 0; i < cookies.length; i++) {
+//             var cookie = cookies[i].trim();
+//             // Does this cookie string begin with the name we want?
+//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
+//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+//                 break;
+//             }
+//         }
+//     }
+//     return cookieValue;
+// }
+//
+// var csrftoken = getCookie('csrftoken');
+//
+// function csrfSafeMethod(method) {
+//     // these HTTP methods do not require CSRF protection
+//     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+// }
+//
+// $.ajaxSetup({
+//     beforeSend: function(xhr, settings) {
+//         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+//             xhr.setRequestHeader("X-CSRFToken", csrftoken);
+//         }
+//     }
+// });
 
 </script>
