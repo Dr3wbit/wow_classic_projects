@@ -38,9 +38,8 @@
     <script src="{% static "js/consume_tool.js" %}"></script>
     <script>
 
-    function update_consume_list(name) {
+    function update_consume_list(name, amount=1) {
         let prof = $("a.prof-filter.selected").attr("id")
-
 
         if (!my_consume_list[prof]) {
             my_consume_list[prof] = {}
@@ -50,7 +49,13 @@
             my_consume_list[prof][name] = 0
         }
 
-        my_consume_list[prof][name]++
+        my_consume_list[prof][name] += my_consume_list[prof][name]
+
+        if (my_consume_list[prof][name] <= 0) {
+            my_consume_list[prof][name] = 0
+        }
+
+        console.log(my_consume_list)
 
         // mats = allConsumes[name].materials
         //
@@ -83,13 +88,24 @@
         mouseleave: e => {
             clearTooltip()
         },
-        click: e => {
+        contextmenu: e => {
+			e.preventDefault()
+		},
+        mousedown: e => {
+            var amount = 1
             let name = $(e.target).closest(".recipe-container").attr('name')
             if ((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) {
                 return false
             }
-            addCraftedItem(name)
-            update_consume_list(name)
+            if (e.shiftKey) {
+                amount = 5
+            }
+
+            if (e.which === 3) {
+                amount = amount*(-1)
+            }
+            update_consume_list(name, amount)
+            addCraftedItem(name, amount)
         }
 
     });

@@ -7,40 +7,56 @@
 			<div class="spec-list">
 			{% if user.is_authenticated %}
 				<h5>SPECS</h5>
+				<div id="saved-specs">
 				{% for spec in user.spec_set.all %}
 				<div class="spec-container">
 					<div class="spec-info">
 						<span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span>
-						<span
-							style="font-size: 90%;">({{ spec.treeallotted_set.all.0.invested }}/{{ spec.treeallotted_set.all.1.invested }}/{{ spec.treeallotted_set.all.2.invested }})</span>
+						<span style="font-size: 90%;">({{ spec.treeallotted_set.all.0.invested }}/{{ spec.treeallotted_set.all.1.invested }}/{{ spec.treeallotted_set.all.2.invested }})</span>
 					</div>
-					<div class="spec-list-item" name="{{spec.name}}" style="position: relative;">{{spec.name}}
-						<a style="position: relative;" href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}"><span style="left: 0; position: absolute; z-index: 9999; width: 100%; height: 100%;"></span></a>
+					{% if "talent_calc" in request.path %}
+					<div class="spec-list-item" href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name}}" style="position: relative;">{{spec.name}}
+						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
+							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name}}">
+							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
+						</button>
+					</div>
+					{% else %}
+					<div class="spec-list-item" name="{{spec.name}}" style="position:relative;">{{spec.name}}
+						<a href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}">
+							<span style="left: 0; position: absolute; width: 80%; height: 100%;"></span>
+						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 							value="{{spec.name}}" type="button">
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
 						</button>
 					</div>
+					{% endif %}
+
 				</div>
 				{% endfor %}
+
+			</div>
+
+			<div id="saved-consume-lists">
 				<h5>CONSUME LISTS</h5>
 				{% for consume_list in user.consumelist_set.all %}
-				{% spaceless %}
 				<div class="spec-container">
 					<div class="spec-info">
 						<span>{{consume_list.name}}</span>
 					</div>
-					<div class="spec-list-item" role="button" data-wowclass="{{spec.wow_class.name}}"
-						href="{% url 'consume_tool' %}?{{consume_list.hash}}" name="{{consume_list.name}}">{{consume_list.name}}
+					<div class="spec-list-item" name="{{consume_list.name}}" style="position:relative;">{{consume_list.name}}
+						<a href="{% url 'consume_tool' %}?{{consume_list.hash}}">
+							<span style="left: 0; position: absolute; width: 80%; height: 100%;"></span>
+						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 							value="{{consume_list.name}}" type="button">
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
 						</button>
-						<div class="clearfix"></div>
 					</div>
 				</div>
-				{% endspaceless %}
 				{% endfor %}
+			</div>
 			{% else %}
 				<p>
 					To save a spec, fill out your talents then fill out the save form at the bottom of the page. <br> (login required:
