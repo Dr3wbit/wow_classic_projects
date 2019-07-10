@@ -150,6 +150,13 @@
                     <hr style="border: 1px solid white; width: 100%;"></hr>
                 </div>
                 {% endfor %}
+
+                {% for consumelist in consume_lists %}
+                <div class="card-body text-light">
+                    <h5 class="card-title text-center"><a href="{% url 'consume_tool' %}?{{consumelist.hash}}">{{consumelist.name}}</a></h5>
+                </div>
+                {% endfor %}
+
                 </div>
 
                 <div class="card mb-3 bg-transparent border-light text-center">

@@ -16,6 +16,7 @@ class IndexView(TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		context['specs'] = Spec.objects.all()
+		context['consume_lists'] = ConsumeList.objects.all()
 		context['rangen'] = range(5)
 		return context
 
