@@ -82,35 +82,6 @@
 </div>
 
 <script>
-// $('#save_spec').on({
-// 	click: e=> {
-// 		var tree_inputs = $(".tree-input")
-//         $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
-//         $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
-//         $("#tree2").val(`${talentPointsSpent.treeNames[2]},${talentPointsSpent[talentPointsSpent.treeNames[2]].total()}`)
-// 		$("#list_hash").val(urlBuilder())
-// 	    $('#save_list').submit();
-// 	},
-// });
-
-// $('#save_consume_list').on({
-// 	click: e=> {
-//         let spent = []
-//         var all_consumes = $("#all_consumes")
-//
-//         for (let [profname, v] of Object.entries(my_consume_list)) {
-//             for (let [crafted, amount] of Object.entries(v)) {
-//                 all_consumes.append($('<input/>', {
-//                     name:"spent",
-//                     value: `${crafted},${amount}`,
-//                     type: 'hidden'
-//                 }
-//             ))
-//             }
-//         }
-// 	    $('#save_consume_list').submit();
-// 	},
-// });
 
 function update_consume_inputs() {
     var all_consumes = $("#all_consumes")
@@ -125,7 +96,6 @@ function update_consume_inputs() {
         }
     }
 }
-
 function update_tree_inputs() {
     $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
     $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)

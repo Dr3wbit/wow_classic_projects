@@ -22,7 +22,7 @@ class IndexView(TemplateView):
 
 	def post(self, request, *args, **kwargs):
 		pass
-		#
+		# NOTE: saved-list ratings
 		# name = request.POST.get('name', None)
 		# rating = request.POST.get('rating', 0)
 		# user = Profile.objects.get(username=request.user.email)
@@ -45,15 +45,11 @@ class TalentCalcTemplate(TemplateView):
 		return dispatch
 
 	def talent_architect(self, context):
-		# const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}|f{2,}|E{2,}|F{2,}|J{2,}/g //looks for repeats of listed letters
-		# const re2 = /([a-zA-J])\d/g
 		class_name = context["selected"]
 		wow_class = WoWClass.objects.get(name=class_name)
 		talent_trees = wow_class.talenttree_set.all()
-
 		context["talent_trees"] = []
 		blueprints = {}
-
 
 		for tree in talent_trees:
 			context["talent_trees"].append({'name':tree.name, 'sanitized':tree.sanitized})
@@ -112,7 +108,7 @@ class TalentCalcTemplate(TemplateView):
 					'name': name,
 					'wow_class': wow_class,
 					'spent': spent,
-					'message': "Successfully submitted form data."
+					'message': "Successfully saved spec!"
 				}
 				response = JsonResponse(data)
 			else:
