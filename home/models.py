@@ -1,8 +1,11 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db.models import Avg
 import datetime, math, re, time
 from django.contrib.auth.models import User
 from social_django.models import UserSocialAuth
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.models import ContentType
 
 nope = re.compile(r"[\-]")
 forbiden = re.compile(r"[\:\'\(\)]")
@@ -297,36 +300,56 @@ class TreeAllotted(models.Model):
 	class Meta:
 		unique_together = ['spec', 'tree']
 
+class Rating(models.Model):
+	value = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
+	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+	object_id = models.PositiveIntegerField()
+	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
+	content_object = GenericForeignKey('content_type', 'object_id')
+	help_text = "Spec or ConsumeList"
+
+
+	def __str__(self):
+		return("User={}, SavedList={}, Rating={}".format(self.user.email, self.content_object.name, self.value))
+
+	class Meta:
+		unique_together = ['user', 'content_type', 'object_id']
 
 class SavedList(models.Model):
+
 	name = models.CharField(max_length=30, default='')
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='testy test')
 	description = models.TextField(default='couple line of text...', max_length=300)
 	private = models.BooleanField(default=False)
-	rating = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
+	_ratings = GenericRelation('Rating', related_query_name="%(class)s_rating")
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
 
 
 	def __str__(self):
-		return(self.name)
+		return("{}, last updated:{}, rating:{}, created by:{}".format(self.name, self.updated, self.rating, self.user.email))
 
 	class Meta:
 		abstract = True
 		unique_together = ['user', 'name']
 
+	@property
+	def rating(self):
+		return self._ratings.aggregate(Avg('value'))
+
 
 class ConsumeList(SavedList):
 	consumes = models.ManyToManyField('Consume')
+
 
 class Spec(SavedList):
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 
 
 class Consume(models.Model):
-	invested = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(100)])
+	amount = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(100)])
 	item = models.ForeignKey('Crafted', on_delete=models.CASCADE)
 	consume_list = models.ForeignKey('ConsumeList', on_delete=models.CASCADE)
 
@@ -334,7 +357,7 @@ class Consume(models.Model):
 		unique_together = ['item', 'consume_list']
 
 	def __str__(self):
-		return(self.item.name)
+		return("{}:{}".format(self.item.name, self.amount))
 
 	@property
 	def name(self):
