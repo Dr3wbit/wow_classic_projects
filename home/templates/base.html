@@ -42,7 +42,7 @@
 
     {% comment %} {% block title_splash %}
     {% endblock title_splash %} {% endcomment %}
-    
+
     {# load cache #}
     {# cache 15 sidebar #}
 
@@ -73,25 +73,8 @@
     {% block javascript %}
     {% endblock javascript %}
     <div id="tooltip" style="visibility: hidden;"></div>
-    <script>
-    $(".side-bar-toggle").on({
-       click: e=> {
-           let bool = $('.saved').hasClass('side-min')
-           if(bool){
-                $('.saved').removeClass('side-min')
-                $('.mainBody').css({'padding-left': '265px'})
-                $('.custom-saves').css({'display': 'block'})
-                $('.side-bar-toggle').removeClass('flip-background')
+    <script src="{% static "js/global.js" %}"></script>
 
-           }else{
-                $('.saved').addClass('side-min')
-                $('.mainBody').css({'padding-left': '15px'})
-                $('.custom-saves').css({'display': 'none'})
-                $('.side-bar-toggle').addClass('flip-background')
-           }
-       }
-    });
-    </script>
 </body>
 
 </html>

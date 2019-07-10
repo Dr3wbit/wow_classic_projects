@@ -72,7 +72,7 @@ class TalentCalcTemplate(TemplateView):
 		return(context)
 
 	def get(self, request, *args, **kwargs):
-
+		print('get request')
 		context = {}
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
@@ -93,81 +93,90 @@ class TalentCalcTemplate(TemplateView):
 
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
-		class_name = self.kwargs.get("class", None)
-
 		context = {}
 		context['form'] = form
 
+		print('post request')
 		if form.is_valid():
-			response = self.save_list(request)
-			# return HttpResponseRedirect('success')
-			return response
 
+			# response = self.save_list(request)
+			print('dir: ', dir(form))
+			if request.is_ajax():
+				form_data = self.save_list(request, form.cleaned_data)
+				name = form_data['name']
+				spent = form_data['spent']
+				wow_class = form_data['wow_class']
+
+				print('cleaned data: ', form.cleaned_data)
+				data = {
+					'name': name,
+					'wow_class': wow_class,
+					'spent': spent,
+					'message': "Successfully submitted form data."
+				}
+				response = JsonResponse(data)
+			else:
+				data = {
+					'error': IntegrityError,
+				}
+				response = response
+			# return HttpResponseRedirect('success')
 		else:
 			print('save failed, redirecting to previous page...')
-			return HttpResponseRedirect('talent_calc')
+			response = HttpResponseRedirect('talent_calc')
 
-	def save_list(self, request):
+		return response
+
+	def save_list(self, request, cleaned_data):
 		url = request.POST.get('hash', None)
-		class_name = request.POST.get('wow_class', None)
-		private = request.POST.get('private', None)
-		if (private):
-			private = True
-
+		wow_class = request.POST.get('wow_class', None)
+		private = cleaned_data['private']
+		description = cleaned_data['description']
+		name = cleaned_data['name']
 		tags = request.POST.getlist('tags')
-		name = request.POST.get('name', None)
 		spnt = request.POST.getlist('spent')
-		description = request.POST.get('description')
 		data = dict(request.POST)
-		print(data)
-		data['spent'] = []
+		data['wow_class'] = wow_class
 		spent = {}
 
 		for x in spnt:
 			y = x.split(',')
-			# data['spent'].append(y[1])
-			a = y[0]
-			b = y[1]
-
-
+			data['spent'].append(y[1])
 			spent[y[0]] = y[1]
-			data['spent'].append(y)
 
+		# data['spent'] = spent
 
 		if request.user.is_authenticated:
 			user = request.user
-			if url and class_name and name:
-				wow_class = WoWClass.objects.get(name=class_name)
-				# spec,created = Spec.objects.update_or_create(
-				# 	name=name, user=user, wow_class=wow_class, private=private,
-				# 	hash=url, description=description,
-				#	defaults={'name': name, 'user':user,
-				# 		'wow_class':wow_class, 'hash': url, 'description':description, 'private':private
-				# 	}
-				# )
-				# for tag in tags:
-				# 	t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
-				# 	spec.tags.add(t)
-				# 	spec.save()
-				# spec.save()
+			if url and wow_class and name:
+				wow_class = WoWClass.objects.get(name=wow_class)
+				spec,_ = Spec.objects.update_or_create(
+					name=name, user=user, wow_class=wow_class, private=private,
+					hash=url, description=description,
+					defaults={'name': name, 'user':user,
+						'wow_class':wow_class, 'hash': url, 'description':description, 'private':private
+					}
+				)
+				for tag in tags:
+					t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
+					spec.tags.add(t)
+					spec.save()
 
 				for k,v in spent.items():
 					tree_name = k
 					invested = v
-					# tree = TalentTree.objects.get(name=tree_name, wow_class=wow_class)
-					# t,_ = TreeAllotted.objects.update_or_create(
-					# 	tree=tree, spec=spec, defaults={
-					# 		'tree':tree, 'spec': spec, 'invested':invested
-					# 	}
-					# )
-					# print('\nt: ', t)
-					# t.save()
+					tree = TalentTree.objects.get(name=tree_name, wow_class=wow_class)
+					t,_ = TreeAllotted.objects.update_or_create(
+						tree=tree, spec=spec, defaults={
+							'tree':tree, 'spec': spec, 'invested':invested
+						}
+					)
+					print('\nt: ', t)
+					t.save()
 
-				# saved_list = Spec.objects.filter(name=spec_name).first()
-				# if saved_list:
-				# 	print('success')
 
-		return JsonResponse(data)
+		print('data, saved_list: ', data)
+		return data
 
 
 class ConsumeToolTemplate(TemplateView):
@@ -222,35 +231,46 @@ class ConsumeToolTemplate(TemplateView):
 		form = self.form_class(request.POST)
 		context = {}
 		context['form'] = form
-		prof = self.kwargs.get("prof", None)
 		if form.is_valid():
-			response = self.save_list(request)
-			# return HttpResponseRedirect('success')
-			return response
+			print('dir: ', dir(form))
+			if request.is_ajax():
+				print('cleaned data: ', form.cleaned_data)
+				form_data = self.save_list(request, form.cleaned_data)
+				name = form_data['name']
+				spent = form_data['spent']
 
+				data = {
+					'name': name,
+					'spent': spent,
+					'message': "Successfully submitted form data."
+				}
+				response = JsonResponse(data)
+			else:
+				response = HttpResponseRedirect('consume_tool')
 		else:
 			print('save failed, redirecting to previous page...')
-			return HttpResponseRedirect('consume_tool')
+			response = HttpResponseRedirect('consume_tool')
 
-	def delete_list(self, request):
-		saved_list = request.GET.get('saved_list', None)
-		data = {}
-		if request.user.is_authenticated:
-			user = request.user
-			if saved_list:
-				saved_spec = Spec.objects.filter(name=saved_list, user=user).first()
-				if saved_spec:
-					print('found spec, deleting')
-					data['saved_list'] = saved_spec.name
-					Spec.objects.get(name=saved_list, user=user).delete()
+		return response
 
-		return JsonResponse(data)
 
-	def save_list(self, request):
-		private = request.POST.get('private', False)
-		if private:
-			private = True
+	# def delete_list(self, request):
+	# 	saved_list = request.GET.get('saved_list', None)
+	# 	data = {}
+	# 	if request.user.is_authenticated:
+	# 		user = request.user
+	# 		if saved_list:
+	# 			saved_spec = Spec.objects.filter(name=saved_list, user=user).first()
+	# 			if saved_spec:
+	# 				print('found spec, deleting')
+	# 				data['saved_list'] = saved_spec.name
+	# 				Spec.objects.get(name=saved_list, user=user).delete()
+	#
+	# 	return JsonResponse(data)
 
+	def save_list(self, request, cleaned_data):
+
+		private = cleaned_data['private']
 		tags = request.POST.getlist('tags')
 		name = request.POST.get('name', None)
 		spnt = request.POST.getlist('spent')
@@ -262,7 +282,6 @@ class ConsumeToolTemplate(TemplateView):
 
 		for x in spnt:
 			y = x.split(',')
-			# data['spent'].append(y[1])
 			a = y[0]
 			b = y[1]
 			prof = Crafted.objects.get(item__name=a).prof
@@ -398,19 +417,29 @@ class SuccessView(TemplateView):
 
 
 def delete_list(request):
-	saved_list = request.GET.get('saved_list', None)
+	name = request.POST.get('name', None)
+	wow_class = request.POST.get('wow_class', None)
 	data = {}
-	if request.user.is_authenticated:
-		user = request.user
-		if saved_list:
-			saved_spec = Spec.objects.filter(name=saved_list, user=user).first()
-			if saved_spec:
-				print('found spec, deleting')
-				data['saved_list'] = saved_spec.name
-				Spec.objects.get(name=saved_list, user=user).delete()
+	if request.is_ajax():
+		if request.user.is_authenticated:
+			user = request.user
+			if wow_class:
+				data['wow_class'] = wow_class
+				saved_list = Spec.objects.filter(name=name, user=user).first()
+			else:
+				saved_list = ConsumeList.objects.filter(name=name, user=user).first()
 
-	return JsonResponse(data)
+			if saved_list:
+				data['name'] = name
+				saved_list.delete()
+				data['message'] = 'successfully deleted the list'
+				response = JsonResponse(data)
 
+			else:
+				data['message'] = 'unable to delete saved list'
+				response = JsonResponse(data)
+
+	return response
 
 def load_spec(request):
 	data = {}

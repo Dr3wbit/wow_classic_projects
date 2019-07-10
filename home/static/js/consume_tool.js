@@ -1,100 +1,89 @@
 
-$(document).ready(initializeApp)
-
-function initializeApp() {
-	applyClickHandlers();
-}
 
 function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
 
-function applyClickHandlers() {
 
-	sideNav()
-	// savedLists()
-	// $("#engineering").click()
-}
-
-
-function consumeListSaver() {
-	const NUMBRE = /\[(\d+)\]/
-	$("a.saveConsumeList").on({
-		mouseenter: e => {
-			// $("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-save")
-			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-disk').addClass('glyphicon-floppy-save')
-		},
-		mouseleave: e => {
-			// $("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
-			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-save').addClass('glyphicon-floppy-disk')
-		},
-		click: e => {
-			$("a.saveConsumeList").unbind("mouseleave")
-			e.stopImmediatePropagation()
-			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-disk').addClass('glyphicon-floppy-save')
-			$("#consumeListPrompt").modal('show')
-		}
-	})
-
-	$("#consumeListPrompt").on({
-		'shown.bs.modal': ()=> {
-			$("#consumeListName").focus()
-		},
-		'hidden.bs.modal': ()=> {
-			$("a.saveConsumeList").bind("mouseleave", function() {
-				$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-save').addClass('glyphicon-floppy-disk')
-			})
-			setTimeout(function a() {
-				$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
-			}, 1300)
-		},
-	})
-
-	$("input.saveConsumeList, form.saveConsumeList").on({
-		submit: e=> {
-			e.preventDefault()
-			let myConsumeList = {}
-			let allCraftedItems
-			let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
-			$("a.crafted-list-item").each(function(elem) {
-				let amountStr = $( this ).find($('span.amount')).text()
-				let currentAmount = parseInt(amountStr.match(NUMBRE)[1])
-				let name = $( this ).attr('name')
-				myConsumeList[name] = currentAmount
-			})
-			let listName = $("#consumeListName").val()
-			let newList = {[listName.toString()]: myConsumeList}
-			let allLists = Object.assign({}, oldLists, newList)
-			localStorage.setItem('consumeLists', JSON.stringify(allLists))
-			let localConsumeLists = localStorage.getItem('consumeLists')
-			$("#consumeListPrompt").modal('hide')
-
-
-			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-saved")
-			addSavedList(listName)
-
-			$('.saved-list.selected').removeClass('selected')
-			$(`div.saved-list[name='${listName}']`).addClass('selected')
-
-
-
-		}
-	})
-}
-
-function sideNav(){
-	$("#navTrigger").on({
-		click: e => {
-			if ($("#sideNav").hasClass('minimized')) {
-				$("#sideNav").removeClass('minimized')
-				$(".trigger-icon").removeClass('iconSwitch')
-			} else {
-				$("#sideNav").addClass('minimized')
-				$(".trigger-icon").addClass('iconSwitch')
-			}
-		},
-	})
-}
+//
+// function consumeListSaver() {
+// 	const NUMBRE = /\[(\d+)\]/
+// 	$("a.saveConsumeList").on({
+// 		mouseenter: e => {
+// 			// $("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-save")
+// 			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-disk').addClass('glyphicon-floppy-save')
+// 		},
+// 		mouseleave: e => {
+// 			// $("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
+// 			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-save').addClass('glyphicon-floppy-disk')
+// 		},
+// 		click: e => {
+// 			$("a.saveConsumeList").unbind("mouseleave")
+// 			e.stopImmediatePropagation()
+// 			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-disk').addClass('glyphicon-floppy-save')
+// 			$("#consumeListPrompt").modal('show')
+// 		}
+// 	})
+//
+// 	$("#consumeListPrompt").on({
+// 		'shown.bs.modal': ()=> {
+// 			$("#consumeListName").focus()
+// 		},
+// 		'hidden.bs.modal': ()=> {
+// 			$("a.saveConsumeList").bind("mouseleave", function() {
+// 				$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-save').addClass('glyphicon-floppy-disk')
+// 			})
+// 			setTimeout(function a() {
+// 				$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
+// 			}, 1300)
+// 		},
+// 	})
+//
+// 	$("input.saveConsumeList, form.saveConsumeList").on({
+// 		submit: e=> {
+// 			e.preventDefault()
+// 			let myConsumeList = {}
+// 			let allCraftedItems
+// 			let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
+// 			$("a.crafted-list-item").each(function(elem) {
+// 				let amountStr = $( this ).find($('span.amount')).text()
+// 				let currentAmount = parseInt(amountStr.match(NUMBRE)[1])
+// 				let name = $( this ).attr('name')
+// 				myConsumeList[name] = currentAmount
+// 			})
+// 			let listName = $("#consumeListName").val()
+// 			let newList = {[listName.toString()]: myConsumeList}
+// 			let allLists = Object.assign({}, oldLists, newList)
+// 			localStorage.setItem('consumeLists', JSON.stringify(allLists))
+// 			let localConsumeLists = localStorage.getItem('consumeLists')
+// 			$("#consumeListPrompt").modal('hide')
+//
+//
+// 			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-saved")
+// 			addSavedList(listName)
+//
+// 			$('.saved-list.selected').removeClass('selected')
+// 			$(`div.saved-list[name='${listName}']`).addClass('selected')
+//
+//
+//
+// 		}
+// 	})
+// }
+//
+// function sideNav(){
+// 	$("#navTrigger").on({
+// 		click: e => {
+// 			if ($("#sideNav").hasClass('minimized')) {
+// 				$("#sideNav").removeClass('minimized')
+// 				$(".trigger-icon").removeClass('iconSwitch')
+// 			} else {
+// 				$("#sideNav").addClass('minimized')
+// 				$(".trigger-icon").addClass('iconSwitch')
+// 			}
+// 		},
+// 	})
+// }
 
 // function populateConsumeBlocks(data) {
 // 	let template = $('#consume-block-template').html();
@@ -122,19 +111,30 @@ function addCraftedItem(name, numAdded=1) {
 	if (craftedContainerJr.length) {
 		let currentAmount = parseInt(craftedContainerJr.find($('span.amount')).text())
 		updatedAmount = currentAmount + (step * numAdded)
+
 		craftedContainerJr.find($('span.amount')).text(`${updatedAmount}`)
 		materialsListContainer = $(`#${name}_collapse`)
 		if (craftedItemObj.materials) {
 			updateOrCreate(materialsListContainer, name, numAdded)
+		}
+		if (updatedAmount <= 0) {
+			let craftedParent = $(`.crafted-list-item[name="${name}"]`)
+			console.log(craftedParent)
+			craftedParent.empty().remove()
+			return false
 		}
 		// updateOrCreate(materialsListContainer, craftedItemObj, numAdded)
 
 
 	} else {
 		updatedAmount = step * numAdded
+		if (updatedAmount <= 0) {
+			return false
+		}
 
 		let craftedContainerSr = $('<div/>', {
 			class: "crafted-list-item",
+			name: name
 		})
 
 		let craftedContainerJr = $('<span/>', {
@@ -213,18 +213,26 @@ function updateOrCreate(parentElem, consume_name, numAdded) {
 			let matContainerJr = parentElem.find($(`span.material-container[name='${name}']`))
 			let materialsAdded = Math.round(matStep * craftedStep * numAdded)
 			if (matContainerJr.length) { // already exists; update it
-				// let currentAmount = parseInt(matContainerJr.find($("span.amount")).text().match(NUMBRE)[1])
 				let currentAmount = parseInt(matContainerJr.find($("span.amount")).text())
-				matContainerJr.find($("span.amount")).text(`${materialsAdded+currentAmount}`)
+				let updatedMatCount = materialsAdded+currentAmount
+				if (updatedMatCount <= 0) {
+					let matListItem = $(`div.materials-list-item[name="${name}"]`)
+					matListItem.empty().remove()
+				} else {
+					matContainerJr.find($("span.amount")).text(`${updatedMatCount}`)
+				}
 
 			} else { // doesnt exist; create and append it
-
+				if (materialsAdded <= 0) {
+					return false
+				}
 				let materialsObj = allMaterials[name]
 				let properName = (materialsObj.name) ? materialsObj.name : utilities.titleCase(name)
 				let image_name = (name.endsWith('eko')) ? ('eko') : name
 				let suffix = (name=='gold'||name=='silver') ? '.gif' : '.jpg'
 				let matContainerSr = $('<div/>', {
-					class: 'materials-list-item'
+					class: 'materials-list-item',
+					name: name
 				})
 
 				image_name += `${suffix}`
