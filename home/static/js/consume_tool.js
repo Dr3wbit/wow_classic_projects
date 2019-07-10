@@ -4,94 +4,6 @@ function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
 
-
-//
-// function consumeListSaver() {
-// 	const NUMBRE = /\[(\d+)\]/
-// 	$("a.saveConsumeList").on({
-// 		mouseenter: e => {
-// 			// $("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-save")
-// 			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-disk').addClass('glyphicon-floppy-save')
-// 		},
-// 		mouseleave: e => {
-// 			// $("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
-// 			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-save').addClass('glyphicon-floppy-disk')
-// 		},
-// 		click: e => {
-// 			$("a.saveConsumeList").unbind("mouseleave")
-// 			e.stopImmediatePropagation()
-// 			$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-disk').addClass('glyphicon-floppy-save')
-// 			$("#consumeListPrompt").modal('show')
-// 		}
-// 	})
-//
-// 	$("#consumeListPrompt").on({
-// 		'shown.bs.modal': ()=> {
-// 			$("#consumeListName").focus()
-// 		},
-// 		'hidden.bs.modal': ()=> {
-// 			$("a.saveConsumeList").bind("mouseleave", function() {
-// 				$("a.saveConsumeList").find($('span')).removeClass('glyphicon-floppy-save').addClass('glyphicon-floppy-disk')
-// 			})
-// 			setTimeout(function a() {
-// 				$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-disk")
-// 			}, 1300)
-// 		},
-// 	})
-//
-// 	$("input.saveConsumeList, form.saveConsumeList").on({
-// 		submit: e=> {
-// 			e.preventDefault()
-// 			let myConsumeList = {}
-// 			let allCraftedItems
-// 			let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
-// 			$("a.crafted-list-item").each(function(elem) {
-// 				let amountStr = $( this ).find($('span.amount')).text()
-// 				let currentAmount = parseInt(amountStr.match(NUMBRE)[1])
-// 				let name = $( this ).attr('name')
-// 				myConsumeList[name] = currentAmount
-// 			})
-// 			let listName = $("#consumeListName").val()
-// 			let newList = {[listName.toString()]: myConsumeList}
-// 			let allLists = Object.assign({}, oldLists, newList)
-// 			localStorage.setItem('consumeLists', JSON.stringify(allLists))
-// 			let localConsumeLists = localStorage.getItem('consumeLists')
-// 			$("#consumeListPrompt").modal('hide')
-//
-//
-// 			$("a.saveConsumeList").find($('span')).attr('class', "glyphicon glyphicon-floppy-saved")
-// 			addSavedList(listName)
-//
-// 			$('.saved-list.selected').removeClass('selected')
-// 			$(`div.saved-list[name='${listName}']`).addClass('selected')
-//
-//
-//
-// 		}
-// 	})
-// }
-//
-// function sideNav(){
-// 	$("#navTrigger").on({
-// 		click: e => {
-// 			if ($("#sideNav").hasClass('minimized')) {
-// 				$("#sideNav").removeClass('minimized')
-// 				$(".trigger-icon").removeClass('iconSwitch')
-// 			} else {
-// 				$("#sideNav").addClass('minimized')
-// 				$(".trigger-icon").addClass('iconSwitch')
-// 			}
-// 		},
-// 	})
-// }
-
-// function populateConsumeBlocks(data) {
-// 	let template = $('#consume-block-template').html();
-// 	let templateScript = Handlebars.compile(template);
-// 	let consume_html = templateScript(data);
-// 	$('#recipe_list').html(consume_html);
-// }
-
 function clearTooltip() {
 	$("#tooltip").empty()
 	$("#tooltip").hide()
@@ -123,7 +35,6 @@ function addCraftedItem(name, numAdded=1) {
 			craftedParent.empty().remove()
 			return false
 		}
-		// updateOrCreate(materialsListContainer, craftedItemObj, numAdded)
 
 
 	} else {
