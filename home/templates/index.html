@@ -124,13 +124,15 @@
                         {% endif %}
                     {% endfor %}
                     <div class="clearfix"></div>
-                    <p>By:<a href="">
-                    {% if not spec.private %}
-                    {{spec.user.disc_username}}
+                    <p>By:
+                    {% if spec.user.email == request.user.email %}
+                    <a href="">me</a>
+                    {% elif not spec.private %}
+                    <a href="">{{spec.user.disc_username}}</a>
                     {% else %}
                     anonymous
                     {% endif %}
-                    </a></p>
+                    </p>
                     <span> -------------------- </span>
                     <p> <span style="text-decoration: underline;">Description</span>: {{spec.description}}</p>
                     <p><span style="text-decoration: underline;"> Added</span>:<span> {{spec.created}}</span></p>

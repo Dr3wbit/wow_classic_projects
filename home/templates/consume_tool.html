@@ -66,7 +66,9 @@
         </div>
     </div>
 
+    {% if user.is_authenticated %}
     {% include "save_form.html" %}
+    {% endif %}
 
     </div>
 </div>
@@ -114,16 +116,8 @@
 <script src="{% static "js/consume_tool.js" %}"></script>
 <script>
 
-    var my_consume_list = {};
-    my_consume_list['materials'] = {};
-    
-    // function update_url(class_name, search='') {
-    //     const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
-    //     let url = new URL(document.location)
-    //     url.pathname = `/talent_calc/${class_name}`
-    //     url.search = search
-    //     history.replaceState(null, null, url)
-    // }
+    var my_consume_list = [];
+    // my_consume_list['materials'] = {};
 
     function update_prof(prof, spec_name = '') {
         $.ajax({
@@ -145,94 +139,6 @@
         });
     }
 
-    function save_consume_list(list_name) {
-
-        var list_name = $("#list-name").val();
-        var spec_ele = $(`.consume-list-item[name="${list_name}"]`)
-        var spec_list_parent = $(".spec-list")
-        $.ajax({
-            headers: { "X-CSRFToken": "{{ csrf_token }}" },
-            url: '/ajax/save_spec/',
-            data: {
-                spec_url: urlBuilder(),
-                spec_name: spec_name,
-                spent: [
-                    [talentPointsSpent.treeNames[0], talentPointsSpent[talentPointsSpent.treeNames[0]].total()],
-                    [talentPointsSpent.treeNames[1], talentPointsSpent[talentPointsSpent.treeNames[1]].total(),],
-                    [talentPointsSpent.treeNames[2], talentPointsSpent[talentPointsSpent.treeNames[2]].total(),]
-                ],
-            },
-            method: "POST",
-            dataType: 'json',
-            traditional: true,
-            beforesend: function (data) {
-                //
-            },
-            success: function (data) {
-                if (data.spec_url) {
-                    if (spec_ele.length) {
-                        // update it
-                        // let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
-                        // $("#allottedTalentPoints").text(a)
-                    } else {
-                        // create it
-                        let spec_cont = $("<div/>", {
-                            class: "spec-container",
-                        })
-                        let spec_info = $("<div/>", {
-                            class: "spec-info",
-                        }).append($("<span/>", {
-                            class: class_name,
-                            text: `${utilities.titleCase(class_name)}`
-                        }), ' ', $("<span/>", {
-                            style: "font-size: 90%;",
-                            text: `(${data.spent[0]}/${data.spent[1]}/${data.spent[2]})`,
-                        }))
-
-                        let spec_item = $("<div/>", {
-                            class: "spec-list-item progress-bar progress-bar-striped progress-bar-animated",
-                            href: `${document.location.pathname}?${data.spec_url}`,
-                            role: "button",
-                            name: spec_name,
-                            text: spec_name,
-                            style: "height: unset; display: block;",
-                        })
-                        spec_item.attr("data-wowclass", class_name)
-                        spec_item.on({
-                            click: e => {
-                                var class_name = $(e.target).attr('data-wowclass');
-                                var spec_name = $(e.target).attr('name');
-                                update_class(class_name, spec_name)
-                            }
-                        })
-
-                        let trashcan = ($("<button/>", {
-                            class: "btn btn-sm float-right trashcan",
-                            name: "delete",
-                            value: spec_name,
-                            type: "button",
-                            title: `delete ${spec_name}`
-                        })).on({
-                            click: e => {
-                                var saved_list = $(e.target).val();
-                                delete_list(saved_list)
-                            }
-                        })
-
-                        trashcan.append($("<span/>", {
-                            class: "glyphicon glyphicon-trash glyphicon-custom"
-                        }))
-
-                        spec_item.append(trashcan)
-                        spec_cont.append(spec_info, spec_item)
-                        spec_list_parent.append(spec_cont)
-                        update_selected_spec(spec_name)
-                    }
-                }
-            }
-        });
-    }
-
     $(".prof-filter").on({
         click: e => {
             e.preventDefault()
@@ -242,32 +148,6 @@
         }
     });
 
-    $(".consume-list").on({
-        click: e => {
-            var list_name = $(e.target).attr('name');
-            load_consume_list(list_name)
-        }
-    });
-
-    $("#open-consume-prompt").on({
-        click: e => {
-            e.preventDefault()
-            $("#consume-list-prompt").modal('show')
-        }
-    });
-
-    $("#consume-list-prompt").on({
-        'shown.bs.modal': () => {
-            $("#list-name").focus()
-        },
-    });
-
-    $("#save-consume-list").on({
-        submit: e => {
-            var list_name = $("#list-name").val()
-            save_consume_list()
-        }
-    });
 
 </script>
 {% endblock javascript %}

@@ -412,7 +412,7 @@ function updateTalentHeader() {
 	let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
 	$("#allottedTalentPoints").text(a)
 	$("#talents_spent").text(a)
-	
+
 	let requiredLevel = (talentPointsSpent.grandTotal() >= 1) ? talentPointsSpent.grandTotal() + 9 : "--"
 	$("#requiredLevel").text(`Required level: ${requiredLevel}`)
 	let pointsRemaining = 51 - talentPointsSpent.grandTotal()
@@ -583,9 +583,7 @@ function pointSpender(talent, e, tree, targetTal) {
 			})
 			talentObjs.forEach(function (tal) {
 
-				// let tal_name = utilities.sanitize(tal.name)
 				let tal_name = tal.name
-
 				let t = $(`img.talent[name="${tal_name}"]`)
 				t.removeClass('grayed') // ungray talent element
 				t.closest('.talent-container').find(".spentPoints").first().removeClass('grayed') // ungray spentPoints element
@@ -834,8 +832,6 @@ function urlBuilder() {
 
 	params.set('class', $('.class-filter.selected')[0].id)
 	url.hash = shortestURL
-	// const finalURL = new URL(hash, url);
-	// history.replaceState(null, null, url)
 	return shortestURL
 }
 
@@ -866,9 +862,6 @@ function urlExpander(hash) {
 
 }
 
-// needs new name
-
-// needs new name
 function preBuiltSpec(ha = '') {
 	var hash = ha
 	if (hash.startsWith('?')) {
