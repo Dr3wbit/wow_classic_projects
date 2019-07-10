@@ -96,37 +96,18 @@ $('#save_spec').on({
 $('#save_consume_list').on({
 	click: e=> {
         let spent = []
-
         var all_consumes = $("#all_consumes")
 
-
-        // let spent = "blacksmithing,"
         for (let [profname, v] of Object.entries(my_consume_list)) {
-
             for (let [crafted, amount] of Object.entries(v)) {
-
                 all_consumes.append($('<input/>', {
                     name:"spent",
                     value: `${crafted},${amount}`,
                     type: 'hidden'
                 }
             ))
-
-                // let c = {name:crafted, amount:amount}
-                // console.log(c)
-                // prof.value.push(c)
-                // console.log(prof)
-
             }
         }
-
-        // console.log(spent)
-        // let sp = $.param(spent)
-        // console.log(sp)
-        // let spe = JSON.stringify(spent)
-        // console.log(spe)
-
-        // $("#all_consumes").val(JSON.stringify(my_consume_list))
 	    $('#save_consume_list').submit();
 	},
 });

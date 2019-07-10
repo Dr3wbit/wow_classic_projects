@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList
+from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page, never_cache
@@ -8,6 +8,7 @@ from django.db.models import Q
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
+from django.db.utils import IntegrityError # use this in try except when unique_together constraint failed
 
 class IndexView(TemplateView):
 	template_name = "index.html"
@@ -17,6 +18,19 @@ class IndexView(TemplateView):
 		context['specs'] = Spec.objects.all()
 		context['rangen'] = range(5)
 		return context
+
+
+	def post(self, request, *args, **kwargs):
+		pass
+		#
+		# name = request.POST.get('name', None)
+		# rating = request.POST.get('rating', 0)
+		# user = Profile.objects.get(username=request.user.email)
+
+		# saved_list = Spec.objects.get
+
+		# rating creation
+		# z = Rating(content_object=saved_list, value=val, user=user)
 
 class TalentCalcTemplate(TemplateView):
 	form_class = SpecForm
@@ -209,13 +223,7 @@ class ConsumeToolTemplate(TemplateView):
 		context = {}
 		context['form'] = form
 		prof = self.kwargs.get("prof", None)
-
-		print('consume form')
-
-		print(dir(request.POST))
-		print('all_consumes: ', request.POST.get('spent'))
 		if form.is_valid():
-			print('cnosume form valid')
 			response = self.save_list(request)
 			# return HttpResponseRedirect('success')
 			return response
@@ -257,47 +265,50 @@ class ConsumeToolTemplate(TemplateView):
 			# data['spent'].append(y[1])
 			a = y[0]
 			b = y[1]
-			p = Crafted.objects.get(item__name=a).prof.name
+			prof = Crafted.objects.get(item__name=a).prof
+			prof_name = prof.name
 
-			if p not in spent.keys():
-				spent[p] = {}
+			if prof_name not in spent.keys():
+				spent[prof_name] = {}
 
-			spent[p][a] = b
+			spent[prof_name][a] = b
 
 			# spent[y[0]] = y[1]
-			# data['spent'].append(y)
-			# data['spent'][y[0]] = y[1]
 
 		hash = self.url_builder(spent)
 		print('hash: ', hash)
 		data['spent'] = spent
 		data['hash'] = hash
-		if request.user.is_authenticated:
-			user = request.user
-			# c_list,_ = ConsumeList.objects.update_or_create(
-			# 	name=name, user=user, private=private,
-			# 	hash=hash, description=description,
-			# 	defaults={'name': name, 'user':user, 'hash': hash,
-			# 		'description':description, 'private':private
-			# 	}
-			# )
-			print('\ntags:')
-			for tag in tags:
-				print(tag)
-				# t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
-				# c_list.tags.add(t)
-				# c_list.save()
 
-			print('\nconsumes:')
-			for x,y in spent.items():
-				print("{}:{}".format(x,y))
-				# z = Crafted.objects.get(item__name=x)
-				# c,_ = Consume.objects.update_or_create(
-				# 	invested=y, consume_list=c_list, item=z,
-				# 	defaults={'invested':y, 'consume_list':c_list, 'item':z}
-				# )
-				# c_list.consumes.add(c)
-				# c_list.save()
+		user = request.user
+		c_list,_ = ConsumeList.objects.update_or_create(
+			name=name, user=user, private=private,
+			hash=hash, description=description,
+			defaults={'name': name, 'user':user, 'hash': hash,
+				'description':description, 'private':private
+			}
+		)
+
+		for tag in tags:
+			print(tag)
+			t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
+			c_list.tags.add(t)
+			c_list.save()
+
+		for p,v in spent.items():
+			print("prof:{} -- {}".format(p, v))
+
+			prof = Profession.objects.get(name=p)
+			for x,y in v.items():
+
+				# item = Item.objects.get(name=x)
+				cr = Crafted.objects.get(item__name=x, prof=prof)
+				c,_ = Consume.objects.update_or_create(
+					invested=y, consume_list=c_list, item=cr,
+					defaults={'invested':y, 'consume_list':c_list, 'item':cr}
+				)
+				c_list.consumes.add(c)
+				c_list.save()
 
 		return JsonResponse(data)
 
