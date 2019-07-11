@@ -45,11 +45,16 @@
             my_consume_list[prof] = {}
         }
 
+        let step = (allConsumes[name].step) ? allConsumes[name].step : 1
+
         if (!my_consume_list[prof][name]) {
-            my_consume_list[prof][name] = 0
+            my_consume_list[prof][name] = amount*step
         }
 
-        my_consume_list[prof][name] += my_consume_list[prof][name]
+        else {
+            my_consume_list[prof][name] += amount*step
+        }
+
 
         if (my_consume_list[prof][name] <= 0) {
             my_consume_list[prof][name] = 0

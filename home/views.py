@@ -281,6 +281,10 @@ class ConsumeToolTemplate(TemplateView):
 			y = x.split(',')
 			a = y[0]
 			b = y[1]
+
+			# if int(b) < 1:
+			# 	return
+
 			prof = Crafted.objects.get(item__name=a).prof
 			prof_name = prof.name
 
@@ -291,8 +295,9 @@ class ConsumeToolTemplate(TemplateView):
 
 			# spent[y[0]] = y[1]
 
+		print(spent)
 		hash = self.url_builder(spent)
-		print('hash: ', hash)
+		data['name'] = name
 		data['spent'] = spent
 		data['hash'] = hash
 
@@ -313,20 +318,23 @@ class ConsumeToolTemplate(TemplateView):
 
 		for p,v in spent.items():
 			print("prof:{} -- {}".format(p, v))
-
+			v = {a:b for a,b in v.items() if b}
+			
 			prof = Profession.objects.get(name=p)
 			for x,y in v.items():
 
 				# item = Item.objects.get(name=x)
 				cr = Crafted.objects.get(item__name=x, prof=prof)
 				c,_ = Consume.objects.update_or_create(
-					invested=y, consume_list=c_list, item=cr,
-					defaults={'invested':y, 'consume_list':c_list, 'item':cr}
+					amount=y, consume_list=c_list, item=cr,
+					defaults={'amount':y, 'consume_list':c_list, 'item':cr}
 				)
 				c_list.consumes.add(c)
 				c_list.save()
 
-		return JsonResponse(data)
+
+		return data
+		# return JsonResponse(data)
 
 
 	def url_builder(self, consume_list):
