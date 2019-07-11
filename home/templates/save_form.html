@@ -151,7 +151,7 @@ function append_list_item(data) {
         class: "spec-info",
     })
 
-    let child_text = (wow_class.length) ? `${utilities.titleCase(wow_class)}` : `${name}`
+    let child_text = (wow_class) ? `${utilities.titleCase(wow_class)}` : `${name}`
     let spec_info_child = $("<span/>", {
         text: child_text,
     })

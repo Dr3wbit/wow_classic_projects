@@ -349,7 +349,7 @@ class Spec(SavedList):
 
 
 class Consume(models.Model):
-	amount = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(100)])
+	amount = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(1), MaxValueValidator(100)])
 	item = models.ForeignKey('Crafted', on_delete=models.CASCADE)
 	consume_list = models.ForeignKey('ConsumeList', on_delete=models.CASCADE)
 
