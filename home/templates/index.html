@@ -110,6 +110,20 @@
                 {% for spec in specs %}
                 <div class="card-body text-light">
                     <h5 class="card-title text-center"><a href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}">{{spec.name}}</a></h5>
+                    <span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span> --
+                    {% spaceless %}
+                    <span>
+                    {% with trees=spec.treeallotted_set.all %}
+                    {% for tree in trees %}
+                    {% if not tree == trees|first %}
+                    /
+                    {% else %}
+                    {% endif %}
+                    {{tree.invested}}
+                    {% endfor %}
+                    {% endwith %}
+                    </span>
+                    {% endspaceless %}
                     {% for n in rangen %}
                         {% if n == rangen|first %}
                         <a class="btn btn-sm float-right"
@@ -126,36 +140,302 @@
                     <div class="clearfix"></div>
                     <p>By:
                     {% if spec.user.email == request.user.email %}
-                    <a href="">me</a>
-                    {% elif not spec.private %}
-                    <a href="">{{spec.user.disc_username}}</a>
-                    {% else %}
-                    anonymous
-                    {% endif %}
+                        <a href="">me</a>
+                        {% elif not spec.private %}
+                        <a href="">{{spec.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
                     </p>
                     <span> -------------------- </span>
                     <p> <span style="text-decoration: underline;">Description</span>: {{spec.description}}</p>
                     <p><span style="text-decoration: underline;"> Added</span>:<span> {{spec.created}}</span></p>
 
                     {% for tag in spec.tags.all %}
-                    <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
+                        <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
                     {% endfor %}
                     {% if spec.user.email == request.user.email %}
-                    <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
-                    type="button" role="button" {% comment %} href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" {% endcomment %}>
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
-                    </a>
-                    <div class="clearfix"></div>
+                        <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
+                        type="button" role="button" {% comment %} href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" {% endcomment %}>
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
+                        </a>
+                        <div class="clearfix"></div>
                     {% endif %}
+                    <br>
+                    <hr style="border: 1px solid white; width: 40%; margin-top:0; margin-bottom:0;"></hr>
+                    <table style="margin:auto;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><div><h5 class="fix-me">AVAILABLE PROPERTIES</h5></div><div><span style="font-size:80%;">not 100% comprehensive</span></div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span>spec name</span></td>
+                                <td><span class="fix-me">{{spec.name}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>created</span></td>
+                                <td><span class="fix-me">{{spec.created}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>last updated</span></td>
+                                <td><span class="fix-me">{{spec.updated}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>num ratings</span></td>
+                                <td><span class="fix-me">{{spec.ratings.count}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>avg rating</span></td>
+                                <td><span class="fix-me">{{spec.rating}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>wow class name</span></td>
+                                <td><span class="fix-me">{{spec.wow_class.name}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>hash</span></td>
+                                <td><span class="fix-me">{{spec.hash}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>private?</span></td>
+                                <td><span class="fix-me">{{spec.private}}</span></td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th colspan="2">USER</th>
+                            </tr>
+                        </thead>
+                        {% with user=spec.user %}
+                        <tbody>
+                            <tr>
+                                <td><span>discord uid</span></td>
+                                <td><span class="fix-me">{{user.uid}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>discord username</span></td>
+                                <td><span class="fix-me">{{user.disc_username}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>discord tag</span></td>
+                                <td><span class="fix-me">{{user.tag}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>date joined</span></td>
+                                <td><span class="fix-me">{{user.date_joined}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>db index</span></td>
+                                <td><span class="fix-me">{{user.id}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>email</span></td>
+                                <td><span class="fix-me">{{user.email}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>staff?</span></td>
+                                <td><span class="fix-me">{{user.is_staff}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>admin?</span></td>
+                                <td><span class="fix-me">{{user.is_superuser}}</span></td>
+                            </tr>
+                        </tbody>
+                        {% endwith %}
+                        <thead>
+                            <tr>
+                                <th colspan="2">TREES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tree in spec.treeallotted_set.all %}
+                            <tr>
+                                <td>{{tree.name}}</td>
+                                <td class="fix-me">{{tree.invested}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th colspan="2">TAGS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tag in spec.tags.all %}
+                            <tr>
+                                <td colspan="2" class="fix-me">{{tag.name}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                        <br>
                     <hr style="border: 1px solid white; width: 100%;"></hr>
-                </div>
-                {% endfor %}
+                    </div>
+                {% endfor %} {# endspecs #}
 
                 {% for consumelist in consume_lists %}
                 <div class="card-body text-light">
                     <h5 class="card-title text-center"><a href="{% url 'consume_tool' %}?{{consumelist.hash}}">{{consumelist.name}}</a></h5>
-                </div>
+                {% for n in rangen %}
+                    {% if n == rangen|first %}
+                    <a class="btn btn-sm float-right"
+                        style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true" title="Edit"></span>
+                    </a>
+                    {% else %}
+                    <a class="btn btn-sm float-right"
+                        style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true" title="Edit"></span>
+                    </a>
+                    {% endif %}
                 {% endfor %}
+                <div class="clearfix"></div>
+                <p>By:
+                {% if consumelist.user.email == request.user.email %}
+                    <a href="">me</a>
+                {% elif not consumelist.private %}
+                    <a href="">{{consumelist.user.disc_username}}</a>
+                {% else %}
+                    anonymous
+                {% endif %}
+                </p>
+                <span> -------------------- </span>
+                <p><span style="text-decoration: underline;">Description</span>: {{consumelist.description}}</p>
+                <p><span style="text-decoration: underline;"> Added</span>:<span> {{consumelist.created}}</span></p>
+
+                {% for tag in consumelist.tags.all %}
+                    <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
+                {% endfor %}
+                {% if consumelist.user.email == request.user.email %}
+                    <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
+                    type="button" role="button" {% comment %} href="{% url 'consume_tool' %}?{{consumelist.hash}}" {% endcomment %}>
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
+                    </a>
+                    <div class="clearfix"></div>
+                {% endif %}
+                <table style="margin:auto;">
+                    <thead>
+                        <tr>
+                            <th colspan="2"><div><h5 class="fix-me">AVAILABLE PROPERTIES</h5></div><div><span style="font-size:80%;">not 100% comprehensive</span></div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>list name</span></td>
+                            <td><span class="fix-me">{{consumelist.name}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>created</span></td>
+                            <td><span class="fix-me">{{consumelist.created}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>last updated</span></td>
+                            <td><span class="fix-me">{{consumelist.updated}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>num ratings</span></td>
+                            <td><span class="fix-me">{{consumelist.ratings.count}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>avg rating</span></td>
+                            <td><span class="fix-me">{{consumelist.rating}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>hash</span></td>
+                            <td><span class="fix-me">{{consumelist.hash}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>private?</span></td>
+                            <td><span class="fix-me">{{consumelist.private}}</span></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="2">USER</th>
+                        </tr>
+                    </thead>
+                    {% with user=consumelist.user %}
+                    <tbody>
+                        <tr>
+                            <td><span>discord uid</span></td>
+                            <td><span class="fix-me">{{user.uid}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>discord username</span></td>
+                            <td><span class="fix-me">{{user.disc_username}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>discord tag</span></td>
+                            <td><span class="fix-me">{{user.tag}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>date joined</span></td>
+                            <td><span class="fix-me">{{user.date_joined}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>db index</span></td>
+                            <td><span class="fix-me">{{user.id}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>email</span></td>
+                            <td><span class="fix-me">{{user.email}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>staff?</span></td>
+                            <td><span class="fix-me">{{user.is_staff}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>admin?</span></td>
+                            <td><span class="fix-me">{{user.is_superuser}}</span></td>
+                        </tr>
+                    </tbody>
+                    {% endwith %}
+                    <thead>
+                        <tr>
+                            <th colspan="3">VIA CUSTOM DICT</th>
+                        </tr>
+                    </thead>
+                    {% for name,y in saved_lists.items %}
+                    <thead>
+                        <tr>
+                            <th colspan="3">{{name}}</th>
+                        </tr>
+                    </thead>
+                    {% for a,b in y.consumes.items %}
+                    <thead>
+                        <tr>
+                            <th colspan="3">{{a}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c,d in b.items %}
+                            <tr>
+                                <td>{{c}}</td>
+                                <td class="fix-me">{{d}}</td>
+                            </tr>
+                        {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                    {% endfor %}
+                    <thead>
+                        <tr>
+                            <th colspan="2">TAGS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tag in consumelist.tags.all %}
+                        <tr>
+                            <td colspan="2" class="fix-me">{{tag.name}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <hr style="border: 1px solid white; width: 100%;"></hr>
+                </div>
+                {% endfor %} {# endconsumelists #}
 
                 </div>
 
