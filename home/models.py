@@ -322,7 +322,7 @@ class SavedList(models.Model):
 	hash = models.CharField(max_length=100, default='testy test')
 	description = models.TextField(default='couple line of text...', max_length=300)
 	private = models.BooleanField(default=False)
-	_ratings = GenericRelation('Rating', related_query_name="%(class)s_rating")
+	ratings = GenericRelation('Rating', related_query_name="%(class)s_rating")
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
@@ -337,7 +337,7 @@ class SavedList(models.Model):
 
 	@property
 	def rating(self):
-		return self._ratings.aggregate(Avg('value'))
+		return self.ratings.aggregate(Avg('value'))['value__avg']
 
 
 class ConsumeList(SavedList):

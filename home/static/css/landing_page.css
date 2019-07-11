@@ -63,3 +63,17 @@
 		order: 1;
 	}
 }
+
+.property-key {
+    text-decoration: underline;
+}
+
+table,
+td {
+    border: 1px solid white;
+}
+
+thead,
+tfoot {
+    border: 1px solid grey;
+}

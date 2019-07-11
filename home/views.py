@@ -4,7 +4,7 @@ from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page, never_cache
 from django.utils.decorators import method_decorator
-from django.db.models import Q
+from django.db.models import Count, Q, Sum
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
@@ -18,6 +18,30 @@ class IndexView(TemplateView):
 		context['specs'] = Spec.objects.all()
 		context['consume_lists'] = ConsumeList.objects.all()
 		context['rangen'] = range(5)
+
+		context['saved_lists'] = {}
+		for cl in context['consume_lists']:
+			name = cl.name
+			context['saved_lists'][name] = {}
+			context['saved_lists'][name]['user'] = cl.user
+			context['saved_lists'][name]['hash'] = cl.hash
+			context['saved_lists'][name]['consumes'] = {}
+
+			for consume in cl.consumes.all():
+				prof_name = consume.item.prof.name
+				if prof_name not in context['saved_lists'][name]['consumes'].keys():
+					context['saved_lists'][name]['consumes'][prof_name] = {}
+
+				context['saved_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
+
+
+		print(context['saved_lists'])
+
+		# cl = ConsumeList.objects.all()[0]
+
+		# qs = cl.consumes.values('item__prof__name', 'item__item__name').annotate(Count('item')).order_by('item__prof__name')
+
+
 		return context
 
 
@@ -319,7 +343,7 @@ class ConsumeToolTemplate(TemplateView):
 		for p,v in spent.items():
 			print("prof:{} -- {}".format(p, v))
 			v = {a:b for a,b in v.items() if b}
-			
+
 			prof = Profession.objects.get(name=p)
 			for x,y in v.items():
 
