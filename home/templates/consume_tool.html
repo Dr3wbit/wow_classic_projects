@@ -38,31 +38,18 @@
                     <div class="col-4 columnTitle">Reagants</div>
             </div>
         </div>
-        <!-- <div class="col-xl-5 col-8 columnTitle">Name</div>
-        <div class="col-xl-3 col-4 columnTitle">Reagants</div> -->
-        <div class="col-xl-4 d-none d-xl-block columnTitle">Items
-            <!-- <a id="open-consume-prompt" class="btn-lg saveConsumeList float-right" role="button"
-                aria-label="Save consume list" title="Save" data-toggle="modal" data-target="#consume-list-prompt"
-                aria-label="consume list prompt">
-                <span class="glyphicon glyphicon-align-right glyphicon-floppy-disk"
-                    style="color: rgba(240,255,255,0.95);" aria-hidden="true"></span>
-            </a>
-            <div class="clearfix"></div> -->
-        </div>
+        <div class="col-xl-4 d-none d-xl-block columnTitle">Items</div>
     </div>
 
     <div class="row">
         <div id="recipe_list" class="col-xl-8 col-12 pageColumn custom-scroll-bar">
-            {% if something %}
-            {% include "consume_helper.html" %}
+            {% if whole_page %}
+            {% include "recipe_helper.html" %}
             {% endif %}
         </div>
         <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
-            <div class="row">
-            <div id="total_crafted" class="col-12"></div>
-            <span id="separator" class="col-12">Totals</span>
-            <div id="total_materials" class="col-12"></div>
-        </div>
+            {% include "consume_helper.html" with first_load="True" %}
+
         </div>
     </div>
 
@@ -116,38 +103,65 @@
 <script src="{% static "js/consume_tool.js" %}"></script>
 <script>
 
-    var my_consume_list = [];
+var my_consume_list = [];
     // my_consume_list['materials'] = {};
 
-    function update_prof(prof, spec_name = '') {
-        $.ajax({
-            url: `/consume_tool/${prof}`,
-            data: {
-                'prof': prof,
-            },
-            dataType: 'html',
+function build_recipe_list(prof, spec_name = '') {
+    $.ajax({
+        url: `/consume_tool/${prof}`,
+        data: {
+            'prof': prof,
+        },
+        dataType: 'html',
 
-            success: function (data) {
-                let selected = $("button.prof-filter.selected").attr("id");
-                if (selected != prof) {
-                    $("#recipe_list").html(data);
-                    $(".prof-filter").removeClass('selected');
-                    $(`#${prof}`).addClass('selected');
-                }
-
+        success: function (data) {
+            let selected = $("button.prof-filter.selected").attr("id");
+            if (selected != prof) {
+                $("#recipe_list").html(data);
+                $(".prof-filter").removeClass('selected');
+                $(`#${prof}`).addClass('selected');
             }
-        });
-    }
 
-    $(".prof-filter").on({
-        click: e => {
-            e.preventDefault()
-            var prof = $(e.target)[0].id;
-            update_prof(prof);
-            // update_url(class_name, '');
         }
     });
+}
 
+function update_url(prof_name, search='') {
+	console.log('updating url')
+	let url = new URL(document.location)
+	url.pathname = "/consume_tool"
+	url.search = search
+	history.replaceState(null, null, url)
+}
+
+$(".prof-filter").on({
+    click: e => {
+        e.preventDefault()
+        var prof = $(e.target)[0].id;
+        build_recipe_list(prof);
+        update_url(prof, '');
+    }
+});
+
+function build_consume_list(hash) {
+    $.ajax({
+        url: `/consume_tool/consume_builder`,
+        data: {
+            'hash': hash,
+        },
+        dataType: 'html',
+
+        success: function (data) {
+            let selected = $("button.prof-filter.selected").attr("id");
+            if (selected != prof) {
+                $("#recipe_list").html(data);
+                $(".prof-filter").removeClass('selected');
+                $(`#${prof}`).addClass('selected');
+            }
+
+        }
+    });
+}
 
 </script>
 {% endblock javascript %}
