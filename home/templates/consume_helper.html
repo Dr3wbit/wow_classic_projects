@@ -1,5 +1,12 @@
+{% if consumes %}
 <div class="row">
-    <div id="total_crafted" class="col-12"></div>
+    <div id="total_crafted" class="col-12">
+    {% for prof_name,v in consumes.items %}
+    prof:{{prof_name}}
+    v:{{v}}
+    {% endfor %}
+    </div>
     <span id="separator" class="col-12">Totals</span>
     <div id="total_materials" class="col-12"></div>
 </div>
+{% endif %}

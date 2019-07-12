@@ -48,8 +48,9 @@
             {% endif %}
         </div>
         <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
-            {% include "consume_helper.html" with first_load="True" %}
-
+            {% if whole_page %}
+            {% include "consume_helper.html" %}
+            {% endif %}
         </div>
     </div>
 
@@ -143,22 +144,13 @@ $(".prof-filter").on({
     }
 });
 
-function build_consume_list(hash) {
+function build_consume_list(hash, name) {
     $.ajax({
-        url: `/consume_tool/consume_builder`,
-        data: {
-            'hash': hash,
-        },
+        url: `${hash}`,
         dataType: 'html',
-
         success: function (data) {
-            let selected = $("button.prof-filter.selected").attr("id");
-            if (selected != prof) {
-                $("#recipe_list").html(data);
-                $(".prof-filter").removeClass('selected');
-                $(`#${prof}`).addClass('selected');
-            }
-
+            $("#totals_container").html(data);
+            update_url('', hash)
         }
     });
 }

@@ -9,6 +9,7 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryD
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint failed
+import re
 
 class IndexView(TemplateView):
 	template_name = "index.html"
@@ -243,13 +244,17 @@ class ConsumeToolTemplate(TemplateView):
 				context["recipes"][nombre]['materials'][m_nombre]['amount'] = int(recipe.step*mat.amount)
 				context["recipes"][nombre]['materials'][m_nombre]['name'] = str(mat)
 
-
 		if 'pb' in data.keys():
+			data.pop('pb')
+			print('data, post pop: ', data)
 			context['consumes'] = self.consume_list_builder(data)
-		if request.is_ajax():
 
+
+		if request.is_ajax():
 			if 'prof' in data.keys():
 				response = render(request, "recipe_helper.html", context=context)
+			else:
+				response = render(request, "consume_helper.html", context=context)
 		else:
 			context["whole_page"] = True
 			response = render(request, "consume_tool.html", context=context)
@@ -310,12 +315,13 @@ class ConsumeToolTemplate(TemplateView):
 			for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
 				translator[prof_name][k] = crafted.name
 
-			item_str_list = list(filter(None, re.split(r'([a-zA-Z]{1}[\d]{1,2})', y)))
+			splitted = re.split(r'([a-zA-Z]{1}[\d]{1,2})', y[0])
+			item_str_list = list(filter(None, splitted))
 			for str_item in item_str_list:
 
 				item_name = translator[prof_name][str_item[:1]]
 				quantity = str_item[1:]
-				my_consumes[item_name] = int(quantity)
+				my_consumes[prof_name][item_name] = int(quantity)
 
 		print('prebuilt consume list: ', my_consumes)
 		return my_consumes

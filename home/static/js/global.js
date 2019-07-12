@@ -25,17 +25,19 @@ function event_handlers() {
 
     	   var list_name = $( e.target ).attr('name');
            console.log('target: ', $(e.target))
-    	   var wow_class = ($( e.target ).attr('data-wowclass')) ? $( e.target ).attr('data-wowclass') : null
+    	   var wow_class = ($( e.target ).attr('data-wowclass')) ? $( e.target ).attr('data-wowclass') : ''
            $(".spec-list-item").removeClass("selected")
 
            console.log('wow_class', wow_class)
            $( e.target ).addClass("selected")
-           console.log($(e.target).closest("a").attr("href"))
+
     	   if (wow_class) {
     		   update_class(wow_class, list_name)
-    	   } //else {
-    		   //build_consume_list(list_name)
-    	   //}
+    	   } else {
+               let href = $(e.target).attr("href")
+               console.log('href: ', href)
+    		   build_consume_list(href, list_name)
+    	   }
        }
     });
 
