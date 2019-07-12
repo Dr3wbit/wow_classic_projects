@@ -22,18 +22,20 @@ function event_handlers() {
 
     $(".spec-list-item").on({
        click: e=> {
+
     	   var list_name = $( e.target ).attr('name');
+           console.log('target: ', $(e.target))
     	   var wow_class = ($( e.target ).attr('data-wowclass')) ? $( e.target ).attr('data-wowclass') : null
            $(".spec-list-item").removeClass("selected")
 
+           console.log('wow_class', wow_class)
            $( e.target ).addClass("selected")
-    	   console.log('clicked')
-    	   console.log(wow_class)
+           console.log($(e.target).closest("a").attr("href"))
     	   if (wow_class) {
     		   update_class(wow_class, list_name)
-    	   } else {
-    		   go_to_consumes(list_name)
-    	   }
+    	   } //else {
+    		   //build_consume_list(list_name)
+    	   //}
        }
     });
 

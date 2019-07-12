@@ -1,4 +1,4 @@
-import json, os
+import json, os, re
 from home.models import WoWClass, Talent, TalentTree, Crafted, Profession
 
 def create(cl):
@@ -56,7 +56,8 @@ def url_builder(talent_trees):
 
 
 ##############################################################################
-## expects dict in the following form: consume_list = {'alchemy': {'arcane_elixir':1}, 'engineering': {'goblin_rocket_boots':2} }
+## expects dict in the following form:
+## consume_list = {'alchemy': {'arcane_elixir':1}, 'engineering': {'goblin_rocket_boots':2} }
 ###############################################################################
 def consume_list_url_builder(consume_list):
 	stringy_boy = ''
@@ -72,12 +73,13 @@ def consume_list_url_builder(consume_list):
 
 	for prof_name,crafted_list in consume_list.items():
 		stringy_boy = ''.join([stringy_boy, "&{}=".format(translator['professions']['prof_name'])])
+		translator[prof_name] = {}
 
 		prof = Profession.objects.get(name=prof_name)
 
 		all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
 
-		translator[prof.name] = {}
+
 
 		for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
 			translator[prof.name][crafted.name] = k
@@ -86,3 +88,41 @@ def consume_list_url_builder(consume_list):
 			stringy_boy = ''.join([stringy_boy, translator['prof_name'][i], str(v)])
 
 	print(stringy_boy)
+
+##############################################################################
+## decodes query strings built by the function above and constructs a list of consumes
+###############################################################################
+def consume_list_builder(query_str):
+	my_consumes = {}
+	translator = {}
+
+	rle_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	prof_str = {
+		'alchemy': 'AL', 'blacksmithing':'BS', 'cooking':'CK', 'engineering':'EN',
+		'enchanting': 'EC', 'first_aid':'FA', 'fishing':'FI', 'leatherworking': 'LW', 'other':'OT',
+		'tailoring': 'TL', 'skinning':'SK'
+		}
+	prof_trans = {}
+
+	for k,v in prof_str.items():
+		prof_trans[v] = k
+
+	for x,y in query_str.items():
+		prof_name = prof_trans[x]
+		my_consumes[prof_name] = {}
+		translator[prof_name] = {}
+
+		prof = Profession.objects.get(name=prof_name)
+		all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
+
+		for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
+			translator[prof_name][k] = crafted.name
+
+		item_str_list = list(filter(None, re.split(r'([a-zA-Z]{1}[\d]{1,2})', y)))
+		for str_item in item_str_list:
+
+			item_name = translator[prof_name][str_item[:1]]
+			quantity = str_item[1:]
+			my_consumes[item_name] = int(quantity)
+
+	return my_consumes
