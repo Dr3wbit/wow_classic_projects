@@ -77,3 +77,56 @@ thead,
 tfoot {
     border: 1px solid grey;
 }
+
+.listImage {
+    height: 100px;
+    width: 180px;
+    background-color: blue;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.listIcon{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    background-color: red;
+    top: -10px;
+    left: 50%;
+    margin-left: -20px;
+}
+
+.feedItem {
+    background-color: #272727;
+    text-align: left;
+}
+
+.feed-content{
+}
+
+.feed-header {
+    margin-top: 5px;
+}
+
+.feed-tag {
+    border: 1px solid black;
+    padding: 3px;
+    background-color: #222222;
+    border-radius: 5px;
+    margin: 2px;
+    font-size: 80%;
+
+}
+
+.feedTitle{
+    font-size: 220%;
+}
+
+.feed-footer {
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.feed-desc {
+    text-overflow: ellipsis;
+}
