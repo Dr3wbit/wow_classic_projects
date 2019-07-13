@@ -207,11 +207,8 @@ class ConsumeToolTemplate(TemplateView):
 
 
 		data = dict(request.GET)
-		print('QUERY_STRING: ', request.META['QUERY_STRING'])
-		print('data: ', data)
-		# print('kwargs: ', **kwargs)
 		context = {}
-		context['form'] = self.form_class()
+		context["form"] = self.form_class()
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
@@ -244,10 +241,26 @@ class ConsumeToolTemplate(TemplateView):
 				context["recipes"][nombre]['materials'][m_nombre]['amount'] = int(recipe.step*mat.amount)
 				context["recipes"][nombre]['materials'][m_nombre]['name'] = str(mat)
 
-		if 'pb' in data.keys():
-			data.pop('pb')
-			print('data, post pop: ', data)
-			context['consumes'] = self.consume_list_builder(data)
+		PROF_ABBR = ['AL', 'BS', 'CK', 'EN', 'EC', 'FA', 'FI', 'LW', 'OT', 'TL', 'SK']
+		if data.keys() & PROF_ABBR:
+			qs = request.META['QUERY_STRING']
+			context['consumes'] = self.consume_list_builder(qs)
+			context['materials'] = {}
+			cl = ConsumeList.objects.filter(hash=qs).first()
+			print(cl)
+			if cl:
+				context['cl'] = cl
+				for c in cl.consumes.all():
+					for mat in c.item.materials.all():
+						if mat.name not in context['materials'].keys():
+							context['materials'][mat.name] = {}
+							context['materials'][mat.name]['value'] = 0
+							context['materials'][mat.name]['rarity'] = mat.item.rarity
+
+
+						context['materials'][mat.name]['value'] += int(c.amount * mat.amount)
+
+
 
 
 		if request.is_ajax():
@@ -290,6 +303,9 @@ class ConsumeToolTemplate(TemplateView):
 
 
 	def consume_list_builder(self, query_str):
+
+		qd = QueryDict(query_str).dict()
+		print('QueryDict: ', qd)
 		my_consumes = {}
 		translator = {}
 
@@ -301,10 +317,13 @@ class ConsumeToolTemplate(TemplateView):
 			}
 		prof_trans = {}
 
+		print('query_str: ', query_str)
+
+		# else:
 		for k,v in prof_str.items():
 			prof_trans[v] = k
 
-		for x,y in query_str.items():
+		for x,y in qd.items():
 			prof_name = prof_trans[x]
 			my_consumes[prof_name] = {}
 			translator[prof_name] = {}
@@ -315,7 +334,7 @@ class ConsumeToolTemplate(TemplateView):
 			for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
 				translator[prof_name][k] = crafted.name
 
-			splitted = re.split(r'([a-zA-Z]{1}[\d]{1,2})', y[0])
+			splitted = re.split(r'([a-zA-Z]{1}[\d]{1,2})', y)
 			item_str_list = list(filter(None, splitted))
 			for str_item in item_str_list:
 

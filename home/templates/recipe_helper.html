@@ -1,15 +1,18 @@
 {% if recipes %}
 {% load static %}
+
+{% load titlecase from custom_filters %}
+
     {% for recipe,v in recipes.items %}
     <div class="row">
         <div class="col-8">
             <div class="prof-item-recipe" name="{{recipe}}">
-                <span class="recipe-container {{v.rarity}}" name="{{recipe}}">
                 {% with "images/icons/consumes/"|add:recipe|add:".jpg" as item_image %}
+                <span class="recipe-container {{v.rarity}}" name="{{recipe}}">
                 <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
                 style="background-image: url({% static item_image %});">
                 {% endwith %}
-                <span class="consume-name">{{v.name}}</span>
+                <span class="consume-name">{{v.name|titlecase}}</span>
             </span>
             </div>
         </div>
