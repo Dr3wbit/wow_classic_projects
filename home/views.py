@@ -29,7 +29,12 @@ class IndexView(TemplateView):
 			context['saved_lists'][name]['consumes'] = {}
 
 			for consume in cl.consumes.all():
-				prof_name = consume.item.prof.name
+				c = consume.item
+				if not consume.item.prof:
+					prof_name = 'other'
+				else:
+					prof_name = consume.item.prof.name
+
 				if prof_name not in context['saved_lists'][name]['consumes'].keys():
 					context['saved_lists'][name]['consumes'][prof_name] = {}
 
