@@ -5,7 +5,7 @@ function build_consume_list(url, name) {
     var search = url.search
     var path = url.pathname
     $.ajax({
-        url: `${path}${search}`,
+        url: `consume_builder${search}`,
         dataType: 'html',
         success: function (data) {
             $("#totals_container").html(data);

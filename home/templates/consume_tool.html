@@ -5,7 +5,6 @@
 {% load static %}
 {% block extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/consume_tool.css" %}">
-<script src="{% static "js/consume_tool.js" %}"></script>
 {% endblock extra_head %}
 
 {% block mainbody %}
@@ -65,6 +64,7 @@
 
 
 <!-- Modal -->
+{% comment %}
 {% block modal %}
 <div class="modal fade" id="consume-list-prompt" tabindex="-1" role="dialog" aria-labelledby="specSaver"
     aria-hidden="true">
@@ -97,15 +97,16 @@
     </div>
 </div>
 {% endblock modal %}
-{% block javascript %}
+{% endcomment %}
 
+{% block javascript %}
 <script src="{% static "js/utilities.js" %}"></script>
 <script src="{% static "js/all_materials.js" %}"></script>
 <script src="{% static "js/all_consumes.js" %}"></script>
+<script src="{% static "js/consume_tool.js" %}"></script>
+
 
 <script>
-
-
 function build_recipe_list(prof, spec_name = '') {
     $.ajax({
         url: `/consume_tool/${prof}`,
@@ -126,13 +127,17 @@ function build_recipe_list(prof, spec_name = '') {
     });
 }
 
-function update_url(prof_name, search='') {
+function update_url(prof_name='', search) {
 	console.log('updating url')
 	let url = new URL(document.location)
     if (prof_name) {
         url.pathname = `consume_tool/${prof_name}`
     }
-    url.search = (search) ? search : url.search
+    if (search == undefined) {
+        url.search = ''
+    } else {
+        url.search = search
+    }
 	history.replaceState(null, null, url)
 }
 
@@ -144,6 +149,5 @@ $(".prof-filter").on({
         update_url(prof, '');
     }
 });
-
 </script>
 {% endblock javascript %}
