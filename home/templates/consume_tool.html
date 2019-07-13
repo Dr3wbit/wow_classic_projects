@@ -62,43 +62,6 @@
 </div>
 {% endblock mainbody %}
 
-
-<!-- Modal -->
-{% comment %}
-{% block modal %}
-<div class="modal fade" id="consume-list-prompt" tabindex="-1" role="dialog" aria-labelledby="specSaver"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content bg-dark text-white"
-            style="box-shadow: rgba(0,0,0,.8) 0 1px 3px 0 inset; border-radius:2px;">
-            <div class="modal-body">
-                <button type="button" class="close" aria-label="Close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <form method="post" id="save-consume-list">
-                    {% csrf_token %}
-                    <div class="form-group row">
-                        <div class="input-group input-group-sm">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text" style="border-radius: 2px 0 0 2px;">name</div>
-                            </div>
-                            <input type="text" id="list-name" class="form-control-sm" placeholder="list name"
-                                aria-label="Text..." aria-describedby="basic-addon1" autocomplete="off" required=True>
-                            <div class="input-group-append">
-                                <button type="submit" class="input-group-text btn-sm btn-primary" id="confirm-list-name"
-                                    style="border-radius: 0 2px 2px 0;">Confirm</button>
-                            </div>
-                            <div id="list-name-validation" class="form-text"></div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock modal %}
-{% endcomment %}
-
 {% block javascript %}
 <script src="{% static "js/utilities.js" %}"></script>
 <script src="{% static "js/all_materials.js" %}"></script>
@@ -107,6 +70,33 @@
 
 
 <script>
+
+// $( window ).on('beforeunload')
+
+
+
+$(document).ready(function() {
+    if (performance.navigation.type == 1) {
+        console.log('consume tool ready')
+        my_consume_list = {}
+        $("#total_crafted").empty()
+        $("#total_materials").empty()
+        update_url('', '?')
+    }
+    load_handlers()
+ });
+
+
+function load_handlers() {
+    $(".prof-filter").on({
+        click: e => {
+            e.preventDefault()
+            var prof = $(e.target)[0].id;
+            build_recipe_list(prof);
+        }
+    });
+}
+
 function build_recipe_list(prof, spec_name = '') {
     $.ajax({
         url: `/consume_tool/${prof}`,
@@ -122,7 +112,7 @@ function build_recipe_list(prof, spec_name = '') {
                 $(".prof-filter").removeClass('selected');
                 $(`#${prof}`).addClass('selected');
             }
-            update_url()
+            update_url(prof, document.location.search)
         }
     });
 }
@@ -133,21 +123,9 @@ function update_url(prof_name='', search) {
     if (prof_name) {
         url.pathname = `consume_tool/${prof_name}`
     }
-    if (search == undefined) {
-        url.search = ''
-    } else {
-        url.search = search
-    }
+    url.search = search
 	history.replaceState(null, null, url)
 }
 
-$(".prof-filter").on({
-    click: e => {
-        e.preventDefault()
-        var prof = $(e.target)[0].id;
-        build_recipe_list(prof);
-        update_url(prof, '');
-    }
-});
 </script>
 {% endblock javascript %}

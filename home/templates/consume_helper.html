@@ -55,45 +55,53 @@
 {{consumes|json_script:"hello-data"}}
 <script>
 
+$(document).ready(function() {
+    console.log('consume_helper ready');
+    load_handlers()
+})
+
 var my_consume_list = JSON.parse(document.getElementById('hello-data').textContent)
 if (!my_consume_list) {
     my_consume_list = {}
 }
 
-$(".material-container").on({
-    mouseenter: e => {
-        clearTooltip()
-        updatetooltip($(e.target).closest(".material-container"), 'material')
-    },
-    mouseleave: e => {
-        clearTooltip()
-    },
-});
+function load_event_handlers() {
+    $(".material-container").on({
+        mouseenter: e => {
+            clearTooltip()
+            updatetooltip($(e.target).closest(".material-container"), 'material')
+        },
+        mouseleave: e => {
+            clearTooltip()
+        },
+    });
 
-$(".crafted-container").on({
-    mouseenter: e => {
-        clearTooltip()
-        e.stopPropagation()
-        updatetooltip($(e.target), 'consume')
-    },
-    mouseleave: e => {
-        clearTooltip()
-    },
-});
+    $(".crafted-container").on({
+        mouseenter: e => {
+            clearTooltip()
+            e.stopPropagation()
+            updatetooltip($(e.target), 'consume')
+        },
+        mouseleave: e => {
+            clearTooltip()
+        },
+    });
 
-$(".materials-list").on({
-    'shown.bs.collapse': e => {
-        let id = $( e.target ).attr("id")
-        $(`span.crafted-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
-        // $(`span.crafted-container[name="${name}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
-        // let targetID = $(e.target).attr('id').replace('_collapse', '')
-    },
-    'hidden.bs.collapse': e => {
-        let id = $( e.target ).attr("id")
-        $(`span.crafted-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
-        // $(`span.crafted-container[name="${name}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
-        // let targetID = $(e.target).attr('id').replace('_collapse', '')
-    },
-});
+    $(".materials-list").on({
+        'shown.bs.collapse': e => {
+            let id = $( e.target ).attr("id")
+            $(`span.crafted-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
+            // $(`span.crafted-container[name="${name}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
+            // let targetID = $(e.target).attr('id').replace('_collapse', '')
+        },
+        'hidden.bs.collapse': e => {
+            let id = $( e.target ).attr("id")
+            $(`span.crafted-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
+            // $(`span.crafted-container[name="${name}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
+            // let targetID = $(e.target).attr('id').replace('_collapse', '')
+        },
+    });
+}
+
 
 </script>
