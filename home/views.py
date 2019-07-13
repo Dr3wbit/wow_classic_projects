@@ -128,7 +128,6 @@ class TalentCalcTemplate(TemplateView):
 				spent = form_data['spent']
 				wow_class = form_data['wow_class']
 
-				print('cleaned data: ', form.cleaned_data)
 				data = {
 					'name': name,
 					'wow_class': wow_class,
@@ -192,11 +191,9 @@ class TalentCalcTemplate(TemplateView):
 							'tree':tree, 'spec': spec, 'invested':invested
 						}
 					)
-					print('\nt: ', t)
 					t.save()
 
 
-		print('data, saved_list: ', data)
 		return data
 
 
@@ -247,7 +244,6 @@ class ConsumeToolTemplate(TemplateView):
 			context['consumes'] = self.consume_list_builder(qs)
 			context['materials'] = {}
 			cl = ConsumeList.objects.filter(hash=qs).first()
-			print(cl)
 			if cl:
 				context['cl'] = cl
 				for c in cl.consumes.all():
@@ -264,6 +260,7 @@ class ConsumeToolTemplate(TemplateView):
 
 
 		if request.is_ajax():
+			print('\nconsume template, get req, is ajax\n')
 			if 'prof' in data.keys():
 				response = render(request, "recipe_helper.html", context=context)
 			else:
@@ -278,11 +275,8 @@ class ConsumeToolTemplate(TemplateView):
 		form = self.form_class(request.POST)
 		context = {}
 		context['form'] = form
-		print('consume list post req')
 		if form.is_valid():
 			if request.is_ajax():
-				print('request is ajax')
-				print('cleaned data: ', form.cleaned_data)
 				form_data = self.save_list(request, form.cleaned_data)
 				name = form_data['name']
 				spent = form_data['spent']
@@ -305,7 +299,6 @@ class ConsumeToolTemplate(TemplateView):
 	def consume_list_builder(self, query_str):
 
 		qd = QueryDict(query_str).dict()
-		print('QueryDict: ', qd)
 		my_consumes = {}
 		translator = {}
 
@@ -316,10 +309,6 @@ class ConsumeToolTemplate(TemplateView):
 			'tailoring': 'TL', 'skinning':'SK'
 			}
 		prof_trans = {}
-
-		print('query_str: ', query_str)
-
-		# else:
 		for k,v in prof_str.items():
 			prof_trans[v] = k
 
@@ -328,7 +317,11 @@ class ConsumeToolTemplate(TemplateView):
 			my_consumes[prof_name] = {}
 			translator[prof_name] = {}
 
-			prof = Profession.objects.get(name=prof_name)
+			if prof_name == 'other':
+				prof = None
+			else:
+				prof = Profession.objects.get(name=prof_name)
+
 			all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
 
 			for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
@@ -342,7 +335,6 @@ class ConsumeToolTemplate(TemplateView):
 				quantity = str_item[1:]
 				my_consumes[prof_name][item_name] = int(quantity)
 
-		print('prebuilt consume list: ', my_consumes)
 		return my_consumes
 
 	def save_list(self, request, cleaned_data):
@@ -353,7 +345,6 @@ class ConsumeToolTemplate(TemplateView):
 		spnt = request.POST.getlist('spent')
 		description = request.POST.get('description')
 		data = dict(request.POST)
-		print(data)
 		data['spent'] = []
 		spent = {}
 
@@ -362,20 +353,16 @@ class ConsumeToolTemplate(TemplateView):
 			a = y[0]
 			b = y[1]
 
-			# if int(b) < 1:
-			# 	return
-
-			prof = Crafted.objects.get(item__name=a).prof
-			prof_name = prof.name
+			cr = Crafted.objects.get(item__name=a)
+			if cr.prof:
+				prof_name = cr.prof.name
+			else:
+				prof_name = 'other'
 
 			if prof_name not in spent.keys():
 				spent[prof_name] = {}
-
 			spent[prof_name][a] = b
 
-			# spent[y[0]] = y[1]
-
-		print(spent)
 		hash = self.url_builder(spent)
 		data['name'] = name
 		data['spent'] = spent
@@ -391,20 +378,22 @@ class ConsumeToolTemplate(TemplateView):
 		)
 
 		for tag in tags:
-			print(tag)
 			t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
 			c_list.tags.add(t)
 			c_list.save()
 
 		for p,v in spent.items():
-			print("prof:{} -- {}".format(p, v))
 			v = {a:b for a,b in v.items() if b}
 
-			prof = Profession.objects.get(name=p)
+			# if p == 'other':
+			# 	prof = None
+			# else:
+			# 	prof = Profession.objects.get(name=p)
+			#
 			for x,y in v.items():
 
 				# item = Item.objects.get(name=x)
-				cr = Crafted.objects.get(item__name=x, prof=prof)
+				cr = Crafted.objects.get(item__name=x)
 				c,_ = Consume.objects.update_or_create(
 					amount=y, consume_list=c_list, item=cr,
 					defaults={'amount':y, 'consume_list':c_list, 'item':cr}
@@ -431,7 +420,11 @@ class ConsumeToolTemplate(TemplateView):
 
 		for prof_name,crafted_list in consume_list.items():
 			stringy_boy = ''.join([stringy_boy, "&{}=".format(translator['professions'][prof_name])])
-			prof = Profession.objects.get(name=prof_name)
+			if prof_name == 'other':
+				prof = None
+			else:
+				prof = Profession.objects.get(name=prof_name)
+
 			all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
 			translator[prof_name] = {}
 
@@ -441,8 +434,6 @@ class ConsumeToolTemplate(TemplateView):
 			for i,v in crafted_list.items():
 				stringy_boy = ''.join([stringy_boy, translator[prof_name][i], str(v)])
 
-		print('translator: ', translator)
-		print('stringy_boy: ', stringy_boy)
 		return(stringy_boy)
 
 class EnchantToolView(TemplateView):

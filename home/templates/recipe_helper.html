@@ -114,18 +114,9 @@
             }
             update_consume_list(name, amount)
             addCraftedItem(name, amount)
+            update_url('', undefined)
         }
 
-    });
-
-    $(".material-container").on({
-        mouseenter: e => {
-            clearTooltip()
-            updatetooltip($(e.target).closest(".material-container"), 'material')
-        },
-        mouseleave: e => {
-            clearTooltip()
-        },
     });
 
     </script>
