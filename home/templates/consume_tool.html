@@ -5,6 +5,7 @@
 {% load static %}
 {% block extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/consume_tool.css" %}">
+<script src="{% static "js/consume_tool.js" %}"></script>
 {% endblock extra_head %}
 
 {% block mainbody %}
@@ -101,11 +102,9 @@
 <script src="{% static "js/utilities.js" %}"></script>
 <script src="{% static "js/all_materials.js" %}"></script>
 <script src="{% static "js/all_consumes.js" %}"></script>
-<script src="{% static "js/consume_tool.js" %}"></script>
+
 <script>
 
-var my_consume_list = [];
-    // my_consume_list['materials'] = {};
 
 function build_recipe_list(prof, spec_name = '') {
     $.ajax({
@@ -122,7 +121,7 @@ function build_recipe_list(prof, spec_name = '') {
                 $(".prof-filter").removeClass('selected');
                 $(`#${prof}`).addClass('selected');
             }
-
+            update_url()
         }
     });
 }
@@ -130,8 +129,10 @@ function build_recipe_list(prof, spec_name = '') {
 function update_url(prof_name, search='') {
 	console.log('updating url')
 	let url = new URL(document.location)
-	url.pathname = "/consume_tool"
-	url.search = search
+    if (prof_name) {
+        url.pathname = `consume_tool/${prof_name}`
+    }
+    url.search = (search) ? search : url.search
 	history.replaceState(null, null, url)
 }
 
@@ -143,17 +144,6 @@ $(".prof-filter").on({
         update_url(prof, '');
     }
 });
-
-function build_consume_list(hash, name) {
-    $.ajax({
-        url: `${hash}`,
-        dataType: 'html',
-        success: function (data) {
-            $("#totals_container").html(data);
-            update_url('', hash)
-        }
-    });
-}
 
 </script>
 {% endblock javascript %}

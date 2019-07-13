@@ -1,6 +1,19 @@
 
 $( document ).ready( event_handlers() );
 
+function build_consume_list(url, name) {
+    var search = url.search
+    var path = url.pathname
+    $.ajax({
+        url: `${path}${search}`,
+        dataType: 'html',
+        success: function (data) {
+            $("#totals_container").html(data);
+            update_url('', search)
+        }
+    });
+}
+
 function event_handlers() {
     $(".side-bar-toggle").on({
        click: e=> {
@@ -22,21 +35,16 @@ function event_handlers() {
 
     $(".spec-list-item").on({
        click: e=> {
-
     	   var list_name = $( e.target ).attr('name');
-           console.log('target: ', $(e.target))
     	   var wow_class = ($( e.target ).attr('data-wowclass')) ? $( e.target ).attr('data-wowclass') : ''
            $(".spec-list-item").removeClass("selected")
-
-           console.log('wow_class', wow_class)
            $( e.target ).addClass("selected")
-
     	   if (wow_class) {
     		   update_class(wow_class, list_name)
     	   } else {
                let href = $(e.target).attr("href")
-               console.log('href: ', href)
-    		   build_consume_list(href, list_name)
+               let url = new URL(href=href, base=document.location.origin)
+    		   build_consume_list(url, list_name)
     	   }
        }
     });
@@ -63,7 +71,6 @@ function event_handlers() {
         }
     });
 }
-
 
 function trashCanSuccess(data, textStatus, jqXHR){
 	let list_name = data.name.toString()

@@ -1,12 +1,61 @@
-{% if consumes %}
+{% load static %}
 <div class="row">
     <div id="total_crafted" class="col-12">
-    {% for prof_name,v in consumes.items %}
-    prof:{{prof_name}}
-    v:{{v}}
-    {% endfor %}
+
+    {% for c in cl.consumes.all %}
+    <div class="crafted-list-item" name="{{c.name}}">
+        <span class="crafted-container" role="button" name="black_mageweave_boots" href="#{{c.name}}_collapse"
+            data-toggle="collapse" aria-expanded="false">
+            <a class="btn btn-sm plus">
+                <span class="glyphicon glyphicon-triangle-right" style="color: azure;"></span>
+            </a>
+            {% with "images/icons/consumes/"|add:c.name|add:".jpg" as item_image %}
+            <img class="icon-small" src="{% static "images/icons/small/icon_border.png" %}"
+                style="background-image: url({% static item_image %}); user-select:none; pointer-events:none;">
+            {% endwith %}
+            {% load titlecase from custom_filters %}
+            <span class="crafted-name {{c.item.rarity}}">{{c.name|titlecase}}</span>
+            <span>[</span><span class="amount">{{c.amount}}</span><span>]</span>
+        </span>
+
+        <div class="materials-list collapse" id="{{c.name}}_collapse">
+            {% for mat in c.item.materials.all %}
+            <div class="materials-list-item" name="{{mat.name}}">
+                <span class="material-container" name="{{mat.name}}">
+                    <img class="icon-small" src="{% static "images/icons/small/icon_border.png" %}"
+                    {% if "eko" in mat.name %}
+                        style="background-image: url({% static "images/icons/small/eko.jpg" %});">
+                    {% else %}
+                        style="background-image: url({% static "images/icons/small/"|add:mat.name|add:".jpg" %});">
+                    {% endif %}
+
+                    <span class="materials-name {{mat.rarity}}" name="{{mat.name}}">{{mat.name|titlecase}}</span>
+                    <span>[</span><span class="amount">{% widthratio mat.amount 1 c.amount %}</span><span>]</span>
+                </span>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-    <span id="separator" class="col-12">Totals</span>
-    <div id="total_materials" class="col-12"></div>
+    {% endfor %}
 </div>
-{% endif %}
+    <span id="separator" class="col-12">Totals</span>
+    <div id="total_materials" class="col-12">
+        {% for mat_name,v in materials.items %}
+        <div class="materials-list-item" name="{{mat_name}}">
+            <span class="material-container" name="{{mat_name}}">
+                <img class="icon-small" src="{% static "images/icons/small/icon_border.png" %}"
+                    style="background-image: url({% static "images/icons/small/"|add:mat_name|add:".jpg" %}); user-select:none; pointer-events:none;">
+                    <span class="materials-name {{v.rarity}}" name="{{mat_name}}">{{mat_name|titlecase}}</span>
+                    <span>[</span><span>{{v.value}}</span><span>]</span>
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{{consumes|json_script:"hello-data"}}
+<script>
+var my_consume_list = JSON.parse(document.getElementById('hello-data').textContent)
+if (!my_consume_list) {
+    my_consume_list = {}
+}
+</script>
