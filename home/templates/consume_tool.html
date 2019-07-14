@@ -5,6 +5,19 @@
 {% load static %}
 {% block extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/consume_tool.css" %}">
+<script>
+
+if (performance.navigation.type == 1) {
+    let myurl = new URL(window.location)
+    myurl.search = ''
+    history.pushState(null, null, myurl)
+    console.log('pushed state')
+    $("#total_crafted").hide()
+    $("#total_materials").hide()
+}
+
+</script>
+
 {% endblock extra_head %}
 
 {% block mainbody %}
