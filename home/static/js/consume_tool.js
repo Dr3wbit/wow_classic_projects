@@ -1,5 +1,4 @@
 
-
 function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
@@ -81,7 +80,6 @@ function addCraftedItem(name, numAdded=1) {
 			}), " ", $('<span/>', {
 				text: "[",
 			}), $('<span/>', {
-
 				class: 'amount',
 				text:`${updatedAmount}`,
 			}), $('<span/>', {
@@ -243,13 +241,13 @@ function updateOrCreate(parentElem, consume_name, numAdded) {
 
 
 
-function removeSavedList(name) {
-	$(`div.saved-list[name='${name}']`).remove()
-	let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
-	delete oldLists[name]
-	let allLists = Object.assign({}, oldLists)
-	localStorage.setItem('consumeLists', JSON.stringify(allLists))
-}
+// function removeSavedList(name) {
+// 	$(`div.saved-list[name='${name}']`).remove()
+// 	let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
+// 	delete oldLists[name]
+// 	let allLists = Object.assign({}, oldLists)
+// 	localStorage.setItem('consumeLists', JSON.stringify(allLists))
+// }
 
 function addSavedList(name) {
 

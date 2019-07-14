@@ -278,6 +278,10 @@ class Tag(models.Model):
 		('aq40', 'AQ40'),
 		('naxx', 'Naxx'),
 		('5man', '5-man'),
+		('melee', 'Melee'),
+		('caster', 'Caster'),
+		('healer', 'Healer'),
+		('tank', 'Tank'),
 	)
 
 	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
@@ -349,7 +353,7 @@ class Spec(SavedList):
 
 
 class Consume(models.Model):
-	amount = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(1), MaxValueValidator(100)])
+	amount = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
 	item = models.ForeignKey('Crafted', on_delete=models.CASCADE)
 	consume_list = models.ForeignKey('ConsumeList', on_delete=models.CASCADE)
 
@@ -369,6 +373,45 @@ class Consume(models.Model):
 
 from home.signals import savedspec_limit, consumelist_limit
 
+# class Loot(models.Model):
+# 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
+# 	mob = models.ForeignKey('NPC', on_delete=models.CASCADE)
+# 	drop_chance = models.DecimalField(default=0.0, max_digits=4, decimal_places=2, validators=[MaxValueValidator(0.00), MaxValueValidator(100.00)])
+#
+
+# class NPC(models.Model):
+# 	MOB_TYPES = (
+# 		('dragon', 'Dragonkin'),
+# 		('human', 'Humanoid'),
+# 		('undead', 'Undead'),
+# 		('beast', 'Beast'),
+# 		('giant', 'Giant'),
+# 		('ele', 'Elemental'),
+# 		('crit', 'Critter'),
+# 		('mech', 'Mechanical')
+# 		('demon', 'Demon')
+# 	)
+#
+# 	name = models.CharField(max_length=75, default='')
+# 	drops = models.ManyToManyField('Loot')
+# 	health = models.PositiveIntegerField()
+# 	level = models.PositiveSmallIntegerField()
+# 	boss = models.BooleanField()
+# 	max_damage = models.PositiveSmallIntegerField()
+# 	min_damage = models.PositiveSmallIntegerField()
+# 	armor = models.PositiveSmallIntegerField()
+# 	mob_type = models.CharField(max_length=75, choices=MOB_TYPES)
+#
+# 	@property
+# 	def skinnable(self):
+# 		if self.mob_type is 'beast' or 'dragon':
+# 			return True
+# 		else:
+# 			return False
+
+#
+#
+#
 # class Equipable(Item):
 # 	SLOT_CHOICES = (
 # 	('back', 'Back'),
@@ -378,7 +421,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	('hands', 'Hands'),
 # 	('head', 'Head'),
 # 	('neck', 'Neck'),
-# 	('ring', 'Ring')
+# 	('ring', 'Ring'),
 # 	('shield', 'Shield'),
 # 	('shirt', 'Shirt'),
 # 	('shoulder', 'Shoulder'),
@@ -389,7 +432,9 @@ from home.signals import savedspec_limit, consumelist_limit
 #
 # 	slot = models.CharField(max_length=20, choices=SLOT_CHOICES)
 # 	durability = models.PositiveSmallIntegerField(default=0)
-# 	required_level = models.PositiveSmallIntegerField(default=0)
+#
+# 	class Meta:
+# 		abstract = True
 #
 #
 # class Weapon(Equipable):
@@ -406,7 +451,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 		('dagger', 'Dagger'),
 # 	)
 #
-# 	WEAPON_CHOICES = (
+# 	WEAPON_TYPES = (
 # 		('off-hand', 'Off-Hand'),
 # 		('one-hand', 'One-Hand'),
 # 		('main-hand', 'Main-Hand'),
@@ -415,16 +460,20 @@ from home.signals import savedspec_limit, consumelist_limit
 # 		('two-hand', 'Two-Hand'),
 # 	)
 #
-# 	slot = models.CharField(max_length=50, choices=WEAPON_CHOICES)
+# 	hand = models.CharField(max_length=50, choices=WEAPON_TYPES)
 # 	proficiency = models.CharField(max_length=50, choices=WEAPON_PROFICIENCIES)
 # 	max_damage = models.PositiveSmallIntegerField(default=2)
 # 	min_damage = models.PositiveSmallIntegerField(default=1)
 # 	speed = models.DecimalField(default=0.0, max_digits=4, decimal_places=2)
-# 	on_hit = models.CharField(max_length=400, blank=True)
+# 	effects = models.ManyToManyField('Effect')
 #
-#
+# 	@property
+# 	def dps(self):
+# 		return((self.max_damage+self.min_damage/2)/self.speed)
+
+
 # # i.e. Equip: +60 Attack Power
-# class BonusEffect(models.Model):
+# class Effect(models.Model):
 # 	amount = models.PositiveSmallIntegerField(default=0)
 # 	# i.e crit%, attack power, hit%
 # 	effect = models.CharField(max_length=400, blank=True)

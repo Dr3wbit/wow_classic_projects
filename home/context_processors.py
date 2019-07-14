@@ -1,8 +1,6 @@
 from home.models import Profile
-from django import template
 from django.contrib.auth import models
 
-register = template.Library()
 
 def add_navlinks_to_context(request):
 	context = {}
