@@ -75,7 +75,12 @@ function event_handlers() {
 function trashCanSuccess(data, textStatus, jqXHR){
 	let list_name = data.name.toString()
 	let list_item = $(`.spec-list-item[name="${list_name}"]`).closest(".spec-container");
-	list_item.empty().remove()
+
+    list_item.hide( 800, function() {
+        $( this ).remove()
+    })
+
+	// list_item.empty().remove()
 
 	let message = data.message.toString() // <--------------- NOTE: HERE
 	console.log('\n**success**\n')
