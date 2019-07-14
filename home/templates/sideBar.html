@@ -1,3 +1,4 @@
+{% load static %}
 <div class="saved">
 	<div class="saved-container">
 		<div class="saved-title">
@@ -24,7 +25,7 @@
 					{% else %}
 					<div class="spec-list-item" name="{{spec.name}}" style="position:relative;">{{spec.name}}
 						<a href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}">
-							<span style="left: 0; position: absolute; width: 80%; height: 100%;"></span>
+							<span style="left: 0; top: 0; position: absolute; width: 80%; height: 100%;"></span>
 						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 							value="{{spec.name}}" type="button">
@@ -32,12 +33,9 @@
 						</button>
 					</div>
 					{% endif %}
-
 				</div>
 				{% endfor %}
-
 			</div>
-
 			<div id="saved-consume-lists">
 				<h5>CONSUME LISTS</h5>
 				{% for consume_list in user.consumelist_set.all %}
@@ -45,8 +43,16 @@
 					<div class="spec-info">
 						<span>{{consume_list.name}}</span>
 					</div>
+					{% if "consume_tool" in request.path %}
+					<div class="spec-list-item" href="{% url 'consume_builder' %}?{{consume_list.hash}}" name="{{consume_list.name}}" style="position: relative;">{{consume_list.name}}
+						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
+							value="{{consume_list.name}}" type="button">
+							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
+						</button>
+					</div>
+					{% else %}
 					<div class="spec-list-item" name="{{consume_list.name}}" style="position:relative;">{{consume_list.name}}
-						<a href="{% url 'consume_tool' %}?{{consume_list.hash}}">
+						<a href="{% url 'consume_builder' %}?{{consume_list.hash}}">
 							<span style="left: 0; position: absolute; width: 80%; height: 100%;"></span>
 						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
@@ -54,6 +60,7 @@
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
 						</button>
 					</div>
+					{% endif %}
 				</div>
 				{% endfor %}
 			</div>
