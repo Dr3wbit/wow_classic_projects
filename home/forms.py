@@ -7,6 +7,9 @@ class SpecForm(forms.ModelForm):
     class Meta:
         model = Spec
         fields = ['name', 'description', 'private', 'tags']
+        widgets = {
+            'description': forms.Textarea(attrs={'cols': 60, 'rows': 20}),
+        }
 
 
 class ConsumeListForm(forms.ModelForm):
@@ -14,7 +17,9 @@ class ConsumeListForm(forms.ModelForm):
     class Meta:
         model = ConsumeList
         fields = ['name', 'description', 'private', 'tags']
-
+        widgets = {
+            'description': forms.Textarea(attrs={'cols': 60, 'rows': 20}),
+        }
 
 class ContactForm(forms.Form):
     subject = forms.CharField(max_length=100)

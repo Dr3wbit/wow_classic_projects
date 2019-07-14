@@ -282,12 +282,16 @@ class Tag(models.Model):
 		('caster', 'Caster'),
 		('healer', 'Healer'),
 		('tank', 'Tank'),
+		('dps', 'DPS'),
 	)
 
 	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
 
 	def __str__(self):
 		return(self.name)
+
+	class Meta:
+		ordering = ['name']
 
 class TreeAllotted(models.Model):
 	spec = models.ForeignKey('Spec', on_delete=models.CASCADE)
@@ -324,7 +328,7 @@ class SavedList(models.Model):
 	name = models.CharField(max_length=30, default='')
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='testy test')
-	description = models.TextField(default='couple line of text...', max_length=300)
+	description = models.CharField(default='couple line of text...', max_length=300)
 	private = models.BooleanField(default=False)
 	ratings = GenericRelation('Rating', related_query_name="%(class)s_rating")
 	created = models.DateTimeField(auto_now_add=True)
@@ -372,6 +376,54 @@ class Consume(models.Model):
 		return(self.item.materials)
 
 from home.signals import savedspec_limit, consumelist_limit
+#
+#
+# class Faction(models.Model):
+# 	FACTION_CHOICES = (
+# 		('A', 'Alliance'),
+# 		('H', 'Horde'),
+# 		('N', 'Neutral')
+# 	)
+# 	name = models.CharField(max_length=1, choices=FACTION_CHOICES, unique=True)
+#
+# 	def __str__(self):
+# 		return self.name
+#
+# class Race(models.Model):
+#
+# 	name = models.CharField()
+# 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
+#
+# 	def __str__(self):
+# 		return "{}, {}".format(self.name, self.faction)
+#
+# class Zone(models.Model):
+#
+# 	name = models.CharField(max_length=100)
+# 	reaction = models.ForeignKey('Faction', on_delete=models.CASCADE)
+# 	continent = models.ForeignKey('Continent', on_delete=models.CASCADE)
+#
+# 	def __str__(self):
+# 		return "{},{}".format(titleCase(self.name), self.continent)
+#
+#
+# class Continent(models.Model):
+# 	name = models.CharField(max_length=100)
+#
+# 	def __str__(self):
+# 		return titleCase(self.name)
+#
+# class Quest(models.Model):
+#
+# 	start = models.ForeignKey('NPC')
+# 	end = models.ForeignKey('NPC')
+# 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
+#
+# 	required_level = models.PositiveSmallIntegerField(default=1,  validators=[MinValueValidator(1), MaxValueValidator(60)])
+# 	name = models.CharField(max_length=100)
+# 	description = models.CharField(max_length=1000)
+# 	progress = models.CharField(max_length=1000)
+# 	completion = models.CharField(max_length=1000)
 
 # class Loot(models.Model):
 # 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
