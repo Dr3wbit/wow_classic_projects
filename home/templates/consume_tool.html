@@ -10,8 +10,7 @@
 if (performance.navigation.type == 1) {
     let myurl = new URL(window.location)
     myurl.search = ''
-    history.pushState(null, null, myurl)
-    console.log('pushed state')
+    history.replaceState(null, null, myurl)
     $("#total_crafted").hide()
     $("#total_materials").hide()
 }

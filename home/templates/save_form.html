@@ -65,9 +65,9 @@
                     {% endfor %}
             </div>
         </div>
-        <!-- <div class="fieldWrapper row">
+        <div class="fieldWrapper row">
             <input id="list_hash" type="hidden" value="test" name="hash">
-        </div> -->
+        </div>
 
 
         <div class="form-actions row justify-content-center">
@@ -108,9 +108,8 @@ $(".saved-list-form").on({
         }
         e.preventDefault()
         var $myForm = $(".saved-list-form")
-        var $formData = $myForm.serialize()
-        console.log('data: ', $formData)
         var $thisURL = $myForm.attr('data-url') || window.location.href
+        var $formData = $myForm.serialize()
         $.ajax({
             method: "POST",
             url: $thisURL,
