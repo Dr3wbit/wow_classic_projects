@@ -18,19 +18,19 @@
 
 
         {% if "talent_calc" in request.path %}
-        <div class="fieldWrapper">
-            <span>
+        <div class="fieldWrapper row">
+            <span class="col-3">
                 <label id="wow_class_label" class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
                 <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
             </span>
-            <span>
+            <span class="col-3">
                 <label id="talents_spent" for="id_spent">(0/0/0)</label>
                 <input class="tree-input" id="tree0" type="hidden" value="Arms,10" name="spent">
             </span>
-            <span>
+            <span class="col-3">
                 <input class="tree-input" id="tree1" type="hidden" value="Fury,15" name="spent">
             </span>
-            <span>
+            <span class="col-3">
                 <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
             </span>
         </div>
