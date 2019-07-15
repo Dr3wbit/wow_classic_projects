@@ -44,26 +44,6 @@
 }
 
 
-
-.recent-news{
-	order: 2;
-}
-.site-content {
-	flex: 0 0 100%;
-	max-width: 100%;
-	order: 1;
-}
-@media (min-width: 992px){
-    .site-content {
-		flex: 0 0 33.333333%;
-		max-width: 33.333333%;
-		order: 2;
-    }
-	.recent-news{
-		order: 1;
-	}
-}
-
 .property-key {
     text-decoration: underline;
 }
@@ -79,26 +59,27 @@ tfoot {
 }
 
 .listImage {
-    height: 100px;
+    height: 125px;
     width: 180px;
-    background-color: blue;
+    background-size: contain;
+    background-repeat: no-repeat;
     margin: auto;
     margin-top: 15px;
 }
 
 .listIcon{
-    height: 40px;
-    width: 40px;
     position: absolute;
-    background-color: red;
-    top: -10px;
+    top: -15px;
     left: 50%;
-    margin-left: -20px;
+    margin-left: -21px;
 }
 
 .feedItem {
     background-color: #272727;
     text-align: left;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow: 4px 4px 2px black;
 }
 
 .feed-content{
