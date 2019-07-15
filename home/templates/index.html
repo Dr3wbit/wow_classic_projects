@@ -107,64 +107,9 @@
                         <!-- <div class="clearfix"></div> -->
                         <h5><span class="fix-me">NEW SAVED SPECS</span></h5>
                     </div>
+<!-- //////////////////////////////////////////////////////////////////////////////////// -->
                 {% for spec in specs %}
-                <div class="card-body text-light">
-                    <h5 class="card-title text-center"><a href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}">{{spec.name}}</a></h5>
-                    <span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span> --
-                    {% spaceless %}
-                    <span>
-                    {% with trees=spec.treeallotted_set.all %}
-                    {% for tree in trees %}
-                    {% if not tree == trees|first %}
-                    /
-                    {% else %}
-                    {% endif %}
-                    {{tree.invested}}
-                    {% endfor %}
-                    {% endwith %}
-                    </span>
-                    {% endspaceless %}
-                    {% for n in rangen %}
-                        {% if n == rangen|first %}
-                        <a class="btn btn-sm float-right"
-                            style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
-                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true" title="Edit"></span>
-                        </a>
-                        {% else %}
-                        <a class="btn btn-sm float-right"
-                            style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
-                            <span class="glyphicon glyphicon-star" aria-hidden="true" title="Edit"></span>
-                        </a>
-                        {% endif %}
-                    {% endfor %}
-                    <div class="clearfix"></div>
-                    <p>By:
-                    {% if spec.user.email == request.user.email %}
-                        <a href="">me</a>
-                        {% elif not spec.private %}
-                        <a href="">{{spec.user.disc_username}}</a>
-                        {% else %}
-                        anonymous
-                        {% endif %}
-                    </p>
-                    <span> -------------------- </span>
-                    <p> <span style="text-decoration: underline;">Description</span>: {{spec.description}}</p>
-                    <p><span style="text-decoration: underline;"> Added</span>:<span> {{spec.created}}</span></p>
-
-                    {% for tag in spec.tags.all %}
-                        <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
-                    {% endfor %}
-                    {% if spec.user.email == request.user.email %}
-                        <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
-                        type="button" role="button" {% comment %} href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" {% endcomment %}>
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
-                        </a>
-                        <div class="clearfix"></div>
-                    {% endif %}
-                    <br>
-                    <hr style="border: 1px solid white; width: 40%; margin-top:0; margin-bottom:0;"></hr>
-
-                    <div class="row feedItem mt-5">
+                <div class="row feedItem mt-5">
                         <div class="col-4">
                             <div class="listImage">
                                     <div class="listIcon"></div>
@@ -240,6 +185,66 @@
                                     </div>
                         </div>
                     </div>
+<!-- //////////////////////////////////////////////////////////////////////////////////// -->
+
+
+                <div class="card-body text-light">
+                    <h5 class="card-title text-center"><a href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}">{{spec.name}}</a></h5>
+                    <span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span> --
+                    {% spaceless %}
+                    <span>
+                    {% with trees=spec.treeallotted_set.all %}
+                    {% for tree in trees %}
+                    {% if not tree == trees|first %}
+                    /
+                    {% else %}
+                    {% endif %}
+                    {{tree.invested}}
+                    {% endfor %}
+                    {% endwith %}
+                    </span>
+                    {% endspaceless %}
+                    {% for n in rangen %}
+                        {% if n == rangen|first %}
+                        <a class="btn btn-sm float-right"
+                            style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true" title="Edit"></span>
+                        </a>
+                        {% else %}
+                        <a class="btn btn-sm float-right"
+                            style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true" title="Edit"></span>
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="clearfix"></div>
+                    <p>By:
+                    {% if spec.user.email == request.user.email %}
+                        <a href="">me</a>
+                        {% elif not spec.private %}
+                        <a href="">{{spec.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
+                    </p>
+                    <span> -------------------- </span>
+                    <p> <span style="text-decoration: underline;">Description</span>: {{spec.description}}</p>
+                    <p><span style="text-decoration: underline;"> Added</span>:<span> {{spec.created}}</span></p>
+
+                    {% for tag in spec.tags.all %}
+                        <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
+                    {% endfor %}
+                    {% if spec.user.email == request.user.email %}
+                        <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
+                        type="button" role="button" {% comment %} href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" {% endcomment %}>
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
+                        </a>
+                        <div class="clearfix"></div>
+                    {% endif %}
+                    <br>
+                    <hr style="border: 1px solid white; width: 40%; margin-top:0; margin-bottom:0;"></hr>
+
+                    
 
                     <table style="margin:auto;">
                         <thead>
