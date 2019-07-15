@@ -8,20 +8,17 @@
     <form class="saved-list-form" method="post" data-url='{{ request.build_absolute_uri|safe }}'>
         {% csrf_token %}
         {{ form.non_field_errors }}
-
-        <div class="fieldWrapper row">
-            {{ form.tags.errors }}
-            <label class="col-2"for="{{ form.tags.id_for_label }}">Tags:</label>
-            <div class="col-10 left-align">
-                    {% for checkbox in form.tags %}
-                    <span class="checkbox">{{checkbox}}</span>
-                    {% endfor %}
+        <div class="fieldWrapper row justify-content-center">
+            <div class="privateSelect col-12">
+                    {{ form.private.errors }}
+                    {{ form.private }}
+                    <label for="{{ form.private.id_for_label }}">Private?</label>
             </div>
         </div>
 
-        <div class="fieldWrapper">
 
         {% if "talent_calc" in request.path %}
+        <div class="fieldWrapper">
             <span>
                 <label id="wow_class_label" class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
                 <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
@@ -36,11 +33,12 @@
             <span>
                 <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
             </span>
+        </div>
         {% else %}
-        <div id="all_consumes">
+        <div class="fieldWrapper" style="display:none;">
+            <div id="all_consumes"></div>
         </div>
         {% endif %}
-        </div>
 
         <div class="fieldWrapper row">
             {{ form.name.errors }}
@@ -58,24 +56,22 @@
             </div>
             <div class="col-2"></div>
         </div>
-        <div class="fieldWrapper row justify-content-center">
-            <div class="privateSelect col-12">
-                    {{ form.private.errors }}
-                    {{ form.private }}
-                    <label for="{{ form.private.id_for_label }}">Private?</label>
+        <div class="fieldWrapper row">
+            {{ form.tags.errors }}
+            <label class="col-2"for="{{ form.tags.id_for_label }}">Tags:</label>
+            <div class="col-10 left-align">
+                    {% for checkbox in form.tags %}
+                    <span class="checkbox">{{checkbox}}</span>
+                    {% endfor %}
             </div>
         </div>
-        <div class="fieldWrapper row">
+        <!-- <div class="fieldWrapper row">
             <input id="list_hash" type="hidden" value="test" name="hash">
-        </div>
+        </div> -->
 
 
         <div class="form-actions row justify-content-center">
-            {% if "talent_calc" in request.path %}
             <button class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
-            {% else %}
-            <button class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
-            {% endif %}
         </div>
     </form>
 </div>
@@ -169,24 +165,19 @@ function append_list_item(data) {
         class: "spec-list-item progress-bar-striped progress-bar-animated",
         name: name,
         text: name,
-        style: "position: relative;"
+        style: "position: relative;",
+        href: `${document.location.pathname}?${data.hash}`,
     })
     if (wow_class) {
         spec_item.attr("data-wowclass", wow_class)
     }
-
-    let link = ($("<a/>", {
-        href: `${document.location.pathname}?${data.hash}`,
-    }).append("<span/>", {
-        style: "left: 0; position: absolute; z-index: 9999; width: 100%; height: 100%;"
-    }))
 
     let trashcan = ($("<button/>", {
         class: "btn btn-sm float-right trashcan",
         name: "delete",
         value: name,
         type: "button",
-        title: `delete ${name}`
+        title: "Delete"
     })).on({
        click: e=> {
            $( e.target ).triggerHandler("click");
@@ -197,7 +188,7 @@ function append_list_item(data) {
         class: "glyphicon glyphicon-trash glyphicon-custom"
     }))
 
-    spec_item.append(link, trashcan)
+    spec_item.append(trashcan)
     spec_cont.append(spec_info, spec_item)
 
     if (wow_class) {

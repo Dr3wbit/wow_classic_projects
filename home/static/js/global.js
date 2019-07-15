@@ -1,6 +1,19 @@
 
 $( document ).ready( event_handlers() );
 
+function build_consume_list(url, name) {
+    var search = url.search
+    var path = url.pathname
+    $.ajax({
+        url: `${path}${search}`,
+        dataType: 'html',
+        success: function (data) {
+            $("#totals_container").html(data);
+            update_url('', search)
+        }
+    });
+}
+
 function event_handlers() {
     $(".side-bar-toggle").on({
        click: e=> {
@@ -23,16 +36,15 @@ function event_handlers() {
     $(".spec-list-item").on({
        click: e=> {
     	   var list_name = $( e.target ).attr('name');
-    	   var wow_class = ($( e.target ).attr('data-wowclass')) ? $( e.target ).attr('data-wowclass') : null
+    	   var wow_class = ($( e.target ).attr('data-wowclass')) ? $( e.target ).attr('data-wowclass') : ''
            $(".spec-list-item").removeClass("selected")
-
            $( e.target ).addClass("selected")
-    	   console.log('clicked')
-    	   console.log(wow_class)
     	   if (wow_class) {
     		   update_class(wow_class, list_name)
     	   } else {
-    		   go_to_consumes(list_name)
+               let href = $(e.target).attr("href")
+               let url = new URL(href=href, base=document.location.origin)
+    		   build_consume_list(url, list_name)
     	   }
        }
     });
@@ -60,11 +72,15 @@ function event_handlers() {
     });
 }
 
-
 function trashCanSuccess(data, textStatus, jqXHR){
 	let list_name = data.name.toString()
 	let list_item = $(`.spec-list-item[name="${list_name}"]`).closest(".spec-container");
-	list_item.empty().remove()
+
+    list_item.hide( 800, function() {
+        $( this ).remove()
+    })
+
+	// list_item.empty().remove()
 
 	let message = data.message.toString() // <--------------- NOTE: HERE
 	console.log('\n**success**\n')
