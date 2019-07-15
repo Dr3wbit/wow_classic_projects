@@ -5,6 +5,7 @@
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.js" %}"></script>
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.min.js" %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/stars.css" %}">
 <script src="{% static "js/landing_page.js" %}"></script>
 {% endblock extra_head %}
 
@@ -107,62 +108,131 @@
                         <!-- <div class="clearfix"></div> -->
                         <h5><span class="fix-me">NEW SAVED SPECS</span></h5>
                     </div>
-                {% for spec in specs %}
+                {% for specname,spec in specs.items %}
                 <div class="card-body text-light">
-                    <h5 class="card-title text-center"><a href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}">{{spec.name}}</a></h5>
-                    <span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span> --
-                    {% spaceless %}
-                    <span>
-                    {% with trees=spec.treeallotted_set.all %}
-                    {% for tree in trees %}
-                    {% if not tree == trees|first %}
-                    /
-                    {% else %}
-                    {% endif %}
-                    {{tree.invested}}
-                    {% endfor %}
-                    {% endwith %}
-                    </span>
-                    {% endspaceless %}
-                    {% for n in rangen %}
-                        {% if n == rangen|first %}
-                        <a class="btn btn-sm float-right"
-                            style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
-                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true" title="Edit"></span>
-                        </a>
-                        {% else %}
-                        <a class="btn btn-sm float-right"
-                            style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
-                            <span class="glyphicon glyphicon-star" aria-hidden="true" title="Edit"></span>
-                        </a>
-                        {% endif %}
-                    {% endfor %}
-                    <div class="clearfix"></div>
-                    <p>By:
-                    {% if spec.user.email == request.user.email %}
-                        <a href="">me</a>
-                        {% elif not spec.private %}
-                        <a href="">{{spec.user.disc_username}}</a>
-                        {% else %}
-                        anonymous
-                        {% endif %}
-                    </p>
-                    <span> -------------------- </span>
-                    <p> <span style="text-decoration: underline;">Description</span>: {{spec.description}}</p>
-                    <p><span style="text-decoration: underline;"> Added</span>:<span> {{spec.created}}</span></p>
+                    <h5 class="card-title text-center">
+                        <a name="{{spec.obj.name}}" class="saved-list-href" data-id="{{spec.obj.id}}" href="{% url 'talents' spec.obj.wow_class.name %}?{{spec.obj.hash}}">{{spec.obj.name}}</a>
+                    </h5>
+                    <div class="row justify-content-between">
+                        <div class="col-sm">
+                            <p>By:
+                            {% if spec.obj.user == request.user %}
+                                <a href="">me</a>
+                                {% elif not spec.obj.private %}
+                                <a href="">{{spec.obj.user.disc_username}}</a>
+                                {% else %}
+                                anonymous
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-sm">
+                            <span class="{{spec.obj.wow_class.name}}">{{spec.obj.wow_class.name|title}}</span> --
+                            <span>
+                            {% with trees=spec.obj.treeallotted_set.all %}
+                            {% for tree in trees %}
+                            {% if not tree == trees|first %}
+                            /
+                            {% else %}
+                            {% endif %}
+                            {{tree.invested}}
+                            {% endfor %}
+                            {% endwith %}
+                            </span>
+                        </div>
 
-                    {% for tag in spec.tags.all %}
-                        <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
-                    {% endfor %}
-                    {% if spec.user.email == request.user.email %}
-                        <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
-                        type="button" role="button" {% comment %} href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" {% endcomment %}>
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
-                        </a>
-                        <div class="clearfix"></div>
-                    {% endif %}
+                            {# ratings #}
+
+                          <div class="col-sm" style="left: 50px;">
+                              {% if request.user.is_superuser and spec.obj.user != request.user %}
+<!-- NOTE: FIX-ME -->         <span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px"><a href="" class="remove-rating">({{spec.obj.ratings.count}})</a></span>
+                               {% else %}
+                               <span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">({{spec.obj.ratings.count}})</span>
+                               {% endif %}
+                          <div class="ratings-container" name="{{spec.obj.name}}" data-id="{{spec.obj.id}}" data-wowclass="{{spec.obj.wow_class.name}}">
+                          {% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
+
+                            <div class="star-box">
+                                {% widthratio spec.obj.rating 1 20 as width %}
+                              <div class="star-limiter" style="width:{{width|default:0}}%">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                  <span class="glyphicon glyphicon-star"></span>
+                                    {% endfor %}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="star-bg">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                  <span class="glyphicon glyphicon-star"></span>
+                                    {% endfor %}
+                            </div>
+                          </div>
+                          <!-- <p id="rating_data"></p> -->
+                          {% else %}
+                          <div class="star-box rating-vote">
+                            <div class="star-limiter" style="width: 0%">
+                              <div class="longbar">
+                                  {% for n in rangen %}
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                  {% endfor %}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="star-bg rating-vote">
+                              <div class="longbar">
+                                  {% for n in rangen %}
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                  {% endfor %}
+                              </div>
+                        </div>
+                          {% endif %}
+                          <div class="clearfix"></div>
+                      </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+
+                    <div class="col-2">
+                    </div>
+                    <div class="col-6 flex-column">
+                        <div class="mb-auto p-2">
+                            <span class="fix-me">Description</span>: <span>{{spec.obj.description}}</span>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-2 flex-row"></div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="col-4">
+                        <span class="fix-me"> Added</span>:
+                        <span class="text-muted" style="font-size: 10px; font-style: italic;"> {{spec.obj.created}}</span>
+                </div>
+
+                <div class="col-7">
+                    <div class="p-2">
+                        {% for tag in spec.obj.tags.all %}
+                            <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
+                            {% endfor %}
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="p-2">
+                        {% if spec.obj.user.email == request.user.email %}
+                            <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
+                            type="button" role="button" {% comment %} href="{% url 'talents' spec.obj.wow_class.name %}?{{spec.obj.hash}}" {% endcomment %}>
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
+                            </a>
+                            <div class="clearfix"></div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+            <hr style="border: 1px solid grey; width: 40%; margin-top:10px; margin-bottom:10px;"></hr>
+            <div class="row">
                     <br>
-                    <hr style="border: 1px solid white; width: 40%; margin-top:0; margin-bottom:0;"></hr>
                     <table style="margin:auto;">
                         <thead>
                             <tr>
@@ -172,35 +242,35 @@
                         <tbody>
                             <tr>
                                 <td><span>spec name</span></td>
-                                <td><span class="fix-me">{{spec.name}}</span></td>
+                                <td><span class="fix-me">{{spec.obj.name}}</span></td>
                             </tr>
                             <tr>
                                 <td><span>created</span></td>
-                                <td><span class="fix-me">{{spec.created}}</span></td>
+                                <td><span class="fix-me">{{spec.obj.created}}</span></td>
                             </tr>
                             <tr>
                                 <td><span>last updated</span></td>
-                                <td><span class="fix-me">{{spec.updated}}</span></td>
+                                <td><span class="fix-me">{{spec.obj.updated}}</span></td>
                             </tr>
                             <tr>
                                 <td><span>num ratings</span></td>
-                                <td><span class="fix-me">{{spec.ratings.count}}</span></td>
+                                <td><span class="fix-me">{{spec.obj.ratings.count}}</span></td>
                             </tr>
                             <tr>
                                 <td><span>avg rating</span></td>
-                                <td><span class="fix-me">{{spec.rating}}</span></td>
+                                <td><span class="fix-me">{{spec.obj.rating}}</span></td>
                             </tr>
                             <tr>
                                 <td><span>wow class name</span></td>
-                                <td><span class="fix-me">{{spec.wow_class.name}}</span></td>
+                                <td><span class="fix-me">{{spec.obj.wow_class.name}}</span></td>
                             </tr>
                             <tr>
                                 <td><span>hash</span></td>
-                                <td><span class="fix-me">{{spec.hash}}</span></td>
+                                <td><span class="fix-me">{{spec.obj.hash}}</span></td>
                             </tr>
                             <tr>
                                 <td><span>private?</span></td>
-                                <td><span class="fix-me">{{spec.private}}</span></td>
+                                <td><span class="fix-me">{{spec.obj.private}}</span></td>
                             </tr>
                         </tbody>
                         <thead>
@@ -208,7 +278,7 @@
                                 <th colspan="2">USER</th>
                             </tr>
                         </thead>
-                        {% with user=spec.user %}
+                        {% with user=spec.obj.user %}
                         <tbody>
                             <tr>
                                 <td><span>discord uid</span></td>
@@ -250,7 +320,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for tree in spec.treeallotted_set.all %}
+                            {% for tree in spec.obj.treeallotted_set.all %}
                             <tr>
                                 <td>{{tree.name}}</td>
                                 <td class="fix-me">{{tree.invested}}</td>
@@ -263,7 +333,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for tag in spec.tags.all %}
+                            {% for tag in spec.obj.tags.all %}
                             <tr>
                                 <td colspan="2" class="fix-me">{{tag.name}}</td>
                             </tr>
@@ -271,8 +341,10 @@
                         </tbody>
                     </table>
                         <br>
-                    <hr style="border: 1px solid white; width: 100%;"></hr>
                     </div>
+                </div>
+                <hr style="border: 1px solid white; width: 100%;"></hr>
+
                 {% endfor %} {# endspecs #}
 
                 {% for consumelist in consume_lists %}
@@ -303,7 +375,7 @@
                 </p>
                 <span> -------------------- </span>
                 <p><span style="text-decoration: underline;">Description</span>: {{consumelist.description}}</p>
-                <p><span style="text-decoration: underline;"> Added</span>:<span> {{consumelist.created}}</span></p>
+                <p><span style="text-decoration: underline;"> Added</span>:<span class="text-muted"> {{consumelist.created}}</span></p>
 
                 {% for tag in consumelist.tags.all %}
                     <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
@@ -534,9 +606,110 @@
         </div>
     </div>
 
+
+
+
     {% endblock mainbody %}
 
     {% block footer %}
     {# "not necessary, here to demonstrate block.super" #}
     {{block.super}}
     {% endblock footer %}
+
+{% block javascript %}
+<script>
+
+$(".glyphicon-star-empty").on({
+    mouseenter: e=> {
+        var target = $( e.target )
+        var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
+        var index = empty_stars.index( target )+1
+        for (var i=0;i<index;i++) {
+            $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
+        }
+
+    },
+    mouseleave: e=> {
+        let target = $( e.target )
+        let longbar = target.closest($("div.longbar"))
+        let stars = longbar.find($(".glyphicon"))
+        stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
+    },
+    mousedown: e=> {
+        // need some sort of confirmation here
+        var target = $( e.target )
+        var rating = target.closest($("div.longbar")).find($(".glyphicon-star")).length
+        var container = target.closest($(".ratings-container"))
+        var id = container.attr("data-id")
+        var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+        var data = {
+            wow_class: wow_class,
+            id: id,
+            rating: rating
+        }
+        rate_saved_list(data)
+    }
+
+})
+
+
+$("a.remove-rating").on({
+    click: e=> {
+        e.preventDefault()
+        var target = $( e.target )
+
+        var container = target.closest($("div.col-sm")).find($(".ratings-container"))
+        var id = container.attr("data-id")
+        var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+
+        var data = {
+            wow_class: wow_class,
+            id: id,
+        }
+        delete_rating(data)
+
+    }
+})
+
+function rate_saved_list(d) {
+    var spec = (d.wow_class) ? true : false
+    var rating = d.rating
+    var id = d.id
+    $.ajax({
+        method: "POST",
+        url: '/ajax/save_rating/',
+        data: {
+            'value': rating,
+            'id': id,
+            'spec': spec,
+        },
+        dataType: 'json',
+
+        success: function (data) {
+            console.log('data: ', data)
+            // TODO: remove elements that would allow user to potentially vote again
+        }
+    });
+}
+
+function delete_rating(d) {
+    var spec = (d.wow_class) ? true : false
+    var id = d.id
+    $.ajax({
+        method: "POST",
+        url: '/ajax/delete_rating/',
+        data: {
+            'id': id,
+            'spec': spec,
+        },
+        dataType: 'json',
+
+        success: function (data) {
+            console.log('data: ', data)
+            // TODO: remove elements that would allow user to potentially vote again
+        }
+    });
+}
+
+</script>
+{% endblock javascript %}
