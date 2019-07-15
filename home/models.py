@@ -278,12 +278,20 @@ class Tag(models.Model):
 		('aq40', 'AQ40'),
 		('naxx', 'Naxx'),
 		('5man', '5-man'),
+		('melee', 'Melee'),
+		('caster', 'Caster'),
+		('healer', 'Healer'),
+		('tank', 'Tank'),
+		('dps', 'DPS'),
 	)
 
 	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
 
 	def __str__(self):
 		return(self.name)
+
+	class Meta:
+		ordering = ['name']
 
 class TreeAllotted(models.Model):
 	spec = models.ForeignKey('Spec', on_delete=models.CASCADE)
@@ -320,7 +328,7 @@ class SavedList(models.Model):
 	name = models.CharField(max_length=30, default='')
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='testy test')
-	description = models.TextField(default='couple line of text...', max_length=300)
+	description = models.CharField(default='couple line of text...', max_length=300)
 	private = models.BooleanField(default=False)
 	ratings = GenericRelation('Rating', related_query_name="%(class)s_rating")
 	created = models.DateTimeField(auto_now_add=True)
@@ -349,7 +357,7 @@ class Spec(SavedList):
 
 
 class Consume(models.Model):
-	amount = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(1), MaxValueValidator(100)])
+	amount = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
 	item = models.ForeignKey('Crafted', on_delete=models.CASCADE)
 	consume_list = models.ForeignKey('ConsumeList', on_delete=models.CASCADE)
 
@@ -368,7 +376,94 @@ class Consume(models.Model):
 		return(self.item.materials)
 
 from home.signals import savedspec_limit, consumelist_limit
+#
+#
+# class Faction(models.Model):
+# 	FACTION_CHOICES = (
+# 		('A', 'Alliance'),
+# 		('H', 'Horde'),
+# 		('N', 'Neutral')
+# 	)
+# 	name = models.CharField(max_length=1, choices=FACTION_CHOICES, unique=True)
+#
+# 	def __str__(self):
+# 		return self.name
+#
+# class Race(models.Model):
+#
+# 	name = models.CharField()
+# 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
+#
+# 	def __str__(self):
+# 		return "{}, {}".format(self.name, self.faction)
+#
+# class Zone(models.Model):
+#
+# 	name = models.CharField(max_length=100)
+# 	reaction = models.ForeignKey('Faction', on_delete=models.CASCADE)
+# 	continent = models.ForeignKey('Continent', on_delete=models.CASCADE)
+#
+# 	def __str__(self):
+# 		return "{},{}".format(titleCase(self.name), self.continent)
+#
+#
+# class Continent(models.Model):
+# 	name = models.CharField(max_length=100)
+#
+# 	def __str__(self):
+# 		return titleCase(self.name)
+#
+# class Quest(models.Model):
+#
+# 	start = models.ForeignKey('NPC')
+# 	end = models.ForeignKey('NPC')
+# 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
+#
+# 	required_level = models.PositiveSmallIntegerField(default=1,  validators=[MinValueValidator(1), MaxValueValidator(60)])
+# 	name = models.CharField(max_length=100)
+# 	description = models.CharField(max_length=1000)
+# 	progress = models.CharField(max_length=1000)
+# 	completion = models.CharField(max_length=1000)
 
+# class Loot(models.Model):
+# 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
+# 	mob = models.ForeignKey('NPC', on_delete=models.CASCADE)
+# 	drop_chance = models.DecimalField(default=0.0, max_digits=4, decimal_places=2, validators=[MaxValueValidator(0.00), MaxValueValidator(100.00)])
+#
+
+# class NPC(models.Model):
+# 	MOB_TYPES = (
+# 		('dragon', 'Dragonkin'),
+# 		('human', 'Humanoid'),
+# 		('undead', 'Undead'),
+# 		('beast', 'Beast'),
+# 		('giant', 'Giant'),
+# 		('ele', 'Elemental'),
+# 		('crit', 'Critter'),
+# 		('mech', 'Mechanical')
+# 		('demon', 'Demon')
+# 	)
+#
+# 	name = models.CharField(max_length=75, default='')
+# 	drops = models.ManyToManyField('Loot')
+# 	health = models.PositiveIntegerField()
+# 	level = models.PositiveSmallIntegerField()
+# 	boss = models.BooleanField()
+# 	max_damage = models.PositiveSmallIntegerField()
+# 	min_damage = models.PositiveSmallIntegerField()
+# 	armor = models.PositiveSmallIntegerField()
+# 	mob_type = models.CharField(max_length=75, choices=MOB_TYPES)
+#
+# 	@property
+# 	def skinnable(self):
+# 		if self.mob_type is 'beast' or 'dragon':
+# 			return True
+# 		else:
+# 			return False
+
+#
+#
+#
 # class Equipable(Item):
 # 	SLOT_CHOICES = (
 # 	('back', 'Back'),
@@ -378,7 +473,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	('hands', 'Hands'),
 # 	('head', 'Head'),
 # 	('neck', 'Neck'),
-# 	('ring', 'Ring')
+# 	('ring', 'Ring'),
 # 	('shield', 'Shield'),
 # 	('shirt', 'Shirt'),
 # 	('shoulder', 'Shoulder'),
@@ -389,7 +484,9 @@ from home.signals import savedspec_limit, consumelist_limit
 #
 # 	slot = models.CharField(max_length=20, choices=SLOT_CHOICES)
 # 	durability = models.PositiveSmallIntegerField(default=0)
-# 	required_level = models.PositiveSmallIntegerField(default=0)
+#
+# 	class Meta:
+# 		abstract = True
 #
 #
 # class Weapon(Equipable):
@@ -406,7 +503,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 		('dagger', 'Dagger'),
 # 	)
 #
-# 	WEAPON_CHOICES = (
+# 	WEAPON_TYPES = (
 # 		('off-hand', 'Off-Hand'),
 # 		('one-hand', 'One-Hand'),
 # 		('main-hand', 'Main-Hand'),
@@ -415,16 +512,20 @@ from home.signals import savedspec_limit, consumelist_limit
 # 		('two-hand', 'Two-Hand'),
 # 	)
 #
-# 	slot = models.CharField(max_length=50, choices=WEAPON_CHOICES)
+# 	hand = models.CharField(max_length=50, choices=WEAPON_TYPES)
 # 	proficiency = models.CharField(max_length=50, choices=WEAPON_PROFICIENCIES)
 # 	max_damage = models.PositiveSmallIntegerField(default=2)
 # 	min_damage = models.PositiveSmallIntegerField(default=1)
 # 	speed = models.DecimalField(default=0.0, max_digits=4, decimal_places=2)
-# 	on_hit = models.CharField(max_length=400, blank=True)
+# 	effects = models.ManyToManyField('Effect')
 #
-#
+# 	@property
+# 	def dps(self):
+# 		return((self.max_damage+self.min_damage/2)/self.speed)
+
+
 # # i.e. Equip: +60 Attack Power
-# class BonusEffect(models.Model):
+# class Effect(models.Model):
 # 	amount = models.PositiveSmallIntegerField(default=0)
 # 	# i.e crit%, attack power, hit%
 # 	effect = models.CharField(max_length=400, blank=True)

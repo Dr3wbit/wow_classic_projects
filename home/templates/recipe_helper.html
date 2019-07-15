@@ -1,0 +1,123 @@
+{% if recipes %}
+{% load static %}
+
+{% load titlecase from custom_filters %}
+
+    {% for recipe,v in recipes.items %}
+    <div class="row">
+        <div class="col-8">
+            <div class="prof-item-recipe" name="{{recipe}}">
+                {% with "images/icons/consumes/"|add:recipe|add:".jpg" as item_image %}
+                <span class="recipe-container {{v.rarity}}" name="{{recipe}}">
+                <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
+                style="background-image: url({% static item_image %});">
+                {% endwith %}
+                <span class="consume-name">{{v.name|titlecase}}</span>
+            </span>
+            </div>
+        </div>
+        <div class="col-4 reagant-list">
+            {% for mat_name,val in v.materials.items %}
+            <div class="reagant-list-container" name="{{mat_name}}">
+                <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
+                {% if "eko" in mat_name %}
+                style="background-image: url({% static "images/icons/medium/materials/eko.jpg" %});">
+                {% else %}
+                style="background-image: url({% static "images/icons/medium/materials/"|add:mat_name|add:".jpg" %});">
+                {% endif %}
+                {% if val.amount > 1 %}
+                <span class="count-container">
+                    <div class="material-count">{{val.amount}}</div>
+                    <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{{val.amount}}</div>
+                    <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{{val.amount}}</div>
+                    <div class="material-count" style="color: black; right: 3px; z-index: 4;">{{val.amount}}</div>
+                </span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    <script src="{% static "js/consume_tool.js" %}"></script>
+    <script>
+
+    function update_consume_list(name, amount=1) {
+        let prof = $("a.prof-filter.selected").attr("id")
+
+        if (!my_consume_list[prof]) {
+            my_consume_list[prof] = {}
+        }
+
+        let step = (allConsumes[name].step) ? allConsumes[name].step : 1
+
+        if (!my_consume_list[prof][name]) {
+            my_consume_list[prof][name] = amount*step
+        }
+
+        else {
+            my_consume_list[prof][name] += amount*step
+        }
+
+
+        if (my_consume_list[prof][name] <= 0) {
+            my_consume_list[prof][name] = 0
+        }
+
+        console.log(my_consume_list)
+
+        // mats = allConsumes[name].materials
+        //
+        // for (let [k, v] of Object.entries(mats)) {
+        //     if (!my_consume_list['materials'][k]) {
+        //         my_consume_list['materials'][k] = 0
+        //     }
+        //     my_consume_list['materials'][k] = (my_consume_list['materials'][k]+v)
+        // }
+
+    }
+
+    $(".reagant-list-container").on({
+        mouseenter: e => {
+            let target = $(e.target).closest(".reagant-list-container")
+            updatetooltip(target, 'material')
+        },
+        mouseleave: e => {
+            clearTooltip()
+        },
+    });
+    $(".recipe-container").on({
+        mouseenter: e => {
+            clearTooltip()
+            let target = $(e.target).closest(".recipe-container")
+            // let name = $(e.target).closest(".recipe-container").attr('name')
+
+            updatetooltip(target, 'consume')
+        },
+        mouseleave: e => {
+            clearTooltip()
+        },
+        contextmenu: e => {
+			e.preventDefault()
+		},
+        mousedown: e => {
+            var amount = 1
+            let name = $(e.target).closest(".recipe-container").attr('name')
+            if ((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) {
+                return false
+            }
+            if (e.shiftKey) {
+                amount = 5
+            }
+
+            if (e.which === 3) {
+                amount = amount*(-1)
+            }
+            update_consume_list(name, amount)
+            addCraftedItem(name, amount)
+            update_url('', '')
+        }
+
+    });
+
+    </script>
+ {% endif %}

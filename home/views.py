@@ -9,6 +9,7 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryD
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint failed
+import re
 
 class IndexView(TemplateView):
 	template_name = "index.html"
@@ -28,7 +29,12 @@ class IndexView(TemplateView):
 			context['saved_lists'][name]['consumes'] = {}
 
 			for consume in cl.consumes.all():
-				prof_name = consume.item.prof.name
+				c = consume.item
+				if not consume.item.prof:
+					prof_name = 'other'
+				else:
+					prof_name = consume.item.prof.name
+
 				if prof_name not in context['saved_lists'][name]['consumes'].keys():
 					context['saved_lists'][name]['consumes'][prof_name] = {}
 
@@ -93,7 +99,6 @@ class TalentCalcTemplate(TemplateView):
 		return(context)
 
 	def get(self, request, *args, **kwargs):
-		print('get request')
 		context = {}
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
@@ -128,7 +133,6 @@ class TalentCalcTemplate(TemplateView):
 				spent = form_data['spent']
 				wow_class = form_data['wow_class']
 
-				print('cleaned data: ', form.cleaned_data)
 				data = {
 					'name': name,
 					'wow_class': wow_class,
@@ -192,11 +196,9 @@ class TalentCalcTemplate(TemplateView):
 							'tree':tree, 'spec': spec, 'invested':invested
 						}
 					)
-					print('\nt: ', t)
 					t.save()
 
 
-		print('data, saved_list: ', data)
 		return data
 
 
@@ -204,8 +206,11 @@ class ConsumeToolTemplate(TemplateView):
 	form_class = ConsumeListForm
 
 	def get(self, request, *args, **kwargs):
+
+
+		data = dict(request.GET)
 		context = {}
-		context['form'] = self.form_class()
+		context["form"] = self.form_class()
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
@@ -238,12 +243,35 @@ class ConsumeToolTemplate(TemplateView):
 				context["recipes"][nombre]['materials'][m_nombre]['amount'] = int(recipe.step*mat.amount)
 				context["recipes"][nombre]['materials'][m_nombre]['name'] = str(mat)
 
+		PROF_ABBR = ['AL', 'BS', 'CK', 'EN', 'EC', 'FA', 'FI', 'LW', 'OT', 'TL', 'SK']
+		if data.keys() & PROF_ABBR:
+			qs = request.META['QUERY_STRING']
+			context['consumes'] = self.consume_list_builder(qs)
+			context['materials'] = {}
+			cl = ConsumeList.objects.filter(hash=qs).first()
+			if cl:
+				context['cl'] = cl
+				for c in cl.consumes.all():
+					for mat in c.item.materials.all():
+						if mat.name not in context['materials'].keys():
+							context['materials'][mat.name] = {}
+							context['materials'][mat.name]['value'] = 0
+							context['materials'][mat.name]['rarity'] = mat.item.rarity
+
+
+						context['materials'][mat.name]['value'] += int(c.amount * mat.amount)
+
+
+
 
 		if request.is_ajax():
-			response = render(request, "consume_helper.html", context=context)
-
+			print('\nconsume template, get req, is ajax\n')
+			if 'prof' in data.keys():
+				response = render(request, "recipe_helper.html", context=context)
+			else:
+				response = render(request, "consume_helper.html", context=context)
 		else:
-			context["something"] = True
+			context["whole_page"] = True
 			response = render(request, "consume_tool.html", context=context)
 
 		return response
@@ -253,9 +281,7 @@ class ConsumeToolTemplate(TemplateView):
 		context = {}
 		context['form'] = form
 		if form.is_valid():
-			print('dir: ', dir(form))
 			if request.is_ajax():
-				print('cleaned data: ', form.cleaned_data)
 				form_data = self.save_list(request, form.cleaned_data)
 				name = form_data['name']
 				spent = form_data['spent']
@@ -275,19 +301,46 @@ class ConsumeToolTemplate(TemplateView):
 		return response
 
 
-	# def delete_list(self, request):
-	# 	saved_list = request.GET.get('saved_list', None)
-	# 	data = {}
-	# 	if request.user.is_authenticated:
-	# 		user = request.user
-	# 		if saved_list:
-	# 			saved_spec = Spec.objects.filter(name=saved_list, user=user).first()
-	# 			if saved_spec:
-	# 				print('found spec, deleting')
-	# 				data['saved_list'] = saved_spec.name
-	# 				Spec.objects.get(name=saved_list, user=user).delete()
-	#
-	# 	return JsonResponse(data)
+	def consume_list_builder(self, query_str):
+
+		qd = QueryDict(query_str).dict()
+		my_consumes = {}
+		translator = {}
+
+		rle_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+		prof_str = {
+			'alchemy': 'AL', 'blacksmithing':'BS', 'cooking':'CK', 'engineering':'EN',
+			'enchanting': 'EC', 'first_aid':'FA', 'fishing':'FI', 'leatherworking': 'LW', 'other':'OT',
+			'tailoring': 'TL', 'skinning':'SK'
+			}
+		prof_trans = {}
+		for k,v in prof_str.items():
+			prof_trans[v] = k
+
+		for x,y in qd.items():
+			prof_name = prof_trans[x]
+			my_consumes[prof_name] = {}
+			translator[prof_name] = {}
+
+			if prof_name == 'other':
+				prof = None
+			else:
+				prof = Profession.objects.get(name=prof_name)
+
+			all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
+
+			for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
+				translator[prof_name][k] = crafted.name
+
+			splitted = re.split(r'([a-zA-Z]{1}[\d]{1,2})', y)
+			item_str_list = list(filter(None, splitted))
+			for str_item in item_str_list:
+
+				item_name = translator[prof_name][str_item[:1]]
+				quantity = str_item[1:]
+				my_consumes[prof_name][item_name] = int(quantity)
+
+		return my_consumes
 
 	def save_list(self, request, cleaned_data):
 
@@ -297,7 +350,6 @@ class ConsumeToolTemplate(TemplateView):
 		spnt = request.POST.getlist('spent')
 		description = request.POST.get('description')
 		data = dict(request.POST)
-		print(data)
 		data['spent'] = []
 		spent = {}
 
@@ -306,20 +358,16 @@ class ConsumeToolTemplate(TemplateView):
 			a = y[0]
 			b = y[1]
 
-			# if int(b) < 1:
-			# 	return
-
-			prof = Crafted.objects.get(item__name=a).prof
-			prof_name = prof.name
+			cr = Crafted.objects.get(item__name=a)
+			if cr.prof:
+				prof_name = cr.prof.name
+			else:
+				prof_name = 'other'
 
 			if prof_name not in spent.keys():
 				spent[prof_name] = {}
-
 			spent[prof_name][a] = b
 
-			# spent[y[0]] = y[1]
-
-		print(spent)
 		hash = self.url_builder(spent)
 		data['name'] = name
 		data['spent'] = spent
@@ -335,20 +383,22 @@ class ConsumeToolTemplate(TemplateView):
 		)
 
 		for tag in tags:
-			print(tag)
 			t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
 			c_list.tags.add(t)
 			c_list.save()
 
 		for p,v in spent.items():
-			print("prof:{} -- {}".format(p, v))
 			v = {a:b for a,b in v.items() if b}
 
-			prof = Profession.objects.get(name=p)
+			# if p == 'other':
+			# 	prof = None
+			# else:
+			# 	prof = Profession.objects.get(name=p)
+			#
 			for x,y in v.items():
 
 				# item = Item.objects.get(name=x)
-				cr = Crafted.objects.get(item__name=x, prof=prof)
+				cr = Crafted.objects.get(item__name=x)
 				c,_ = Consume.objects.update_or_create(
 					amount=y, consume_list=c_list, item=cr,
 					defaults={'amount':y, 'consume_list':c_list, 'item':cr}
@@ -375,11 +425,12 @@ class ConsumeToolTemplate(TemplateView):
 
 		for prof_name,crafted_list in consume_list.items():
 			stringy_boy = ''.join([stringy_boy, "&{}=".format(translator['professions'][prof_name])])
-
-			prof = Profession.objects.get(name=prof_name)
+			if prof_name == 'other':
+				prof = None
+			else:
+				prof = Profession.objects.get(name=prof_name)
 
 			all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
-
 			translator[prof_name] = {}
 
 			for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
@@ -388,7 +439,6 @@ class ConsumeToolTemplate(TemplateView):
 			for i,v in crafted_list.items():
 				stringy_boy = ''.join([stringy_boy, translator[prof_name][i], str(v)])
 
-		print(stringy_boy)
 		return(stringy_boy)
 
 class EnchantToolView(TemplateView):
