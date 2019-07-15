@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
-{% block scripts_and_styles %}
+{% block extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}">
 <script src="{% static "js/contact.js" %}"></script>
-{% endblock scripts_and_styles %}
+{% endblock extra_head %}
 
 {% block title_splash %}
     </div>
@@ -23,66 +23,46 @@
     {% block mainbody %}
 
     <div class="container mainBody">
-        <div class="row about-section">
+        <div class="row ">
             <div class="col-2"></div>
-            <div class="col-8 formContainer">
-                <div id="form-messages"></div>
-
-                <!-- NOTE: old form -->
-                <h1 class="fix-me">OLD</h1>
-
-                <form id="ajax-contact" method="post" action="/assets/php/phpmailer/mail_handler.php">
-                    <div class="field">
-                        <!--<label for="name">Name:</label>-->
-                        <input class="mt-3" type="text" id="name" name="name" placeholder="Name" required style="width: 100%;">
-                    </div>
-
-                    <div class="field">
-                        <!--<label for="email">Email:</label>-->
-                        <input class="mt-3" type="subject" id="subject" name="subject"
-                            placeholder="Subject: Bug / Suggestion / Request" required
-                            style="width: 100%;">
-                    </div>
-
-                    <div class="field">
-                        <!--<label for="message">Message:</label>-->
-                        <textarea class="mt-3" id="message" name="message" placeholder="Message" rows="10" cols="59"
-                            required style="width: 100%;"></textarea>
-                    </div>
-                    <div class="field text-center">
-                        <button type="submit" class="btn btn-lg btn-dark mt-3">Send Message</button>
-                    </div>
-                </form>
-
-                <!-- NOTE: New form -->
-                <br><br>
-                <h1 class="fix-me">NEW</h1>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    <div class="fieldWrapper">
-                        <label for="{{ form.subject.id_for_label }}">Email subject:</label>
-                        {{ form.subject }}
-                    </div>
-                    <div class="fieldWrapper">
-                        {{ form.message.errors }}
-                        <label for="{{ form.message.id_for_label }}">Your message:</label>
-                        {{ form.message }}
-                    </div>
-                    <div class="fieldWrapper">
-                        {{ form.sender.errors }}
-                        <label for="{{ form.sender.id_for_label }}">Your email address:</label>
-                        {{ form.sender }}
-                    </div>
-                    <div class="fieldWrapper">
-                        {{ form.cc_myself.errors }}
-                        <label for="{{ form.cc_myself.id_for_label }}">CC yourself?</label>
-                        {{ form.cc_myself }}
-                    </div>
-                    <div class="form-actions">
-                      <button type="submit">Send</button>
-                    </div>
-                </form>
+            <div class="col-8 saveBlock">
+                <div class="row">
+                        <h1 class="saveTitle col-12">Contact Us!</h1>
+                    <form method="post" class="col-12">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="fieldWrapper row">
+                            <label class="col-4" for="{{ form.subject.id_for_label }}">Email subject:</label>
+                            <div class="col-8">
+                                {{ form.subject }}
+                            </div>
+                        </div>
+                        <div class="fieldWrapper row">
+                            {{ form.message.errors }}
+                            <label class="col-4" for="{{ form.message.id_for_label }}">Your message:</label>
+                            <div class="col-8">
+                                {{ form.message }}
+                            </div>
+                        </div>
+                        <div class="fieldWrapper row">
+                            {{ form.sender.errors }}
+                            <label class="col-4" for="{{ form.sender.id_for_label }}">Your email address:</label>
+                            <div class="col-8">
+                                {{ form.sender }}
+                            </div>
+                        </div>
+                        <div class="fieldWrapper row">
+                            {{ form.cc_myself.errors }}
+                            <label class="col-4" for="{{ form.cc_myself.id_for_label }}">CC yourself?</label>
+                            <div class="col-8">
+                                {{ form.cc_myself }}
+                            </div>
+                        </div>
+                        <div class="form-actions row justify-content-center pt-4">
+                          <button class="btn btn-lg btn-dark pl-5 pr-5 mb-4" type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="col-2"></div>
         </div>

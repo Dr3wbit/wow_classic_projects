@@ -1,26 +1,53 @@
 
-.about-section {
-    color: azure;
-    text-align: center;
-    padding: 10px;
+.left-align{
+    text-align: left;
 }
 
-#name {
+.saveTitle{
+    border: 1px solid black;
+    margin: 0;
+}
+
+
+.checkbox{
+    padding: 3px;
+    border: 1px solid black;
+    background-color: #272727;
+    margin-bottom: 0;
+}
+
+input[type="text"], input[type="email"], textarea {
+    background-color : #383838;
+    border: none;
+    color: white;
     width: 100%;
+    height: 100%;
+    padding: 0;
+    padding-left: 5px; 
+  }
+
+.fieldWrapper > *, .form-actions{
+    border: 1px solid black;
+    padding: 0px;
+    border-top: 0;
 }
 
-#subject {
-    width: 100%;
+label {
+    margin-bottom: 0;
 }
 
-#message {
-    width: 100%;
+.saveBlock {
+    margin-top: 25px;
+    background-color: #1C1C1C;
+    line-height: 2;
+    
 }
 
-.formContainer{
-    border: 2px solid black;
-    margin-bottom: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-    padding: 10px
+.left-align{
+    text-align: left;
+}
+
+.saveTitle{
+    border: 1px solid black;
+    margin: 0;
 }
