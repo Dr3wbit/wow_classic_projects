@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block extra_head %}
@@ -10,124 +10,136 @@
 {% endblock extra_head %}
 
 {% block title_splash %}
-    <div class="container titleSplash pt-5">
-        <div id="onybuff_carousel" class="carousel slide d-none d-md-block" data-ride="carousel" data-interval="4000"
-            data-pause="false">
-            <div class="carousel-inner">
-                <ol class="carousel-indicators">
-                    <li data-target="#onybuff_carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#onybuff_carousel" data-slide-to="1"></li>
-                    <li data-target="#onybuff_carousel" data-slide-to="2"></li>
-                    <li data-target="#onybuff_carousel" data-slide-to="3"></li>
-                    <li data-target="#onybuff_carousel" data-slide-to="4"></li>
-                </ol>
-                <div class="carousel-item active">
-                    <img src="{% static "images/carousel/warrior_if_carousel.jpg" %}" class="d-block w-100" alt="...">
+{% endblock title_splash %}
 
-                    <div class="carousel-caption">
-                        <h1 style="font-family:Aeio; font-size:400%">Ony Buff</h1>
-                        <p>Getting you the information you need with minimal effort.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static "images/carousel/talent_carousel.png" %}" class="d-block w-100" alt="...">
-
-                    <div class="carousel-caption">
-                        <h2>Talent Calculator</h2>
-                        <p>Our talent calculator allows you to save your specs so you can reference them in the future
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static "images/carousel/enchant_carousel.png" %}" class="d-block w-100" alt="...">
-
-                    <div class="carousel-caption">
-                        <h2>Enchant Calculator</h2>
-                        <p>Calculate what materials you need to enchant your pre-raid BIS gear</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static "images/carousel/guides_carousel.png" %}" class="d-block w-100" alt="...">
-
-                    <div class="carousel-caption">
-                        <h2>Specs and Guides</h2>
-                        <p>Lists of specs, consumes for raids/pvp, and more...</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-
-                    <img src="{% static "images/carousel/consume_carousel.png" %}" class="d-block w-100" alt="...">
-
-                    <div class="carousel-caption">
-                        <h2>Consume Calculator</h2>
-                        <p>Calculate what materials you need with our consumable calculator</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="p-3 page-description">Classic World of Warcraft Tools for the Experienced Player</div>
-        <div class="row class-selection nav-is-sticky steel-textured"></div>
+{% block mainbody %}
+<div class="mainBody container">
+    <div class="row selection-header sticky-top">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" size="80" aria-label="Search">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
-    {% endblock title_splash %}
-
-    {% block mainbody %}
-    <div class="mainBody container">
-        <div class="row selection-header sticky-top">
-            <!-- <h2 class="my-auto font-weight-bold">Onybuff.com</h2> -->
-        </div>
-        <div class="row content-container mt-4">
-            <div class="col-12 mb-4 site-content">
-                <div class="sidebar-header">Site Content</div>
-                <div class="col sidebar-content">
-                    <a class="sidebar-ref" href="specsAndGuides">Specs & Guides</a>
-                    <p>If you need to know what consumes to bring to raid or a quick spec reference or you should check
-                        out our Specs & Guides.</p>
-                    <a class="sidebar-ref" href="consumeTool">Consumable Calculator</a>
-                    <p>Getting your consumables crafted buy a guildie or crafting them yourself? Use our Consumable Tool
-                        to find ot exactly what materials you need.</p>
-                    <a class="sidebar-ref" href="talent">Talent Calculator</a>
-                    <p>Want to mess around with your characters spec? Instead of wasting gold for an extra respec, plan
-                        it out first with our Talent Calculator.</p>
-                    <a class="sidebar-ref" href="enchantTool">Enchant Calculator</a>
-                    <p>Got your preraid bis or a shiney new peice of gear from Molten Core? Use our Enchant Tool to get
-                        all the correct materials before hitting up an enchanter.</p>
-                    <a class="sidebar-ref" href="contact">Contact Us</a>
-                    <p>Have an idea you'd like to see on the website? Found a bug? Send us a message and let us know
-                        about it!</p>
-                    <span>Classic WoW releases in:</span>
-                    <div class="countdown"></div>
-                </div>
+    <div class="row content-container mt-4">
+        <div class="col d-none mb-4 site-content">
+            <div class="sidebar-header">Site Content</div>
+            <div class="col sidebar-content">
+                <a class="sidebar-ref" href="specsAndGuides">Specs & Guides</a>
+                <p>If you need to know what consumes to bring to raid or a quick spec reference or you should check
+                    out our Specs & Guides.</p>
+                <a class="sidebar-ref" href="consumeTool">Consumable Calculator</a>
+                <p>Getting your consumables crafted buy a guildie or crafting them yourself? Use our Consumable Tool
+                    to find ot exactly what materials you need.</p>
+                <a class="sidebar-ref" href="talent">Talent Calculator</a>
+                <p>Want to mess around with your characters spec? Instead of wasting gold for an extra respec, plan
+                    it out first with our Talent Calculator.</p>
+                <a class="sidebar-ref" href="enchantTool">Enchant Calculator</a>
+                <p>Got your preraid bis or a shiney new peice of gear from Molten Core? Use our Enchant Tool to get
+                    all the correct materials before hitting up an enchanter.</p>
+                <a class="sidebar-ref" href="contact">Contact Us</a>
+                <p>Have an idea you'd like to see on the website? Found a bug? Send us a message and let us know
+                    about it!</p>
+                <span>Classic WoW releases in:</span>
+                <div class="countdown"></div>
             </div>
-            <div class="card-container col-lg-8 col-12 recent-news">
-                <div class="card mb-3 bg-transparent border-light text-center">
-                    <div class="card-header bg-transparent border-light text-light">
-                        <button class="btn btn-sm float-left" title="Refresh"
-        					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
-        					<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-        				</button>
-                        <!-- <div class="clearfix"></div> -->
-                        <h5><span class="fix-me">NEW SAVED SPECS</span></h5>
-                    </div>
-                {% for specname,spec in specs.items %}
-                <div class="card-body text-light">
-                    <h5 class="card-title text-center">
-                        <a name="{{spec.obj.name}}" class="saved-list-href" data-id="{{spec.obj.id}}" href="{% url 'talents' spec.obj.wow_class.name %}?{{spec.obj.hash}}">{{spec.obj.name}}</a>
-                    </h5>
-                    <div class="row justify-content-between">
-                        <div class="col-sm">
-                            <p>By:
-                            {% if spec.obj.user == request.user %}
-                                <a href="">me</a>
-                                {% elif not spec.obj.private %}
-                                <a href="">{{spec.obj.user.disc_username}}</a>
-                                {% else %}
-                                anonymous
-                                {% endif %}
-                            </p>
+        </div>
+
+
+        {% for specname,spec in specs.items %}
+        <div class="col-12">
+            <div class="feedItem row mt-5">
+                <div class="col-4">
+                    <div class="listImage"
+                        style="background-image: url('static/images/icons/large/mini_spec/{{ spec.obj.wow_class.name }}.png')">
+                        <div class="listIcon">
+                            {% with "images/icons/large/class/"|add:spec.obj.wow_class.name|add:".jpg" as class_image %}
+                            <img class="class-icon" src="{% static "images/icon_border_2.png" %}"
+                                style="background-image: url('{% static class_image %}');">
+                            {% endwith %}
                         </div>
-                        <div class="col-sm">
-                            <span class="{{spec.obj.wow_class.name}}">{{spec.obj.wow_class.name|title}}</span> --
-                            <span>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row feed-header">
+
+                    </div>
+                    <div class="row feed-content">
+                        <div class="col-8 feedTitle"><a
+                                href="{% url 'talents' spec.obj.wow_class.name %}?{{spec.obj.hash}}">{{specname}}</a></div>
+                        <div class="col-4">
+
+                            <div class="ratings-container" name="{{specname}}" data-id="{{spec.obj.id}}" data-wowclass="{{spec.obj.wow_class.name}}">
+                                        <span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">
+                                        {% if request.user.is_staff and spec.obj.user != request.user and spec.has_voted %}
+                                            <a href="" class="remove-rating">({{spec.obj.ratings.count}})</a>
+                                        {% else %}
+                                            ({{spec.obj.ratings.count}})
+                                        {% endif %}
+                                        </span>
+                            {% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
+
+                              <div class="star-box">
+                                  {% widthratio spec.obj.rating 1 20 as width %}
+                                <div class="star-limiter" style="width:{{width|default:0}}%">
+                                  <div class="longbar">
+                                      {% for n in rangen %}
+                                    <span class="glyphicon glyphicon-star"></span>
+                                      {% endfor %}
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="star-bg">
+                                  <div class="longbar">
+                                      {% for n in rangen %}
+                                    <span class="glyphicon glyphicon-star"></span>
+                                      {% endfor %}
+                              </div>
+                            </div>
+                            <!-- <p id="rating_data"></p> -->
+                            {% else %}
+                            <div class="star-box rating-vote">
+                              <div class="star-limiter" style="width: 0%">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                  <span class="glyphicon glyphicon-star-empty"></span>
+                                    {% endfor %}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="star-bg rating-vote">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                  <span class="glyphicon glyphicon-star-empty"></span>
+                                    {% endfor %}
+                                </div>
+                          </div>
+                            {% endif %}
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row feed-content">
+                        <div class="col-12 feed-desc">
+                            {{spec.obj.description}}
+                        </div>
+                    </div>
+                    <hr class="row mt-2 mb-2"
+                        style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+                    </hr>
+                    <div class="row feed-content">
+                        {% for tag in spec.obj.tags.all %}
+                        <div class="feed-tag">{{tag.name}}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="row feed-content"></div>
+                </div>
+                <div class="col-12 row feed-footer">
+                    <div class="col-4">
+                        <span class="{{spec.obj.wow_class.name}}">{{spec.obj.wow_class.name|title}}</span>
+                        <span class="">
+                            (
                             {% with trees=spec.obj.treeallotted_set.all %}
                             {% for tree in trees %}
                             {% if not tree == trees|first %}
@@ -137,488 +149,178 @@
                             {{tree.invested}}
                             {% endfor %}
                             {% endwith %}
-                            </span>
-                        </div>
-
-                            {# ratings #}
-
-                          <div class="col-sm" style="left: 50px;">
-                              {% if request.user.is_superuser and spec.obj.user != request.user %}
-<!-- NOTE: FIX-ME -->         <span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px"><a href="" class="remove-rating">({{spec.obj.ratings.count}})</a></span>
-                               {% else %}
-                               <span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">({{spec.obj.ratings.count}})</span>
-                               {% endif %}
-                          <div class="ratings-container" name="{{spec.obj.name}}" data-id="{{spec.obj.id}}" data-wowclass="{{spec.obj.wow_class.name}}">
-                          {% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
-
-                            <div class="star-box">
-                                {% widthratio spec.obj.rating 1 20 as width %}
-                              <div class="star-limiter" style="width:{{width|default:0}}%">
-                                <div class="longbar">
-                                    {% for n in rangen %}
-                                  <span class="glyphicon glyphicon-star"></span>
-                                    {% endfor %}
-                                </div>
-                              </div>
-                            </div>
-                            <div class="star-bg">
-                                <div class="longbar">
-                                    {% for n in rangen %}
-                                  <span class="glyphicon glyphicon-star"></span>
-                                    {% endfor %}
-                            </div>
-                          </div>
-                          <!-- <p id="rating_data"></p> -->
-                          {% else %}
-                          <div class="star-box rating-vote">
-                            <div class="star-limiter" style="width: 0%">
-                              <div class="longbar">
-                                  {% for n in rangen %}
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                  {% endfor %}
-                              </div>
-                            </div>
-                          </div>
-                          <div class="star-bg rating-vote">
-                              <div class="longbar">
-                                  {% for n in rangen %}
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                  {% endfor %}
-                              </div>
-                        </div>
-                          {% endif %}
-                          <div class="clearfix"></div>
-                      </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-between">
-
-                    <div class="col-2">
+                            )
+                        </span>
                     </div>
-                    <div class="col-6 flex-column">
-                        <div class="mb-auto p-2">
-                            <span class="fix-me">Description</span>: <span>{{spec.obj.description}}</span>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="col-2 flex-row"></div>
-            </div>
-            <div class="row justify-content-between">
-                <div class="col-4">
-                        <span class="fix-me"> Added</span>:
-                        <span class="text-muted" style="font-size: 10px; font-style: italic;"> {{spec.obj.created}}</span>
-                </div>
+                    <div class="col-3">
 
-                <div class="col-7">
-                    <div class="p-2">
-                        {% for tag in spec.obj.tags.all %}
-                            <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
-                            {% endfor %}
                     </div>
-                </div>
-                <div class="col-1">
-                    <div class="p-2">
-                        {% if spec.obj.user.email == request.user.email %}
-                            <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
-                            type="button" role="button" {% comment %} href="{% url 'talents' spec.obj.wow_class.name %}?{{spec.obj.hash}}" {% endcomment %}>
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
-                            </a>
-                            <div class="clearfix"></div>
+                    <div class="col-5 text-left">
+                        {% if spec.updated|date:"m/d/Y, P" == spec.created|date:"m/d/Y, P" %}
+                        Created By {% if spec.obj.user == request.user %}
+                        <a href="">me</a>
+                        {% elif not spec.obj.private %}
+                        <a href="">{{spec.obj.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
                         {% endif %}
-                    </div>
-                </div>
-
-            </div>
-            <hr style="border: 1px solid grey; width: 40%; margin-top:10px; margin-bottom:10px;"></hr>
-            <div class="row">
-                    <br>
-                    <table style="margin:auto;">
-                        <thead>
-                            <tr>
-                                <th colspan="2"><div><h5 class="fix-me">AVAILABLE PROPERTIES</h5></div><div><span style="font-size:80%;">not 100% comprehensive</span></div></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span>spec name</span></td>
-                                <td><span class="fix-me">{{spec.obj.name}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>created</span></td>
-                                <td><span class="fix-me">{{spec.obj.created}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>last updated</span></td>
-                                <td><span class="fix-me">{{spec.obj.updated}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>num ratings</span></td>
-                                <td><span class="fix-me">{{spec.obj.ratings.count}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>avg rating</span></td>
-                                <td><span class="fix-me">{{spec.obj.rating}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>wow class name</span></td>
-                                <td><span class="fix-me">{{spec.obj.wow_class.name}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>hash</span></td>
-                                <td><span class="fix-me">{{spec.obj.hash}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>private?</span></td>
-                                <td><span class="fix-me">{{spec.obj.private}}</span></td>
-                            </tr>
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th colspan="2">USER</th>
-                            </tr>
-                        </thead>
-                        {% with user=spec.obj.user %}
-                        <tbody>
-                            <tr>
-                                <td><span>discord uid</span></td>
-                                <td><span class="fix-me">{{user.uid}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>discord username</span></td>
-                                <td><span class="fix-me">{{user.disc_username}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>discord tag</span></td>
-                                <td><span class="fix-me">{{user.tag}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>date joined</span></td>
-                                <td><span class="fix-me">{{user.date_joined}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>db index</span></td>
-                                <td><span class="fix-me">{{user.id}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>email</span></td>
-                                <td><span class="fix-me">{{user.email}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>staff?</span></td>
-                                <td><span class="fix-me">{{user.is_staff}}</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>admin?</span></td>
-                                <td><span class="fix-me">{{user.is_superuser}}</span></td>
-                            </tr>
-                        </tbody>
-                        {% endwith %}
-                        <thead>
-                            <tr>
-                                <th colspan="2">TREES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for tree in spec.obj.treeallotted_set.all %}
-                            <tr>
-                                <td>{{tree.name}}</td>
-                                <td class="fix-me">{{tree.invested}}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th colspan="2">TAGS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for tag in spec.obj.tags.all %}
-                            <tr>
-                                <td colspan="2" class="fix-me">{{tag.name}}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                        <br>
-                    </div>
-                </div>
-                <hr style="border: 1px solid white; width: 100%;"></hr>
-
-                {% endfor %} {# endspecs #}
-
-                {% for consumelist in consume_lists %}
-                <div class="card-body text-light">
-                    <h5 class="card-title text-center"><a href="{% url 'consume_tool' %}?{{consumelist.hash}}">{{consumelist.name}}</a></h5>
-                {% for n in rangen %}
-                    {% if n == rangen|first %}
-                    <a class="btn btn-sm float-right"
-                        style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
-                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true" title="Edit"></span>
-                    </a>
-                    {% else %}
-                    <a class="btn btn-sm float-right"
-                        style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true" title="Edit"></span>
-                    </a>
-                    {% endif %}
-                {% endfor %}
-                <div class="clearfix"></div>
-                <p>By:
-                {% if consumelist.user.email == request.user.email %}
-                    <a href="">me</a>
-                {% elif not consumelist.private %}
-                    <a href="">{{consumelist.user.disc_username}}</a>
-                {% else %}
-                    anonymous
-                {% endif %}
-                </p>
-                <span> -------------------- </span>
-                <p><span style="text-decoration: underline;">Description</span>: {{consumelist.description}}</p>
-                <p><span style="text-decoration: underline;"> Added</span>:<span class="text-muted"> {{consumelist.created}}</span></p>
-
-                {% for tag in consumelist.tags.all %}
-                    <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
-                {% endfor %}
-                {% if consumelist.user.email == request.user.email %}
-                    <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
-                    type="button" role="button" {% comment %} href="{% url 'consume_tool' %}?{{consumelist.hash}}" {% endcomment %}>
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
-                    </a>
-                    <div class="clearfix"></div>
-                {% endif %}
-                <table style="margin:auto;">
-                    <thead>
-                        <tr>
-                            <th colspan="2"><div><h5 class="fix-me">AVAILABLE PROPERTIES</h5></div><div><span style="font-size:80%;">not 100% comprehensive</span></div></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span>list name</span></td>
-                            <td><span class="fix-me">{{consumelist.name}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>created</span></td>
-                            <td><span class="fix-me">{{consumelist.created}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>last updated</span></td>
-                            <td><span class="fix-me">{{consumelist.updated}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>num ratings</span></td>
-                            <td><span class="fix-me">{{consumelist.ratings.count}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>avg rating</span></td>
-                            <td><span class="fix-me">{{consumelist.rating}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>hash</span></td>
-                            <td><span class="fix-me">{{consumelist.hash}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>private?</span></td>
-                            <td><span class="fix-me">{{consumelist.private}}</span></td>
-                        </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th colspan="2">USER</th>
-                        </tr>
-                    </thead>
-                    {% with user=consumelist.user %}
-                    <tbody>
-                        <tr>
-                            <td><span>discord uid</span></td>
-                            <td><span class="fix-me">{{user.uid}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>discord username</span></td>
-                            <td><span class="fix-me">{{user.disc_username}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>discord tag</span></td>
-                            <td><span class="fix-me">{{user.tag}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>date joined</span></td>
-                            <td><span class="fix-me">{{user.date_joined}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>db index</span></td>
-                            <td><span class="fix-me">{{user.id}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>email</span></td>
-                            <td><span class="fix-me">{{user.email}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>staff?</span></td>
-                            <td><span class="fix-me">{{user.is_staff}}</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>admin?</span></td>
-                            <td><span class="fix-me">{{user.is_superuser}}</span></td>
-                        </tr>
-                    </tbody>
-                    {% endwith %}
-                    <thead>
-                        <tr>
-                            <th colspan="3">VIA CUSTOM DICT</th>
-                        </tr>
-                    </thead>
-                    {% for name,y in saved_lists.items %}
-                    {% if name == consumelist.name %}
-                    <thead>
-                        <tr>
-                            <th colspan="3">{{name}}</th>
-                        </tr>
-                    </thead>
-                    {% for a,b in y.consumes.items %}
-                    <thead>
-                        <tr>
-                            <th colspan="3">{{a}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for c,d in b.items %}
-                            <tr>
-                                <td>{{c}}</td>
-                                <td class="fix-me">{{d}}</td>
-                            </tr>
-                        {% endfor %}
-
-                    {% endfor %}
-                    </tbody>
-                    {% else %}
-                    {% endif %}
-                    {% endfor %}
-                    <thead>
-                        <tr>
-                            <th colspan="2">TAGS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for tag in consumelist.tags.all %}
-                        <tr>
-                            <td colspan="2" class="fix-me">{{tag.name}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-
-                <hr style="border: 1px solid white; width: 100%;"></hr>
-                </div>
-                {% endfor %} {# endconsumelists #}
-
-                </div>
-
-                <div class="card mb-3 bg-transparent border-light text-center">
-                    <div class="card-header bg-transparent border-light text-light">
-                        Recent News
-                    </div>
-                    <div class="card-body text-light">
-                        <h5 class="card-title text-center">WoW Classic Release Date</h5>
-                        <p class="card-text text-left">'World of Warcraft: Classic' is confirmed to release August
-                            26th @ 3PM (PDT)</p>
-                        <p class="card-text text-left">Current Content Release Plan</p>
-
-                        <ul class="card-text text-left">
-                            <li>
-                                Stage 1: Phase 1 (Classic Launch) | Molten Core | Onyxia | Maraudon | You can PvP
-                                one another in the world, but there is no tracking, and no formal rewards for doing
-                                so.
-                            </li>
-                            <br />
-                            <li>
-                                Stage 2: Dire Maul | Azuregos | Kazzak | Honor System (including Dishonorable Kills)
-                                | PvP Rank Rewards
-                            </li>
-                            <br />
-                            <li>
-                                Stage 3: Blackwing Lair | Darkmoon Faire | Darkmoon deck drops begin | Alterac
-                                Valley (version 1.12) | Warsong Gulch
-                            </li>
-                            <br />
-                            <li>
-                                Stage 4: Zul’Gurub | Green Dragons | Arathi Basin
-                            </li>
-                            <br />
-                            <li>
-                                Stage 5: Ahn’Qiraj War Effort begins | Ahn’Qiraj raids open when the war effort
-                                dictates | Dungeon loot reconfiguration: Tier 0.5 Dungeon gear, Relics, drop rates
-                                and location changes
-                            </li>
-                            <br />
-                            <li>
-                                Stage 6: Naxxramas | Scourge Invasion | World PvP objectives in Silithus and Eastern
-                                Plaguelands
-                            </li>
-                        </ul>
-                        <p>These plans are subject to change, but we wanted to provide an inside look at future
-                            plans.
-                            We look forward to continuing to hear your thoughts as we continue to bring WoW Classic
-                            to
-                            life.</p>
-                        <a href="https://us.forums.blizzard.com/en/wow/t/classic-pvp-content-plan/146049"
-                            class="btn btn-dark">Go To Article</a>
-                    </div>
-                    <div class="card-footer text-muted border-light">
-                        1/5/2019
-                    </div>
-                </div>
-                <div class=" pt-4">
-                    <div class="card mb-3 bg-transparent border-light text-center">
-                        <h5 class="card-header bg-transparent border-light text-light">
-                            Changelog
-                        </h5>
-                        <div class="card-body text-light">
-                            <p class="card-text text-left">4/29/2019</p>
-                            <ul class="card-text text-left">
-                                <li>
-                                    Added Specs and Guides Section.
-                                </li>
-                                <li>
-                                    Added Working Talent Calculator.
-                                </li>
-                                <li>
-                                    Updated Consume Tool to display more useful information.
-                                </li>
-                                <li>
-                                    Changed overall site style and design.
-                                </li>
-                            </ul>
-                            <p class="card-text text-left">1/5/2019</p>
-                            <ul class="card-text text-left">
-                                <li>
-                                    Initial Launch with consume tool and enchant tool.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-footer text-muted border-light">
-                            <p>We are constantly adding new things to Onybuff.com</p>
-                        </div>
+                        on
+                        {{spec.obj.created}}
+                        {% else %}
+                        Last Edited By {% if spec.obj.user == request.user %}
+                        <a href="">me</a>
+                        {% elif not spec.obj.private %}
+                        <a href="">{{spec.obj.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
+                        on
+                        {{spec.obj.updated}}
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
+
+
+        {% for consumelist in consume_lists %}
+        <div class="col-12">
+            <div class="feedItem row mt-5">
+                <div class="col-4">
+                    <div class="listImage">
+                        <div class="listIcon">
+                            <img class="class-icon" src="{% static "images/icon_border_2.png" %}">
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row feed-header">
+
+                    </div>
+                    <div class="row feed-content">
+                        <div class="col-8 feedTitle"><a>{{consumelist.name}}</a></div>
+                        <div class="col-4">
+                            <div class="pt-3">
+                                {% for n in rangen %}
+                                {% if n == rangen|first %}
+                                <a class="btn btn-sm float-right"
+                                    style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true" title="Edit"></span>
+                                </a>
+                                {% else %}
+                                <a class="btn btn-sm float-right"
+                                    style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true" title="Edit"></span>
+                                </a>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row feed-content">
+                        <div class="col-12 feed-desc">
+                            {{consumelist.description}}
+                        </div>
+                    </div>
+                    <hr class="row mt-2 mb-2"
+                        style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+                    </hr>
+                    <div class="row feed-content">
+                        {% for tag in consumelist.tags.all %}
+                        <div class="feed-tag">{{tag.name}}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="row feed-content"></div>
+                </div>
+                <div class="col-12 row feed-footer">
+                    <div class="col-4">
+
+                    </div>
+                    <div class="col-3">
+                        {% if  consumelist.rating == None %}
+                        No Rating Availible
+                        {% else %}
+                        {{consumelist.rating}} Avg Rating ({{consumelist.ratings.count}})
+                        {% endif %}
+                    </div>
+                    <div class="col-5 text-left">
+                        {% if consumelist.created == consumelist.updated %}
+                        Created By {% if consumelist.user.email == request.user.email %}
+                        <a href="">me</a>
+                        {% elif not consumelist.private %}
+                        <a href="">{{consumelist.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
+                        on
+                        {{consumelist.created}}
+                        {% else %}
+                        Last Edited By {% if consumelist.user.email == request.user.email %}
+                        <a href="">me</a>
+                        {% elif not consumelist.private %}
+                        <a href="">{{consumelist.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
+                        on
+                        {{consumelist.updated}}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        <div class=" pt-4 ">
+            <div class="card mb-3 bg-transparent border-light text-center">
+                <h5 class="card-header bg-transparent border-light text-light">
+                    Changelog
+                </h5>
+                <div class="card-body text-light">
+                    <p class="card-text text-left">4/29/2019</p>
+                    <ul class="card-text text-left">
+                        <li>
+                            Added Specs and Guides Section.
+                        </li>
+                        <li>
+                            Added Working Talent Calculator.
+                        </li>
+                        <li>
+                            Updated Consume Tool to display more useful information.
+                        </li>
+                        <li>
+                            Changed overall site style and design.
+                        </li>
+                    </ul>
+                    <p class="card-text text-left">1/5/2019</p>
+                    <ul class="card-text text-left">
+                        <li>
+                            Initial Launch with consume tool and enchant tool.
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer text-muted border-light">
+                    <p>We are constantly adding new things to Onybuff.com</p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+</div>
 
+{% endblock mainbody %}
 
-
-
-    {% endblock mainbody %}
-
-    {% block footer %}
-    {# "not necessary, here to demonstrate block.super" #}
-    {{block.super}}
-    {% endblock footer %}
+{% block footer %}
+{# "not necessary, here to demonstrate block.super" #}
+{{block.super}}
+{% endblock footer %}
 
 {% block javascript %}
 <script>
-
 $(".glyphicon-star-empty").on({
     mouseenter: e=> {
         var target = $( e.target )
@@ -649,7 +351,6 @@ $(".glyphicon-star-empty").on({
         }
         rate_saved_list(data)
     }
-
 })
 
 function rate_saved_list(d) {
@@ -680,7 +381,7 @@ $("a.remove-rating").on({
         e.preventDefault()
         var target = $( e.target )
 
-        var container = target.closest($("div.col-sm")).find($(".ratings-container"))
+        var container = target.closest($(".ratings-container"))
         var id = container.attr("data-id")
         var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
 
@@ -712,6 +413,5 @@ function delete_rating(d) {
     });
 }
 {% endif %}
-
 </script>
 {% endblock javascript %}
