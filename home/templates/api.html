@@ -6,6 +6,8 @@
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.min.js" %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/stars.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/api.css" %}">
+
 <script src="{% static "js/landing_page.js" %}"></script>
 {% endblock extra_head %}
 
@@ -311,45 +313,66 @@
                     </a>
                     <div class="clearfix"></div>
                 {% endif %}
-                <table style="margin:auto;">
+                <table class="table table-sm table-striped table-dark table-hover" style="margin:auto;">
                     <thead>
                         <tr>
-                            <th colspan="2"><div><h5 class="fix-me">AVAILABLE PROPERTIES</h5></div><div><span style="font-size:80%;">not 100% comprehensive</span></div></th>
+                            <th colspan="3">
+                                <div>
+                                    <h5 class="fix-me">AVAILABLE PROPERTIES</h5>
+                                </div>
+                                <div>
+                                    <span style="font-size:80%;">not 100% comprehensive</span>
+                                </div>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><span>list name</span></td>
                             <td><span class="fix-me">{{consumelist.name}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.name}}{% endverbatim %}</code></td>
                         </tr>
                         <tr>
                             <td><span>created</span></td>
                             <td><span class="fix-me">{{consumelist.created}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.created}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>last updated</span></td>
                             <td><span class="fix-me">{{consumelist.updated}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.updated}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>num ratings</span></td>
                             <td><span class="fix-me">{{consumelist.ratings.count}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.ratings.count}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>avg rating</span></td>
                             <td><span class="fix-me">{{consumelist.rating}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.rating}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>hash</span></td>
                             <td><span class="fix-me">{{consumelist.hash}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.hash}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>private?</span></td>
                             <td><span class="fix-me">{{consumelist.private}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.private}}{% endverbatim %}</code></td>
                         </tr>
                     </tbody>
                     <thead>
                         <tr>
-                            <th colspan="2">USER</th>
+                            <th style="color: #96c6f5" colspan="1">USER</th>
+                            <th colspan="2"><code>{% verbatim %}{% with user=consumelist.user %}{% endverbatim %}</code></th>
+
                         </tr>
                     </thead>
                     {% with user=consumelist.user %}
@@ -357,59 +380,93 @@
                         <tr>
                             <td><span>discord uid</span></td>
                             <td><span class="fix-me">{{user.uid}}</span></td>
+                            <td><code>{% verbatim %}{{user.uid}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>discord username</span></td>
                             <td><span class="fix-me">{{user.disc_username}}</span></td>
+                            <td><code>{% verbatim %}{{user.disc_username}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>discord tag</span></td>
                             <td><span class="fix-me">{{user.tag}}</span></td>
+                            <td><code>{% verbatim %}{{user.tag}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>date joined</span></td>
                             <td><span class="fix-me">{{user.date_joined}}</span></td>
+                            <td><code>{% verbatim %}{{user.date_joined}}{% endverbatim %}</code></td>
                         </tr>
                         <tr>
                             <td><span>db index</span></td>
                             <td><span class="fix-me">{{user.id}}</span></td>
+                            <td><code>{% verbatim %}{{user.id}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>email</span></td>
                             <td><span class="fix-me">{{user.email}}</span></td>
+                            <td><code>{% verbatim %}{{user.email}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>staff?</span></td>
                             <td><span class="fix-me">{{user.is_staff}}</span></td>
+                            <td><code>{% verbatim %}{{user.is_staff}}{% endverbatim %}</code></td>
+
                         </tr>
                         <tr>
                             <td><span>admin?</span></td>
                             <td><span class="fix-me">{{user.is_superuser}}</span></td>
+                            <td><code>{% verbatim %}{{user.is_superuser}}{% endverbatim %}</code></td>
+
                         </tr>
                     </tbody>
                     {% endwith %}
                     <thead>
                         <tr>
-                            <th colspan="3">VIA CUSTOM DICT</th>
+                            <!-- <th>VIA CUSTOM DICT</th> -->
+                            <th colspan="3"><code>{% verbatim %}{% for listname,y in saved_list.items %}{% endverbatim %}</code></th>
                         </tr>
                     </thead>
                     {% for listname,y in saved_lists.items %}
                     {% if listname == consumelist.name %}
                     <thead>
                         <tr>
-                            <th colspan="3">{{listname}}</th>
+                            <th style="color: #96c6f5" colspan="1">listname</th>
+                            <th colspan="1" class="fix-me">{{listname}}</th>
+                            <th colspan="1"><code>{% verbatim %}{{listname}}{% endverbatim %}</code></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th colspan="3"><code>{% verbatim %}{% for profname,b in y.consumes.items %}{% endverbatim %}</code></th>
                         </tr>
                     </thead>
                     {% for profname,b in y.consumes.items %}
                     <thead>
                         <tr>
-                            <th style="color: #96c6f5" colspan="3">{{profname}}</th>
+                            <th style="color: #96c6f5" scope="col">profession</th>
+                            <th scope="col" class="fix-me">{{profname}}</th>
+                            <th scope="col"><code>{% verbatim %}{{profname}}{% endverbatim %}</code></th>
                         </tr>
                     </thead>
+
                     <tbody>
+                        <tr colspan="3">
+                            <td colspan="3"><code>{% verbatim %}{% for consume_name,quantity in b.items %}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr colspan="3">
+                            <td colspan="2"><code>{% verbatim %}{{consume_name}}{% endverbatim %}</code></td>
+                            <td><code>{% verbatim %}{{quantity}}{% endverbatim %}</code></td>
+                        </tr>
                         {% for consume_name,quantity in b.items %}
                             <tr>
-                                <td>{{consume_name}}</td>
+                                <td colspan="2">{{consume_name}}</td>
                                 <td class="fix-me">{{quantity}}</td>
                             </tr>
                         {% endfor %}
@@ -421,15 +478,22 @@
                     {% endfor %}
                     <thead>
                         <tr>
-                            <th colspan="2">TAGS</th>
+                            <th colspan="3">TAGS</th>
+                        </tr>
+                        <tr>
+                            <th colspan="3"><code>{% verbatim %}{% for tag in consumelist.tags.all %}{% endverbatim %}</code></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for tag in consumelist.tags.all %}
                         <tr>
-                            <td colspan="2" class="fix-me">{{tag.name}}</td>
+                            <td colspan="3">
+                                {% for tag in consumelist.tags.all %}
+                                <span class="fix-me">{{tag.name}}</span>,
+
+                                {% endfor %}
+                            </td>
+
                         </tr>
-                        {% endfor %}
                     </tbody>
                 </table>
 
