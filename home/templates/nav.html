@@ -26,15 +26,15 @@
 			{% if user.is_authenticated %}
 			<div class="dropdown show">
 				  <a class="btn" id="discord-avatar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					  <img style="background-image: url(https://cdn.discordapp.com/avatars/{{profile.uid}}/{{profile.extra_data.avatar}}.jpg?size=128); background-repeat: no-repeat; background-size: contain; width: 40px; height: 40px; border-radius: 50%;">
+					  <img style="background-image: url(https://cdn.discordapp.com/avatars/{{user.uid}}/{{user.extra_data.avatar}}.jpg?size=128); background-repeat: no-repeat; background-size: contain; width: 40px; height: 40px; border-radius: 50%;">
 				  </a>
 				  <div class="dropdown-menu menu-left login-dropdown" aria-labelledby="discord-avatar">
 				    <div class="dropdown-item d-inline-flex flex-row" style="padding:0;">
 						<div class="d-inline-flex flex-column">
 							<div class="login-div" style="line-height: 16px;font-size:12px;font-weight:400;color: #b9bbbe;">logged in as</div>
 							<div class="login-div">
-								<span style="color: #f6f6f7;">{{profile.disc_username}}</span>
-								<span style="color: #72767d;">#{{profile.tag}}</span>
+								<span style="color: #f6f6f7;">{{user.disc_username}}</span>
+								<span style="color: #72767d;">#{{user.tag}}</span>
 							</div>
 						</div>
 						<div class="align-self-center" style="margin-left: 15px; padding-left: 15px;">

@@ -66,7 +66,6 @@ class IndexView(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
-		context['consume_lists'] = ConsumeList.objects.all()
 		context['rangen'] = range(5)
 		context['specs'] = {}
 
@@ -79,13 +78,17 @@ class IndexView(TemplateView):
 				if spec.ratings.filter(user=request.user).exists():
 					context['specs'][spec.name]['has_voted'] = True
 
-		context['saved_lists'] = {}
-		for cl in context['consume_lists']:
+		context['consume_lists'] = {}
+		for cl in ConsumeList.objects.all():
 			name = cl.name
-			context['saved_lists'][name] = {}
-			context['saved_lists'][name]['user'] = cl.user
-			context['saved_lists'][name]['hash'] = cl.hash
-			context['saved_lists'][name]['consumes'] = {}
+			context['consume_lists'][name] = {}
+			context['consume_lists'][name]['obj'] = cl
+			context['consume_lists'][name]['has_voted'] = False
+			context['consume_lists'][name]['consumes'] = {}
+
+			if request.user.is_authenticated:
+				if cl.ratings.filter(user=request.user).exists():
+					context['consume_lists'][name]['has_voted'] = True
 
 			for consume in cl.consumes.all():
 				c = consume.item
@@ -94,10 +97,10 @@ class IndexView(TemplateView):
 				else:
 					prof_name = consume.item.prof.name
 
-				if prof_name not in context['saved_lists'][name]['consumes'].keys():
-					context['saved_lists'][name]['consumes'][prof_name] = {}
+				if prof_name not in context['consume_lists'][name]['consumes'].keys():
+					context['consume_lists'][name]['consumes'][prof_name] = {}
 
-				context['saved_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
+				context['consume_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
 
 		# qs = cl.consumes.values('item__prof__name', 'item__item__name').annotate(Count('item')).order_by('item__prof__name')
 

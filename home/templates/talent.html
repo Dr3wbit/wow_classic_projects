@@ -61,9 +61,7 @@
 		</div>
 	</div>
 	<div class="row justify-content-center" id="talent_calc" align="center">
-		{% if first_load %}
 		{% include "talent_builder.html" %}
-		{% endif %}
 	</div>
 
 	{% if user.is_authenticated %}
