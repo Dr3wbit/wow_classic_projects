@@ -93,7 +93,6 @@ function trashCanSuccess(data, textStatus, jqXHR){
 
 function trashCanError(jqXHR, textStatus, errorThrown){
 	console.log('\n**error**\n')
-	// console.log(data.message.toString())
     console.log(jqXHR)
     console.log(textStatus)
     console.log(errorThrown)
