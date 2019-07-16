@@ -57,14 +57,8 @@
 
     {% block footer %}
     <footer class="footer">
-        <span class="text-muted">&copy Ony Buff 2019</span>
-        <span class="text-muted"> | </span>
-        <span class="text-muted"> <a style="color: rgba(240, 255, 255, 0.95);" href="thanks" >Contributors</a> </span>
-        <span class="text-muted"> | </span>
+        <span class="text-muted">&copy Ony Buff 2019 | <a style="color: rgba(240, 255, 255, 0.95);" href="{% url "thanks" %}">Contributors</a> | </span>
         <a class="discordLink" href="https://discord.gg/MKfVQhm" style="display: inline-block;"></a>
-        <!-- <span class="discordLink" style="display: inline-block;">
-                <a href="https://discord.gg/MKfVQhm" target="_blank"></a>
-        </span> -->
     </footer>
     {% endblock footer %}
 
