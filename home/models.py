@@ -33,6 +33,14 @@ class Profile(User):
 		proxy = True
 
 	@property
+	def spec_ratings_ids(self):
+		return([x.get('object_id') for x in self.rating_set.filter(content_type_id=20).values('object_id')])
+
+	@property
+	def cl_ratings_ids(self):
+		return([x.get('object_id') for x in self.rating_set.filter(content_type_id=23).values('object_id')])
+
+	@property
 	def discord(self):
 		return(UserSocialAuth.objects.get(user=self))
 
@@ -283,6 +291,8 @@ class Tag(models.Model):
 		('healer', 'Healer'),
 		('tank', 'Tank'),
 		('dps', 'DPS'),
+		('horde', 'Horde'),
+		('alliance', 'Alliance'),
 	)
 
 	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
