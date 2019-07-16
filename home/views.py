@@ -11,6 +11,9 @@ from home.forms import ContactForm, SpecForm, ConsumeListForm
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint failed
 import re
 
+class ThanksView(TemplateView):
+	template_name = "thanks.html"
+
 class IndexView(TemplateView):
 	template_name = "index.html"
 

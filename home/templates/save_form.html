@@ -19,7 +19,7 @@
 
         {% if "talent_calc" in request.path %}
         <div class="fieldWrapper">
-            <span>
+            <span class="col-3">
                 <label id="wow_class_label" class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
                 <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
             </span>
@@ -78,7 +78,6 @@
 </div>
 
 <script>
-
 function update_consume_inputs() {
     var all_consumes = $("#all_consumes")
     for (let [profname, v] of Object.entries(my_consume_list)) {
@@ -92,6 +91,7 @@ function update_consume_inputs() {
         }
     }
 }
+
 function update_tree_inputs() {
     $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
     $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)

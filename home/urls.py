@@ -17,8 +17,8 @@ urlpatterns = [
     path('ajax/delete_list/', views.delete_list, name='delete_list'),
     path('ajax/load_spec/', views.load_spec, name='load_spec'),
     path('ajax/save_rating/', views.save_rating, name='save_rating'),
-    path('ajax/delete_rating/', views.delete_rating, name='delete_rating')
-
+    path('ajax/delete_rating/', views.delete_rating, name='delete_rating'),
+    path('thanks', views.ThanksView.as_view(), name='thanks'),
     # path('ajax/save_list/', views.save_list, name='save_list'),
     # re_path(r'^test/', views.TalentsRedirectView.as_view(), name='talents_redirect'),
     # re_path(r'^test/(?P<class>[a-z]{5,12})/', views.TalentsRedirectView.as_view(), name='talents_redirect'),
