@@ -5,6 +5,14 @@
 	{% load static %}
 	{% block extra_head %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/talent.css" %}">
+
+	<script>
+		if (performance.navigation.type == 1) {
+		    let myurl = new URL(window.location)
+		    myurl.search = ''
+		    history.replaceState(null, null, myurl)
+		}
+	</script>
 	{% endblock extra_head %}
 
 
@@ -148,8 +156,8 @@ function update_class(class_name, spec_name='') {
 				$.ajax({
 					url: '/ajax/load_spec/',
 					data: {
-					'class_name': class_name,
-					'spec_name': spec_name
+						'class_name': class_name,
+						'spec_name': spec_name
 					},
 					dataType: 'json',
 					success: function (data){
