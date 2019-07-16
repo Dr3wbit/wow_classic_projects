@@ -9,10 +9,57 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryD
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint failed
+from django.contrib.auth.decorators import login_required, permission_required
+
 import re
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
+
+class APIView(TemplateView):
+	template_name = "api.html"
+
+	def get(self, request, *args, **kwargs):
+
+		if request.user.groups.filter(name='admins').exists():
+
+			context = {}
+			context['consume_lists'] = ConsumeList.objects.all()
+			context['rangen'] = range(5)
+			context['specs'] = {}
+
+			for spec in Spec.objects.all():
+				context['specs'][spec.name] = {}
+				context['specs'][spec.name]['obj'] = spec
+				context['specs'][spec.name]['has_voted'] = False
+
+				if request.user.is_authenticated:
+					if spec.ratings.filter(user=request.user).exists():
+						context['specs'][spec.name]['has_voted'] = True
+
+			context['saved_lists'] = {}
+			for cl in context['consume_lists']:
+				name = cl.name
+				context['saved_lists'][name] = {}
+				context['saved_lists'][name]['user'] = cl.user
+				context['saved_lists'][name]['hash'] = cl.hash
+				context['saved_lists'][name]['consumes'] = {}
+
+				for consume in cl.consumes.all():
+					c = consume.item
+					if not consume.item.prof:
+						prof_name = 'other'
+					else:
+						prof_name = consume.item.prof.name
+
+					if prof_name not in context['saved_lists'][name]['consumes'].keys():
+						context['saved_lists'][name]['consumes'][prof_name] = {}
+
+					context['saved_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
+
+			return render(request, self.template_name, context)
+		else:
+			return HttpResponseRedirect('denied')
 
 class IndexView(TemplateView):
 	template_name = "index.html"
@@ -509,6 +556,9 @@ class ContactView(TemplateView):
 
 class SuccessView(TemplateView):
 	template_name = "success.html"
+
+class DeniedView(TemplateView):
+	template_name = "denied.html"
 
 
 def save_rating(request):
