@@ -1,5 +1,9 @@
 from django import template
 from django.template.defaultfilters import stringfilter
+import re
+
+nope = re.compile(r"[\-]")
+forbiden = re.compile(r"[\:\'\(\)]")
 
 register = template.Library()
 
@@ -16,3 +20,10 @@ def titlecase(s):
 
 	c = ' '.join(word_list)
 	return(c)
+
+@register.filter
+@stringfilter
+def sanitize(s):
+	a = forbiden.sub('', s)
+	a = nope.sub(' ', a).strip().replace(' ', '_').lower()
+	return(a)

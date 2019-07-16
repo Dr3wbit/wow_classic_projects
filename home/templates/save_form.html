@@ -65,9 +65,9 @@
                     {% endfor %}
             </div>
         </div>
-        <!-- <div class="fieldWrapper row">
+        <div class="fieldWrapper row">
             <input id="list_hash" type="hidden" value="test" name="hash">
-        </div> -->
+        </div>
 
 
         <div class="form-actions row justify-content-center">
@@ -78,7 +78,6 @@
 </div>
 
 <script>
-
 function update_consume_inputs() {
     var all_consumes = $("#all_consumes")
     for (let [profname, v] of Object.entries(my_consume_list)) {
@@ -92,6 +91,7 @@ function update_consume_inputs() {
         }
     }
 }
+
 function update_tree_inputs() {
     $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
     $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
@@ -108,9 +108,8 @@ $(".saved-list-form").on({
         }
         e.preventDefault()
         var $myForm = $(".saved-list-form")
-        var $formData = $myForm.serialize()
-        console.log('data: ', $formData)
         var $thisURL = $myForm.attr('data-url') || window.location.href
+        var $formData = $myForm.serialize()
         $.ajax({
             method: "POST",
             url: $thisURL,

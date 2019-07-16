@@ -1,5 +1,3 @@
-
-
 .mainHeader {
     text-align: left;
     color: azure;
@@ -80,9 +78,6 @@ tfoot {
     margin-left: 15px;
     margin-right: 15px;
     box-shadow: 4px 4px 2px black;
-}
-
-.feed-content{
 }
 
 .feed-header {

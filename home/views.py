@@ -9,11 +9,58 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryD
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint failed
+from django.contrib.auth.decorators import login_required, permission_required
+
 import re
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
-	
+
+class APIView(TemplateView):
+	template_name = "api.html"
+
+	def get(self, request, *args, **kwargs):
+
+		if request.user.groups.filter(name='admins').exists():
+
+			context = {}
+			context['consume_lists'] = ConsumeList.objects.all()
+			context['rangen'] = range(5)
+			context['specs'] = {}
+
+			for spec in Spec.objects.all():
+				context['specs'][spec.name] = {}
+				context['specs'][spec.name]['obj'] = spec
+				context['specs'][spec.name]['has_voted'] = False
+
+				if request.user.is_authenticated:
+					if spec.ratings.filter(user=request.user).exists():
+						context['specs'][spec.name]['has_voted'] = True
+
+			context['saved_lists'] = {}
+			for cl in context['consume_lists']:
+				name = cl.name
+				context['saved_lists'][name] = {}
+				context['saved_lists'][name]['user'] = cl.user
+				context['saved_lists'][name]['hash'] = cl.hash
+				context['saved_lists'][name]['consumes'] = {}
+
+				for consume in cl.consumes.all():
+					c = consume.item
+					if not consume.item.prof:
+						prof_name = 'other'
+					else:
+						prof_name = consume.item.prof.name
+
+					if prof_name not in context['saved_lists'][name]['consumes'].keys():
+						context['saved_lists'][name]['consumes'][prof_name] = {}
+
+					context['saved_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
+
+			return render(request, self.template_name, context)
+		else:
+			return HttpResponseRedirect('denied')
+
 class IndexView(TemplateView):
 	template_name = "index.html"
 
@@ -510,6 +557,78 @@ class ContactView(TemplateView):
 class SuccessView(TemplateView):
 	template_name = "success.html"
 
+class DeniedView(TemplateView):
+	template_name = "denied.html"
+
+
+def save_rating(request):
+	id = request.POST.get('id', None)
+	value = request.POST.get('value', None)
+	spec = request.POST.get('spec', False)
+	type_of = 'spec' if spec else 'consume_list'
+	data = {}
+	if (request.user.is_authenticated and id and value):
+		user = request.user
+		if spec:
+			saved_list = Spec.objects.get(id=id)
+		else:
+			saved_list = ConsumeList.objects.get(id=id)
+
+		rating = Rating(content_object=saved_list, value=value, user=user)
+		rating.save()
+		data['success'] = True
+		data['average_rating'] = saved_list.rating
+		data['num_ratings'] = saved_list.ratings.count()
+		data['message'] = "user: {} successfully rated {}".format(user.email, saved_list.name)
+
+	# saved_list =
+
+	return JsonResponse(data)
+
+def delete_rating(request):
+
+	if (request.user.is_staff and request.user.is_superuser):
+
+		id = request.POST.get('id', None)
+		spec = request.POST.get('spec', False)
+		type_of = 'spec' if spec else 'consume_list'
+		data = {}
+		if (request.user.is_authenticated and id):
+			user = request.user
+
+			if spec:
+				if Spec.objects.filter(id=id).exists():
+					saved_list = Spec.objects.get(id=id)
+			else:
+				if ConsumeList.objects.filter(id=id).exists():
+					saved_list = ConsumeList.objects.get(id=id)
+
+			if saved_list:
+
+				print('saved_list: ', saved_list)
+				print('avg rating (before): ', saved_list.rating)
+				print('num ratings (before): ', saved_list.ratings.count())
+
+				rating = saved_list.ratings.filter(user=user).first()
+				rating.delete()
+
+				print('avg rating (after): ', saved_list.rating)
+				print('num ratings (after): ', saved_list.ratings.count())
+
+				data['success'] = True
+				data['average_rating'] = saved_list.rating
+				data['num_ratings'] = saved_list.ratings.count()
+				data['message'] = "user: {} successfully deleted your rating for {}".format(user.email, saved_list.name)
+		else:
+			data['success'] = False
+			data['message'] = 'No id found or user is not authenticated'
+
+		# saved_list =
+	else:
+		data['success'] = False
+		data['message'] = 'Insufficient permissions'
+
+	return JsonResponse(data)
 
 def save_rating(request):
 	id = request.POST.get('id', None)
