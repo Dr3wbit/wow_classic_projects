@@ -393,24 +393,24 @@
                             <th colspan="3">VIA CUSTOM DICT</th>
                         </tr>
                     </thead>
-                    {% for name,y in saved_lists.items %}
-                    {% if name == consumelist.name %}
+                    {% for listname,y in saved_lists.items %}
+                    {% if listname == consumelist.name %}
                     <thead>
                         <tr>
-                            <th colspan="3">{{name}}</th>
+                            <th colspan="3">{{listname}}</th>
                         </tr>
                     </thead>
-                    {% for a,b in y.consumes.items %}
+                    {% for profname,b in y.consumes.items %}
                     <thead>
                         <tr>
-                            <th colspan="3">{{a}}</th>
+                            <th style="color: #96c6f5" colspan="3">{{profname}}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for c,d in b.items %}
+                        {% for consume_name,quantity in b.items %}
                             <tr>
-                                <td>{{c}}</td>
-                                <td class="fix-me">{{d}}</td>
+                                <td>{{consume_name}}</td>
+                                <td class="fix-me">{{quantity}}</td>
                             </tr>
                         {% endfor %}
 
