@@ -25,8 +25,9 @@ class IndexView(TemplateView):
 			context['specs'][spec.name]['obj'] = spec
 			context['specs'][spec.name]['has_voted'] = False
 
-			if spec.ratings.filter(user=request.user).exists():
-				context['specs'][spec.name]['has_voted'] = True
+			if request.user.is_authenticated:
+				if spec.ratings.filter(user=request.user).exists():
+					context['specs'][spec.name]['has_voted'] = True
 
 		context['saved_lists'] = {}
 		for cl in context['consume_lists']:

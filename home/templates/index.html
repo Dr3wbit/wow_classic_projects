@@ -652,25 +652,6 @@ $(".glyphicon-star-empty").on({
 
 })
 
-
-$("a.remove-rating").on({
-    click: e=> {
-        e.preventDefault()
-        var target = $( e.target )
-
-        var container = target.closest($("div.col-sm")).find($(".ratings-container"))
-        var id = container.attr("data-id")
-        var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
-
-        var data = {
-            wow_class: wow_class,
-            id: id,
-        }
-        delete_rating(data)
-
-    }
-})
-
 function rate_saved_list(d) {
     var spec = (d.wow_class) ? true : false
     var rating = d.rating
@@ -692,6 +673,26 @@ function rate_saved_list(d) {
     });
 }
 
+{% if request.user.is_staff %}
+
+$("a.remove-rating").on({
+    click: e=> {
+        e.preventDefault()
+        var target = $( e.target )
+
+        var container = target.closest($("div.col-sm")).find($(".ratings-container"))
+        var id = container.attr("data-id")
+        var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+
+        var data = {
+            wow_class: wow_class,
+            id: id,
+        }
+        delete_rating(data)
+
+    }
+})
+
 function delete_rating(d) {
     var spec = (d.wow_class) ? true : false
     var id = d.id
@@ -710,6 +711,7 @@ function delete_rating(d) {
         }
     });
 }
+{% endif %}
 
 </script>
 {% endblock javascript %}
