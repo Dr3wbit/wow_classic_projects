@@ -4,6 +4,7 @@
 {% block extra_head %}
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.js" %}"></script>
 <script type="text/javascript" src="{% static "js/timer/jquery.countdown.min.js" %}"></script>
+
 <link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/stars.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/api.css" %}">
@@ -558,8 +559,44 @@
         </div>
     </div>
 
+    <table class="table table-sm table-striped table-hover" style="margin:auto;">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">recipe</th>
+                <th scope="col">materials</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>
+                    <span class="recipe-container {{recipe.rarity}}" name="{{recipe.name}}">
+                        <img class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
+                        style="background-image: url({% static item_image %});">
+                        <span class="consume-name" name="{{recipe.name}}">{{recipe.name}}</span>
+                    </span>
+                </td>
+                <td class="reagant-list">
+                    {% for mat in recipe.materials.all %}
+                    <img name="{{mat.name}}" class="icon-medium" src="{% static "images/icon_border_2.png" %}"
+                        style="background-image: url({% static "images/icons/medium/materials/"|add:mat.name|add:".jpg" %});">
+                        {% if mat.amount > 1 %}
+                        <span class="count-container">
+                            <div class="material-count">{{mat.amount}}</div>
+                            <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{{mat.amount}}</div>
+                            <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{{mat.amount}}</div>
+                            <div class="material-count" style="color: black; right: 3px; z-index: 4;">{{mat.amount}}</div>
+                        </span>
+                        {% endif %}
+                    {% endfor %}
+                </td>
 
-
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
     {% endblock mainbody %}
 

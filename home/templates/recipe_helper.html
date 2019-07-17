@@ -49,30 +49,17 @@
         }
 
         let step = (allConsumes[name].step) ? allConsumes[name].step : 1
-
         if (!my_consume_list[prof][name]) {
             my_consume_list[prof][name] = amount*step
         }
-
         else {
             my_consume_list[prof][name] += amount*step
         }
-
-
         if (my_consume_list[prof][name] <= 0) {
             my_consume_list[prof][name] = 0
         }
-
         console.log(my_consume_list)
 
-        // mats = allConsumes[name].materials
-        //
-        // for (let [k, v] of Object.entries(mats)) {
-        //     if (!my_consume_list['materials'][k]) {
-        //         my_consume_list['materials'][k] = 0
-        //     }
-        //     my_consume_list['materials'][k] = (my_consume_list['materials'][k]+v)
-        // }
 
     }
 
@@ -101,46 +88,6 @@
         },
 
     })
-
-    function tooltip_v2(e) {
-    	const targetElement = $(e.target)
-    	const name = targetElement.attr('name')
-
-    	const thisObj = allConsumes[name]
-    	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
-    	const rarity = thisObj.rarity
-    	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
-    	if (thisObj.bop) {
-    		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
-    	}
-    	if (thisObj.unique) {
-    		tooltipElems.push({class: 'unique', text: "Unique",})
-    	}
-    	let requirementText = ''
-    	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-    		requirementText = thisObj.req
-    	} else {
-    		requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? utilities.titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
-    	}
-
-    	if (thisObj.req || thisObj.stats) {
-    		tooltipElems.push({class: 'requiredLevel', text: requirementText})
-    	}
-    	if (thisObj.use) {
-    		tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
-    	}
-    	if (thisObj.description) {
-    		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
-    	}
-    	utilities_v2.bigdaddytooltip(e, tooltipElems)
-    }
-
-function update_tooltip(e) {
-		let pageY = e.pageY
-		let pageX = e.pageX+15
-        const tooltip = $("#tooltip_container")
-        tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visiblity: visible;`)
-}
 
 
     $(".prof-item-recipe").on({
@@ -174,45 +121,6 @@ function update_tooltip(e) {
         },
     });
 
-    // $(".recipe-container").on({
-    //     mouseenter: e => {
-    //         clearTooltip()
-    //         let target = $(e.target).closest(".recipe-container")
-    //         // let name = $(e.target).closest(".recipe-container").attr('name')
-    //
-    //         updatetooltip(target, 'consume')
-    //     },
-    //     mouseleave: e => {
-    //         clearTooltip()
-    //     },
-    //     mousemove: e => {
-    //         clearTooltip()
-    //
-    //         updatetooltip($(e.target).closest(".recipe-container"), 'consume')
-    //         // tooltip_v2(e, 'consume')
-    //     },
-    //     contextmenu: e => {
-	// 		e.preventDefault()
-	// 	},
-    //     mousedown: e => {
-    //         var amount = 1
-    //         let name = $(e.target).closest(".recipe-container").attr('name')
-    //         if ((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) {
-    //             return false
-    //         }
-    //         if (e.shiftKey) {
-    //             amount = 5
-    //         }
-    //
-    //         if (e.which === 3) {
-    //             amount = amount*(-1)
-    //         }
-    //         update_consume_list(name, amount)
-    //         addCraftedItem(name, amount)
-    //         update_url('', '')
-    //     }
-    //
-    // });
 
     </script>
  {% endif %}

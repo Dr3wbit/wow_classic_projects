@@ -1,4 +1,46 @@
 
+function tooltip_v2(e) {
+	const targetElement = $(e.target)
+	const name = targetElement.attr('name')
+
+	var thisObj = allConsumes[name]
+	thisObj = (thisObj) ? thisObj : allMaterials[name]
+	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
+	const rarity = thisObj.rarity
+	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
+	if (thisObj.bop) {
+		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
+	}
+	if (thisObj.unique) {
+		tooltipElems.push({class: 'unique', text: "Unique",})
+	}
+	let requirementText = ''
+	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
+		requirementText = thisObj.req
+	} else {
+		requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? utilities.titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
+	}
+
+	if (thisObj.req || thisObj.stats) {
+		tooltipElems.push({class: 'requiredLevel', text: requirementText})
+	}
+	if (thisObj.use) {
+		tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
+	}
+	if (thisObj.description) {
+		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
+	}
+	utilities_v2.bigdaddytooltip(e, tooltipElems)
+}
+
+function update_tooltip(e) {
+	let pageY = e.pageY
+	let pageX = e.pageX+15
+    const tooltip = $("#tooltip_container")
+    tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visiblity: visible;`)
+}
+
+
 function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
@@ -44,39 +86,55 @@ function addCraftedItem(name, numAdded=1) {
 
 		let craftedContainerSr = $('<div/>', {
 			class: "crafted-list-item",
-			name: name
 		})
 
 		let craftedContainerJr = $('<span/>', {
 			class: "crafted-container",
 			role: "button",
-			name: `${name}`,
 			href: `#${name}_collapse`,
-		}).attr("data-toggle", "collapse").on({
-			mouseenter: e => {
-				clearTooltip()
-				e.stopPropagation()
-				updatetooltip($(e.target), 'consume')
-			},
-			mouseleave: e => {
-				clearTooltip()
-			},
-		})
+			name: `${name}`,
+		}).attr("data-toggle", "collapse")
 
 		let expandButton = $('<a/>', {
 			class: "btn btn-sm plus",
-		}).append($('<span/>', {
+			role: 'button',
+			href: `#${name}_collapse`,
+		}).attr("data-toggle", "collapse").append($('<span/>', {
 			class: "glyphicon glyphicon-triangle-right",
 			style: "color: azure;"
 		}))
 
 		craftedContainerJr.append(expandButton, $('<img/>', {
-				class: 'icon-small',
+				name: `${name}`,
+				class: 'icon-small crafted-image',
 				src: "/static/images/icons/small/icon_border.png",
-				style: `background-image: url(/static/images/icons/consumes/${name}.jpg); user-select: none; pointer-events:none;`,
+				style: `background-image: url(/static/images/icons/consumes/${name}.jpg);`,
+			}).on({
+				mouseenter: e => {
+					clearTooltip()
+					tooltip_v2(e)
+				},
+				mouseleave: e => {
+					clearTooltip()
+				},
+				mousemove: e => {
+					update_tooltip(e)
+				}
 			}), $('<span/>', {
 				class: `crafted-name ${craftedItemObj.rarity}`,
 				text: `${utilities.titleCase(name)}`,
+				name: `${name}`
+			}).on({
+				mouseenter: e => {
+					clearTooltip()
+					tooltip_v2(e)
+				},
+				mouseleave: e => {
+					clearTooltip()
+				},
+				mousemove: e => {
+					update_tooltip(e)
+				}
 			}), " ", $('<span/>', {
 				text: "[",
 			}), $('<span/>', {
@@ -149,24 +207,38 @@ function updateOrCreate(parentElem, consume_name, numAdded) {
 				matContainerJr = $('<span/>', {
 					class: 'material-container',
 					name: `${name}`
+				}).append($('<img/>', {
+					class: 'icon-small material-image',
+					name: `${name}`,
+					src: "/static/images/icons/small/icon_border.png",
+					style: `background-image: url(/static/images/icons/small/${image_name});`,
 				}).on({
 			        mouseenter: e => {
 			            clearTooltip()
-						e.stopPropagation()
-			            updatetooltip($(e.target).closest(".material-container"), 'material')
+			            tooltip_v2(e)
 			        },
 			        mouseleave: e => {
 			            clearTooltip()
 			        },
-			    }).append($('<img/>', {
-					class: 'icon-small',
-					src: "/static/images/icons/small/icon_border.png",
-					style: `background-image: url(/static/images/icons/small/${image_name}); user-select: none; pointer-events: none;`,
-				}), $('<span/>', {
-					class: `materials-name ${materialsObj.rarity}`,
-					name: name,
+					mousemove: e => {
+						update_tooltip(e)
+					}
+			    }), $('<span/>', {
+					class: `material-name ${materialsObj.rarity}`,
+					name: `${name}`,
 					text: `${properName}`,
-				}), " ", $('<span/>', {
+				}).on({
+			        mouseenter: e => {
+			            clearTooltip()
+			            tooltip_v2(e)
+			        },
+			        mouseleave: e => {
+			            clearTooltip()
+			        },
+					mousemove: e => {
+						update_tooltip(e)
+					}
+			    }), " ", $('<span/>', {
 					text: "[",
 				}), $('<span/>', {
 					class: 'amount',

@@ -88,68 +88,10 @@ const utilities = {
 
 
 const utilities_v2 = {
-	sanitize: function(str) {
-	    return str.toLowerCase().replace(/\s+/g, '_').replace("'", "")
-	},
-	titleCase: function(str) {
-	    let strArr = str.replace(/\_/g, ' ').split(' ')
-	    strArr.forEach(function(word, i) {
-	        if (!(word=='of' || word=='the') && typeof(word)=='string'){
-	            strArr[i] = word.charAt(0).toUpperCase() + word.slice(1)
-	        }
-	    })
-	    return strArr.join(' ')
-	},
 	getTooltipPosition: function(e, tooltip) {
-		let pageY = e.pageY
-		let pageX = e.pageX
-
-		let width = tooltip.width(), height = tooltip.height()
-		let element = $(e.target)
-		let spans = element.find('span')
-
 		this.coords = {}
-		console.log('offset left: ', element.offset().left, ' offset left: ', element.offset().top)
-
-		// console.log('tooltip position', tooltip.position())
-
-		// coeffs measure aproximately the % of the visible and usable screen
-		// the cursor is at (aka visible bottom of page to bottom of class selection bar)
-		let xCoeff = (element.offset().left/window.innerWidth)*100
-		let distanceFromTop = element.offset().top - $(window).scrollTop()
-		let yCoeff = (distanceFromTop/window.innerHeight)*100
-		let left = 0, top = 0
-
-		// let header = ($("#talentHeader").length) ? $("#talentHeader") : $("div.page-title")
-
-		let header = ($("#talentHeader").length) ? $("#talentHeader") : ($(".prof-header").length) ? $(".prof-header") : $("#class_selection")
-		let selectionElement = ($("#class_selection").length) ? $("#class_selection") : $("#prof_selection")
-		//checks to see if tooltip would collide with right side of page
-		if ((tooltip.width()+element.width()+element.offset().left+20) > window.innerWidth){
-			left = Math.round(element.offset().left) - 30 - tooltip.width()
-		} else {
-			left = Math.round(element.offset().left) + element.width() + 5
-		}
-
-		if (yCoeff < 30) {
-			top = Math.max(header.position().top, selectionElement.position().top) + 35
-			let percDiff = Math.round((1 - top/element.offset().top)*100)
-			if (percDiff >= 10) {
-				top = Math.floor(element.offset().top)
-			}
-		}
-		else if (yCoeff >= 30 && yCoeff < 70) {
-			// sets tooltip vertically centered with talent
-			// NOTE: not good for talent calc as the elements resize
-			// let a = (height - 40)/2
-			// top = $(e.target).offset().top - (a+20)
-			top = Math.floor(element.offset().top) - 20
-		} else {
-			let a = Math.floor(element.offset().top) + 30
-			top = a - height
-		}
-		this.coords.x = pageX+15
-		this.coords.y = pageY
+		this.coords.x = e.pageX+15
+		this.coords.y = e.pageY
 		return this.coords
 	},
 	bigdaddytooltip: function(e, ...args) {
@@ -162,10 +104,6 @@ const utilities_v2 = {
 			src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
 			style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/images/icons/consumes/${name}.jpg)`
 		}) : null
-		// const p = $('<p/>', {
-		// 	class: 'image-container'
-		// })
-		// p.append(image)
 
 		const tooltip = $('<div/>', {
 			class: 'tooltip-container',
