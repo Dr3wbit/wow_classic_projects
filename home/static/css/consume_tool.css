@@ -365,12 +365,12 @@ a.saveConsumeList{
 }
 
 .crafted-container {
-    pointer-events: all;
-    user-select: all;
-}
-.crafted-container > span,img {
     pointer-events: none;
     user-select: none;
+}
+.crafted-container.crafted-name {
+    pointer-events: all;
+    user-select: all;
 }
 .crafted-container > a{
     pointer-events: none;
