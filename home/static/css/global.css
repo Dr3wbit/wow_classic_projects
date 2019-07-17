@@ -597,7 +597,6 @@ ul {
     text-align: left;
     line-height: 17px;
     max-width: 320px;
-    position: absolute;
     display: block;
     background-color: rgba(0, 0, 30, 0.85) !important;
     color: rgba(240,255,255,0.95);
@@ -605,10 +604,19 @@ ul {
     border: 1px solid #b6bbc0;
     padding: 5px;
     margin: 5px;
+    margin-left: 2px;
     border-radius: 4px;
     box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
-    z-index: 500000;
     text-shadow: -0.01rem -0.01rem 0.01rem black;
+}
+
+#tooltip_container {
+    font-size: 100%;
+    text-align: left;
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    z-index: 500000;
 }
 
 .use {

@@ -14,7 +14,7 @@
                 style="background-image: url({% static item_image %}); user-select:none; pointer-events:none;">
             {% endwith %}
             {% load titlecase from custom_filters %}
-            <span class="crafted-name {{c.item.rarity}}">{{c.name|titlecase}}</span>
+            <span class="crafted-name {{c.item.rarity}}" name="{{c.name}}">{{c.name|titlecase}}</span>
             <span>[</span><span class="amount">{{c.amount}}</span><span>]</span>
         </span>
 
@@ -56,7 +56,7 @@
 <script>
 
 $(document).ready(function() {
-    load_handlers()
+    load_event_handlers()
 })
 
 var my_consume_list = JSON.parse(document.getElementById('hello-data').textContent)
@@ -73,17 +73,20 @@ function load_event_handlers() {
         mouseleave: e => {
             clearTooltip()
         },
+
     });
 
     $(".crafted-container").on({
         mouseenter: e => {
             clearTooltip()
-            e.stopPropagation()
-            updatetooltip($(e.target), 'consume')
+            tooltip_v2(e)
         },
         mouseleave: e => {
             clearTooltip()
         },
+        mousemove: e => {
+            update_tooltip(e)
+        }
     });
 
     $(".materials-list").on({
@@ -100,6 +103,45 @@ function load_event_handlers() {
             // let targetID = $(e.target).attr('id').replace('_collapse', '')
         },
     });
+}
+function tooltip_v2(e) {
+    const targetElement = $(e.target)
+    const name = targetElement.attr('name')
+
+    const thisObj = allConsumes[name]
+    const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
+    const rarity = thisObj.rarity
+    const tooltipElems = [{class: `title ${rarity}`, text: properName}]
+    if (thisObj.bop) {
+        tooltipElems.push({class: 'bop', text: "Binds when picked up",})
+    }
+    if (thisObj.unique) {
+        tooltipElems.push({class: 'unique', text: "Unique",})
+    }
+    let requirementText = ''
+    if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
+        requirementText = thisObj.req
+    } else {
+        requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? utilities.titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
+    }
+
+    if (thisObj.req || thisObj.stats) {
+        tooltipElems.push({class: 'requiredLevel', text: requirementText})
+    }
+    if (thisObj.use) {
+        tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
+    }
+    if (thisObj.description) {
+        tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
+    }
+    utilities_v2.bigdaddytooltip(e, tooltipElems)
+}
+
+function update_tooltip(e) {
+    let pageY = e.pageY
+    let pageX = e.pageX+15
+    const tooltip = $("#tooltip_container")
+    tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visiblity: visible;`)
 }
 
 

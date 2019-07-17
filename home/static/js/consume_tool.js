@@ -4,8 +4,8 @@ function stepValidator(n, step) {
 }
 
 function clearTooltip() {
-	$("#tooltip").empty()
-	$("#tooltip").hide()
+	$("#tooltip_container").empty()
+	$("#tooltip_container").hide()
 }
 
 function addCraftedItem(name, numAdded=1) {
@@ -280,9 +280,9 @@ function addSavedList(name) {
 
 
 
-function updatetooltip(target, matOrConsume='consume') {
-	const targetElement = target
-	const name = targetElement.attr('name')
+function updatetooltip(e, name, matOrConsume='consume') {
+
+	const targetElement = $(e.target)
 
 	const thisObj = (matOrConsume=='consume') ? allConsumes[name] : allMaterials[name]
 	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
@@ -310,5 +310,5 @@ function updatetooltip(target, matOrConsume='consume') {
 	if (thisObj.description) {
 		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
 	}
-	utilities.bigdaddytooltip(targetElement, tooltipElems)
+	utilities_v2.bigdaddytooltip(e, tooltipElems)
 }
