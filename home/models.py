@@ -93,6 +93,7 @@ class Item(models.Model):
 	)
 
 	# ilvl = models.PositiveSmallIntegerField(default=1)
+	image_name = models.CharField(max_length=50)
 	rarity = models.CharField(max_length=10, choices=RARITY_CHOICES, default='common')
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
