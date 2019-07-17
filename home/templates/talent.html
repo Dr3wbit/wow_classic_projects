@@ -71,6 +71,11 @@
 		{% include "talent_builder.html" %}
 	</div>
 
+	{% if spec %}
+	<h5> description: <span class="fix-me">{{spec.description}}</span></h5>
+	<h5> name: <span class="fix-me">{{spec.name}}</span></h5>
+	{% endif %}
+
 	{% if user.is_authenticated %}
 	{% include "save_form.html" %}
 	{% endif %}
