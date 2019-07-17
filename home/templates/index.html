@@ -138,19 +138,7 @@
                 <div class="col-12 row feed-footer">
                     <div class="col-4">
                         <span class="{{spec.obj.wow_class.name}}">{{spec.obj.wow_class.name|title}}</span>
-                        <span class="">
-                            (
-                            {% with trees=spec.obj.treeallotted_set.all %}
-                            {% for tree in trees %}
-                            {% if not tree == trees|first %}
-                            /
-                            {% else %}
-                            {% endif %}
-                            {{tree.invested}}
-                            {% endfor %}
-                            {% endwith %}
-                            )
-                        </span>
+                        <span class="">({% with trees=spec.obj.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
                     </div>
                     <div class="col-3">
 
@@ -176,6 +164,13 @@
                         {% endif %}
                         on
                         {{spec.obj.updated}}
+                        {% endif %}
+                        
+                        {% if request.user.is_staff %}
+                        <button class="btn btn-sm float-right flag-item" aria-label="Flag" title="Flag"
+        					style="font-size: margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
+        					<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+        				</button>
                         {% endif %}
                     </div>
                 </div>

@@ -338,7 +338,7 @@ class SavedList(models.Model):
 	name = models.CharField(max_length=30, default='')
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='testy test')
-	description = models.CharField(default='couple line of text...', max_length=300)
+	description = models.CharField(default='couple line of text...', max_length=1000)
 	private = models.BooleanField(default=False)
 	ratings = GenericRelation('Rating', related_query_name="%(class)s_rating")
 	created = models.DateTimeField(auto_now_add=True)
@@ -386,8 +386,8 @@ class Consume(models.Model):
 		return(self.item.materials)
 
 from home.signals import savedspec_limit, consumelist_limit
-#
-#
+
+
 # class Faction(models.Model):
 # 	FACTION_CHOICES = (
 # 		('A', 'Alliance'),
@@ -424,7 +424,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 		return titleCase(self.name)
 #
 # class Quest(models.Model):
-#
+#	tier = models.PositiveSmallIntegerField(default=0,  validators=[MinValueValidator(0), MaxValueValidator(60)])
 # 	start = models.ForeignKey('NPC')
 # 	end = models.ForeignKey('NPC')
 # 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
@@ -434,6 +434,8 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	description = models.CharField(max_length=1000)
 # 	progress = models.CharField(max_length=1000)
 # 	completion = models.CharField(max_length=1000)
+#	class Meta:
+#		unique_together = ['name', 'tier']
 
 # class Loot(models.Model):
 # 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
@@ -514,15 +516,15 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	)
 #
 # 	WEAPON_TYPES = (
-# 		('off-hand', 'Off-Hand'),
-# 		('one-hand', 'One-Hand'),
-# 		('main-hand', 'Main-Hand'),
+# 		('oh', 'Off-Hand'),
+# 		('1h', 'One-Hand'),
+# 		('mh', 'Main-Hand'),
 # 		('thrown', 'Thrown'),
 # 		('ranged', 'Ranged'),
-# 		('two-hand', 'Two-Hand'),
+# 		('2h', 'Two-Hand'),
 # 	)
 #
-# 	hand = models.CharField(max_length=50, choices=WEAPON_TYPES)
+# 	hand = models.CharField(max_length=6, choices=WEAPON_TYPES)
 # 	proficiency = models.CharField(max_length=50, choices=WEAPON_PROFICIENCIES)
 # 	max_damage = models.PositiveSmallIntegerField(default=2)
 # 	min_damage = models.PositiveSmallIntegerField(default=1)
