@@ -22,9 +22,11 @@ class APIView(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 
+
 		if request.user.groups.filter(name='admins').exists():
 
 			context = {}
+			context['recipes'] = Crafted.objects.filter(prof__name='alchemy')
 			context['consume_lists'] = ConsumeList.objects.all()
 			context['rangen'] = range(5)
 			context['specs'] = {}
