@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
@@ -165,9 +165,15 @@ class TalentCalcTemplate(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
+		if 'id' in request.session:
+			id = request.session['id']
+			context["spec"] = Spec.objects.get(id=id)
+			del request.session['id']
+
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
 		class_name = self.kwargs.get("class", None)
+
 		if class_name:
 			context["selected"] = class_name
 			context = self.talent_architect(context)
@@ -264,19 +270,59 @@ class TalentCalcTemplate(TemplateView):
 						}
 					)
 					t.save()
-
-
 		return data
 
+
+class TalentBuilderRedirectView(RedirectView):
+	query_string = False
+	pattern_name = 'talents'
+	permanent = False
+	url = "http://127.0.0.1:8000/talent_calc"
+
+	def get_redirect_url(self, *args, **kwargs):
+
+		if 'id' in self.request.session:
+			del self.request.session['id']
+
+		id = kwargs['id']
+		self.request.session['id'] = id
+		spec = Spec.objects.get(id=id)
+		class_name = spec.wow_class.name
+		qs = spec.hash
+		self.url = self.url+"/{}?{}".format(class_name, qs)
+
+		return self.url
+
+class ConsumeBuilderRedirectView(RedirectView):
+	query_string = False
+	pattern_name = 'consumes'
+	permanent = False
+	url = "http://127.0.0.1:8000/consume_tool"
+
+	def get_redirect_url(self, *args, **kwargs):
+
+		if 'id' in self.request.session:
+			del self.request.session['id']
+
+		id = kwargs['id']
+		self.request.session['id'] = id
+		cl = ConsumeList.objects.get(id=id)
+		qs = cl.hash
+		self.url = self.url+"?{}".format(qs)
+
+		return self.url
 
 class ConsumeToolTemplate(TemplateView):
 	form_class = ConsumeListForm
 
 	def get(self, request, *args, **kwargs):
-
+		context = {}
+		if 'id' in request.session:
+			id = request.session['id']
+			context["CL"] = ConsumeList.objects.get(id=id)
+			del request.session['id']
 
 		data = dict(request.GET)
-		context = {}
 		context["form"] = self.form_class()
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
@@ -332,7 +378,6 @@ class ConsumeToolTemplate(TemplateView):
 
 
 		if request.is_ajax():
-			print('\nconsume template, get req, is ajax\n')
 			if 'prof' in data.keys():
 				response = render(request, "recipe_helper.html", context=context)
 			else:
@@ -608,16 +653,8 @@ def delete_rating(request):
 					saved_list = ConsumeList.objects.get(id=id)
 
 			if saved_list:
-
-				print('saved_list: ', saved_list)
-				print('avg rating (before): ', saved_list.rating)
-				print('num ratings (before): ', saved_list.ratings.count())
-
 				rating = saved_list.ratings.filter(user=user).first()
 				rating.delete()
-
-				print('avg rating (after): ', saved_list.rating)
-				print('num ratings (after): ', saved_list.ratings.count())
 
 				data['success'] = True
 				data['average_rating'] = saved_list.rating
@@ -678,15 +715,9 @@ def delete_rating(request):
 
 			if saved_list:
 
-				print('saved_list: ', saved_list)
-				print('avg rating (before): ', saved_list.rating)
-				print('num ratings (before): ', saved_list.ratings.count())
 
 				rating = saved_list.ratings.filter(user=user).first()
 				rating.delete()
-
-				print('avg rating (after): ', saved_list.rating)
-				print('num ratings (after): ', saved_list.ratings.count())
 
 				data['success'] = True
 				data['average_rating'] = saved_list.rating
