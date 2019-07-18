@@ -14,332 +14,336 @@
 
 {% block mainbody %}
 <div class="mainBody container">
-	<div class="row selection-header sticky-top">
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" size="80" aria-label="Search">
-			<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-		</form>
-	</div>
-	<div class="row content-container mt-4">
-		<div class="col d-none mb-4 site-content">
-			<div class="sidebar-header">Site Content</div>
-			<div class="col sidebar-content">
-				<a class="sidebar-ref" href="specsAndGuides">Specs & Guides</a>
-				<p>If you need to know what consumes to bring to raid or a quick spec reference or you should check
-					out our Specs & Guides.</p>
-				<a class="sidebar-ref" href="consumeTool">Consumable Calculator</a>
-				<p>Getting your consumables crafted buy a guildie or crafting them yourself? Use our Consumable Tool
-					to find ot exactly what materials you need.</p>
-				<a class="sidebar-ref" href="talent">Talent Calculator</a>
-				<p>Want to mess around with your characters spec? Instead of wasting gold for an extra respec, plan
-					it out first with our Talent Calculator.</p>
-				<a class="sidebar-ref" href="enchantTool">Enchant Calculator</a>
-				<p>Got your preraid bis or a shiney new peice of gear from Molten Core? Use our Enchant Tool to get
-					all the correct materials before hitting up an enchanter.</p>
-				<a class="sidebar-ref" href="contact">Contact Us</a>
-				<p>Have an idea you'd like to see on the website? Found a bug? Send us a message and let us know
-					about it!</p>
-				<span>Classic WoW releases in:</span>
-				<div class="countdown"></div>
-			</div>
-		</div>
+    <div class="row selection-header sticky-top">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" size="80" aria-label="Search">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="row content-container mt-4">
+        <div class="col d-none mb-4 site-content">
+            <div class="sidebar-header">Site Content</div>
+            <div class="col sidebar-content">
+                <a class="sidebar-ref" href="specsAndGuides">Specs & Guides</a>
+                <p>If you need to know what consumes to bring to raid or a quick spec reference or you should check
+                    out our Specs & Guides.</p>
+                <a class="sidebar-ref" href="consumeTool">Consumable Calculator</a>
+                <p>Getting your consumables crafted buy a guildie or crafting them yourself? Use our Consumable Tool
+                    to find ot exactly what materials you need.</p>
+                <a class="sidebar-ref" href="talent">Talent Calculator</a>
+                <p>Want to mess around with your characters spec? Instead of wasting gold for an extra respec, plan
+                    it out first with our Talent Calculator.</p>
+                <a class="sidebar-ref" href="enchantTool">Enchant Calculator</a>
+                <p>Got your preraid bis or a shiney new peice of gear from Molten Core? Use our Enchant Tool to get
+                    all the correct materials before hitting up an enchanter.</p>
+                <a class="sidebar-ref" href="contact">Contact Us</a>
+                <p>Have an idea you'd like to see on the website? Found a bug? Send us a message and let us know
+                    about it!</p>
+                <span>Classic WoW releases in:</span>
+                <div class="countdown"></div>
+            </div>
+        </div>
 
 
-		{% for specname,spec in specs.items %}
-		<div class="col-12">
-			<div class="feedItem row mt-5">
-				<div class="col-4">
-					<div class="listImage"
-						style="background-image: url('static/images/icons/large/mini_spec/{{ spec.obj.wow_class.name }}.png')">
-						<div class="listIcon">
-							{% with "images/icons/large/class/"|add:spec.obj.wow_class.name|add:".jpg" as class_image %}
-							<img class="class-icon" src="{% static "images/icon_border_2.png" %}"
-								style="background-image: url('{% static class_image %}');">
-							{% endwith %}
-						</div>
-					</div>
-					<div class="row">
-					</div>
-				</div>
-				<div class="col-8">
-					<div class="row feed-header">
+        {% for specname,spec in specs.items %}
+        <div class="col-12">
+            <div class="feedItem row mt-5">
+                <div class="col">
+                    <div class="listImage"
+                        style="background-image: url('static/images/icons/large/mini_spec/{{ spec.obj.wow_class.name }}.png')">
+                        <div class="listIcon">
+                            {% with "images/icons/large/class/"|add:spec.obj.wow_class.name|add:".jpg" as class_image %}
+                            <img class="class-icon" src="{% static "images/icon_border_2.png" %}"
+                                style="background-image: url('{% static class_image %}');">
+                            {% endwith %}
+                        </div>
+                        <a style=" position : absolute; height: 125px; width: 180px;"href="{% url 'talent_builder' spec.obj.id %}?{{spec.obj.hash}}"></a>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row feed-header">
 
-					</div>
-					<div class="row feed-content">
-						<div class="col-8 feedTitle">
-							<a href="{% url 'talent_builder' spec.obj.id %}?{{spec.obj.hash}}">{{specname}}</a>
-						</div>
-						<div class="col-4">
+                    </div>
+                    <div class="row feed-content">
+                        <div class="col-8 feedTitle">
+                            <a href="{% url 'talent_builder' spec.obj.id %}?{{spec.obj.hash}}">{{specname}}</a>
+                        </div>
+                        <div class="col-4">
 
-							<div class="ratings-container" name="{{specname}}" data-id="{{spec.obj.id}}" data-wowclass="{{spec.obj.wow_class.name}}">
-										<span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">
-										{% if request.user.is_staff and spec.obj.user != request.user and spec.has_voted %}
-											<a href="" class="remove-rating">({{spec.obj.ratings.count}})</a>
-										{% else %}
-											({{spec.obj.ratings.count}})
-										{% endif %}
-										</span>
-							{% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
+                        </div>
+                    </div>
+                    <div class="row feed-content">
+                        <div class="col-12 feed-desc">
+                            {{spec.obj.description}}
+                        </div>
+                    </div>
+                    <hr class="row mt-2 mb-2"
+                        style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+                    </hr>
+                    <div class="row feed-content">
+                        {% for tag in spec.obj.tags.all %}
+                        <div class="feed-tag">{{tag.name}}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="row feed-content"></div>
+                </div>
+                <div class="col-12 row feed-footer">
+                    <div class="col-4">
+                        <span class="{{spec.obj.wow_class.name}}">{{spec.obj.wow_class.name|title}}</span>
+                        <span
+                            class="">({% with trees=spec.obj.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
+                    </div>
+                    <div class="col-3">
+                            <div class="ratings-container" name="{{specname}}" data-id="{{spec.obj.id}}"
+                            data-wowclass="{{spec.obj.wow_class.name}}">
+                            {% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
+                            <div class="star-box">
+                                {% widthratio spec.obj.rating 1 20 as width %}
+                                <div class="star-limiter" style="width:{{width|default:0}}%">
+                                    <div class="longbar">
+                                        {% for n in rangen %}
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star-bg">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- <p id="rating_data"></p> -->
+                            {% else %}
+                            <div class="star-box rating-vote">
+                                <div class="star-limiter" style="width: 0%">
+                                    <div class="longbar">
+                                        {% for n in rangen %}
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star-bg rating-vote">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <span
+                                style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 50px;">
+                                {% if request.user.is_staff and spec.obj.user != request.user and spec.has_voted %}
+                                <a href="" class="remove-rating">({{spec.obj.ratings.count}})</a>
+                                {% else %}
+                                ({{spec.obj.ratings.count}})
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-5 text-left">
+                        {% if spec.updated|date:"m/d/Y, P" == spec.created|date:"m/d/Y, P" %}
+                        Created By {% if spec.obj.user == request.user %}
+                        <a href="">me</a>
+                        {% elif not spec.obj.private %}
+                        <a href="">{{spec.obj.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
+                        on
+                        {{spec.obj.created}}
+                        {% else %}
+                        Last Edited By {% if spec.obj.user == request.user %}
+                        <a href="">me</a>
+                        {% elif not spec.obj.private %}
+                        <a href="">{{spec.obj.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
+                        on
+                        {{spec.obj.updated}}
+                        {% endif %}
 
-							  <div class="star-box">
-								  {% widthratio spec.obj.rating 1 20 as width %}
-								<div class="star-limiter" style="width:{{width|default:0}}%">
-								  <div class="longbar">
-									  {% for n in rangen %}
-									<span class="glyphicon glyphicon-star"></span>
-									  {% endfor %}
-								  </div>
-								</div>
-							  </div>
-							  <div class="star-bg">
-								  <div class="longbar">
-									  {% for n in rangen %}
-									<span class="glyphicon glyphicon-star"></span>
-									  {% endfor %}
-							  </div>
-							</div>
-							<!-- <p id="rating_data"></p> -->
-							{% else %}
-							<div class="star-box rating-vote">
-							  <div class="star-limiter" style="width: 0%">
-								<div class="longbar">
-									{% for n in rangen %}
-								  <span class="glyphicon glyphicon-star-empty"></span>
-									{% endfor %}
-								</div>
-							  </div>
-							</div>
-							<div class="star-bg rating-vote">
-								<div class="longbar">
-									{% for n in rangen %}
-								  <span class="glyphicon glyphicon-star-empty"></span>
-									{% endfor %}
-								</div>
-						  </div>
-							{% endif %}
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					</div>
-					<div class="row feed-content">
-						<div class="col-12 feed-desc">
-							{{spec.obj.description}}
-						</div>
-					</div>
-					<hr class="row mt-2 mb-2"
-						style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
-					</hr>
-					<div class="row feed-content">
-						{% for tag in spec.obj.tags.all %}
-						<div class="feed-tag">{{tag.name}}</div>
-						{% endfor %}
-					</div>
-					<div class="row feed-content"></div>
-				</div>
-				<div class="col-12 row feed-footer">
-					<div class="col-4">
-						<span class="{{spec.obj.wow_class.name}}">{{spec.obj.wow_class.name|title}}</span>
-						<span class="">({% with trees=spec.obj.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
-					</div>
-					<div class="col-3">
-
-					</div>
-					<div class="col-5 text-left">
-						{% if spec.updated|date:"m/d/Y, P" == spec.created|date:"m/d/Y, P" %}
-						Created By {% if spec.obj.user == request.user %}
-						<a href="">me</a>
-						{% elif not spec.obj.private %}
-						<a href="">{{spec.obj.user.disc_username}}</a>
-						{% else %}
-						anonymous
-						{% endif %}
-						on
-						{{spec.obj.created}}
-						{% else %}
-						Last Edited By {% if spec.obj.user == request.user %}
-						<a href="">me</a>
-						{% elif not spec.obj.private %}
-						<a href="">{{spec.obj.user.disc_username}}</a>
-						{% else %}
-						anonymous
-						{% endif %}
-						on
-						{{spec.obj.updated}}
-						{% endif %}
-
-						{% if request.user.is_staff %}
-						<button class="btn btn-sm float-right flag-item" aria-label="Flag" title="Flag"
-							style="font-size: margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
-							<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
-						</button>
-						{% endif %}
-					</div>
-				</div>
-			</div>
-		</div>
-		{% endfor %}
-
-
-		{% for cl_name,cl in consume_lists.items %}
-
-		<div class="col-12">
-			<div class="feedItem row mt-5">
-				<div class="col-4">
-					<div class="listImage">
-						<div class="listIcon">
-							<img class="class-icon" src="{% static "images/icon_border_2.png" %}">
-						</div>
-					</div>
-					<div class="row">
-					</div>
-				</div>
-				<div class="col-8">
-					<div class="row feed-header">
-
-					</div>
-					<div class="row feed-content">
-						<div class="col-8 feedTitle">
-							<a href="{% url 'consume_builder' cl.obj.id %}?{{cl.obj.hash}}">{{cl_name}}</a>
-						<div class="col-4">
-							<div class="ratings-container" name="{{cl_name}}" data-id="{{cl.obj.id}}">
-										<span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">
-										{% if request.user.is_staff and cl.obj.user != request.user and cl.has_voted %}
-											<a href="" class="remove-rating">({{cl.obj.ratings.count}})</a>
-										{% else %}
-											({{cl.obj.ratings.count}})
-										{% endif %}
-										</span>
-							{% if not request.user.is_authenticated or cl.has_voted or request.user == cl.obj.user %}
-
-							  <div class="star-box">
-								  {% widthratio cl.obj.rating 1 20 as width %}
-								<div class="star-limiter" style="width:{{width|default:0}}%">
-								  <div class="longbar">
-									  {% for n in rangen %}
-									<span class="glyphicon glyphicon-star"></span>
-									  {% endfor %}
-								  </div>
-								</div>
-							  </div>
-							  <div class="star-bg">
-								  <div class="longbar">
-									  {% for n in rangen %}
-									<span class="glyphicon glyphicon-star"></span>
-									  {% endfor %}
-							  </div>
-							</div>
-							<!-- <p id="rating_data"></p> -->
-							{% else %}
-							<div class="star-box rating-vote">
-							  <div class="star-limiter" style="width: 0%">
-								<div class="longbar">
-									{% for n in rangen %}
-								  <span class="glyphicon glyphicon-star-empty"></span>
-									{% endfor %}
-								</div>
-							  </div>
-							</div>
-							<div class="star-bg rating-vote">
-								<div class="longbar">
-									{% for n in rangen %}
-								  <span class="glyphicon glyphicon-star-empty"></span>
-									{% endfor %}
-								</div>
-						  </div>
-							{% endif %}
-							<div class="clearfix"></div>
-						</div>
-						</div>
-					</div>
-					<div class="row feed-content">
-						<div class="col-12 feed-desc">
-							{{cl.obj.description}}
-						</div>
-					</div>
-					<hr class="row mt-2 mb-2"
-						style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
-					</hr>
-					<div class="row feed-content">
-						{% for tag in cl.obj.tags.all %}
-						<div class="feed-tag">{{tag.name}}</div>
-						{% endfor %}
-					</div>
-					<div class="row feed-content"></div>
-				</div>
-				<div class="col-12 row feed-footer">
-					<div class="col-4">
-
-					</div>
-					<div class="col-3">
-						{% if  cl.obj.rating == None %}
-						No Rating Availible
-						{% else %}
-						{{cl.obj.rating}} Avg Rating ({{cl.obj.ratings.count}})
-						{% endif %}
-					</div>
-					<div class="col-5 text-left">
-						{% if cl.obj.created == cl.obj.updated %}
-						Created By {% if cl.obj.user.email == cl.obj.user.email %}
-						<a href="">me</a>
-						{% elif not cl.obj.private %}
-						<a href="">{{cl.obj.user.disc_username}}</a>
-						{% else %}
-						anonymous
-						{% endif %}
-						on
-						{{cl.obj.created}}
-						{% else %}
-						Last Edited By {% if cl.obj.user.email == request.user.email %}
-						<a href="">me</a>
-						{% elif not cl.obj.private %}
-						<a href="">{{cl.obj.user.disc_username}}</a>
-						{% else %}
-						anonymous
-						{% endif %}
-						on
-						{{cl.obj.updated}}
-						{% endif %}
-					</div>
-				</div>
-			</div>
-		</div>
-		{% endfor %}
+                        {% if request.user.is_staff %}
+                        <button class="btn btn-sm float-right flag-item" aria-label="Flag" title="Flag"
+                            style="font-size: margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;"
+                            type="button">
+                            <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
 
 
-		<div class=" pt-4 ">
-			<div class="card mb-3 bg-transparent border-light text-center">
-				<h5 class="card-header bg-transparent border-light text-light">
-					Changelog
-				</h5>
-				<div class="card-body text-light">
-					<p class="card-text text-left">4/29/2019</p>
-					<ul class="card-text text-left">
-						<li>
-							Added Specs and Guides Section.
-						</li>
-						<li>
-							Added Working Talent Calculator.
-						</li>
-						<li>
-							Updated Consume Tool to display more useful information.
-						</li>
-						<li>
-							Changed overall site style and design.
-						</li>
-					</ul>
-					<p class="card-text text-left">1/5/2019</p>
-					<ul class="card-text text-left">
-						<li>
-							Initial Launch with consume tool and enchant tool.
-						</li>
-					</ul>
-				</div>
-				<div class="card-footer text-muted border-light">
-					<p>We are constantly adding new things to Onybuff.com</p>
-				</div>
-			</div>
-		</div>
-	</div>
+        {% for cl_name,cl in consume_lists.items %}
+
+        <div class="col-12">
+            <div class="feedItem row mt-5">
+                <div class="col-4">
+                    <div class="listImage">
+                        <div class="listIcon">
+                            <img class="class-icon" src="{% static "images/icon_border_2.png" %}">
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row feed-header">
+
+                    </div>
+                    <div class="row feed-content">
+                        <div class="col-8 feedTitle">
+                            <a href="{% url 'consume_builder' cl.obj.id %}?{{cl.obj.hash}}">{{cl_name}}</a>
+                        </div>
+                        <div class="col-4">
+                            <div class="ratings-container" name="{{cl_name}}" data-id="{{cl.obj.id}}">
+                                <span
+                                    style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">
+                                    {% if request.user.is_staff and cl.obj.user != request.user and cl.has_voted %}
+                                    <a href="" class="remove-rating">({{cl.obj.ratings.count}})</a>
+                                    {% else %}
+                                    ({{cl.obj.ratings.count}})
+                                    {% endif %}
+                                </span>
+                                {% if not request.user.is_authenticated or cl.has_voted or request.user == cl.obj.user %}
+
+                                <div class="star-box">
+                                    {% widthratio cl.obj.rating 1 20 as width %}
+                                    <div class="star-limiter" style="width:{{width|default:0}}%">
+                                        <div class="longbar">
+                                            {% for n in rangen %}
+                                            <span class="glyphicon glyphicon-star"></span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star-bg">
+                                    <div class="longbar">
+                                        {% for n in rangen %}
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <!-- <p id="rating_data"></p> -->
+                                {% else %}
+                                <div class="star-box rating-vote">
+                                    <div class="star-limiter" style="width: 0%">
+                                        <div class="longbar">
+                                            {% for n in rangen %}
+                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="star-bg rating-vote">
+                                    <div class="longbar">
+                                        {% for n in rangen %}
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row feed-content">
+                            <div class="col-12 feed-desc">
+                                {{cl.obj.description}}
+                            </div>
+                        </div>
+                        <hr class="row mt-2 mb-2"
+                            style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+                        </hr>
+                        <div class="row feed-content">
+                            {% for tag in cl.obj.tags.all %}
+                            <div class="feed-tag">{{tag.name}}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="row feed-content"></div>
+                </div>
+                <div class="col-12 row feed-footer">
+                    <div class="col-4">
+
+                    </div>
+                    <div class="col-3">
+                        {% if  cl.obj.rating == None %}
+                        No Rating Availible
+                        {% else %}
+                        {{cl.obj.rating}} Avg Rating ({{cl.obj.ratings.count}})
+                        {% endif %}
+                    </div>
+                    <div class="col-5 text-left">
+                        {% if cl.obj.created == cl.obj.updated %}
+                        Created By {% if cl.obj.user.email == cl.obj.user.email %}
+                        <a href="">me</a>
+                        {% elif not cl.obj.private %}
+                        <a href="">{{cl.obj.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
+                        on
+                        {{cl.obj.created}}
+                        {% else %}
+                        Last Edited By {% if cl.obj.user.email == request.user.email %}
+                        <a href="">me</a>
+                        {% elif not cl.obj.private %}
+                        <a href="">{{cl.obj.user.disc_username}}</a>
+                        {% else %}
+                        anonymous
+                        {% endif %}
+                        on
+                        {{cl.obj.updated}}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        <div class=" pt-4 ">
+            <div class="card mb-3 bg-transparent border-light text-center">
+                <h5 class="card-header bg-transparent border-light text-light">
+                    Changelog
+                </h5>
+                <div class="card-body text-light">
+                    <p class="card-text text-left">4/29/2019</p>
+                    <ul class="card-text text-left">
+                        <li>
+                            Added Specs and Guides Section.
+                        </li>
+                        <li>
+                            Added Working Talent Calculator.
+                        </li>
+                        <li>
+                            Updated Consume Tool to display more useful information.
+                        </li>
+                        <li>
+                            Changed overall site style and design.
+                        </li>
+                    </ul>
+                    <p class="card-text text-left">1/5/2019</p>
+                    <ul class="card-text text-left">
+                        <li>
+                            Initial Launch with consume tool and enchant tool.
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer text-muted border-light">
+                    <p>We are constantly adding new things to Onybuff.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 
@@ -352,97 +356,97 @@
 
 {% block javascript %}
 <script>
-$(".glyphicon-star-empty").on({
-	mouseenter: e=> {
-		var target = $( e.target )
-		var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
-		var index = empty_stars.index( target )+1
-		for (var i=0;i<index;i++) {
-			$(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
-		}
+    $(".glyphicon-star-empty").on({
+        mouseenter: e => {
+            var target = $(e.target)
+            var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
+            var index = empty_stars.index(target) + 1
+            for (var i = 0; i < index; i++) {
+                $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
+            }
 
-	},
-	mouseleave: e=> {
-		let target = $( e.target )
-		let longbar = target.closest($("div.longbar"))
-		let stars = longbar.find($(".glyphicon"))
-		stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
-	},
-	mousedown: e=> {
-		// need some sort of confirmation here
-		var target = $( e.target )
-		var rating = target.closest($("div.longbar")).find($(".glyphicon-star")).length
-		var container = target.closest($(".ratings-container"))
-		var id = container.attr("data-id")
-		var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
-		var data = {
-			wow_class: wow_class,
-			id: id,
-			rating: rating
-		}
-		rate_saved_list(data)
-	}
-})
+        },
+        mouseleave: e => {
+            let target = $(e.target)
+            let longbar = target.closest($("div.longbar"))
+            let stars = longbar.find($(".glyphicon"))
+            stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
+        },
+        mousedown: e => {
+            // need some sort of confirmation here
+            var target = $(e.target)
+            var rating = target.closest($("div.longbar")).find($(".glyphicon-star")).length
+            var container = target.closest($(".ratings-container"))
+            var id = container.attr("data-id")
+            var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+            var data = {
+                wow_class: wow_class,
+                id: id,
+                rating: rating
+            }
+            rate_saved_list(data)
+        }
+    })
 
-function rate_saved_list(d) {
-	var spec = (d.wow_class) ? true : false
-	var rating = d.rating
-	var id = d.id
-	$.ajax({
-		method: "POST",
-		url: '/ajax/save_rating/',
-		data: {
-			'value': rating,
-			'id': id,
-			'spec': spec,
-		},
-		dataType: 'json',
+    function rate_saved_list(d) {
+        var spec = (d.wow_class) ? true : false
+        var rating = d.rating
+        var id = d.id
+        $.ajax({
+            method: "POST",
+            url: '/ajax/save_rating/',
+            data: {
+                'value': rating,
+                'id': id,
+                'spec': spec,
+            },
+            dataType: 'json',
 
-		success: function (data) {
-			console.log('data: ', data)
-			// TODO: remove elements that would allow user to potentially vote again
-		}
-	});
-}
+            success: function (data) {
+                console.log('data: ', data)
+                // TODO: remove elements that would allow user to potentially vote again
+            }
+        });
+    }
 
-{% if request.user.is_staff %}
+    {% if request.user.is_staff %}
 
-$("a.remove-rating").on({
-	click: e=> {
-		e.preventDefault()
-		var target = $( e.target )
+    $("a.remove-rating").on({
+        click: e => {
+            e.preventDefault()
+            var target = $(e.target)
 
-		var container = target.closest($(".ratings-container"))
-		var id = container.attr("data-id")
-		var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+            var container = target.closest($(".ratings-container"))
+            var id = container.attr("data-id")
+            var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
 
-		var data = {
-			wow_class: wow_class,
-			id: id,
-		}
-		delete_rating(data)
+            var data = {
+                wow_class: wow_class,
+                id: id,
+            }
+            delete_rating(data)
 
-	}
-})
+        }
+    })
 
-function delete_rating(d) {
-	var spec = (d.wow_class) ? true : false
-	var id = d.id
-	$.ajax({
-		method: "POST",
-		url: '/ajax/delete_rating/',
-		data: {
-			'id': id,
-			'spec': spec,
-		},
-		dataType: 'json',
+    function delete_rating(d) {
+        var spec = (d.wow_class) ? true : false
+        var id = d.id
+        $.ajax({
+            method: "POST",
+            url: '/ajax/delete_rating/',
+            data: {
+                'id': id,
+                'spec': spec,
+            },
+            dataType: 'json',
 
-		success: function (data) {
-			console.log('data: ', data)
-			// TODO: remove elements that would allow user to potentially vote again
-		}
-	});
-}
-{% endif %}
+            success: function (data) {
+                console.log('data: ', data)
+                // TODO: remove elements that would allow user to potentially vote again
+            }
+        });
+    }
+    {% endif %}
 </script>
 {% endblock javascript %}
