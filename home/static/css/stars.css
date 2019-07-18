@@ -39,3 +39,8 @@
 .rating-vote .glyphicon{
     cursor: pointer;
 }
+
+.ratings-container {
+  max-width: 150px;
+  min-width: 150px;
+}
