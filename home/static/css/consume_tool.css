@@ -1,49 +1,10 @@
-
-
-
-
 .blue {
     color: rgba(0, 37, 255, 1);
-}
-
-.circle {
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    background-color: rgb(44, 108, 128);
-    position: relative;
-}
-
-.circle::after {
-    content: " ";
-    position: absolute;
-    display: block;
-    background-color: rgba(240, 255,255,0.95);
-    height: 13px;
-    margin-top: -7px;
-    top: 50%;
-    left: 6px;
-    right: 6px;
-    z-index: 9;
-}
-
-.circle::before {
-    content: " ";
-    position: absolute;
-    display: block;
-    background-color: rgba(240, 255,255,0.95);
-    width: 11px;
-    margin-left: -6px;
-    left: 50%;
-    top: 6px;
-    bottom: 6px;
-    z-index: 9;
 }
 
 #totals-divider {
     margin: 2px 6px 12px 6px;
     border-color: rgba(240, 255,255,0.95);
-
 }
 
 .prof-header > div{
@@ -88,8 +49,6 @@
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    pointer-events: none;
-    user-select: none;
 }
 
 .materials-list-item {
@@ -100,29 +59,12 @@
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    pointer-events: none;
     text-indent: 15px;
 }
 
 .materials-list *{
     text-indent: 30px;
 }
-
-/* button.saveConsumeList{
-    background-image: url(../images/icons/save_icon.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 18px;
-    width: 16px;
-    border: none;
-    margin-right: 4px;
-    vertical-align: text-bottom;
-    background-color: transparent;
-}
-
-a.saveConsumeList{
-    cursor: pointer;
-} */
 
 #consumeListName {
     width: 65%;
@@ -162,160 +104,11 @@ a.saveConsumeList{
     background-color: rgba(10,10,160, 1);
 }
 
-/* .saved-lists-container{
-    padding: 5px;
-    padding-top: 0px;
-    background-image: url(../images/naga_sketch.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 1px 0;
-    border-radius: 1px;
-    border-right: 6px solid black;
-} */
-
-/* .saved-lists{
-    color: rgba(240, 255, 255, 0.95);
-    position: fixed;
-    z-index: 1025;
-    background-color: rgba(0, 0, 0, 0.95);
-    padding-left: 10px;
-    top: 173px;
-    min-height: 50vh;
-    max-height: 50vh;
-    overflow-y: scroll;
-    max-width: 200px;
-    min-width: 200px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    transform: translateX(-85%);
-    -webkit-transform: translateX(-85%);
-    animation: slide-in 1s forwards;
-    -webkit-animation: slide-in 1s forwards;
-    border-bottom: 5px solid #909caf;
-    border-top: 3px solid #909caf;
-    border-bottom-right-radius: 1px;
-    border-top-right-radius: 1px;
-    box-shadow: -0.01rem -0.01rem 0.1rem 0.1rem black;
-    text-align: left;
-    text-indent: 10px;
-}
-
-.saved-lists-title {
-    padding-top: 1px;
-    padding-bottom: 5px;
-    margin-top: 4px;
-} */
-
-/* .minimized{
-    animation: slide-out 1s forwards, glowing 5000ms 0.9s infinite alternate-reverse, glowing-text 5000ms 0.9s infinite;
-    -webkit-animation: slide-out 1s forwards, glowing 5000ms 0.9s infinite alternate-reverse, glowing-text 5000ms 0.9s infinite alternate-reverse;
-}
-
-.saved-lists::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-.side-nav-trigger{
-    max-width: 20px;
-    width: 20px;
-    padding: 0;
-    border: 1px black solid;
-    background-image: linear-gradient(to right,rgb(20, 20, 20), black,rgb(20, 20, 20));
-    background-repeat: no-repeat;
-}
-.side-nav-trigger:hover{
-    background-image: linear-gradient(to right,rgb(25, 25, 25), rgb(35, 35, 35),rgb(25, 25, 25));
-} */
-
-/* .trigger-icon{
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 34px;
-    width: 18px;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 44%;
-    pointer-events: none;
-    font-size: 18px;
-    color: rgba(240, 255, 255, 0.95);
-}
-
-.iconSwitch{
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-} */
-
-/* @keyframes slide-in {
-    100% { transform: translateX(0%); }
-}
-
-@-webkit-keyframes slide-in {
-    100% { -webkit-transform: translateX(0%); }
-}
-
-@keyframes slide-out {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-85%); }
-}
-
-@-webkit-keyframes slide-out {
-    0% { -webkit-transform: translateX(0%); }
-    100% { -webkit-transform: translateX(-85%); }
-}
-
-.form-check-label {
-    position: relative;
-    right: 5px;
-}
-
-@keyframes glowing {
-
-
-
-  0% { box-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.15), -0.02rem -0.02rem 0.5rem 1px rgba(211, 158, 0, 0.1), -0.01rem -0.01rem 0.1rem 0.1rem black; }
-  10% { box-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.25), -0.02rem -0.02rem 0.5rem 1px rgba(211, 158, 0, 0.2), -0.01rem -0.01rem 0.1rem 0.1rem black; }
-  20% { box-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.35), -0.01rem -0.01rem 0.5rem 1px rgba(211, 158, 0, 0.3), -0.01rem -0.01rem 0.1rem 0.1rem black; }
-  40% { box-shadow: 0.02rem 0.02rem 0.5rem 1px rgba(165, 165, 243, 0.55), 0.04rem 0.04rem 0.5rem 1px rgba(211, 158, 0, 0.4), -0.01rem -0.01rem 0.1rem 0.1rem black; }
-  65% { box-shadow: 0.02rem 0.02rem 0.5rem 1px rgba(165, 165, 243, 0.55), 0.04rem 0.04rem 0.5rem 1px rgba(211, 158, 0, 0.4), -0.01rem -0.01rem 0.1rem 0.1rem black; }
-  85% { box-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.30), -0.02rem -0.02rem 0.5rem 1px rgba(211, 158, 0, 0.3), -0.01rem -0.01rem 0.1rem 0.1rem black; }
-  100% { box-shadow: -0.01rem -0.01rem 0.5rem 1px rgba(165, 165, 243, 0.15), -0.01rem -0.01rem 0.5rem 1px rgba(211, 158, 0, 0.2), -0.01rem -0.01rem 0.1rem 0.1rem black; }
-
-}
-
-
-.savedConsumeList {
-    margin: 8px 0px 8px 5px;
-}
-
-.saveConsumeList {
-    padding: 0;
-    line-height: inherit;
-} */
-
-
 #separator {
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     width: 100%
 }
-
-
-/* .prof-item-recipe {
-    margin-top: 1px;
-    cursor: pointer;
-    border: 2px black solid;
-    display: block;
-    text-overflow: ellipsis;
-    border-radius: 1px;
-    pointer-events: none;
-    text-indent: 15px;
-    user-select: none;
-} */
 
 .icon-medium {
     width: 42px;
@@ -328,15 +121,6 @@ a.saveConsumeList{
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
     pointer-events: all;
 }
-
-/* .reagant-list {
-    margin-top: 1px;
-    flex: 36%;
-    max-width: 36%;
-    border: 2px black solid;
-    border-left: 2px solid white;
-    border-radius: 1px;
-} */
 
 .recipe-container {
     pointer-events: auto;
@@ -364,24 +148,11 @@ a.saveConsumeList{
     text-decoration: solid underline;
 }
 
-.crafted-container {
-    pointer-events: all;
-    user-select: all;
-}
-.crafted-container > span,img {
-    pointer-events: none;
-    user-select: none;
-}
-.crafted-container > a{
-    pointer-events: none;
-    user-select: none;
-}
-
 .crafted-container:hover > span {
     text-decoration: solid underline;
 }
 
-.materials-name {
+.material-name {
     cursor: default;
 }
 
@@ -392,7 +163,6 @@ a.saveConsumeList{
     right: 2px;
     text-decoration: none;
     color: azure;
-    pointer-events: none;
     -webkit-text-stroke: 0.01rem black;
     z-index: 10;
 }
@@ -404,7 +174,6 @@ a.saveConsumeList{
 .prof-item-recipe {
     margin-bottom: 4px;
     cursor: pointer;
-
     background-color: #101010;
     display: block;
     text-overflow: ellipsis;
@@ -429,67 +198,6 @@ a.saveConsumeList{
 .reagant-list {
     margin-bottom: 4px;
     background-color: #101010;
-}
-
-.recipe-container {
-    pointer-events: auto;
-    user-select: auto;
-}
-
-.recipe-container:hover > span {
-    text-decoration: solid underline;
-}
-
-#recipe_list {
-    overflow-y: scroll;
-    text-align: left;
-    pointer-events: auto;
-    padding-top: 10px;
-}
-
-.material-container {
-    pointer-events: auto;
-    user-select: auto;
-}
-
-.material-container:hover > span {
-    text-decoration: solid underline;
-}
-
-.crafted-container {
-    pointer-events: all;
-    user-select: all;
-}
-.crafted-container > span,img {
-    pointer-events: none;
-    user-select: none;
-}
-.crafted-container > a{
-    pointer-events: none;
-    user-select: none;
-}
-
-.crafted-container:hover > span {
-    text-decoration: solid underline;
-}
-
-.materials-name {
-    cursor: default;
-}
-
-.material-count {
-    font-size: 11px;
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    /* margin-right: 5px; */
-    /* left: -8px; */
-    /* top: 6px; */
-    text-decoration: none;
-    color: azure;
-    pointer-events: none;
-    -webkit-text-stroke: 0.01rem black;
-    z-index: 10;
 }
 
 .reagant-list-container {

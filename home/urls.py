@@ -26,6 +26,7 @@ urlpatterns = [
     path('ajax/delete_rating/', views.delete_rating, name='delete_rating'),
     path('thanks', views.ThanksView.as_view(), name='thanks'),
     path('denied', views.DeniedView.as_view(), name='denied'),
+    path('ajax/tooltip/', views.ajax_tooltip, name='ajax_tooltip')
     # path('ajax/save_list/', views.save_list, name='save_list'),
     # re_path(r'^test/', views.TalentsRedirectView.as_view(), name='talents_redirect'),
     # re_path(r'^test/(?P<class>[a-z]{5,12})/', views.TalentsRedirectView.as_view(), name='talents_redirect'),

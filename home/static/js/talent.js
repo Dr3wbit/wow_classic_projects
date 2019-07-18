@@ -348,8 +348,7 @@ function talentHandler() {
 		},
 
 		mouseleave: e => {
-			$("#tooltip").hide()
-			$("#tooltip").children().remove()
+			clearTooltip()
 		},
 
 		mousedown: e => {
@@ -359,14 +358,19 @@ function talentHandler() {
 	})
 }
 
+function clearTooltip() {
+	$("#tooltip_container").hide()
+	$("#tooltip_container").children().remove()
+}
+
 function mouseDownHandler(e = null, talent, tree) {
 	var manuallyClicked = false
 	if (e) {
 		manuallyClicked = true
 		var targetTalent = $(e.target)
 
-		$("#tooltip").hide()
-		$("#tooltip").children().remove()
+		clearTooltip()
+
 
 		// var treeName = targetTalent.closest('div.talentTable')[0].id
 		var treeName = utilities.titleCase(targetTalent.closest('div.talentTable')[0].id)

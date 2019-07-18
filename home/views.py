@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
+from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page, never_cache
@@ -22,9 +22,11 @@ class APIView(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 
+
 		if request.user.groups.filter(name='admins').exists():
 
 			context = {}
+			context['recipes'] = Crafted.objects.filter(prof__name='alchemy')
 			context['consume_lists'] = ConsumeList.objects.all()
 			context['rangen'] = range(5)
 			context['specs'] = {}
@@ -772,3 +774,31 @@ def load_spec(request):
 
 def save_consume_list(request):
 	pass
+
+def ajax_tooltip(request):
+	data = {}
+	name = request.GET.get('name', None)
+	item = Item.objects.get(name=name)
+	
+	data['name'] = name
+	data['rarity'] = item.rarity
+	data['image_name'] = item.image_name
+
+	if item.description:
+		data['description'] = item.description
+
+	if item.unique:
+		data['unique'] = item.unique
+
+	if item.use:
+		data['use'] = item.use
+
+	if item.bop:
+		data['bop'] = item.bop
+
+	if item.required_level:
+		data['required_level'] = item.required_level
+
+
+	response = JsonResponse(data)
+	return response
