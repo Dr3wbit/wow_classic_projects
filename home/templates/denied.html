@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts_and_styles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}">
+{% endblock scripts_and_styles %}
+
+{% block title_splash %}
+{% endblock title_splash %}
+
+ {% block class_selection %}
+ <div class="row class-selection nav-is-sticky" id="class_selection">
+ </div>
+ {% endblock class_selection %}
+
+
+ {% block mainbody %}
+
+ <div class="container mainBody">
+     <div class="container titleSplash">
+         <div class="page-title">Permission Denied
+         </div>
+     </div>
+     <div class="row about-section">
+         <div class="col-2"></div>
+         <div class="col-8 formContainer">
+             <div id="form-messages"></div>
+         </div>
+         <div class="col-2"></div>
+     </div>
+ </div>
+ <br>
+ {% endblock mainbody %}

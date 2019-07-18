@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}- Consume Tool{% endblock title %}
+
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/consume_tool.css" %}">
+<script>
+
+if (performance.navigation.type == 1) {
+    let myurl = new URL(window.location)
+    myurl.search = ''
+    history.replaceState(null, null, myurl)
+    $("#total_crafted").hide()
+    $("#total_materials").hide()
+}
+
+</script>
+
+{% endblock extra_head %}
+
+{% block mainbody %}
+<div class="mainBody container">
+
+    {% block class_selection %}
+    <div class="row prof-selection sticky-top" id="prof_selection">
+
+        {% for prof in professions %}
+        <a class="prof-filter {% if prof == selected %}selected{% endif %}" id="{{prof}}"
+            href="{% url 'recipes' prof|default:"alchemy" %}">
+            {% with "images/icons/large/professions/"|add:prof|add:".jpg" as prof_image %}
+            <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}"
+                style="background-image: url('{% static prof_image %}');">
+            {% endwith %}
+        </a>
+        {% endfor %}
+    </div>
+    {% endblock class_selection %}
+    <div class="mainContent container">
+    <div class="row justify-content-center prof-header">
+        <div class="col-lg-8 col-12 columnTitle">Recipes</div>
+        <div class="col-lg-4 col-12 columnTitle d-none d-lg-block">
+        </div>
+        <!-- <div class="col-lg-3 col-12 columnTitle d-none d-lg-block">Materials</div> -->
+    </div>
+    <div class="row prof-header sticky-top" style="top: 15vh;">
+        <div class="col-xl-8 col-12">
+            <div class="row">
+                    <div class="col-8 columnTitle">Name</div>
+                    <div class="col-4 columnTitle">Reagants</div>
+            </div>
+        </div>
+        <div class="col-xl-4 d-none d-xl-block columnTitle">Items</div>
+    </div>
+
+    <div class="row">
+        <div id="recipe_list" class="col-xl-8 col-12 pageColumn custom-scroll-bar">
+            {% if whole_page %}
+            {% include "recipe_helper.html" %}
+            {% endif %}
+        </div>
+        <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
+            {% if whole_page %}
+            {% include "consume_helper.html" %}
+            {% endif %}
+        </div>
+    </div>
+
+    {% if CL %}
+    <div>
+        <h5>name: <span class="fix-me">{{CL.name}}</span></h5>
+        <h5>description: <span class="fix-me">{{CL.description}}</span></h5>
+
+        <ul>
+        {% for consume in CL.consumes.all %}
+
+        <li>name: <span class="fix-me">{{consume.name}}</span>, amount: <span class="fix-me">{{consume.amount}}</span></li>
+
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    {% include "save_form.html" %}
+    {% endif %}
+
+    </div>
+</div>
+{% endblock mainbody %}
+
+{% block javascript %}
+<script src="{% static "js/utilities.js" %}"></script>
+<script src="{% static "js/all_materials.js" %}"></script>
+<script src="{% static "js/all_consumes.js" %}"></script>
+<script src="{% static "js/consume_tool.js" %}"></script>
+
+
+<script>
+
+// $( window ).on('beforeunload')
+
+
+
+$(document).ready(function() {
+    if (performance.navigation.type == 1) {
+        console.log('consume tool ready')
+        my_consume_list = {}
+        $("#total_crafted").empty()
+        $("#total_materials").empty()
+        update_url('', '?')
+    }
+    load_handlers()
+ });
+
+
+function load_handlers() {
+    $(".prof-filter").on({
+        click: e => {
+            e.preventDefault()
+            var prof = $(e.target)[0].id;
+            build_recipe_list(prof);
+        }
+    });
+}
+
+function build_recipe_list(prof, spec_name = '') {
+    $.ajax({
+        url: `/consume_tool/${prof}`,
+        data: {
+            'prof': prof,
+        },
+        dataType: 'html',
+
+        success: function (data) {
+            let selected = $("button.prof-filter.selected").attr("id");
+            if (selected != prof) {
+                $("#recipe_list").html(data);
+                $(".prof-filter").removeClass('selected');
+                $(`#${prof}`).addClass('selected');
+            }
+            update_url(prof, document.location.search)
+        }
+    });
+}
+
+function update_url(prof_name='', search) {
+	console.log('updating url')
+	let url = new URL(document.location)
+    if (prof_name) {
+        url.pathname = `consume_tool/${prof_name}`
+    }
+    url.search = search
+	history.replaceState(null, null, url)
+}
+
+</script>
+{% endblock javascript %}

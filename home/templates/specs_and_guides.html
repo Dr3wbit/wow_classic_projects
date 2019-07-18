@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131655338-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-131655338-1');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Ony Buff</title>
+	<link rel="icon" type="image/png" href="assets/images/onybuff_icon.png" />
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/global.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/specsAndGuides.css">
+
+    <script src="assets/js/specs_and_guides_data.js"></script>
+	<script src="assets/js/hb/handlebars-v4.1.2.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-offset="200">
+	<div id="nav-container" class="container">
+
+<div class="row">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark col-12 steel-textured">
+        <a class="navbar-brand" href="index">
+            <img src="assets/images/onybuff_logo_lightblue.png" width="33" height="40" alt="">
+            <!-- <span class="navbar-logo-text">Ony Buff</span> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item nav-item-selected">
+                    <a class="nav-link nav-link-selected" href="specsAndGuides">Specs &amp; Guides</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="talent">Talent Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="consumeTool">Consumable Tool</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="enchantTool">Enchant Tool</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact</a>
+                </li>
+						</ul>
+						<div class="discordLink" >
+								<a href="https://discord.gg/MKfVQhm" target="_blank"><span class="clickable"></span></a>
+				</div>
+        </div>
+    </nav>
+</div>
+</div>
+<div class="container titleSplash">
+	<div class="page-title">
+		<div class="p-3 page-description"></div>
+	</div>
+</div>
+
+	<div id="main-container" class="container mainBody">
+		<div class="row class-selection sticky-top pt-1 nav-is-sticky steel-textured" id="class_selection">
+            <div class="class-filter selected" id="warrior">
+                <img class="class-icon warrior" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/warrior.jpg');">
+            </div>
+            <div class="class-filter" id="mage">
+                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/mage.jpg');">
+            </div>
+            <div class="class-filter" id="druid">
+                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/druid.jpg');">
+            </div>
+            <div class="class-filter" id="paladin">
+                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/paladin.jpg');">
+            </div>
+            <div class="class-filter" id="shaman">
+                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/shaman.jpg');">
+            </div>
+            <div class="class-filter" id="warlock">
+                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/warlock.jpg');">
+            </div>
+            <div class="class-filter" id="priest">
+                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/priest.jpg');">
+            </div>
+            <div class="class-filter" id="hunter">
+                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/hunter.jpg');">
+            </div>
+            <div class="class-filter" id="rogue">
+                <img class="class-icon" src="assets/images/icon_border_2.png" style="background-image: url('assets/images/icons/large/class/rogue.jpg');">
+            </div>
+    </div>
+		<div class="row">
+			<div class="content-selection-container col-2 d-none d-lg-block list-group sticky-top align-self-start"
+				id="scroll_parent">
+				<div class="information-selection">
+					<a class="list-group-item" href="#pve_specs">PvE Talents</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#pvp_specs">PvP Talents</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#raid_consumes">Raid Consumes</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#pvp_consumes">PvP Consumes</a>
+				</div>
+				<!-- <div class="information-selection">
+					<a class="list-group-item" href="#preraid_bis">Preraid BiS</a>
+				</div>
+				<div class="information-selection">
+					<a class="list-group-item" href="#bis">BiS</a>
+				</div> -->
+			</div>
+			<div data-target="#scroll_parent" class="col information-container">
+
+				<div id="pve_specs">
+				</div>
+
+				<div id="pvp_specs">
+				</div>
+			</div>
+			<div class="col-2 d-none d-lg-block"></div>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<span class="text-muted">&copy Ony Buff 2019</span>
+	</footer>
+
+</body>
+
+<script id="specAndGuides-block-template" type="text/x-handlebars-template">
+
+  {{#each specs as |spec|}}
+    <div class="information-block row">
+        <div class="content-title col-12">({{spec.focus}})  {{spec.name}}</div>
+		<div class="content col-12">
+			<img src="{{spec.image}}" class="img-fluid" style="width: 80% height: auto">
+		</div>
+		<a class="calcLink" href="{{spec.href}}" target="_blank">Show on Talent Calculator</a>
+		<div class="content-description">
+				<div class="content-text col-12">
+				<ul class="content-list">
+					{{#each spec.description as |description|}}
+					  <li class="description-text">{{description}}</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+    </div>
+  {{/each}}
+</script>
+<script src="assets/js/specsAndGuides.js"></script>
+
+</html>

@@ -1,0 +1,129 @@
+.mainHeader {
+    text-align: left;
+    color: azure;
+}
+
+.sidebar-header{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: azure;
+}
+
+.sidebar-content{
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: left;
+    color: azure;
+    padding: 10px;
+}
+
+.sidebar-ref{
+    font-size: 14px;
+    color: #ff3604;
+}
+.sidebar-ref:hover{
+    color: #FFCD55;
+}
+
+.card{
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    color: azure !important;
+    border-color: azure !important;
+}
+
+.carousel-caption {
+    text-shadow:
+    -1px -1px 0 #000,
+     0   -1px 0 #000,
+     1px -1px 0 #000,
+     1px  0   0 #000,
+     1px  1px 0 #000,
+     0    1px 0 #000,
+    -1px  1px 0 #000,
+    -1px  0   0 #000;
+}
+
+
+.property-key {
+    text-decoration: underline;
+}
+
+table,
+td {
+    border: 1px solid white;
+}
+
+thead,
+tfoot {
+    border: 1px solid grey;
+}
+
+.listImage {
+    height: 125px;
+    width: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: auto;
+    margin-top: 15px;
+    -webkit-box-shadow: 0 0 7px 1px black;
+    -moz-box-shadow: 0 0 7px 1px black;
+    box-shadow: 0 0 7px 1px black;
+}
+
+.listImage:hover {
+    -webkit-box-shadow: 0 0 7px 4px #ffc107;
+    -moz-box-shadow: 0 0 7px 4px #ffc107;
+    box-shadow: 0 0 7px 4px #ffc107;
+    cursor: pointer;
+}
+
+.listIcon{
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    margin-left: -21px;
+}
+
+.feedItem {
+    background-color: #272727;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 4px 4px 2px black;
+    max-width: 850px;
+}
+
+.feed-header {
+    margin-top: 5px;
+}
+
+.feed-tag {
+    border: 1px solid black;
+    padding: 3px;
+    background-color: #222222;
+    border-radius: 5px;
+    margin: 2px;
+    font-size: 80%;
+
+}
+
+.feedTitle{
+    font-size: 220%;
+}
+
+a{
+    color: #5985ba;
+}
+
+a:hover{
+    color: #ffc107;
+}
+
+.feed-footer {
+    text-align: center;
+    margin-bottom: 3px;
+    margin-top: 5px;
+}
+
+.feed-desc {
+    text-overflow: ellipsis;
+    min-height: 35.2px;
+}
