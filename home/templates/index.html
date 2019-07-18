@@ -136,7 +136,7 @@
                             </div>
                             {% endif %}
                             <span
-                                style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 50px;">
+                                style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 45px;">
                                 {% if request.user.is_staff and spec.obj.user != request.user and spec.has_voted %}
                                 <a href="" class="remove-rating">({{spec.obj.ratings.count}})</a>
                                 {% else %}
@@ -204,55 +204,7 @@
                             <a href="{% url 'consume_builder' cl.obj.id %}?{{cl.obj.hash}}">{{cl_name}}</a>
                         </div>
                         <div class="col-4">
-                            <div class="ratings-container" name="{{cl_name}}" data-id="{{cl.obj.id}}">
-                                <span
-                                    style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">
-                                    {% if request.user.is_staff and cl.obj.user != request.user and cl.has_voted %}
-                                    <a href="" class="remove-rating">({{cl.obj.ratings.count}})</a>
-                                    {% else %}
-                                    ({{cl.obj.ratings.count}})
-                                    {% endif %}
-                                </span>
-                                {% if not request.user.is_authenticated or cl.has_voted or request.user == cl.obj.user %}
 
-                                <div class="star-box">
-                                    {% widthratio cl.obj.rating 1 20 as width %}
-                                    <div class="star-limiter" style="width:{{width|default:0}}%">
-                                        <div class="longbar">
-                                            {% for n in rangen %}
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="star-bg">
-                                    <div class="longbar">
-                                        {% for n in rangen %}
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <!-- <p id="rating_data"></p> -->
-                                {% else %}
-                                <div class="star-box rating-vote">
-                                    <div class="star-limiter" style="width: 0%">
-                                        <div class="longbar">
-                                            {% for n in rangen %}
-                                            <span class="glyphicon glyphicon-star-empty"></span>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="star-bg rating-vote">
-                                    <div class="longbar">
-                                        {% for n in rangen %}
-                                        <span class="glyphicon glyphicon-star-empty"></span>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                {% endif %}
-                                <div class="clearfix"></div>
-                            </div>
                         </div>
                     </div>
                         <div class="row feed-content">
@@ -275,11 +227,54 @@
 
                     </div>
                     <div class="col-3">
-                        {% if  cl.obj.rating == None %}
-                        No Rating Availible
-                        {% else %}
-                        {{cl.obj.rating}} Avg Rating ({{cl.obj.ratings.count}})
-                        {% endif %}
+                        <div class="ratings-container" name="{{cl_name}}" data-id="{{cl.obj.id}}">
+                            <span
+                                style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:20px">
+                                {% if request.user.is_staff and cl.obj.user != request.user and cl.has_voted %}
+                                <a href="" class="remove-rating">({{cl.obj.ratings.count}})</a>
+                                {% else %}
+                                ({{cl.obj.ratings.count}})
+                                {% endif %}
+                            </span>
+                            {% if not request.user.is_authenticated or cl.has_voted or request.user == cl.obj.user %}
+
+                            <div class="star-box">
+                                {% widthratio cl.obj.rating 1 20 as width %}
+                                <div class="star-limiter" style="width:{{width|default:0}}%">
+                                    <div class="longbar">
+                                        {% for n in rangen %}
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star-bg">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- <p id="rating_data"></p> -->
+                            {% else %}
+                            <div class="star-box rating-vote">
+                                <div class="star-limiter" style="width: 0%">
+                                    <div class="longbar">
+                                        {% for n in rangen %}
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star-bg rating-vote">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="col-5 text-left">
                         {% if cl.obj.created == cl.obj.updated %}

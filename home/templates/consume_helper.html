@@ -4,17 +4,17 @@
 
     {% for c in cl.consumes.all %}
     <div class="crafted-list-item" name="{{c.name}}">
-        <span class="crafted-container" role="button" name="{{c.name}}" href="#{{c.name}}_collapse"
+        <span class="crafted-container" role="button" href="#{{c.name}}_collapse"
             data-toggle="collapse" aria-expanded="false">
             <a class="btn btn-sm plus">
                 <span class="glyphicon glyphicon-triangle-right" style="color: azure;"></span>
             </a>
             {% with "images/icons/consumes/"|add:c.name|add:".jpg" as item_image %}
-            <img class="icon-small" src="{% static "images/icons/small/icon_border.png" %}"
-                style="background-image: url({% static item_image %}); user-select:none; pointer-events:none;">
+            <img name="{{c.name}}" class="icon-small" src="{% static "images/icons/small/icon_border.png" %}"
+                style="background-image: url({% static item_image %});">
             {% endwith %}
             {% load titlecase from custom_filters %}
-            <span class="crafted-name {{c.item.rarity}}">{{c.name|titlecase}}</span>
+            <span class="crafted-name {{c.item.rarity}}" name="{{c.name}}">{{c.name|titlecase}}</span>
             <span>[</span><span class="amount">{{c.amount}}</span><span>]</span>
         </span>
 
@@ -41,11 +41,11 @@
     <span id="separator" class="col-12">Totals</span>
     <div id="total_materials" class="col-12">
         {% for mat_name,v in materials.items %}
-        <div class="materials-list-item" name="{{mat_name}}">
+        <div class="materials-list-item">
             <span class="material-container" name="{{mat_name}}">
-                <img class="icon-small" src="{% static "images/icons/small/icon_border.png" %}"
-                    style="background-image: url({% static "images/icons/small/"|add:mat_name|add:".jpg" %}); user-select:none; pointer-events:none;">
-                    <span class="materials-name {{v.rarity}}" name="{{mat_name}}">{{mat_name|titlecase}}</span>
+                <img class="icon-small material-image" src="{% static "images/icons/small/icon_border.png" %}"
+                    style="background-image: url({% static "images/icons/small/"|add:mat_name|add:".jpg" %});">
+                    <span class="material-name {{v.rarity}}" name="{{mat_name}}">{{mat_name|titlecase}}</span>
                     <span>[</span><span>{{v.value}}</span><span>]</span>
             </span>
         </div>
@@ -56,7 +56,7 @@
 <script>
 
 $(document).ready(function() {
-    load_handlers()
+    load_event_handlers()
 })
 
 var my_consume_list = JSON.parse(document.getElementById('hello-data').textContent)
@@ -73,17 +73,20 @@ function load_event_handlers() {
         mouseleave: e => {
             clearTooltip()
         },
+
     });
 
-    $(".crafted-container").on({
+    $(".crafted-name, .crafted-image, .material-name, .material-image").on({
         mouseenter: e => {
             clearTooltip()
-            e.stopPropagation()
-            updatetooltip($(e.target), 'consume')
+            tooltip_v2(e)
         },
         mouseleave: e => {
             clearTooltip()
         },
+        mousemove: e => {
+            update_tooltip(e)
+        }
     });
 
     $(".materials-list").on({
