@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from home.models import WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
@@ -10,6 +10,7 @@ from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint failed
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.contenttypes.models import ContentType
 
 import re
 
@@ -66,7 +67,6 @@ class IndexView(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
-		context['consume_lists'] = ConsumeList.objects.all()
 		context['rangen'] = range(5)
 		context['specs'] = {}
 
@@ -79,13 +79,17 @@ class IndexView(TemplateView):
 				if spec.ratings.filter(user=request.user).exists():
 					context['specs'][spec.name]['has_voted'] = True
 
-		context['saved_lists'] = {}
-		for cl in context['consume_lists']:
+		context['consume_lists'] = {}
+		for cl in ConsumeList.objects.all():
 			name = cl.name
-			context['saved_lists'][name] = {}
-			context['saved_lists'][name]['user'] = cl.user
-			context['saved_lists'][name]['hash'] = cl.hash
-			context['saved_lists'][name]['consumes'] = {}
+			context['consume_lists'][name] = {}
+			context['consume_lists'][name]['obj'] = cl
+			context['consume_lists'][name]['has_voted'] = False
+			context['consume_lists'][name]['consumes'] = {}
+
+			if request.user.is_authenticated:
+				if cl.ratings.filter(user=request.user).exists():
+					context['consume_lists'][name]['has_voted'] = True
 
 			for consume in cl.consumes.all():
 				c = consume.item
@@ -94,10 +98,10 @@ class IndexView(TemplateView):
 				else:
 					prof_name = consume.item.prof.name
 
-				if prof_name not in context['saved_lists'][name]['consumes'].keys():
-					context['saved_lists'][name]['consumes'][prof_name] = {}
+				if prof_name not in context['consume_lists'][name]['consumes'].keys():
+					context['consume_lists'][name]['consumes'][prof_name] = {}
 
-				context['saved_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
+				context['consume_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
 
 		# qs = cl.consumes.values('item__prof__name', 'item__item__name').annotate(Count('item')).order_by('item__prof__name')
 
@@ -161,9 +165,15 @@ class TalentCalcTemplate(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
+		if 'id' in request.session:
+			id = request.session['id']
+			context["spec"] = Spec.objects.get(id=id)
+			del request.session['id']
+
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
 		class_name = self.kwargs.get("class", None)
+
 		if class_name:
 			context["selected"] = class_name
 			context = self.talent_architect(context)
@@ -260,19 +270,59 @@ class TalentCalcTemplate(TemplateView):
 						}
 					)
 					t.save()
-
-
 		return data
 
+
+class TalentBuilderRedirectView(RedirectView):
+	query_string = False
+	pattern_name = 'talents'
+	permanent = False
+	url = "http://127.0.0.1:8000/talent_calc"
+
+	def get_redirect_url(self, *args, **kwargs):
+
+		if 'id' in self.request.session:
+			del self.request.session['id']
+
+		id = kwargs['id']
+		self.request.session['id'] = id
+		spec = Spec.objects.get(id=id)
+		class_name = spec.wow_class.name
+		qs = spec.hash
+		self.url = self.url+"/{}?{}".format(class_name, qs)
+
+		return self.url
+
+class ConsumeBuilderRedirectView(RedirectView):
+	query_string = False
+	pattern_name = 'consumes'
+	permanent = False
+	url = "http://127.0.0.1:8000/consume_tool"
+
+	def get_redirect_url(self, *args, **kwargs):
+
+		if 'id' in self.request.session:
+			del self.request.session['id']
+
+		id = kwargs['id']
+		self.request.session['id'] = id
+		cl = ConsumeList.objects.get(id=id)
+		qs = cl.hash
+		self.url = self.url+"?{}".format(qs)
+
+		return self.url
 
 class ConsumeToolTemplate(TemplateView):
 	form_class = ConsumeListForm
 
 	def get(self, request, *args, **kwargs):
-
+		context = {}
+		if 'id' in request.session:
+			id = request.session['id']
+			context["CL"] = ConsumeList.objects.get(id=id)
+			del request.session['id']
 
 		data = dict(request.GET)
-		context = {}
 		context["form"] = self.form_class()
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
@@ -328,7 +378,6 @@ class ConsumeToolTemplate(TemplateView):
 
 
 		if request.is_ajax():
-			print('\nconsume template, get req, is ajax\n')
 			if 'prof' in data.keys():
 				response = render(request, "recipe_helper.html", context=context)
 			else:
@@ -604,16 +653,8 @@ def delete_rating(request):
 					saved_list = ConsumeList.objects.get(id=id)
 
 			if saved_list:
-
-				print('saved_list: ', saved_list)
-				print('avg rating (before): ', saved_list.rating)
-				print('num ratings (before): ', saved_list.ratings.count())
-
 				rating = saved_list.ratings.filter(user=user).first()
 				rating.delete()
-
-				print('avg rating (after): ', saved_list.rating)
-				print('num ratings (after): ', saved_list.ratings.count())
 
 				data['success'] = True
 				data['average_rating'] = saved_list.rating
@@ -674,15 +715,9 @@ def delete_rating(request):
 
 			if saved_list:
 
-				print('saved_list: ', saved_list)
-				print('avg rating (before): ', saved_list.rating)
-				print('num ratings (before): ', saved_list.ratings.count())
 
 				rating = saved_list.ratings.filter(user=user).first()
 				rating.delete()
-
-				print('avg rating (after): ', saved_list.rating)
-				print('num ratings (after): ', saved_list.ratings.count())
 
 				data['success'] = True
 				data['average_rating'] = saved_list.rating

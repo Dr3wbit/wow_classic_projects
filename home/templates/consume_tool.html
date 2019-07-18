@@ -27,7 +27,7 @@ if (performance.navigation.type == 1) {
 
         {% for prof in professions %}
         <a class="prof-filter {% if prof == selected %}selected{% endif %}" id="{{prof}}"
-            href="{% url 'consumes' prof|default:"alchemy" %}">
+            href="{% url 'recipes' prof|default:"alchemy" %}">
             {% with "images/icons/large/professions/"|add:prof|add:".jpg" as prof_image %}
             <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}"
                 style="background-image: url('{% static prof_image %}');">
@@ -65,6 +65,21 @@ if (performance.navigation.type == 1) {
             {% endif %}
         </div>
     </div>
+
+    {% if CL %}
+    <div>
+        <h5>name: <span class="fix-me">{{CL.name}}</span></h5>
+        <h5>description: <span class="fix-me">{{CL.description}}</span></h5>
+
+        <ul>
+        {% for consume in CL.consumes.all %}
+
+        <li>name: <span class="fix-me">{{consume.name}}</span>, amount: <span class="fix-me">{{consume.amount}}</span></li>
+
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 
     {% if user.is_authenticated %}
     {% include "save_form.html" %}
