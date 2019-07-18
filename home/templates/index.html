@@ -48,7 +48,7 @@
         {% for specname,spec in specs.items %}
         <div class="col-12">
             <div class="feedItem row mt-5">
-                <div class="col-4">
+                <div class="col">
                     <div class="listImage"
                         style="background-image: url('static/images/icons/large/mini_spec/{{ spec.obj.wow_class.name }}.png')">
                         <div class="listIcon">
@@ -57,6 +57,7 @@
                                 style="background-image: url('{% static class_image %}');">
                             {% endwith %}
                         </div>
+                        <a style=" position : absolute; height: 125px; width: 180px;"href="{% url 'talent_builder' spec.obj.id %}?{{spec.obj.hash}}"></a>
                     </div>
                     <div class="row">
                     </div>
@@ -71,56 +72,6 @@
                         </div>
                         <div class="col-4">
 
-                            <div class="ratings-container" name="{{specname}}" data-id="{{spec.obj.id}}"
-                                data-wowclass="{{spec.obj.wow_class.name}}">
-                                <span
-                                    style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">
-                                    {% if request.user.is_staff and spec.obj.user != request.user and spec.has_voted %}
-                                    <a href="" class="remove-rating">({{spec.obj.ratings.count}})</a>
-                                    {% else %}
-                                    ({{spec.obj.ratings.count}})
-                                    {% endif %}
-                                </span>
-                                {% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
-
-                                <div class="star-box">
-                                    {% widthratio spec.obj.rating 1 20 as width %}
-                                    <div class="star-limiter" style="width:{{width|default:0}}%">
-                                        <div class="longbar">
-                                            {% for n in rangen %}
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="star-bg">
-                                    <div class="longbar">
-                                        {% for n in rangen %}
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <!-- <p id="rating_data"></p> -->
-                                {% else %}
-                                <div class="star-box rating-vote">
-                                    <div class="star-limiter" style="width: 0%">
-                                        <div class="longbar">
-                                            {% for n in rangen %}
-                                            <span class="glyphicon glyphicon-star-empty"></span>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="star-bg rating-vote">
-                                    <div class="longbar">
-                                        {% for n in rangen %}
-                                        <span class="glyphicon glyphicon-star-empty"></span>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                {% endif %}
-                                <div class="clearfix"></div>
-                            </div>
                         </div>
                     </div>
                     <div class="row feed-content">
@@ -145,7 +96,54 @@
                             class="">({% with trees=spec.obj.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
                     </div>
                     <div class="col-3">
-
+                            <div class="ratings-container" name="{{specname}}" data-id="{{spec.obj.id}}"
+                            data-wowclass="{{spec.obj.wow_class.name}}">
+                            {% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
+                            <div class="star-box">
+                                {% widthratio spec.obj.rating 1 20 as width %}
+                                <div class="star-limiter" style="width:{{width|default:0}}%">
+                                    <div class="longbar">
+                                        {% for n in rangen %}
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star-bg">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- <p id="rating_data"></p> -->
+                            {% else %}
+                            <div class="star-box rating-vote">
+                                <div class="star-limiter" style="width: 0%">
+                                    <div class="longbar">
+                                        {% for n in rangen %}
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star-bg rating-vote">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <span
+                                style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 50px;">
+                                {% if request.user.is_staff and spec.obj.user != request.user and spec.has_voted %}
+                                <a href="" class="remove-rating">({{spec.obj.ratings.count}})</a>
+                                {% else %}
+                                ({{spec.obj.ratings.count}})
+                                {% endif %}
+                            </span>
+                        </div>
                     </div>
                     <div class="col-5 text-left">
                         {% if spec.updated|date:"m/d/Y, P" == spec.created|date:"m/d/Y, P" %}
