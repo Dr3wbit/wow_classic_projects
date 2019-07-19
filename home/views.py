@@ -69,6 +69,9 @@ class IndexView(TemplateView):
 		context = {}
 		context['rangen'] = range(5)
 		context['specs'] = {}
+		context['wowclasses'] = WoWClass.objects.all()
+		context['wowprofessions'] = Profession.objects.all()
+		context['tags'] = Tag.objects.all()
 
 		for spec in Spec.objects.all():
 			context['specs'][spec.name] = {}
