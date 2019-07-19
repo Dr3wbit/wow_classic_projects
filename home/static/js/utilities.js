@@ -15,10 +15,16 @@ const utilities = {
 		let width = tooltip.width(), height = tooltip.height()
 		let element = targetElement
 		let spans = element.find('span')
+		console.log('offset left: ', element.offset().left, ' offset left: ', element.offset().top)
 
 		this.coords = {}
+		// console.log('offset left: ', element.offset().left)
+		// console.log('offset left: ', element.offset().top)
 
-		// coeffs measure aproximately the % of the visible and usable screen the cursor is at (aka visible bottom of page to bottom of class selection bar)
+		// console.log('tooltip position', tooltip.position())
+
+		// coeffs measure aproximately the % of the visible and usable screen
+		// the cursor is at (aka visible bottom of page to bottom of class selection bar)
 		let xCoeff = (element.offset().left/window.innerWidth)*100
 		let distanceFromTop = element.offset().top - $(window).scrollTop()
 		let yCoeff = (distanceFromTop/window.innerHeight)*100
@@ -57,22 +63,75 @@ const utilities = {
 		return this.coords
 	},
 	bigdaddytooltip: function(targetElement, ...args) {
-		const tooltip = $("#tooltip")
-		const elems = args[0]
-
-		const container = $('<div/>', {
+		const tooltip_container = $("#tooltip_container")
+		const tooltip = $('<div/>', {
 			class: 'tooltip-container',
+			id: "tooltip",
+			style: "float: right;"
 		})
 
+		const elems = args[0]
 		elems.forEach(function(item) {
-			container.append($('<div/>', {
+			tooltip.append($('<div/>', {
 				class: item.class,
 				text: item.text,
 			}))
 		})
-		tooltip.append(container)
-		let coords = utilities.getTooltipPosition(targetElement, tooltip)
 
-		tooltip.attr("style", `top: ${coords.y}px; left: ${coords.x}px; visiblity: visible;`)
+		tooltip_container.append(tooltip)
+
+		let coords = utilities.getTooltipPosition(targetElement, tooltip_container)
+
+		tooltip_container.attr("style", `top: ${coords.y}px; left: ${coords.x}px; visiblity: visible;`)
+	}
+}
+
+
+const utilities_v2 = {
+	getTooltipPosition: function(e, tooltip) {
+		this.coords = {}
+		this.coords.x = e.pageX+15
+		this.coords.y = e.pageY
+		return this.coords
+	},
+	bigdaddytooltip: function(e, ...args) {
+		const name = $(e.target).attr("name")
+		const tooltip_container = $("#tooltip_container")
+		const elems = args[0]
+
+		const image = (name) ? $('<img/>', {
+			class: 'icon-medium',
+			src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
+			style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/images/icons/consumes/${name}.jpg)`
+		}) : null
+
+		const tooltip = $('<div/>', {
+			class: 'tooltip-container',
+			id: "tooltip",
+			style: "float: right;"
+		})
+
+		elems.forEach(function(item) {
+			tooltip.append($('<div/>', {
+				class: item.class,
+				text: item.text,
+			}))
+		})
+
+		tooltip_container.append(image, tooltip)
+
+		var x = 0
+		var y = 0
+
+		if (image) {
+			x = e.pageX + 15
+			y = e.pageY - 25
+		} else {
+			x = $(e.target).offset().left + 45
+			y = $(e.target).offset().top - 45
+		}
+		// utilities_v2.getTooltipPosition(e, tooltip_container)
+
+		tooltip_container.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
 	}
 }
