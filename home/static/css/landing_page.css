@@ -127,3 +127,45 @@ a:hover{
     text-overflow: ellipsis;
     min-height: 35.2px;
 }
+
+.dropdown-item-custom{
+    color: #5985ba;
+}
+
+.dropdown-menu-custom{
+    background-color: #1c1c1c;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+.filter-dropdown-container{
+    width: 200px;
+}
+
+.filter-container{
+
+}
+
+.filter-category-title{
+ color: white;
+
+}
+
+.filter-box{
+    color: #5985ba;
+    display: inline-block;
+    border: 1px solid black;
+    background-color: #272727;
+    margin-top: 1px;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+.filter-box:hover{
+    border-color:#ffc107;
+    cursor: pointer;
+}
+
+.filter-box.filter-selected{
+    color: #ffc107;
+}
