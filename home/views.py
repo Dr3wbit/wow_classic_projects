@@ -50,10 +50,10 @@ class APIView(TemplateView):
 
 				for consume in cl.consumes.all():
 					c = consume.item
-					if not consume.item.prof:
+					if not c.prof:
 						prof_name = 'other'
 					else:
-						prof_name = consume.item.prof.name
+						prof_name = c.prof.name
 
 					if prof_name not in context['saved_lists'][name]['consumes'].keys():
 						context['saved_lists'][name]['consumes'][prof_name] = {}
@@ -779,7 +779,7 @@ def ajax_tooltip(request):
 	data = {}
 	name = request.GET.get('name', None)
 	item = Item.objects.get(name=name)
-	
+
 	data['name'] = name
 	data['rarity'] = item.rarity
 	data['image_name'] = item.image_name

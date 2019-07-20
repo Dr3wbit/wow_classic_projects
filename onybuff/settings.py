@@ -27,7 +27,10 @@ DEBUG = True
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['127.0.0.1','dev.onybuff.com','localhost']
-#INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
+
+if DEBUG:
+	INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
+
 AUTHENTICATION_BACKENDS = [
 	'social_core.backends.discord.DiscordOAuth2',
 	'django.contrib.auth.backends.ModelBackend',
@@ -47,14 +50,17 @@ INSTALLED_APPS = [
 	'home.apps.HomeConfig',
 	'account',
 	'social_django',
+	'debug_toolbar',
 ]
 
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
+	'debug_toolbar.middleware.DebugToolbarMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'home.middleware.simple_middleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -155,10 +161,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
-STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, "static"),
-)
+# STATICFILES_DIRS = (
+# 	os.path.join(BASE_DIR, "static"),
+# )
 
 # SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/authorize'

@@ -8,4 +8,6 @@ home/__pycache__
 home/migrations/__pycache__
 onybuff/__pycache__
 home/templatetags/__pycache__
-db.sqlite3
+db.sqlite3static
+static
+keys
