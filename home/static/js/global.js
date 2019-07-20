@@ -33,6 +33,13 @@ function event_handlers() {
        }
     });
 
+    // prevent right context menu on main content
+    $('.mainContent').on({
+        contextmenu: e => {
+			e.preventDefault()
+		},
+    })
+
     $(".spec-list-item").on({
        click: e=> {
     	   var list_name = $( e.target ).attr('name');
