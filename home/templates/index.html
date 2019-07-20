@@ -15,10 +15,66 @@
 {% block mainbody %}
 <div class="mainBody container">
     <div class="row selection-header sticky-top">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" size="80" aria-label="Search">
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <div class="col">
+                <form class="form-inline row selection-header">
+                        <div class="col-2">
+                                <div class="dropdown show">
+                                        <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Filters
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownMenuLink">
+                                           <div class="filter-dropdown-container container">
+                                               <div class="filter-category-title">Classes</div>
+                                               <div class="filter-container">
+                                                   {% for class in wowclasses %}
+                                                   <div class="filter-box">{{class.name}}</div>
+                                                   {%endfor%}
+                                               </div>
+                                               <div class="filter-category-title">Professions</div>
+                                               <div class="filter-container">
+                                                   {% for profession in wowprofessions %}
+                                                   <div class="filter-box">{{profession.name}}</div>
+                                                   {%endfor%}
+                                               </div>
+                                               <div class="filter-category-title">Tags</div>
+                                               <div class="filter-container">
+                                                    {% for tag in tags %}
+                                                   <div class="filter-box">{{tag.name}}</div>
+                                                   {%endfor%}
+                                               </div>
+                                               <div class="filter-footer row">
+                                                   <div class="col-12 justify-content-around mt-2">
+                                                        <button class="btn btn-dark" id="reset-filters">Reset</button>
+                                                        <button class="btn btn-dark" id="apply-filters">Apply Filters</button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="dropdown show">
+                                <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Sort By
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item dropdown-item-custom" href="#">Top Rated</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item dropdown-item-custom" href="#">Most Recent</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item dropdown-item-custom" href="#">Most Comments</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" size="40" aria-label="Search">
+                            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                        <div class="col-2"></div>
+                    </form>
+        </div>
     </div>
     <div class="row content-container mt-4">
         <div class="col d-none mb-4 site-content">
@@ -57,7 +113,8 @@
                                 style="background-image: url('{% static class_image %}');">
                             {% endwith %}
                         </div>
-                        <a style=" position : absolute; height: 125px; width: 180px;"href="{% url 'talent_builder' spec.obj.id %}?{{spec.obj.hash}}"></a>
+                        <a style=" position : absolute; height: 125px; width: 180px;"
+                            href="{% url 'talent_builder' spec.obj.id %}?{{spec.obj.hash}}"></a>
                     </div>
                     <div class="row">
                     </div>
@@ -96,7 +153,7 @@
                             class="">({% with trees=spec.obj.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
                     </div>
                     <div class="col-3">
-                            <div class="ratings-container" name="{{specname}}" data-id="{{spec.obj.id}}"
+                        <div class="ratings-container" name="{{specname}}" data-id="{{spec.obj.id}}"
                             data-wowclass="{{spec.obj.wow_class.name}}">
                             {% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
                             <div class="star-box">
@@ -135,8 +192,7 @@
                                 </div>
                             </div>
                             {% endif %}
-                            <span
-                                style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 45px;">
+                            <span style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 50px;">
                                 {% if request.user.is_staff and spec.obj.user != request.user and spec.has_voted %}
                                 <a href="" class="remove-rating">({{spec.obj.ratings.count}})</a>
                                 {% else %}
@@ -207,20 +263,20 @@
 
                         </div>
                     </div>
-                        <div class="row feed-content">
-                            <div class="col-12 feed-desc">
-                                {{cl.obj.description}}
-                            </div>
+                    <div class="row feed-content">
+                        <div class="col-12 feed-desc">
+                            {{cl.obj.description}}
                         </div>
-                        <hr class="row mt-2 mb-2"
-                            style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
-                        </hr>
-                        <div class="row feed-content">
-                            {% for tag in cl.obj.tags.all %}
-                            <div class="feed-tag">{{tag.name}}</div>
-                            {% endfor %}
-                        </div>
-                        <div class="row feed-content"></div>
+                    </div>
+                    <hr class="row mt-2 mb-2"
+                        style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+                    </hr>
+                    <div class="row feed-content">
+                        {% for tag in cl.obj.tags.all %}
+                        <div class="feed-tag">{{tag.name}}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="row feed-content"></div>
                 </div>
                 <div class="col-12 row feed-footer">
                     <div class="col-4">
@@ -351,6 +407,46 @@
 
 {% block javascript %}
 <script>
+    $('.filter-dropdown-container').on({
+        click: e => {
+            e.stopPropagation()
+        }
+    })
+    $('.filter-box').on({
+        click: e => {
+            e.stopPropagation()
+            var target = $(e.target)
+            // add target[0].innerText   to an array to be sent with apply filters
+            if(target.hasClass('filter-selected')){
+                target.removeClass('filter-selected')
+            }else{
+                target.addClass('filter-selected')
+            }
+        }
+    })
+
+    $('#apply-filters').on({
+        click: e => {
+            e.preventDefault()
+            let filterArray = []
+            let selectedFilters = $('.filter-selected')
+            for (const filter of selectedFilters) {
+                filterArray.push(filter.innerText)
+            }
+            apply_filters(filters)
+        }
+    })
+
+    $('#reset-filters').on({
+        click: e => {
+            e.preventDefault()
+            let filterArray = []
+            let selectedFilters = $('.filter-selected')
+            selectedFilters.removeClass('filter-selected')
+            apply_filters(filters)
+        }
+    })
+
     $(".glyphicon-star-empty").on({
         mouseenter: e => {
             var target = $(e.target)
@@ -443,5 +539,25 @@
         });
     }
     {% endif %}
+
+    //connect to endpoint
+    function apply_filters(filters) {
+        if (filters === []){
+            // remove filters 
+        }else{
+            $.ajax({
+            method: "GET",
+            url: '/ajax/apply_filters/',
+            data: {
+                'filters': filters,
+            },
+            dataType: 'json',
+
+            success: function (data) {
+                console.log('success: ', data)
+            }
+        });
+        }
+    }
 </script>
 {% endblock javascript %}
