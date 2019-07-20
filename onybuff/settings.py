@@ -21,6 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,6 +56,7 @@ MIDDLEWARE = [
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'social_django.middleware.SocialAuthExceptionMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -78,7 +80,6 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'onybuff.urls'
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_COOKIE_SECURE = False # necessary for dev
 
 TEMPLATES = [
 	{
@@ -93,14 +94,13 @@ TEMPLATES = [
 				'django.contrib.messages.context_processors.messages',
 				'home.context_processors.add_navlinks_to_context',
 				'social_django.context_processors.backends',
-        		'social_django.context_processors.login_redirect',
+        			'social_django.context_processors.login_redirect',
 			],
 		},
 	},
 ]
 
 WSGI_APPLICATION = 'onybuff.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -112,12 +112,12 @@ DATABASES = {
 	}
 }
 
-CACHES = {
-	'default': {
-		'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-		'LOCATION': '127.0.0.1:11211',
-	}
-}
+#CACHES = {
+#	'default': {
+#		'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#		'LOCATION': '127.0.0.1:11211',
+#	}
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -156,12 +156,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, "static"),
-)
+#STATICFILES_DIRS = (
+#	os.path.join(BASE_DIR, "static"),
+#)
 
-# SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/authorize'
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
+
+#SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+LOGIN_REDIRECT_URL = '/auth'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/auth'
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 
@@ -177,12 +181,11 @@ SOCIAL_AUTH_DISCORD_EXTRA_DATA = [
 	("discriminator", "tag"),
 	("locale", "locale"),
 	]
-
+#SOCIAL_AUTH_STRATEGY = 'social_django.strategy.DjangoStrategy'
 SOCIAL_AUTH_DISCORD_SCOPE = ["email"]
 SOCIAL_AUTH_DISCORD_REQUIRES_EMAIL_VALIDATION = True
-SOCIAL_AUTH_DISCORD_REDIRECT_STATE = True
-
-
+SOCIAL_AUTH_DISCORD_REDIRECT_STATE = False
+#SOCIAL_AUTH_DISCORD_WHITELISTED_DOMAINS = ['gmail.com', 'onybuff.org', 'onybuff.com']
 SOCIAL_AUTH_PIPELINE = (
   'social_core.pipeline.social_auth.social_details',
   'social_core.pipeline.social_auth.social_uid',
