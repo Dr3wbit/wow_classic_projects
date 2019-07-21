@@ -89,7 +89,8 @@ function trashCanSuccess(data, textStatus, jqXHR){
 
 	// list_item.empty().remove()
 
-	let message = data.message.toString() // <--------------- NOTE: HERE
+    let message = data.message.toString() // <--------------- NOTE: HERE
+    notifyUser(message)
 	console.log('\n**success**\n')
 	console.log(data.message.toString())
     console.log('data: ', data)
@@ -99,6 +100,7 @@ function trashCanSuccess(data, textStatus, jqXHR){
 }
 
 function trashCanError(jqXHR, textStatus, errorThrown){
+    notifyUser(errorThrown)
 	console.log('\n**error**\n')
     console.log(jqXHR)
     console.log(textStatus)
@@ -135,3 +137,12 @@ $.ajaxSetup({
         }
     }
 });
+
+function notifyUser(message){
+    let notificationContainer = ($("<div/>", {
+        class: "notification-container",
+        text: message,
+    }))
+    $(".navbar").append(notificationContainer)
+    setTimeout(()=>{  $(".notification-container").remove() }, 5000);
+}

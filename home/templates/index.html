@@ -242,11 +242,14 @@
 
         <div class="col-12">
             <div class="feedItem row mt-5">
-                <div class="col-4">
-                    <div class="listImage">
+                <div class="col">
+                    <div class="listImage"
+                    style="background-image: url('static/images/icons/large/mini_spec/crafting_image_2.png')">
                         <div class="listIcon">
                             <img class="class-icon" src="{% static "images/icon_border_2.png" %}">
                         </div>
+                        <a style=" position : absolute; height: 125px; width: 180px;"
+                        href="{% url 'consume_builder' cl.obj.id %}?{{cl.obj.hash}}"></a>
                     </div>
                     <div class="row">
                     </div>
