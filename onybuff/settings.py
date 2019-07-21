@@ -67,21 +67,6 @@ MIDDLEWARE = [
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     'loggers': {
-#         'django.db.backends': {
-#             'handlers': ['console'],
-#             'level': 'DEBUG',
-#         },
-#     },
-# }
 
 ROOT_URLCONF = 'onybuff.urls'
 
@@ -114,10 +99,9 @@ WSGI_APPLICATION = 'onybuff.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		'NAME': 'onybuff',
-		'USER': 'blc',
-		'PASSWORD': 'nasdaq123',
-#		'PASSWORD': os.environ['DB_PASS'],
+		'NAME': os.environ['DB_NAME'],
+		'USER': os.environ['DB_USER'],
+		'PASSWORD': os.environ['DB_PASS'],
 		'HOST': 'localhost',
 		'PORT': '',
 	}
