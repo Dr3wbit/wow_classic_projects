@@ -14,21 +14,25 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+AUTH_USER_MODEL = 'home.User'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-USE_X_FORWARDED_HOST = True
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#USE_X_FORWARDED_HOST = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['127.0.0.1','localhost', '13.59.19.192']
-#INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
+
+#if DEBUG:
+#	INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
+
 AUTHENTICATION_BACKENDS = [
 	'social_core.backends.discord.DiscordOAuth2',
 	'django.contrib.auth.backends.ModelBackend',
@@ -45,9 +49,10 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-	'home.apps.HomeConfig',
+	'home',
 	'account',
 	'social_django',
+	'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +63,7 @@ MIDDLEWARE = [
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
 	'social_django.middleware.SocialAuthExceptionMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
+	'debug_toolbar.middleware.DebugToolbarMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -107,17 +113,22 @@ WSGI_APPLICATION = 'onybuff.wsgi.application'
 
 DATABASES = {
 	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+		'NAME': 'onybuff',
+		'USER': 'blc',
+		'PASSWORD': 'nasdaq123',
+#		'PASSWORD': os.environ['DB_PASS'],
+		'HOST': 'localhost',
+		'PORT': '',
 	}
 }
 
-#CACHES = {
-#	'default': {
-#		'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-#		'LOCATION': '127.0.0.1:11211',
-#	}
-#}
+CACHES = {
+	'default': {
+		'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+		'LOCATION': '127.0.0.1:11211',
+	}
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -164,8 +175,8 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
 #SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
-LOGIN_REDIRECT_URL = '/auth'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/auth'
+LOGIN_REDIRECT_URL = '/authorize'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/authorize'
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 

@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from django.conf import settings
 
 urlpatterns = [
 	path('account/', include('account.urls')),
 	path('', include('home.urls')),
 	path('admin/', admin.site.urls),
-	path('auth/', include('social_django.urls', namespace='social')),
+	path('authorize/', include('social_django.urls', namespace='social')),
 ]
+
+#if settings.DEBUG:
+#	import debug_toolbar
+#	urlpatterns = [
+#		path('__debug__/', include(debug_toolbar.urls)),
+#	] + urlpatterns
