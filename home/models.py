@@ -44,6 +44,39 @@ class User(AbstractUser):
 	def email_user(self, subject, message, from_email=None, **kwargs):
 		'''Sends an email to this User.'''
 		send_mail(subject, message, from_email, [self.email], **kwargs)
+
+	@property
+	def discord(self):
+		if not self.social_auth.exists():
+			return false
+		else:
+			return UserSocialAuth.objects.get(user=self)
+	@property
+	def tag(self):
+		if self.discord:
+			return self.discord.extra_data['tag']
+
+		else:
+			return False
+	
+	@property
+	def avatar(self):
+		if self.discord:
+			return self.discord.extra_data['avatar']
+
+	@property
+	def uid(self):
+		if self.discord:
+			return self.discord.uid
+		else:
+			return False
+
+	@property
+	def disc_username(self):
+		if self.discord:
+			return self.discord.extra_data['disc_username']
+		else:
+			return False
 #class Profile(User):
 
 #	class Meta:
@@ -234,7 +267,7 @@ class TalentTree(models.Model):
 	name = models.CharField(max_length=40)
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 	position = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(3)])
-	_architect = models.CharField(max_length=100, default="[]")
+	_architect = models.CharField(max_length=2500, default="[]")
 
 	@property
 	def sanitized(self):
@@ -265,6 +298,7 @@ class Talent(models.Model):
 	locked = models.ForeignKey("self", blank=True, null=True, on_delete=models.CASCADE)
 	class Meta:
 		unique_together = ['wow_class', 'name', 'tree']
+		ordering = ['id']
 
 	def __str__(self):
 		return(self.name)

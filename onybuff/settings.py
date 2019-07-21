@@ -175,7 +175,9 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
 #SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
-LOGIN_REDIRECT_URL = '/authorize'
+#LOGIN_REDIRECT_URL = '/authorize'
+
+SOCIAL_AUTH_USER_MODEL = 'home.User'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/authorize'
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
