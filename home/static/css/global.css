@@ -907,3 +907,13 @@ a#discord-login:hover{
 .fix-me {
     color: orange;
 }
+
+.notification-container{
+    position: absolute;
+    font-size: 250%;
+    color: #ffc107;
+    left:50%;
+    top: 200px;
+    background-color: #000000;
+    border-radius: 5px;
+}
