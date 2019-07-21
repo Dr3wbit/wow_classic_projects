@@ -110,6 +110,7 @@ $(".saved-list-form").on({
         var $myForm = $(".saved-list-form")
         var $thisURL = $myForm.attr('data-url') || window.location.href
         var $formData = $myForm.serialize()
+        console.log($formData)
         $.ajax({
             method: "POST",
             url: $thisURL,
@@ -122,7 +123,8 @@ $(".saved-list-form").on({
 
 function savedListSuccess(data, textStatus, jqXHR){
     append_list_item(data)
-    let message = data['message'] // <-- NOTE: do something with message
+    let message = data['message']
+    notifyUser(message) // <-- NOTE: do something with message
     console.log(data)
     console.log(textStatus)
     console.log(jqXHR)
@@ -130,6 +132,7 @@ function savedListSuccess(data, textStatus, jqXHR){
 }
 
 function savedListError(jqXHR, textStatus, errorThrown){
+    notifyUser(errorThrown)
     console.log(jqXHR)
     console.log(textStatus)
     console.log(errorThrown) // <-- NOTE: or this one
