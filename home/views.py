@@ -782,6 +782,13 @@ def save_consume_list(request):
 
 def ajax_tooltip(request):
 	data = {}
+
+	tal_name = request.GET.get('static', None)
+
+	if tal_name:
+		talent = Talent.objects.get(name=tal_name)
+
+
 	name = request.GET.get('name', None)
 	item = Item.objects.get(name=name)
 

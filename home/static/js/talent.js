@@ -344,6 +344,7 @@ function talentHandler() {
 		},
 
 		mouseenter: e => {
+			clearTooltip()
 			updateTooltip(e)
 		},
 
@@ -370,7 +371,6 @@ function mouseDownHandler(e = null, talent, tree) {
 		var targetTalent = $(e.target)
 
 		clearTooltip()
-
 
 		// var treeName = targetTalent.closest('div.talentTable')[0].id
 		var treeName = utilities.titleCase(targetTalent.closest('div.talentTable')[0].id)
