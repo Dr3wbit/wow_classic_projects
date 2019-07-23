@@ -12,3 +12,4 @@ db.sqlite3access.log
 error.log
 static
 keys
+ONY_BUFF_KEY.pem
