@@ -1,0 +1,46 @@
+
+.float_right{
+  float: right;
+  margin-left: 10px;
+  position: relative;
+  /*min-width: 250px;*/
+}
+.star-box,
+.star-bg{
+  color: rgb(231, 186, 0);
+  position: absolute;
+  /* margin: 4px 0;
+  top: 0;
+  left: 0;
+  display: table; */
+}
+.glyphicon-star,.glyphicon-star-empty{
+  display: table-cell;
+  padding: 0 2px 0 2px;
+  font-size: 18px;
+}
+.star-box{
+  z-index: 2;
+  pointer-events: none;
+}
+.star-bg{
+  color: #555;
+}
+.star-limiter{
+  width:100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.gold{
+    color: rgb(231, 186, 0);
+}
+
+.rating-vote .glyphicon{
+    cursor: pointer;
+}
+
+.ratings-container {
+  max-width: 150px;
+  min-width: 150px;
+}
