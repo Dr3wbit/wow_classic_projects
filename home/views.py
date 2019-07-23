@@ -74,39 +74,42 @@ class IndexView(TemplateView):
 		context['wowclasses'] = WoWClass.objects.all()
 		context['wowprofessions'] = Profession.objects.all()
 		context['tags'] = Tag.objects.all()
-
-		for spec in Spec.objects.all():
-			context['specs'][spec.name] = {}
-			context['specs'][spec.name]['obj'] = spec
-			context['specs'][spec.name]['has_voted'] = False
-
-			if request.user.is_authenticated:
-				if spec.ratings.filter(user=request.user).exists():
-					context['specs'][spec.name]['has_voted'] = True
-
-		context['consume_lists'] = {}
-		for cl in ConsumeList.objects.all():
-			name = cl.name
-			context['consume_lists'][name] = {}
-			context['consume_lists'][name]['obj'] = cl
-			context['consume_lists'][name]['has_voted'] = False
-			context['consume_lists'][name]['consumes'] = {}
-
-			if request.user.is_authenticated:
-				if cl.ratings.filter(user=request.user).exists():
-					context['consume_lists'][name]['has_voted'] = True
-
-			for consume in cl.consumes.all():
-				c = consume.item
-				if not consume.item.prof:
-					prof_name = 'other'
-				else:
-					prof_name = consume.item.prof.name
-
-				if prof_name not in context['consume_lists'][name]['consumes'].keys():
-					context['consume_lists'][name]['consumes'][prof_name] = {}
-
-				context['consume_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
+		context['specs'] = Spec.objects.all()
+		context['consume_lists'] = ConsumeList.objects.all()
+		# context['request'] = request
+		#
+		# for spec in Spec.objects.all():
+		# 	context['specs'][spec.name] = {}
+		# 	context['specs'][spec.name]['obj'] = spec
+		# 	context['specs'][spec.name]['has_voted'] = False
+		#
+		# 	if request.user.is_authenticated:
+		# 		if spec.ratings.filter(user=request.user).exists():
+		# 			context['specs'][spec.name]['has_voted'] = True
+		#
+		# context['consume_lists'] = {}
+		# for cl in ConsumeList.objects.all():
+		# 	name = cl.name
+		# 	context['consume_lists'][name] = {}
+		# 	context['consume_lists'][name]['obj'] = cl
+		# 	context['consume_lists'][name]['has_voted'] = False
+		# 	context['consume_lists'][name]['consumes'] = {}
+		#
+		# 	if request.user.is_authenticated:
+		# 		if cl.ratings.filter(user=request.user).exists():
+		# 			context['consume_lists'][name]['has_voted'] = True
+		#
+		# 	for consume in cl.consumes.all():
+		# 		c = consume.item
+		# 		if not consume.item.prof:
+		# 			prof_name = 'other'
+		# 		else:
+		# 			prof_name = consume.item.prof.name
+		#
+		# 		if prof_name not in context['consume_lists'][name]['consumes'].keys():
+		# 			context['consume_lists'][name]['consumes'][prof_name] = {}
+		#
+		# 		context['consume_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
 
 		# qs = cl.consumes.values('item__prof__name', 'item__item__name').annotate(Count('item')).order_by('item__prof__name')
 
@@ -813,4 +816,32 @@ def ajax_tooltip(request):
 
 
 	response = JsonResponse(data)
+	return response
+
+def apply_filters(request):
+
+	context = {}
+
+	# print(dir(request.META))
+	# print('meta: ', request.META)
+	print('get: ', request.GET)
+
+	# print('path: ', request.get_raw_uri())
+	# qd = QueryDict(request.META.QUERY_STRING).dict()
+
+	# print('qd: ', qd)
+	data = dict(request.GET)
+
+	print('data: ', data)
+
+	# prof_filters = request.GET.get('prof_filters', None)
+	# class_filters = request.GET.get('class_filters', None)
+	tags = data['tags']
+
+	context['specs'] = Spec.objects.filter(tags__name__in=tags).filter(wow_class__name__in=tags)
+	context['consume_lists'] = ConsumeList.objects.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags)
+
+	print(context['specs'])
+	print(context['consume_lists'])
+	response = render(request, "index_helper.html", context=context)
 	return response
