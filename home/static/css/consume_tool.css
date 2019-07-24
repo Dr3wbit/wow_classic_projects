@@ -165,7 +165,7 @@
     z-index: auto;
 }
 .prof-item-recipe {
-    margin-bottom: 4px;
+    margin-top: 4px;
     cursor: pointer;
     background-color: #101010;
     display: block;
@@ -189,7 +189,7 @@
 }
 
 .reagant-list {
-    margin-bottom: 4px;
+    margin-top: 4px;
     background-color: #101010;
 }
 
@@ -198,3 +198,9 @@
     display: inline-block;
 }
 
+.recipe-container:hover {
+    -webkit-box-shadow: 0 0 7px 2px #ffc107;
+    -moz-box-shadow: 0 0 7px 2px #ffc107;
+    box-shadow: 0 0 7px 2px #ffc107;
+    cursor: pointer;
+}
