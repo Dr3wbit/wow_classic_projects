@@ -137,3 +137,17 @@ def add_consumes_as_items(json):
 
 # also adds materials as materials
 # def add_consumes_as_consumes(json):
+def lower_case_tree_names():
+
+	for wow_class in WoWClass.objects.all():
+	    trees = wow_class.talenttree_set.all()
+	    for tree in trees:
+	        talents = tree.talent_set.all()
+	        tree.name = tree.sanitized
+	        tree.save()
+	        print(tree.name)
+
+			# not recommended due to talent names with special characters (ex: Imp Power Word: Shield)
+			# for talent in talents:
+			#	talent.name = talent.sanitized
+			#	talent.save()
