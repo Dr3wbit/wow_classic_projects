@@ -17,26 +17,6 @@ function build_consume_list(url, name) {
 
 function event_handlers() {
 
-    $(".floating-combat-text").on({
-
-
-        click: e => {
-            console.log(e.which)
-            let timeStamp = $.now();
-            let uniqueID = `${e.pageX}${e.pageY}${timeStamp}`
-            let notificationContainer = ($("<div/>", {
-                class: "floating-container",
-                id: uniqueID,
-                text: "+1",
-                style: `left: ${e.pageX}px; top: ${e.pageY}px`
-            }))
-            $(document.body).append(notificationContainer)
-            setTimeout(() => { $(`#${uniqueID}`).remove() }, 2900);
-
-        }
-    });
-
-
     $(".side-bar-toggle").on({
         click: e => {
             let bool = $('.saved').hasClass('side-min')
@@ -190,4 +170,26 @@ function notifyUser(message) {
     }))
     $(".navbar").append(notificationContainer)
     setTimeout(() => { $(".notification-container").remove() }, 5000);
+}
+
+function combatText(e, text){
+    let color = null
+    if (text >= 0)
+    {text = "+" + text
+    color = "rgba(30,255,0,0.95)"
+}else{
+    color = "red"
+}
+    console.log(e.which)
+    let timeStamp = $.now();
+    let uniqueID = `${e.pageX}${e.pageY}${timeStamp}`
+    let notificationContainer = ($("<div/>", {
+        class: "floating-container",
+        id: uniqueID,
+        text: text,
+        style: `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`
+    }))
+    $(document.body).append(notificationContainer)
+    setTimeout(() => { $(`#${uniqueID}`).remove() }, 2900);
+
 }
