@@ -24,13 +24,12 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DEFART = False
+DEV = False
 
 #SECURE_SSL_REDIRECT = True
-ALLOWED_HOSTS = ['127.0.0.1','dev.onybuff.com','localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '13.59.19.192']
 
-if DEFART:
-	INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
+LOCAL = bool(int(os.environ['DJANGO_LOCAL']))
 
 AUTHENTICATION_BACKENDS = [
 	'social_core.backends.discord.DiscordOAuth2',
@@ -48,44 +47,30 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-	'home.apps.HomeConfig',
+	'home',
 	'account',
 	'social_django',
-	'debug_toolbar',
 ]
 
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
-	'debug_toolbar.middleware.DebugToolbarMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'home.middleware.simple_middleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     'loggers': {
-#         'django.db.backends': {
-#             'handlers': ['console'],
-#             'level': 'DEBUG',
-#         },
-#     },
-# }
+if DEV:
+	INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
+	INSTALLED_APPS.append('debug_toolbar')
+	MIDDLEWARE.insert(1, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 ROOT_URLCONF = 'onybuff.urls'
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_COOKIE_SECURE = False # necessary for dev
+#SESSION_COOKIE_SECURE = False
 
 TEMPLATES = [
 	{
@@ -100,7 +85,7 @@ TEMPLATES = [
 				'django.contrib.messages.context_processors.messages',
 				'home.context_processors.add_navlinks_to_context',
 				'social_django.context_processors.backends',
-        		'social_django.context_processors.login_redirect',
+				'social_django.context_processors.login_redirect',
 			],
 		},
 	},
@@ -112,12 +97,26 @@ WSGI_APPLICATION = 'onybuff.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if LOCAL:
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3',
+			'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		}
 	}
-}
+else:
+	AUTH_USER_MODEL = 'home.User'
+	SOCIAL_AUTH_USER_MODEL = 'home.User'
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.postgresql_psycopg2',
+			'NAME': os.environ['DB_NAME'],
+			'USER': os.environ['DB_USER'],
+			'PASSWORD': os.environ['DB_PASS'],
+			'HOST': os.environ['DB_HOST'],
+			'PORT': '',
+		}
+	}
 
 CACHES = {
 	'default': {

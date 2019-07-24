@@ -734,20 +734,32 @@ function get_tooltip_info(e) {
 
 function create_tooltip(data) {
 
-    let target_element = $()
     const tooltip_container = $("#tooltip_container")
 
-    const image = (data.image_name) ? $('<img/>', {
-        class: 'icon-medium',
-        src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
-        style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/${data.image_name})`
-    }) : null
+    const image_name = data.image_name
+
+    delete data.image_name
 
     const tooltip = $('<div/>', {
         class: 'tooltip-container',
         id: "tooltip",
         style: "float: right;"
     })
+
+    for (let [key, val] of Object.entries(data)) {
+        // tooltip.append($('<div/>', {
+        //     class: `${key}`,
+        //     text: ''
+        // }))
+        console.log('name: ', name)
+        console.log('val: ', val)
+    }
+
+    const image = (image_name) ? $('<img/>', {
+        class: 'icon-medium',
+        src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
+        style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/${image_name})`
+    }) : null
 
     tooltip.append($('<div/>', {
         class: `title ${data.rarity}`,
@@ -758,6 +770,7 @@ function create_tooltip(data) {
         class: 'bop',
         text: "Binds when picked up"
     }) : null
+
     const unique = (data.unique) ? $('<div/>', {
         class: 'unique',
         text: "Unique"

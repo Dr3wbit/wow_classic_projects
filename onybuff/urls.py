@@ -24,7 +24,7 @@ urlpatterns = [
 	path('authorize/', include('social_django.urls', namespace='social')),
 ]
 
-if settings.DEFART:
+if settings.DEV:
     import debug_toolbar
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
