@@ -93,15 +93,19 @@
             e.stopImmediatePropagation()
             var amount = 1
             let name = $(e.target).closest(".recipe-container").attr('name')
-            if ((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) {
-                return false
-            }
+
             if (e.shiftKey) {
                 amount = 5
             }
 
             if (e.which === 3) {
                 amount = amount*(-1)
+            }
+
+            if (((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) && (e.which != 3)) {
+                // NOTE: visual indicator for
+                alert('100 is the limit, fix me')
+                return false
             }
             combatText(e, amount)
             update_consume_list(name, amount)
