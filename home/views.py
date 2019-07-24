@@ -828,7 +828,7 @@ def apply_filters(request):
 
 	# prof_filters = request.GET.get('prof_filters', None)
 	# class_filters = request.GET.get('class_filters', None)
-	tags = data['tags']
+	tags = data.get('tags', None)
 
 	if tags:
 		context['specs'] = set(Spec.objects.filter(tags__name__in=tags).filter(wow_class__name__in=tags))
