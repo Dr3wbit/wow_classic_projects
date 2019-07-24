@@ -5,16 +5,16 @@
 
     {% for recipe,v in recipes.items %}
     <div class="row">
-            <div class="prof-item-recipe col-8" name="{{recipe}}">
+            <div class="prof-item-recipe col-6" name="{{recipe}}">
                 {% with "images/icons/consumes/"|add:recipe|add:".jpg" as item_image %}
-                <div class="recipe-container {{v.rarity}} floating-combat-text" name="{{recipe}}">
+                <div class="recipe-container {{v.rarity}}" name="{{recipe}}">
                 <img class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
                 style="background-image: url({% static item_image %});">
                 {% endwith %}
                 <span class="consume-name" name="{{recipe}}">{{v.name|titlecase}}</span>
                 </div>
             </div>
-        <div class="col-4 reagant-list">
+        <div class="col-6 reagant-list">
             {% for mat_name,val in v.materials.items %}
             <div class="reagant-list-container" name="{{mat_name}}">
                 <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
@@ -103,6 +103,7 @@
             if (e.which === 3) {
                 amount = amount*(-1)
             }
+            combatText(e, amount)
             update_consume_list(name, amount)
             addCraftedItem(name, amount)
             update_url('', '')

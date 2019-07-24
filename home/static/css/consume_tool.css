@@ -35,7 +35,7 @@
 
 #totals_container {
     overflow-y: scroll;
-    padding-top: 10px;
+    padding-top: 4px;
 }
 
 .crafted-list-item {
@@ -171,7 +171,6 @@
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    text-indent: 15px;
     padding-left: 5px;
     margin-left: 10px;
     margin-right: -10px;
@@ -199,8 +198,6 @@
 }
 
 .recipe-container:hover {
-    -webkit-box-shadow: 0 0 7px 2px #ffc107;
-    -moz-box-shadow: 0 0 7px 2px #ffc107;
-    box-shadow: 0 0 7px 2px #ffc107;
+    box-shadow: -10px 0 5px -5px #ffc107;
     cursor: pointer;
 }
