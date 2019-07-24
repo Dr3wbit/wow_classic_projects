@@ -821,27 +821,17 @@ def ajax_tooltip(request):
 def apply_filters(request):
 
 	context = {}
-
-	# print(dir(request.META))
-	# print('meta: ', request.META)
 	print('get: ', request.GET)
 
-	# print('path: ', request.get_raw_uri())
-	# qd = QueryDict(request.META.QUERY_STRING).dict()
-
-	# print('qd: ', qd)
 	data = dict(request.GET)
 
-	print('data: ', data)
 
 	# prof_filters = request.GET.get('prof_filters', None)
 	# class_filters = request.GET.get('class_filters', None)
 	tags = data['tags']
 
-	context['specs'] = Spec.objects.filter(tags__name__in=tags).filter(wow_class__name__in=tags)
-	context['consume_lists'] = ConsumeList.objects.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags)
+	context['specs'] = set(Spec.objects.filter(tags__name__in=tags).filter(wow_class__name__in=tags))
+	context['consume_lists'] = set(ConsumeList.objects.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
 
-	print(context['specs'])
-	print(context['consume_lists'])
 	response = render(request, "index_helper.html", context=context)
 	return response
