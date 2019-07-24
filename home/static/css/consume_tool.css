@@ -35,7 +35,7 @@
 
 #totals_container {
     overflow-y: scroll;
-    padding-top: 10px;
+    padding-top: 4px;
 }
 
 .crafted-list-item {
@@ -165,13 +165,12 @@
     z-index: auto;
 }
 .prof-item-recipe {
-    margin-bottom: 4px;
+    margin-top: 4px;
     cursor: pointer;
     background-color: #101010;
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    text-indent: 15px;
     padding-left: 5px;
     margin-left: 10px;
     margin-right: -10px;
@@ -189,7 +188,7 @@
 }
 
 .reagant-list {
-    margin-bottom: 4px;
+    margin-top: 4px;
     background-color: #101010;
 }
 
@@ -198,3 +197,7 @@
     display: inline-block;
 }
 
+.recipe-container:hover {
+    box-shadow: -10px 0 5px -5px #ffc107;
+    cursor: pointer;
+}

@@ -12,6 +12,16 @@
     padding-top: 2px;
 }
 
+.black-out{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.692);
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1021;
+}
+
 
 
 .spec-list-item.selected:hover{
