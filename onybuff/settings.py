@@ -24,6 +24,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEV = False
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '13.59.19.192']
@@ -46,7 +47,7 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-	'home.apps.HomeConfig',
+	'home',
 	'account',
 	'social_django',
 ]
@@ -61,7 +62,7 @@ MIDDLEWARE = [
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if DEBUG:
+if DEV:
 	INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
 	INSTALLED_APPS.append('debug_toolbar')
 	MIDDLEWARE.insert(1, 'debug_toolbar.middleware.DebugToolbarMiddleware')

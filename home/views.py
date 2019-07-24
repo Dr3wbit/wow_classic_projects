@@ -4,14 +4,16 @@ from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page, never_cache
 from django.utils.decorators import method_decorator
-from django.db.models import Count, Q, Sum
+from django.db.models import Count, Q, Avg
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
-from django.db.utils import IntegrityError # use this in try except when unique_together constraint failed
+from django.db.utils import IntegrityError # use this in try except when unique_together constraint fails
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 
+from itertools import chain
+from operator import attrgetter
 import re
 
 class ThanksView(TemplateView):
@@ -74,39 +76,42 @@ class IndexView(TemplateView):
 		context['wowclasses'] = WoWClass.objects.all()
 		context['wowprofessions'] = Profession.objects.all()
 		context['tags'] = Tag.objects.all()
-
-		for spec in Spec.objects.all():
-			context['specs'][spec.name] = {}
-			context['specs'][spec.name]['obj'] = spec
-			context['specs'][spec.name]['has_voted'] = False
-
-			if request.user.is_authenticated:
-				if spec.ratings.filter(user=request.user).exists():
-					context['specs'][spec.name]['has_voted'] = True
-
-		context['consume_lists'] = {}
-		for cl in ConsumeList.objects.all():
-			name = cl.name
-			context['consume_lists'][name] = {}
-			context['consume_lists'][name]['obj'] = cl
-			context['consume_lists'][name]['has_voted'] = False
-			context['consume_lists'][name]['consumes'] = {}
-
-			if request.user.is_authenticated:
-				if cl.ratings.filter(user=request.user).exists():
-					context['consume_lists'][name]['has_voted'] = True
-
-			for consume in cl.consumes.all():
-				c = consume.item
-				if not consume.item.prof:
-					prof_name = 'other'
-				else:
-					prof_name = consume.item.prof.name
-
-				if prof_name not in context['consume_lists'][name]['consumes'].keys():
-					context['consume_lists'][name]['consumes'][prof_name] = {}
-
-				context['consume_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
+		context['specs'] = Spec.objects.all()
+		context['consume_lists'] = ConsumeList.objects.all()
+		# context['request'] = request
+		#
+		# for spec in Spec.objects.all():
+		# 	context['specs'][spec.name] = {}
+		# 	context['specs'][spec.name]['obj'] = spec
+		# 	context['specs'][spec.name]['has_voted'] = False
+		#
+		# 	if request.user.is_authenticated:
+		# 		if spec.ratings.filter(user=request.user).exists():
+		# 			context['specs'][spec.name]['has_voted'] = True
+		#
+		# context['consume_lists'] = {}
+		# for cl in ConsumeList.objects.all():
+		# 	name = cl.name
+		# 	context['consume_lists'][name] = {}
+		# 	context['consume_lists'][name]['obj'] = cl
+		# 	context['consume_lists'][name]['has_voted'] = False
+		# 	context['consume_lists'][name]['consumes'] = {}
+		#
+		# 	if request.user.is_authenticated:
+		# 		if cl.ratings.filter(user=request.user).exists():
+		# 			context['consume_lists'][name]['has_voted'] = True
+		#
+		# 	for consume in cl.consumes.all():
+		# 		c = consume.item
+		# 		if not consume.item.prof:
+		# 			prof_name = 'other'
+		# 		else:
+		# 			prof_name = consume.item.prof.name
+		#
+		# 		if prof_name not in context['consume_lists'][name]['consumes'].keys():
+		# 			context['consume_lists'][name]['consumes'][prof_name] = {}
+		#
+		# 		context['consume_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
 
 		# qs = cl.consumes.values('item__prof__name', 'item__item__name').annotate(Count('item')).order_by('item__prof__name')
 
@@ -813,4 +818,58 @@ def ajax_tooltip(request):
 
 
 	response = JsonResponse(data)
+	return response
+
+def apply_filters(request):
+
+	context = {}
+	context['rangen'] = range(5)
+	specs = Spec.objects.all()
+	consume_lists = ConsumeList.objects.all()
+
+	data = dict(request.GET)
+
+	# prof_filters = request.GET.get('prof_filters', None)
+	# class_filters = request.GET.get('class_filters', None)
+	tags = data.get('tags', None)
+	sorting = data.get('sorting', None)
+	combined = data.get('combined', None)
+
+	if tags:
+		# NOTE: and(&&):
+		# specs = set(specs.filter(tags__name__in=tags).filter(wow_class__name__in=tags))
+		# consume_lists = set(consume_lists.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
+
+		# NOTE: or(||):
+		specs = set(Spec.objects.filter(tags__name__in=tags) | Spec.objects.filter(wow_class__name__in=tags))
+		consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__prof__name__in=tags))
+
+
+	if sorting:
+		# combining specs and consume lists
+		if combined:
+			#created, ascending(oldest):
+			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'))
+
+			#created, descending(newest):
+			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=True)
+
+			#top rated (filter out saved lists not yet rated):
+			specs = specs.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
+			consume_lists = consume_lists.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
+
+			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('rating'), reverse=True)
+
+		# individual sorting
+		else:
+			# top rated
+			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
+			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
+
+			# context['result_list'] = list(chain(specs, consume_lists))
+
+	context['specs'] = specs
+	context['consume_lists'] = consume_lists
+
+	response = render(request, "index_helper.html", context=context)
 	return response
