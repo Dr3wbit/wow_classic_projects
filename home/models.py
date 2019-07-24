@@ -129,7 +129,7 @@ class Item(models.Model):
 		('other', 'other'),
 	)
 
-	# ilvl = models.PositiveSmallIntegerField(default=1)
+	# ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
 	image_name = models.CharField(max_length=50)
 	rarity = models.CharField(max_length=10, choices=RARITY_CHOICES, default='common')
 	unique = models.BooleanField(default=False)
@@ -209,7 +209,8 @@ class Profession(models.Model):
 		('fishing', 'fishing'),
 		('herbalism', 'herbalism'),
 		('mining', 'mining'),
-		('tailoring', 'tailoring')
+		('tailoring', 'tailoring'),
+		('riding', 'riding'),
 	)
 
 	TYPE_CHOICES = (
@@ -421,7 +422,37 @@ class Consume(models.Model):
 
 from home.signals import savedspec_limit, consumelist_limit
 
+# class Requirement(models.Model):
+# 	value = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(300)])
+# 	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+# 	object_id = models.PositiveIntegerField()
+# 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
+# 	content_object = GenericForeignKey('content_type', 'object_id')
+#
+# 	def __str__(self):
+# 		return("Item: {}, Requirement: {}".format(self.item.name, self.content_object.__class__.__name__))
+#
 
+# class Rank(models.Model):
+# 	CHOICES =
+# 		{'ALLIANCE':
+# 			['Private', 'Corporal', 'Sergeant', 'Master Sergeant',
+# 			'Sergeant Major', 'Knight', 'Knight-Lieutenent', 'Knight-Captain',
+# 			'Knight-Champion', 'Lieutenent-Commander', 'Commander', 'Marshal',
+# 			'Field Marshal', 'Grand Marshal']
+# 		},
+# 		{'HORDE':
+# 			['Scout', 'Grunt', 'Sergeant', 'Senior Sergeant', 'First Sergeant',
+# 			'Stone Guard', 'Blood Guard', 'Legionnaire', 'Centurion', 'Champion',
+# 			'Lieutenant General', 'General', 'Warlord', 'High Warlord']
+# 		}
+#
+# 	value = models.PositiveSmallIntegerField(default=0,  validators=[MinValueValidator(0), MaxValueValidator(14)])
+#
+# 	@property
+# 	def name(self, faction):
+# 		return self.CHOICES[faction][self.value]
+#
 # class Faction(models.Model):
 # 	FACTION_CHOICES = (
 # 		('A', 'Alliance'),
@@ -462,7 +493,8 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	start = models.ForeignKey('NPC')
 # 	end = models.ForeignKey('NPC')
 # 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
-#
+#	pre_req = models.ManyToManyField('Quest', on_delete=models.CASCADE)
+#	opens = models.ManyToManyField('Quest')
 # 	required_level = models.PositiveSmallIntegerField(default=1,  validators=[MinValueValidator(1), MaxValueValidator(60)])
 # 	name = models.CharField(max_length=100)
 # 	description = models.CharField(max_length=1000)
