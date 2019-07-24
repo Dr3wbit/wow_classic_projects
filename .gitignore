@@ -13,3 +13,4 @@ access.log
 error.log
 keys
 ONY_BUFF_KEY.pem
+static
