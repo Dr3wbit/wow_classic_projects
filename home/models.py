@@ -355,12 +355,9 @@ class Rating(models.Model):
 	value = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
 	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
 	object_id = models.PositiveIntegerField()
-
 	user = models.ForeignKey('Profile', on_delete=models.CASCADE) if settings.LOCAL else models.ForeignKey('User', on_delete=models.CASCADE)
-
 	content_object = GenericForeignKey('content_type', 'object_id')
 	help_text = "Spec or ConsumeList"
-
 
 	def __str__(self):
 		return("User={}, SavedList={}, Rating={}".format(self.user.email, self.content_object.name, self.value))
@@ -392,6 +389,8 @@ class SavedList(models.Model):
 	def rating(self):
 		return self.ratings.aggregate(Avg('value'))['value__avg']
 
+	def has_voted(self, email):
+		return self.ratings.filter(user__email=email).exists()
 
 class ConsumeList(SavedList):
 	consumes = models.ManyToManyField('Consume')

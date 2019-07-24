@@ -1,5 +1,7 @@
 from django import template
 from django.template.defaultfilters import stringfilter
+
+from home.models import Spec, ConsumeList, Profile
 import re
 
 nope = re.compile(r"[\-]")
@@ -27,3 +29,13 @@ def sanitize(s):
 	a = forbiden.sub('', s)
 	a = nope.sub(' ', a).strip().replace(' ', '_').lower()
 	return(a)
+
+
+@register.simple_tag
+def has_voted(id, email, spec):
+	if bool(spec):
+		saved_list = Spec.objects.get(id=id)
+	else:
+		saved_list = ConsumeList.objects.get(id=id)
+
+	return saved_list.has_voted(email)
