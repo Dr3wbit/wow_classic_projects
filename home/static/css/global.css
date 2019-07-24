@@ -917,3 +917,35 @@ a#discord-login:hover{
     background-color: #000000;
     border-radius: 5px;
 }
+
+.floating-container{
+    position: absolute;
+    font-size: 150%;
+    color: #ffc107;
+    user-select: none;
+    pointer-events: none;
+    animation-name: float-up;
+    animation-duration: 3s;
+    animation-direction: normal;
+    z-index: 2000;
+}
+
+@keyframes float-up {
+	0% {
+        transform: translate(-30px, -10px);
+        opacity: 1;
+    }
+    /* 25%{
+        transform: translate(-25px,-40px);
+    }
+	50% {
+		transform: translate(-22px,-60px);
+    }
+    75%{
+        transform: translate(-24px,-80px);
+    } */
+	100% {
+        transform: translate(-30px,-130px);
+        opacity: 0;
+	}
+}
