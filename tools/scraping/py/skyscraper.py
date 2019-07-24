@@ -112,8 +112,13 @@ def main():
                 ALL_ITEMS[name]['slot'] = slot
 
             if slot=='Off-Hand':
+                # are shields armor or weapons?
+                pass
 
+            ################
+            ################
             text_items = main_content.text.split("\n")
+            name = sanitize(text_items.pop(0))
 
             for item in text_items:
                 if 'Damage' in item:
@@ -155,6 +160,9 @@ def main():
                 if 'Classes' in main_text:
                     ## figure out which class and save it
 
+
+            ################
+            ################
             icon_name = get_icon_name(IMAGE_NAME_RE)
             ALL_ITEMS[name]['image_name'] = icon_name
             ALL_IMAGES.append(icon_name)
