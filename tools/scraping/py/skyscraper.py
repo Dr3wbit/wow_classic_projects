@@ -9,26 +9,20 @@ from selenium.common import exceptions
 # chmod 755 path/to/chromedriver
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 
-RARITY_CHOICES = {
-	'q0': 'junk',
-	'q1': 'common',
-	'q2': 'uncommon',
-	'q3': 'rare',
-	'q4': 'epic',
-	'q5': 'legendary',
-	'q10': 'rank',
-}
-
 BOP = "Binds when picked up"
 UNIQUE = 'Unique'
 
-ARMORLESS_SLOTS = ['Finger', 'Trinket', 'Shirt', 'Ring', 'Neck', 'Bag']
+# not that they cant have armor, that they cant have a proficiency, i.e cloth, plate, sword
+ARMORLESS_SLOTS = ['Finger', 'Trinket', 'Shirt', 'Ring', 'Neck', 'Bag', 'Tabbard']
 MAGIC_SCHOOLS = ['Frost', 'Fire', 'Arcane', 'Nature', 'Shadow']
-STATLESS_SLOTS = ['Shirt']
-CLASSES = {
+STATLESS_SLOTS = ['Shirt', 'Tabbard']
+STATS = ['Agility', 'Armor', 'Block', 'Intellect', 'Spirit', 'Stamina', 'Strength']
+EXTENDED_STATS = ['Armor', 'Block']
+
+CLASS_DICT = {
 	'c1': 'warrior',
 	'c2': 'paladin',
-	'c3': 'hunter',
+	'c3': 'Hunter',
 	'c4': 'rogue',
 	'c5': 'priest',
 	'c8': 'mage',
@@ -37,17 +31,21 @@ CLASSES = {
 	'c11': 'druid',
 }
 
-
-ARMOR_SLOTS = ['Head', 'Shoulder', 'Back', 'Chest', 'Feet', 'Hands', 'Shield', 'Waist', 'Wrist']
-WEAPONSLOTS = ['Off Hand', 'One-hand', 'Main Hand', 'Thrown', 'Ranged', 'Two-hand']
-
+CLASSES = [x.title() for x in CLASS_DICT.values()]
 
 def main():
-
+	REP_LVLS = ['Hated', 'Neutral', 'Friendly', 'Honored', 'Exalted']
+	PROFESSIONS = [
+		'Alchemy', 'Enchanting', 'Engineering', 'Blacksmithing', 'Cooking', 'First Aid',
+		'Leatherworking', 'Skinning', 'Tailoring', 'Fishing', 'Riding', 'Mining',
+		'Herbalism'
+		]
+	RARITY_CHOICES = {'q0': 0,'q1': 1,'q2': 2, 'q3': 3, 'q4': 4, 'q5': 5, 'q6': 6}
 	ANY_DIGITS = re.compile(r"([\d]+)", re.M)
 	IMAGE_NAME_RE = re.compile(r"'(\w*)'")
 	ARMOR_RE = re.compile(r"([\d]+) Armor")
-	DURA_RE = re.compile(r"Durability ([\d]+)")
+	DUR_RE = re.compile(r"Durability ([\d]+)")
+
 	REQ_RE = re.compile(r"Requires (\w+)")
 
 	ALL_IMAGES = create_image_list(os.path.abspath('../../home/static/images/icons/large'))
@@ -64,131 +62,97 @@ def main():
 			# name = sanitize(driver.find_element(By.CSS_SELECTOR, 'div.text')[0].find_element(By.TAG_NAME, 'h1')[0].text)
 
 			tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1]
-			tables = tooltip.find_element(By.TAG_NAME, 'table').find_elements(By.TAG_NAME, 'table')
-			upper_table = tables[0].find_element(By.TAG_NAME, 'td')
+			tables = tooltip.find_elements(By.XPATH, "./table/tbody/tr/td/table")
+
+			# items in the upper table include:
+			# name, bop, unique, slot, proficiency, armor, damage, stats, durability, resists
+
+			upper_table = tables[0].find_element(By.XPATH, "./tbody/tr/td")
 
 			name = sanitize(upper_table.find_element(By.TAG_NAME, 'b').text)
 
-			if name not in ALL_ITEMS.keys():
-				ALL_ITEMS[name] = {}
-
+			ALL_ITEMS[name] = {}
 			ALL_ITEMS[name]['i'] = n
 
-			text_items = upper_table.text.split("\n")
+			class_name = upper_table.find_element(By.TAG_NAME, 'b').get_attribute("class")
+			ALL_ITEMS[name]['quality'] = RARITY_CHOICES[class_name]
+
+			upper_items = upper_table.text.split("\n")
 			# js equiv: document.querySelectorAll('div.tooltip')[1].getElementsByTagName('table')[0].getElementsByTagName('table')[0]
 
-			name = sanitize(text_items.pop(0))
+			ALL_ITEMS[name]['n'] = upper_items.pop(0)
 
-			class_name = upper_table.find_element(By.TAG_NAME, 'b').get_attribute("class")
-			ALL_ITEMS[name]['rarity'] = RARITY_CHOICES[class_name]
-
-			if BOP in text_items:
-				ALL_ITEMS[name]['bop'] = True
-				i = text_items.index(BOP)
-				text_items.pop(i)
-
-			if UNIQUE in text_items:
-				ALL_ITEMS[name]['unique'] = True
-				i = text_items.index(UNIQUE)
-				text_items.pop(i)
-
-			if check_element_exists_by_css(upper_table, 'table'):
-				# ALL_ITEMS[name]['equipable'] = True
-				tab = upper_table.find_element(By.TAG_NAME, 'table')
-				slot = tab.find_element(By.TAG_NAME, 'td').text
-				ALL_ITEMS[name]['slot'] = slot
-				i = text_items.index(slot)
-				text_items.pop(i)
-
-				if slot not in ARMORLESS_SLOTS:
-
-					proficiency = tab.find_element(By.TAG_NAME, 'th').text
-					ALL_ITEMS[name]['proficiency'] = proficiency
-					i = text_items.index(proficiency)
-					text_items.pop(i)
-
-			# remaining items will be armor, stats, damage, resists, and durability
-			for item in text_items:
-
-
-			################
-			################
-
-			for item in text_items:
-				if 'Damage' in item:
-					# find numbers and potential school of magic
-					ALL_ITEMS[name]['damage'] = {}
-
-				elif 'Resist' in item:
-					# look for school of magic
-
-				elif 'Armor' in item:
-					# find number
-
-				elif 'Require' in item:
-					# determine the type
-					if 'Level' in item:
-						pass
-					elif 'alchemy' or 'engineering' in item: #etc https://classicdb.ch/?item=13482
-						# get the skill lvl
-						pass
-					elif 'honored' or 'revered' or 'friendly' or exalted:
-						pass
-
-				elif 'Classes' in item:
-					# further split it
-
-				else:
-					# most likely a stat
-
-
-
-				#if slot not in STATLESS_SLOTS:
-				#    ALL_ITEMS[name]['stats'] = {}
-
-				if slot in WEAPONSLOTS:
-					# weapon_type = tab.find_element(By.TAG_NAME, 'th').text
-					ALL_ITEMS[name]['weapon'] = weapon_type
-					## get weapon speed, topend, lowend, and any extra elemental damage
-					## also note that weapons can have +armor on them
-
-				elif slot not in ARMORLESS_SLOTS:
-					# armor_type = tab.find_element(By.TAG_NAME, 'th').text
-					# ALL_ITEMS[name]['armor'] = armor_type
-					if 'Armor' in main_text:
-						matched = ARMOR_RE.search(main_text)
-						if matched:
-							ALL_ITEMS[name]['stats']['armor'] = int(matched.group(1))
-
-					if 'Durability' in main_text:
-						matched = DURA_RE.search(main_text)
-						if matched:
-							ALL_ITEMS[name]['durability'] = int(matched.group(1))
-
-
-				requirements = REQ_RE.findall(main_text)
-				if requirements:
-					for req in requirement:
-						# different req types are:
-						# rank, level, profession, faction (argent dawn, warsong, etc.) race?
-
-
-				if 'Classes' in main_text:
-					## figure out which class and save it
-
-
-			################
-			################
-			icon_name = get_icon_name(IMAGE_NAME_RE)
-			ALL_ITEMS[name]['image_name'] = icon_name
-			ALL_IMAGES.append(icon_name)
-			ALL_ITEMS[name]['rarity'] = get_rarity()
+			ALL_ITEMS[name]['image_name'] = get_icon_name(IMAGE_NAME_RE)
+			ALL_IMAGES.append(ALL_ITEMS[name]['image_name'])
 
 			infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[1].find_element(By.TAG_NAME, 'ul')
 			ALL_ITEMS[name]['ilvl'] = get_ilvl(ANY_DIGITS, infobox)
 
 			moneybox = infobox.find_elements(By.TAG_NAME, 'li')[2]
 			ALL_ITEMS[name]['sells_for'] = get_sell_price(moneybox)
+
+
+			if BOP in upper_items:
+				ALL_ITEMS[name]['bop'] = True
+				i = upper_items.index(BOP)
+				upper_items.pop(i)
+
+			if UNIQUE in upper_items:
+				ALL_ITEMS[name]['unique'] = True
+				i = upper_items.index(UNIQUE)
+				upper_items.pop(i)
+
+			if check_element_exists_by_css(upper_table, 'table'):
+				# ALL_ITEMS[name]['equipable'] = True
+				tab = upper_table.find_element(By.TAG_NAME, 'table')
+				slot = tab.find_element(By.TAG_NAME, 'td').text
+				ALL_ITEMS[name]['slot'] = slot
+				i = [x for x,y in enumerate(upper_items) if slot in y][0]
+				upper_items[i] = upper_items[i].replace(slot, '').strip()
+
+				if check_element_exists_by_css(tab, "th") and slot not in ARMORLESS_SLOTS:
+					th = tab.find_element(By.TAG_NAME, 'th')
+					if th.text:
+						proficiency = th.text
+						ALL_ITEMS[name]['proficiency'] = proficiency
+						i = upper_items.index(proficiency)
+						upper_items.pop(i)
+
+
+			# wep speed is normally coupled with dmg, so extract speed
+			if any(x for x in upper_items if 'Speed' in x):
+				i = [x for x,y in enumerate(upper_items) if 'Speed' in y][0]
+				match = re.search(r"Speed ([\d\.]+)", upper_items[i])
+				if match:
+					upper_items[i] = re.sub(match.group(0), '', upper_items[i]).strip()
+					ALL_ITEMS[name]['speed'] = match.group(1)
+
+			ALL_ITEMS[name] = extract_stats(text_items, ALL_ITEMS[name], ARMOR_RE, DUR_RE)
+
+
+			# items in the lower table include:
+			# use, effects, procs, itemset, description
+			# NOTE: descriptions will always have quotes around them
+
+			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
+			spans = lower_table.find_elements(By.XPATH, "./span")
+			for span in spans:
+				text = span.text
+			    if text.startswith("Equip"):
+					t = text[6:]
+					if t.startswith
+			    elif text.startswith("Use"):
+
+			    elif text.startswith("Chance"):
+
+			if span.q:
+			    if '"' in text:
+			        ALL_ITEMS[description] = text
+			    elif:
+			        # check element exists
+			        span.q.find_element(By.TAG_NAME, 'a')
+			    else:
+			        pass
 
 
 		# indicates no item found
@@ -199,6 +163,147 @@ def main():
 	with open(os.path.abspath('../js/all_items.js'), 'w') as f:
 		json.dump(ALL_ITEMS, f, indent=4)
 
+
+# attempts to get armor, stats, damage, resists, and durability
+def extract_stats(items, stat_dict):
+	for item in items:
+		if 'Damage' in item:
+			# find numbers and potential school of magic
+			botend = 0
+			topend = 0
+			if any(x in item for x in MAGIC_SCHOOLS):
+				school = [x for x in MAGIC_SCHOOLS if x in item][0]
+
+			matched = re.search(r"([\d]{1,3}) \- ([\d]{1,3})", item)
+			if matched:
+				botend = int(matched.group(1))
+				topend = int(matched.group(2))
+			else:
+				match_fail_disclaimer('damage', item, r"([\d]{1,3}) \- ([\d]{1,3})")
+
+			if 'damage' not in stat_dict.keys():
+				stat_dict['damage'] = {}
+
+			stat_dict['damage'][school] = [botend, topend]
+
+
+		elif 'Resist' in item:
+			school = [x for x in MAGIC_SCHOOLS if x in item][0]
+			v = 0
+			matched = re.search(r"\+([\d]+)", item)
+			if matched:
+				v = int(matched.group(1))
+			else:
+				match_fail_disclaimer('resist', item, r"\+([\d]+)")
+
+			if 'resist' not in stat_dict.keys():
+				stat_dict['resist'] = {}
+
+			stat_dict['resist'][school] = v
+
+
+		elif 'Durability' in item:
+			v = 0
+			matched = re.search(r"Durability ([\d]+)", item)
+			if matched:
+				v = int(matched.group(1))
+
+			else:
+				match_fail_disclaimer('durability', item, r"Durability ([\d]+)")
+
+			if 'stats' not in stat_dict.keys():
+				stat_dict['stats'] = {}
+
+			stat_dict['stats']['durability'] = v
+
+
+		elif 'Require' in item:
+			# determine the type
+			if 'Level' in item:
+				v = 1
+				matched = re.search(r"Requires Level ([\d]+)", item)
+				if matched:
+					v = int(matched.group(1))
+				else:
+					match_fail_disclaimer('require, level', item, r"Requires Level ([\d]+)")
+
+				if 'requirements' not in stat_dict.keys():
+					stat_dict['requirements'] = {}
+
+				stat_dict['requirements']['level'] = v
+
+			elif any(x in item for x in PROFESSIONS):
+				v = 1
+				prof = [x for x in PROFESSIONS if x in item][0]
+				matched = re.search(r"Requires {} \(([\d]+)\)".format(prof), item)
+
+				if matched:
+					v = int(matched.group(1))
+				else:
+					match_fail_disclaimer('require, profession', item, r"Requires {} \(([\d]+)\)".format(prof))
+
+				if 'requirements' not in stat_dict.keys():
+					stat_dict['requirements'] = {}
+
+				stat_dict['requirements']['profession'] = {}
+				stat_dict['requirements']['profession'][prof.lower()] = v
+
+			# requires faction rep
+		elif any(x in item for x in REP_LVLS):
+				name = 'None'
+				rep = [x for x in PROFESSIONS if x in item][0]
+				matched = re.search(r"Requires ([\w ]+) \- {}".format(rep), item)
+
+				if matched:
+					name = matched.group(1)
+
+					href = driver.find_element(By.LINK_TEXT, faction).get_attribute("href")
+					href_match = re.search(r"([\d]+)", href)
+					id = s.group(1) if href_match else 0
+
+				else:
+					match_fail_disclaimer('require, faction', item, r"Requires ([\w ]+) \- {}".format(rep))
+
+				if 'requirements' not in stat_dict.keys():
+					stat_dict['requirements'] = {}
+
+				stat_dict['requirements']['reputation'] = {}
+				stat_dict['requirements']['reputation']['n'] = name
+				stat_dict['requirements']['reputation']['i'] = id
+				stat_dict['requirements']['reputation']['v'] = rep
+
+
+		elif 'Classes' in item:
+			class_names = [x for x in CLASSES if x in item]
+
+			if 'requirements' not in stat_dict.keys():
+				stat_dict['requirements'] = {}
+
+			stat_dict['requirements']['class'] = class_names
+
+
+		# else its a stat item
+		elif any(x in item for x in STATS):
+			v = 0
+			stat = [x for x in STATS if x in item][0]
+			r = "(\+|\-)" if stat not in EXTENDED_STATS else ""
+			regex = "{}([\d]+) {}".format(r, stat)
+			matched = re.search(r"{}".format(regex), item)
+			if matched:
+				v = int("{}{}".format(matched.group(1), (matched.group(2) if len(matched.groups())>1 else "")))
+			else:
+				match_fail_disclaimer('stat, {}'.format(stat), item, r"{}".format(regex))
+
+			if 'stats' not in stat_dict.keys():
+				stat_dict['stats'] = {}
+
+			stat_dict['stats'][stat.lower()] = v
+
+		else:
+			print('NO MATCHES FOUND')
+			return
+
+	return stat_dict
 
 def get_ilvl(reee, infobox):
 	ilvl = 0
@@ -279,6 +384,10 @@ def sanitize(s):
 	b = a.lower()
 	return(b)
 
+def match_fail_disclaimer(s, item, regex):
+	print("Found '{}' in item: {}, but could not find match".format(s.upper(), item))
+	print('Regex: {}\n'.format(regex))
+
 
 def get_item_list(path):
 
@@ -340,5 +449,28 @@ def get_item_list(path):
 # 	('Stamina', 'Stamina'),
 # 	)
 
+ARMOR_SLOTS = ['Head', 'Shoulder', 'Back', 'Chest', 'Feet', 'Hands', 'Shield', 'Waist', 'Wrist']
+WEAPONSLOTS = ['Off Hand', 'One-hand', 'Main Hand', 'Thrown', 'Ranged', 'Two-hand']
 
-TEXT = ['Thunderfury, Blessed Blade of the Windseeker', 'Binds when picked up', 'Unique', 'One-hand', 'Sword', '44 - 115 Damage', 'Speed 1.90', '+16 - 30 Nature Damage', '(53.9 damage per second)', '+5 Agility', '+8 Stamina', '+8 Fire Resistance', '+9 Nature Resistance', 'Durability 125 / 125', 'Requires Level 60']
+tfury = ['Thunderfury, Blessed Blade of the Windseeker', 'Binds when picked up', 'Unique', 'One-hand Sword', '44 - 115 Damage Speed 1.90', '+16 - 30 Nature Damage', '(53.9 damage per second)', '+5 Agility', '+8 Stamina', '+8 Fire Resistance', '+9 Nature Resistance', 'Durability 125 / 125', 'Requires Level 60']
+ironbark_staff = ['Ironbark Staff', 'Binds when picked up', 'Two-hand Staff', '136.62 - 242.62 Damage Speed 3.40', '(55.8 damage per second)', '100 Armor', '+10 Intellect', '+19 Stamina', 'Durability 120 / 120', 'Requires Level 60', 'Requires The Defilers - Exalted']
+defilers_shoulders = ["Defiler's Chain Pauldrons", 'Binds when picked up', 'Unique', 'Shoulder Mail', '312 Armor', '+20 Agility', '+18 Stamina', '+17 Intellect', 'Durability 85 / 85', 'Classes: Hunter, Shaman', 'Requires Level 60', 'Requires The Defilers - Exalted']
+
+hwl shield: https://classicdb.ch/?item=18826
+multi-req recipe: https://classicdb.ch/?item=13482
+roids, dscription text: https://classicdb.ch/?item=8410
+brill mana oil, charges, https://classicdb.ch/?item=20748
+
+weapon with armor on it: https://classicdb.ch/?item=20220
+
+triple requirement consume, https://classicdb.ch/?item=20232
+
+triple req item, part of itemset: https://classicdb.ch/?item=20163
+
+increase damage of multishot: https://classicdb.ch/?item=16463
+
+increase movespeed of ghost wolf: https://classicdb.ch/?item=16573
+
+50% pushback decrease? https://classicdb.ch/?item=17620
+
+increase mana absorbed by mana shield: https://classicdb.ch/?item=16540
