@@ -15,7 +15,7 @@ const utilities = {
 		let width = tooltip.width(), height = tooltip.height()
 		let element = targetElement
 		let spans = element.find('span')
-		console.log('offset left: ', element.offset().left, ' offset left: ', element.offset().top)
+		// console.log('offset left: ', element.offset().left, ' offset left: ', element.offset().top)
 
 		this.coords = {}
 		// console.log('offset left: ', element.offset().left)

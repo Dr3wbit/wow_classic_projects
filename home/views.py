@@ -277,11 +277,11 @@ class TalentCalcTemplate(TemplateView):
 
 class TalentBuilderRedirectView(RedirectView):
 	query_string = False
-	pattern_name = 'talents'
+	pattern_name = 'talent_calc'
 	permanent = False
-	url = "http://127.0.0.1:8000/talent_calc"
 
 	def get_redirect_url(self, *args, **kwargs):
+		new_url = "{}://{}/talent_calc".format(self.request.scheme, self.request.get_host())
 
 		if 'id' in self.request.session:
 			del self.request.session['id']
@@ -291,18 +291,16 @@ class TalentBuilderRedirectView(RedirectView):
 		spec = Spec.objects.get(id=id)
 		class_name = spec.wow_class.name
 		qs = spec.hash
-		self.url = self.url+"/{}?{}".format(class_name, qs)
-
+		self.url = new_url+"/{}?{}".format(class_name, qs)
 		return self.url
 
 class ConsumeBuilderRedirectView(RedirectView):
 	query_string = False
-	pattern_name = 'consumes'
+	pattern_name = 'consume_tool'
 	permanent = False
-	url = "http://127.0.0.1:8000/consume_tool"
-
 	def get_redirect_url(self, *args, **kwargs):
 
+		new_url = "{}://{}/consume_tool".format(self.request.scheme, self.request.get_host())
 		if 'id' in self.request.session:
 			del self.request.session['id']
 
@@ -310,8 +308,7 @@ class ConsumeBuilderRedirectView(RedirectView):
 		self.request.session['id'] = id
 		cl = ConsumeList.objects.get(id=id)
 		qs = cl.hash
-		self.url = self.url+"?{}".format(qs)
-
+		self.url = new_url+"?{}".format(qs)
 		return self.url
 
 class ConsumeToolTemplate(TemplateView):
