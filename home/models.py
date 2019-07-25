@@ -132,6 +132,7 @@ class Item(models.Model):
 	# ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
 	image_name = models.CharField(max_length=50)
 	rarity = models.CharField(max_length=10, choices=RARITY_CHOICES, default='common')
+	quality = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(6)])
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
 	use = models.CharField(max_length=250, blank=True)
@@ -643,7 +644,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	)
 # 	name = models.CharField(max_length=20, unique=True, choices=CHOICES)
 #
-# 
+#
 # class ItemSet(models.Model):
 # 	name = models.CharField(max_length=75)
 # 	items = models.ManyToManyField('Item')

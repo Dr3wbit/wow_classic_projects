@@ -82,7 +82,7 @@ const allConsumes = {
 		category: 'alchemy',
 	},
 	juju_flurry: {
-		use: "Increases the target's attack speed by 3% for 20 sec. (1 Min Cooldown)",
+		use: "Increases the target's attack speed by 3% for 20 sec. (cooldown 1 min)",
 		bop: true,
         category: 'other',
         materials: {
@@ -265,11 +265,12 @@ const allConsumes = {
 		use: 'Drains 675 to 1126 mana from those in the blast radius and does 50% of the mana drained in damage to the target. Also Silences targets in the blast for 5 sec. (cooldown 1 min)',
 		rarity: 'common',
 		materials: {
-			delicate_arcanite_converter: 1,
-			thorium_bar: 3,
-			runecloth: 1,
+			delicate_arcanite_converter: 0.34,
+			thorium_bar: 1,
+			runecloth: 0.34,
 		},
 		category: 'engineering',
+		step: 3,
 	},
 	dense_sharpening_stone: {
 		url: 'https://classic.wowhead.com/item=12404',
@@ -537,7 +538,7 @@ const allConsumes = {
 		use: 'Inflicts 300 to 501 Fire damage and stuns targets for 3 sec in a 3 yard radius. Any damage will break the effect. (cooldown 1 min)',
 		rarity: 'common',
 		materials: {
-			thorium_widget: 0.33,
+			thorium_widget: 0.34,
 			thorium_bar: 1,
 			dense_blasting_powder: 1,
 			runecloth: 1,
