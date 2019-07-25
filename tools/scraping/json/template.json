@@ -1,0 +1,264 @@
+"items":{
+	"thunderfury_blessed_blade_of_the_windseeker": {
+		"n": "Thunderfury, Blessed Blade of the Windseeker",
+		"i": 19019,
+		"ilvl": 80,
+		"bop": true,
+		"unique": true,
+		"quality": 5,
+		"image_name": "inv_sword_39",
+		"equipable": "weapon",
+		"slot": "One-hand",
+		"proficiency": "Sword",
+		"speed": 1.9,
+		"damage": {
+			"normal": [44, 115],
+			"nature": [16, 30],
+		},
+		"stats": {
+			"agility": 5,
+			"stamina": 8,
+			"fire_resist": 8,
+			"nature_resist": 9,
+			"durability": 125,
+		},
+		"effects": {
+			"proc": 21992,
+		},
+		"requirements": {
+			"level": 60,
+		},
+		"reward": 7787,
+		"sells_for": {
+			"copper": 40,
+			"silver": 31,
+			"gold": 12,
+		},
+	},
+	"high_warlords_shield_wall": {
+		"n": "High Warlord's Shield Wall",
+		"i": 18826,
+		"ilvl": 78,
+		"bop": true,
+		"quality": 4,
+		"image_name": "inv_shield_19",
+		"equipable": "armor",
+		"slot": "Off Hand",
+		"proficiency": "Shield",
+		"stats": {
+			"armor": 2929,
+			"block": 55,
+			"stamina": 23,
+			"strength": 10,
+			"durability": 120,
+		},
+		"effects": {
+			"proc": 13959,
+		},
+		"requirements": {
+			"rank": 14,
+			"level": 60,
+		},
+		"sells_for": {
+			"copper": 17,
+			"silver": 19,
+			"gold": 3
+		},
+	},
+	"knight_captains_plate_hauberk": {
+		"n": "Knight-Captain's Plate Hauberk",
+		"i": 23300,
+		"ilvl": 78,
+		"bop": true,
+		"unique": true,
+		"quality": 3,
+		"image_name": "inv_chest_plate16",
+		"equipable": "armor",
+		"slot": "Chest",
+		"proficiency": "Plate",
+		"stats": {
+			"armor": 706,
+			"stamina": 23,
+			"strength": 21,
+			"durability": 135,
+		},
+		"requirements": {
+			"rank": 8,
+			"level": 60,
+			"class": [1],
+		},
+		"effects": {
+			"crit": 1,
+			"spell": 7597,
+		},
+		"sells_for": {
+			"copper": 87,
+			"silver": 49,
+			"gold": 1
+		},
+		"set": "lieutenant_commanders_battlearmor",
+	},
+	"bindings_of_the_windseeker": {
+		"n": "Bindings of the Windseeker",
+		"i": 18564,
+		"ilvl": 70,
+		"bop": true,
+		"unique": true,
+		"quality": 5,
+		"requirements": {
+			"class": [1,2,3,4],
+		},
+		"description": "The Right Half of Thunderaan's Eternal Prison",
+		"dropped_by": {
+			"12057": 3,
+		},
+		"objective": 7786,
+	},
+	"warblade_of_the_hakkari": {
+		"n": "Warblade of the Hakkari",
+		"i": 19866,
+		"ilvl": 66,
+		"bop": true,
+		"unique": true,
+		"quality": 4,
+		"image_name": "inv_sword_55",
+		"equipable": "weapon",
+		"slot": "Off Hand",
+		"proficiency": "Sword",
+		"damage": {
+			"normal": [57, 106],
+		},
+		"speed": 1.7,
+		"stats": {
+			"durability": 105,
+		},
+		"requirements": {
+			"level": 60,
+		},
+		"effects": {
+			"attack_power": 40,
+		},
+		"description": "The seething flames of hatred.",
+		"dropped_by": {
+			"11382": 16,
+		}
+		"sells_for": {
+			"copper": 94,
+			"silver": 69,
+			"gold": 8,
+		},
+	},
+	"zandalar_signet_of_mojo": {
+		"n": "Zandalar Signet of Mojo",
+		"i": 20076,
+		"ilvl": 60,
+		"bop": true,
+		"use": 24421,
+		"image_name": "inv_jewelry_ring_46",
+		"reward": 8246,
+	},
+	"gnomish_battle_chicken": {
+		"n": "Gnomish Battle Chicken",
+		"i": 10725,
+		"ilvl": 46,
+		"bop": true,
+		"quality": 1,
+		"image_name": "spell_magic_polymorphchicken",
+		"slot": "Trinket",
+		"requirements": {
+			"engineering": 230,
+		},
+		"use": 23133,
+		"objective": 9197,
+		"materials": {
+			"10561": 1,
+			"6037": 6,
+			"3860": 6,
+			"9060": 2,
+			"10558": 1,
+			"1529": 2,
+		}
+	},
+	"formula_enchant_weapon_spell_power": {
+		"n": "Formula: Enchant Weapon - Spell Power",
+		"i": 18259,
+		"bop": true,
+		"requirements": {
+			"enchanting": 300,
+		}
+		"use": 22753,
+		"dropped_by": {
+			"magmadar": 1,
+			"golemag_the_incinerator": 1,
+			"baron_geddon": 1,
+			"garr": 1,
+			"lucifron": 1,
+			"gehennas": 1,
+			"shazzrah": 1,
+		},
+	}
+},
+"itemsets": {
+	"lieutenant_commanders_battlearmor": {
+		"n": "Lieutenant Commander's Battlearmor",
+		"i": 545,
+		"items": [23300, 23301, 23302, 23303, 23304, 23305],
+		"bonuses": {
+			"2": {
+				"effects": {
+					"attack_power": 40,
+				},
+			},
+			"4": {
+				"cd_reduction": {
+					"intercept": 5,
+				},
+			},
+			"6": {
+				"stats": {
+					"stamina": 20,
+				},
+			},
+		}
+	},
+	"the_twin_blades_of_hakkari": {
+		"n": "The Twin Blades of Hakkari",
+		"i": 461,
+		"items": [19865, 19866],
+		"bonuses": {
+			"2": {
+				"effects": {
+					"swords": 6,
+				}
+			}
+		}
+	}
+}
+
+
+KEYS: {
+	CLASSES:{
+		"warrior": 1,
+		"paladin": 2,
+		"hunter": 3,
+		"rogue": 4,
+		"priest": 5,
+		"shaman": 6,
+		"mage": 7,
+		"warlock": 8,
+		"druid": 9,
+	},
+	QUALITY: {
+		"junk": 0,
+		"common": 1,
+		"uncommon":2,
+		"rare":3,
+		"epic":4,
+		"legendary":5,
+	},
+	"object": n - quest id,
+	"materials": {
+		"x": "x is the item number",
+	},
+	"reward": n - quest id
+}
