@@ -75,6 +75,8 @@ def main():
 			ALL_ITEMS[name]['i'] = n
 
 			text_items = upper_table.text.split("\n")
+			# js equiv: document.querySelectorAll('div.tooltip')[1].getElementsByTagName('table')[0].getElementsByTagName('table')[0]
+
 			name = sanitize(text_items.pop(0))
 
 			class_name = upper_table.find_element(By.TAG_NAME, 'b').get_attribute("class")
@@ -337,7 +339,6 @@ def get_item_list(path):
 # 	('spirit', 'Spirit'),
 # 	('Stamina', 'Stamina'),
 # 	)
-
 
 
 TEXT = ['Thunderfury, Blessed Blade of the Windseeker', 'Binds when picked up', 'Unique', 'One-hand', 'Sword', '44 - 115 Damage', 'Speed 1.90', '+16 - 30 Nature Damage', '(53.9 damage per second)', '+5 Agility', '+8 Stamina', '+8 Fire Resistance', '+9 Nature Resistance', 'Durability 125 / 125', 'Requires Level 60']
