@@ -638,6 +638,26 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	('strength', 'Strength'),
 # 	('intellect', 'Intellect'),
 # 	('spirit', 'Spirit'),
-# 	('Stamina', 'Stamina'),
+# 	('stamina', 'Stamina'),
+#
 # 	)
 # 	name = models.CharField(max_length=20, unique=True, choices=CHOICES)
+#
+# 
+# class ItemSet(models.Model):
+# 	name = models.CharField(max_length=75)
+# 	items = models.ManyToManyField('Item')
+# 	bonuses = models.ManyToManyField('Bonus')
+#
+# 	def __str__(self):
+# 		return self.name
+#
+#
+# class Bonus(models.Model):
+#
+# 	value = models.PositiveSmallIntegerField(default=1)
+# 	itemset = models.ForeignKey('ItemSet', on_delete=models.CASCADE)
+# 	stat = models.ForeignKey('Stat', on_delete=models.CASCADE, blank=True, null=True)
+# 	effect = models.ForeignKey('Effect', on_delete=models.CASCADE, blank=True, null=True)
+# 	pieces_required = models.PositiveSmallIntegerField(default=1)
+#
