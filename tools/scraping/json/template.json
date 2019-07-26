@@ -1,5 +1,5 @@
 "items":{
-	"thunderfury_blessed_blade_of_the_windseeker": {
+	"19019": {
 		"n": "Thunderfury, Blessed Blade of the Windseeker",
 		"i": 19019,
 		"ilvl": 80,
@@ -39,7 +39,7 @@
 			"gold": 12,
 		},
 	},
-	"high_warlords_shield_wall": {
+	"18826": {
 		"n": "High Warlord's Shield Wall",
 		"i": 18826,
 		"ilvl": 78,
@@ -71,7 +71,7 @@
 			"gold": 3
 		},
 	},
-	"knight_captains_plate_hauberk": {
+	"23300": {
 		"n": "Knight-Captain's Plate Hauberk",
 		"i": 23300,
 		"ilvl": 78,
@@ -107,7 +107,7 @@
 			"n": "Lieutenant Commander's Battlearmor",
 			"i": 545,
 	},
-	"bindings_of_the_windseeker": {
+	"18564": {
 		"n": "Bindings of the Windseeker",
 		"i": 18564,
 		"ilvl": 70,
@@ -123,7 +123,7 @@
 		},
 		"objective": 7786,
 	},
-	"warblade_of_the_hakkari": {
+	"19866": {
 		"n": "Warblade of the Hakkari",
 		"i": 19866,
 		"ilvl": 66,
@@ -160,7 +160,7 @@
 			"i": 461,
 		},
 	},
-	"zandalar_signet_of_mojo": {
+	"20076": {
 		"n": "Zandalar Signet of Mojo",
 		"i": 20076,
 		"ilvl": 60,
@@ -169,7 +169,7 @@
 		"image_name": "inv_jewelry_ring_46",
 		"reward": 8246,
 	},
-	"gnomish_battle_chicken": {
+	"10725": {
 		"n": "Gnomish Battle Chicken",
 		"i": 10725,
 		"ilvl": 46,
@@ -193,7 +193,7 @@
 			"1529": 2,
 		}
 	},
-	"formula_enchant_weapon_spell_power": {
+	"18259": {
 		"n": "Formula: Enchant Weapon - Spell Power",
 		"i": 18259,
 		"bop": true,
@@ -244,7 +244,7 @@
 			},
 		],
 	},
-	"recipe_transmute_air_to_fire": {
+	"13482": {
 		"n": "Recipe: Transmute Air to Fire",
 		"i": 13482,
 		"bop": true,
@@ -259,8 +259,8 @@
 			},
 		},
 		"use": {
-			"spell": 17588,
-			"text": "Teaches you how to transmute Essence of Air into Essence of Fire.",
+			"s": 17588,
+			"t": "Teaches you how to transmute Essence of Air into Essence of Fire.",
 		},
 		"sold": [10856, 10857, 11536],
 	},

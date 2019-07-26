@@ -22,16 +22,52 @@ spans = lower_table.find_elements(By.XPATH, "./span")
 
 for span in spans:
     text = span.text
-    print(text)
-    if span.text.startswith("Equip"):
-        t = text[6:]
-        print(t)
+    t = ''
+    s = 0
+    if text.startswith("Equip"):
+        t = text[7:]
         href = span.find_element(By.XPATH, './a').get_attribute('href')
         matched = re.search(r"spell\=([\d]+)", href)
         if matched:
             s = matched.group(1)
-        else:
-            match_fail_disclaimer('equip', item, regex)
+        print('s ', s)
+        print('t ', t)
+    elif text.startswith("Chance"):
+        t = text[15:]
+        href = span.find_element(By.XPATH, './a').get_attribute('href')
+        matched = re.search(r"spell\=([\d]+)", href)
+        if matched:
+            s = matched.group(1)
+        print('s ', s)
+        print('t ', t)
+    elif text.startswith("Use"):
+        t = text[5:]
+        href = span.find_element(By.XPATH, './a').get_attribute('href')
+        matched = re.search(r"spell\=([\d]+)", href)
+        if matched:
+            s = matched.group(1)
+        print('s ', s)
+        print('t ', t)
+    elif span.get_attribute("class") is "q":
+        print(text)
+        if '"' in text:
+            print('is description')
+        elif check_item_exists_by_css(span, 'a'):
+            a = span.find_element(By.XPATH, './a')
+            href = a.get_attribute('href')
+            if 'itemset' in href:
+                matched = re.search(r"itemset\=([\d]+)", href)
+                if matched:
+                    i = matched.group(1)
+                    n = a.text
+                    if i not in ITEMSETS.keys():
+                        # do something
+                    # check if said itemset exists, create it if not
+                else:
+                    return
+    else:
+        pass
+
 
 
 
