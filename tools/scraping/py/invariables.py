@@ -1,7 +1,10 @@
-import os,json
+import re,os,json
 
-BOP = "Binds when picked up"
+BOP = ["Binds when picked up", "Soulbound"]
 UNIQUE = 'Unique'
+BOE = "Binds when equipped"
+
+REP_LVLS = ["Neutral", "Friendly", "Honored", "Revered", "Exalted"]
 
 # not that they cant have armor, that they cant have a proficiency, i.e cloth, plate, sword
 ARMORLESS_SLOTS = ['Finger', 'Trinket', 'Shirt', 'Ring', 'Neck', 'Bag', 'Tabbard']
@@ -27,8 +30,19 @@ REP_LVLS = ['Hated', 'Neutral', 'Friendly', 'Honored', 'Exalted']
 PROFESSIONS = [
     'Alchemy', 'Enchanting', 'Engineering', 'Blacksmithing', 'Cooking', 'First Aid',
     'Leatherworking', 'Skinning', 'Tailoring', 'Fishing', 'Riding', 'Mining',
-    'Herbalism'
+    'Herbalism', 'Engineer', 'Leatherworker', 'Hammersmith'
 ]
+
+RARITY_CHOICES = {
+	"q0": 0,
+	"q1": 1,
+	"q2": 2,
+	"q3": 3,
+	"q4": 4,
+	"q5": 5,
+	"q6": 6,
+	"q10": 10
+}
 
 RANKS = {
 	"ALLIANCE": {
@@ -66,15 +80,36 @@ RANKS = {
 
 }
 
+REEEs = {
+	'ARMOR': re.compile(r"([\d]+) Armor"),
+	'DURABILITY': re.compile(r"Durability ([\d]+)"),
+	'REQUIRE': re.compile(r"Requires (\w+)"),
+}
+
 def get_item_list(path):
 	all_items = ''
-	mode = "r"
-	if not os.path.exists(path):
-		mode = "w+"
-
+	mode = "w+" if not os.path.exists(path) else "r"
 	with open(path, mode) as f:
-		all_items = json.load(f)
+		all_items = json.load(f) if os.path.getsize(path)>0 else {}
 
 	return all_items
 
+def create_image_list(dir):
+	regex = re.compile("([\w\_]+).jpg")
+	file_list = []
+	for _root, _dirs, files in os.walk(dir):
+		for name in files:
+			match = regex.search(name)
+			if match:
+				file_name = match.group(1)
+				file_list.append(file_name)
+
+
+	with open(os.path.abspath("image_list.txt"), 'a+') as f:
+		for name in file_list:
+			f.write(name+"\n")
+
+	return file_list
+
+ALL_IMAGES = create_image_list(os.path.abspath('../../../home/static/images/icons/large'))
 ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))

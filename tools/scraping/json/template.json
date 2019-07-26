@@ -272,7 +272,7 @@
 		"slot": "Trinket",
 		"quality": 2,
 		"requirements": {
-			"professions": {
+			"profession": {
 				"engineering": 260,
 				"goblin engineering": true,
 			},
