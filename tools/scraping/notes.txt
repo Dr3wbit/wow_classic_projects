@@ -68,6 +68,7 @@ for span in spans:
     else:
         pass
 
+# js equiv: document.querySelectorAll('div.tooltip')[1].getElementsByTagName('table')[0].getElementsByTagName('table')[0]
 
 
 

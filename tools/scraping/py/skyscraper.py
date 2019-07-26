@@ -6,7 +6,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common import exceptions
 
-# chmod 755 path/to/chromedriver
+# NOTE: UPPER NEEDS RANK REQUIREMENT HANDLING
+# NOTE: LOWER NEEDS ITEMSET HANDLING
+
+# if permissions error: chmod 755 path/to/chromedriver
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 
 BOP = "Binds when picked up"
@@ -53,60 +56,51 @@ def main():
 
 	BASE_URL="https://classicdb.ch/?item="
 
-	for n in range(23320):
+	for _i in range(23320):
 		url = "{}{}".format(BASE_URL, n)
 		driver.get(url)
 		error_box = check_element_exists_by_id('inputbox-error')
 		if not error_box:
-			# do stuff
-			# name = sanitize(driver.find_element(By.CSS_SELECTOR, 'div.text')[0].find_element(By.TAG_NAME, 'h1')[0].text)
+			I = str(_i)
+			ALL_ITEMS[I] = {}
+			ALL_ITEMS[I]['i'] = _i
 
 			tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1]
 			tables = tooltip.find_elements(By.XPATH, "./table/tbody/tr/td/table")
 
 			# items in the upper table include:
 			# name, bop, unique, slot, proficiency, armor, damage, stats, durability, resists
-
 			upper_table = tables[0].find_element(By.XPATH, "./tbody/tr/td")
-
-			name = sanitize(upper_table.find_element(By.TAG_NAME, 'b').text)
-
-			ALL_ITEMS[name] = {}
-			ALL_ITEMS[name]['i'] = n
-
-			class_name = upper_table.find_element(By.TAG_NAME, 'b').get_attribute("class")
-			ALL_ITEMS[name]['quality'] = RARITY_CHOICES[class_name]
-
 			upper_items = upper_table.text.split("\n")
-			# js equiv: document.querySelectorAll('div.tooltip')[1].getElementsByTagName('table')[0].getElementsByTagName('table')[0]
 
-			ALL_ITEMS[name]['n'] = upper_items.pop(0)
+			css_lass_name = upper_table.find_element(By.TAG_NAME, 'b').get_attribute("class")
+			ALL_ITEMS[I]['quality'] = RARITY_CHOICES[css_lass_name]
 
-			ALL_ITEMS[name]['image_name'] = get_icon_name(IMAGE_NAME_RE)
-			ALL_IMAGES.append(ALL_ITEMS[name]['image_name'])
+			ALL_ITEMS[I]['n'] = upper_items.pop(0)
+			ALL_ITEMS[I]['image_name'] = get_icon_name(IMAGE_NAME_RE)
+			ALL_IMAGES.append(ALL_ITEMS[I]['image_name'])
 
 			infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[1].find_element(By.TAG_NAME, 'ul')
-			ALL_ITEMS[name]['ilvl'] = get_ilvl(ANY_DIGITS, infobox)
+			ALL_ITEMS[I]['ilvl'] = get_ilvl(ANY_DIGITS, infobox)
 
 			moneybox = infobox.find_elements(By.TAG_NAME, 'li')[2]
-			ALL_ITEMS[name]['sells_for'] = get_sell_price(moneybox)
+			ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox)
 
 
 			if BOP in upper_items:
-				ALL_ITEMS[name]['bop'] = True
+				ALL_ITEMS[I]['bop'] = True
 				i = upper_items.index(BOP)
 				upper_items.pop(i)
 
 			if UNIQUE in upper_items:
-				ALL_ITEMS[name]['unique'] = True
+				ALL_ITEMS[I]['unique'] = True
 				i = upper_items.index(UNIQUE)
 				upper_items.pop(i)
 
 			if check_element_exists_by_css(upper_table, 'table'):
-				# ALL_ITEMS[name]['equipable'] = True
 				tab = upper_table.find_element(By.TAG_NAME, 'table')
 				slot = tab.find_element(By.TAG_NAME, 'td').text
-				ALL_ITEMS[name]['slot'] = slot
+				ALL_ITEMS[I]['slot'] = slot
 				i = [x for x,y in enumerate(upper_items) if slot in y][0]
 				upper_items[i] = upper_items[i].replace(slot, '').strip()
 
@@ -114,10 +108,9 @@ def main():
 					th = tab.find_element(By.TAG_NAME, 'th')
 					if th.text:
 						proficiency = th.text
-						ALL_ITEMS[name]['proficiency'] = proficiency
-						i = upper_items.index(proficiency)
-						upper_items.pop(i)
-
+						ALL_ITEMS[I]['proficiency'] = proficiency
+						id = upper_items.index(proficiency)
+						upper_items.pop(id)
 
 			# wep speed is normally coupled with dmg, so extract speed
 			if any(x for x in upper_items if 'Speed' in x):
@@ -125,89 +118,118 @@ def main():
 				match = re.search(r"Speed ([\d\.]+)", upper_items[i])
 				if match:
 					upper_items[i] = re.sub(match.group(0), '', upper_items[i]).strip()
-					ALL_ITEMS[name]['speed'] = match.group(1)
+					ALL_ITEMS[I]['speed'] = match.group(1)
 
-			ALL_ITEMS[name] = extract_stats(text_items, ALL_ITEMS[name], ARMOR_RE, DUR_RE)
-
+			ALL_ITEMS[I] = extract_stats(text_items, ALL_ITEMS[I])
 
 			# items in the lower table include:
 			# use, effects, procs, itemset, description
-			# NOTE: descriptions will always have quotes around them
-
 			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
-			spans = lower_table.find_elements(By.XPATH, "./span")
-			for span in spans:
-			    text = span.text
-			    t = ''
-			    s = 0
-			    if text.startswith("Equip"):
-			        t = text[7:]
-			        href = span.find_element(By.XPATH, './a').get_attribute('href')
-			        matched = re.search(r"spell\=([\d]+)", href)
-			        if matched:
-			            s = matched.group(1)
-					print('s ', s)
-					print('t ', t)
-			        else:
-			            match_fail_disclaimer('equip', item, regex)
-			    	if 'effects' not in ALL_ITEMS[name].keys():
-			        	ALL_ITEMS[name]['effects'] = {}
-
-			    	if 'equip' not in ALL_ITEMS[name]['effects'].keys():
-			        	ALL_ITEMS[name]['effects']['equip'] = []
-
-			    	ALL_ITEMS[name]['effects']['equip'].append({"s": s, "t": t})
-				elif text.startswith("Chance"):
-					t = text[15:]
-					href = span.find_element(By.XPATH, './a').get_attribute('href')
-					matched = re.search(r"spell\=([\d]+)", href)
-					if matched:
-						s = matched.group(1)
-					print('s ', s)
-					print('t ', t)
-					else:
-						match_fail_disclaimer('equip', item, regex)
-					if 'effects' not in ALL_ITEMS[name].keys():
-						ALL_ITEMS[name]['effects'] = {}
-
-					if 'proc' not in ALL_ITEMS[name]['effects'].keys():
-						ALL_ITEMS[name]['effects']['proc'] = []
-
-					ALL_ITEMS[name]['effects']['proc'].append({"s": s, "t": t})
-				elif text.startswith("Use"):
-					t = text[5:]
-					href = span.find_element(By.XPATH, './a').get_attribute('href')
-					matched = re.search(r"spell\=([\d]+)", href)
-					if matched:
-						s = matched.group(1)
-					print('s ', s)
-					print('t ', t)
-					else:
-						match_fail_disclaimer('equip', item, regex)
-					if 'effects' not in ALL_ITEMS[name].keys():
-						ALL_ITEMS[name]['effects'] = {}
-
-					if 'proc' not in ALL_ITEMS[name]['effects'].keys():
-						ALL_ITEMS[name]['effects']['proc'] = []
-
-					ALL_ITEMS[name]['effects']['proc'].append({"s": s, "t": t})
-
-				elif span.get_attribute("class") is "q":
-					print(text)
+			ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table)
 
 
-
-		# indicates no item found
+		# no item found
 		else:
-			return
+			print('error box on page, no item found')
+			return False
 
 
 	with open(os.path.abspath('../js/all_items.js'), 'w') as f:
 		json.dump(ALL_ITEMS, f, indent=4)
 
+def get_lowboys(item_dict, table):
+	spans = table.find_elements(By.XPATH, "./span")
+	for span in spans:
+		text = span.text
+		t = ''
+		s = 0
+		if text.startswith("Equip"):
+			t = text[7:]
+			href = span.find_element(By.XPATH, './a').get_attribute('href')
+			regex = r"spell\=([\d]+)"
+			matched = re.search(regex, href)
+
+			if matched:
+				s = matched.group(1)
+			else:
+				match_fail_disclaimer('equip', item, regex)
+
+			if 'effects' not in ALL_ITEMS[I].keys():
+				ALL_ITEMS[I]['effects'] = {}
+
+			if 'equip' not in item_dict['effects'].keys():
+				item_dict['effects']['equip'] = []
+
+			item_dict['effects']['equip'].append({"s": s, "t": t})
+
+		elif text.startswith("Chance"):
+			t = text[15:]
+			href = span.find_element(By.XPATH, './a').get_attribute('href')
+			regex = r"spell\=([\d]+)"
+			matched = re.search(regex, href)
+			if matched:
+				s = matched.group(1)
+			else:
+				match_fail_disclaimer('chance', text, regex)
+
+			if 'effects' not in item_dict.keys():
+				item_dict['effects'] = {}
+
+			if 'proc' not in item_dict['effects'].keys():
+				item_dict['effects']['proc'] = []
+
+			item_dict['effects']['proc'].append({"s": s, "t": t})
+
+		elif text.startswith("Use"):
+			t = text[5:]
+			href = span.find_element(By.XPATH, './a').get_attribute('href')
+			regex = r"spell\=([\d]+)"
+			matched = re.search(regex, href)
+			if matched:
+				s = matched.group(1)
+			print('s ', s)
+			print('t ', t)
+			else:
+				match_fail_disclaimer('equip', text, regex)
+			if 'effects' not in item_dict.keys():
+				item_dict['effects'] = {}
+
+			if 'proc' not in item_dict['effects'].keys():
+				item_dict['effects']['proc'] = []
+
+			item_dict['effects']['proc'].append({"s": s, "t": t})
+
+		elif span.get_attribute("class") is "q":
+			print(text)
+			if '"' in text:
+				item_dict['description'] = text[1:-2]
+
+			# check if its an itemset
+			elif check_item_exists_by_css(span, 'a'):
+				a = span.find_element(By.XPATH, './a')
+				href = a.get_attribute('href')
+				if 'itemset' in href:
+					matched = re.search(r"itemset\=([\d]+)", href)
+					if matched:
+						i = matched.group(1)
+						n = a.text
+						if i not in ITEMSETS.keys():
+							# do something
+							# check if said itemset exists, create it if not
+				else:
+					return
+
+
+		elif text is ("Random Bonuses"):
+			if 'stats' not in item_dict.keys()
+				item_dict['stats'] = {}
+
+			item_dict['stats']['random'] = True
+
+
 
 # attempts to get armor, stats, damage, resists, and durability
-def extract_stats(items, stat_dict):
+def extract_stats(items, item_dict):
 	for item in items:
 		if 'Damage' in item:
 			# find numbers and potential school of magic
@@ -223,10 +245,10 @@ def extract_stats(items, stat_dict):
 			else:
 				match_fail_disclaimer('damage', item, r"([\d]{1,3}) \- ([\d]{1,3})")
 
-			if 'damage' not in stat_dict.keys():
-				stat_dict['damage'] = {}
+			if 'damage' not in item_dict.keys():
+				item_dict['damage'] = {}
 
-			stat_dict['damage'][school] = [botend, topend]
+			item_dict['damage'][school] = [botend, topend]
 
 
 		elif 'Resist' in item:
@@ -238,10 +260,10 @@ def extract_stats(items, stat_dict):
 			else:
 				match_fail_disclaimer('resist', item, r"\+([\d]+)")
 
-			if 'resist' not in stat_dict.keys():
-				stat_dict['resist'] = {}
+			if 'resist' not in item_dict.keys():
+				item_dict['resist'] = {}
 
-			stat_dict['resist'][school] = v
+			item_dict['resist'][school] = v
 
 
 		elif 'Durability' in item:
@@ -253,10 +275,10 @@ def extract_stats(items, stat_dict):
 			else:
 				match_fail_disclaimer('durability', item, r"Durability ([\d]+)")
 
-			if 'stats' not in stat_dict.keys():
-				stat_dict['stats'] = {}
+			if 'stats' not in item_dict.keys():
+				item_dict['stats'] = {}
 
-			stat_dict['stats']['durability'] = v
+			item_dict['stats']['durability'] = v
 
 
 		elif 'Require' in item:
@@ -269,10 +291,10 @@ def extract_stats(items, stat_dict):
 				else:
 					match_fail_disclaimer('require, level', item, r"Requires Level ([\d]+)")
 
-				if 'requirements' not in stat_dict.keys():
-					stat_dict['requirements'] = {}
+				if 'requirements' not in item_dict.keys():
+					item_dict['requirements'] = {}
 
-				stat_dict['requirements']['level'] = v
+				item_dict['requirements']['level'] = v
 
 			elif any(x in item for x in PROFESSIONS):
 				v = 1
@@ -284,11 +306,11 @@ def extract_stats(items, stat_dict):
 				else:
 					match_fail_disclaimer('require, profession', item, r"Requires {} \(([\d]+)\)".format(prof))
 
-				if 'requirements' not in stat_dict.keys():
-					stat_dict['requirements'] = {}
+				if 'requirements' not in item_dict.keys():
+					item_dict['requirements'] = {}
 
-				stat_dict['requirements']['profession'] = {}
-				stat_dict['requirements']['profession'][prof.lower()] = v
+				item_dict['requirements']['profession'] = {}
+				item_dict['requirements']['profession'][prof.lower()] = v
 
 
 			# requires faction rep
@@ -307,13 +329,13 @@ def extract_stats(items, stat_dict):
 				else:
 					match_fail_disclaimer('require, faction', item, r"Requires ([\w ]+) \- {}".format(rep))
 
-				if 'requirements' not in stat_dict.keys():
-					stat_dict['requirements'] = {}
+				if 'requirements' not in item_dict.keys():
+					item_dict['requirements'] = {}
 
-				stat_dict['requirements']['reputation'] = {}
-				stat_dict['requirements']['reputation']['n'] = name
-				stat_dict['requirements']['reputation']['i'] = id
-				stat_dict['requirements']['reputation']['v'] = rep
+				item_dict['requirements']['reputation'] = {}
+				item_dict['requirements']['reputation']['n'] = name
+				item_dict['requirements']['reputation']['i'] = id
+				item_dict['requirements']['reputation']['v'] = rep
 
 			# must be rank requirement
 			else:
@@ -322,10 +344,10 @@ def extract_stats(items, stat_dict):
 		elif 'Classes' in item:
 			class_names = [x for x in CLASSES if x in item]
 
-			if 'requirements' not in stat_dict.keys():
-				stat_dict['requirements'] = {}
+			if 'requirements' not in item_dict.keys():
+				item_dict['requirements'] = {}
 
-			stat_dict['requirements']['class'] = class_names
+			item_dict['requirements']['class'] = class_names
 
 
 		# else its a stat item
@@ -340,16 +362,16 @@ def extract_stats(items, stat_dict):
 			else:
 				match_fail_disclaimer('stat, {}'.format(stat), item, r"{}".format(regex))
 
-			if 'stats' not in stat_dict.keys():
-				stat_dict['stats'] = {}
+			if 'stats' not in item_dict.keys():
+				item_dict['stats'] = {}
 
-			stat_dict['stats'][stat.lower()] = v
+			item_dict['stats'][stat.lower()] = v
 
 		else:
 			print('NO MATCHES FOUND')
 			return
 
-	return stat_dict
+	return item_dict
 
 def get_ilvl(reee, infobox):
 	ilvl = 0
