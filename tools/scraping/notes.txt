@@ -1,6 +1,12 @@
+
+import os, re, urllib.request, json, time
+from urllib.parse import urlparse
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
 driver = webdriver.Chrome(executable_path=os.path.abspath("tools/scraping/drivers/chromedriver"))
 BASE_URL="https://classicdb.ch/?item="
-n = 12459
+n = 16573
 url = "{}{}".format(BASE_URL, n)
 driver.get(url)
 
@@ -15,73 +21,210 @@ lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
 spans = lower_table.find_elements(By.XPATH, "./span")
 
 for span in spans:
+    text = span.text
+    print(text)
     if span.text.startswith("Equip"):
+        t = text[6:]
+        print(t)
+        href = span.find_element(By.XPATH, './a').get_attribute('href')
+        matched = re.search(r"spell\=([\d]+)", href)
+        if matched:
+            s = matched.group(1)
+        else:
+            match_fail_disclaimer('equip', item, regex)
+
+
 
 equip:
     "sp": "...damage and healing..."
-    "crit": "Improves your...critical strike..." #https://classicdb.ch/?item=16579
-    "spellcrit": "Improves your...critical strike with spells..." #https://classicdb.ch/?item=16579
+    "crit": "Improves your...critical strike..." //https://classicdb.ch/?item=16579
+    "spellcrit": "Improves your...critical strike with spells..." //https://classicdb.ch/?item=16579
     "hit": "Improves your...chance to hit..."
-    "spellhit": "...hit with spells..." #https://classicdb.ch/?item=16437
+    "spellhit": "...hit with spells..."
     "mhp5": "Restores..."
     "Increased Defense +5."
 
-    "Increases the speed of your Ghost Wolf ability by 15%." #https://classicdb.ch/?item=16573
-    "Increases the duration of your Sprint ability by 3 sec." #https://classicdb.ch/?item=16558
-    "Increases the damage absorbed by your Mana Shield by 285." #https://classicdb.ch/?item=16540
-    "Increases the damage done by your Multi-Shot by 4%." #https://classicdb.ch/?item=16571
-    "Increases the Holy damage bonus of your Judgement of the Crusader by 20." #https://classicdb.ch/?item=16471
-    "Gives you a 50% chance to avoid interruption caused by damage while casting Mind Blast." #https://classicdb.ch/?item=17620
-    "Gives you a 50% chance to avoid interruption caused by damage while casting Searing Pain." #https://classicdb.ch/?item=17588
-    "Reduces the mana cost of your Arcane Shot by 15." #https://classicdb.ch/?item=16530
-    "Hamstring Rage cost reduced by 3." #https://classicdb.ch/?item=16548
+    "Allows underwater breathing." //https://classicdb.ch/?item=21526
 
-    "Slightly increases your stealth detection." #https://classicdb.ch/?item=22863
+    "Adds 2 fire damage to your melee attacks." //https://classicdb.ch/?item=17111
 
-    "Increases the block value of your shield by 30." #https://classicdb.ch/?item=19862
-    "Increased Defense +7." #https://classicdb.ch/?item=19862
-    "Increases your chance to block attacks with a shield by 2%." #https://classicdb.ch/?item=19862
-    "Increases healing done by spells and effects by up to 134." #https://classicdb.ch/?item=23454
+    "Deals 5 to 36 damage every time you block." //https://classicdb.ch/?item=13375
+    "Deals 5 Fire damage to anyone who strikes you with a melee attack." //https://classicdb.ch/?item=3475, https://classicdb.ch/?item=17182
 
-    "Sometimes heals bearer of 120 to 181 damage when damaging an enemy in melee." #https://classicdb.ch/?item=19287
+    "Decreases the magical resistances of your spell targets by 10." //https://classicdb.ch/?item=22937
+    "Decreases the magical resistances of your spell targets by 20." //https://classicdb.ch/?item=21565
 
-    "Chance to strike your melee target with lightning for 200 to 301 Nature damage." #https://classicdb.ch/?item=19289
+    "Increases the speed of your Ghost Wolf ability by 15%." //https://classicdb.ch/?item=16573
+    "Increases the duration of your Sprint ability by 3 sec." //https://classicdb.ch/?item=16558
+    "Increases the damage absorbed by your Mana Shield by 285." //https://classicdb.ch/?item=16540
+    "Increases the damage done by your Multi-Shot by 4%." //https://classicdb.ch/?item=16571
+    "Increases the Holy damage bonus of your Judgement of the Crusader by 20." //https://classicdb.ch/?item=16471
+    "Increases the damage of your Imp's Firebolt spell by 8." //https://classicdb.ch/?item=18354
 
-    "Gives the wearer a 10% chance of being able to resurrect with 20% health and mana." #https://classicdb.ch/?item=19290
-
-    "When struck has a 15% chance of reducing the attacker's movement speed by 50% for 5 secs." #https://classicdb.ch/?item=23238
-    "When struck in combat inflicts 13 Fire damage to the attacker." #https://classicdb.ch/?item=18815
-    "When struck in combat has a 1% chance of increasing all party member's armor by 250 for 30 sec." #https://classicdb.ch/?item=14557
-
-    "Restores 150 mana or 20 rage when you kill a target that gives experience; this effect cannot occur more than once every 10 seconds." #https://classicdb.ch/?item=17104
-    "Restores 16 health per 5 sec." #https://classicdb.ch/?item=17082
-
-    "Has a 2% chance when struck in combat of protecting you with a holy shield." #https://classicdb.ch/?item=11302
-
-    "2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec." #https://classicdb.ch/?item=19288
-
-    "+28 Attack Power." #https://classicdb.ch/?item=22856
-    "+45 Attack Power when fighting Demons." #https://classicdb.ch/?item=18715
-    "+60 Attack Power when fighting Beasts." #https://classicdb.ch/?item=7710
+    "Increases your pet's maximum health by 3%." //https://classicdb.ch/?item=22013
+    "Increases damage dealt by your pet by 3%." //https://classicdb.ch/?item=22061
+    "Increases your pet's critical strike chance by 2%." //https://classicdb.ch/?item=22015
+    "Increases your pet's armor by 10%." //https://classicdb.ch/?item=22060
 
 
 
-chance:
+    "Gives you a 50% chance to avoid interruption caused by damage while casting Mind Blast." //https://classicdb.ch/?item=17620
+    "Gives you a 50% chance to avoid interruption caused by damage while casting Searing Pain." //https://classicdb.ch/?item=17588
+    "Gives the wearer a 10% chance of being able to resurrect with 20% health and mana." //https://classicdb.ch/?item=19290
+    "Gives a chance when your harmful spells land to reduce the magical resistances of your spell targets by 50 for 8 sec." //https://classicdb.ch/?item=21128
 
-use:
-    #https://classicdb.ch/?item=19336
+    "Reduces the mana cost of your Arcane Shot by 15." //https://classicdb.ch/?item=16530
+    "Hamstring Rage cost reduced by 3." //https://classicdb.ch/?item=16548
+
+    "Slightly increases your stealth detection." //https://classicdb.ch/?item=22863
+
+    "Improves your chance to get a critical strike by 1%." //https://classicdb.ch/?item=16579
+    "Improves your chance to get a critical strike with spells by 1%." //https://classicdb.ch/?item=16579
+    "Improves your chance to hit by 1%." //https://classicdb.ch/?item=16543
+    "Improves your chance to hit with spells by 1%."//https://classicdb.ch/?item=16437
+
+    "Increases the critical effect chance of your Holy spells by 1%." //https://classicdb.ch/?item=20006
+    "Increases your chance to dodge an attack by 1%." //https://classicdb.ch/?item=19406
+    "Increases your chance to parry an attack by 1%." //https://classicdb.ch/?item=19351
+    "Increases your chance to block attacks with a shield by 2%." //https://classicdb.ch/?item=19862
+    "Increases your chance to resist Stun and Fear effects by 1%." //https://classicdb.ch/?item=17759
+
+    "Increases your effective stealth level." //https://classicdb.ch/?item=22003, https://classicdb.ch/?item=23073
+
+    "Increases healing done by spells and effects by up to 134." //https://classicdb.ch/?item=23454
+    "Increases damage and healing done by magical spells and effects by up to 27." //https://classicdb.ch/?item=16579
+    "Increases damage done by Arcane spells and effects by up to 34." //https://classicdb.ch/?item=19308
+    "Increases damage done by Fire spells and effects by up to 40." //https://classicdb.ch/?item=19311
+    "Increases damage done by Shadow spells and effects by up to 34." //https://classicdb.ch/?item=19309
+
+    "Increases the block value of your shield by 30." //https://classicdb.ch/?item=19862
+    "Increases mount speed by 3%." //https://classicdb.ch/?item=11122
+
+    "Increases Defense by 3, Shadow resistance by 10 and your normal health regeneration by 3." //https://classicdb.ch/?item=10779
+
+
+    "Increased Swords +4." //https://classicdb.ch/?item=19351
+    "Increased Swords +6." //https://classicdb.ch/?item=23577
+    "Increased Daggers +5." //https://classicdb.ch/?item=18823
+    "Increased Axes +7." //https://classicdb.ch/?item=14551
+    "Increased Defense +7." //https://classicdb.ch/?item=19862
+
+
+    "Sometimes heals bearer of 120 to 181 damage when damaging an enemy in melee." //https://classicdb.ch/?item=19287
+
+    "Chance to bathe your melee target in flames for 120 to 181 Fire damage." //https://classicdb.ch/?item=22321
+    "Chance to strike your melee target with lightning for 200 to 301 Nature damage." //https://classicdb.ch/?item=19289
+    "Chance on landing a damaging spell to deal 100 Shadow damage and restore 100 mana to you. (cooldown 30 sec)" //https://classicdb.ch/?item=17780
+    "Chance to discharge electricity causing 100 to 151 Nature damage to your target." //https://classicdb.ch/?item=23221
+
+    "On successful melee or ranged attack gain 8 mana and if possible drain 8 mana from the target." //https://classicdb.ch/?item=22194
+
+
+    "When struck has a 15% chance of reducing the attacker's movement speed by 50% for 5 secs." //https://classicdb.ch/?item=23238
+    "When struck in combat inflicts 13 Fire damage to the attacker." //https://classicdb.ch/?item=18815
+    "When struck in combat inflicts 3 Arcane damage to the attacker." //https://classicdb.ch/?item=17066
+    "When struck in combat has a 1% chance of increasing all party member's armor by 250 for 30 sec." //https://classicdb.ch/?item=14557
+    "When struck in combat has a 5% chance of inflicting 35 to 66 Nature damage to the attacker." //https://classicdb.ch/?item=18826
+    "When struck in combat has a 3% chance of stealing 35 life from target enemy." //https://classicdb.ch/?item=1168
+    "When struck in combat has a 1% chance of dealing 75 to 126 Fire damage to all targets around you." //https://classicdb.ch/?item=1168
+    "When struck in combat has a 3% chance to encase the caster in bone, increasing armor by 150 for 20 sec." //https://classicdb.ch/?item=1979
+    "When struck in combat has a 1% chance of raising a thorny shield that inflicts 3 Nature damage to attackers when hit and increases Nature resistance by 50 for 30 sec." //https://classicdb.ch/?item=1204
+    "When struck in combat has a 1% chance of inflicting 50 Frost damage to the attacker and freezing them for 5 sec." //https://classicdb.ch/?item=942
+    "When struck by a harmful spell, the caster of that spell has a 5% chance to be silenced for 3 sec." //https://classicdb.ch/?item=22198
+    "When the shield blocks it releases an electrical charge that damages all nearby enemies. This also has a chance of damaging the shield." //https://classicdb.ch/?item=18168
+
+    "Has a 1% chance when struck in combat of increasing chance to block by 50% for 10 sec." //https://classicdb.ch/?item=13243
+    "Has a 2% chance when struck in combat of protecting you with a holy shield." //https://classicdb.ch/?item=11302
+    "Has a 2% chance when struck in combat of increasing all stats by 25 for 1 min." //https://classicdb.ch/?item=17774
+
+    "Have a 2% chance when struck in combat of increasing armor by 350 for 15 sec." //https://classicdb.ch/?item=1490
+
+
+    "Restores 16 health per 5 sec." //https://classicdb.ch/?item=17082
+    "Restores 5 mana per 5 sec." //https://classicdb.ch/?item=16573
+    "Restores 150 mana or 20 rage when you kill a target that gives experience; this effect cannot occur more than once every 10 seconds." //https://classicdb.ch/?item=17104
+
+
+
+    "2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec." //https://classicdb.ch/?item=19288
+
+    "+4 Weapon Damage." //https://classicdb.ch/?item=21189
+    "+28 Attack Power." //https://classicdb.ch/?item=22856
+    "+45 Attack Power when fighting Demons." //https://classicdb.ch/?item=18715
+    "+60 Attack Power when fighting Beasts." //https://classicdb.ch/?item=7710
+    "+150 Attack Power when fighting Undead and Demons. It also allows the acquisition of Scourgestones on behalf of the Argent Dawn."
+    "+280 Attack Power in Cat, Bear, and Dire Bear forms only."
+
+    "+36 ranged Attack Power." //https://classicdb.ch/?item=18835
+
+    "+5 All Resistances." //https://classicdb.ch/?item=22198
+
+
+CHANCE:
+    "All attacks are guaranteed to land and will be critical strikes for the next 3 sec."
+    "Blasts your enemy with lightning, dealing 300 Nature damage and then jumping to additional nearby enemies. Each jump reduces that victim's Nature resistance by 25. Affects 5 targets. Your primary target is also consumed by a cyclone, slowing its attack speed by 20% for 12 sec." //https://classicdb.ch/?item=19019
+
+    "Blasts a target for 75 to 106 Fire damage." //https://classicdb.ch/?item=14555
+    "Blasts a target for 90 to 127 Nature damage." //https://classicdb.ch/?item=811
+    "Blasts up to 3 targets for 150 to 251 Nature damage. Each target after the first takes less damage."
+
+    "Calls forth an Emerald Dragon Whelp to protect you in battle for a short period of time."
+
+    "Decrease the armor of the target by 100 for 30 sec. While affected, the target cannot stealth or turn invisible." //https://classicdb.ch/?item=869
+    "Delivers a fatal wound for 240 damage."
+    "Disorients the target, causing it to wander aimlessly for up to 3 sec." //https://classicdb.ch/?item=21134
+
+    "Grants 1 extra attack on your next swing."
+    "Grants 2 extra attacks on your next swing."
+
+    "Hurls a fiery ball that causes 273 to 334 Fire damage and an additional 75 damage over 10 sec." //https://classicdb.ch/?item=17182
+
+    "Increases Strength by 200 for 10 sec."
+    "Increases your attack speed by 20% for 10 sec."
+    "Increases your attack speed by 30% for 5 sec."
+    "Increases movement speed and life regeneration rate."
+
+    "Instantly lightning shocks the target for 239 to 278 Nature damage."
+
+    "Knocks down all nearby enemies for 3 sec."
+    "Launches a bolt of frost at the enemy causing 20 to 31 Frost damage and slowing movement speed by 50% for 5 sec."
+    "Next spell cast within 4 sec will cast instantly."
+    "Reduce your threat to the current target making them less likely to attack you." //https://classicdb.ch/?item=19166
+    "Sends a shadowy bolt at the enemy causing 110 to 141 Shadow damage." //https://classicdb.ch/?item=17068
+    "Slows enemy's movement by 60% and causes them to bleed for 150 damage over 30 sec."
+
+    "Steals 48 to 55 life from target enemy." //https://classicdb.ch/?item=19852
+
+    "Summons the infernal spirit of Shahram." //https://classicdb.ch/?item=12592
+
+    "When active, grants the wielder 13 defense and 300 armor for 10 sec."
+
+    "Wounds the target causing them to bleed for 120 damage over 30 sec." //https://classicdb.ch/?item=809
+    "Wounds the target causing them to bleed for 560 damage over 30 sec."
+    "Wounds the target for 200 to 301 damage and lowers Intellect of target by 25 for 30 sec." //https://classicdb.ch/?item=1263
+    "Your attacks ignore 700 of your enemies' armor for 10 sec. This effect stacks up to 3 times." //https://classicdb.ch/?item=17076
+USE:
+
+    //https://classicdb.ch/?item=21326
+    "Calls forth a Timbermaw Ancestor to fight at your side and heal you. (cooldown 10 min)"
+
+    //https://classicdb.ch/?item=19336
     "Infuses you with Arcane energy, causing your next Arcane Shot fired within 10 sec to detonate at the target. The Arcane Detonation will deal 185 to 216 damage to enemies near the target. (cooldown 2 min)"
 
-    #https://classicdb.ch/?item=19337
+    //https://classicdb.ch/?item=19337
     "Empowers your pet, increasing pet damage by 100% and increasing pet armor by 100% for 30 sec. This spell will only affect an Imp, Succubus, Voidwalker, or Felhunter. (cooldown 5 min)"
 
-    #https://classicdb.ch/?item=21670
-    "Gives a chance on melee or ranged attack to apply an armor penetration effect on you for 30 sec, lowering the target's physical armor by 200 to your own attacks. The armor penetration effect can be applied up to 6 times. (cooldown 3 min)"
-
-    #https://classicdb.ch/?item=19345
+    //https://classicdb.ch/?item=19345
     "Increases armor by 500, and heals 35 damage every time you take ranged or melee damage for 20 sec. (cooldown 5 min)"
 
-    "Increases the block value of your shield by 235 for 20 sec. (cooldown 2 min)" #https://classicdb.ch/?item=23040
+    //https://classicdb.ch/?item=21647
+    "Reduces the threat you generate by 70% for 20 sec. (cooldown 3 min)"
+
+    //https://classicdb.ch/?item=21670
+    "Gives a chance on melee or ranged attack to apply an armor penetration effect on you for 30 sec, lowering the target's physical armor by 200 to your own attacks. The armor penetration effect can be applied up to 6 times. (cooldown 3 min)"
+
+    //https://classicdb.ch/?item=23040
+    "Increases the block value of your shield by 235 for 20 sec. (cooldown 2 min)"
 
 itemsets - span, q (no quotes, must have a child), a, href
     itemset children - div, q0,

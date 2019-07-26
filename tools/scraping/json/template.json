@@ -56,10 +56,10 @@
 			"durability": 120,
 		},
 		"effects": {
-			"equip": {
+			"equip": [{
 				"s": 13959,
 				"t": "When struck in combat has a 5% chance of inflicting 35 to 66 Nature damage to the attacker.",
-			}
+				}],
 		},
 		"requirements": {
 			"rank": 14,
@@ -94,8 +94,8 @@
 		},
 		"effects": {
 			"equip": [{
-				"spell": 7597,
-				"crit": 1,
+				"s": 7597,
+				"t": "Improves your chance to get a critical strike by 1%.",
 			}],
 		},
 		"sells": {
@@ -131,7 +131,6 @@
 		"unique": true,
 		"quality": 4,
 		"image_name": "inv_sword_55",
-		"equipable": "weapon",
 		"slot": "Off Hand",
 		"proficiency": "Sword",
 		"damage": {
@@ -267,7 +266,8 @@
 	},
 },
 "itemsets": {
-	"lieutenant_commanders_battlearmor": {
+
+	"545": {
 		"n": "Lieutenant Commander's Battlearmor",
 		"i": 545,
 		"items": [23300, 23301, 23302, 23303, 23304, 23305],
@@ -289,7 +289,7 @@
 			},
 		}
 	},
-	"the_twin_blades_of_hakkari": {
+	"461": {
 		"n": "The Twin Blades of Hakkari",
 		"i": 461,
 		"items": [19865, 19866],

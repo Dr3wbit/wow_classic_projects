@@ -137,22 +137,64 @@ def main():
 			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
 			spans = lower_table.find_elements(By.XPATH, "./span")
 			for span in spans:
-				text = span.text
+			    text = span.text
+			    t = ''
+			    s = 0
 			    if text.startswith("Equip"):
-					t = text[6:]
-					if t.startswith
-			    elif text.startswith("Use"):
+			        t = text[7:]
+			        href = span.find_element(By.XPATH, './a').get_attribute('href')
+			        matched = re.search(r"spell\=([\d]+)", href)
+			        if matched:
+			            s = matched.group(1)
+					print('s ', s)
+					print('t ', t)
+			        else:
+			            match_fail_disclaimer('equip', item, regex)
+			    	if 'effects' not in ALL_ITEMS[name].keys():
+			        	ALL_ITEMS[name]['effects'] = {}
 
-			    elif text.startswith("Chance"):
+			    	if 'equip' not in ALL_ITEMS[name]['effects'].keys():
+			        	ALL_ITEMS[name]['effects']['equip'] = []
 
-			if span.q:
-			    if '"' in text:
-			        ALL_ITEMS[description] = text
-			    elif:
-			        # check element exists
-			        span.q.find_element(By.TAG_NAME, 'a')
-			    else:
-			        pass
+			    	ALL_ITEMS[name]['effects']['equip'].append({"s": s, "t": t})
+				elif text.startswith("Chance"):
+					t = text[15:]
+					href = span.find_element(By.XPATH, './a').get_attribute('href')
+					matched = re.search(r"spell\=([\d]+)", href)
+					if matched:
+						s = matched.group(1)
+					print('s ', s)
+					print('t ', t)
+					else:
+						match_fail_disclaimer('equip', item, regex)
+					if 'effects' not in ALL_ITEMS[name].keys():
+						ALL_ITEMS[name]['effects'] = {}
+
+					if 'proc' not in ALL_ITEMS[name]['effects'].keys():
+						ALL_ITEMS[name]['effects']['proc'] = []
+
+					ALL_ITEMS[name]['effects']['proc'].append({"s": s, "t": t})
+				elif text.startswith("Use"):
+					t = text[5:]
+					href = span.find_element(By.XPATH, './a').get_attribute('href')
+					matched = re.search(r"spell\=([\d]+)", href)
+					if matched:
+						s = matched.group(1)
+					print('s ', s)
+					print('t ', t)
+					else:
+						match_fail_disclaimer('equip', item, regex)
+					if 'effects' not in ALL_ITEMS[name].keys():
+						ALL_ITEMS[name]['effects'] = {}
+
+					if 'proc' not in ALL_ITEMS[name]['effects'].keys():
+						ALL_ITEMS[name]['effects']['proc'] = []
+
+					ALL_ITEMS[name]['effects']['proc'].append({"s": s, "t": t})
+
+				elif span.get_attribute("class") is "q":
+					print(text)
+
 
 
 		# indicates no item found
@@ -248,8 +290,9 @@ def extract_stats(items, stat_dict):
 				stat_dict['requirements']['profession'] = {}
 				stat_dict['requirements']['profession'][prof.lower()] = v
 
+
 			# requires faction rep
-		elif any(x in item for x in REP_LVLS):
+			elif any(x in item for x in REP_LVLS):
 				name = 'None'
 				rep = [x for x in PROFESSIONS if x in item][0]
 				matched = re.search(r"Requires ([\w ]+) \- {}".format(rep), item)
@@ -272,6 +315,9 @@ def extract_stats(items, stat_dict):
 				stat_dict['requirements']['reputation']['i'] = id
 				stat_dict['requirements']['reputation']['v'] = rep
 
+			# must be rank requirement
+			else:
+				pass
 
 		elif 'Classes' in item:
 			class_names = [x for x in CLASSES if x in item]
