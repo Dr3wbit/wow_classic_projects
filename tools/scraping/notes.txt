@@ -172,6 +172,7 @@ equip:
     "When struck by a harmful spell, the caster of that spell has a 5% chance to be silenced for 3 sec." //https://classicdb.ch/?item=22198
     "When the shield blocks it releases an electrical charge that damages all nearby enemies. This also has a chance of damaging the shield." //https://classicdb.ch/?item=18168
 
+["1168", "17082", "17104", "18835", "22194", "17620", "19019", "15515", "13822"]
     "Has a 1% chance when struck in combat of increasing chance to block by 50% for 10 sec." //https://classicdb.ch/?item=13243
     "Has a 2% chance when struck in combat of protecting you with a holy shield." //https://classicdb.ch/?item=11302
     "Has a 2% chance when struck in combat of increasing all stats by 25 for 1 min." //https://classicdb.ch/?item=17774
@@ -298,3 +299,7 @@ increase movespeed of ghost wolf: https://classicdb.ch/?item=16573
 50% pushback decrease? https://classicdb.ch/?item=17620
 
 increase mana absorbed by mana shield: https://classicdb.ch/?item=16540
+
+tfury = ['Thunderfury, Blessed Blade of the Windseeker', 'Binds when picked up', 'Unique', 'One-hand Sword', '44 - 115 Damage Speed 1.90', '+16 - 30 Nature Damage', '(53.9 damage per second)', '+5 Agility', '+8 Stamina', '+8 Fire Resistance', '+9 Nature Resistance', 'Durability 125 / 125', 'Requires Level 60']
+ironbark_staff = ['Ironbark Staff', 'Binds when picked up', 'Two-hand Staff', '136.62 - 242.62 Damage Speed 3.40', '(55.8 damage per second)', '100 Armor', '+10 Intellect', '+19 Stamina', 'Durability 120 / 120', 'Requires Level 60', 'Requires The Defilers - Exalted']
+defilers_shoulders = ["Defiler's Chain Pauldrons", 'Binds when picked up', 'Unique', 'Shoulder Mail', '312 Armor', '+20 Agility', '+18 Stamina', '+17 Intellect', 'Durability 85 / 85', 'Classes: Hunter, Shaman', 'Requires Level 60', 'Requires The Defilers - Exalted']
