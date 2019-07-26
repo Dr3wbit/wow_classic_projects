@@ -4,14 +4,16 @@ from urllib.parse import urlparse
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome(executable_path=os.path.abspath("tools/scraping/drivers/chromedriver"))
+driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 BASE_URL="https://classicdb.ch/?item="
 n = 16573
+n = 19866 (hakkari warblade)
 url = "{}{}".format(BASE_URL, n)
 driver.get(url)
 
 tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1]
-tables = tooltip.find_elements(By.XPATH, "./table/tbody/tr/td/table")
+
+tables = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1].find_elements(By.XPATH, "./table/tbody/tr/td/table")
 
 upper_table = tables[0].find_element(By.XPATH, "./tbody/tr/td")
 upper_items = upper_table.text.split("\n")
@@ -276,3 +278,23 @@ encountering
 driver.find_element(By.XPATH, "//*[@id='tooltip20163-generic']/table/tbody/tr[1]/td/table[2]/tbody/tr/td")
 
 tables = tooltip.find_elements(By.XPATH, "/table/tbody/tr/td/table")
+
+
+hwl shield: https://classicdb.ch/?item=18826
+multi-req recipe: https://classicdb.ch/?item=13482
+roids, dscription text: https://classicdb.ch/?item=8410
+brill mana oil, charges, https://classicdb.ch/?item=20748
+
+weapon with armor on it: https://classicdb.ch/?item=20220
+
+triple requirement consume, https://classicdb.ch/?item=20232
+
+triple req item, part of itemset: https://classicdb.ch/?item=20163
+
+increase damage of multishot: https://classicdb.ch/?item=16463
+
+increase movespeed of ghost wolf: https://classicdb.ch/?item=16573
+
+50% pushback decrease? https://classicdb.ch/?item=17620
+
+increase mana absorbed by mana shield: https://classicdb.ch/?item=16540

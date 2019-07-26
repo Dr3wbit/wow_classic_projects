@@ -179,7 +179,7 @@
 		"slot": "Trinket",
 		"requirements": {
 			"profession": {
-				"engineering": 230,
+				"engineering": 300,
 			},
 		},
 		"use": 23133,
@@ -199,7 +199,9 @@
 		"bop": true,
 		"requirements": {
 			"profession": {
-				"enchanting": 300,
+				"enchanting": {
+					"v": 300,
+				},
 			},
 		},
 		"use": {
@@ -250,12 +252,11 @@
 		"bop": true,
 		"requirements": {
 			"profession": {
-				"alchemy": 270,
+				"alchemy": 300,
 			},
 			"reputation": {
-				"n": "Argent Dawn",
+				"f": 529,
 				"v": "Honored",
-				"i": 529,
 			},
 		},
 		"use": {
@@ -264,7 +265,31 @@
 		},
 		"sold": [10856, 10857, 11536],
 	},
+	"18984": {
+		"n": "Dimensional Ripper - Everlook",
+		"i": 18984,
+		"bop": true,
+		"slot": "Trinket",
+		"quality": 2,
+		"requirements": {
+			"professions": {
+				"engineering": 260,
+				"goblin engineering": true,
+			},
+		},
+		"use": {
+			"s": 23442,
+			"t": "Rips the dimensional walls asunder and transports you to Everlook in Winterspring. There are technical problems that sometimes occur, but that's what Goblin Engineering is all about!",
+			"cd": 14400,
+		},
+		"materials": {
+			"stuff": 5,
+		}
+	}
 },
+
+
+
 "itemsets": {
 
 	"545": {
@@ -295,13 +320,57 @@
 		"items": [19865, 19866],
 		"bonuses": {
 			"2": {
-				"effects": {
-					"swords": 6,
-				}
+				"s": 15763,
+				"t": "Increased Swords +6.",
+			},
+		}
+	},
+},
+
+"quests": {
+	"7604": {
+		"n": "A Binding Contract",
+		"i": 7604,
+		"description": "The undersigned hereby declares that the Sulfuron ingot they are delivering to the Thorium Brotherhood (TB Ltd.) is genuine and not a facsimile thereof. The undersigned also acknowledges that any harm that should come to < him/her> as a result of attempting to build, forge, find, create, sell, or eat Sulfuras, is not the responsibility or fault of TB Ltd.\n\nBy signing this contract, you are agreeing to all terms listed herein.\n\n_________________\n\nSignature",
+		"requirements": {
+			"items": {
+				"18628":1,
+				"17203": 1,
+			},
+		},
+		"provided": {
+			"items": {
+				"i": 18628,
+				"v": 1,
+			}
+		},
+		"progress": "Do we have a deal?",
+		"completion": "It has been a pleasure doing business with you, <name>!\n\nOn behalf of TB Ltd., I wish you luck in your search for Sulfuras!",
+		"rewards": {
+			"items": [{
+				"i": 18592,
+				"v": 1,
+			}],
+			"exp": 6600,
+			"reputation": {
+				"f": 59,
+				"v": 1000,
 			}
 		}
 	}
-}
+},
+
+"factions": {
+	"59": {
+		"i": 59,
+		"n": "Thorium Brotherhood",
+	},
+	"529": {
+		"i": 529,
+		"n": "Argent Dawn",
+	}
+},
+
 
 
 KEYS: {
