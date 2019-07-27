@@ -1,5 +1,5 @@
 import invariables as const
-import os, re, urllib.request, json, time, datetime
+import os, re, urllib.request, json, time, datetime, random
 from urllib.parse import urlparse
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -10,27 +10,38 @@ from selenium.common import exceptions
 # if permissions error: chmod 755 path/to/chromedriver
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 
-START = datetime.datetime.now()
-
+START_TIME = datetime.datetime.now()
+IMAGE_DLS = 0
 def main():
 
 	ALL_ITEMS = const.get_item_list(os.path.abspath('../js/all_items.js'))
 	BASE_URL="https://classicdb.ch/?item="
 	#item_numbers = ['15772', '18984']
-	item_numbers = ["1168", "17082", "17104", "18835", "22194", "17620", "19019", "15515", "13822", "19865"]
+	# item_numbers = ["1168", "17082", "17104", "18835", "22194", "17620", "19019", "15515", "13822", "19865"]
 	#item_numbers = ['15772', '18984','10725','20076', "18564"]
 	# item_numbers = range(23300, 23305)
-	Z = 0
+	Z,E = 0,0
 	iStart = datetime.datetime.now()
 
-	for ix in item_numbers:
+	for ix in range(5630, 5640):
+
+		r = random.randint(3, 8)
+		if ix+r % 2 == 0:
+			print("ZUG ZUG")
+			time.sleep(0.3)
+
 		iStart = datetime.datetime.now()
 		url = "{}{}".format(BASE_URL, ix)
 		driver.get(url)
 		error_box = check_element_exists_by_id('inputbox-error')
 		if not error_box:
 			I = ix
-			ALL_ITEMS[I] = {}
+			if I in ALL_ITEMS.keys():
+				if ALL_ITEMS[I]['i'] and ALL_ITEMS[I]['n'] and ALL_ITEMS[I]['image_name']:
+					continue
+			else:
+				ALL_ITEMS[I] = {}
+
 			ALL_ITEMS[I]['i'] = int(ix)
 
 			tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1]
@@ -44,8 +55,11 @@ def main():
 
 			ALL_ITEMS[I]['n'] = upper_items.pop(0)
 
-			image_name = image_handler()
+			image_name, STACK = image_handler()
 			ALL_ITEMS[I]['image_name'] = image_name
+
+			if STACK:
+				ALL_ITEMS[I]['stack'] = STACK
 
 			if image_name not in const.ALL_IMAGES:
 				const.ALL_IMAGES.append(ALL_ITEMS[I]['image_name'])
@@ -53,8 +67,9 @@ def main():
 			infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[1].find_element(By.TAG_NAME, 'ul')
 			ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
 
-			moneybox = infobox.find_elements(By.TAG_NAME, 'li')[2]
-			ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox)
+			moneybox = infobox.find_elements(By.TAG_NAME, 'li')
+			if len(moneybox) > 1:
+				ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
 
 			if any(x for x in upper_items if x in const.BOP):
 				ALL_ITEMS[I]['bop'] = True
@@ -76,19 +91,23 @@ def main():
 				upper_items.pop(i)
 
 			if check_element_exists_by_css(upper_table, 'table'):
-				tab = upper_table.find_element(By.TAG_NAME, 'table')
-				slot = tab.find_element(By.TAG_NAME, 'td').text
-				ALL_ITEMS[I]['slot'] = slot
-				i = [x for x,y in enumerate(upper_items) if slot in y][0]
-				upper_items[i] = upper_items[i].replace(slot, '').strip()
 
-				if check_element_exists_by_css(tab, "th") and slot not in const.ARMORLESS_SLOTS:
-					th = tab.find_element(By.TAG_NAME, 'th')
-					if th.text:
-						proficiency = th.text
-						ALL_ITEMS[I]['proficiency'] = proficiency
-						id = upper_items.index(proficiency)
-						upper_items.pop(id)
+				tab = upper_table.find_element(By.TAG_NAME, 'table')
+				text = tab.text
+				if text:
+					slot = tab.find_element(By.TAG_NAME, 'td').text
+
+					ALL_ITEMS[I]['slot'] = slot
+					i = [x for x,y in enumerate(upper_items) if slot in y][0]
+					upper_items[i] = upper_items[i].replace(slot, '').strip()
+
+					if check_element_exists_by_css(tab, "th") and slot not in const.ARMORLESS_SLOTS:
+						th = tab.find_element(By.TAG_NAME, 'th')
+						if th.text:
+							proficiency = th.text
+							ALL_ITEMS[I]['proficiency'] = proficiency
+							id = upper_items.index(proficiency)
+							upper_items.pop(id)
 
 			# wep speed is normally coupled with dmg, so extract speed
 			if any(x for x in upper_items if 'Speed' in x):
@@ -97,7 +116,7 @@ def main():
 				match = re.search(regex, upper_items[i])
 				if match:
 					upper_items[i] = re.sub(match.group(0), '', upper_items[i]).strip()
-					ALL_ITEMS[I]['speed'] = match.group(1)
+					ALL_ITEMS[I]['speed'] = float(match.group(1))
 
 			ALL_ITEMS[I] = extract_stats(upper_items, ALL_ITEMS[I])
 
@@ -106,13 +125,19 @@ def main():
 			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
 			ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table)
 
+
 			iFinish = datetime.datetime.now()
 			# PREVIOUS = "t: {}sec".format(round((iStart - iFinish).total_seconds(), 2))
 			print('PROCESSED: {} ({}) in ~{}s'.format(ALL_ITEMS[I]['n'], ALL_ITEMS[I]['i'], round((iFinish - iStart).total_seconds(), 2)))
 			Z+=1
 		# no item found
+			# except:
+			# 	print('ERROR AT ITEM ({})'.format(ix))
+			# 	E+=1
+			# 	continue
+
 		else:
-			print('error box on page, no item found')
+			print('NOT FOUND: ({})'.format(ix))
 			continue
 
 
@@ -122,13 +147,13 @@ def main():
 	with open(os.path.abspath('../js/itemsets.js'), 'w+') as f:
 		json.dump(const.ITEMSETS, f, indent=4)
 
-	with open(os.path.abspath('image_list.txt', 'w+')) as f:
+	with open(os.path.abspath('image_list.txt'), 'w+') as f:
 		for name in const.ALL_IMAGES:
 			f.write(name+"\n")
 
 
-	T = str(iFinish - START)
-	print('== TIME ELAPSED: {} ==\n== ITEMS PROCESSED: ({}) =='.format(T, Z))
+	T = str(iFinish - START_TIME)
+	print('==============\nTIME ELAPSED: {}\nITEMS PROCESSED: ({})\nERRORS: ({})\nNEW IMAGES: ({})'.format(T, Z, E, IMAGE_DLS))
 	driver.close()
 
 def get_lowboys(item_dict, table):
@@ -143,7 +168,7 @@ def get_lowboys(item_dict, table):
 			matched = regex.search(href)
 
 			if matched:
-				s = matched.group(1)
+				s = int(matched.group(1))
 			else:
 				match_fail_disclaimer('equip', text, regex)
 				continue
@@ -483,6 +508,8 @@ def image_handler():
 	regex = re.compile(r"'(\w*)'")
 	icon = driver.find_element(By.CSS_SELECTOR, "div#minibox + div")
 	icon_match = regex.search(icon.get_attribute("onclick"))
+	stack_size = 0
+
 	if icon_match:
 		icon_name = icon_match.group(1)
 		folder_path = os.path.abspath('../../../home/static/images/icons/large')
@@ -490,9 +517,14 @@ def image_handler():
 		if not os.path.exists(full_path):
 			img_url = "https://classicdb.ch/images/icons/large/"+icon_name+".jpg"
 			urllib.request.urlretrieve(img_url, full_path)
-			print('Downloaded *NEW* icon: ', icon_name)
+			IMAGE_DLS+=1
+			print('Downloaded icon: ', icon_name)
 
-	return icon_name
+	if check_element_exists_by_css(icon, "span.glow"):
+
+		stack_size = int(icon.find_element(By.CSS_SELECTOR, "span.glow").find_element(By.XPATH, "./div[1]").text)
+
+	return icon_name, stack_size
 
 def check_element_exists_by_id(id):
 	try:
@@ -513,7 +545,16 @@ def match_fail_disclaimer(s, item, regex):
 	print('Regex: {}\n'.format(regex))
 
 def sleepy_time(n):
-	print("".rjust(n, 'z'))
-	time.sleep(1)
+
+	print("no throttle plz b0ss")
+	for ix in range(n):
+		s = "".rjust(ix, 'z')
+		# q = list(s)
+		# for k,v in enumerate(q):
+			# r = random.randint(0,1)
+			# if k+r % 1 == 0:
+				#q[i] = q[i].upper()
+		print("".rjust(ix, 'z'))
+		time.sleep(1)
 
 main()

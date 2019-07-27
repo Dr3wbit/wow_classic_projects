@@ -8,5 +8,6 @@ db.sqlite3
 *.log
 keys
 ONY_BUFF_KEY.pem
-static
 tools/scraping/py/__pycache__
+static/admin static/css static/fonts static/images static/js static/json static/py static/testing
+/static*

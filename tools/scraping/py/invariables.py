@@ -1,5 +1,8 @@
 import re,os,json
 
+TAB_OPTIONS = ["Reward from", "Dropped by", "Sold by", "Disenchanting", "Gathered from", "Reagant for", "Objective of"]
+BAD_TABS = ["Comments", "Screenshots"]
+
 BOP = ["Binds when picked up", "Soulbound"]
 UNIQUE = 'Unique'
 BOE = "Binds when equipped"
