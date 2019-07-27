@@ -1,8 +1,15 @@
 import re,os,json
 
-TAB_OPTIONS = ["Reward from", "Dropped by", "Sold by", "Disenchanting", "Gathered from", "Reagant for", "Objective of"]
+REACT = {
+	'q2': 1,
+	'q10': -1,
+	'q':0,
+}
+
+TAB_OPTIONS = ["Reward from", "Dropped by", "Sold by", "Disenchanting", "Gathered from", "Reagant for", "Objective of", "Pickpocketed from", "Contained in"]
 BAD_TABS = ["Comments", "Screenshots"]
 
+QUEST_ITEM = "Quest Item"
 BOP = ["Binds when picked up", "Soulbound"]
 UNIQUE = 'Unique'
 BOE = "Binds when equipped"
@@ -115,4 +122,11 @@ def create_image_list(dir):
 	return file_list
 
 ALL_IMAGES = create_image_list(os.path.abspath('../../../home/static/images/icons/large'))
+
+NPCS = get_item_list(os.path.abspath('../js/npcs.js'))
+QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
 ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))
+ZONES = get_item_list(os.path.abspath('../js/zones.js'))
+FACTIONS = get_item_list(os.path.abspath('../js/factions.js'))
+OBJECTS = get_item_list(os.path.abspath('../js/objects.js'))
+SPELLS = get_item_list(os.path.abspath('../js/spells.js'))

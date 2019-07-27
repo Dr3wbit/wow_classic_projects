@@ -23,7 +23,7 @@ def main():
 	Z,E = 0,0
 	iStart = datetime.datetime.now()
 
-	for ix in range(5630, 5640):
+	for ix in range(5633, 5638):
 
 		r = random.randint(3, 8)
 		if ix+r % 2 == 0:
@@ -35,9 +35,12 @@ def main():
 		driver.get(url)
 		error_box = check_element_exists_by_id('inputbox-error')
 		if not error_box:
-			I = ix
+			I = str(ix)
+			# print('I: ({}) [{}]'.format(I, type(I)))
 			if I in ALL_ITEMS.keys():
+				print('FOUND ({}) [{}]'.format(I, type(I)))
 				if ALL_ITEMS[I]['i'] and ALL_ITEMS[I]['n'] and ALL_ITEMS[I]['image_name']:
+
 					continue
 			else:
 				ALL_ITEMS[I] = {}
@@ -155,6 +158,7 @@ def main():
 	T = str(iFinish - START_TIME)
 	print('==============\nTIME ELAPSED: {}\nITEMS PROCESSED: ({})\nERRORS: ({})\nNEW IMAGES: ({})'.format(T, Z, E, IMAGE_DLS))
 	driver.close()
+
 
 def get_lowboys(item_dict, table):
 	spans = table.find_elements(By.XPATH, "./span")
