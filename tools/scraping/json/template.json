@@ -384,7 +384,7 @@
 	"5710": {
 		"i": 5710,
 		"n": "Jammal'an the Prophet",
-		"Z": "Sunken Temple"
+		"Z": "Sunken Temple",
 		"lvl": 54,
 		"class": "Elite",
 		"react": {"A":"Hostile", "H": "Hostile"},

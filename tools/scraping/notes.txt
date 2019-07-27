@@ -1,4 +1,3 @@
-
 import os, re, urllib.request, json, time
 from urllib.parse import urlparse
 from selenium import webdriver
@@ -6,7 +5,9 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 BASE_URL="https://classicdb.ch/?item="
+n = 15515 (lots of different tabs)
 n = 16573
+n = 15994 (thorium widget, object, reagant, created tabs)
 n = 19866 (hakkari warblade)
 url = "{}{}".format(BASE_URL, n)
 driver.get(url)
@@ -22,54 +23,13 @@ lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
 
 spans = lower_table.find_elements(By.XPATH, "./span")
 
-for span in spans:
-    text = span.text
-    t = ''
-    s = 0
-    if text.startswith("Equip"):
-        t = text[7:]
-        href = span.find_element(By.XPATH, './a').get_attribute('href')
-        matched = re.search(r"spell\=([\d]+)", href)
-        if matched:
-            s = matched.group(1)
-        print('s ', s)
-        print('t ', t)
-    elif text.startswith("Chance"):
-        t = text[15:]
-        href = span.find_element(By.XPATH, './a').get_attribute('href')
-        matched = re.search(r"spell\=([\d]+)", href)
-        if matched:
-            s = matched.group(1)
-        print('s ', s)
-        print('t ', t)
-    elif text.startswith("Use"):
-        t = text[5:]
-        href = span.find_element(By.XPATH, './a').get_attribute('href')
-        matched = re.search(r"spell\=([\d]+)", href)
-        if matched:
-            s = matched.group(1)
-        print('s ', s)
-        print('t ', t)
-    elif span.get_attribute("class") is "q":
-        print(text)
-        if '"' in text:
-            print('is description')
-        elif check_item_exists_by_css(span, 'a'):
-            a = span.find_element(By.XPATH, './a')
-            href = a.get_attribute('href')
-            if 'itemset' in href:
-                matched = re.search(r"itemset\=([\d]+)", href)
-                if matched:
-                    i = matched.group(1)
-                    n = a.text
-                    if i not in ITEMSETS.keys():
-                        # do something
-                    # check if said itemset exists, create it if not
-                else:
-                    return
-    else:
-        pass
+tabs = driver.find_element(By.ID, "tabs-generic").find_elements(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li")
 
+tabs.find_elements(By.XPATH, "[not(starts-with(text(),'Comments'))]")
+driver.find_element(By.ID, "tabs-generic").find_elements(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[not(contains(text(),'Comments'))]")
+driver.find_element(By.ID, "tabs-generic").find_elements(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a/div[not(contains(text(),'Comments'))]")
+
+driver.find_element(By.ID, "tabs-generic").find_elements(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[not(contains(text(),'Comments'))]]")
 # js equiv: document.querySelectorAll('div.tooltip')[1].getElementsByTagName('table')[0].getElementsByTagName('table')[0]
 
 
