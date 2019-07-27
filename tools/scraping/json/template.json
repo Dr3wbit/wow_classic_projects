@@ -1,4 +1,4 @@
-"items":{
+"ITEMS":{
 	"19019": {
 		"n": "Thunderfury, Blessed Blade of the Windseeker",
 		"i": 19019,
@@ -255,7 +255,7 @@
 				"alchemy": 300,
 			},
 			"reputation": {
-				"f": 529,
+				"F": 529,
 				"v": "Honored",
 			},
 		},
@@ -285,12 +285,23 @@
 		"materials": {
 			"stuff": 5,
 		}
+	},
+	"8152": {
+		"n": "Flask of Big Mojo",
+		"i": 8152,
+		"image": "inv_potion_12",
+		"quality": 1,
+		"sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
 	}
 },
 
 
 
-"itemsets": {
+"ITEMSETS": {
 
 	"545": {
 		"n": "Lieutenant Commander's Battlearmor",
@@ -327,7 +338,7 @@
 	},
 },
 
-"quests": {
+"QUESTS": {
 	"7604": {
 		"n": "A Binding Contract",
 		"i": 7604,
@@ -353,14 +364,13 @@
 			}],
 			"exp": 6600,
 			"reputation": {
-				"f": 59,
+				"F": 59,
 				"v": 1000,
 			}
 		}
 	}
 },
-
-"factions": {
+"FACTIONS": {
 	"59": {
 		"i": 59,
 		"n": "Thorium Brotherhood",
@@ -370,6 +380,73 @@
 		"n": "Argent Dawn",
 	}
 },
+"NPCS": {
+	"5710": {
+		"i": 5710,
+		"n": "Jammal'an the Prophet",
+		"Z": "Sunken Temple"
+		"lvl": 54,
+		"class": "Elite",
+		"react": {"A":"Hostile", "H": "Hostile"},
+		"F": 26,
+		"stats": {
+			"hp": 10140,
+			"armor": 2432,
+		},
+		"damage": [501, 594],
+		"wealth": {
+			"copper": 95,
+			"silver": 5,
+			"gold": 0,
+		},
+		"model": 6708,
+		"drops": [{
+			"i": 6212,
+			"n": "Head of Jammal'an",
+			"C": 100,
+		},
+		{
+			"i": 6181,
+			"n": "Fetish of Hakkar",
+			"C": 80,
+
+		},
+		{
+			"i": 10806,
+			"n": "Vestments of the Atal'ai Prophet",
+			"C": 33,
+		},
+		{
+			"i": 10807,
+			"n": "Kilt of the Atal'ai Prophet",
+			"C": 33,
+		},
+		{
+			"i": 10808,
+			"n": "Gloves of the Atal'ai Prophet",
+			"C": 33,
+		},
+		{
+			"i": 1520,
+			"n": "Troll Sweat",
+			"C": 23,
+		},
+		{
+			"i": 4338,
+			"n": "Mageweave Cloth",
+			"C": 21,
+		},
+		{
+			"i": 8152,
+			"n": "Flask of Big Mojo",
+			"C": 21,
+		},
+	]
+	}
+}
+
+
+
 
 
 
