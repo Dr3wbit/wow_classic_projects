@@ -7,31 +7,41 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common import exceptions
 
+START_TIME = datetime.datetime.now()
+NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/all_items.js'))
 # if permissions error: chmod 755 path/to/chromedriver
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
+iStart = datetime.datetime.now()
 
-START_TIME = datetime.datetime.now()
-NEW = {'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS':0}
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/all_items.js'))
 
 def main():
-
+	# 1939
+	start = 2001
+	end = 3000
 	BASE_URL="https://classicdb.ch/?item="
-	#item_numbers = ['15772', '18984']
-	# item_numbers = ["1168", "17082", "17104", "18835", "22194", "17620", "19019", "15515", "13822", "19865"]
-	#item_numbers = ['15772', '18984','10725','20076', "18564"]
+	item_numbers1 = ['10050', '15994', '15523']
+	item_numbers2 = ["422", "11446", "2319", "2775"]
+	item_numbers3 = ["422", "11446", "2319", "2775", "1168", "17082", "17104", "18835", "22194", "17620", "19019", '15772', '18984','10725','20076', "18564"]
+	# item_numbers = item_numbers1+item_numbers2
+
+	item_numbers = range(int(start), int(end))
 	# item_numbers = range(23300, 23305)
 	Z,E = 0,0
 	iStart = datetime.datetime.now()
+	# print("\n=======================================")
+	# print('{:<15} {:<6}'.format('ITEMS', len(ALL_ITEMS)))
+
 	print("\n=======================================")
 	print('{:<22} {:<6} {:>4}s'.format('NAME', 'ITEM#', 'TIME'))
 	print("=======================================")
-	for ix in range(420, 750):
 
-		r = random.randint(3, 8)
-		if ix+r % 2 == 0:
-			print("ZUG ZUG")
-			time.sleep(0.3)
+	for ix in item_numbers:
+
+		# r = random.randint(3, 8)
+		# if int(ix)+r % 2 == 0:
+		# 	print("ZUG ZUG")
+		# 	time.sleep(0.3)
 
 		iStart = datetime.datetime.now()
 		url = "{}{}".format(BASE_URL, ix)
@@ -42,11 +52,10 @@ def main():
 
 			if I in ALL_ITEMS.keys():
 				iii = "({})".format(ALL_ITEMS[I]['i'])
-				print('{:<22} {:<6} {:>4}s'.format(ALL_ITEMS[I]['n'], iii, round((datetime.datetime.now() - iStart).total_seconds(), 2)))
+				print('\n{:<30} {:<8} {:>4}s'.format(ALL_ITEMS[I]['n'], iii, round((datetime.datetime.now() - iStart).total_seconds(), 2)))
 				continue
 				# if all(k in ALL_ITEMS[I].keys() for k in ['i', 'n', 'image_name']):
 					# continue
-
 			else:
 				ALL_ITEMS[I] = {}
 
@@ -100,6 +109,15 @@ def main():
 
 			if const.QUEST_ITEM in upper_items:
 				ALL_ITEMS[I]['quest_item'] = True
+				i = upper_items.index(const.QUEST_ITEM)
+				upper_items.pop(i)
+
+			if any(x for x in upper_items if 'Slot Bag' in x):
+				ALL_ITEMS[I]['slot'] = 'Bag'
+				i = [x for x,y in enumerate(upper_items) if 'Bag' in y][0]
+				bag = upper_items.pop(i)
+				num_slots = re.search(r"([\d]+)", bag).group(1)
+				ALL_ITEMS[I]['slots'] = int(num_slots)
 
 			if check_element_exists_by_css(upper_table, 'table'):
 
@@ -138,17 +156,20 @@ def main():
 
 			for tab in tabs:
 
-				if tab.get_attribute('class') != 'selected':
-					tab.click()
+				# if tab.get_attribute('class') != 'selected':
+				tab.click()
 
 				tab_handler(tab, I)
 
 
-			iFinish = datetime.datetime.now()
+			iStop = datetime.datetime.now()
 			NEW['ITEMS']+=1
 			# PREVIOUS = "t: {}sec".format(round((iStart - iFinish).total_seconds(), 2))
 			iii = "({})".format(ALL_ITEMS[I]['i'])
-			print('{:<22} {:<6} {:>4}s'.format(ALL_ITEMS[I]['n'], iii, round((iFinish - iStart).total_seconds(), 2)))
+			nnn = "\n{} (NEW) ".format(ALL_ITEMS[I]['n'])
+			print('{:<33} {:<8} {:>4}s'.format(nnn, iii, round((iStop - iStart).total_seconds(), 2)))
+			# print("NEW ITEM {:<35} {:>10} {:<15} {:<11} - {:>25}".format(ALL_ITEMS[I]['n'], iii, cl,  const.NPCS[I]['type'], zone_name))
+
 			Z+=1
 		# no item found
 			# except:
@@ -157,12 +178,20 @@ def main():
 			# 	continue
 
 		else:
-			print('NOT FOUND: ({})'.format(ix))
+			# print('NOT FOUND: ({})'.format(ix))
+			NEW['MISSING'] += 1
 			continue
 
 
 	with open(os.path.abspath('../js/all_items.js'), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4)
+
+
+	# for file in const.FILE_LIST:
+	# 	ST = file.upper()
+	# 	with open(os.path.abspath('../js/{}.js'.format(file)), 'w+') as f:
+	# 		json.dump(const.ST, f, indent=4)
+
 
 	with open(os.path.abspath('../js/itemsets.js'), 'w+') as f:
 		json.dump(const.ITEMSETS, f, indent=4)
@@ -191,17 +220,17 @@ def main():
 
 
 	T = str(datetime.datetime.now() - START_TIME)
-	print('==============\nTIME ELAPSED: {}\nITEMS PROCESSED: ({})\nERRORS: ({})\n'.format(T, Z, E))
-	print("====== NEW ITEMS ======\n")
+	print('==============\nTIME ELAPSED: {}\nMISSING ITEMS: ({})\nERRORS: ({})\n'.format(T, NEW['MISSING'], NEW['ERRORS']))
+	print("====== NEW ======\n")
 	for k,v in NEW.items():
 		print(f"{k:10} {v:>3}")
 
 	driver.close()
 
 
-def get_mats(id, row):
+def get_mats(row):
 	materials = {}
-	mat_icons = row.find_elements(By.XPATH, "./td[3]/div[@class='iconmedium']")
+	mat_icons = row.find_elements(By.XPATH, "./td[3]/div/div[@class='iconmedium']")
 	for mat in mat_icons:
 		mat_link = mat.find_element(By.TAG_NAME, "a")
 		mat_href = mat_link.get_attribute('href')
@@ -286,8 +315,7 @@ def get_lowboys(item_dict, table):
 					i = matched.group(1)
 					n = a.text
 					item_dict['itemset'] = {"n":n, "i":int(i)}
-					if i not in const.ITEMSETS.keys():
-						create_itemset(i, n, table)
+					create_itemset(i, n, table)
 			else:
 				continue
 
@@ -299,138 +327,252 @@ def get_lowboys(item_dict, table):
 
 	return item_dict
 
-def create_npc(I, row):
-	const.NPCS[I] = {}
-	const.NPCS[I]['i'] = int(I)
-	name = row.find_element(By.XPATH, "./td[1]/a").text
-	const.NPCS[I]['n'] = name
+def create_npc(ix, row, get_type=False):
+	START = datetime.datetime.now()
+	if ix not in const.NPCS.keys():
 
-	react_td = row.find_element(By.XPATH, "./td[span[@class='q2' or @class='q' or @class='q10']]")
-	react_td_spans = react_td.find_elements(By.TAG_NAME, 'span')
-	a_ = const.REACT[react_td_spans[0].get_attribute('class')]
-	h_ = const.REACT[react_td_spans[1].get_attribute('class')]
-	const.NPCS[I]['react'] = [a_, h_]
+		const.NPCS[ix] = {}
+		const.NPCS[ix]['i'] = int(ix)
+		name = row.find_element(By.XPATH, "./td[1]/a").text
+		const.NPCS[ix]['n'] = name
 
-	const.NPCS[I]['type'] = row.find_element(By.XPATH, "./td[@class='small q1'][a[contains(@href, 'npcs=')]]").text
+		react_td = row.find_element(By.XPATH, "./td[span[@class='q2' or @class='q' or @class='q10']]")
+		react_td_spans = react_td.find_elements(By.TAG_NAME, 'span')
+		a_ = const.REACT[react_td_spans[0].get_attribute('class')]
+		h_ = const.REACT[react_td_spans[1].get_attribute('class')]
+		const.NPCS[ix]['react'] = [a_, h_]
 
-	# class_lvl_text = row.find_element(By.XPATH, "./td[div[@class='small q1'] and not(a)]").text
-	class_lvl_text = row.find_element(By.XPATH, "./td[2]").text
-	cl = ''
-	if "Boss" in class_lvl_text:
-		cl = "Boss"
+		if get_type:
+			const.NPCS[ix]['type'] = row.find_element(By.XPATH, "./td[@class='small q1'][a[contains(@href, 'npcs=')]]").text
 
-	elif "Elite" in class_lvl_text:
-		cl = "Elite"
+		# there are exceptions where this assumption will be wrong, such as Chromie
+		# but they should be few and far between
+		else:
+			const.NPCS[ix]['type'] = 'Humanoid'
+		# class_lvl_text = row.find_element(By.XPATH, "./td[div[@class='small q1'] and not(a)]").text
+		class_lvl_text = row.find_element(By.XPATH, "./td[2]").text
+		cl = ''
+		if "Boss" in class_lvl_text:
+			cl = "Boss"
 
-		if "Rare" in class_lvl_text:
-			cl = "Rare "+cl
+		elif "Elite" in class_lvl_text:
+			cl = "Elite"
 
-	matches = re.findall(r"([\d]+)", class_lvl_text)
-	if matches:
-		const.NPCS[I]['level'] = matches
+			if "Rare" in class_lvl_text:
+				cl = "Rare "+cl
 
-	const.NPCS[I]['class'] = cl
-	td = row.find_element(By.XPATH, "./td[3]")
-	zone_name = ''
-	if check_element_exists_by_css(td, 'a'):
+		matches = re.findall(r"([\d]+)", class_lvl_text)
+		if matches:
+			const.NPCS[ix]['level'] = [int(x) for x in matches]
 
-		zone_td = row.find_element(By.XPATH, "./td[a[contains(@href, 'zone')]]")
-		zones = zone_td.find_elements(By.TAG_NAME, 'a')
-		const.NPCS[I]['zone'] = []
+		else:
+			const.NPCS[ix]['level'] = [0]
 
-		for zone in zones:
-			href = zone.get_attribute('href')
-			m = re.search(r"zone\=([\d]+)", href)
-			zone_name = zone.text
-			ix = str(m.group(1))
-			const.NPCS[I]['zone'].append(int(ix))
+		const.NPCS[ix]['class'] = cl
+		td = row.find_element(By.XPATH, "./td[3]")
+		zone_name = ''
+		if check_element_exists_by_css(td, 'a'):
 
-			if ix not in const.ZONES.keys():
-				create_zone(ix, zone_name)
+			zone_td = row.find_element(By.XPATH, "./td[a[contains(@href, 'zone')]]")
+			zones = zone_td.find_elements(By.TAG_NAME, 'a')
+			const.NPCS[ix]['zone'] = []
 
-	lvl = 0
-	if 'level' in const.NPCS[I].keys():
-		lvl = " - ".join(const.NPCS[I]['level']) if type(const.NPCS[I]['level']) == list else const.NPCS[I]['level']
+			for zone in zones:
+				href = zone.get_attribute('href')
+				m = re.search(r"zone\=([\d]+)", href)
+				zone_name = zone.text
+				zone_ix = str(m.group(1))
+				const.NPCS[ix]['zone'].append(int(zone_ix))
 
-	cl = '' if 'class' not in const.NPCS[I].keys() else const.NPCS[I]['class']
-	lvl = "??" if cl is 'Boss' else lvl
-
-	lvl = "({})".format(lvl)
-	NEW['NPCS']+=1
-	print("NEW NPC {:<30} - {:>8} {:<15} {:<11} - {:>25}".format(const.NPCS[I]['n'], lvl, cl,  const.NPCS[I]['type'], zone_name))
-
+				create_zone(zone_ix, zone_name)
 
 
-def create_quest(ix, name, level):
-	const.QUESTS[ix] = {}
-	const.QUESTS[ix]['i'] = int(ix)
-	const.QUESTS[ix]['n'] = name
-	const.QUESTS[ix]['requirements'] = {"level": level}
-	NEW['QUESTS'] += 1
+		lvl = 0
+		if 'level' in const.NPCS[ix].keys():
+			lvl = " - ".join([str(x) for x in const.NPCS[ix]['level']]) if type(const.NPCS[ix]['level']) == list else const.NPCS[ix]['level']
+
+			cl = '' if 'class' not in const.NPCS[ix].keys() else const.NPCS[ix]['class']
+			lvl = "??" if cl is 'Boss' else lvl
+			lvl = "({})".format(lvl)
+
+		nnn = "{} (NEW)".format(const.NPCS[ix]['n'])
+		NEW['NPCS']+=1
+
+	else:
+		# zone_name = ', '.join(const.NPCS[ix]['zone'])
+		if 'level' not in const.NPCS[ix].keys():
+			const.NPCS[ix]['level'] = [0]
+
+		lvl = " - ".join([str(x) for x in const.NPCS[ix]['level']]) if type(const.NPCS[ix]['level']) == list else const.NPCS[ix]['level']
+		cl = '' if 'class' not in const.NPCS[ix].keys() else const.NPCS[ix]['class']
+		lvl = "??" if cl is 'Boss' else lvl
+		lvl = "({})".format(lvl)
+		nnn = "{}".format(const.NPCS[ix]['n'])
+
+
+	FINISH = datetime.datetime.now()
+	time_taken = round((FINISH - START).total_seconds(), 2)
+	print("NPC: {:<35} {:>10} {:<15} {:<11} {:>8}".format(nnn, lvl, cl,  const.NPCS[ix]['type'], time_taken))
+
+
+
+def create_quest(ix, name, row):
+	START = datetime.datetime.now()
+
+	if ix not in const.QUESTS.keys():
+		const.QUESTS[ix] = {}
+		const.QUESTS[ix]['i'] = int(ix)
+		const.QUESTS[ix]['n'] = name
+
+		req_text = row.find_element(By.XPATH, "./td[3]").text
+		required_lvl = int(req_text) if req_text else 0
+
+		ilvl_list = row.find_element(By.XPATH, "./td[2]").text.split("\n")
+		ilvl = int(ilvl_list[0]) if ilvl_list[0] else (required_lvl+5)
+
+		if any(x in y for x in ilvl_list for y in ['Dungeon', 'Group']):
+			req = [x for x in ['Dungeon', 'Group'] if x in ilvl_list][0]
+			const.QUESTS[ix][req.lower()] = True
+
+		side_icon = row.find_element(By.XPATH, "./td[4]/span").get_attribute("class")
+		faction = ""
+		if side_icon:
+			if side_icon.startswith("alliance"):
+				faction = "A"
+			else:
+				faction = "H"
+
+		location = row.find_element(By.XPATH, "./td[last()]").text
+		if location:
+			const.QUESTS[ix]['zone'] = location
+
+		const.QUESTS[ix]['requirements'] = {"level": required_lvl}
+		const.QUESTS[ix]['ilvl'] = ilvl
+		if faction:
+			const.QUESTS[ix]['requirements']['faction'] = faction
+
+		NEW['QUESTS'] += 1
+		nnn = "{} (NEW)".format(const.QUESTS[ix]['n'])
+	else:
+		nnn = "{}".format(const.QUESTS[ix]['n'])
+		ilvl = const.QUESTS[ix]['ilvl']
+
+	FINISH = datetime.datetime.now()
+	time_taken = round((FINISH - START).total_seconds(), 2)
+	print("QUEST: {:<35} {:>9} {:<25} {:<11}s".format(nnn, ilvl, location, time_taken))
 
 def create_zone(ix, name):
+	START = datetime.datetime.now()
 
-	const.ZONES[ix] = {}
-	const.ZONES[ix]['i'] = int(ix)
-	const.ZONES[ix]['n'] = name
-	NEW['ZONES'] += 1
+	if ix not in const.ZONES.keys():
+
+		const.ZONES[ix] = {}
+		const.ZONES[ix]['i'] = int(ix)
+		const.ZONES[ix]['n'] = name
+		NEW['ZONES'] += 1
+		nnn = "{} (NEW)".format(const.ZONES[ix]['n'])
+	else:
+		nnn = "{}".format(const.ZONES[ix]['n'])
+
+	iii = "({})".format(ix)
+	FINISH = datetime.datetime.now()
+	time_taken = round((FINISH - START).total_seconds(), 2)
+	print("ZONE: {:<35} {:>9} {:<11}s".format(nnn, iii, time_taken))
+
 
 def create_object(ix, name):
+	START = datetime.datetime.now()
 
-	const.OBJECTS[ix] = {}
-	const.OBJECTS[ix]['i'] = int(ix)
-	const.OBJECTS[ix]['n'] = name
-	NEW['OBJECTS'] += 1
+	if ix not in const.OBJECTS.keys():
+
+		const.OBJECTS[ix] = {}
+		const.OBJECTS[ix]['i'] = int(ix)
+		const.OBJECTS[ix]['n'] = name
+		NEW['OBJECTS'] += 1
+		nnn = "{} (NEW)".format(const.OBJECTS[ix]['n'])
+	else:
+		nnn = "{}".format(const.OBJECTS[ix]['n'])
+
+	FINISH = datetime.datetime.now()
+	iii = "({})".format(ix)
+
+	time_taken = round((FINISH - START).total_seconds(), 2)
+	print("OBJECT: {:<35} {:>9} {:<11}s".format(nnn, iii, time_taken))
 
 def create_spell(ix, name):
-	const.SPELLS[ix] = {}
-	const.SPELLS[ix]['i'] = int(ix)
-	const.SPELLS[ix]['n'] = name
-	NEW['SPELLS'] += 1
+	START = datetime.datetime.now()
+
+	if ix not in const.SPELLS.keys():
+
+		const.SPELLS[ix] = {}
+		const.SPELLS[ix]['i'] = int(ix)
+		const.SPELLS[ix]['n'] = name
+		NEW['SPELLS'] += 1
+		nnn = "{} (NEW)".format(const.SPELLS[ix]['n'])
+	else:
+		nnn = "{}".format(const.OBJECTS[I]['n'])
+
+	FINISH = datetime.datetime.now()
+	iii = "({})".format(ix)
+	time_taken = round((FINISH - START).total_seconds(), 2)
+
+	print("SPELL: {:<35} {:>9} {:<11}s".format(nnn, iii, time_taken))
 
 def create_itemset(id, name, lower_table):
-	# create itemset
-	I = id
-	const.ITEMSETS[I] = {}
-	const.ITEMSETS[I]['n'] = name
-	const.ITEMSETS[I]['i'] = I
+	START = datetime.datetime.now()
+	ix = str(id)
+	if ix not in const.ITEMSETS.keys():
+		NEW['ITEMSETS'] += 1
 
-	# getting the item ids
-	elems = lower_table.find_elements(By.XPATH, "./div[@class='q0 indent']/span/a")
-	if len(elems) > 0:
-		regex = re.compile(r"item\=([\d]+)")
-		const.ITEMSETS[I]['items'] = []
-		for elem in elems:
-			href = elem.get_attribute('href')
-			match = regex.search(href)
-			item_id = int(match.group(1))
-			const.ITEMSETS[I]['items'].append(item_id)
+		nnn = "{} NEW".format(name)
+		const.ITEMSETS[ix] = {}
+		const.ITEMSETS[ix]['n'] = name
+		const.ITEMSETS[ix]['i'] = int(ix)
 
-	# getting the bonuses
-	elems = lower_table.find_elements(By.XPATH, "./span[@class='q0']/span/span")
-	if len(elems) > 0:
-		const.ITEMSETS[I]['bonuses'] = {}
-		for elem in elems:
-			text = elem.text
-			t, spell_id = text, 0
-			regex = re.compile(r"\((\d)\) Set\:")
-			matched = regex.search(elem.text)
-			if matched:
-				required_pieces = str(matched.group(1))
-				regex = re.compile(r"spell\=([\d]+)")
-				a_elem = elem.find_element(By.XPATH, './a')
-				href = a_elem.get_attribute('href')
+
+		# getting the item ids
+		elems = lower_table.find_elements(By.XPATH, "./div[@class='q0 indent']/span/a")
+		if len(elems) > 0:
+			regex = re.compile(r"item\=([\d]+)")
+			const.ITEMSETS[ix]['items'] = []
+			for elem in elems:
+				href = elem.get_attribute('href')
 				match = regex.search(href)
-				spell_id = match.group(1)
-				t = a_elem.text
-				const.ITEMSETS[I]['bonuses'][required_pieces] = {"s": spell_id, "t":t}
+				item_id = int(match.group(1))
+				const.ITEMSETS[ix]['items'].append(item_id)
 
-			else:
-				match_fail_disclaimer('itemset bonus', text, regex)
-				continue
+		# getting the bonuses
+		elems = lower_table.find_elements(By.XPATH, "./span[@class='q0']/span/span")
+		if len(elems) > 0:
+			const.ITEMSETS[ix]['bonuses'] = {}
+			for elem in elems:
+				text = elem.text
+				t, spell_id = text, 0
+				regex = re.compile(r"\((\d)\) Set\:")
+				matched = regex.search(elem.text)
+				if matched:
+					required_pieces = str(matched.group(1))
+					regex = re.compile(r"spell\=([\d]+)")
+					a_elem = elem.find_element(By.XPATH, './a')
+					href = a_elem.get_attribute('href')
+					match = regex.search(href)
+					spell_id = match.group(1)
+					t = a_elem.text
+					const.ITEMSETS[ix]['bonuses'][required_pieces] = {"s": spell_id, "t":t}
 
-	print('NEW ITEMSET ADDED: {} ({})'.format(name, I))
-	NEW['ITEMSETS'] += 1
+				else:
+					match_fail_disclaimer('itemset bonus', text, regex)
+					continue
+
+	else:
+		nnn = "{}".format(name)
+
+	iii = "({})".format(ix)
+	FINISH = datetime.datetime.now()
+	time_taken = round((FINISH - START).total_seconds(), 2)
+
+	print("ITEMSET: {:<35} {:>9} {:<11}s".format(nnn, iii, time_taken))
+
 # attempts to get armor, stats, damage, resists, and durability
 def extract_stats(items, item_dict):
 	for item in items:
@@ -631,132 +773,350 @@ def extract_stats(items, item_dict):
 
 	return item_dict
 
-def tab_handler(tab, I):
 
-	if tab.text.startswith("Dropped" or "Pickpocket"):
-		which = "dropped" if tab.text.startswith("Drop") else "pickpocket"
-		tab_id = "tab-dropped-by" if which=="dropped" else "tab-pick-pocketed-from"
+#NOTE: need Skinned by, reward from, sold by
+def tab_handler(_tab, I):
+	fn = 'tab_handler'
+	# try:
+	tab_href = _tab.get_attribute("href")
+	tab_matched = re.search(r"\#([\w\-]+)", tab_href)
 
+	if tab_matched:
+		tab_id = "tab-{}".format(tab_matched.group(1))
+	else:
+		match_fail_disclaimer('tab handler, ', item, r"\#([\w\-]+)")
+		return
+
+	tab = driver.find_element(By.ID, tab_id)
+
+	reward_from_calls = ["tab-objective-of", "tab-starts", "tab-reward-of", "tab-provided-for"]
+	contained_or_gathered_calls = ["tab-gathered-from-object", "tab-contained-in-item", "tab-contained-in-object", "tab-mined-from-object"]
+	drop_pick_skin_sold_calls = ["tab-dropped-by", "tab-sold-by", "tab-pick-pocketed-from", "tab-skinned-from"]
+
+	# TAB_OPTIONS = {
+	# 	"tab-dropped-by": drop_pick_skin_sold(tab, I, "dropped"),
+	# 	"tab-sold-by": drop_pick_skin_sold(tab, I, "sold"),
+	# 	"tab-skinned-from": drop_pick_skin_sold(tab, I, "skinned"),
+	# 	"tab-pick-pocketed-from": drop_pick_skin_sold(tab, I, "pickpocketed"),
+	# 	"tab-disenchanting": disenchant(tab, I),
+	# 	"tab-reagant-for": created_by(tab),
+	#	"tab-created-by": created_by(tab),
+	# 	"tab-reward-of": reward_from(tab, I, 'reward_from'),
+	# 	"tab-objective-of": reward_from(tab, I, 'objective'),
+	# 	"tab-starts": reward_from(tab, I, 'starts'),
+	# 	"tab-gathered-from-object":contained_or_gathered(tab, I, "gathered"),
+	# 	"tab-contained-in-item": contained_or_gathered(tab, I, "contained", "items", "./td[1]/div/a"),
+	# 	"tab-contained-in-object": contained_or_gathered(tab, I, "contained", "objects"),
+	# 	"tab-mined-from-object": contained_or_gathered(tab, I, "mined"),
+	# }
+
+	no_data = tab.find_element(By.CSS_SELECTOR, "div.listview-nodata.text").text if check_element_exists_by_css(tab, "div.listview-nodata.text") else False
+
+	if no_data:
+		print('** NO DATA FOUND FOR {}'.format(tab_id))
+		return
+	else:
+		# TAB_OPTIONS[tab_id]
+
+		if tab_id in drop_pick_skin_sold_calls:
+			if 'dropped' in tab_id:
+				which = 'dropped'
+			elif 'sold' in tab_id:
+				which = 'sold'
+			elif 'pick' in tab_id:
+				which = 'pickpocketed'
+			else:
+				which = 'skinned'
+			drop_pick_skin_sold(tab, I, which)
+
+		elif tab_id in contained_or_gathered_calls:
+			i_or_o = 'object'
+			xpath = ''
+			if 'contained' in tab_id:
+				which = 'contained'
+				if 'item' in tab_id:
+					i_or_o = 'item'
+					xpath = "./td[1]/div/a"
+
+			elif 'gathered' in tab_id:
+				which = 'gathered'
+			else:
+				which = 'mined'
+
+			contained_or_gathered(tab, I, which, i_or_o, xpath)
+
+		elif tab_id in reward_from_calls:
+			if 'reward' in tab_id:
+				which = 'reward_from'
+			elif 'objective' in tab_id:
+				which = 'objective'
+			elif 'starts' in tab_id:
+				which = 'starts'
+			else:
+				which = 'provided_for'
+
+			reward_from(tab, I, which)
+
+		elif tab_id == 'tab-disenchanting':
+			disenchant(tab, I)
+
+		elif tab_id == 'tab-reagent-for':
+			reagant_for(tab, I)
+
+		elif tab_id=='tab-created-by':
+			created_by(tab, I)
+		else:
+			print('** NO TAB MATCH FOUND FOR: {}'.format(tab_id))
+	# except:
+	# 	print('ERROR in {} {}'.format(fn, I))
+	# 	log_error(I, fn)
+
+
+def reward_from(tab, I, which):
+
+	fn = 'reward_from'
+
+	thead = tab.find_element(By.XPATH, "./table[@class='listview-mode-default']/thead")
+	thead_keys = thead.text.split("\n")
+
+	trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
+	for row in trs:
+		quest_link = row.find_element(By.XPATH, "./td[1]/a")
+		quest_name = quest_link.text
+		quest_ix = re.search(r"\?quest\=([\d]+)", quest_link.get_attribute('href')).group(1)
+		if quest_ix not in const.QUESTS.keys():
+			create_quest(quest_ix, quest_name, row)
+		else:
+			iii = "({})".format(quest_ix)
+			nnn = const.QUESTS[quest_ix]['n']
+
+	if which == 'reward_from':
+		xpath = "./td[5]/div/div[@class='iconsmall']/a[contains(@href, 'item={}')]".format(I)
+		elem = row.find_element(By.XPATH, xpath)
+		rel = elem.get_attribute('rel')
+		amount = int(rel) if rel else 1
 		if which not in ALL_ITEMS[I].keys():
 			ALL_ITEMS[I][which] = {}
 
-		perc_threshold = 0.1
-		trs = driver.find_element(By.ID, tab_id).find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr[td[last()][text() > {}]]".format(perc_threshold))
+		ALL_ITEMS[I][which][str(quest_ix)] = amount
 
+	else:
+		ALL_ITEMS[I][which] = int(quest_ix)
+
+	# except:
+	# 	print('ERROR in {} {}'.format(fn, I))
+	# 	log_error(I, fn)
+
+
+
+# NOTE: fix threshold issue
+def drop_pick_skin_sold(tab, I, which):
+	fn = 'drop_pick_skin_sold'
+
+	get_npc_type = False
+	if which not in ALL_ITEMS[I].keys():
+		ALL_ITEMS[I][which] = {}
+
+	trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
+	if len(trs) < 1:
+		print("NO ROWS FOUND IN drop_pick_skin_sold()")
+		return
+
+	if which != 'sold':
+		get_npc_type = True
+		perc_threshold = 0.1
+		trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr[td[last()][text() > {}]]".format(perc_threshold))
 		while len(trs) < 1: # to insure something is recorded
 			perc_threshold = perc_threshold/10
-			trs = driver.find_element(By.ID, tab_id).find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr[td[last()][text() > {}]]".format(perc_threshold))
+			trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr[td[last()][text() > {}]]".format(perc_threshold))
+			if perc_threshold < 0.00001:
+				break
 
-		for row in trs:
-			href = row.find_element(By.XPATH, "./td[1]/a").get_attribute('href')
-			regex = re.compile(r"npc\=([\d]+)")
-			matched = regex.search(href)
-			id = str(matched.group(1))
-			if id not in const.NPCS.keys():
-				create_npc(id, row)
+	for row in trs:
+		href = row.find_element(By.XPATH, "./td[1]/a").get_attribute('href')
+		regex = re.compile(r"npc\=([\d]+)")
+		matched = regex.search(href)
+		npc_id = str(matched.group(1))
 
+		if which != 'sold':
+			get_npc_type = True
 			chance = round(float(row.find_element(By.XPATH, "./td[last()]").text), 3)
-			ALL_ITEMS[I][which][id] = chance
+			ALL_ITEMS[I][which][npc_id] = chance
+
+		else:
+			ALL_ITEMS[I][which][npc_id] = {}
+			row.find_element(By.XPATH, "./td[last()]").text
+			v = row.find_element(By.XPATH, "./td[5]").text
+			if v != '∞':
+				ALL_ITEMS[I][which][npc_id]['stock'] = int(v)
+
+			money_td = row.find_element(By.XPATH, "./td[last()]")
+			money_copper = int(money_td.find_element(By.CSS_SELECTOR, "span.moneycopper").text) if check_element_exists_by_css(money_td, 'span.moneycopper') else 0
+			money_silver = int(money_td.find_element(By.CSS_SELECTOR, "span.moneysilver").text) if check_element_exists_by_css(money_td, 'span.moneysilver') else 0
+			money_gold = int(money_td.find_element(By.CSS_SELECTOR, "span.moneygold").text) if check_element_exists_by_css(money_td, 'span.moneygold') else 0
+
+			ALL_ITEMS[I][which][npc_id]['cost'] = {
+				"copper": money_copper, "silver": money_silver, "gold": money_gold,
+			}
+
+		create_npc(npc_id, row, get_npc_type)
 
 
-	elif tab.text.startswith("Contained" or "Gathered"):
-		which = "gathered" if tab.text.startswith("Gather") else "contained"
-		if which == "contained":
+	# except:
+	# 	print('ERROR in {} {}'.format(fn, I))
+	# 	log_error(I, fn)
 
-			tab_href = tab.get_attribute("href")
-			regex = re.compile(r"\#([\w-]+)")
-			match = regex.search(tab_href)
-			item_or_object = "item" if "item" in match.group(1) else "object"
+def contained_or_gathered(tab, ix, which, i_or_o, xpath):
 
-		tab_id = "tab-gathered-from-object" if which=="gathered" else "tab-contained-in-{}".format(item_or_object)
-		trs = driver.find_element(By.ID, tab_id).find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
-		if which not in ALL_ITEMS[I].keys():
-			ALL_ITEMS[I][which] = {}
+	fn = 'contained_or_gathered'
+	# try:
+	sandwich = which
+	xpath = "./td[1]/a" if not xpath else "./td[1]/div/a"
+	ttt = i_or_o+"s"
 
-		for row in trs:
-			link = row.find_element(By.XPATH, "./td[1]/a")
-			t = row.find_element(By.XPATH, "./td[last()]").text
-			print('TEXT: ', t)
-			chance = round(float(t), 3)
-			href = link.get_attribute('href')
-			m = re.search(r"\?object=([\d]+)", href)
-			id = str(m.group(1))
-			name = link.text
-			ALL_ITEMS[I][which][id] = chance
-			if id not in const.OBJECTS.keys():
-				create_object(id, name)
+	if sandwich not in ALL_ITEMS[ix].keys():
+		ALL_ITEMS[ix][sandwich] = {}
+	if i_or_o:
+		if ttt not in ALL_ITEMS[ix][sandwich].keys():
+			ALL_ITEMS[ix][sandwich][ttt] = {}
 
-	elif tab.text.startswith("Disenchant"):
-			trs = driver.find_element(By.ID, "tab-disenchanting").find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
-			if "disenchant" not in ALL_ITEMS[I].keys():
-				ALL_ITEMS[I]["disenchant"] = {}
+	trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
 
-			for row in trs:
-				icon = row.find_element(By.XPATH, "./td[1]/div[@class='iconmedium']")
-				chance = round(float(row.find_element(By.XPATH, "./td[5]").text), 3)
+	for row in trs:
 
-				link = icon.find_element(By.TAG_NAME, "a")
-				href = link.get_attribute('href')
-				m = re.search(r"\?item=([\d]+)", href)
-				ix = str(m.group(1))
-				v = [1]
-				if link.get_attribute('rel'):
-					rel = link.get_attribute('rel')
-					m = re.search(r"([\d]+)\-([\d]+)", rel)
-					v = [m.group(1), m.group(2)]
+		link = row.find_element(By.XPATH, xpath)
+		t = row.find_element(By.XPATH, "./td[last()]").text
+		chance = round(float(t), 3)
+		href = link.get_attribute('href')
+		name = link.text
+		matched = re.search(r"\?{}=([\d]+)".format(i_or_o), href)
+		id = str(matched.group(1))
+		ALL_ITEMS[ix][sandwich][ttt][id] = chance
+		if i_or_o == 'object':
+			create_object(id, name)
+	# except:
+	# 	print('ERROR in {} {}'.format(fn, I))
+	# 	log_error(I, fn)
 
-				ALL_ITEMS[I]["disenchant"][ix] = {"chance": chance, "v": v}
-
-	elif tab.text.startswith("Created"):
-		trs = driver.find_element(By.ID, "tab-created-by").find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
-		for row in trs:
-			spell_link = row.find_element(By.XPATH, "./td[2]/div/a")
-			spell_href = spell_link.get_attribute('href')
-			m = re.search(r"\?spell=([\d]+)", spell_href)
-			spell_ix = str(m.group(1))
-			spell_name = spell_link.text
-
-			if spell_ix not in const.SPELLS.keys():
-				create_spell(spell_ix, spell_name)
-
-
-			if 'materials' not in ALL_ITEMS[I].keys():
-				ALL_ITEMS[I]['materials'] = get_mats(spell_ix, row)
-
-	elif tab.text.startswith("Reagant"):
-		trs = driver.find_element(By.ID, "tab-reagant-for").find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
-		if "creates" not in ALL_ITEMS[I].keys():
-			ALL_ITEMS[I]["creates"] = []
+def disenchant(tab, I):
+	fn = 'disenchant'
+	try:
+		trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
+		if "disenchant" not in ALL_ITEMS[I].keys():
+			ALL_ITEMS[I]["disenchant"] = {}
 
 		for row in trs:
-
 			icon = row.find_element(By.XPATH, "./td[1]/div[@class='iconmedium']")
+			t = row.find_element(By.XPATH, "./td[6]").text
+			chance = round(float(t), 3)
+
 			link = icon.find_element(By.TAG_NAME, "a")
 			href = link.get_attribute('href')
 			m = re.search(r"\?item=([\d]+)", href)
 			ix = str(m.group(1))
+			v = [1]
+			if link.get_attribute('rel'):
+				rel = link.get_attribute('rel')
+				m = re.search(r"([\d]+)\-([\d]+)", rel)
+				v = [m.group(1), m.group(2)]
 
-			spell_link = row.find_element(By.XPATH, "./td[2]/div/a")
-			spell_href = spell_link.get_attribute('href')
-			m = re.search(r"\?spell=([\d]+)", spell_href)
-			spell_ix = str(m.group(1))
-			spell_name = spell_link.text
+			ALL_ITEMS[I]["disenchant"][ix] = {"chance": chance, "v": v}
+	except:
+		print('ERROR in {} {}'.format(fn, I))
+		log_error(I, fn)
 
-			if spell_ix not in const.SPELLS.keys():
-				create_spell(spell_ix, spell_name)
+def created_by(tab, I):
+	fn = 'created_by'
+	trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
+	for row in trs:
+		spell_link = row.find_element(By.XPATH, "./td[2]/div/a")
+		spell_href = spell_link.get_attribute('href')
+		m = re.search(r"\?spell=([\d]+)", spell_href)
+		spell_ix = str(m.group(1))
+		spell_name = spell_link.text
 
-			if ix in ALL_ITEMS.keys():
-				if 'materials' not in ALL_ITEMS[ix].keys():
-					ALL_ITEMS[ix]['materials'] = get_mats(ix, row)
+		if spell_ix not in const.SPELLS.keys():
+
+			create_spell(spell_ix, spell_name)
+
+		if 'created_by' not in ALL_ITEMS[I].keys():
+			ALL_ITEMS[I]['created_by'] = {}
+
+			skill_td = row.find_element(By.XPATH, "./td[last()]")
+
+			if check_element_exists_by_css(skill_td, "div.small"):
+
+				prof_text = skill_td.find_element(By.XPATH, "./div[1][@class='small']").text
+
+				yellow = skill_td.find_element(By.XPATH, "./div[@class='small']/span[@class='r2']").text if check_element_exists_by_css(skill_td, 'span.r2') else ''
+				green = skill_td.find_element(By.XPATH, "./div[@class='small']/span[@class='r3']").text if check_element_exists_by_css(skill_td, 'span.r3') else ''
+				grey = skill_td.find_element(By.XPATH, "./div[@class='small']/span[@class='r4']").text if check_element_exists_by_css(skill_td, 'span.r4') else ''
+
+				for k,skill_lvl in ({'yellow':yellow, 'green':green, 'grey':grey}).items():
+					if 'skill' not in ALL_ITEMS[I]['created_by'].keys():
+						ALL_ITEMS[I]['created_by']['skill'] = {}
+
+					if skill_lvl:
+						ALL_ITEMS[I]['created_by']['skill'][k] = int(skill_lvl)
 
 
-			ALL_ITEMS[I]["creates"].append({"i":int(ix), "s":int(spell_ix)})
+				ALL_ITEMS[I]['created_by']['profession'] = prof_text
 
-	# elif tab.text.startswith("Objective"):
-	# 	trs = driver.find_element(By.ID, "tab-objective-of").find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr]")
-	# 	pass
+			ALL_ITEMS[I]['created_by']['materials'] = get_mats(row)
+	# except:
+	# 	print('ERROR in {} ({})'.format(fn, I))
+	# 	log_error(I, fn)
+
+def log_error(I, fn):
+
+	if I not in const.ALL_ERRORS.keys():
+		const.ALL_ERRORS[I] = {}
+
+	if fn not in const.ALL_ERRORS[I].keys():
+		const.ALL_ERRORS[I][fn] = {}
+		const.ALL_ERRORS[I][fn]['count'] = 0
+	const.ALL_ERRORS[I][fn]['count'] += 1
+
+	NEW['ERRORS'] += 1
+	with open(os.path.abspath('../js/ERRORS.js'), 'w+') as f:
+		json.dump(const.ALL_ERRORS, f, indent=4)
+
+def reagant_for(tab, I):
+	fn = 'reagant_for'
+	trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
+
+	if "creates" not in ALL_ITEMS[I].keys():
+		ALL_ITEMS[I]["creates"] = []
+
+	for row in trs:
+		icon = row.find_element(By.XPATH, "./td[1]/div[@class='iconmedium']")
+		link = icon.find_element(By.TAG_NAME, "a")
+		href = link.get_attribute('href')
+		m = re.search(r"\?item=([\d]+)", href)
+		ix = str(m.group(1))
+		spell_link = row.find_element(By.XPATH, "./td[2]/div/a")
+		spell_href = spell_link.get_attribute('href')
+		m = re.search(r"\?spell=([\d]+)", spell_href)
+		spell_ix = str(m.group(1))
+		spell_name = spell_link.text
+
+		create_spell(spell_ix, spell_name)
+
+		if ix in ALL_ITEMS.keys():
+			if 'materials' not in ALL_ITEMS[ix].keys():
+				ALL_ITEMS[ix]['materials'] = get_mats(row)
+
+		ALL_ITEMS[I]["creates"].append({"i":int(ix), "s":int(spell_ix)})
+		# elif tab.text.startswith("Objective"):
+		# 	trs = driver.find_element(By.ID, "tab-objective-of").find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr]")
+		# 	pass
+
+	# except:
+	# 	print('ERROR in reagant_for ({})'.format(I))
+	# 	log_error(I, fn)
 
 def get_ilvl(infobox):
+	fn = "get_ilvl"
 	ilvl = 0
 	regex = re.compile(r"([\d]+)", re.M)
 	matched = regex.search(infobox.find_elements(By.TAG_NAME, 'li')[0].text)
@@ -811,8 +1171,8 @@ def check_element_exists_by_css(element, selector):
 		return False
 	return True
 
-def match_fail_disclaimer(s, item, regex):
-	print("Found '{}' in item: {}, but could not find match".format(s.upper(), item))
+def match_fail_disclaimer(st, item, regex):
+	print("Found '{}' in item: {}, but could not find match".format(st.upper(), item))
 	print('Regex: {}\n'.format(regex))
 
 def sleepy_time(n):

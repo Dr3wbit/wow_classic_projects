@@ -1,1236 +1,3521 @@
 {
-    "44": {
-        "i": 44,
-        "quality": 0,
-        "n": "Squire's Pants",
-        "image_name": "inv_pants_02",
-        "ilvl": 1,
+    "10050": {
+        "i": 10050,
+        "quality": 1,
+        "n": "Mageweave Bag",
+        "image_name": "inv_misc_bag_10_black",
+        "ilvl": 35,
         "sells_for": {
             "gold": 0,
-            "silver": 0,
-            "copper": 1
+            "silver": 25,
+            "copper": 0
         },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 2,
-            "durability": 25
+        "slot": "Bag",
+        "slots": 12,
+        "created_by": {
+            "profession": "Tailoring",
+            "materials": {
+                "4339": 4,
+                "4291": 2
+            }
         }
     },
-    "45": {
-        "i": 45,
+    "15994": {
+        "i": 15994,
         "quality": 1,
-        "n": "Squire's Shirt",
-        "image_name": "inv_shirt_01",
-        "ilvl": 1,
+        "n": "Thorium Widget",
+        "image_name": "inv_gizmo_04",
+        "stack": 10,
+        "ilvl": 52,
         "sells_for": {
             "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Shirt",
-        "dropped": {
-            "5623": 0.02
-        }
-    },
-    "47": {
-        "i": 47,
-        "quality": 1,
-        "n": "Footpad's Shoes",
-        "image_name": "inv_boots_05",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Feet"
-    },
-    "48": {
-        "i": 48,
-        "quality": 0,
-        "n": "Footpad's Pants",
-        "image_name": "inv_pants_02",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 2,
-            "durability": 25
-        },
-        "materials": {}
-    },
-    "49": {
-        "i": 49,
-        "quality": 1,
-        "n": "Footpad's Shirt",
-        "image_name": "inv_shirt_05",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Shirt"
-    },
-    "51": {
-        "i": 51,
-        "quality": 1,
-        "n": "Neophyte's Boots",
-        "image_name": "inv_boots_04",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Feet"
-    },
-    "52": {
-        "i": 52,
-        "quality": 0,
-        "n": "Neophyte's Pants",
-        "image_name": "inv_pants_02",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 2,
-            "durability": 25
-        }
-    },
-    "53": {
-        "i": 53,
-        "quality": 1,
-        "n": "Neophyte's Shirt",
-        "image_name": "inv_shirt_01",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Shirt"
-    },
-    "55": {
-        "i": 55,
-        "quality": 1,
-        "n": "Apprentice's Boots",
-        "image_name": "inv_boots_09",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Feet"
-    },
-    "56": {
-        "i": 56,
-        "quality": 0,
-        "n": "Apprentice's Robe",
-        "image_name": "inv_chest_cloth_23",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 3,
-            "durability": 35
-        }
-    },
-    "57": {
-        "i": 57,
-        "quality": 0,
-        "n": "Acolyte's Robe",
-        "image_name": "inv_chest_cloth_24",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 3,
-            "durability": 35
-        }
-    },
-    "59": {
-        "i": 59,
-        "quality": 1,
-        "n": "Acolyte's Shoes",
-        "image_name": "inv_boots_01",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Feet"
-    },
-    "60": {
-        "i": 60,
-        "quality": 1,
-        "n": "Layered Tunic",
-        "image_name": "inv_chest_leather_09",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 12
-        },
-        "bop": true,
-        "slot": "Chest",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 33,
-            "durability": 45
-        }
-    },
-    "61": {
-        "i": 61,
-        "quality": 1,
-        "n": "Dwarven Leather Pants",
-        "image_name": "inv_pants_wolf",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 12
-        },
-        "bop": true,
-        "slot": "Legs",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 29,
-            "durability": 35
-        }
-    },
-    "79": {
-        "i": 79,
-        "quality": 1,
-        "n": "Dwarven Cloth Britches",
-        "image_name": "inv_pants_09",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 10
-        },
-        "bop": true,
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 9,
-            "durability": 30
-        }
-    },
-    "80": {
-        "i": 80,
-        "quality": 1,
-        "n": "Soft Fur-lined Shoes",
-        "image_name": "inv_boots_09",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 7
-        },
-        "bop": true,
-        "slot": "Feet",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 7,
-            "durability": 20
-        }
-    },
-    "85": {
-        "i": 85,
-        "quality": 1,
-        "n": "Dirty Leather Vest",
-        "image_name": "inv_shirt_07",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 12
-        },
-        "slot": "Chest",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 33,
-            "durability": 45
-        }
-    },
-    "117": {
-        "i": 117,
-        "quality": 1,
-        "n": "Tough Jerky",
-        "image_name": "inv_misc_food_16",
-        "stack": 20,
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "use": {
-            "s": 433,
-            "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
+            "silver": 25,
+            "copper": 0
         },
         "dropped": {
-            "1985": 18.0,
-            "1984": 18.0,
-            "3098": 17.0,
-            "2966": 17.0,
-            "2954": 17.0,
-            "708": 17.0,
-            "707": 14.0,
-            "724": 14.0,
-            "1989": 14.0,
-            "3101": 13.0,
-            "1718": 13.0,
-            "6128": 13.0,
-            "3183": 13.0,
-            "706": 13.0,
-            "1988": 12.0,
-            "946": 12.0,
-            "808": 12.0,
-            "472": 11.0,
-            "6113": 10.0,
-            "14432": 10.0,
-            "2968": 10.0,
-            "5785": 9.0,
-            "1260": 9.0,
-            "5787": 9.0,
-            "6911": 9.0,
-            "3199": 8.0,
-            "2951": 8.0,
-            "1120": 8.0,
-            "3196": 8.0,
-            "2004": 8.0,
-            "2020": 8.0,
-            "2003": 8.0,
-            "3116": 8.0,
-            "3206": 8.0,
-            "2979": 8.0,
-            "2005": 8.0,
-            "2976": 8.0,
-            "3207": 8.0,
-            "5808": 8.0,
-            "2963": 8.0,
-            "3195": 8.0,
-            "3118": 8.0,
-            "3198": 8.0,
-            "3117": 8.0,
-            "2949": 8.0,
-            "2018": 8.0,
-            "3197": 8.0,
-            "2017": 8.0,
-            "2019": 8.0,
-            "3119": 8.0,
-            "1123": 8.0,
-            "3120": 8.0,
-            "97": 8.0,
-            "2015": 8.0,
-            "1115": 8.0,
-            "1119": 8.0,
-            "1117": 8.0,
-            "2965": 8.0,
-            "1124": 7.0,
-            "3205": 7.0,
-            "2962": 7.0,
-            "2950": 7.0,
-            "3115": 7.0,
-            "2002": 7.0,
-            "1116": 7.0,
-            "2964": 7.0,
-            "2978": 7.0,
-            "1121": 7.0,
-            "478": 7.0,
-            "1135": 7.0,
-            "1388": 7.0,
-            "1122": 7.0,
-            "3203": 7.0,
-            "1134": 7.0,
-            "1397": 7.0,
-            "14431": 7.0,
-            "2975": 7.0,
-            "2977": 7.0,
-            "2038": 7.0,
-            "1118": 7.0,
-            "5786": 7.0,
-            "100": 7.0,
-            "2967": 7.0,
-            "448": 6.0,
-            "2021": 6.0,
-            "1271": 6.0,
-            "3051": 6.0,
-            "3204": 5.0,
-            "1137": 5.0,
-            "5822": 4.0,
-            "8996": 3.0,
-            "60": 0.3,
-            "99": 0.24,
-            "1936": 0.24,
-            "471": 0.17,
-            "5824": 0.17,
-            "79": 0.16,
-            "881": 0.14
+            "8898": 0.02,
+            "9096": 0.02,
+            "10319": 0.02,
+            "10398": 0.02,
+            "11448": 0.02,
+            "11456": 0.02
         },
-        "contained": {
-            "2845": 17.0,
-            "106318": 17.0,
-            "2844": 17.0,
-            "2843": 17.0,
-            "2847": 6.0,
-            "106319": 6.0,
-            "3705": 0.02
+        "objective": 7898,
+        "creates": [
+            {
+                "i": 16022,
+                "s": 19830
+            },
+            {
+                "i": 18634,
+                "s": 23077
+            },
+            {
+                "i": 15995,
+                "s": 19792
+            },
+            {
+                "i": 16009,
+                "s": 19819
+            },
+            {
+                "i": 18660,
+                "s": 23129
+            },
+            {
+                "i": 18645,
+                "s": 23096
+            },
+            {
+                "i": 16005,
+                "s": 19799
+            },
+            {
+                "i": 18587,
+                "s": 23078
+            },
+            {
+                "i": 15996,
+                "s": 19793
+            },
+            {
+                "i": 16023,
+                "s": 19814
+            },
+            {
+                "i": 18594,
+                "s": 23080
+            },
+            {
+                "i": 15993,
+                "s": 19790
+            },
+            {
+                "i": 21277,
+                "s": 26011
+            },
+            {
+                "i": 22728,
+                "s": 28327
+            }
+        ],
+        "created_by": {
+            "profession": "Engineering",
+            "materials": {
+                "12359": 3,
+                "14047": 1
+            }
         }
     },
-    "118": {
-        "i": 118,
-        "quality": 1,
-        "n": "Minor Healing Potion",
-        "image_name": "inv_potion_49",
-        "stack": 5,
-        "ilvl": 5,
+    "15523": {
+        "i": 15523,
+        "quality": 2,
+        "n": "Spiked Chain Shoulder Pads",
+        "image_name": "inv_shoulder_19",
+        "ilvl": 27,
         "sells_for": {
             "gold": 0,
-            "silver": 0,
-            "copper": 5
+            "silver": 14,
+            "copper": 74
         },
-        "use": {
-            "s": 439,
-            "t": "Restores 70 to 91 health. (cooldown 2 min)"
-        },
-        "dropped": {
-            "15812": 29.0,
-            "15810": 28.0,
-            "2058": 22.0,
-            "15813": 18.0,
-            "8996": 10.0,
-            "1911": 6.0,
-            "472": 5.0,
-            "1260": 5.0,
-            "5785": 5.0,
-            "1910": 5.0,
-            "60": 4.0,
-            "3141": 4.0,
-            "5824": 4.0,
-            "1660": 4.0,
-            "2039": 3.0,
-            "1949": 3.0,
-            "1936": 3.0,
-            "1531": 3.0,
-            "881": 3.0,
-            "8503": 3.0,
-            "3535": 3.0,
-            "5808": 3.0,
-            "1118": 3.0,
-            "6911": 3.0,
-            "1119": 3.0,
-            "6113": 3.0,
-            "1665": 3.0,
-            "2019": 3.0,
-            "2020": 3.0,
-            "2977": 3.0,
-            "1993": 3.0,
-            "79": 3.0,
-            "3104": 3.0,
-            "5786": 3.0,
-            "1527": 3.0,
-            "1532": 3.0,
-            "2004": 3.0,
-            "3196": 3.0,
-            "1523": 3.0,
-            "1946": 2.0,
-            "2976": 2.0,
-            "14432": 2.0,
-            "1674": 2.0,
-            "6866": 2.0,
-            "2162": 2.0,
-            "5822": 2.0,
-            "2038": 2.0,
-            "1543": 2.0,
-            "2027": 2.0,
-            "474": 2.0,
-            "3103": 2.0,
-            "3198": 2.0,
-            "2152": 2.0,
-            "1397": 2.0,
-            "2975": 2.0,
-            "2989": 2.0,
-            "97": 2.0,
-            "1934": 2.0,
-            "6927": 2.0,
-            "3206": 2.0,
-            "3195": 2.0,
-            "2011": 2.0,
-            "2964": 2.0,
-            "10358": 2.0,
-            "880": 2.0,
-            "2965": 2.0,
-            "2015": 2.0,
-            "14431": 2.0,
-            "3115": 2.0,
-            "2029": 2.0,
-            "1135": 2.0,
-            "2018": 2.0,
-            "1522": 2.0,
-            "1538": 2.0,
-            "1117": 2.0,
-            "2962": 2.0,
-            "476": 2.0,
-            "2021": 2.0,
-            "2030": 2.0,
-            "1211": 2.0,
-            "1121": 2.0,
-            "2022": 2.0,
-            "2978": 2.0,
-            "2963": 2.0,
-            "2979": 2.0,
-            "2009": 2.0,
-            "3129": 2.0,
-            "1662": 2.0,
-            "3207": 2.0,
-            "2990": 2.0,
-            "6128": 2.0,
-            "1525": 2.0,
-            "3120": 2.0,
-            "2950": 2.0,
-            "3113": 2.0,
-            "3111": 2.0,
-            "2007": 2.0,
-            "475": 2.0,
-            "116": 2.0,
-            "2951": 2.0
-        },
-        "contained": {
-            "2847": 25.0,
-            "106319": 25.0,
-            "2845": 25.0,
-            "106318": 25.0,
-            "2844": 25.0,
-            "2843": 25.0,
-            "2039": 5.0
-        },
-        "materials": {}
-    },
-    "120": {
-        "i": 120,
-        "quality": 0,
-        "n": "Thug Pants",
-        "image_name": "inv_pants_02",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
+        "boe": true,
+        "slot": "Shoulder",
+        "proficiency": "Mail",
         "stats": {
-            "armor": 2,
-            "durability": 25
-        }
-    },
-    "121": {
-        "i": 121,
-        "quality": 1,
-        "n": "Thug Boots",
-        "image_name": "inv_boots_05",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Feet"
-    },
-    "127": {
-        "i": 127,
-        "quality": 1,
-        "n": "Trapper's Shirt",
-        "image_name": "inv_shirt_07",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Shirt"
-    },
-    "128": {
-        "i": 128,
-        "quality": 0,
-        "n": "Deprecated Tauren Trapper's Pants",
-        "image_name": "inv_pants_02",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 2,
-            "durability": 25
-        },
-        "materials": {}
-    },
-    "129": {
-        "i": 129,
-        "quality": 1,
-        "n": "Rugged Trapper's Boots",
-        "image_name": "inv_boots_06",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Feet"
-    },
-    "139": {
-        "i": 139,
-        "quality": 0,
-        "n": "Brawler's Pants",
-        "image_name": "inv_pants_02",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 2,
-            "durability": 25
-        }
-    },
-    "140": {
-        "i": 140,
-        "quality": 1,
-        "n": "Brawler's Boots",
-        "image_name": "inv_boots_04",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Feet"
-    },
-    "147": {
-        "i": 147,
-        "quality": 0,
-        "n": "Rugged Trapper's Pants",
-        "image_name": "inv_pants_02",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 2,
-            "durability": 25
-        }
-    },
-    "148": {
-        "i": 148,
-        "quality": 1,
-        "n": "Rugged Trapper's Shirt",
-        "image_name": "inv_shirt_01",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Shirt"
-    },
-    "153": {
-        "i": 153,
-        "quality": 0,
-        "n": "Primitive Kilt",
-        "image_name": "inv_pants_02",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 14,
-            "durability": 30
-        }
-    },
-    "154": {
-        "i": 154,
-        "quality": 1,
-        "n": "Primitive Mantle",
-        "image_name": "inv_misc_cape_14",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Shirt"
-    },
-    "159": {
-        "i": 159,
-        "quality": 1,
-        "n": "Refreshing Spring Water",
-        "image_name": "inv_drink_07",
-        "stack": 20,
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "use": {
-            "s": 430,
-            "t": "Restores 151.2 mana over 18 sec. Must remain seated while drinking."
-        },
-        "dropped": {
-            "3577": 100.0,
-            "3662": 100.0,
-            "3141": 10.0,
-            "1916": 8.0,
-            "103": 7.0,
-            "1918": 7.0,
-            "1502": 7.0,
-            "8996": 7.0,
-            "2953": 7.0,
-            "1989": 7.0,
-            "5786": 7.0,
-            "1988": 7.0,
-            "706": 7.0,
-            "1718": 7.0,
-            "707": 7.0,
-            "1890": 7.0,
-            "1501": 7.0,
-            "6911": 7.0,
-            "1506": 7.0,
-            "724": 7.0,
-            "1507": 7.0,
-            "3101": 7.0,
-            "3229": 7.0,
-            "6": 7.0,
-            "257": 7.0,
-            "2952": 6.0,
-            "1919": 6.0,
-            "80": 6.0,
-            "38": 6.0,
-            "1917": 6.0,
-            "6128": 6.0,
-            "583": 6.0,
-            "946": 6.0,
-            "14432": 6.0,
-            "808": 6.0,
-            "2014": 6.0,
-            "5787": 6.0,
-            "8554": 5.0,
-            "1667": 5.0,
-            "3183": 5.0,
-            "1388": 5.0,
-            "2021": 5.0,
-            "6927": 5.0,
-            "2984": 5.0,
-            "5808": 5.0,
-            "1936": 5.0,
-            "1664": 5.0,
-            "8503": 5.0,
-            "5785": 5.0,
-            "1118": 5.0,
-            "1271": 5.0,
-            "99": 5.0,
-            "2162": 4.0,
-            "2968": 4.0,
-            "1665": 4.0,
-            "2951": 4.0,
-            "1124": 4.0,
-            "1935": 4.0,
-            "6866": 4.0,
-            "2004": 4.0,
-            "2002": 4.0,
-            "5826": 4.0,
-            "3206": 4.0,
-            "1946": 4.0,
-            "3104": 4.0,
-            "1528": 4.0,
-            "1658": 4.0,
-            "3195": 4.0,
-            "2976": 4.0,
-            "2020": 4.0,
-            "1120": 4.0,
-            "1534": 4.0,
-            "3113": 4.0,
-            "2015": 4.0,
-            "3116": 4.0,
-            "94": 4.0,
-            "735": 4.0,
-            "285": 4.0,
-            "1523": 4.0,
-            "3114": 4.0,
-            "1116": 4.0,
-            "1911": 4.0,
-            "2962": 4.0,
-            "1993": 4.0,
-            "116": 4.0,
-            "7318": 4.0,
-            "1545": 4.0,
-            "1211": 4.0,
-            "1525": 4.0,
-            "3103": 4.0,
-            "2977": 4.0,
-            "1527": 4.0,
-            "1934": 4.0,
-            "3111": 4.0,
-            "1543": 4.0,
-            "5822": 4.0,
-            "2013": 4.0,
-            "1135": 4.0,
-            "2965": 4.0,
-            "473": 4.0
-        },
-        "contained": {
-            "3658": 100.0,
-            "3719": 17.0,
-            "153472": 17.0,
-            "153473": 17.0,
-            "2845": 17.0,
-            "106318": 17.0,
-            "2844": 17.0,
-            "2843": 17.0,
-            "3694": 8.0,
-            "2039": 8.0,
-            "3662": 6.0,
-            "2847": 6.0,
-            "106319": 6.0,
-            "3076": 0.02
-        }
-    },
-    "182": {
-        "i": 182,
-        "quality": 1,
-        "n": "Garrick's Head",
-        "image_name": "inv_misc_head_human_01",
-        "ilvl": 1,
-        "unique": true,
-        "dropped": {
-            "103": 100.0
-        }
-    },
-    "193": {
-        "i": 193,
-        "quality": 1,
-        "n": "Tattered Cloth Vest",
-        "image_name": "inv_shirt_black_01",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 9
-        },
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 10,
-            "durability": 40
-        }
-    },
-    "194": {
-        "i": 194,
-        "quality": 1,
-        "n": "Tattered Cloth Pants",
-        "image_name": "inv_pants_12",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 9
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 9,
-            "durability": 30
-        }
-    },
-    "195": {
-        "i": 195,
-        "quality": 1,
-        "n": "Tattered Cloth Boots",
-        "image_name": "inv_boots_05",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 7
-        },
-        "slot": "Feet",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 7,
-            "durability": 20
-        }
-    },
-    "200": {
-        "i": 200,
-        "quality": 1,
-        "n": "Thick Cloth Vest",
-        "image_name": "inv_shirt_02",
-        "ilvl": 22,
-        "sells_for": {
-            "gold": 0,
-            "silver": 4,
-            "copper": 54
-        },
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 34,
-            "durability": 60
-        },
-        "requirements": {
-            "level": 17
-        },
-        "contained": {
-            "2852": 0.813,
-            "4095": 0.813,
-            "4096": 0.813,
-            "2855": 0.592,
-            "105570": 0.592,
-            "105578": 0.592,
-            "105579": 0.592,
-            "2850": 0.465,
-            "3714": 0.465,
-            "3715": 0.465,
-            "2849": 0.465,
-            "111095": 0.465,
-            "2847": 0.424,
-            "106319": 0.424
-        }
-    },
-    "201": {
-        "i": 201,
-        "quality": 1,
-        "n": "Thick Cloth Pants",
-        "image_name": "inv_pants_12",
-        "ilvl": 22,
-        "sells_for": {
-            "gold": 0,
-            "silver": 4,
-            "copper": 55
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 30,
-            "durability": 45
-        },
-        "requirements": {
-            "level": 17
-        },
-        "contained": {
-            "2852": 0.813,
-            "4095": 0.813,
-            "4096": 0.813,
-            "2855": 0.592,
-            "105570": 0.592,
-            "105578": 0.592,
-            "105579": 0.592,
-            "2850": 0.465,
-            "3714": 0.465,
-            "3715": 0.465,
-            "2849": 0.465,
-            "111095": 0.465,
-            "2847": 0.424,
-            "106319": 0.424
-        }
-    },
-    "202": {
-        "i": 202,
-        "quality": 1,
-        "n": "Thick Cloth Shoes",
-        "image_name": "inv_boots_05",
-        "ilvl": 22,
-        "sells_for": {
-            "gold": 0,
-            "silver": 3,
-            "copper": 42
-        },
-        "slot": "Feet",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 24,
-            "durability": 30
-        },
-        "requirements": {
-            "level": 17
-        },
-        "contained": {
-            "2852": 0.813,
-            "4095": 0.813,
-            "4096": 0.813,
-            "2855": 0.592,
-            "105570": 0.592,
-            "105578": 0.592,
-            "105579": 0.592,
-            "2850": 0.465,
-            "3714": 0.465,
-            "3715": 0.465,
-            "2849": 0.465,
-            "111095": 0.465,
-            "2847": 0.424,
-            "106319": 0.424
-        }
-    },
-    "203": {
-        "i": 203,
-        "quality": 1,
-        "n": "Thick Cloth Gloves",
-        "image_name": "inv_gauntlets_21",
-        "ilvl": 22,
-        "sells_for": {
-            "gold": 0,
-            "silver": 2,
-            "copper": 29
-        },
-        "slot": "Hands",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 21,
-            "durability": 20
-        },
-        "requirements": {
-            "level": 17
-        },
-        "contained": {
-            "2852": 0.813,
-            "4095": 0.813,
-            "4096": 0.813,
-            "2855": 0.592,
-            "105570": 0.592,
-            "105578": 0.592,
-            "105579": 0.592,
-            "2850": 0.465,
-            "3714": 0.465,
-            "3715": 0.465,
-            "2849": 0.465,
-            "111095": 0.465,
-            "2847": 0.424,
-            "106319": 0.424
-        }
-    },
-    "209": {
-        "i": 209,
-        "quality": 1,
-        "n": "Dirty Leather Pants",
-        "image_name": "inv_pants_wolf",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 12
-        },
-        "slot": "Legs",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 29,
-            "durability": 35
-        }
-    },
-    "210": {
-        "i": 210,
-        "quality": 1,
-        "n": "Dirty Leather Boots",
-        "image_name": "inv_boots_06",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 9
-        },
-        "slot": "Feet",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 23,
-            "durability": 20
-        }
-    },
-    "236": {
-        "i": 236,
-        "quality": 1,
-        "n": "Cured Leather Armor",
-        "image_name": "inv_chest_leather_10",
-        "ilvl": 22,
-        "sells_for": {
-            "gold": 0,
-            "silver": 5,
-            "copper": 59
-        },
-        "slot": "Chest",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 77,
-            "durability": 75
-        },
-        "requirements": {
-            "level": 17
-        }
-    },
-    "237": {
-        "i": 237,
-        "quality": 1,
-        "n": "Cured Leather Pants",
-        "image_name": "inv_pants_06",
-        "ilvl": 22,
-        "sells_for": {
-            "gold": 0,
-            "silver": 5,
-            "copper": 61
-        },
-        "slot": "Legs",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 67,
+            "armor": 142,
             "durability": 55
         },
         "requirements": {
-            "level": 17
+            "level": 22
+        },
+        "dropped": {
+            "3773": 1.25,
+            "5859": 1.25,
+            "5916": 1.25,
+            "10640": 1.25,
+            "14280": 1.25,
+            "14426": 1.25
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
-    "238": {
-        "i": 238,
+    "422": {
+        "i": 422,
         "quality": 1,
-        "n": "Cured Leather Boots",
-        "image_name": "inv_boots_03",
-        "ilvl": 22,
+        "n": "Dwarven Mild",
+        "image_name": "inv_misc_food_07",
+        "stack": 20,
+        "ilvl": 25,
         "sells_for": {
             "gold": 0,
-            "silver": 4,
-            "copper": 22
-        },
-        "slot": "Feet",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 53,
-            "durability": 35
+            "silver": 0,
+            "copper": 25
         },
         "requirements": {
-            "level": 17
+            "level": 15
+        },
+        "use": {
+            "s": 435,
+            "t": "Restores 552 health over 24 sec. Must remain seated while eating."
+        },
+        "dropped": {
+            "3897": 44.0,
+            "4535": 25.0,
+            "3844": 21.0,
+            "2238": 14.0,
+            "5414": 13.0,
+            "2239": 12.0,
+            "7072": 12.0,
+            "3715": 11.0,
+            "7068": 10.0,
+            "7075": 10.0,
+            "7069": 10.0,
+            "412": 10.0,
+            "7071": 10.0,
+            "7070": 9.0,
+            "235": 7.0,
+            "1754": 6.0,
+            "7052": 6.0,
+            "2305": 6.0,
+            "12902": 6.0,
+            "1200": 6.0,
+            "5683": 6.0,
+            "2264": 6.0,
+            "2404": 5.0,
+            "5931": 5.0,
+            "2387": 5.0,
+            "2270": 5.0,
+            "2428": 5.0,
+            "315": 5.0,
+            "1706": 5.0,
+            "1715": 5.0,
+            "910": 5.0,
+            "1711": 5.0,
+            "1663": 5.0,
+            "2269": 5.0,
+            "215": 5.0,
+            "7056": 5.0,
+            "909": 5.0,
+            "1160": 5.0,
+            "2260": 5.0,
+            "1157": 5.0,
+            "1708": 5.0,
+            "2360": 5.0,
+            "2261": 5.0,
+            "1707": 5.0,
+            "2244": 5.0,
+            "2503": 5.0,
+            "218": 5.0,
+            "7053": 5.0,
+            "2266": 5.0,
+            "3850": 5.0,
+            "2335": 5.0,
+            "1158": 5.0,
+            "2267": 5.0,
+            "2403": 5.0,
+            "2337": 5.0,
+            "2268": 5.0,
+            "2449": 5.0,
+            "2450": 4.0,
+            "2265": 4.0,
+            "232": 4.0,
+            "4969": 4.0,
+            "1159": 4.0,
+            "1716": 4.0,
+            "2451": 4.0,
+            "4275": 4.0,
+            "2427": 4.0,
+            "2448": 4.0,
+            "1755": 4.0,
+            "3662": 3.0,
+            "3691": 3.0,
+            "3692": 3.0,
+            "3693": 3.0,
+            "3695": 3.0,
+            "3694": 3.0,
+            "10427": 3.0,
+            "14281": 3.0,
+            "12921": 3.0,
+            "7849": 1.94,
+            "397": 1.843,
+            "8996": 0.59,
+            "2466": 0.56,
+            "5859": 0.502,
+            "4490": 0.34,
+            "2090": 0.26,
+            "3414": 0.2,
+            "4810": 0.176,
+            "545": 0.16,
+            "544": 0.14,
+            "1487": 0.12,
+            "4061": 0.12,
+            "4811": 0.113
+        },
+        "sold": {
+            "465": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "5620": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4981": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "3546": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4255": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4084": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4894": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4891": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "483": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "3298": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "11116": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "9501": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "2352": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "295": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "6930": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "6746": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "11106": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "6790": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "1237": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "2364": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "10367": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4782": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "179486": 17.0,
+                "179487": 17.0,
+                "179488": 17.0,
+                "179489": 17.0,
+                "74447": 17.0,
+                "74448": 17.0,
+                "75295": 17.0,
+                "75298": 17.0,
+                "3695": 10.0,
+                "3690": 9.0,
+                "3691": 9.0,
+                "3693": 9.0,
+                "75297": 8.0,
+                "75300": 8.0,
+                "75296": 8.0,
+                "75299": 8.0,
+                "2852": 8.0,
+                "4095": 8.0,
+                "4096": 8.0,
+                "2850": 8.0,
+                "3714": 8.0,
+                "3715": 8.0,
+                "2849": 8.0,
+                "111095": 8.0,
+                "3662": 6.0,
+                "2855": 6.0,
+                "105570": 6.0,
+                "105578": 6.0,
+                "105579": 6.0,
+                "2847": 6.0,
+                "106319": 6.0,
+                "153462": 4.0
+            },
+            "items": {
+                "16882": 0.05
+            }
+        },
+        "pickpocketed": {
+            "6523": 16.0,
+            "6668": 14.0,
+            "1663": 10.0,
+            "2335": 9.0,
+            "1053": 8.0,
+            "12902": 7.0,
+            "2305": 7.0,
+            "2403": 6.0,
+            "1711": 6.0,
+            "2448": 6.0,
+            "2264": 5.0,
+            "909": 5.0,
+            "1054": 5.0,
+            "4202": 4.0,
+            "3671": 4.0,
+            "2270": 4.0,
+            "3669": 4.0,
+            "4051": 4.0,
+            "7052": 4.0,
+            "1716": 4.0,
+            "3797": 3.0,
+            "1706": 3.0,
+            "2345": 3.0,
+            "6224": 3.0,
+            "6221": 3.0,
+            "2266": 3.0,
+            "3375": 3.0,
+            "4285": 3.0,
+            "7603": 3.0,
+            "12897": 3.0,
+            "2260": 3.0,
+            "12856": 3.0,
+            "2267": 3.0,
+            "2344": 3.0,
+            "12896": 3.0,
+            "1707": 3.0,
+            "4280": 3.0,
+            "1696": 3.0,
+            "2582": 3.0,
+            "4284": 3.0,
+            "2261": 2.0,
+            "4306": 2.0,
+            "3377": 2.0,
+            "2244": 2.0,
+            "2428": 2.0,
+            "2268": 2.0,
+            "2269": 1.864,
+            "1708": 1.809,
+            "4283": 1.744,
+            "3803": 1.667,
+            "215": 1.613,
+            "3802": 1.587,
+            "218": 1.471,
+            "2346": 1.449,
+            "3374": 1.415,
+            "1715": 1.389,
+            "2387": 1.351,
+            "3376": 1.274,
+            "1051": 1.25,
+            "4282": 1.053,
+            "2360": 1.042,
+            "2427": 0.917,
+            "4281": 0.581,
+            "2503": 0.535
+        },
+        "reward_from": {
+            "284": 10
         }
     },
-    "239": {
-        "i": 239,
+    "11446": {
+        "i": 11446,
         "quality": 1,
-        "n": "Cured Leather Gloves",
-        "image_name": "inv_gauntlets_21",
-        "ilvl": 22,
+        "n": "A Crumpled Up Note",
+        "image_name": "inv_misc_note_05",
+        "ilvl": 50,
+        "bop": true,
+        "unique": true,
+        "requirements": {
+            "level": 50
+        },
+        "dropped": {
+            "8889": 25.0,
+            "8890": 25.0,
+            "8891": 25.0,
+            "8892": 25.0,
+            "8893": 25.0,
+            "8894": 25.0,
+            "8895": 25.0,
+            "8896": 25.0,
+            "8897": 25.0,
+            "8898": 25.0,
+            "8899": 25.0,
+            "8900": 25.0,
+            "8902": 25.0,
+            "8903": 25.0,
+            "8904": 25.0,
+            "8905": 25.0,
+            "8906": 25.0,
+            "8907": 25.0,
+            "8908": 25.0,
+            "8909": 25.0,
+            "8910": 25.0,
+            "8911": 25.0,
+            "8912": 25.0,
+            "8913": 25.0,
+            "8914": 25.0,
+            "8915": 25.0,
+            "8916": 25.0,
+            "8917": 25.0,
+            "8920": 25.0,
+            "8921": 25.0,
+            "8922": 25.0,
+            "8929": 25.0,
+            "8983": 25.0,
+            "9016": 25.0,
+            "9017": 25.0,
+            "9018": 25.0,
+            "9024": 25.0,
+            "9025": 25.0,
+            "9026": 25.0,
+            "9033": 25.0,
+            "9041": 25.0,
+            "9042": 25.0,
+            "9056": 25.0,
+            "9319": 25.0,
+            "9502": 25.0,
+            "9543": 25.0,
+            "9545": 25.0,
+            "9547": 25.0,
+            "9554": 25.0,
+            "9677": 25.0,
+            "9678": 25.0,
+            "9680": 25.0,
+            "9681": 25.0,
+            "9938": 25.0,
+            "10043": 25.0,
+            "9499": 25.0,
+            "9156": 25.0,
+            "8924": 25.0,
+            "8932": 25.0,
+            "9537": 25.0,
+            "9476": 25.0,
+            "9443": 25.0,
+            "9398": 25.0,
+            "9032": 25.0,
+            "9031": 25.0,
+            "9030": 25.0,
+            "9027": 25.0,
+            "8933": 25.0,
+            "8927": 25.0,
+            "8926": 25.0,
+            "8925": 25.0,
+            "8923": 25.0,
+            "9445": 25.0,
+            "9541": 25.0,
+            "9019": 25.0,
+            "9029": 25.0,
+            "9028": 25.0,
+            "8928": 25.0
+        },
+        "provided_for": 4264,
+        "objective": 4264,
+        "starts": 4264
+    },
+    "2319": {
+        "i": 2319,
+        "quality": 1,
+        "n": "Medium Leather",
+        "image_name": "inv_misc_leatherscrap_05",
+        "stack": 20,
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 50
+        },
+        "sold": {
+            "14846": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "2560": 21.0,
+                "153462": 10.0,
+                "75297": 6.0,
+                "75300": 6.0,
+                "75296": 6.0,
+                "75299": 6.0,
+                "74447": 6.0,
+                "74448": 6.0,
+                "2852": 5.0,
+                "4095": 5.0,
+                "4096": 5.0,
+                "75295": 4.0,
+                "75298": 4.0,
+                "2847": 4.0,
+                "106319": 4.0,
+                "2850": 4.0,
+                "3714": 4.0,
+                "3715": 4.0,
+                "2849": 4.0,
+                "111095": 4.0,
+                "2855": 3.0,
+                "105570": 3.0,
+                "105578": 3.0,
+                "105579": 3.0,
+                "2717": 0.02,
+                "2718": 0.02
+            },
+            "items": {
+                "6354": 38.0,
+                "21113": 38.0,
+                "20708": 30.0,
+                "6355": 30.0,
+                "6353": 15.0,
+                "10569": 8.0,
+                "13875": 0.6,
+                "4636": 0.1,
+                "5523": 0.05,
+                "5758": 0.05
+            }
+        },
+        "skinned": {
+            "3674": 99.0,
+            "2274": 80.0,
+            "3251": 80.0,
+            "3450": 80.0,
+            "3888": 80.0,
+            "3915": 80.0,
+            "4535": 80.0,
+            "4950": 80.0,
+            "6141": 80.0,
+            "10357": 80.0,
+            "4017": 79.0,
+            "3476": 78.0,
+            "12677": 77.0,
+            "855": 75.0,
+            "4110": 75.0,
+            "3815": 74.0,
+            "1019": 74.0,
+            "4124": 74.0,
+            "1150": 74.0,
+            "6167": 74.0,
+            "3825": 74.0,
+            "2559": 74.0,
+            "206": 74.0,
+            "4147": 73.0,
+            "2408": 73.0,
+            "4548": 73.0,
+            "1023": 73.0,
+            "2385": 73.0,
+            "4109": 73.0,
+            "898": 73.0,
+            "4119": 73.0,
+            "4249": 73.0,
+            "2248": 73.0,
+            "205": 73.0,
+            "4688": 73.0,
+            "681": 73.0,
+            "4248": 73.0,
+            "683": 73.0,
+            "920": 73.0,
+            "4107": 73.0,
+            "3818": 72.0,
+            "533": 72.0,
+            "4142": 72.0,
+            "3791": 72.0,
+            "4118": 72.0,
+            "5827": 72.0,
+            "4041": 72.0,
+            "3789": 72.0,
+            "1018": 72.0,
+            "1353": 71.0,
+            "3811": 70.0,
+            "5834": 70.0,
+            "4538": 66.0,
+            "3927": 65.0,
+            "4512": 63.0,
+            "4825": 62.0,
+            "4829": 61.0,
+            "3792": 60.0,
+            "4274": 60.0,
+            "1044": 59.0,
+            "14357": 59.0,
+            "5831": 58.0,
+            "4511": 57.0,
+            "4824": 56.0,
+            "3866": 56.0,
+            "3250": 56.0,
+            "3859": 56.0,
+            "819": 56.0,
+            "4827": 55.0,
+            "3857": 55.0,
+            "2476": 55.0,
+            "4514": 55.0,
+            "4016": 55.0,
+            "4887": 55.0,
+            "3235": 54.0,
+            "3886": 53.0,
+            "2529": 53.0,
+            "12678": 53.0,
+            "10644": 52.0,
+            "4015": 52.0,
+            "4031": 51.0,
+            "3237": 51.0,
+            "3868": 51.0,
+            "1022": 51.0,
+            "4032": 51.0,
+            "1417": 51.0,
+            "4126": 51.0,
+            "1400": 51.0,
+            "4014": 51.0,
+            "1017": 51.0,
+            "1021": 51.0,
+            "3810": 50.0,
+            "628": 50.0,
+            "3249": 50.0,
+            "4279": 50.0,
+            "4689": 50.0,
+            "3809": 50.0,
+            "4044": 50.0,
+            "1016": 50.0,
+            "1015": 50.0
+        },
+        "objective": 8514,
+        "creates": [
+            {
+                "i": 4320,
+                "s": 3855
+            },
+            {
+                "i": 4253,
+                "s": 3770
+            },
+            {
+                "i": 3848,
+                "s": 3491
+            },
+            {
+                "i": 7283,
+                "s": 9070
+            },
+            {
+                "i": 20575,
+                "s": 24940
+            },
+            {
+                "i": 7027,
+                "s": 8778
+            },
+            {
+                "i": 5961,
+                "s": 7135
+            },
+            {
+                "i": 4252,
+                "s": 3769
+            },
+            {
+                "i": 2317,
+                "s": 2169
+            },
+            {
+                "i": 4369,
+                "s": 3936
+            },
+            {
+                "i": 3490,
+                "s": 3295
+            },
+            {
+                "i": 7352,
+                "s": 9147
+            },
+            {
+                "i": 5958,
+                "s": 7133
+            },
+            {
+                "i": 7348,
+                "s": 9145
+            },
+            {
+                "i": 4385,
+                "s": 3956
+            },
+            {
+                "i": 3491,
+                "s": 3296
+            },
+            {
+                "i": 3487,
+                "s": 3292
+            },
+            {
+                "i": 7359,
+                "s": 9149
+            },
+            {
+                "i": 7349,
+                "s": 9146
+            },
+            {
+                "i": 4250,
+                "s": 3767
+            },
+            {
+                "i": 4247,
+                "s": 3764
+            },
+            {
+                "i": 4251,
+                "s": 3768
+            },
+            {
+                "i": 5541,
+                "s": 6518
+            },
+            {
+                "i": 3492,
+                "s": 3297
+            },
+            {
+                "i": 4381,
+                "s": 3952
+            },
+            {
+                "i": 7285,
+                "s": 9074
+            },
+            {
+                "i": 7358,
+                "s": 9148
+            },
+            {
+                "i": 7284,
+                "s": 9072
+            },
+            {
+                "i": 4373,
+                "s": 3940
+            },
+            {
+                "i": 2849,
+                "s": 2741
+            },
+            {
+                "i": 7958,
+                "s": 9987
+            },
+            {
+                "i": 4382,
+                "s": 3953
+            },
+            {
+                "i": 7957,
+                "s": 9986
+            },
+            {
+                "i": 2848,
+                "s": 2740
+            },
+            {
+                "i": 2850,
+                "s": 2742
+            },
+            {
+                "i": 7956,
+                "s": 9985
+            },
+            {
+                "i": 2315,
+                "s": 2167
+            },
+            {
+                "i": 2316,
+                "s": 2168
+            },
+            {
+                "i": 4234,
+                "s": 20649
+            },
+            {
+                "i": 2313,
+                "s": 2165
+            },
+            {
+                "i": 4403,
+                "s": 3960
+            },
+            {
+                "i": 4315,
+                "s": 3849
+            },
+            {
+                "i": 21558,
+                "s": 26416
+            },
+            {
+                "i": 21559,
+                "s": 26417
+            },
+            {
+                "i": 21557,
+                "s": 26418
+            },
+            {
+                "i": 2314,
+                "s": 2166
+            }
+        ],
+        "created_by": {
+            "profession": "Leatherworking",
+            "materials": {
+                "2318": 4
+            }
+        }
+    },
+    "2775": {
+        "i": 2775,
+        "quality": 2,
+        "n": "Silver Ore",
+        "image_name": "inv_stone_16",
+        "stack": 10,
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 75
+        },
+        "dropped": {
+            "3465": 13.0,
+            "2817": 3.0,
+            "5644": 2.0,
+            "7051": 1.56,
+            "235": 1.442,
+            "3715": 1.304,
+            "3981": 1.0,
+            "2316": 0.7,
+            "5847": 0.66,
+            "1207": 0.62,
+            "8996": 0.59,
+            "711": 0.42,
+            "2333": 0.4,
+            "2754": 0.36,
+            "2090": 0.26,
+            "4008": 0.24,
+            "814": 0.2,
+            "2450": 0.2,
+            "6391": 0.16,
+            "3435": 0.14,
+            "4688": 0.14,
+            "2793": 0.14,
+            "2734": 0.12,
+            "486": 0.12
+        },
+        "contained": {
+            "objects": {
+                "75293": 8.0,
+                "2845": 8.0,
+                "106318": 8.0,
+                "2844": 8.0,
+                "2843": 8.0,
+                "75295": 4.0,
+                "75298": 4.0,
+                "2847": 4.0,
+                "106319": 4.0,
+                "2850": 4.0,
+                "3714": 4.0,
+                "3715": 4.0,
+                "2849": 4.0,
+                "111095": 4.0,
+                "153462": 1.519,
+                "2560": 0.02
+            },
+            "items": {
+                "9363": 6.0,
+                "10569": 0.7
+            }
+        },
+        "mined": {
+            "objects": {
+                "1733": 100.0,
+                "73940": 100.0,
+                "105569": 100.0
+            }
+        },
+        "creates": [
+            {
+                "i": 2842,
+                "s": 2658
+            }
+        ]
+    },
+    "1766": {
+        "i": 1766,
+        "quality": 0,
+        "n": "Canvas Cloak",
+        "image_name": "inv_misc_cape_15",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 31
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 14
+        },
+        "requirements": {
+            "level": 13
+        },
+        "dropped": {
+            "100": 0.135,
+            "506": 0.135,
+            "520": 0.135,
+            "572": 0.135,
+            "573": 0.135,
+            "594": 0.135,
+            "596": 0.135,
+            "599": 0.135,
+            "619": 0.135,
+            "622": 0.135,
+            "623": 0.135,
+            "624": 0.135,
+            "625": 0.135,
+            "626": 0.135,
+            "634": 0.135,
+            "636": 0.135,
+            "641": 0.135,
+            "657": 0.135,
+            "1178": 0.135,
+            "1179": 0.135,
+            "1180": 0.135,
+            "1181": 0.135,
+            "1183": 0.135,
+            "1210": 0.135,
+            "1398": 0.135,
+            "1399": 0.135,
+            "1725": 0.135,
+            "1726": 0.135,
+            "1729": 0.135,
+            "1731": 0.135,
+            "1732": 0.135,
+            "1944": 0.135,
+            "1947": 0.135,
+            "2106": 0.135,
+            "2184": 0.135,
+            "2186": 0.135,
+            "2192": 0.135,
+            "2477": 0.135,
+            "2478": 0.135,
+            "2520": 0.135,
+            "3295": 0.135,
+            "3638": 0.135,
+            "3640": 0.135,
+            "3641": 0.135,
+            "3655": 0.135,
+            "3672": 0.135,
+            "3840": 0.135,
+            "3849": 0.135,
+            "3850": 0.135,
+            "3851": 0.135,
+            "3853": 0.135,
+            "3855": 0.135,
+            "3862": 0.135,
+            "3875": 0.135,
+            "3877": 0.135,
+            "3947": 0.135,
+            "4064": 0.135,
+            "4417": 0.135,
+            "4418": 0.135,
+            "4788": 0.135,
+            "4802": 0.135,
+            "4827": 0.135,
+            "4830": 0.135,
+            "5048": 0.135,
+            "5056": 0.135,
+            "5755": 0.135,
+            "5756": 0.135,
+            "5761": 0.135,
+            "5830": 0.135,
+            "5835": 0.135,
+            "5836": 0.135,
+            "5838": 0.135,
+            "5841": 0.135,
+            "5863": 0.135,
+            "7015": 0.135,
+            "7017": 0.135,
+            "7170": 0.135,
+            "10495": 0.135,
+            "11517": 0.135,
+            "11519": 0.135,
+            "14267": 0.135,
+            "14270": 0.135,
+            "14271": 0.135,
+            "14357": 0.135,
+            "11920": 0.135,
+            "3854": 0.135,
+            "3865": 0.135
+        },
+        "contained": {
+            "objects": {
+                "3660": 3.0,
+                "75293": 3.0,
+                "3642": 2.0,
+                "152608": 2.0,
+                "152618": 2.0,
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "181665": 0.307
+            }
+        }
+    },
+    "1767": {
+        "i": 1767,
+        "quality": 0,
+        "n": "Canvas Gloves",
+        "image_name": "inv_gauntlets_18",
+        "ilvl": 19,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 1
+        },
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 18,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 14
+        },
+        "dropped": {
+            "100": 0.135,
+            "506": 0.135,
+            "520": 0.135,
+            "572": 0.135,
+            "573": 0.135,
+            "594": 0.135,
+            "596": 0.135,
+            "599": 0.135,
+            "619": 0.135,
+            "622": 0.135,
+            "623": 0.135,
+            "624": 0.135,
+            "625": 0.135,
+            "626": 0.135,
+            "634": 0.135,
+            "636": 0.135,
+            "641": 0.135,
+            "657": 0.135,
+            "1178": 0.135,
+            "1179": 0.135,
+            "1180": 0.135,
+            "1181": 0.135,
+            "1183": 0.135,
+            "1210": 0.135,
+            "1398": 0.135,
+            "1399": 0.135,
+            "1725": 0.135,
+            "1726": 0.135,
+            "1729": 0.135,
+            "1731": 0.135,
+            "1732": 0.135,
+            "1944": 0.135,
+            "1947": 0.135,
+            "2106": 0.135,
+            "2184": 0.135,
+            "2186": 0.135,
+            "2192": 0.135,
+            "2477": 0.135,
+            "2478": 0.135,
+            "2520": 0.135,
+            "3295": 0.135,
+            "3638": 0.135,
+            "3640": 0.135,
+            "3641": 0.135,
+            "3655": 0.135,
+            "3672": 0.135,
+            "3840": 0.135,
+            "3849": 0.135,
+            "3850": 0.135,
+            "3851": 0.135,
+            "3853": 0.135,
+            "3855": 0.135,
+            "3862": 0.135,
+            "3875": 0.135,
+            "3877": 0.135,
+            "3947": 0.135,
+            "4064": 0.135,
+            "4417": 0.135,
+            "4418": 0.135,
+            "4788": 0.135,
+            "4802": 0.135,
+            "4827": 0.135,
+            "4830": 0.135,
+            "5048": 0.135,
+            "5056": 0.135,
+            "5755": 0.135,
+            "5756": 0.135,
+            "5761": 0.135,
+            "5830": 0.135,
+            "5835": 0.135,
+            "5836": 0.135,
+            "5838": 0.135,
+            "5841": 0.135,
+            "5863": 0.135,
+            "7015": 0.135,
+            "7017": 0.135,
+            "7170": 0.135,
+            "10495": 0.135,
+            "11517": 0.135,
+            "11519": 0.135,
+            "14267": 0.135,
+            "14270": 0.135,
+            "14271": 0.135,
+            "14357": 0.135,
+            "11920": 0.135,
+            "3854": 0.135,
+            "3865": 0.135
+        },
+        "contained": {
+            "objects": {
+                "3660": 3.0,
+                "75293": 3.0,
+                "3642": 1.9,
+                "152608": 1.9,
+                "152618": 1.9,
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "181665": 0.15
+            }
+        }
+    },
+    "1768": {
+        "i": 1768,
+        "quality": 0,
+        "n": "Canvas Pants",
+        "image_name": "inv_pants_09",
+        "ilvl": 20,
         "sells_for": {
             "gold": 0,
             "silver": 2,
-            "copper": 82
+            "copper": 17
         },
-        "slot": "Hands",
-        "proficiency": "Leather",
+        "slot": "Legs",
+        "proficiency": "Cloth",
         "stats": {
-            "armor": 48,
-            "durability": 25
+            "armor": 27,
+            "durability": 45
         },
         "requirements": {
-            "level": 17
+            "level": 15
+        },
+        "dropped": {
+            "100": 0.135,
+            "506": 0.135,
+            "520": 0.135,
+            "572": 0.135,
+            "573": 0.135,
+            "594": 0.135,
+            "596": 0.135,
+            "599": 0.135,
+            "619": 0.135,
+            "622": 0.135,
+            "623": 0.135,
+            "624": 0.135,
+            "625": 0.135,
+            "626": 0.135,
+            "634": 0.135,
+            "636": 0.135,
+            "641": 0.135,
+            "657": 0.135,
+            "1178": 0.135,
+            "1179": 0.135,
+            "1180": 0.135,
+            "1181": 0.135,
+            "1183": 0.135,
+            "1210": 0.135,
+            "1398": 0.135,
+            "1399": 0.135,
+            "1725": 0.135,
+            "1726": 0.135,
+            "1729": 0.135,
+            "1731": 0.135,
+            "1732": 0.135,
+            "1944": 0.135,
+            "1947": 0.135,
+            "2106": 0.135,
+            "2184": 0.135,
+            "2186": 0.135,
+            "2192": 0.135,
+            "2477": 0.135,
+            "2478": 0.135,
+            "2520": 0.135,
+            "3295": 0.135,
+            "3638": 0.135,
+            "3640": 0.135,
+            "3641": 0.135,
+            "3655": 0.135,
+            "3672": 0.135,
+            "3840": 0.135,
+            "3849": 0.135,
+            "3850": 0.135,
+            "3851": 0.135,
+            "3853": 0.135,
+            "3855": 0.135,
+            "3862": 0.135,
+            "3875": 0.135,
+            "3877": 0.135,
+            "3947": 0.135,
+            "4064": 0.135,
+            "4417": 0.135,
+            "4418": 0.135,
+            "4788": 0.135,
+            "4802": 0.135,
+            "4827": 0.135,
+            "4830": 0.135,
+            "5048": 0.135,
+            "5056": 0.135,
+            "5755": 0.135,
+            "5756": 0.135,
+            "5761": 0.135,
+            "5830": 0.135,
+            "5835": 0.135,
+            "5836": 0.135,
+            "5838": 0.135,
+            "5841": 0.135,
+            "5863": 0.135,
+            "7015": 0.135,
+            "7017": 0.135,
+            "7170": 0.135,
+            "10495": 0.135,
+            "11517": 0.135,
+            "11519": 0.135,
+            "14267": 0.135,
+            "14270": 0.135,
+            "14271": 0.135,
+            "14357": 0.135,
+            "11920": 0.135,
+            "3854": 0.135,
+            "3865": 0.135
+        },
+        "contained": {
+            "objects": {
+                "3660": 3.0,
+                "3702": 3.0,
+                "75293": 3.0,
+                "3703": 1.852,
+                "3642": 1.6,
+                "152608": 1.6,
+                "152618": 1.6,
+                "2852": 0.813,
+                "4095": 0.813,
+                "4096": 0.813,
+                "2855": 0.592,
+                "105570": 0.592,
+                "105578": 0.592,
+                "105579": 0.592,
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "181665": 0.23
+            }
         }
     },
-    "285": {
-        "i": 285,
+    "1769": {
+        "i": 1769,
+        "quality": 0,
+        "n": "Canvas Shoulderpads",
+        "image_name": "inv_shoulder_09",
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 63
+        },
+        "slot": "Shoulder",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 23,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 15
+        },
+        "dropped": {
+            "100": 0.135,
+            "506": 0.135,
+            "520": 0.135,
+            "572": 0.135,
+            "573": 0.135,
+            "594": 0.135,
+            "596": 0.135,
+            "599": 0.135,
+            "619": 0.135,
+            "622": 0.135,
+            "623": 0.135,
+            "624": 0.135,
+            "625": 0.135,
+            "626": 0.135,
+            "634": 0.135,
+            "636": 0.135,
+            "641": 0.135,
+            "657": 0.135,
+            "1178": 0.135,
+            "1179": 0.135,
+            "1180": 0.135,
+            "1181": 0.135,
+            "1183": 0.135,
+            "1210": 0.135,
+            "1398": 0.135,
+            "1399": 0.135,
+            "1725": 0.135,
+            "1726": 0.135,
+            "1729": 0.135,
+            "1731": 0.135,
+            "1732": 0.135,
+            "1944": 0.135,
+            "1947": 0.135,
+            "2106": 0.135,
+            "2184": 0.135,
+            "2186": 0.135,
+            "2192": 0.135,
+            "2477": 0.135,
+            "2478": 0.135,
+            "2520": 0.135,
+            "3295": 0.135,
+            "3638": 0.135,
+            "3640": 0.135,
+            "3641": 0.135,
+            "3655": 0.135,
+            "3672": 0.135,
+            "3840": 0.135,
+            "3849": 0.135,
+            "3850": 0.135,
+            "3851": 0.135,
+            "3853": 0.135,
+            "3855": 0.135,
+            "3862": 0.135,
+            "3875": 0.135,
+            "3877": 0.135,
+            "3947": 0.135,
+            "4064": 0.135,
+            "4417": 0.135,
+            "4418": 0.135,
+            "4788": 0.135,
+            "4802": 0.135,
+            "4827": 0.135,
+            "4830": 0.135,
+            "5048": 0.135,
+            "5056": 0.135,
+            "5755": 0.135,
+            "5756": 0.135,
+            "5761": 0.135,
+            "5830": 0.135,
+            "5835": 0.135,
+            "5836": 0.135,
+            "5838": 0.135,
+            "5841": 0.135,
+            "5863": 0.135,
+            "7015": 0.135,
+            "7017": 0.135,
+            "7170": 0.135,
+            "10495": 0.135,
+            "11517": 0.135,
+            "11519": 0.135,
+            "14267": 0.135,
+            "14270": 0.135,
+            "14271": 0.135,
+            "14357": 0.135,
+            "11920": 0.135,
+            "3854": 0.135,
+            "3865": 0.135
+        },
+        "contained": {
+            "objects": {
+                "3660": 3.0,
+                "3702": 3.0,
+                "75293": 3.0,
+                "3642": 3.0,
+                "152608": 3.0,
+                "152618": 3.0,
+                "3703": 1.852,
+                "2852": 0.813,
+                "4095": 0.813,
+                "4096": 0.813,
+                "2855": 0.592,
+                "105570": 0.592,
+                "105578": 0.592,
+                "105579": 0.592,
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "181665": 0.1
+            },
+            "items": {
+                "6353": 1.1
+            }
+        }
+    },
+    "1922": {
+        "i": 1922,
         "quality": 1,
-        "n": "Scalemail Vest",
-        "image_name": "inv_chest_chain_09",
-        "ilvl": 22,
+        "n": "Supplies for Sven",
+        "image_name": "inv_misc_bag_07_black",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "A bundle of miscellaneous supplies for Sven",
+        "provided_for": 164,
+        "objective": 164
+    },
+    "1923": {
+        "i": 1923,
+        "quality": 1,
+        "n": "Ambassador's Satchel",
+        "image_name": "inv_misc_bag_10_blue",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "1971": {
+        "i": 1971,
+        "quality": 1,
+        "n": "Furlbrow's Deed",
+        "image_name": "inv_scroll_08",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "provided_for": 184,
+        "objective": 184
+    },
+    "1972": {
+        "i": 1972,
+        "quality": 1,
+        "n": "Westfall Deed",
+        "image_name": "inv_scroll_03",
+        "ilvl": 8,
+        "bop": true,
+        "unique": true,
+        "requirements": {
+            "level": 8
+        },
+        "dropped": {
+            "116": 2.0,
+            "474": 2.0,
+            "880": 2.0,
+            "881": 2.0,
+            "6846": 2.0,
+            "6927": 2.0,
+            "583": 2.0,
+            "6866": 2.0
+        },
+        "starts": 184
+    },
+    "1939": {
+        "i": 1939,
+        "quality": 1,
+        "n": "Skin of Sweet Rum",
+        "image_name": "inv_drink_07",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 68
+        },
+        "unique": true,
+        "quest_item": true,
+        "sold": {
+            "465": {
+                "cost": {
+                    "copper": 75,
+                    "silver": 6,
+                    "gold": 0
+                }
+            }
+        },
+        "objective": 116
+    },
+    "1941": {
+        "i": 1941,
+        "quality": 1,
+        "n": "Cask of Merlot",
+        "image_name": "inv_cask_01",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 3
+        },
+        "unique": true,
+        "quest_item": true,
+        "sold": {
+            "277": {
+                "cost": {
+                    "copper": 15,
+                    "silver": 8,
+                    "gold": 0
+                }
+            }
+        },
+        "objective": 116
+    },
+    "1942": {
+        "i": 1942,
+        "quality": 1,
+        "n": "Bottle of Moonshine",
+        "image_name": "inv_drink_11",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 16
+        },
+        "unique": true,
+        "quest_item": true,
+        "sold": {
+            "274": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 12,
+                    "gold": 0
+                }
+            }
+        },
+        "objective": 116
+    },
+    "1943": {
+        "i": 1943,
+        "quality": 2,
+        "n": "Goblin Mail Leggings",
+        "image_name": "inv_pants_03",
+        "ilvl": 19,
         "sells_for": {
             "gold": 0,
             "silver": 7,
-            "copper": 11
+            "copper": 13
         },
-        "slot": "Chest",
-        "proficiency": "Mail",
-        "stats": {
-            "armor": 165,
-            "durability": 85
-        },
-        "requirements": {
-            "level": 17
-        }
-    },
-    "286": {
-        "i": 286,
-        "quality": 1,
-        "n": "Scalemail Pants",
-        "image_name": "inv_pants_03",
-        "ilvl": 22,
-        "sells_for": {
-            "gold": 0,
-            "silver": 6,
-            "copper": 45
-        },
+        "boe": true,
         "slot": "Legs",
         "proficiency": "Mail",
         "stats": {
             "armor": 144,
-            "durability": 65
+            "strength": 4,
+            "stamina": 3,
+            "durability": 60
         },
         "requirements": {
-            "level": 17
+            "level": 14
+        },
+        "dropped": {
+            "3947": 4.0
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10939": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
-    "287": {
-        "i": 287,
+    "1944": {
+        "i": 1944,
+        "quality": 2,
+        "n": "Metalworking Gloves",
+        "image_name": "inv_gauntlets_04",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 59
+        },
+        "boe": true,
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 46,
+            "strength": 3,
+            "stamina": 1,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 13
+        },
+        "dropped": {
+            "1731": 4.0
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10939": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1945": {
+        "i": 1945,
+        "quality": 2,
+        "n": "Woodworking Gloves",
+        "image_name": "inv_gauntlets_21",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 67
+        },
+        "boe": true,
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 46,
+            "intellect": 3,
+            "spirit": 2,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 13
+        },
+        "dropped": {
+            "641": 4.0
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10939": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1946": {
+        "i": 1946,
         "quality": 1,
-        "n": "Scalemail Boots",
+        "n": "Mary's Looking Glass",
+        "image_name": "inv_ore_mithril_02",
+        "ilvl": 1,
+        "quest_item": true,
+        "dropped": {
+            "511": 100.0
+        },
+        "objective": 177
+    },
+    "1951": {
+        "i": 1951,
+        "quality": 2,
+        "n": "Blackwater Cutlass",
+        "image_name": "inv_sword_24",
+        "ilvl": 19,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 58
+        },
+        "boe": true,
+        "slot": "One-hand",
+        "proficiency": "Sword",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                12,
+                24
+            ]
+        },
+        "stats": {
+            "agility": 2,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 14
+        },
+        "dropped": {
+            "657": 4.0,
+            "1732": 4.0
+        },
+        "disenchant": {
+            "10939": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1955": {
+        "i": 1955,
+        "quality": 2,
+        "n": "Dragonmaw Chain Boots",
         "image_name": "inv_boots_01",
+        "ilvl": 27,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 73
+        },
+        "boe": true,
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 130,
+            "stamina": 6,
+            "agility": 3,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 22
+        },
+        "dropped": {
+            "1035": 0.7
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1956": {
+        "i": 1956,
+        "quality": 1,
+        "n": "Faded Shadowhide Pendant",
+        "image_name": "inv_jewelry_talisman_04",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "The spell on this pendant has faded",
+        "provided_for": 178,
+        "objective": 178
+    },
+    "1958": {
+        "i": 1958,
+        "quality": 2,
+        "n": "Petrified Shinbone",
+        "image_name": "inv_misc_bone_01",
+        "ilvl": 17,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 75
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 2.0,
+        "damage": {
+            "normal": [
+                12,
+                23
+            ]
+        },
+        "stats": {
+            "stamina": 2,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 12
+        },
+        "dropped": {
+            "625": 5.0
+        },
+        "disenchant": {
+            "10939": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1959": {
+        "i": 1959,
+        "quality": 2,
+        "n": "Cold Iron Pick",
+        "image_name": "inv_pick_01",
+        "ilvl": 17,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 23
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 3.0,
+        "damage": {
+            "normal": [
+                27,
+                41
+            ],
+            "Frost": [
+                1,
+                5
+            ]
+        },
+        "stats": {
+            "stamina": 2,
+            "spirit": 4,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 12
+        },
+        "dropped": {
+            "623": 5.0
+        },
+        "disenchant": {
+            "10939": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1962": {
+        "i": 1962,
+        "quality": 1,
+        "n": "Glowing Shadowhide Pendant",
+        "image_name": "inv_jewelry_talisman_05",
+        "ilvl": 15,
+        "bop": true,
+        "unique": true,
+        "requirements": {
+            "level": 15
+        },
+        "description": "This pendant glows with magic",
+        "dropped": {
+            "429": 3.0,
+            "431": 3.0,
+            "432": 3.0,
+            "433": 3.0,
+            "434": 3.0,
+            "568": 3.0,
+            "579": 3.0,
+            "703": 3.0,
+            "947": 3.0
+        },
+        "starts": 178
+    },
+    "1965": {
+        "i": 1965,
+        "quality": 1,
+        "n": "White Wolf Gloves",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 36
+        },
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 33,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 5
+        },
+        "dropped": {
+            "1132": 25.0
+        }
+    },
+    "1968": {
+        "i": 1968,
+        "quality": 1,
+        "n": "Ogre's Monocle",
+        "image_name": "inv_misc_orb_04",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "dropped": {
+            "300": 100.0
+        },
+        "objective": 181
+    },
+    "1970": {
+        "i": 1970,
+        "quality": 1,
+        "n": "Restoring Balm",
+        "image_name": "inv_potion_01",
+        "stack": 10,
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 20
+        },
+        "bop": true,
+        "use": {
+            "s": 8070,
+            "t": "Heals the target for 180 damage over 12 sec. (cooldown 2 min)"
+        },
+        "reward_from": {
+            "178": 3
+        }
+    },
+    "1973": {
+        "i": 1973,
+        "quality": 3,
+        "n": "Orb of Deception",
+        "image_name": "inv_misc_orb_02",
+        "ilvl": 59,
+        "sells_for": {
+            "gold": 0,
+            "silver": 46,
+            "copper": 18
+        },
+        "boe": true,
+        "slot": "Trinket",
+        "requirements": {
+            "level": 54
+        },
+        "use": {
+            "s": 16739,
+            "t": "Transforms caster to look like a member of the opposing faction. (cooldown 30 min)"
+        },
+        "dropped": {
+            "11502": 3.0,
+            "12397": 2.0,
+            "10184": 1.316,
+            "6109": 1.316
+        },
+        "contained": {
+            "objects": {
+                "153454": 0.01,
+                "181798": 0.01,
+                "153453": 0.01
+            },
+            "items": {
+                "5759": 0.2
+            }
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1974": {
+        "i": 1974,
+        "quality": 3,
+        "n": "Mindthrust Bracers",
+        "image_name": "inv_bracer_07",
         "ilvl": 22,
         "sells_for": {
             "gold": 0,
             "silver": 4,
-            "copper": 88
+            "copper": 64
         },
-        "slot": "Feet",
-        "proficiency": "Mail",
+        "boe": true,
+        "slot": "Wrist",
+        "proficiency": "Cloth",
         "stats": {
-            "armor": 113,
-            "durability": 45
+            "armor": 17,
+            "intellect": 9,
+            "durability": 20
         },
         "requirements": {
             "level": 17
+        },
+        "dropped": {
+            "3855": 0.06,
+            "3857": 0.06,
+            "3868": 0.06,
+            "3864": 0.055,
+            "3866": 0.043,
+            "3875": 0.04,
+            "3854": 0.033,
+            "3877": 0.03,
+            "3863": 0.028,
+            "3859": 0.027,
+            "2529": 0.02,
+            "3853": 0.014
+        },
+        "disenchant": {
+            "10978": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1975": {
+        "i": 1975,
+        "quality": 3,
+        "n": "Pysan's Old Greatsword",
+        "image_name": "inv_sword_25",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 57,
+            "copper": 44
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 3.3,
+        "damage": {
+            "normal": [
+                60,
+                91
+            ]
+        },
+        "stats": {
+            "spirit": 13,
+            "strength": 5,
+            "durability": 95
+        },
+        "requirements": {
+            "level": 23
+        },
+        "dropped": {
+            "4440": 0.08,
+            "4512": 0.06,
+            "4516": 0.06,
+            "4522": 0.06,
+            "4523": 0.06,
+            "4525": 0.06,
+            "4435": 0.04,
+            "4514": 0.04,
+            "4532": 0.04,
+            "4538": 0.04,
+            "4442": 0.04,
+            "4539": 0.033,
+            "4427": 0.03,
+            "4519": 0.024,
+            "4436": 0.02,
+            "4437": 0.02,
+            "4511": 0.02,
+            "4515": 0.02,
+            "4517": 0.02,
+            "4518": 0.02,
+            "4520": 0.02,
+            "4530": 0.02,
+            "4531": 0.02,
+            "4623": 0.02,
+            "6035": 0.02
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1976": {
+        "i": 1976,
+        "quality": 3,
+        "n": "Slaghammer",
+        "image_name": "inv_hammer_16",
+        "ilvl": 29,
+        "sells_for": {
+            "gold": 0,
+            "silver": 63,
+            "copper": 40
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 2.8,
+        "damage": {
+            "normal": [
+                53,
+                80
+            ]
+        },
+        "stats": {
+            "stamina": 10,
+            "strength": 11,
+            "durability": 100
+        },
+        "requirements": {
+            "level": 24
+        },
+        "dropped": {
+            "6168": 0.08,
+            "4518": 0.06,
+            "4525": 0.06,
+            "4440": 0.04,
+            "4531": 0.04,
+            "4538": 0.04,
+            "4442": 0.04,
+            "4519": 0.024,
+            "4436": 0.02,
+            "4437": 0.02,
+            "4514": 0.02,
+            "4516": 0.02,
+            "4520": 0.02,
+            "4522": 0.02,
+            "4530": 0.02,
+            "4532": 0.02,
+            "4623": 0.02,
+            "4517": 0.02,
+            "4438": 0.02,
+            "4523": 0.02
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1978": {
+        "i": 1978,
+        "quality": 3,
+        "n": "Wolfclaw Gloves",
+        "image_name": "inv_gauntlets_04",
+        "ilvl": 27,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 80
+        },
+        "boe": true,
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 61,
+            "agility": 6,
+            "strength": 5,
+            "stamina": 6,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 22
+        },
+        "dropped": {
+            "4512": 0.257
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1979": {
+        "i": 1979,
+        "quality": 4,
+        "n": "Wall of the Dead",
+        "image_name": "inv_shield_02",
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 2,
+            "silver": 32,
+            "copper": 73
+        },
+        "boe": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 1937,
+            "block": 34,
+            "strength": 10,
+            "stamina": 15,
+            "durability": 120
+        },
+        "requirements": {
+            "level": 45
+        },
+        "effects": {
+            "equip": [
+                {
+                    "s": 19409,
+                    "t": "When struck in combat has a 3% chance to encase the caster in bone, increasing armor by 150 for 20 sec."
+                }
+            ]
+        },
+        "dropped": {
+            "8924": 0.003,
+            "193": 0.001,
+            "2642": 0.001,
+            "2644": 0.001,
+            "2645": 0.001,
+            "2646": 0.001,
+            "2647": 0.001,
+            "2648": 0.001,
+            "2681": 0.001,
+            "5280": 0.001,
+            "4468": 0.001,
+            "5270": 0.001,
+            "5267": 0.001,
+            "5259": 0.001,
+            "5228": 0.001,
+            "5226": 0.001,
+            "5256": 0.001,
+            "5269": 0.001,
+            "5271": 0.001,
+            "5273": 0.001,
+            "5277": 0.001,
+            "5283": 0.001,
+            "5291": 0.001,
+            "5357": 0.001,
+            "5708": 0.001,
+            "5861": 0.001,
+            "5862": 0.001,
+            "6130": 0.001,
+            "6131": 0.001,
+            "7040": 0.001,
+            "7041": 0.001,
+            "7044": 0.001,
+            "7045": 0.001,
+            "8336": 0.001,
+            "7995": 0.001,
+            "7996": 0.001,
+            "8419": 0.001,
+            "8497": 0.001,
+            "8636": 0.001,
+            "8889": 0.001,
+            "8890": 0.001,
+            "8891": 0.001,
+            "8892": 0.001,
+            "8893": 0.001,
+            "8894": 0.001,
+            "8895": 0.001,
+            "8905": 0.001,
+            "8909": 0.001,
+            "8910": 0.001,
+            "8912": 0.001,
+            "8913": 0.001,
+            "8914": 0.001,
+            "9026": 0.001,
+            "9043": 0.001,
+            "9044": 0.001,
+            "9447": 0.001,
+            "9452": 0.001,
+            "10043": 0.001,
+            "10802": 0.001,
+            "11440": 0.001,
+            "11442": 0.001,
+            "11443": 0.001,
+            "11784": 0.001,
+            "12206": 0.001,
+            "12207": 0.001,
+            "13323": 0.001,
+            "11603": 0.001,
+            "9541": 0.001,
+            "9445": 0.001,
+            "8933": 0.001,
+            "8928": 0.001,
+            "8927": 0.001,
+            "8925": 0.001,
+            "8438": 0.001,
+            "8384": 0.001,
+            "2759": 0.001,
+            "2757": 0.001,
+            "10987": 0.001,
+            "8926": 0.001,
+            "5432": 0.001
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
+        }
+    },
+    "1980": {
+        "i": 1980,
+        "quality": 4,
+        "n": "Underworld Band",
+        "image_name": "inv_jewelry_ring_15",
+        "ilvl": 43,
+        "sells_for": {
+            "gold": 0,
+            "silver": 62,
+            "copper": 0
+        },
+        "boe": true,
+        "slot": "Finger",
+        "stats": {
+            "stamina": 10,
+            "spirit": 6
+        },
+        "requirements": {
+            "level": 38
+        },
+        "effects": {
+            "equip": [
+                {
+                    "s": 9414,
+                    "t": "Increases damage done by Shadow spells and effects by up to 14."
+                }
+            ]
+        },
+        "dropped": {
+            "679": 0.001,
+            "709": 0.001,
+            "710": 0.001,
+            "730": 0.001,
+            "742": 0.001,
+            "743": 0.001,
+            "745": 0.001,
+            "1060": 0.001,
+            "2257": 0.001,
+            "2287": 0.001,
+            "2571": 0.001,
+            "2726": 0.001,
+            "4302": 0.001,
+            "4303": 0.001,
+            "4324": 0.001,
+            "4328": 0.001,
+            "4329": 0.001,
+            "4331": 0.001,
+            "4334": 0.001,
+            "4465": 0.001,
+            "4847": 0.001,
+            "4848": 0.001,
+            "4853": 0.001,
+            "4855": 0.001,
+            "4860": 0.001,
+            "4863": 0.001,
+            "5243": 0.001,
+            "5645": 0.001,
+            "5646": 0.001,
+            "5647": 0.001,
+            "5648": 0.001,
+            "5649": 0.001,
+            "5650": 0.001,
+            "7022": 0.001,
+            "7023": 0.001,
+            "7030": 0.001,
+            "7246": 0.001,
+            "7290": 0.001,
+            "7320": 0.001,
+            "7321": 0.001,
+            "7353": 0.001,
+            "7584": 0.001,
+            "7604": 0.001,
+            "7608": 0.001,
+            "8095": 0.001,
+            "11777": 0.001,
+            "11778": 0.001,
+            "11781": 0.001,
+            "11786": 0.001,
+            "11788": 0.001,
+            "11790": 0.001,
+            "11791": 0.001,
+            "11792": 0.001,
+            "12219": 0.001,
+            "12220": 0.001,
+            "13141": 0.001,
+            "13142": 0.001,
+            "13718": 0.001,
+            "7789": 0.001,
+            "7286": 0.001,
+            "2433": 0.001
+        },
+        "contained": {
+            "objects": {
+                "2718": 0.02
+            }
+        },
+        "disenchant": {
+            "11177": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
+        }
+    },
+    "1981": {
+        "i": 1981,
+        "quality": 4,
+        "n": "Icemail Jerkin",
+        "image_name": "inv_chest_plate06",
+        "ilvl": 44,
+        "sells_for": {
+            "gold": 1,
+            "silver": 41,
+            "copper": 13
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 294,
+            "spirit": 24,
+            "stamina": 15,
+            "agility": 5,
+            "durability": 140
+        },
+        "resist": {
+            "Frost": 10
+        },
+        "requirements": {
+            "level": 39
+        },
+        "dropped": {
+            "1552": 0.003,
+            "8218": 0.003,
+            "14445": 0.003,
+            "678": 0.001,
+            "679": 0.001,
+            "709": 0.001,
+            "710": 0.001,
+            "745": 0.001,
+            "1492": 0.001,
+            "2641": 0.001,
+            "2726": 0.001,
+            "4328": 0.001,
+            "4329": 0.001,
+            "4334": 0.001,
+            "4465": 0.001,
+            "4853": 0.001,
+            "4855": 0.001,
+            "4857": 0.001,
+            "4860": 0.001,
+            "5224": 0.001,
+            "5225": 0.001,
+            "5235": 0.001,
+            "5243": 0.001,
+            "5261": 0.001,
+            "5263": 0.001,
+            "5269": 0.001,
+            "5645": 0.001,
+            "5646": 0.001,
+            "5647": 0.001,
+            "5648": 0.001,
+            "5649": 0.001,
+            "5650": 0.001,
+            "5860": 0.001,
+            "7246": 0.001,
+            "7247": 0.001,
+            "7268": 0.001,
+            "7320": 0.001,
+            "7321": 0.001,
+            "7584": 0.001,
+            "7604": 0.001,
+            "7606": 0.001,
+            "7608": 0.001,
+            "7795": 0.001,
+            "8095": 0.001,
+            "8384": 0.001,
+            "11777": 0.001,
+            "11778": 0.001,
+            "11784": 0.001,
+            "11786": 0.001,
+            "11788": 0.001,
+            "11790": 0.001,
+            "11791": 0.001,
+            "11792": 0.001,
+            "11793": 0.001,
+            "11794": 0.001,
+            "12207": 0.001,
+            "12219": 0.001,
+            "12220": 0.001,
+            "12222": 0.001,
+            "12223": 0.001,
+            "13141": 0.001,
+            "13142": 0.001,
+            "13323": 0.001,
+            "7789": 0.001,
+            "7276": 0.001,
+            "10082": 0.001,
+            "7796": 0.001,
+            "7286": 0.001,
+            "2763": 0.001,
+            "13696": 0.001
+        },
+        "disenchant": {
+            "11177": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
+        }
+    },
+    "1982": {
+        "i": 1982,
+        "quality": 4,
+        "n": "Nightblade",
+        "image_name": "inv_sword_02",
+        "ilvl": 44,
+        "sells_for": {
+            "gold": 2,
+            "silver": 95,
+            "copper": 13
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 2.8,
+        "damage": {
+            "normal": [
+                97,
+                146
+            ]
+        },
+        "stats": {
+            "durability": 120
+        },
+        "requirements": {
+            "level": 39
+        },
+        "effects": {
+            "proc": [
+                {
+                    "s": "18211",
+                    "t": "Sends a shadowy bolt at the enemy causing 125 to 276 Shadow damage."
+                }
+            ]
+        },
+        "dropped": {
+            "1552": 0.003,
+            "8218": 0.003,
+            "14445": 0.003,
+            "678": 0.001,
+            "679": 0.001,
+            "709": 0.001,
+            "710": 0.001,
+            "745": 0.001,
+            "1492": 0.001,
+            "2641": 0.001,
+            "2726": 0.001,
+            "4328": 0.001,
+            "4329": 0.001,
+            "4334": 0.001,
+            "4465": 0.001,
+            "4853": 0.001,
+            "4855": 0.001,
+            "4857": 0.001,
+            "4860": 0.001,
+            "5224": 0.001,
+            "5225": 0.001,
+            "5235": 0.001,
+            "5243": 0.001,
+            "5261": 0.001,
+            "5263": 0.001,
+            "5269": 0.001,
+            "5645": 0.001,
+            "5646": 0.001,
+            "5647": 0.001,
+            "5648": 0.001,
+            "5649": 0.001,
+            "5650": 0.001,
+            "5860": 0.001,
+            "7246": 0.001,
+            "7247": 0.001,
+            "7268": 0.001,
+            "7320": 0.001,
+            "7321": 0.001,
+            "7584": 0.001,
+            "7604": 0.001,
+            "7606": 0.001,
+            "7608": 0.001,
+            "7795": 0.001,
+            "8095": 0.001,
+            "8384": 0.001,
+            "11777": 0.001,
+            "11778": 0.001,
+            "11784": 0.001,
+            "11786": 0.001,
+            "11788": 0.001,
+            "11790": 0.001,
+            "11791": 0.001,
+            "11792": 0.001,
+            "11793": 0.001,
+            "11794": 0.001,
+            "12207": 0.001,
+            "12219": 0.001,
+            "12220": 0.001,
+            "12222": 0.001,
+            "12223": 0.001,
+            "13141": 0.001,
+            "13142": 0.001,
+            "13323": 0.001,
+            "7789": 0.001,
+            "7276": 0.001,
+            "10082": 0.001,
+            "7796": 0.001,
+            "7286": 0.001,
+            "2763": 0.001,
+            "13696": 0.001
+        },
+        "disenchant": {
+            "11177": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
+        }
+    },
+    "1986": {
+        "i": 1986,
+        "quality": 2,
+        "n": "Gutrender",
+        "image_name": "inv_sword_15",
+        "ilvl": 41,
+        "sells_for": {
+            "gold": 1,
+            "silver": 48,
+            "copper": 61
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 2.6,
+        "damage": {
+            "normal": [
+                62,
+                94
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "requirements": {
+            "level": 36
+        },
+        "effects": {
+            "proc": [
+                {
+                    "s": "18090",
+                    "t": "Wounds the target for 90 to 115 damage."
+                }
+            ]
+        },
+        "dropped": {
+            "709": 1.6
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1987": {
+        "i": 1987,
+        "quality": 1,
+        "n": "Krazek's Fixed Pot",
+        "image_name": "inv_misc_urn_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "An improved pot, with extra whistles and choppers",
+        "provided_for": 622,
+        "objective": 622
+    },
+    "1988": {
+        "i": 1988,
+        "quality": 2,
+        "n": "Chief Brigadier Gauntlets",
+        "image_name": "inv_gauntlets_22",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 28,
+            "copper": 52
+        },
+        "boe": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 139,
+            "strength": 6,
+            "stamina": 6,
+            "spirit": 5,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 33
+        },
+        "dropped": {
+            "763": 1.099,
+            "14230": 1.099,
+            "14233": 1.099,
+            "2604": 1.099,
+            "14232": 1.099,
+            "14488": 1.099
+        },
+        "contained": {
+            "objects": {
+                "2857": 0.228,
+                "105581": 0.228,
+                "4149": 0.17,
+                "2855": 0.159,
+                "105570": 0.159,
+                "105578": 0.159,
+                "105579": 0.159,
+                "153462": 0.154
+            },
+            "items": {
+                "4636": 0.7,
+                "10569": 0.5
+            }
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1990": {
+        "i": 1990,
+        "quality": 2,
+        "n": "Ballast Maul",
+        "image_name": "inv_mace_06",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 1,
+            "silver": 0,
+            "copper": 77
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 3.4,
+        "damage": {
+            "normal": [
+                67,
+                101
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "requirements": {
+            "level": 31
+        },
+        "dropped": {
+            "1106": 1.053,
+            "2751": 1.053,
+            "2850": 1.053,
+            "7895": 1.053,
+            "2258": 1.053,
+            "14221": 1.053,
+            "14222": 1.053,
+            "14227": 1.053,
+            "14229": 1.053,
+            "14487": 1.053,
+            "14231": 1.053,
+            "4132": 0.789,
+            "5935": 0.632
+        },
+        "contained": {
+            "objects": {
+                "153462": 0.294,
+                "2857": 0.228,
+                "105581": 0.228,
+                "4149": 0.17,
+                "2855": 0.159,
+                "105570": 0.159,
+                "105578": 0.159,
+                "105579": 0.159,
+                "2714": 0.04,
+                "2560": 0.02
+            },
+            "items": {
+                "4636": 0.1
+            }
+        },
+        "disenchant": {
+            "11135": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1991": {
+        "i": 1991,
+        "quality": 2,
+        "n": "Goblin Power Shovel",
+        "image_name": "inv_misc_shovel_02",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 83,
+            "copper": 57
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 3.3,
+        "damage": {
+            "normal": [
+                60,
+                91
+            ]
+        },
+        "stats": {
+            "strength": 6,
+            "agility": 10,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 29
+        },
+        "dropped": {
+            "1094": 0.5
+        },
+        "disenchant": {
+            "11134": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11083": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1992": {
+        "i": 1992,
+        "quality": 3,
+        "n": "Swampchill Fetish",
+        "image_name": "inv_misc_bone_orcskull_01",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 54,
+            "copper": 68
+        },
+        "boe": true,
+        "slot": "Held In Off-Hand",
+        "resist": {
+            "Frost": 5,
+            "Shadow": 5
+        },
+        "requirements": {
+            "level": 33
+        },
+        "effects": {
+            "equip": [
+                {
+                    "s": 9402,
+                    "t": "Increases damage done by Frost spells and effects by up to 11."
+                },
+                {
+                    "s": 9412,
+                    "t": "Increases damage done by Shadow spells and effects by up to 11."
+                }
+            ]
+        },
+        "dropped": {
+            "4303": 0.034,
+            "4286": 0.02,
+            "4288": 0.02,
+            "4290": 0.02,
+            "4291": 0.02,
+            "4292": 0.02,
+            "4295": 0.02,
+            "4297": 0.02,
+            "4298": 0.02,
+            "4299": 0.02,
+            "4300": 0.02,
+            "4540": 0.02,
+            "4301": 0.02,
+            "4302": 0.012,
+            "4294": 0.01
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1993": {
+        "i": 1993,
+        "quality": 2,
+        "n": "Ogremind Ring",
+        "image_name": "inv_belt_35",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 21,
+            "copper": 0
+        },
+        "boe": true,
+        "slot": "Finger",
+        "stats": {
+            "intellect": 7,
+            "spirit": 3
+        },
+        "requirements": {
+            "level": 31
+        },
+        "dropped": {
+            "2255": 1.5,
+            "2570": 1.4,
+            "2907": 0.5,
+            "2567": 0.4
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1994": {
+        "i": 1994,
+        "quality": 2,
+        "n": "Ebonclaw Reaver",
+        "image_name": "inv_axe_16",
+        "ilvl": 46,
+        "sells_for": {
+            "gold": 1,
+            "silver": 66,
+            "copper": 96
+        },
+        "boe": true,
+        "slot": "One-hand",
+        "proficiency": "Axe",
+        "speed": 1.8,
+        "damage": {
+            "normal": [
+                34,
+                64
+            ]
+        },
+        "stats": {
+            "durability": 75
+        },
+        "requirements": {
+            "level": 41
+        },
+        "dropped": {
+            "4339": 0.885,
+            "5343": 0.885,
+            "5350": 0.885,
+            "8200": 0.885,
+            "8203": 0.885,
+            "8207": 0.885,
+            "8279": 0.885
+        },
+        "contained": {
+            "objects": {
+                "153453": 0.218,
+                "153451": 0.209,
+                "4149": 0.17,
+                "2656": 0.02,
+                "2718": 0.02,
+                "153462": 0.02
+            },
+            "items": {
+                "4638": 0.1,
+                "16885": 0.05
+            }
+        },
+        "disenchant": {
+            "11175": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1996": {
+        "i": 1996,
+        "quality": 2,
+        "n": "Voodoo Band",
+        "image_name": "inv_jewelry_ring_15",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 17,
+            "copper": 20
+        },
+        "boe": true,
+        "slot": "Finger",
+        "stats": {
+            "intellect": 7,
+            "spirit": 3
+        },
+        "requirements": {
+            "level": 32
+        },
+        "dropped": {
+            "660": 0.5
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1997": {
+        "i": 1997,
+        "quality": 2,
+        "n": "Pressed Felt Robe",
+        "image_name": "inv_chest_cloth_22",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 25,
+            "copper": 38
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 46,
+            "intellect": 3,
+            "spirit": 12,
+            "durability": 70
+        },
+        "requirements": {
+            "level": 29
+        },
+        "dropped": {
+            "701": 0.6
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
+        }
+    },
+    "1998": {
+        "i": 1998,
+        "quality": 2,
+        "n": "Bloodscalp Channeling Staff",
+        "image_name": "inv_staff_18",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 72,
+            "copper": 39
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 2.8,
+        "damage": {
+            "normal": [
+                50,
+                75
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "requirements": {
+            "level": 28
+        },
+        "effects": {
+            "equip": [
+                {
+                    "s": 9359,
+                    "t": "Increases damage done by Nature spells and effects by up to 19."
+                }
+            ]
+        },
+        "dropped": {
+            "697": 0.5
+        },
+        "disenchant": {
+            "11134": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11083": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     }
 }
