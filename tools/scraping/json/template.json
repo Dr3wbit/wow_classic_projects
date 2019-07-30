@@ -296,6 +296,14 @@
             "silver": 5,
             "copper": 0
         },
+		"contained": {
+			"objs": {
+
+			},
+			"items": {
+				"11111":
+			}
+		}
 	}
 },
 
@@ -378,8 +386,17 @@
 	"529": {
 		"i": 529,
 		"n": "Argent Dawn",
+	},
+	"67": {
+		"i": 67,
+		"n": "Horde",
+	},
+	"469": {
+		"i": 469,
+		"n": "Alliance"
 	}
 },
+
 "NPCS": {
 	"5710": {
 		"i": 5710,
@@ -443,10 +460,17 @@
 		},
 	]
 	}
+},
+"QUESTS": {
+	"284": {
+		"i": 284,
+		"n": "The Search Continues",
+		"requirements": {
+			"level": 25,
+			"faction": "A",
+		},
+	}
 }
-
-
-
 
 
 

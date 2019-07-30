@@ -6,7 +6,19 @@ REACT = {
 	'q':0,
 }
 
-TAB_OPTIONS = ["Reward from", "Dropped by", "Sold by", "Disenchanting", "Gathered from", "Reagant for", "Objective of", "Pickpocketed from", "Contained in"]
+FILE_LIST = ["itemsets", "npcs", "quests", "zones", "objects", "factions", "spells"]
+
+TAB_OPTIONS = {
+	"Reward from": "reward-of", "Dropped by": "dropped-by",
+	"Sold by": "sold-by", "Disenchanting": "disenchanting",
+	"Gathered from":"gathered-from-object", "Reagant for": "reagant-for",
+	"Objective of":"objective-of", "Pickpocketed from": "pick-pocketed-from",
+	"Contained in": {
+		"item": "contained-in-item",
+		"object": "contained-in-object"
+	}
+}
+
 BAD_TABS = ["Comments", "Screenshots"]
 
 QUEST_ITEM = "Quest Item"
@@ -40,7 +52,7 @@ REP_LVLS = ['Hated', 'Neutral', 'Friendly', 'Honored', 'Exalted']
 PROFESSIONS = [
     'Alchemy', 'Enchanting', 'Engineering', 'Blacksmithing', 'Cooking', 'First Aid',
     'Leatherworking', 'Skinning', 'Tailoring', 'Fishing', 'Riding', 'Mining',
-    'Herbalism', 'Engineer', 'Leatherworker', 'Hammersmith'
+    'Herbalism', 'Engineer', 'Leatherworker', 'Hammersmith', 'Lockpicking'
 ]
 
 RARITY_CHOICES = {
@@ -122,6 +134,7 @@ def create_image_list(dir):
 	return file_list
 
 ALL_IMAGES = create_image_list(os.path.abspath('../../../home/static/images/icons/large'))
+ALL_ERRORS = get_item_list(os.path.abspath('../js/ERRORS.js'))
 
 NPCS = get_item_list(os.path.abspath('../js/npcs.js'))
 QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
