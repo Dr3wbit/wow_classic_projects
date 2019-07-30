@@ -114,7 +114,11 @@ def get_item_list(path):
 	with open(path, mode) as f:
 		all_items = json.load(f) if os.path.getsize(path)>0 else {}
 
-	return all_items
+	if len(all_items) > 0:
+		sorted_dict = dict(sorted(all_items.items()))
+		return sorted_dict
+	else:
+		return all_items
 
 def create_image_list(dir):
 	regex = re.compile("([\w\_]+).jpg")
@@ -128,7 +132,7 @@ def create_image_list(dir):
 
 
 	with open(os.path.abspath("image_list.txt"), 'a+') as f:
-		for name in file_list:
+		for name in set(file_list):
 			f.write(name+"\n")
 
 	return file_list
@@ -143,3 +147,18 @@ ZONES = get_item_list(os.path.abspath('../js/zones.js'))
 FACTIONS = get_item_list(os.path.abspath('../js/factions.js'))
 OBJECTS = get_item_list(os.path.abspath('../js/objects.js'))
 SPELLS = get_item_list(os.path.abspath('../js/spells.js'))
+RUNTIME_STATS = get_item_list(os.path.abspath('../js/runtime_stats.js'))
+RUNTIME_STATS_V2 = get_item_list(os.path.abspath('../js/runtime_stats_v2.js'))
+
+FN_NAMES = [
+	'get_lowboys', 'get_mats', 'create_npc', 'disenchant', 'contained_or_gathered',
+	'drop_pick_skin_sold(dropped)', 'drop_pick_skin_sold(sold)', 'drop_pick_skin_sold(pickpocketed)',
+	'drop_pick_skin_sold(skinned)', 'reward_from', 'tab_handler', 'extract_stats', 'create_itemset',
+	'create_spell', 'create_object', 'stop_watch', 'create_zone', 'create_quest',
+	'reagant_for', 'created_by', 'check_element_exists_by_css', 'check_element_exists_by_id',
+	'image_handler', 'get_sell_price', 'get_ilvl'
+]
+
+reward_from_calls = ["tab-objective-of", "tab-starts", "tab-reward-of", "tab-provided-for"]
+contained_or_gathered_calls = ["tab-gathered-from-object", "tab-contained-in-item", "tab-contained-in-object", "tab-mined-from-object"]
+drop_pick_skin_sold_calls = ["tab-dropped-by", "tab-sold-by", "tab-pick-pocketed-from", "tab-skinned-from"]
