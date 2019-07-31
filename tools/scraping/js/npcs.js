@@ -1472,6 +1472,23 @@
             2017
         ]
     },
+    "1042": {
+        "i": 1042,
+        "n": "Red Whelp",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Dragonkin",
+        "level": [
+            23,
+            24
+        ],
+        "class": "",
+        "zone": [
+            11
+        ]
+    },
     "10420": {
         "class": "Elite",
         "i": 10420,
@@ -1621,6 +1638,23 @@
         "class": "",
         "zone": [
             400
+        ]
+    },
+    "1043": {
+        "i": 1043,
+        "n": "Lost Whelp",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Dragonkin",
+        "level": [
+            24,
+            25
+        ],
+        "class": "",
+        "zone": [
+            11
         ]
     },
     "10437": {
@@ -2452,6 +2486,23 @@
         "class": "",
         "zone": [
             618
+        ]
+    },
+    "1069": {
+        "i": 1069,
+        "n": "Crimson Whelp",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Dragonkin",
+        "level": [
+            25,
+            26
+        ],
+        "class": "",
+        "zone": [
+            11
         ]
     },
     "1071": {
@@ -3502,6 +3553,19 @@
         "zone": [
             1
         ]
+    },
+    "1129": {
+        "i": 1129,
+        "n": "Black Bear",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            6
+        ],
+        "class": ""
     },
     "113": {
         "class": "",
@@ -6503,6 +6567,19 @@
             12
         ]
     },
+    "12138": {
+        "i": 12138,
+        "n": "Lunaclaw",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            12
+        ],
+        "class": ""
+    },
     "1214": {
         "i": 1214,
         "n": "Aldren Cordon",
@@ -7856,6 +7933,19 @@
             1519
         ]
     },
+    "12940": {
+        "i": 12940,
+        "n": "Vorsha the Lasher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            22
+        ],
+        "class": ""
+    },
     "12941": {
         "i": 12941,
         "n": "Jase Farlane",
@@ -8027,6 +8117,22 @@
             35
         ],
         "class": ""
+    },
+    "1298": {
+        "i": 1298,
+        "n": "Frederick Stover",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            30
+        ],
+        "class": "",
+        "zone": [
+            1519
+        ]
     },
     "1301": {
         "i": 1301,
@@ -9040,6 +9146,22 @@
         "type": "Beast",
         "zone": [
             267
+        ]
+    },
+    "14223": {
+        "i": 14223,
+        "n": "Cranky Benj",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Beast",
+        "level": [
+            32
+        ],
+        "class": "Rare Elite",
+        "zone": [
+            130
         ]
     },
     "14224": {
@@ -10067,6 +10189,22 @@
         "type": "Humanoid",
         "level": [
             25
+        ],
+        "class": "",
+        "zone": [
+            11
+        ]
+    },
+    "1461": {
+        "i": 1461,
+        "n": "Murndan Derth",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            43
         ],
         "class": "",
         "zone": [
@@ -13207,6 +13345,24 @@
             130
         ]
     },
+    "1779": {
+        "i": 1779,
+        "n": "Moonrage Glutton",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            12,
+            13
+        ],
+        "class": "",
+        "zone": [
+            130,
+            267
+        ]
+    },
     "1780": {
         "class": "",
         "i": 1780,
@@ -15564,6 +15720,25 @@
             618
         ]
     },
+    "2070": {
+        "i": 2070,
+        "n": "Moonstalker Runt",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            16,
+            17
+        ],
+        "class": "",
+        "zone": [
+            148,
+            361,
+            618
+        ]
+    },
     "2071": {
         "i": 2071,
         "n": "Moonstalker Matriarch",
@@ -16271,6 +16446,40 @@
             13
         ],
         "class": "Rare Elite",
+        "zone": [
+            361
+        ]
+    },
+    "2177": {
+        "i": 2177,
+        "n": "Writhing Highborne",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            11,
+            12
+        ],
+        "class": "",
+        "zone": [
+            361
+        ]
+    },
+    "2178": {
+        "i": 2178,
+        "n": "Wailing Highborne",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            12,
+            13
+        ],
+        "class": "",
         "zone": [
             361
         ]
@@ -19084,6 +19293,23 @@
             267
         ]
     },
+    "2544": {
+        "i": 2544,
+        "n": "Southern Sand Crawler",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Beast",
+        "level": [
+            40,
+            41
+        ],
+        "class": "",
+        "zone": [
+            33
+        ]
+    },
     "2545": {
         "i": 2545,
         "n": "\"Pretty Boy\" Duncan",
@@ -21403,6 +21629,22 @@
             33
         ]
     },
+    "2839": {
+        "i": 2839,
+        "n": "Haren Kanmae",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Humanoid",
+        "level": [
+            41
+        ],
+        "class": "",
+        "zone": [
+            33
+        ]
+    },
     "2840": {
         "i": 2840,
         "n": "Kizz Bluntstrike",
@@ -22164,6 +22406,25 @@
             405
         ]
     },
+    "2973": {
+        "i": 2973,
+        "n": "Kodo Bull",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Beast",
+        "level": [
+            10,
+            11
+        ],
+        "class": "",
+        "zone": [
+            357,
+            405,
+            1638
+        ]
+    },
     "2974": {
         "i": 2974,
         "n": "Kodo Matriarch",
@@ -22437,6 +22698,22 @@
             490
         ]
     },
+    "3015": {
+        "i": 3015,
+        "n": "Kuna Thunderhorn",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            30
+        ],
+        "class": "",
+        "zone": [
+            1638
+        ]
+    },
     "3018": {
         "i": 3018,
         "n": "Hogor Thunderhoof",
@@ -22568,6 +22845,22 @@
             215
         ]
     },
+    "3053": {
+        "i": 3053,
+        "n": "Synge",
+        "react": [
+            1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            30
+        ],
+        "class": "",
+        "zone": [
+            440
+        ]
+    },
     "3056": {
         "class": "",
         "i": 3056,
@@ -22582,6 +22875,22 @@
         "type": "Beast",
         "zone": [
             1638
+        ]
+    },
+    "3058": {
+        "i": 3058,
+        "n": "Arra'chea",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Beast",
+        "level": [
+            11
+        ],
+        "class": "",
+        "zone": [
+            215
         ]
     },
     "3068": {
@@ -23944,6 +24253,24 @@
             17
         ]
     },
+    "3227": {
+        "i": 3227,
+        "n": "Corrupted Bloodtalon Scythemaw",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            10,
+            11
+        ],
+        "class": "",
+        "zone": [
+            17,
+            331
+        ]
+    },
     "3228": {
         "class": "",
         "i": 3228,
@@ -24115,6 +24442,24 @@
         "class": "",
         "zone": [
             17
+        ]
+    },
+    "3242": {
+        "i": 3242,
+        "n": "Zhevra Runner",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Beast",
+        "level": [
+            13,
+            14
+        ],
+        "class": "",
+        "zone": [
+            17,
+            215
         ]
     },
     "3243": {
@@ -24295,6 +24640,38 @@
             215,
             331
         ]
+    },
+    "3256": {
+        "i": 3256,
+        "n": "Sunscale Scytheclaw",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            16,
+            18
+        ],
+        "class": "",
+        "zone": [
+            17,
+            215,
+            331
+        ]
+    },
+    "3257": {
+        "i": 3257,
+        "n": "Ishamuhale",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            19
+        ],
+        "class": ""
     },
     "3258": {
         "class": "",
@@ -25446,6 +25823,22 @@
     "3409": {
         "i": 3409,
         "n": "Zendo'jian",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            30
+        ],
+        "class": "",
+        "zone": [
+            1637
+        ]
+    },
+    "3410": {
+        "i": 3410,
+        "n": "Jin'sora",
         "react": [
             -1,
             1
@@ -31285,6 +31678,41 @@
             331
         ]
     },
+    "4128": {
+        "i": 4128,
+        "n": "Hecklefang Stalker",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            22,
+            23
+        ],
+        "class": "",
+        "zone": [
+            17,
+            215
+        ]
+    },
+    "4129": {
+        "i": 4129,
+        "n": "Hecklefang Snarler",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            18,
+            19
+        ],
+        "class": "",
+        "zone": [
+            215
+        ]
+    },
     "4132": {
         "class": "Rare Elite",
         "i": 4132,
@@ -31541,6 +31969,22 @@
     "4172": {
         "i": 4172,
         "n": "Anadyia",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            30
+        ],
+        "class": "",
+        "zone": [
+            1657
+        ]
+    },
+    "4173": {
+        "i": 4173,
+        "n": "Landria",
         "react": [
             1,
             -1
@@ -32003,6 +32447,22 @@
             -1
         ],
         "type": "Beast",
+        "zone": [
+            400
+        ]
+    },
+    "4250": {
+        "i": 4250,
+        "n": "Galak Packhound",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            24
+        ],
+        "class": "",
         "zone": [
             400
         ]
@@ -33059,6 +33519,23 @@
         "zone": [
             44,
             46
+        ]
+    },
+    "4374": {
+        "i": 4374,
+        "n": "Strashaz Hydra",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Uncategorized",
+        "level": [
+            59,
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            17
         ]
     },
     "4376": {
@@ -36950,6 +37427,22 @@
             17
         ]
     },
+    "4889": {
+        "i": 4889,
+        "n": "Torq Ironblast",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            43
+        ],
+        "class": "",
+        "zone": [
+            17
+        ]
+    },
     "4891": {
         "class": "",
         "i": 4891,
@@ -36962,6 +37455,22 @@
             -1
         ],
         "type": "Humanoid",
+        "zone": [
+            17
+        ]
+    },
+    "4892": {
+        "i": 4892,
+        "n": "Jensen Farran",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            37
+        ],
+        "class": "",
         "zone": [
             17
         ]
@@ -37686,6 +38195,22 @@
     "5121": {
         "i": 5121,
         "n": "Kelomir Ironhand",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            30
+        ],
+        "class": "",
+        "zone": [
+            1537
+        ]
+    },
+    "5122": {
+        "i": 5122,
+        "n": "Skolmin Goldfury",
         "react": [
             1,
             -1
@@ -40402,6 +40927,22 @@
             215
         ]
     },
+    "5828": {
+        "i": 5828,
+        "n": "Humar the Pridelord",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            23
+        ],
+        "class": "Rare Elite",
+        "zone": [
+            17
+        ]
+    },
     "5829": {
         "class": "Rare Elite",
         "i": 5829,
@@ -40462,6 +41003,22 @@
         "type": "Beast",
         "zone": [
             17
+        ]
+    },
+    "5832": {
+        "i": 5832,
+        "n": "Thunderstomp",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            24
+        ],
+        "class": "Rare Elite",
+        "zone": [
+            215
         ]
     },
     "5834": {
@@ -41761,6 +42318,22 @@
             361
         ]
     },
+    "6140": {
+        "i": 6140,
+        "n": "Hetaera",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Uncategorized",
+        "level": [
+            55
+        ],
+        "class": "Elite",
+        "zone": [
+            618
+        ]
+    },
     "6141": {
         "class": "",
         "i": 6141,
@@ -42620,6 +43193,58 @@
         "type": "Humanoid",
         "zone": [
             1582
+        ]
+    },
+    "6347": {
+        "i": 6347,
+        "n": "Young Wavethrasher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            51
+        ],
+        "class": "",
+        "zone": [
+            16,
+            618
+        ]
+    },
+    "6348": {
+        "i": 6348,
+        "n": "Wavethrasher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            52,
+            53
+        ],
+        "class": "",
+        "zone": [
+            16,
+            618
+        ]
+    },
+    "6349": {
+        "i": 6349,
+        "n": "Great Wavethrasher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            53,
+            54
+        ],
+        "class": "",
+        "zone": [
+            16
         ]
     },
     "636": {
@@ -51671,6 +52296,22 @@
             400
         ]
     },
+    "9552": {
+        "i": 9552,
+        "n": "Zanara",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            43
+        ],
+        "class": "",
+        "zone": [
+            215
+        ]
+    },
     "9553": {
         "i": 9553,
         "n": "Nadia Vernon",
@@ -51702,6 +52343,22 @@
         "type": "Humanoid",
         "zone": [
             1584
+        ]
+    },
+    "9555": {
+        "i": 9555,
+        "n": "Mu'uta",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            35
+        ],
+        "class": "",
+        "zone": [
+            47
         ]
     },
     "956": {
@@ -52216,329 +52873,6 @@
         "type": "Giant",
         "zone": [
             1584
-        ]
-    },
-    "6349": {
-        "i": 6349,
-        "n": "Great Wavethrasher",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Beast",
-        "level": [
-            53,
-            54
-        ],
-        "class": "",
-        "zone": [
-            16
-        ]
-    },
-    "6348": {
-        "i": 6348,
-        "n": "Wavethrasher",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Beast",
-        "level": [
-            52,
-            53
-        ],
-        "class": "",
-        "zone": [
-            16,
-            618
-        ]
-    },
-    "6140": {
-        "i": 6140,
-        "n": "Hetaera",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Uncategorized",
-        "level": [
-            55
-        ],
-        "class": "Elite",
-        "zone": [
-            618
-        ]
-    },
-    "6347": {
-        "i": 6347,
-        "n": "Young Wavethrasher",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Beast",
-        "level": [
-            51
-        ],
-        "class": "",
-        "zone": [
-            16,
-            618
-        ]
-    },
-    "4374": {
-        "i": 4374,
-        "n": "Strashaz Hydra",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Uncategorized",
-        "level": [
-            59,
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            17
-        ]
-    },
-    "12940": {
-        "i": 12940,
-        "n": "Vorsha the Lasher",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            22
-        ],
-        "class": ""
-    },
-    "2544": {
-        "i": 2544,
-        "n": "Southern Sand Crawler",
-        "react": [
-            0,
-            0
-        ],
-        "type": "Beast",
-        "level": [
-            40,
-            41
-        ],
-        "class": "",
-        "zone": [
-            33
-        ]
-    },
-    "1461": {
-        "i": 1461,
-        "n": "Murndan Derth",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            43
-        ],
-        "class": "",
-        "zone": [
-            11
-        ]
-    },
-    "3053": {
-        "i": 3053,
-        "n": "Synge",
-        "react": [
-            1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            30
-        ],
-        "class": "",
-        "zone": [
-            440
-        ]
-    },
-    "4889": {
-        "i": 4889,
-        "n": "Torq Ironblast",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            43
-        ],
-        "class": "",
-        "zone": [
-            17
-        ]
-    },
-    "1298": {
-        "i": 1298,
-        "n": "Frederick Stover",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            30
-        ],
-        "class": "",
-        "zone": [
-            1519
-        ]
-    },
-    "2839": {
-        "i": 2839,
-        "n": "Haren Kanmae",
-        "react": [
-            0,
-            0
-        ],
-        "type": "Humanoid",
-        "level": [
-            41
-        ],
-        "class": "",
-        "zone": [
-            33
-        ]
-    },
-    "4892": {
-        "i": 4892,
-        "n": "Jensen Farran",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            37
-        ],
-        "class": "",
-        "zone": [
-            17
-        ]
-    },
-    "3410": {
-        "i": 3410,
-        "n": "Jin'sora",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            30
-        ],
-        "class": "",
-        "zone": [
-            1637
-        ]
-    },
-    "3015": {
-        "i": 3015,
-        "n": "Kuna Thunderhorn",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            30
-        ],
-        "class": "",
-        "zone": [
-            1638
-        ]
-    },
-    "4173": {
-        "i": 4173,
-        "n": "Landria",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            30
-        ],
-        "class": "",
-        "zone": [
-            1657
-        ]
-    },
-    "9555": {
-        "i": 9555,
-        "n": "Mu'uta",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            35
-        ],
-        "class": "",
-        "zone": [
-            47
-        ]
-    },
-    "5122": {
-        "i": 5122,
-        "n": "Skolmin Goldfury",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            30
-        ],
-        "class": "",
-        "zone": [
-            1537
-        ]
-    },
-    "9552": {
-        "i": 9552,
-        "n": "Zanara",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            43
-        ],
-        "class": "",
-        "zone": [
-            215
-        ]
-    },
-    "14223": {
-        "i": 14223,
-        "n": "Cranky Benj",
-        "react": [
-            0,
-            0
-        ],
-        "type": "Beast",
-        "level": [
-            32
-        ],
-        "class": "Rare Elite",
-        "zone": [
-            130
         ]
     }
 }

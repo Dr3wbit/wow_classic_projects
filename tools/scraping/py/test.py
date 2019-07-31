@@ -10,7 +10,7 @@ from statistics import mean
 
 START_TIME = datetime.datetime.now()
 NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items2.js'))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items3.js'))
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 # if permissions error: chmod 755 path/to/chromedriver
@@ -20,8 +20,8 @@ iStart = datetime.datetime.now()
 
 def main():
 	# 1939
-	start = 3001
-	end = 3050
+	start = 3500
+	end = 4000
 	BASE_URL = "https://classicdb.ch/?item="
 	#item_numbers1 = ['10050', '15994', '15523']
 	#error_numbers = ['2996','2997']
@@ -41,14 +41,17 @@ def main():
 	print("=======================================")
 
 	for ix in item_numbers:
+		# try:
 
-		iStart = datetime.datetime.now()
 		url = "{}{}".format(BASE_URL, ix)
 		driver.get(url)
 		error_box = check_element_exists_by_id('inputbox-error')
 		if not error_box:
 
 			I = str(ix)
+			if I not in ALL_ITEMS.keys():
+				ALL_ITEMS[I] = {}
+
 			tabs = driver.find_element(By.ID, "tabs-generic").find_elements(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[not(contains(text(),'Comments'))] and div[not(contains(text(), 'Screenshots'))]]")
 			for tab in tabs:
 				tab.click()
@@ -58,9 +61,7 @@ def main():
 			iStop = datetime.datetime.now()
 			NEW['ITEMS']+=1
 			# PREVIOUS = "t: {}sec".format(round((iStart - iFinish).total_seconds(), 2))
-			iii = "({})".format(ALL_ITEMS[I]['i'])
-			nnn = "\n{} (NEW) ".format(ALL_ITEMS[I]['n'])
-			print('{:<33} {:<8} {:>4}s'.format(nnn, iii, round((iStop - iStart).total_seconds(), 2)))
+			print('{:<8} {:>4}s'.format(I, round((iStop - iStart).total_seconds(), 2)))
 			# print("NEW ITEM {:<35} {:>10} {:<15} {:<11} - {:>25}".format(ALL_ITEMS[I]['n'], iii, cl,  const.NPCS[I]['type'], zone_name))
 
 			Z+=1
@@ -69,8 +70,14 @@ def main():
 			# print('NOT FOUND: ({})'.format(ix))
 			NEW['MISSING'] += 1
 			continue
+		#
+		# except:
+		# 	NEW['ERRORS'] += 1
+		# 	save_and_close()
 
-	with open(os.path.abspath('../js/items2.js'), 'w+') as f:
+
+def save_and_close():
+	with open(os.path.abspath('../js/items3.js'), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4, sort_keys=True)
 
 
@@ -143,7 +150,7 @@ def main():
 	print("\n----------------------")
 	print(sum(TOTAL_TIMES.values(), datetime.timedelta()))
 	print("\n")
-	driver.close()
+	#driver.close()
 
 
 def get_mats(row):
@@ -784,33 +791,6 @@ def get_sell_price(moneybox):
 
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
 	return sells_for
-
-def image_handler():
-	start = datetime.datetime.now()
-	fn = "image_handler"
-	regex = re.compile(r"'(\w*)'")
-	icon = driver.find_element(By.CSS_SELECTOR, "div#minibox + div")
-	icon_match = regex.search(icon.get_attribute("onclick"))
-	stack_size = 0
-
-	if icon_match:
-		icon_name = icon_match.group(1)
-		folder_path = os.path.abspath('../../../home/static/images/icons/large')
-		full_path = folder_path+"/"+icon_name+".jpg"
-		if not os.path.exists(full_path):
-			img_url = "https://classicdb.ch/images/icons/large/"+icon_name+".jpg"
-			urllib.request.urlretrieve(img_url, full_path)
-			NEW['IMAGES'] += 1
-			print('Downloaded icon: ', icon_name)
-
-	if check_element_exists_by_css(icon, "span.glow"):
-
-		stack_size = int(icon.find_element(By.CSS_SELECTOR, "span.glow").find_element(By.XPATH, "./div[1]").text)
-
-	TOTAL_CALLS[fn] += 1
-
-	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
-	return icon_name, stack_size
 
 def check_element_exists_by_id(id):
 	start = datetime.datetime.now()

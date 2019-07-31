@@ -120,33 +120,28 @@ def get_item_list(path):
 	else:
 		return all_items
 
-# def create_image_list(dir):
-# 	regex = re.compile("([\w\_]+).jpg")
-# 	file_list = []
-# 	for _root, _dirs, files in os.walk(dir):
-# 		for name in files:
-# 			match = regex.search(name)
-# 			if match:
-# 				file_name = match.group(1)
-# 				file_list.append(file_name)
-#
-#
-# 	with open(os.path.abspath("image_list.txt"), 'a+') as f:
-# 		for name in set(file_list):
-# 			f.write(name+"\n")
-#
-# 	return file_list
+def create_image_list(dir):
+	regex = re.compile("([\w\_]+).jpg")
+	file_list = []
+	for _root, _dirs, files in os.walk(dir):
+		for name in files:
+			match = regex.search(name)
+			if match:
+				file_name = match.group(1)
+				file_list.append(file_name)
 
+
+	with open(os.path.abspath("image_list.txt"), 'a+') as f:
+		for name in set(file_list):
+			f.write(name+"\n")
+
+	return file_list
+
+ALL_IMAGES = create_image_list(os.path.abspath('../../../home/static/images/icons/large'))
 ALL_ERRORS = get_item_list(os.path.abspath('../js/ERRORS.js'))
-
-NPCS = get_item_list(os.path.abspath('../js/npcs.js'))
-QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
 ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))
-ZONES = get_item_list(os.path.abspath('../js/zones.js'))
-FACTIONS = get_item_list(os.path.abspath('../js/factions.js'))
-OBJECTS = get_item_list(os.path.abspath('../js/objects.js'))
 SPELLS = get_item_list(os.path.abspath('../js/spells.js'))
-RUNTIME_STATS = get_item_list(os.path.abspath('../js/runtime_stats.js'))
+
 RUNTIME_STATS_V2 = get_item_list(os.path.abspath('../js/runtime_stats_v2.js'))
 
 FN_NAMES = [
@@ -157,7 +152,3 @@ FN_NAMES = [
 	'reagant_for', 'created_by', 'check_element_exists_by_css', 'check_element_exists_by_id',
 	'image_handler', 'get_sell_price', 'get_ilvl'
 ]
-
-reward_from_calls = ["tab-objective-of", "tab-starts", "tab-reward-of", "tab-provided-for"]
-contained_or_gathered_calls = ["tab-gathered-from-object", "tab-contained-in-item", "tab-contained-in-object", "tab-mined-from-object"]
-drop_pick_skin_sold_calls = ["tab-dropped-by", "tab-sold-by", "tab-pick-pocketed-from", "tab-skinned-from"]
