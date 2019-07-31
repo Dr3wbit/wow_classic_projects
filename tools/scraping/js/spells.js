@@ -11,6 +11,154 @@
         "i": 10005,
         "n": "Dazzling Mithril Rapier"
     },
+    "10007": {
+        "i": 10007,
+        "n": "Phantom Blade"
+    },
+    "10009": {
+        "i": 10009,
+        "n": "Runed Mithril Hammer"
+    },
+    "10011": {
+        "i": 10011,
+        "n": "Blight"
+    },
+    "10013": {
+        "i": 10013,
+        "n": "Ebon Shiv"
+    },
+    "10015": {
+        "i": 10015,
+        "n": "Truesilver Champion"
+    },
+    "10487": {
+        "i": 10487,
+        "n": "Thick Armor Kit"
+    },
+    "10490": {
+        "i": 10490,
+        "n": "Comfortable Leather Hat"
+    },
+    "10499": {
+        "i": 10499,
+        "n": "Nightscape Tunic"
+    },
+    "10507": {
+        "i": 10507,
+        "n": "Nightscape Headband"
+    },
+    "10509": {
+        "i": 10509,
+        "n": "Turtle Scale Gloves"
+    },
+    "10511": {
+        "i": 10511,
+        "n": "Turtle Scale Breastplate"
+    },
+    "10516": {
+        "i": 10516,
+        "n": "Nightscape Shoulders"
+    },
+    "10518": {
+        "i": 10518,
+        "n": "Turtle Scale Bracers"
+    },
+    "10520": {
+        "i": 10520,
+        "n": "Big Voodoo Robe"
+    },
+    "10525": {
+        "i": 10525,
+        "n": "Tough Scorpid Breastplate"
+    },
+    "10531": {
+        "i": 10531,
+        "n": "Big Voodoo Mask"
+    },
+    "10533": {
+        "i": 10533,
+        "n": "Tough Scorpid Bracers"
+    },
+    "10542": {
+        "i": 10542,
+        "n": "Tough Scorpid Gloves"
+    },
+    "10548": {
+        "i": 10548,
+        "n": "Nightscape Pants"
+    },
+    "10550": {
+        "i": 10550,
+        "n": "Nightscape Cloak"
+    },
+    "10552": {
+        "i": 10552,
+        "n": "Turtle Scale Helm"
+    },
+    "10554": {
+        "i": 10554,
+        "n": "Tough Scorpid Boots"
+    },
+    "10556": {
+        "i": 10556,
+        "n": "Turtle Scale Leggings"
+    },
+    "10558": {
+        "i": 10558,
+        "n": "Nightscape Boots"
+    },
+    "10560": {
+        "i": 10560,
+        "n": "Big Voodoo Pants"
+    },
+    "10562": {
+        "i": 10562,
+        "n": "Big Voodoo Cloak"
+    },
+    "10564": {
+        "i": 10564,
+        "n": "Tough Scorpid Shoulders"
+    },
+    "10568": {
+        "i": 10568,
+        "n": "Tough Scorpid Leggings"
+    },
+    "10570": {
+        "i": 10570,
+        "n": "Tough Scorpid Helm"
+    },
+    "10619": {
+        "i": 10619,
+        "n": "Dragonscale Gauntlets"
+    },
+    "10621": {
+        "i": 10621,
+        "n": "Wolfshead Helm"
+    },
+    "10630": {
+        "i": 10630,
+        "n": "Gauntlets of the Sea"
+    },
+    "10632": {
+        "i": 10632,
+        "n": "Helm of Fire"
+    },
+    "10647": {
+        "i": 10647,
+        "n": "Feathered Breastplate"
+    },
+    "10650": {
+        "i": 10650,
+        "n": "Dragonscale Breastplate"
+    },
+    "10840": {
+        "i": 10840,
+        "n": "Mageweave Bandage"
+    },
+    "10841": {
+        "i": 10841,
+        "n": "Heavy Mageweave Bandage"
+    },
     "11151": {
         "i": 11151,
         "n": "Piercing Ice"
@@ -26,6 +174,38 @@
     "11237": {
         "i": 11237,
         "n": "Improved Arcane Missiles"
+    },
+    "11357": {
+        "i": 11357,
+        "n": "Deadly Poison III"
+    },
+    "11358": {
+        "i": 11358,
+        "n": "Deadly Poison IV"
+    },
+    "11447": {
+        "i": 11447,
+        "n": "Elixir of Waterwalking"
+    },
+    "11451": {
+        "i": 11451,
+        "n": "Oil of Immolation"
+    },
+    "11454": {
+        "i": 11454,
+        "n": "Inlaid Mithril Cylinder"
+    },
+    "11456": {
+        "i": 11456,
+        "n": "Goblin Rocket Fuel"
+    },
+    "11459": {
+        "i": 11459,
+        "n": "Philosophers' Stone"
+    },
+    "11473": {
+        "i": 11473,
+        "n": "Ghost Dye"
     },
     "12044": {
         "i": 12044,
@@ -43,6 +223,30 @@
         "i": 12047,
         "n": "Colorful Kilt"
     },
+    "12048": {
+        "i": 12048,
+        "n": "Black Mageweave Vest"
+    },
+    "12049": {
+        "i": 12049,
+        "n": "Black Mageweave Leggings"
+    },
+    "12050": {
+        "i": 12050,
+        "n": "Black Mageweave Robe"
+    },
+    "12052": {
+        "i": 12052,
+        "n": "Shadoweave Pants"
+    },
+    "12053": {
+        "i": 12053,
+        "n": "Black Mageweave Gloves"
+    },
+    "12055": {
+        "i": 12055,
+        "n": "Shadoweave Robe"
+    },
     "12056": {
         "i": 12056,
         "n": "Red Mageweave Vest"
@@ -55,6 +259,22 @@
         "i": 12060,
         "n": "Red Mageweave Pants"
     },
+    "12061": {
+        "i": 12061,
+        "n": "Orange Mageweave Shirt"
+    },
+    "12062": {
+        "i": 12062,
+        "n": "Stormcloth Pants"
+    },
+    "12063": {
+        "i": 12063,
+        "n": "Stormcloth Gloves"
+    },
+    "12064": {
+        "i": 12064,
+        "n": "Orange Martial Shirt"
+    },
     "12065": {
         "i": 12065,
         "n": "Mageweave Bag"
@@ -62,6 +282,46 @@
     "12066": {
         "i": 12066,
         "n": "Red Mageweave Gloves"
+    },
+    "12067": {
+        "i": 12067,
+        "n": "Dreamweave Gloves"
+    },
+    "12068": {
+        "i": 12068,
+        "n": "Stormcloth Vest"
+    },
+    "12069": {
+        "i": 12069,
+        "n": "Cindercloth Robe"
+    },
+    "12070": {
+        "i": 12070,
+        "n": "Dreamweave Vest"
+    },
+    "12071": {
+        "i": 12071,
+        "n": "Shadoweave Gloves"
+    },
+    "12072": {
+        "i": 12072,
+        "n": "Black Mageweave Headband"
+    },
+    "12073": {
+        "i": 12073,
+        "n": "Black Mageweave Boots"
+    },
+    "12074": {
+        "i": 12074,
+        "n": "Black Mageweave Shoulders"
+    },
+    "12075": {
+        "i": 12075,
+        "n": "Lavender Mageweave Shirt"
+    },
+    "12076": {
+        "i": 12076,
+        "n": "Shadoweave Shoulders"
     },
     "12077": {
         "i": 12077,
@@ -75,9 +335,49 @@
         "i": 12079,
         "n": "Red Mageweave Bag"
     },
+    "12080": {
+        "i": 12080,
+        "n": "Pink Mageweave Shirt"
+    },
+    "12081": {
+        "i": 12081,
+        "n": "Admiral's Hat"
+    },
+    "12082": {
+        "i": 12082,
+        "n": "Shadoweave Boots"
+    },
+    "12083": {
+        "i": 12083,
+        "n": "Stormcloth Headband"
+    },
     "12084": {
         "i": 12084,
         "n": "Red Mageweave Headband"
+    },
+    "12085": {
+        "i": 12085,
+        "n": "Tuxedo Shirt"
+    },
+    "12086": {
+        "i": 12086,
+        "n": "Shadoweave Mask"
+    },
+    "12087": {
+        "i": 12087,
+        "n": "Stormcloth Shoulders"
+    },
+    "12088": {
+        "i": 12088,
+        "n": "Cindercloth Boots"
+    },
+    "12089": {
+        "i": 12089,
+        "n": "Tuxedo Pants"
+    },
+    "12090": {
+        "i": 12090,
+        "n": "Stormcloth Boots"
     },
     "12091": {
         "i": 12091,
@@ -86,6 +386,10 @@
     "12092": {
         "i": 12092,
         "n": "Dreamweave Circlet"
+    },
+    "12093": {
+        "i": 12093,
+        "n": "Tuxedo Jacket"
     },
     "12259": {
         "i": 12259,
@@ -98,6 +402,10 @@
     "12287": {
         "i": 12287,
         "n": "Improved Thunder Clap"
+    },
+    "12307": {
+        "i": 12307,
+        "n": "Improved Shield Block"
     },
     "12463": {
         "i": 12463,
@@ -131,13 +439,61 @@
         "i": 12577,
         "n": "Arcane Concentration"
     },
+    "12586": {
+        "i": 12586,
+        "n": "Solid Dynamite"
+    },
+    "12587": {
+        "i": 12587,
+        "n": "Bright-Eye Goggles"
+    },
+    "12591": {
+        "i": 12591,
+        "n": "Unstable Trigger"
+    },
+    "12594": {
+        "i": 12594,
+        "n": "Fire Goggles"
+    },
+    "12595": {
+        "i": 12595,
+        "n": "Mithril Blunderbuss"
+    },
+    "12607": {
+        "i": 12607,
+        "n": "Catseye Ultra Goggles"
+    },
+    "12614": {
+        "i": 12614,
+        "n": "Mithril Heavy-bore Rifle"
+    },
+    "12615": {
+        "i": 12615,
+        "n": "Spellpower Goggles Xtreme"
+    },
+    "12616": {
+        "i": 12616,
+        "n": "Parachute Cloak"
+    },
     "12617": {
         "i": 12617,
         "n": "Deepdive Helmet"
     },
+    "12618": {
+        "i": 12618,
+        "n": "Rose Colored Goggles"
+    },
+    "12620": {
+        "i": 12620,
+        "n": "Sniper Scope"
+    },
     "12622": {
         "i": 12622,
         "n": "Green Lens"
+    },
+    "12624": {
+        "i": 12624,
+        "n": "Mithril Mechanical Dragonling"
     },
     "12665": {
         "i": 12665,
@@ -151,13 +507,61 @@
         "i": 12719,
         "n": "Explosive Arrow"
     },
+    "12722": {
+        "i": 12722,
+        "n": "Goblin Radio"
+    },
+    "12755": {
+        "i": 12755,
+        "n": "Goblin Bomb Dispenser"
+    },
+    "12760": {
+        "i": 12760,
+        "n": "Goblin Sapper Charge"
+    },
+    "12897": {
+        "i": 12897,
+        "n": "Gnomish Goggles"
+    },
     "12899": {
         "i": 12899,
         "n": "Gnomish Shrink Ray"
     },
+    "12902": {
+        "i": 12902,
+        "n": "Gnomish Net-o-Matic Projector"
+    },
+    "12903": {
+        "i": 12903,
+        "n": "Gnomish Harm Prevention Belt"
+    },
+    "12904": {
+        "i": 12904,
+        "n": "Gnomish Ham Radio"
+    },
+    "12905": {
+        "i": 12905,
+        "n": "Gnomish Rocket Boots"
+    },
     "12906": {
         "i": 12906,
         "n": "Gnomish Battle Chicken"
+    },
+    "12907": {
+        "i": 12907,
+        "n": "Gnomish Mind Control Cap"
+    },
+    "12908": {
+        "i": 12908,
+        "n": "Goblin Dragon Gun"
+    },
+    "12944": {
+        "i": 12944,
+        "n": "Improved Shield Block"
+    },
+    "12945": {
+        "i": 12945,
+        "n": "Improved Shield Block"
     },
     "12952": {
         "i": 12952,
@@ -187,6 +591,26 @@
         "i": 13228,
         "n": "Wound Poison II"
     },
+    "13229": {
+        "i": 13229,
+        "n": "Wound Poison III"
+    },
+    "13230": {
+        "i": 13230,
+        "n": "Wound Poison IV"
+    },
+    "13628": {
+        "i": 13628,
+        "n": "Runed Golden Rod"
+    },
+    "14084": {
+        "i": 14084,
+        "n": "zzOLDImproved Distract"
+    },
+    "14085": {
+        "i": 14085,
+        "n": "zzOLDImproved Distract"
+    },
     "14088": {
         "i": 14088,
         "n": "zzOLDImproved Vanish"
@@ -199,9 +623,41 @@
         "i": 14092,
         "n": "zzOLDImproved Vanish"
     },
+    "14293": {
+        "i": 14293,
+        "n": "Lesser Magic Wand"
+    },
+    "14380": {
+        "i": 14380,
+        "n": "Truesilver Rod"
+    },
+    "14807": {
+        "i": 14807,
+        "n": "Greater Magic Wand"
+    },
+    "14930": {
+        "i": 14930,
+        "n": "Quickdraw Quiver"
+    },
+    "14932": {
+        "i": 14932,
+        "n": "Thick Leather Ammo Pouch"
+    },
+    "15255": {
+        "i": 15255,
+        "n": "Mechanical Repair Kit"
+    },
     "15509": {
         "i": 15509,
         "n": "zzOLDImproved Smite"
+    },
+    "15628": {
+        "i": 15628,
+        "n": "Pet Bombling"
+    },
+    "15633": {
+        "i": 15633,
+        "n": "Lil' Smoky"
     },
     "15853": {
         "i": 15853,
@@ -246,6 +702,18 @@
     "15972": {
         "i": 15972,
         "n": "Glinting Steel Dagger"
+    },
+    "15973": {
+        "i": 15973,
+        "n": "Searing Golden Blade"
+    },
+    "16088": {
+        "i": 16088,
+        "n": "zzOLDImproved Magma Totem"
+    },
+    "16129": {
+        "i": 16129,
+        "n": "Improved Magma Totem"
     },
     "16188": {
         "i": 16188,
@@ -303,6 +771,14 @@
         "i": 16665,
         "n": "Runic Plate Boots"
     },
+    "16724": {
+        "i": 16724,
+        "n": "Whitesoul Helm"
+    },
+    "16726": {
+        "i": 16726,
+        "n": "Runic Plate Helm"
+    },
     "16769": {
         "i": 16769,
         "n": "Improved Arcane Missiles"
@@ -331,6 +807,30 @@
         "i": 16938,
         "n": "Ferocity"
     },
+    "16967": {
+        "i": 16967,
+        "n": "Inlaid Thorium Hammer"
+    },
+    "16998": {
+        "i": 16998,
+        "n": "Savage Fury"
+    },
+    "16999": {
+        "i": 16999,
+        "n": "Savage Fury"
+    },
+    "17527": {
+        "i": 17527,
+        "n": "Mighty Rage Potion"
+    },
+    "17727": {
+        "i": 17727,
+        "n": "Create Spellstone (Greater)"
+    },
+    "17728": {
+        "i": 17728,
+        "n": "Create Spellstone (Major)"
+    },
     "17778": {
         "i": 17778,
         "n": "Cataclysm"
@@ -351,6 +851,10 @@
         "i": 17782,
         "n": "Cataclysm"
     },
+    "17877": {
+        "i": 17877,
+        "n": "Shadowburn"
+    },
     "17917": {
         "i": 17917,
         "n": "Destructive Reach"
@@ -358,6 +862,18 @@
     "17918": {
         "i": 17918,
         "n": "Destructive Reach"
+    },
+    "17951": {
+        "i": 17951,
+        "n": "Create Firestone"
+    },
+    "17952": {
+        "i": 17952,
+        "n": "Create Firestone (Greater)"
+    },
+    "17953": {
+        "i": 17953,
+        "n": "Create Firestone (Major)"
     },
     "17954": {
         "i": 17954,
@@ -383,6 +899,14 @@
         "i": 17959,
         "n": "Ruin"
     },
+    "18126": {
+        "i": 18126,
+        "n": "Improved Firebolt"
+    },
+    "18127": {
+        "i": 18127,
+        "n": "Improved Firebolt"
+    },
     "18130": {
         "i": 18130,
         "n": "Devastation"
@@ -407,6 +931,10 @@
         "i": 18189,
         "n": "TEST Arcane Concentration"
     },
+    "18238": {
+        "i": 18238,
+        "n": "Spotted Yellowtail"
+    },
     "18242": {
         "i": 18242,
         "n": "Hot Smoked Bass"
@@ -422,6 +950,14 @@
     "18246": {
         "i": 18246,
         "n": "Mightfish Steak"
+    },
+    "18467": {
+        "i": 18467,
+        "n": "zzOLDImproved Arcane Explosion"
+    },
+    "18468": {
+        "i": 18468,
+        "n": "zzOLDImproved Arcane Explosion"
     },
     "18538": {
         "i": 18538,
@@ -462,6 +998,26 @@
     "18830": {
         "i": 18830,
         "n": "Improved Curse of Agony"
+    },
+    "18867": {
+        "i": 18867,
+        "n": "Shadowburn"
+    },
+    "18868": {
+        "i": 18868,
+        "n": "Shadowburn"
+    },
+    "18869": {
+        "i": 18869,
+        "n": "Shadowburn"
+    },
+    "18870": {
+        "i": 18870,
+        "n": "Shadowburn"
+    },
+    "18871": {
+        "i": 18871,
+        "n": "Shadowburn"
     },
     "19049": {
         "i": 19049,
@@ -535,9 +1091,21 @@
         "i": 19458,
         "n": "Improved Arcane Shot"
     },
+    "19461": {
+        "i": 19461,
+        "n": "Barrage"
+    },
+    "19462": {
+        "i": 19462,
+        "n": "Barrage"
+    },
     "19666": {
         "i": 19666,
         "n": "Silver Skeleton Key"
+    },
+    "19668": {
+        "i": 19668,
+        "n": "Truesilver Skeleton Key"
     },
     "19790": {
         "i": 19790,
@@ -627,9 +1195,33 @@
         "i": 20649,
         "n": "Heavy Leather"
     },
+    "20752": {
+        "i": 20752,
+        "n": "Create Soulstone (Lesser)"
+    },
+    "20755": {
+        "i": 20755,
+        "n": "Create Soulstone"
+    },
+    "20756": {
+        "i": 20756,
+        "n": "Create Soulstone (Greater)"
+    },
+    "20757": {
+        "i": 20757,
+        "n": "Create Soulstone (Major)"
+    },
+    "20936": {
+        "i": 20936,
+        "n": "Spirit of Greater Healing"
+    },
     "21088": {
         "i": 21088,
         "n": "Improved Arcane Intellect"
+    },
+    "21089": {
+        "i": 21089,
+        "n": "Retributive Smite"
     },
     "21091": {
         "i": 21091,
@@ -723,9 +1315,21 @@
         "i": 21879,
         "n": "Friendly Nukes"
     },
+    "21913": {
+        "i": 21913,
+        "n": "Edge of Winter"
+    },
     "21935": {
         "i": 21935,
         "n": "SnowMaster 9000"
+    },
+    "21940": {
+        "i": 21940,
+        "n": "SnowMaster 9000"
+    },
+    "21943": {
+        "i": 21943,
+        "n": "Gloves of the Greatfather"
     },
     "21945": {
         "i": 21945,
@@ -734,6 +1338,10 @@
     "21973": {
         "i": 21973,
         "n": "Prophecy Flash Heal Bonus"
+    },
+    "22010": {
+        "i": 22010,
+        "n": "Greater Heal Renew"
     },
     "22208": {
         "i": 22208,
@@ -758,6 +1366,30 @@
     "22801": {
         "i": 22801,
         "n": "Ghost Wolf Speed"
+    },
+    "22855": {
+        "i": 22855,
+        "n": "Increased Imp Firebolt Damage"
+    },
+    "23066": {
+        "i": 23066,
+        "n": "Red Firework"
+    },
+    "23067": {
+        "i": 23067,
+        "n": "Blue Firework"
+    },
+    "23068": {
+        "i": 23068,
+        "n": "Green Firework"
+    },
+    "23069": {
+        "i": 23069,
+        "n": "EZ-Thro Dynamite II"
+    },
+    "23071": {
+        "i": 23071,
+        "n": "Truesilver Transformer"
     },
     "23077": {
         "i": 23077,
@@ -823,6 +1455,10 @@
         "i": 2337,
         "n": "Lesser Healing Potion"
     },
+    "23399": {
+        "i": 23399,
+        "n": "Barbaric Bracers"
+    },
     "23486": {
         "i": 23486,
         "n": "Dimensional Ripper - Everlook"
@@ -830,6 +1466,22 @@
     "23555": {
         "i": 23555,
         "n": "Decreased Destruction Threat"
+    },
+    "23566": {
+        "i": 23566,
+        "n": "Improved Volley and Multishot"
+    },
+    "2362": {
+        "i": 2362,
+        "n": "Create Spellstone"
+    },
+    "23632": {
+        "i": 23632,
+        "n": "Girdle of the Dawn"
+    },
+    "23633": {
+        "i": 23633,
+        "n": "Gloves of the Dawn"
     },
     "2385": {
         "i": 2385,
@@ -911,9 +1563,65 @@
         "i": 24543,
         "n": "Massive Destruction"
     },
+    "24546": {
+        "i": 24546,
+        "n": "Rapid Healing"
+    },
+    "24691": {
+        "i": 24691,
+        "n": "Barrage"
+    },
+    "24874": {
+        "i": 24874,
+        "n": "Create Crest of Beckoning: Fire"
+    },
+    "24888": {
+        "i": 24888,
+        "n": "Create Crest of Beckoning: Water"
+    },
+    "24889": {
+        "i": 24889,
+        "n": "Create Signet of Beckoning: Fire"
+    },
+    "24892": {
+        "i": 24892,
+        "n": "Create Signet of Beckoning: Water"
+    },
+    "24895": {
+        "i": 24895,
+        "n": "Create Scepter of Beckoning: Fire"
+    },
+    "24898": {
+        "i": 24898,
+        "n": "Create Scepter of Beckoning: Water"
+    },
+    "24912": {
+        "i": 24912,
+        "n": "Darkrune Gauntlets"
+    },
+    "24913": {
+        "i": 24913,
+        "n": "Darkrune Helm"
+    },
+    "24914": {
+        "i": 24914,
+        "n": "Darkrune Breastplate"
+    },
     "24940": {
         "i": 24940,
         "n": "Black Whelp Tunic"
+    },
+    "25128": {
+        "i": 25128,
+        "n": "Wizard Oil"
+    },
+    "25129": {
+        "i": 25129,
+        "n": "Brilliant Wizard Oil"
+    },
+    "25347": {
+        "i": 25347,
+        "n": "Deadly Poison V"
     },
     "2538": {
         "i": 2538,
@@ -999,6 +1707,10 @@
         "i": 26173,
         "n": "Striker's Arcane Shot Bonus"
     },
+    "26277": {
+        "i": 26277,
+        "n": "Elixir of Greater Firepower"
+    },
     "26403": {
         "i": 26403,
         "n": "Festive Red Dress"
@@ -1018,6 +1730,18 @@
     "26418": {
         "i": 26418,
         "n": "Small Red Rocket"
+    },
+    "26420": {
+        "i": 26420,
+        "n": "Large Blue Rocket"
+    },
+    "26421": {
+        "i": 26421,
+        "n": "Large Green Rocket"
+    },
+    "26422": {
+        "i": 26422,
+        "n": "Large Red Rocket"
     },
     "2657": {
         "i": 2657,
@@ -1130,6 +1854,18 @@
     "27589": {
         "i": 27589,
         "n": "Black Grasp of the Destroyer"
+    },
+    "27658": {
+        "i": 27658,
+        "n": "Enchanted Mageweave Pouch"
+    },
+    "27847": {
+        "i": 27847,
+        "n": "Cleanse Cost Reduced"
+    },
+    "27851": {
+        "i": 27851,
+        "n": "Reduced Claw and Rake Cost"
     },
     "2795": {
         "i": 2795,
@@ -1399,6 +2135,14 @@
         "i": 3497,
         "n": "Frost Tiger Blade"
     },
+    "3498": {
+        "i": 3498,
+        "n": "Massive Iron Axe"
+    },
+    "3500": {
+        "i": 3500,
+        "n": "Shadow Crescent Axe"
+    },
     "3501": {
         "i": 3501,
         "n": "Green Iron Bracers"
@@ -1515,13 +2259,37 @@
         "i": 3776,
         "n": "Green Leather Bracers"
     },
+    "3777": {
+        "i": 3777,
+        "n": "Guardian Leather Bracers"
+    },
     "3778": {
         "i": 3778,
         "n": "Gem-studded Leather Belt"
     },
+    "3779": {
+        "i": 3779,
+        "n": "Barbaric Belt"
+    },
+    "3813": {
+        "i": 3813,
+        "n": "Small Silk Pack"
+    },
     "3816": {
         "i": 3816,
         "n": "Cured Light Hide"
+    },
+    "3817": {
+        "i": 3817,
+        "n": "Cured Medium Hide"
+    },
+    "3818": {
+        "i": 3818,
+        "n": "Cured Heavy Hide"
+    },
+    "3839": {
+        "i": 3839,
+        "n": "Bolt of Silk Cloth"
     },
     "3840": {
         "i": 3840,
@@ -1587,6 +2355,38 @@
         "i": 3857,
         "n": "Enchanter's Cowl"
     },
+    "3858": {
+        "i": 3858,
+        "n": "Shadow Hood"
+    },
+    "3859": {
+        "i": 3859,
+        "n": "Azure Silk Vest"
+    },
+    "3860": {
+        "i": 3860,
+        "n": "Boots of the Enchanter"
+    },
+    "3861": {
+        "i": 3861,
+        "n": "Long Silken Cloak"
+    },
+    "3862": {
+        "i": 3862,
+        "n": "Icy Cloak"
+    },
+    "3863": {
+        "i": 3863,
+        "n": "Spider Belt"
+    },
+    "3864": {
+        "i": 3864,
+        "n": "Star Belt"
+    },
+    "3865": {
+        "i": 3865,
+        "n": "Bolt of Mageweave"
+    },
     "3866": {
         "i": 3866,
         "n": "Stylish Red Shirt"
@@ -1595,9 +2395,21 @@
         "i": 3868,
         "n": "Phoenix Gloves"
     },
+    "3869": {
+        "i": 3869,
+        "n": "Bright Yellow Shirt"
+    },
+    "3870": {
+        "i": 3870,
+        "n": "Dark Silk Shirt"
+    },
     "3871": {
         "i": 3871,
         "n": "Formal White Shirt"
+    },
+    "3872": {
+        "i": 3872,
+        "n": "Rich Purple Silk Shirt"
     },
     "3873": {
         "i": 3873,
@@ -1638,6 +2450,10 @@
     "3924": {
         "i": 3924,
         "n": "Copper Tube"
+    },
+    "3925": {
+        "i": 3925,
+        "n": "Rough Boomstick"
     },
     "3926": {
         "i": 3926,
@@ -1699,6 +2515,10 @@
         "i": 3942,
         "n": "Whirring Bronze Gizmo"
     },
+    "3944": {
+        "i": 3944,
+        "n": "Flame Deflector"
+    },
     "3945": {
         "i": 3945,
         "n": "Heavy Blasting Powder"
@@ -1739,6 +2559,10 @@
         "i": 3956,
         "n": "Green Tinted Goggles"
     },
+    "3957": {
+        "i": 3957,
+        "n": "Ice Deflector"
+    },
     "3959": {
         "i": 3959,
         "n": "Discombobulator Ray"
@@ -1747,9 +2571,37 @@
         "i": 3960,
         "n": "Portable Bronze Mortar"
     },
+    "3962": {
+        "i": 3962,
+        "n": "Iron Grenade"
+    },
+    "3963": {
+        "i": 3963,
+        "n": "Compact Harvest Reaper Kit"
+    },
     "3964": {
         "i": 3964,
         "n": "Deprecated BKP \"Impact\" Shot"
+    },
+    "3965": {
+        "i": 3965,
+        "n": "Advanced Target Dummy"
+    },
+    "3966": {
+        "i": 3966,
+        "n": "Craftsman's Monocle"
+    },
+    "3967": {
+        "i": 3967,
+        "n": "Big Iron Bomb"
+    },
+    "3968": {
+        "i": 3968,
+        "n": "Goblin Land Mine"
+    },
+    "3969": {
+        "i": 3969,
+        "n": "Mechanical Dragonling"
     },
     "3971": {
         "i": 3971,
@@ -1778,6 +2630,14 @@
     "4094": {
         "i": 4094,
         "n": "Barbecued Buzzard Wing"
+    },
+    "4096": {
+        "i": 4096,
+        "n": "Raptor Hide Harness"
+    },
+    "4097": {
+        "i": 4097,
+        "n": "Raptor Hide Belt"
     },
     "4508": {
         "i": 4508,
@@ -1815,6 +2675,14 @@
         "i": 6366,
         "n": "Create Firestone (Lesser)"
     },
+    "6412": {
+        "i": 6412,
+        "n": "Kaldorei Spider Kabob"
+    },
+    "6413": {
+        "i": 6413,
+        "n": "Scorpid Surprise"
+    },
     "6414": {
         "i": 6414,
         "n": "Roasted Kodo Meat"
@@ -1822,6 +2690,14 @@
     "6415": {
         "i": 6415,
         "n": "Fillet of Frenzy"
+    },
+    "6416": {
+        "i": 6416,
+        "n": "Strider Stew"
+    },
+    "6417": {
+        "i": 6417,
+        "n": "Dig Rat Stew"
     },
     "6418": {
         "i": 6418,
@@ -1871,6 +2747,18 @@
         "i": 6617,
         "n": "Rage Potion"
     },
+    "6618": {
+        "i": 6618,
+        "n": "Great Rage Potion"
+    },
+    "6619": {
+        "i": 6619,
+        "n": "Cowardly Flight Potion"
+    },
+    "6624": {
+        "i": 6624,
+        "n": "Free Action Potion"
+    },
     "6651": {
         "i": 6651,
         "n": "Instant Toxin"
@@ -1907,6 +2795,18 @@
         "i": 6703,
         "n": "Murloc Scale Breastplate"
     },
+    "6704": {
+        "i": 6704,
+        "n": "Thick Murloc Armor"
+    },
+    "6705": {
+        "i": 6705,
+        "n": "Murloc Scale Bracers"
+    },
+    "693": {
+        "i": 693,
+        "n": "Create Soulstone (Minor)"
+    },
     "7126": {
         "i": 7126,
         "n": "Handstitched Leather Vest"
@@ -1931,6 +2831,18 @@
         "i": 7151,
         "n": "Barbaric Shoulders"
     },
+    "7153": {
+        "i": 7153,
+        "n": "Guardian Cloak"
+    },
+    "7156": {
+        "i": 7156,
+        "n": "Guardian Gloves"
+    },
+    "7179": {
+        "i": 7179,
+        "n": "Elixir of Water Breathing"
+    },
     "7181": {
         "i": 7181,
         "n": "Greater Healing Potion"
@@ -1951,9 +2863,17 @@
         "i": 7255,
         "n": "Holy Protection Potion"
     },
+    "7257": {
+        "i": 7257,
+        "n": "Fire Protection Potion"
+    },
     "7408": {
         "i": 7408,
         "n": "Heavy Copper Maul"
+    },
+    "7421": {
+        "i": 7421,
+        "n": "Runed Copper Rod"
     },
     "7430": {
         "i": 7430,
@@ -1995,13 +2915,25 @@
         "i": 7643,
         "n": "Greater Adept's Robe"
     },
+    "7751": {
+        "i": 7751,
+        "n": "Brilliant Smallfish"
+    },
     "7752": {
         "i": 7752,
         "n": "Slitherskin Mackerel"
     },
+    "7753": {
+        "i": 7753,
+        "n": "Longjaw Mud Snapper"
+    },
     "7754": {
         "i": 7754,
         "n": "Loch Frenzy Delight"
+    },
+    "7755": {
+        "i": 7755,
+        "n": "Bristle Whisker Catfish"
     },
     "7769": {
         "i": 7769,
@@ -2019,9 +2951,29 @@
         "i": 7818,
         "n": "Silver Rod"
     },
+    "7827": {
+        "i": 7827,
+        "n": "Rainbow Fin Albacore"
+    },
+    "7828": {
+        "i": 7828,
+        "n": "Rockscale Cod"
+    },
+    "7836": {
+        "i": 7836,
+        "n": "Blackmouth Oil"
+    },
+    "7837": {
+        "i": 7837,
+        "n": "Fire Oil"
+    },
     "7841": {
         "i": 7841,
         "n": "Swim Speed Potion"
+    },
+    "7845": {
+        "i": 7845,
+        "n": "Elixir of Firepower"
     },
     "7892": {
         "i": 7892,
@@ -2030,6 +2982,14 @@
     "7893": {
         "i": 7893,
         "n": "Stylish Green Shirt"
+    },
+    "7928": {
+        "i": 7928,
+        "n": "Silk Bandage"
+    },
+    "7929": {
+        "i": 7929,
+        "n": "Heavy Silk Bandage"
     },
     "7934": {
         "i": 7934,
@@ -2058,6 +3018,10 @@
     "8240": {
         "i": 8240,
         "n": "Elixir of Giant Growth"
+    },
+    "8243": {
+        "i": 8243,
+        "n": "Flash Bomb"
     },
     "8296": {
         "i": 8296,
@@ -2127,6 +3091,14 @@
         "i": 8758,
         "n": "Azure Silk Pants"
     },
+    "8760": {
+        "i": 8760,
+        "n": "Azure Silk Hood"
+    },
+    "8762": {
+        "i": 8762,
+        "n": "Silk Headband"
+    },
     "8764": {
         "i": 8764,
         "n": "Earthen Vest"
@@ -2135,9 +3107,17 @@
         "i": 8766,
         "n": "Azure Silk Belt"
     },
+    "8770": {
+        "i": 8770,
+        "n": "Robe of Power"
+    },
     "8772": {
         "i": 8772,
         "n": "Crimson Silk Belt"
+    },
+    "8774": {
+        "i": 8774,
+        "n": "Green Silken Shoulders"
     },
     "8776": {
         "i": 8776,
@@ -2175,6 +3155,14 @@
         "i": 8793,
         "n": "Crimson Silk Shoulders"
     },
+    "8795": {
+        "i": 8795,
+        "n": "Azure Shoulders"
+    },
+    "8797": {
+        "i": 8797,
+        "n": "Earthen Silk Belt"
+    },
     "8799": {
         "i": 8799,
         "n": "Crimson Silk Pantaloons"
@@ -2190,6 +3178,10 @@
     "8880": {
         "i": 8880,
         "n": "Copper Dagger"
+    },
+    "8895": {
+        "i": 8895,
+        "n": "Goblin Rocket Boots"
     },
     "898": {
         "i": 898,
@@ -2283,9 +3275,17 @@
         "i": 9201,
         "n": "Dusky Bracers"
     },
+    "9202": {
+        "i": 9202,
+        "n": "Green Whelp Bracers"
+    },
     "9206": {
         "i": 9206,
         "n": "Dusky Belt"
+    },
+    "9207": {
+        "i": 9207,
+        "n": "Dusky Boots"
     },
     "9208": {
         "i": 9208,
@@ -2311,17 +3311,89 @@
         "i": 9811,
         "n": "Barbaric Iron Shoulders"
     },
+    "9814": {
+        "i": 9814,
+        "n": "Barbaric Iron Helm"
+    },
     "9818": {
         "i": 9818,
         "n": "Barbaric Iron Boots"
+    },
+    "9820": {
+        "i": 9820,
+        "n": "Barbaric Iron Gloves"
     },
     "990": {
         "i": 990,
         "n": "Conjure Food"
     },
+    "9921": {
+        "i": 9921,
+        "n": "Solid Weightstone"
+    },
+    "9926": {
+        "i": 9926,
+        "n": "Heavy Mithril Shoulder"
+    },
+    "9928": {
+        "i": 9928,
+        "n": "Heavy Mithril Gauntlet"
+    },
     "9933": {
         "i": 9933,
         "n": "Heavy Mithril Pants"
+    },
+    "9939": {
+        "i": 9939,
+        "n": "Mithril Shield Spike"
+    },
+    "9942": {
+        "i": 9942,
+        "n": "Mithril Scale Gloves"
+    },
+    "9945": {
+        "i": 9945,
+        "n": "Ornate Mithril Pants"
+    },
+    "9950": {
+        "i": 9950,
+        "n": "Ornate Mithril Gloves"
+    },
+    "9952": {
+        "i": 9952,
+        "n": "Ornate Mithril Shoulders"
+    },
+    "9954": {
+        "i": 9954,
+        "n": "Truesilver Gauntlets"
+    },
+    "9961": {
+        "i": 9961,
+        "n": "Mithril Coif"
+    },
+    "9966": {
+        "i": 9966,
+        "n": "Mithril Scale Shoulders"
+    },
+    "9968": {
+        "i": 9968,
+        "n": "Heavy Mithril Boots"
+    },
+    "9972": {
+        "i": 9972,
+        "n": "Ornate Mithril Breastplate"
+    },
+    "9974": {
+        "i": 9974,
+        "n": "Truesilver Breastplate"
+    },
+    "9979": {
+        "i": 9979,
+        "n": "Ornate Mithril Boots"
+    },
+    "9980": {
+        "i": 9980,
+        "n": "Ornate Mithril Helm"
     },
     "9983": {
         "i": 9983,
@@ -2338,5 +3410,17 @@
     "9987": {
         "i": 9987,
         "n": "Bronze Battle Axe"
+    },
+    "9993": {
+        "i": 9993,
+        "n": "Heavy Mithril Axe"
+    },
+    "9995": {
+        "i": 9995,
+        "n": "Blue Glittering Axe"
+    },
+    "9997": {
+        "i": 9997,
+        "n": "Wicked Mithril Blade"
     }
 }

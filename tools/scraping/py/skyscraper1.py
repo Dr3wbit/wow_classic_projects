@@ -10,7 +10,7 @@ from statistics import mean
 
 START_TIME = datetime.datetime.now()
 NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items4.js'))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items6.js'))
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 # if permissions error: chmod 755 path/to/chromedriver
@@ -19,22 +19,13 @@ iStart = datetime.datetime.now()
 
 
 def main():
-	# 1939
-	start = 4100
-	end = 4250
+	start = 6850
+	end = 7000
 	BASE_URL = "https://classicdb.ch/?item="
-	#item_numbers1 = ['10050', '15994', '15523']
-	#error_numbers = ['2996','2997']
-	#item_numbers2 = ["422", "11446", "2319", "2775"]
-	#item_numbers3 = ["422", "11446", "2319", "2775", "1168", "17082", "17104", "18835", "22194", "17620", "19019", '15772', '18984','10725','20076', "18564"]
-	# item_numbers = []
 
 	item_numbers = range(int(start), int(end))
 
-	Z = 0
 	iStart = datetime.datetime.now()
-	# print("\n=======================================")
-	# print('{:<15} {:<6}'.format('ITEMS', len(ALL_ITEMS)))
 
 	print("\n=======================================")
 	print('{:<22} {:<6} {:>4}s'.format('NAME', 'ITEM#', 'TIME'))
@@ -51,6 +42,7 @@ def main():
 			I = str(ix)
 			if I not in ALL_ITEMS.keys():
 				ALL_ITEMS[I] = {}
+				NEW['ITEMS'] += 1
 
 			tabs = driver.find_element(By.ID, "tabs-generic").find_elements(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[not(contains(text(),'Comments'))] and div[not(contains(text(), 'Screenshots'))]]")
 			for tab in tabs:
@@ -59,12 +51,10 @@ def main():
 
 
 			iStop = datetime.datetime.now()
-			NEW['ITEMS']+=1
+
 			# PREVIOUS = "t: {}sec".format(round((iStart - iFinish).total_seconds(), 2))
 			print('{:<8} {:>4}s'.format(I, round((iStop - iStart).total_seconds(), 2)))
 			# print("NEW ITEM {:<35} {:>10} {:<15} {:<11} - {:>25}".format(ALL_ITEMS[I]['n'], iii, cl,  const.NPCS[I]['type'], zone_name))
-
-			Z+=1
 
 		else:
 			# print('NOT FOUND: ({})'.format(ix))
@@ -75,14 +65,14 @@ def main():
 		# 	NEW['ERRORS'] += 1
 		# 	save_and_close()
 
+	save_and_close()
 
 def save_and_close():
-	with open(os.path.abspath('../js/items4.js'), 'w+') as f:
-		json.dump(ALL_ITEMS, f, indent=4, sort_keys=True)
+	with open(os.path.abspath('../js/items6.js'), 'w+') as f:
+		json.dump(ALL_ITEMS, f, indent=4)
 
-
-	with open(os.path.abspath('../js/itemsets.js'), 'w+') as f:
-		json.dump(const.ITEMSETS, f, indent=4)
+	with open(os.path.abspath('../js/ERRORS.js'), 'w+') as f:
+		json.dump(const.ALL_ERRORS, f, indent=4)
 
 	with open(os.path.abspath('../js/zones.js'), 'w+') as f:
 		json.dump(const.ZONES, f, indent=4)
@@ -96,8 +86,8 @@ def save_and_close():
 	with open(os.path.abspath('../js/factions.js'), 'w+') as f:
 		json.dump(const.FACTIONS, f, indent=4)
 
-	with open(os.path.abspath('../js/quests.js'), 'w+') as f:
-		json.dump(const.QUESTS, f, indent=4)
+	# with open(os.path.abspath('../js/quests.js'), 'w+') as f:
+	# 	json.dump(const.QUESTS, f, indent=4)
 
 	with open(os.path.abspath('../js/objects.js'), 'w+') as f:
 		json.dump(const.OBJECTS, f, indent=4)
@@ -248,48 +238,48 @@ def create_npc(ix, row, get_type=False):
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
 
 
-
-def create_quest(ix, name, row):
-	start = datetime.datetime.now()
-	fn = 'create_quest'
-	if ix not in const.QUESTS.keys():
-		const.QUESTS[ix] = {}
-		const.QUESTS[ix]['i'] = int(ix)
-		const.QUESTS[ix]['n'] = name
-
-		req_text = row.find_element(By.XPATH, "./td[3]").text
-		required_lvl = int(req_text) if req_text else 0
-
-		ilvl_list = row.find_element(By.XPATH, "./td[2]").text.split("\n")
-		ilvl = int(ilvl_list[0]) if ilvl_list[0] else (required_lvl+5)
-
-		if any(x in y for x in ilvl_list for y in ['Dungeon', 'Group']):
-			req = [x for x in ['Dungeon', 'Group'] if x in ilvl_list][0]
-			const.QUESTS[ix][req.lower()] = True
-
-		side_icon = row.find_element(By.XPATH, "./td[4]/span").get_attribute("class")
-		faction = ""
-		if side_icon:
-			if side_icon.startswith("alliance"):
-				faction = "A"
-			else:
-				faction = "H"
-
-		location = row.find_element(By.XPATH, "./td[last()]").text
-		if location:
-			const.QUESTS[ix]['zone'] = location
-
-		const.QUESTS[ix]['requirements'] = {"level": required_lvl}
-		const.QUESTS[ix]['ilvl'] = ilvl
-		if faction:
-			const.QUESTS[ix]['requirements']['faction'] = faction
-
-		NEW['QUESTS'] += 1
-		nnn = "{} (NEW)".format(const.QUESTS[ix]['n'])
-		print("QUEST: {:<35} {:>9} {:<25}".format(nnn, ilvl, location))
-
-	TOTAL_CALLS[fn] +=1
-	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
+#
+# def create_quest(ix, name, row):
+# 	start = datetime.datetime.now()
+# 	fn = 'create_quest'
+# 	if ix not in const.QUESTS.keys():
+# 		const.QUESTS[ix] = {}
+# 		const.QUESTS[ix]['i'] = int(ix)
+# 		const.QUESTS[ix]['n'] = name
+#
+# 		req_text = row.find_element(By.XPATH, "./td[3]").text
+# 		required_lvl = int(req_text) if req_text else 0
+#
+# 		ilvl_list = row.find_element(By.XPATH, "./td[2]").text.split("\n")
+# 		ilvl = int(ilvl_list[0]) if ilvl_list[0] else (required_lvl+5)
+#
+# 		if any(x in y for x in ilvl_list for y in ['Dungeon', 'Group']):
+# 			req = [x for x in ['Dungeon', 'Group'] if x in ilvl_list][0]
+# 			const.QUESTS[ix][req.lower()] = True
+#
+# 		side_icon = row.find_element(By.XPATH, "./td[4]/span").get_attribute("class")
+# 		faction = ""
+# 		if side_icon:
+# 			if side_icon.startswith("alliance"):
+# 				faction = "A"
+# 			else:
+# 				faction = "H"
+#
+# 		location = row.find_element(By.XPATH, "./td[last()]").text
+# 		if location:
+# 			const.QUESTS[ix]['zone'] = location
+#
+# 		const.QUESTS[ix]['requirements'] = {"level": required_lvl}
+# 		const.QUESTS[ix]['ilvl'] = ilvl
+# 		if faction:
+# 			const.QUESTS[ix]['requirements']['faction'] = faction
+#
+# 		NEW['QUESTS'] += 1
+# 		nnn = "{} (NEW)".format(const.QUESTS[ix]['n'])
+# 		print("QUEST: {:<35} {:>9} {:<25}".format(nnn, ilvl, location))
+#
+# 	TOTAL_CALLS[fn] +=1
+# 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
 
 def create_zone(ix, name):
 	start = datetime.datetime.now()
@@ -340,60 +330,7 @@ def create_spell(ix, name):
 		stop_watch('spell', name, ix)
 
 	TOTAL_CALLS['create_spell'] +=1
-
 	TOTAL_TIMES['create_spell'] += (datetime.datetime.now() - start)
-
-
-def create_itemset(id, name, lower_table):
-	start = datetime.datetime.now()
-	fn = 'create_itemset'
-	ix = str(id)
-	if ix not in const.ITEMSETS.keys():
-		NEW['ITEMSETS'] += 1
-
-		const.ITEMSETS[ix] = {}
-		const.ITEMSETS[ix]['n'] = name
-		const.ITEMSETS[ix]['i'] = int(ix)
-
-		# getting the item ids
-		elems = lower_table.find_elements(By.XPATH, "./div[@class='q0 indent']/span/a")
-		if len(elems) > 0:
-			regex = re.compile(r"item\=([\d]+)")
-			const.ITEMSETS[ix]['items'] = []
-			for elem in elems:
-				href = elem.get_attribute('href')
-				match = regex.search(href)
-				item_id = int(match.group(1))
-				const.ITEMSETS[ix]['items'].append(item_id)
-
-		# getting the bonuses
-		elems = lower_table.find_elements(By.XPATH, "./span[@class='q0']/span/span")
-		if len(elems) > 0:
-			const.ITEMSETS[ix]['bonuses'] = {}
-			for elem in elems:
-				text = elem.text
-				t, spell_id = text, 0
-				regex = re.compile(r"\((\d)\) Set\:")
-				matched = regex.search(elem.text)
-				if matched:
-					required_pieces = str(matched.group(1))
-					regex = re.compile(r"spell\=([\d]+)")
-					a_elem = elem.find_element(By.XPATH, './a')
-					href = a_elem.get_attribute('href')
-					match = regex.search(href)
-					spell_id = match.group(1)
-					t = a_elem.text
-					const.ITEMSETS[ix]['bonuses'][required_pieces] = {"s": spell_id, "t":t}
-
-				else:
-					match_fail_disclaimer('itemset bonus', text, regex)
-					continue
-
-		stop_watch('itemset', name, ix)
-
-	TOTAL_CALLS[fn] += 1
-	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
-
 
 
 #NOTE: need Skinned by, reward from, sold by
@@ -421,16 +358,16 @@ def tab_handler(_tab, I):
 		return
 	else:
 		# TAB_OPTIONS[tab_id]
-
 		if tab_id in const.drop_pick_skin_sold_calls:
-			if 'dropped' in tab_id:
+			if tab_id == "tab-dropped-by":
 				which = 'dropped'
-			elif 'sold' in tab_id:
+			elif tab_id == "tab-sold-by":
 				which = 'sold'
-			elif 'pick' in tab_id:
+			elif tab_id ==  "tab-pick-pocketed-from":
 				which = 'pickpocketed'
 			else:
 				which = 'skinned'
+
 			drop_pick_skin_sold(tab, I, which)
 
 		elif tab_id in const.contained_or_gathered_calls:
@@ -442,7 +379,7 @@ def tab_handler(_tab, I):
 					i_or_o = 'item'
 					xpath = "./td[1]/div/a"
 
-			elif 'gathered' in tab_id:
+			elif tab_id == "tab-gathered-from-object":
 				which = 'gathered'
 			else:
 				which = 'mined'
@@ -450,9 +387,9 @@ def tab_handler(_tab, I):
 			contained_or_gathered(tab, I, which, i_or_o, xpath)
 
 		elif tab_id in const.reward_from_calls:
-			if 'reward' in tab_id:
+			if tab_id == "tab-reward-of":
 				which = 'reward_from'
-			elif 'objective' in tab_id:
+			elif tab_id == "tab-objective-of":
 				which = 'objective'
 			else:
 				which = 'provided_for'
@@ -465,9 +402,19 @@ def tab_handler(_tab, I):
 		elif tab_id == 'tab-reagent-for':
 			reagant_for(tab, I)
 
-		elif tab_id=='tab-created-by':
-			created_by(tab, I)
+		# elif tab_id=='tab-created-by':
+		# 	created_by(tab, I)
+
+		# expected: tab-currency-for, tab-created-by, tab-fished-in
 		else:
+			if tab_id not in const.ALL_ERRORS["missing_tabs"].keys():
+				const.ALL_ERRORS["missing_tabs"][tab_id] = {}
+				const.ALL_ERRORS["missing_tabs"][tab_id]['count'] = 0
+				const.ALL_ERRORS["missing_tabs"][tab_id]['i'] = []
+
+			const.ALL_ERRORS["missing_tabs"][tab_id]['count'] += 1
+			const.ALL_ERRORS["missing_tabs"][tab_id]['i'].append(int(I))
+
 			print('** NO TAB MATCH FOUND FOR: {}'.format(tab_id))
 	# except:
 	# 	print('ERROR in {} {}'.format(fn, I))
@@ -496,10 +443,10 @@ def reward_from(tab, I, which):
 	trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
 	for row in trs:
 		quest_link = row.find_element(By.XPATH, "./td[1]/a")
-		quest_name = quest_link.text
+		# quest_name = quest_link.text
 		quest_ix = re.search(r"\?quest\=([\d]+)", quest_link.get_attribute('href')).group(1)
-		if quest_ix not in const.QUESTS.keys():
-			create_quest(quest_ix, quest_name, row)
+		# if quest_ix not in const.QUESTS.keys():
+			# create_quest(quest_ix, quest_name, row)
 		#else:
 			#iii = "({})".format(quest_ix)
 			#nnn = const.QUESTS[quest_ix]['n']

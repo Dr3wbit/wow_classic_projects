@@ -128,6 +128,38 @@
         },
         "ilvl": 10
     },
+    "1100": {
+        "i": 1100,
+        "n": "Lonebrow's Journal",
+        "group": true,
+        "zone": "Thousand Needles",
+        "requirements": {
+            "level": 29,
+            "faction": "A"
+        },
+        "ilvl": 34
+    },
+    "1101": {
+        "i": 1101,
+        "n": "The Crone of the Kraul",
+        "dungeon": true,
+        "zone": "Razorfen Kraul",
+        "requirements": {
+            "level": 29,
+            "faction": "A"
+        },
+        "ilvl": 34
+    },
+    "1102": {
+        "i": 1102,
+        "n": "A Vengeful Fate",
+        "dungeon": true,
+        "zone": "Razorfen Kraul",
+        "requirements": {
+            "level": 29
+        },
+        "ilvl": 34
+    },
     "112": {
         "i": 112,
         "n": "Collecting Kelp",
@@ -138,6 +170,15 @@
         },
         "ilvl": 7
     },
+    "1127": {
+        "i": 1127,
+        "n": "Fool's Stout",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 35
+        },
+        "ilvl": 44
+    },
     "114": {
         "i": 114,
         "ilvl": 7,
@@ -147,6 +188,16 @@
             "level": 5
         },
         "zone": "Elwynn Forest"
+    },
+    "1148": {
+        "i": 1148,
+        "n": "Parts of the Swarm",
+        "zone": "Thousand Needles",
+        "requirements": {
+            "level": 28,
+            "faction": "H"
+        },
+        "ilvl": 35
     },
     "115": {
         "i": 115,
@@ -285,6 +336,16 @@
         },
         "ilvl": 21
     },
+    "1288": {
+        "i": 1288,
+        "n": "Vimes's Report",
+        "zone": "Dustwallow Marsh",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 38
+    },
     "131": {
         "i": 131,
         "n": "Delivering Daffodils",
@@ -344,6 +405,15 @@
         },
         "ilvl": 35
     },
+    "1392": {
+        "i": 1392,
+        "n": "Noboru the Cudgel",
+        "zone": "Swamp of Sorrows",
+        "requirements": {
+            "level": 29
+        },
+        "ilvl": 39
+    },
     "14": {
         "i": 14,
         "n": "The People's Militia",
@@ -362,6 +432,16 @@
             "level": 10
         },
         "ilvl": 16
+    },
+    "1423": {
+        "i": 1423,
+        "n": "The Lost Supplies",
+        "zone": "Swamp of Sorrows",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 40
     },
     "143": {
         "i": 143,
@@ -433,6 +513,16 @@
             "faction": "A"
         },
         "ilvl": 50
+    },
+    "1480": {
+        "i": 1480,
+        "n": "The Corrupter",
+        "zone": "Desolace",
+        "requirements": {
+            "level": 25,
+            "faction": "H"
+        },
+        "ilvl": 33
     },
     "1486": {
         "i": 1486,
@@ -603,6 +693,16 @@
         },
         "zone": "Duskwood"
     },
+    "1642": {
+        "i": 1642,
+        "n": "The Tome of Divinity",
+        "zone": "Paladin",
+        "requirements": {
+            "level": 12,
+            "faction": "A"
+        },
+        "ilvl": 12
+    },
     "1644": {
         "i": 1644,
         "n": "The Tome of Divinity",
@@ -613,6 +713,16 @@
         },
         "ilvl": 13
     },
+    "1646": {
+        "i": 1646,
+        "n": "The Tome of Divinity",
+        "zone": "Paladin",
+        "requirements": {
+            "level": 12,
+            "faction": "A"
+        },
+        "ilvl": 12
+    },
     "1648": {
         "i": 1648,
         "n": "The Tome of Divinity",
@@ -622,6 +732,16 @@
             "faction": "A"
         },
         "ilvl": 13
+    },
+    "1649": {
+        "i": 1649,
+        "n": "The Tome of Valor",
+        "zone": "Paladin",
+        "requirements": {
+            "level": 20,
+            "faction": "A"
+        },
+        "ilvl": 20
     },
     "1656": {
         "i": 1656,
@@ -774,6 +894,15 @@
         },
         "zone": "Westfall"
     },
+    "188": {
+        "i": 188,
+        "n": "Tiger Mastery",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 28
+        },
+        "ilvl": 37
+    },
     "189": {
         "i": 189,
         "n": "Bloodscalp Ears",
@@ -804,6 +933,16 @@
         },
         "ilvl": 15
     },
+    "193": {
+        "i": 193,
+        "n": "Panther Mastery",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 28
+        },
+        "ilvl": 40
+    },
     "1948": {
         "i": 1948,
         "n": "Items of Power",
@@ -822,6 +961,16 @@
             "faction": "H"
         },
         "ilvl": 15
+    },
+    "197": {
+        "i": 197,
+        "n": "Raptor Mastery",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 28
+        },
+        "ilvl": 43
     },
     "198": {
         "i": 198,
@@ -853,6 +1002,17 @@
         },
         "ilvl": 21
     },
+    "202": {
+        "i": 202,
+        "n": "Colonel Kurzen",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 40
+    },
     "204": {
         "i": 204,
         "n": "Bad Medicine",
@@ -872,6 +1032,17 @@
             "faction": "A"
         },
         "ilvl": 40
+    },
+    "206": {
+        "i": 206,
+        "n": "Mai'Zoth",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 46
     },
     "207": {
         "i": 207,
@@ -902,6 +1073,16 @@
         },
         "ilvl": 5
     },
+    "210": {
+        "i": 210,
+        "n": "Krazek's Cookery",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 32,
+            "faction": "A"
+        },
+        "ilvl": 37
+    },
     "212": {
         "i": 212,
         "n": "A Meal Served Cold",
@@ -911,6 +1092,15 @@
             "faction": "A"
         },
         "ilvl": 40
+    },
+    "213": {
+        "i": 213,
+        "n": "Hostile Takeover",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 31
+        },
+        "ilvl": 36
     },
     "214": {
         "i": 214,
@@ -991,6 +1181,17 @@
             "faction": "A"
         },
         "ilvl": 25
+    },
+    "2198": {
+        "i": 2198,
+        "n": "The Shattered Necklace",
+        "dungeon": true,
+        "zone": "Uldaman",
+        "requirements": {
+            "level": 37,
+            "faction": "A"
+        },
+        "ilvl": 41
     },
     "2199": {
         "i": 2199,
@@ -1307,6 +1508,15 @@
         "i": 2761,
         "n": "Smelt On, Smelt Off",
         "zone": "Blacksmithing",
+        "requirements": {
+            "level": 40
+        },
+        "ilvl": 45
+    },
+    "2766": {
+        "i": 2766,
+        "n": "Find OOX-22/FE!",
+        "zone": "Feralas",
         "requirements": {
             "level": 40
         },
@@ -1635,6 +1845,17 @@
         },
         "ilvl": 6
     },
+    "3181": {
+        "i": 3181,
+        "n": "The Horn of the Beast",
+        "group": true,
+        "zone": "Searing Gorge",
+        "requirements": {
+            "level": 40,
+            "faction": "A"
+        },
+        "ilvl": 48
+    },
     "320": {
         "i": 320,
         "n": "Return to Bellowfiz",
@@ -1713,6 +1934,16 @@
         },
         "zone": "Northshire Abbey (Elwynn Forest)"
     },
+    "331": {
+        "i": 331,
+        "n": "Report to Doren",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 37
+    },
     "332": {
         "i": 332,
         "n": "Wine Shop Advert",
@@ -1772,6 +2003,25 @@
             "faction": "A"
         },
         "ilvl": 25
+    },
+    "3373": {
+        "i": 3373,
+        "n": "The Essence of Eranikus",
+        "dungeon": true,
+        "zone": "Sunken Temple",
+        "requirements": {
+            "level": 48
+        },
+        "ilvl": 55
+    },
+    "3374": {
+        "i": 3374,
+        "n": "The Essence of Eranikus",
+        "zone": "Swamp of Sorrows",
+        "requirements": {
+            "level": 48
+        },
+        "ilvl": 55
     },
     "3375": {
         "i": 3375,
@@ -1867,6 +2117,16 @@
         },
         "ilvl": 45
     },
+    "3482": {
+        "i": 3482,
+        "n": "The Pocked Black Box",
+        "zone": "Badlands",
+        "requirements": {
+            "level": 30,
+            "faction": "H"
+        },
+        "ilvl": 40
+    },
     "349": {
         "i": 349,
         "n": "Stranglethorn Fever",
@@ -1875,6 +2135,25 @@
             "level": 32
         },
         "ilvl": 35
+    },
+    "351": {
+        "i": 351,
+        "n": "Find OOX-17/TN!",
+        "zone": "Tanaris",
+        "requirements": {
+            "level": 43
+        },
+        "ilvl": 48
+    },
+    "3513": {
+        "i": 3513,
+        "n": "The Runed Scroll",
+        "zone": "The Barrens",
+        "requirements": {
+            "level": 15,
+            "faction": "H"
+        },
+        "ilvl": 25
     },
     "353": {
         "i": 353,
@@ -2751,6 +3030,35 @@
         },
         "ilvl": 14
     },
+    "485": {
+        "i": 485,
+        "n": "Find OOX-09/HL!",
+        "zone": "The Hinterlands",
+        "requirements": {
+            "level": 43
+        },
+        "ilvl": 48
+    },
+    "4881": {
+        "i": 4881,
+        "n": "Assassination Plot",
+        "zone": "Thousand Needles",
+        "requirements": {
+            "level": 23,
+            "faction": "H"
+        },
+        "ilvl": 28
+    },
+    "4882": {
+        "i": 4882,
+        "n": "Guarding Secrets",
+        "zone": "Winterspring",
+        "requirements": {
+            "level": 52,
+            "faction": "H"
+        },
+        "ilvl": 59
+    },
     "49": {
         "i": 49,
         "n": "Sweet Amber",
@@ -2760,6 +3068,16 @@
             "faction": "A"
         },
         "ilvl": 44
+    },
+    "4903": {
+        "i": 4903,
+        "n": "Warlord's Command",
+        "dungeon": true,
+        "zone": "Blackrock Spire",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
     },
     "491": {
         "i": 491,
@@ -2838,6 +3156,26 @@
         },
         "ilvl": 40
     },
+    "5083": {
+        "i": 5083,
+        "n": "Winterfall Firewater",
+        "zone": "Winterspring",
+        "requirements": {
+            "level": 52
+        },
+        "ilvl": 56
+    },
+    "5089": {
+        "i": 5089,
+        "n": "General Drakkisath's Command",
+        "dungeon": true,
+        "zone": "Blackrock Spire",
+        "requirements": {
+            "level": 55,
+            "faction": "A"
+        },
+        "ilvl": 60
+    },
     "509": {
         "i": 509,
         "n": "Elixir of Agony",
@@ -2867,6 +3205,15 @@
             "faction": "A"
         },
         "ilvl": 34
+    },
+    "5123": {
+        "i": 5123,
+        "n": "The Final Piece",
+        "zone": "Winterspring",
+        "requirements": {
+            "level": 52
+        },
+        "ilvl": 59
     },
     "513": {
         "i": 513,
@@ -3006,6 +3353,16 @@
         },
         "ilvl": 40
     },
+    "569": {
+        "i": 569,
+        "n": "The Defense of Grom'gol",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 33,
+            "faction": "H"
+        },
+        "ilvl": 37
+    },
     "573": {
         "i": 573,
         "n": "Mok'thardin's Enchantment",
@@ -3015,6 +3372,33 @@
             "faction": "H"
         },
         "ilvl": 44
+    },
+    "575": {
+        "i": 575,
+        "n": "Supply and Demand",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 26
+        },
+        "ilvl": 31
+    },
+    "576": {
+        "i": 576,
+        "n": "Keep An Eye Out",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 37
+        },
+        "ilvl": 42
+    },
+    "577": {
+        "i": 577,
+        "n": "Some Assembly Required",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 31
+        },
+        "ilvl": 36
     },
     "579": {
         "i": 579,
@@ -3056,6 +3440,45 @@
         },
         "ilvl": 10
     },
+    "592": {
+        "i": 592,
+        "n": "Saving Yenniku",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30,
+            "faction": "H"
+        },
+        "ilvl": 46
+    },
+    "594": {
+        "i": 594,
+        "n": "Message in a Bottle",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 45
+    },
+    "596": {
+        "i": 596,
+        "n": "Bloody Bone Necklaces",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30,
+            "faction": "H"
+        },
+        "ilvl": 37
+    },
+    "598": {
+        "i": 598,
+        "n": "Split Bone Necklace",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30,
+            "faction": "H"
+        },
+        "ilvl": 42
+    },
     "6": {
         "i": 6,
         "ilvl": 5,
@@ -3076,6 +3499,24 @@
         },
         "ilvl": 7
     },
+    "600": {
+        "i": 600,
+        "n": "Venture Company Mining",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30
+        },
+        "ilvl": 41
+    },
+    "608": {
+        "i": 608,
+        "n": "The Bloodsail Buccaneers",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 37
+        },
+        "ilvl": 45
+    },
     "61": {
         "i": 61,
         "n": "Shipment to Stormwind",
@@ -3085,6 +3526,27 @@
             "faction": "A"
         },
         "ilvl": 7
+    },
+    "610": {
+        "i": 610,
+        "n": "\"Pretty Boy\" Duncan",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 32,
+            "faction": "A"
+        },
+        "ilvl": 39
+    },
+    "611": {
+        "i": 611,
+        "n": "The Curse of the Tides",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 32,
+            "faction": "A"
+        },
+        "ilvl": 40
     },
     "6123": {
         "i": 6123,
@@ -3106,6 +3568,45 @@
         },
         "ilvl": 14
     },
+    "613": {
+        "i": 613,
+        "n": "Cracking Maury's Foot",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30
+        },
+        "ilvl": 44
+    },
+    "617": {
+        "i": 617,
+        "n": "Akiris by the Bundle",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 38
+        },
+        "ilvl": 43
+    },
+    "618": {
+        "i": 618,
+        "n": "Facing Negolash",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 35,
+            "faction": "A"
+        },
+        "ilvl": 50
+    },
+    "621": {
+        "i": 621,
+        "n": "Zanzil's Secret",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 35
+        },
+        "ilvl": 44
+    },
     "622": {
         "i": 622,
         "ilvl": 37,
@@ -3115,6 +3616,56 @@
             "level": 32
         },
         "zone": "Stranglethorn Vale"
+    },
+    "623": {
+        "i": 623,
+        "n": "Akiris by the Bundle",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 38,
+            "faction": "A"
+        },
+        "ilvl": 43
+    },
+    "624": {
+        "i": 624,
+        "n": "Cortello's Riddle",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 35
+        },
+        "ilvl": 43
+    },
+    "628": {
+        "i": 628,
+        "n": "Excelsior",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 31
+        },
+        "ilvl": 38
+    },
+    "629": {
+        "i": 629,
+        "n": "The Vile Reef",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 30,
+            "faction": "H"
+        },
+        "ilvl": 37
+    },
+    "630": {
+        "i": 630,
+        "n": "Message in a Bottle",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 51
     },
     "64": {
         "i": 64,
@@ -3136,6 +3687,16 @@
             "faction": "H"
         },
         "ilvl": 20
+    },
+    "654": {
+        "i": 654,
+        "n": "Tanaris Field Sampling",
+        "zone": "Tanaris",
+        "requirements": {
+            "level": 38,
+            "faction": "H"
+        },
+        "ilvl": 46
     },
     "68": {
         "i": 68,
@@ -3177,6 +3738,15 @@
         },
         "ilvl": 60
     },
+    "6981": {
+        "i": 6981,
+        "n": "The Glowing Shard",
+        "zone": "Wailing Caverns",
+        "requirements": {
+            "level": 15
+        },
+        "ilvl": 26
+    },
     "70": {
         "i": 70,
         "n": "The Legend of Stalvan",
@@ -3196,6 +3766,16 @@
             "faction": "A"
         },
         "ilvl": 60
+    },
+    "705": {
+        "i": 705,
+        "n": "Pearl Diving",
+        "group": true,
+        "zone": "Badlands",
+        "requirements": {
+            "level": 30
+        },
+        "ilvl": 37
     },
     "71": {
         "i": 71,
@@ -3538,6 +4118,15 @@
         },
         "ilvl": 60
     },
+    "8242": {
+        "i": 8242,
+        "n": "Restoring Fiery Flux Supplies via Heavy Leather",
+        "zone": "Searing Gorge",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 60
+    },
     "8246": {
         "i": 8246,
         "ilvl": 60,
@@ -3730,6 +4319,35 @@
         },
         "ilvl": 60
     },
+    "8554": {
+        "i": 8554,
+        "n": "Facing Negolash",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 35,
+            "faction": "H"
+        },
+        "ilvl": 50
+    },
+    "8588": {
+        "i": 8588,
+        "n": "The Horde Needs Heavy Leather!",
+        "zone": "Ahn'Qiraj War",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "8589": {
+        "i": 8589,
+        "n": "The Horde Needs More Heavy Leather!",
+        "zone": "Ahn'Qiraj War",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
     "86": {
         "i": 86,
         "n": "Pie for Billy",
@@ -3787,6 +4405,36 @@
         },
         "ilvl": 60
     },
+    "883": {
+        "i": 883,
+        "n": "Lakota'mani",
+        "zone": "The Barrens",
+        "requirements": {
+            "level": 10,
+            "faction": "H"
+        },
+        "ilvl": 22
+    },
+    "884": {
+        "i": 884,
+        "n": "Owatanka",
+        "zone": "The Barrens",
+        "requirements": {
+            "level": 10,
+            "faction": "H"
+        },
+        "ilvl": 24
+    },
+    "885": {
+        "i": 885,
+        "n": "Washte Pawne",
+        "zone": "The Barrens",
+        "requirements": {
+            "level": 10,
+            "faction": "H"
+        },
+        "ilvl": 25
+    },
     "89": {
         "i": 89,
         "n": "The Everstill Bridge",
@@ -3796,6 +4444,16 @@
             "faction": "A"
         },
         "ilvl": 20
+    },
+    "897": {
+        "i": 897,
+        "n": "The Harvester",
+        "zone": "The Barrens",
+        "requirements": {
+            "level": 10,
+            "faction": "H"
+        },
+        "ilvl": 24
     },
     "9": {
         "i": 9,
@@ -3864,6 +4522,15 @@
         },
         "ilvl": 60
     },
+    "927": {
+        "i": 927,
+        "n": "The Moss-twined Heart",
+        "zone": "Teldrassil",
+        "requirements": {
+            "level": 5
+        },
+        "ilvl": 12
+    },
     "93": {
         "i": 93,
         "n": "Dusky Crab Cakes",
@@ -3893,6 +4560,15 @@
         },
         "ilvl": 21
     },
+    "968": {
+        "i": 968,
+        "n": "The Powers Below",
+        "zone": "Darkshore",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 20
+    },
     "98": {
         "i": 98,
         "n": "The Legend of Stalvan",
@@ -3912,5 +4588,44 @@
             "level": 9
         },
         "ilvl": 15
+    },
+    "5202": {
+        "i": 5202,
+        "n": "A Strange Red Key",
+        "zone": "Felwood",
+        "requirements": {
+            "level": 49
+        },
+        "ilvl": 55
+    },
+    "5262": {
+        "i": 5262,
+        "n": "The Truth Comes Crashing Down",
+        "dungeon": true,
+        "zone": "Stratholme",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "5541": {
+        "i": 5541,
+        "n": "Ammo for Rumbleshot",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 5,
+            "faction": "A"
+        },
+        "ilvl": 6
+    },
+    "5582": {
+        "i": 5582,
+        "n": "Healthy Dragon Scale",
+        "dungeon": true,
+        "zone": "Scholomance",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 58
     }
 }

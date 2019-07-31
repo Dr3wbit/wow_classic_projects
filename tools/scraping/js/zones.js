@@ -147,6 +147,10 @@
         "i": 28,
         "n": "Western Plaguelands"
     },
+    "2877": {
+        "i": 2877,
+        "n": "undefined"
+    },
     "3": {
         "i": 3,
         "n": "Badlands"

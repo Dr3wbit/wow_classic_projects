@@ -11,7 +11,6 @@ from statistics import mean
 START_TIME = datetime.datetime.now()
 
 NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items8.js'))
 
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
@@ -19,15 +18,15 @@ TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 iStart = datetime.datetime.now()
 
+prefix = int(input("Enter starting number from 1-22: "))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items{}.js'.format(prefix)))
 
 def main():
-	start = 8500
-	end = 9000
+	start = prefix*1000
+	end = (prefix+1)*1000
 	BASE_URL="https://classicdb.ch/?item="
 
 	item_numbers = range(int(start), int(end))
-
-	Z = 0
 	iStart = datetime.datetime.now()
 
 	print("\n=======================================")
@@ -45,9 +44,7 @@ def main():
 			I = str(ix)
 
 			ALL_ITEMS[I] = {}
-
 			ALL_ITEMS[I]['i'] = int(ix)
-
 			tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1]
 			tables = tooltip.find_elements(By.XPATH, "./table/tbody/tr/td/table")
 
@@ -104,7 +101,7 @@ def main():
 				upper_items.pop(i)
 
 				if check_element_exists_by_id("tab-starts"):
-					ALL_ITEMS[I]['starts'] = starts_quest()
+					ALL_ITEMS[I]['starts'] = starts_quest(I)
 
 			if any(x for x in upper_items if 'Slot Bag' in x):
 				ALL_ITEMS[I]['slot'] = 'Bag'
@@ -140,31 +137,24 @@ def main():
 					upper_items[i] = re.sub(match.group(0), '', upper_items[i]).strip()
 					ALL_ITEMS[I]['speed'] = float(match.group(1))
 
-			ALL_ITEMS[I] = extract_stats(upper_items, ALL_ITEMS[I])
+			ALL_ITEMS[I] = extract_stats(upper_items, ALL_ITEMS[I], I)
 
 			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
-			ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table)
+			ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table, I)
 
+			if check_element_exists_by_id("tab-created-by"):
+				driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
+				tab = driver.find_element(By.ID, "tab-created-by")
+				created_by(tab, I)
 
 			iStop = datetime.datetime.now()
 			NEW['ITEMS']+=1
-			# PREVIOUS = "t: {}sec".format(round((iStart - iFinish).total_seconds(), 2))
 			iii = "({})".format(ALL_ITEMS[I]['i'])
 			nnn = "\n{} (NEW) ".format(ALL_ITEMS[I]['n'])
 			print('{:<33} {:<8} {:>4}s'.format(nnn, iii, round((iStop - iStart).total_seconds(), 2)))
-			# print("NEW ITEM {:<35} {:>10} {:<15} {:<11} - {:>25}".format(ALL_ITEMS[I]['n'], iii, cl,  const.NPCS[I]['type'], zone_name))
 
-			Z+=1
-
-
-	# no item found
-		# except:
-		# 	print('ERROR AT ITEM ({})'.format(ix))
-		# 	E+=1
-		# 	continue
 
 		else:
-			# print('NOT FOUND: ({})'.format(ix))
 			NEW['MISSING'] += 1
 			continue
 
@@ -172,13 +162,18 @@ def main():
 
 def save_and_close():
 
-	with open(os.path.abspath('../js/items8.js'), 'w+') as f:
-		json.dump(ALL_ITEMS, f, indent=4, sort_keys=True)
+	with open(os.path.abspath('../js/items{}.js'.format(prefix)), 'w+') as f:
+		json.dump(ALL_ITEMS, f, indent=4)
 
 	with open(os.path.abspath('image_list.txt'), 'w+') as f:
 		for name in const.ALL_IMAGES:
 			f.write(name+"\n")
 
+	with open(os.path.abspath('../js/ERRORS_p2.js'), 'w+') as f:
+		json.dump(const.ALL_ERRORS, f, indent=4)
+
+	with open(os.path.abspath('../js/quests.js'), 'w+') as f:
+		json.dump(const.QUESTS, f, indent=4)
 
 	T = datetime.datetime.now() - START_TIME
 	print('==============\nTIME ELAPSED: {}\nMISSING ITEMS: ({})\nERRORS: ({})\n'.format(str(T), NEW['MISSING'], NEW['ERRORS']))
@@ -230,8 +225,8 @@ def save_and_close():
 
 	driver.close()
 
-def starts_quest():
-	q = 0
+def starts_quest(I):
+	qid = 0
 	driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Starts')]]").click()
 	tab = driver.find_element(By.ID, "tab-starts")
 	row = tab.find_element(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
@@ -239,30 +234,67 @@ def starts_quest():
 	href = quest_link.get_attribute('href')
 	regex = re.compile(r"\?quest\=([\d]+)")
 	match = regex.search(href)
+	quest_name = quest_link.text
+
 	if match:
-		q = int(match.group(1))
+		qid = int(match.group(1))
+		if qid not in const.QUESTS.keys():
+			quest = create_quest(qid, quest_name, row)
+		else:
+			quest = const.QUESTS[qid]
 
-	return q
+		ALL_ITEMS[I]['ilvl'] = quest['ilvl']
+		if 'requirements' not in ALL_ITEMS[I].keys():
+			ALL_ITEMS[I]['requirements'] = {}
 
-def get_mats(row):
-	start = datetime.datetime.now()
+		for k,v in quest['requirements'].items():
+
+			ALL_ITEMS[I]['requirements'][k] = v
+	else:
+		print("NO MATCH FOR QUEST FOUND in starts_quest({})".format(I))
+		if "missing_quests" not in const.ALL_ERRORS.keys():
+
+			const.ALL_ERRORS["missing_quests"] = {}
+			const.ALL_ERRORS["missing_quests"]['count'] = 0
+			const.ALL_ERRORS["missing_quests"]['i'] = []
+
+		const.ALL_ERRORS["missing_quests"]['count'] += 1
+		const.ALL_ERRORS["missing_quests"]['i'].append(I)
+
+	return qid
+
+def get_mats(row, ix):
 	materials = {}
-	mat_icons = row.find_elements(By.XPATH, "./td[3]/div/div[@class='iconmedium']")
-	for mat in mat_icons:
-		mat_link = mat.find_element(By.TAG_NAME, "a")
-		mat_href = mat_link.get_attribute('href')
+	start = datetime.datetime.now()
+	try:
+		mat_icons = row.find_elements(By.XPATH, "./td[3]/div/div[@class='iconmedium']")
+		for mat in mat_icons:
+			mat_link = mat.find_element(By.TAG_NAME, "a")
+			mat_href = mat_link.get_attribute('href')
 
-		m = re.search(r"\?item=([\d]+)", mat_href)
-		mat_ix = str(m.group(1))
-		v = 1 if not mat_link.get_attribute('rel') else int(mat_link.get_attribute('rel'))
-		materials[mat_ix] = v
+			m = re.search(r"\?item=([\d]+)", mat_href)
+			mat_ix = str(m.group(1))
+			v = 1 if not mat_link.get_attribute('rel') else int(mat_link.get_attribute('rel'))
+			materials[mat_ix] = v
 
-	TOTAL_CALLS['get_mats'] +=1
-	TOTAL_TIMES['get_mats'] += (datetime.datetime.now() - start)
+		TOTAL_CALLS['get_mats'] +=1
+		TOTAL_TIMES['get_mats'] += (datetime.datetime.now() - start)
+		print("GOT MATERIALS FOR ({})".format(ix))
+
+	except:
+		print("UNABLE TO FIND MATERIALS FOR ({})".format())
+		if 'materials' not in const.ALL_ERRORS.keys():
+			const.ALL_ERRORS['materials'] = {}
+			const.ALL_ERRORS['materials']['count'] = 0
+			const.ALL_ERRORS['materials']['i'] = []
+
+		const.ALL_ERRORS['materials']['count'] += 0
+		const.ALL_ERRORS['materials']['i'].append(int(ix))
+
 	return materials
 
 
-def get_lowboys(item_dict, table):
+def get_lowboys(item_dict, table, ix):
 	start = datetime.datetime.now()
 	fn = 'get_lowboys'
 	spans = table.find_elements(By.XPATH, "./span")
@@ -340,7 +372,7 @@ def get_lowboys(item_dict, table):
 			else:
 				continue
 
-		elif text is ("Random Bonuses"):
+		elif text == "Random Bonuses":
 			if 'stats' not in item_dict.keys():
 				item_dict['stats'] = {}
 
@@ -357,13 +389,21 @@ def get_lowboys(item_dict, table):
 
 		else:
 			print("NO MATCH FOUND FOR {} in LOWBOYS".format(text))
+			if 'lowboys' not in const.ALL_ERRORS.keys():
+				const.ALL_ERRORS['lowboys'] = {}
+
+			if text not in const.ALL_ERRORS['lowboys'].keys():
+				const.ALL_ERRORS['lowboys'][text] = {}
+				const.ALL_ERRORS['lowboys'][text]['count'] = 0
+				const.ALL_ERRORS['lowboys'][text]['i'] = []
+
+			const.ALL_ERRORS['lowboys'][text]['count'] += 1
+			const.ALL_ERRORS['lowboys'][text]['i'].append(ix)
 
 
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
 	TOTAL_CALLS[fn] +=1
 	return item_dict
-
-
 
 
 def create_quest(ix, name, row):
@@ -405,6 +445,8 @@ def create_quest(ix, name, row):
 		nnn = "{} (NEW)".format(const.QUESTS[ix]['n'])
 		print("QUEST: {:<35} {:>9} {:<25}".format(nnn, ilvl, location))
 
+	return const.QUESTS[ix]
+
 	TOTAL_CALLS[fn] +=1
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
 
@@ -430,35 +472,20 @@ def stop_watch(what, name, ix):
 	print("{:<10} {:<35} {:>10}".format(www, nnn, iii))
 	TOTAL_TIMES['stop_watch'] += (datetime.datetime.now() - start)
 
-def create_object(ix, name):
-	start = datetime.datetime.now()
-	if ix not in const.OBJECTS.keys():
-
-		const.OBJECTS[ix] = {}
-		const.OBJECTS[ix]['i'] = int(ix)
-		const.OBJECTS[ix]['n'] = name
-		NEW['OBJECTS'] += 1
-
-		stop_watch('object', name, ix)
-
-	TOTAL_CALLS['create_object'] +=1
-
-	TOTAL_TIMES['create_object'] += (datetime.datetime.now() - start)
-
-
-def create_spell(ix, name):
-	start = datetime.datetime.now()
-	if ix not in const.SPELLS.keys():
-
-		const.SPELLS[ix] = {}
-		const.SPELLS[ix]['i'] = int(ix)
-		const.SPELLS[ix]['n'] = name
-		NEW['SPELLS'] += 1
-		stop_watch('spell', name, ix)
-
-	TOTAL_CALLS['create_spell'] +=1
-
-	TOTAL_TIMES['create_spell'] += (datetime.datetime.now() - start)
+#
+# def create_spell(ix, name):
+# 	start = datetime.datetime.now()
+# 	if ix not in const.SPELLS.keys():
+#
+# 		const.SPELLS[ix] = {}
+# 		const.SPELLS[ix]['i'] = int(ix)
+# 		const.SPELLS[ix]['n'] = name
+# 		NEW['SPELLS'] += 1
+# 		stop_watch('spell', name, ix)
+#
+# 	TOTAL_CALLS['create_spell'] +=1
+#
+# 	TOTAL_TIMES['create_spell'] += (datetime.datetime.now() - start)
 
 
 def create_itemset(id, name, lower_table):
@@ -512,7 +539,7 @@ def create_itemset(id, name, lower_table):
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
 
 # attempts to get armor, stats, damage, resists, and durability
-def extract_stats(items, item_dict):
+def extract_stats(items, item_dict, I):
 	start = datetime.datetime.now()
 	fn = 'extract_stats'
 	for item in items:
@@ -709,6 +736,14 @@ def extract_stats(items, item_dict):
 
 		else:
 			print('NO MATCHES FOUND FOR: {}'.format(item))
+			if 'extract_stats' not in const.ALL_ERRORS.keys():
+				const.ALL_ERRORS['extract_stats'] = {}
+
+			if item not in const.ALL_ERRORS['extract_stats'].keys():
+				const.ALL_ERRORS['extract_stats'][item] = {}
+				const.ALL_ERRORS['extract_stats'][item]['i'] = []
+
+			const.ALL_ERRORS['extract_stats'][item]['i'].append(int(I))
 			continue
 
 
@@ -721,25 +756,36 @@ def created_by(tab, I):
 	start = datetime.datetime.now()
 	fn = 'created_by'
 	trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
+
+	if len(trs) > 1:
+		print("MULTIPLE ROWS FOUND IN CREATED_BY for ({})".format(I))
+		if 'created_by' not in const.ALL_ERRORS.keys():
+			const.ALL_ERRORS['created_by'] = {}
+
+		if 'multiple_choices' not in const.ALL_ERRORS['created_by'].keys():
+			const.ALL_ERRORS['created_by']['multiple_choices'] = {}
+			const.ALL_ERRORS['created_by']['multiple_choices']['i'] = []
+
+		const.ALL_ERRORS['created_by']['multiple_choices']['i'].append(int(I))
+
+
 	for row in trs:
-		spell_link = row.find_element(By.XPATH, "./td[2]/div/a")
-		spell_href = spell_link.get_attribute('href')
-		m = re.search(r"\?spell=([\d]+)", spell_href)
-		spell_ix = str(m.group(1))
-		spell_name = spell_link.text
+		# spell_link = row.find_element(By.XPATH, "./td[2]/div/a")
+		# spell_href = spell_link.get_attribute('href')
+		# m = re.search(r"\?spell=([\d]+)", spell_href)
+		# spell_ix = str(m.group(1))
+		# spell_name = spell_link.text
 
-		if spell_ix not in const.SPELLS.keys():
-
-			create_spell(spell_ix, spell_name)
+		# if spell_ix not in const.SPELLS.keys():
+		# 	create_spell(spell_ix, spell_name)
 
 		if 'created_by' not in ALL_ITEMS[I].keys():
 			ALL_ITEMS[I]['created_by'] = {}
-
 			skill_td = row.find_element(By.XPATH, "./td[last()]")
-
 			if check_element_exists_by_css(skill_td, "div.small"):
 
 				prof_text = skill_td.find_element(By.XPATH, "./div[1][@class='small']").text
+				ALL_ITEMS[I]['created_by']['profession'] = prof_text
 
 				yellow = skill_td.find_element(By.XPATH, "./div[@class='small']/span[@class='r2']").text if check_element_exists_by_css(skill_td, 'span.r2') else ''
 				green = skill_td.find_element(By.XPATH, "./div[@class='small']/span[@class='r3']").text if check_element_exists_by_css(skill_td, 'span.r3') else ''
@@ -752,10 +798,19 @@ def created_by(tab, I):
 					if skill_lvl:
 						ALL_ITEMS[I]['created_by']['skill'][k] = int(skill_lvl)
 
+			else:
+				print("UNABLE TO FIND PROFESSION TEXT AND/OR SKILL LEVEL FOR ({})".format(I))
+				if 'created_by' not in const.ALL_ERRORS.keys():
+					const.ALL_ERRORS['created_by'] = {}
 
-				ALL_ITEMS[I]['created_by']['profession'] = prof_text
+				if 'profession_info' not in const.ALL_ERRORS['created_by'].keys():
 
-			ALL_ITEMS[I]['created_by']['materials'] = get_mats(row)
+					const.ALL_ERRORS['created_by']['profession_info'] = {}
+					const.ALL_ERRORS['created_by']['profession_info']['i'] = []
+
+				const.ALL_ERRORS['created_by']['profession_info']['i'].append(int(I))
+
+			ALL_ITEMS[I]['created_by']['materials'] = get_mats(row, I)
 
 	TOTAL_CALLS[fn] += 1
 
