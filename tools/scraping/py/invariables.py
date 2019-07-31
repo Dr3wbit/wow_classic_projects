@@ -140,14 +140,13 @@ def get_item_list(path):
 ALL_ERRORS = get_item_list(os.path.abspath('../js/ERRORS.js'))
 
 NPCS = get_item_list(os.path.abspath('../js/npcs.js'))
-QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
-ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))
+# QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
+# ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))
 ZONES = get_item_list(os.path.abspath('../js/zones.js'))
 FACTIONS = get_item_list(os.path.abspath('../js/factions.js'))
 OBJECTS = get_item_list(os.path.abspath('../js/objects.js'))
 SPELLS = get_item_list(os.path.abspath('../js/spells.js'))
 RUNTIME_STATS = get_item_list(os.path.abspath('../js/runtime_stats.js'))
-RUNTIME_STATS_V2 = get_item_list(os.path.abspath('../js/runtime_stats_v2.js'))
 
 FN_NAMES = [
 	'get_lowboys', 'get_mats', 'create_npc', 'disenchant', 'contained_or_gathered',

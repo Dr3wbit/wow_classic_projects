@@ -48,11 +48,12 @@ CLASS_DICT = {
 }
 
 CLASSES = [x.title() for x in CLASS_DICT.values()]
-REP_LVLS = ['Hated', 'Neutral', 'Friendly', 'Honored', 'Exalted']
+REP_LVLS = ['Hated', 'Neutral', 'Friendly', 'Honored', 'Revered', 'Exalted']
 PROFESSIONS = [
     'Alchemy', 'Enchanting', 'Engineering', 'Blacksmithing', 'Cooking', 'First Aid',
     'Leatherworking', 'Skinning', 'Tailoring', 'Fishing', 'Riding', 'Mining',
-    'Herbalism', 'Engineer', 'Leatherworker', 'Hammersmith', 'Lockpicking'
+    'Herbalism', 'Engineer', 'Leatherworker', 'Hammersmith', 'Lockpicking', 'Armorsmith',
+	'Swordsmith', 'Axesmith', 'Weaponsmith'
 ]
 
 RARITY_CHOICES = {
@@ -138,17 +139,14 @@ def create_image_list(dir):
 	return file_list
 
 ALL_IMAGES = create_image_list(os.path.abspath('../../../home/static/images/icons/large'))
-ALL_ERRORS = get_item_list(os.path.abspath('../js/ERRORS.js'))
+ALL_ERRORS = get_item_list(os.path.abspath('../js/ERRORS_p2.js'))
 ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))
-SPELLS = get_item_list(os.path.abspath('../js/spells.js'))
+QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
 
 RUNTIME_STATS_V2 = get_item_list(os.path.abspath('../js/runtime_stats_v2.js'))
 
 FN_NAMES = [
-	'get_lowboys', 'get_mats', 'create_npc', 'disenchant', 'contained_or_gathered',
-	'drop_pick_skin_sold(dropped)', 'drop_pick_skin_sold(sold)', 'drop_pick_skin_sold(pickpocketed)',
-	'drop_pick_skin_sold(skinned)', 'reward_from', 'tab_handler', 'extract_stats', 'create_itemset',
-	'create_spell', 'create_object', 'stop_watch', 'create_zone', 'create_quest',
-	'reagant_for', 'created_by', 'check_element_exists_by_css', 'check_element_exists_by_id',
+	'get_lowboys', 'get_mats', 'extract_stats', 'create_itemset',
+	'stop_watch', 'create_quest', 'created_by', 'check_element_exists_by_css', 'check_element_exists_by_id',
 	'image_handler', 'get_sell_price', 'get_ilvl'
 ]
