@@ -10,7 +10,7 @@ from statistics import mean
 
 START_TIME = datetime.datetime.now()
 NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items3.js'))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items4.js'))
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 # if permissions error: chmod 755 path/to/chromedriver
@@ -20,8 +20,8 @@ iStart = datetime.datetime.now()
 
 def main():
 	# 1939
-	start = 3500
-	end = 4000
+	start = 4100
+	end = 4250
 	BASE_URL = "https://classicdb.ch/?item="
 	#item_numbers1 = ['10050', '15994', '15523']
 	#error_numbers = ['2996','2997']
@@ -77,7 +77,7 @@ def main():
 
 
 def save_and_close():
-	with open(os.path.abspath('../js/items3.js'), 'w+') as f:
+	with open(os.path.abspath('../js/items4.js'), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4, sort_keys=True)
 
 
@@ -150,7 +150,7 @@ def save_and_close():
 	print("\n----------------------")
 	print(sum(TOTAL_TIMES.values(), datetime.timedelta()))
 	print("\n")
-	#driver.close()
+	driver.close()
 
 
 def get_mats(row):
