@@ -143,6 +143,14 @@
         "i": 1562,
         "n": "Marshal Haggard's Chest"
     },
+    "1571": {
+        "i": 1571,
+        "n": "Dusty Spellbooks"
+    },
+    "1594": {
+        "i": 1594,
+        "n": "Berard's Bookshelf"
+    },
     "1617": {
         "i": 1617,
         "n": "Silverleaf"

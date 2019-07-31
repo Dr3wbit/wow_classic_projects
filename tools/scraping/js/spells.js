@@ -147,6 +147,10 @@
         "i": 12666,
         "n": "Improved Thunder Clap"
     },
+    "12719": {
+        "i": 12719,
+        "n": "Explosive Arrow"
+    },
     "12899": {
         "i": 12899,
         "n": "Gnomish Shrink Ray"
@@ -1199,6 +1203,10 @@
         "i": 3174,
         "n": "Elixir of Poison Resistance"
     },
+    "3175": {
+        "i": 3175,
+        "n": "Limited Invulnerability Potion"
+    },
     "3176": {
         "i": 3176,
         "n": "Strong Troll's Blood Potion"
@@ -1322,6 +1330,10 @@
     "3370": {
         "i": 3370,
         "n": "Crocolisk Steak"
+    },
+    "3371": {
+        "i": 3371,
+        "n": "Blood Sausage"
     },
     "3372": {
         "i": 3372,
@@ -1567,6 +1579,10 @@
         "i": 3855,
         "n": "Spidersilk Boots"
     },
+    "3856": {
+        "i": 3856,
+        "n": "Spider Silk Slippers"
+    },
     "3857": {
         "i": 3857,
         "n": "Enchanter's Cowl"
@@ -1731,6 +1747,10 @@
         "i": 3960,
         "n": "Portable Bronze Mortar"
     },
+    "3964": {
+        "i": 3964,
+        "n": "Deprecated BKP \"Impact\" Shot"
+    },
     "3971": {
         "i": 3971,
         "n": "Gnomish Cloaking Device"
@@ -1862,6 +1882,14 @@
     "6688": {
         "i": 6688,
         "n": "Red Woolen Bag"
+    },
+    "6690": {
+        "i": 6690,
+        "n": "Lesser Wizard's Robe"
+    },
+    "6692": {
+        "i": 6692,
+        "n": "Robes of Arcana"
     },
     "6693": {
         "i": 6693,
@@ -2078,6 +2106,10 @@
     "8604": {
         "i": 8604,
         "n": "Herb Baked Egg"
+    },
+    "8607": {
+        "i": 8607,
+        "n": "Smoked Bear Meat"
     },
     "8681": {
         "i": 8681,
@@ -2306,13 +2338,5 @@
     "9987": {
         "i": 9987,
         "n": "Bronze Battle Axe"
-    },
-    "12719": {
-        "i": 12719,
-        "n": "Explosive Arrow"
-    },
-    "3964": {
-        "i": 3964,
-        "n": "Deprecated BKP \"Impact\" Shot"
     }
 }

@@ -108,6 +108,16 @@
         },
         "ilvl": 21
     },
+    "1098": {
+        "i": 1098,
+        "n": "Deathstalkers in Shadowfang",
+        "dungeon": true,
+        "zone": "Shadowfang Keep",
+        "requirements": {
+            "level": 18
+        },
+        "ilvl": 25
+    },
     "11": {
         "i": 11,
         "n": "Riverpaw Gnoll Bounty",
@@ -324,6 +334,15 @@
             "faction": "A"
         },
         "ilvl": 18
+    },
+    "1370": {
+        "i": 1370,
+        "n": "Stealing Supplies",
+        "zone": "Desolace",
+        "requirements": {
+            "level": 30
+        },
+        "ilvl": 35
     },
     "14": {
         "i": 14,
@@ -735,6 +754,16 @@
         },
         "zone": "undefined"
     },
+    "1838": {
+        "i": 1838,
+        "n": "Brutal Armor",
+        "zone": "Warrior",
+        "requirements": {
+            "level": 20,
+            "faction": "H"
+        },
+        "ilvl": 30
+    },
     "184": {
         "i": 184,
         "ilvl": 9,
@@ -813,6 +842,16 @@
             "faction": "A"
         },
         "ilvl": 18
+    },
+    "20": {
+        "i": 20,
+        "n": "Blackrock Menace",
+        "zone": "Redridge Mountains",
+        "requirements": {
+            "level": 18,
+            "faction": "A"
+        },
+        "ilvl": 21
     },
     "204": {
         "i": 204,
@@ -1063,6 +1102,16 @@
         },
         "ilvl": 15
     },
+    "245": {
+        "i": 245,
+        "n": "Eight-Legged Menaces",
+        "zone": "Duskwood",
+        "requirements": {
+            "level": 17,
+            "faction": "A"
+        },
+        "ilvl": 21
+    },
     "248": {
         "i": 248,
         "n": "Looking Further",
@@ -1245,6 +1294,24 @@
         },
         "ilvl": 32
     },
+    "2754": {
+        "i": 2754,
+        "n": "Horns of Frenzy",
+        "zone": "Blacksmithing",
+        "requirements": {
+            "level": 32
+        },
+        "ilvl": 36
+    },
+    "2761": {
+        "i": 2761,
+        "n": "Smelt On, Smelt Off",
+        "zone": "Blacksmithing",
+        "requirements": {
+            "level": 40
+        },
+        "ilvl": 45
+    },
     "277": {
         "i": 277,
         "n": "Fire Taboo",
@@ -1399,6 +1466,15 @@
         },
         "ilvl": 35
     },
+    "296": {
+        "i": 296,
+        "n": "Ormer's Revenge",
+        "zone": "Wetlands",
+        "requirements": {
+            "level": 22
+        },
+        "ilvl": 29
+    },
     "297": {
         "i": 297,
         "n": "Gathering Idols",
@@ -1477,6 +1553,16 @@
             "faction": "A"
         },
         "ilvl": 7
+    },
+    "309": {
+        "i": 309,
+        "n": "Protecting the Shipment",
+        "zone": "Loch Modan",
+        "requirements": {
+            "level": 10,
+            "faction": "A"
+        },
+        "ilvl": 15
     },
     "310": {
         "i": 310,
@@ -1857,6 +1943,15 @@
         },
         "ilvl": 10
     },
+    "364": {
+        "i": 364,
+        "n": "The Mindless Ones",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 2
+    },
     "365": {
         "i": 365,
         "n": "Fields of Grief",
@@ -1865,6 +1960,15 @@
             "level": 4
         },
         "ilvl": 7
+    },
+    "366": {
+        "i": 366,
+        "n": "Return the Book",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 5
+        },
+        "ilvl": 8
     },
     "367": {
         "i": 367,
@@ -1895,6 +1999,15 @@
             "faction": "H"
         },
         "ilvl": 11
+    },
+    "372": {
+        "i": 372,
+        "n": "At War With The Scarlet Crusade",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 5
+        },
+        "ilvl": 12
     },
     "373": {
         "i": 373,
@@ -1965,6 +2078,15 @@
         },
         "ilvl": 13
     },
+    "380": {
+        "i": 380,
+        "n": "Night Web's Hollow",
+        "zone": "undefined",
+        "requirements": {
+            "level": 2
+        },
+        "ilvl": 4
+    },
     "381": {
         "i": 381,
         "ilvl": 4,
@@ -2034,6 +2156,15 @@
         },
         "ilvl": 26
     },
+    "3901": {
+        "i": 3901,
+        "n": "Rattling the Rattlecages",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 3
+    },
     "3905": {
         "i": 3905,
         "n": "Grape Manifest",
@@ -2065,6 +2196,25 @@
         },
         "zone": "Stormwind City"
     },
+    "397": {
+        "i": 397,
+        "n": "You Have Served Us Well",
+        "zone": "Stormwind City",
+        "requirements": {
+            "level": 25,
+            "faction": "A"
+        },
+        "ilvl": 30
+    },
+    "398": {
+        "i": 398,
+        "n": "Wanted: Maggot Eye",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 6
+        },
+        "ilvl": 10
+    },
     "399": {
         "i": 399,
         "ilvl": 15,
@@ -2094,6 +2244,91 @@
         },
         "ilvl": 6
     },
+    "405": {
+        "i": 405,
+        "n": "The Prodigal Lich",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 5
+        },
+        "ilvl": 8
+    },
+    "407": {
+        "i": 407,
+        "n": "Fields of Grief",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 4
+        },
+        "ilvl": 7
+    },
+    "408": {
+        "i": 408,
+        "n": "The Family Crypt",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 7
+        },
+        "ilvl": 13
+    },
+    "410": {
+        "i": 410,
+        "n": "The Dormant Shade",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 5
+        },
+        "ilvl": 10
+    },
+    "411": {
+        "i": 411,
+        "n": "The Prodigal Lich Returns",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 5
+        },
+        "ilvl": 12
+    },
+    "412": {
+        "i": 412,
+        "n": "Operation Recombobulation",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 7,
+            "faction": "A"
+        },
+        "ilvl": 10
+    },
+    "413": {
+        "i": 413,
+        "n": "Shimmer Stout",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 8,
+            "faction": "A"
+        },
+        "ilvl": 10
+    },
+    "414": {
+        "i": 414,
+        "n": "Stout to Kadrell",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 8,
+            "faction": "A"
+        },
+        "ilvl": 10
+    },
+    "415": {
+        "i": 415,
+        "n": "Rejold's New Brew",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 8,
+            "faction": "A"
+        },
+        "ilvl": 10
+    },
     "416": {
         "i": 416,
         "n": "Rat Catching",
@@ -2114,6 +2349,26 @@
         },
         "ilvl": 11
     },
+    "418": {
+        "i": 418,
+        "n": "Thelsamar Blood Sausages",
+        "zone": "Loch Modan",
+        "requirements": {
+            "level": 7,
+            "faction": "A"
+        },
+        "ilvl": 11
+    },
+    "419": {
+        "i": 419,
+        "n": "The Lost Pilot",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 8,
+            "faction": "A"
+        },
+        "ilvl": 10
+    },
     "420": {
         "i": 420,
         "n": "Senir's Observations",
@@ -2123,6 +2378,42 @@
             "faction": "A"
         },
         "ilvl": 5
+    },
+    "422": {
+        "i": 422,
+        "n": "Arugal's Folly",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 9
+        },
+        "ilvl": 11
+    },
+    "423": {
+        "i": 423,
+        "n": "Arugal's Folly",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 9
+        },
+        "ilvl": 14
+    },
+    "425": {
+        "i": 425,
+        "n": "Ivar the Foul",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 12
+    },
+    "426": {
+        "i": 426,
+        "n": "The Mills Overrun",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 6
+        },
+        "ilvl": 8
     },
     "4264": {
         "dungeon": true,
@@ -2135,6 +2426,134 @@
         },
         "zone": "Blackrock Depths"
     },
+    "429": {
+        "i": 429,
+        "n": "Wild Hearts",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 11
+    },
+    "430": {
+        "i": 430,
+        "n": "Return to Quinn",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 11
+    },
+    "431": {
+        "i": 431,
+        "n": "Candles of Beckoning",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 5
+        },
+        "ilvl": 10
+    },
+    "435": {
+        "i": 435,
+        "n": "Escorting Erland",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 11
+    },
+    "437": {
+        "i": 437,
+        "n": "The Dead Fields",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 14
+    },
+    "439": {
+        "i": 439,
+        "n": "Rot Hide Clues",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10,
+            "faction": "H"
+        },
+        "ilvl": 16
+    },
+    "440": {
+        "i": 440,
+        "n": "The Engraved Ring",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 16
+    },
+    "441": {
+        "i": 441,
+        "n": "Raleigh and the Undercity",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 16
+    },
+    "442": {
+        "i": 442,
+        "n": "Assault on Fenris Isle",
+        "group": true,
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 24
+    },
+    "443": {
+        "i": 443,
+        "n": "Rot Hide Ichor",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 17
+    },
+    "444": {
+        "i": 444,
+        "n": "Rot Hide Origins",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 17
+    },
+    "445": {
+        "i": 445,
+        "n": "Delivery to Silverpine Forest",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 9
+        },
+        "ilvl": 10
+    },
+    "446": {
+        "i": 446,
+        "n": "Thule Ravenclaw",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 16
+    },
+    "447": {
+        "i": 447,
+        "n": "A Recipe For Death",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 9
+        },
+        "ilvl": 12
+    },
     "448": {
         "i": 448,
         "n": "Report to Hadrec",
@@ -2143,6 +2562,25 @@
             "level": 10
         },
         "ilvl": 16
+    },
+    "449": {
+        "i": 449,
+        "n": "The Deathstalkers' Report",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 11
+    },
+    "450": {
+        "i": 450,
+        "n": "A Recipe For Death",
+        "group": true,
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 9
+        },
+        "ilvl": 15
     },
     "451": {
         "i": 451,
@@ -2192,6 +2630,52 @@
         },
         "ilvl": 10
     },
+    "460": {
+        "i": 460,
+        "n": "Resting in Pieces",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 12
+        },
+        "ilvl": 17
+    },
+    "461": {
+        "i": 461,
+        "n": "The Hidden Niche",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 12
+        },
+        "ilvl": 18
+    },
+    "465": {
+        "i": 465,
+        "n": "Nek'rosh's Gambit",
+        "zone": "Wetlands",
+        "requirements": {
+            "level": 23
+        },
+        "ilvl": 31
+    },
+    "466": {
+        "i": 466,
+        "n": "Search for Incendicite",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 20,
+            "faction": "A"
+        },
+        "ilvl": 22
+    },
+    "469": {
+        "i": 469,
+        "n": "Daily Delivery",
+        "zone": "Wetlands",
+        "requirements": {
+            "level": 18
+        },
+        "ilvl": 21
+    },
     "47": {
         "i": 47,
         "n": "Gold Dust Exchange",
@@ -2202,6 +2686,15 @@
         },
         "ilvl": 7
     },
+    "470": {
+        "i": 470,
+        "n": "Digging Through the Ooze",
+        "zone": "Wetlands",
+        "requirements": {
+            "level": 19
+        },
+        "ilvl": 24
+    },
     "471": {
         "i": 471,
         "n": "Apprentice's Duties",
@@ -2210,6 +2703,25 @@
             "level": 18
         },
         "ilvl": 26
+    },
+    "474": {
+        "i": 474,
+        "n": "Defeat Nek'rosh",
+        "group": true,
+        "zone": "Wetlands",
+        "requirements": {
+            "level": 23
+        },
+        "ilvl": 32
+    },
+    "478": {
+        "i": 478,
+        "n": "Maps and Runes",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 14
     },
     "48": {
         "i": 48,
@@ -2221,6 +2733,24 @@
         },
         "ilvl": 44
     },
+    "480": {
+        "i": 480,
+        "n": "The Weaver",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 22
+    },
+    "481": {
+        "i": 481,
+        "n": "Dalar's Analysis",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 14
+    },
     "49": {
         "i": 49,
         "n": "Sweet Amber",
@@ -2230,6 +2760,44 @@
             "faction": "A"
         },
         "ilvl": 44
+    },
+    "491": {
+        "i": 491,
+        "n": "Wand to Bethor",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 12
+        },
+        "ilvl": 18
+    },
+    "492": {
+        "i": 492,
+        "n": "A New Plague",
+        "zone": "Tirisfal Glades",
+        "requirements": {
+            "level": 6,
+            "faction": "H"
+        },
+        "ilvl": 11
+    },
+    "493": {
+        "i": 493,
+        "n": "Journey to Hillsbrad Foothills",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 19
+        },
+        "ilvl": 20
+    },
+    "499": {
+        "i": 499,
+        "n": "Elixir of Suffering",
+        "zone": "Hillsbrad Foothills",
+        "requirements": {
+            "level": 19,
+            "faction": "H"
+        },
+        "ilvl": 22
     },
     "500": {
         "i": 500,
@@ -2251,6 +2819,25 @@
         },
         "ilvl": 24
     },
+    "502": {
+        "i": 502,
+        "n": "Elixir of Pain",
+        "zone": "Hillsbrad Foothills",
+        "requirements": {
+            "level": 21,
+            "faction": "H"
+        },
+        "ilvl": 24
+    },
+    "508": {
+        "i": 508,
+        "n": "Taretha's Gift",
+        "zone": "Hillsbrad Foothills",
+        "requirements": {
+            "level": 29
+        },
+        "ilvl": 40
+    },
     "509": {
         "i": 509,
         "n": "Elixir of Agony",
@@ -2271,6 +2858,45 @@
         },
         "ilvl": 44
     },
+    "511": {
+        "i": 511,
+        "n": "Encrypted Letter",
+        "zone": "Alterac Mountains",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 34
+    },
+    "513": {
+        "i": 513,
+        "n": "Elixir of Agony",
+        "zone": "Hillsbrad Foothills",
+        "requirements": {
+            "level": 24,
+            "faction": "H"
+        },
+        "ilvl": 28
+    },
+    "514": {
+        "i": 514,
+        "n": "Letter to Stormpike",
+        "zone": "Alterac Mountains",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 34
+    },
+    "515": {
+        "i": 515,
+        "n": "Elixir of Agony",
+        "zone": "Hillsbrad Foothills",
+        "requirements": {
+            "level": 24
+        },
+        "ilvl": 30
+    },
     "52": {
         "i": 52,
         "n": "Protect the Frontier",
@@ -2280,6 +2906,25 @@
             "faction": "A"
         },
         "ilvl": 10
+    },
+    "524": {
+        "i": 524,
+        "n": "Elixir of Agony",
+        "zone": "Hillsbrad Foothills",
+        "requirements": {
+            "level": 24,
+            "faction": "H"
+        },
+        "ilvl": 30
+    },
+    "525": {
+        "i": 525,
+        "n": "Further Mysteries",
+        "zone": "Alterac Mountains",
+        "requirements": {
+            "level": 30
+        },
+        "ilvl": 34
     },
     "526": {
         "i": 526,
@@ -2300,6 +2945,15 @@
             "faction": "A"
         },
         "ilvl": 44
+    },
+    "530": {
+        "i": 530,
+        "n": "A Husband's Revenge",
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 20
     },
     "531": {
         "i": 531,
@@ -2493,6 +3147,26 @@
         },
         "ilvl": 28
     },
+    "6861": {
+        "i": 6861,
+        "n": "Zinfizzlex's Portable Shredder Unit",
+        "zone": "Alterac Valley",
+        "requirements": {
+            "level": 51,
+            "faction": "H"
+        },
+        "ilvl": 60
+    },
+    "6862": {
+        "i": 6862,
+        "n": "Zinfizzlex's Portable Shredder Unit",
+        "zone": "Alterac Valley",
+        "requirements": {
+            "level": 51,
+            "faction": "A"
+        },
+        "ilvl": 60
+    },
     "6962": {
         "i": 6962,
         "n": "Treats for Great-father Winter",
@@ -2599,6 +3273,15 @@
         },
         "ilvl": 4
     },
+    "760": {
+        "i": 760,
+        "n": "Wildmane Cleansing",
+        "zone": "Mulgore",
+        "requirements": {
+            "level": 4
+        },
+        "ilvl": 10
+    },
     "768": {
         "i": 768,
         "n": "Gathering Leather",
@@ -2618,6 +3301,15 @@
             "faction": "H"
         },
         "ilvl": 10
+    },
+    "770": {
+        "i": 770,
+        "n": "The Demon Scarred Cloak",
+        "zone": "Mulgore",
+        "requirements": {
+            "level": 6
+        },
+        "ilvl": 12
     },
     "778": {
         "i": 778,
@@ -2754,6 +3446,24 @@
         },
         "ilvl": 60
     },
+    "7889": {
+        "i": 7889,
+        "n": "Coarse Weightstone",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "7890": {
+        "i": 7890,
+        "n": "Heavy Grinding Stone",
+        "zone": "undefined",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 60
+    },
     "7898": {
         "i": 7898,
         "ilvl": 60,
@@ -2819,6 +3529,15 @@
         },
         "zone": "Durotar"
     },
+    "8241": {
+        "i": 8241,
+        "n": "Restoring Fiery Flux Supplies via Iron",
+        "zone": "Searing Gorge",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 60
+    },
     "8246": {
         "i": 8246,
         "ilvl": 60,
@@ -2860,6 +3579,24 @@
     "8493": {
         "i": 8493,
         "n": "The Alliance Needs More Copper Bars!",
+        "zone": "Ahn'Qiraj War",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "8494": {
+        "i": 8494,
+        "n": "The Alliance Needs Iron Bars!",
+        "zone": "Ahn'Qiraj War",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "8495": {
+        "i": 8495,
+        "n": "The Alliance Needs More Iron Bars!",
         "zone": "Ahn'Qiraj War",
         "requirements": {
             "level": 1
@@ -2948,6 +3685,33 @@
         },
         "ilvl": 60
     },
+    "8541": {
+        "i": 8541,
+        "n": "Grinding Stones for the Guard",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8542": {
+        "i": 8542,
+        "n": "The Horde Needs Tin Bars!",
+        "zone": "Ahn'Qiraj War",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "8543": {
+        "i": 8543,
+        "n": "The Horde Needs More Tin Bars!",
+        "zone": "Ahn'Qiraj War",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
     "8549": {
         "i": 8549,
         "n": "The Horde Needs Peacebloom!",
@@ -2976,6 +3740,24 @@
         },
         "ilvl": 6
     },
+    "8604": {
+        "i": 8604,
+        "n": "The Horde Needs Wool Bandages!",
+        "zone": "Ahn'Qiraj War",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "8605": {
+        "i": 8605,
+        "n": "The Horde Needs More Wool Bandages!",
+        "zone": "Ahn'Qiraj War",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
     "87": {
         "i": 87,
         "n": "Goldtooth",
@@ -2995,6 +3777,15 @@
             "faction": "A"
         },
         "ilvl": 9
+    },
+    "8806": {
+        "i": 8806,
+        "n": "Grinding Stones for the Guard",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
     },
     "89": {
         "i": 89,
@@ -3112,41 +3903,14 @@
         },
         "ilvl": 35
     },
-    "20": {
-        "i": 20,
-        "n": "Blackrock Menace",
-        "zone": "Redridge Mountains",
+    "99": {
+        "i": 99,
+        "n": "Arugal's Folly",
+        "group": true,
+        "zone": "Silverpine Forest",
         "requirements": {
-            "level": 18,
-            "faction": "A"
+            "level": 9
         },
-        "ilvl": 21
-    },
-    "366": {
-        "i": 366,
-        "n": "Return the Book",
-        "zone": "Tirisfal Glades",
-        "requirements": {
-            "level": 5
-        },
-        "ilvl": 8
-    },
-    "405": {
-        "i": 405,
-        "n": "The Prodigal Lich",
-        "zone": "Tirisfal Glades",
-        "requirements": {
-            "level": 5
-        },
-        "ilvl": 8
-    },
-    "407": {
-        "i": 407,
-        "n": "Fields of Grief",
-        "zone": "Tirisfal Glades",
-        "requirements": {
-            "level": 4
-        },
-        "ilvl": 7
+        "ilvl": 15
     }
 }

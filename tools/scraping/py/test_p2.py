@@ -1,4 +1,4 @@
-import invariables as const
+import invariables2 as const
 import os, re, urllib.request, json, time, datetime, random
 from urllib.parse import urlparse
 from selenium import webdriver
@@ -9,9 +9,9 @@ from selenium.common import exceptions
 from statistics import mean
 
 START_TIME = datetime.datetime.now()
+
 NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
-# ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items2.js'))
-ALL_ITEMS = {}
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items6.js'))
 
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
@@ -21,10 +21,9 @@ iStart = datetime.datetime.now()
 
 
 def main():
-	start = 3251
-	end = 3315
+	start = 7000
+	end = 8000
 	BASE_URL="https://classicdb.ch/?item="
-
 
 	item_numbers = range(int(start), int(end))
 
@@ -36,6 +35,7 @@ def main():
 	print("=======================================")
 
 	for ix in item_numbers:
+
 
 		iStart = datetime.datetime.now()
 		url = "{}{}".format(BASE_URL, ix)
@@ -155,18 +155,24 @@ def main():
 			# print("NEW ITEM {:<35} {:>10} {:<15} {:<11} - {:>25}".format(ALL_ITEMS[I]['n'], iii, cl,  const.NPCS[I]['type'], zone_name))
 
 			Z+=1
-		# no item found
-			# except:
-			# 	print('ERROR AT ITEM ({})'.format(ix))
-			# 	E+=1
-			# 	continue
+
+
+	# no item found
+		# except:
+		# 	print('ERROR AT ITEM ({})'.format(ix))
+		# 	E+=1
+		# 	continue
 
 		else:
 			# print('NOT FOUND: ({})'.format(ix))
 			NEW['MISSING'] += 1
 			continue
 
-	with open(os.path.abspath('../js/items2.js'), 'a+') as f:
+	save_and_close()
+
+def save_and_close():
+
+	with open(os.path.abspath('../js/items6.js'), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4, sort_keys=True)
 
 	with open(os.path.abspath('image_list.txt'), 'w+') as f:
@@ -221,6 +227,7 @@ def main():
 	print("\n----------------------")
 	print(sum(TOTAL_TIMES.values(), datetime.timedelta()))
 	print("\n")
+
 	driver.close()
 
 def starts_quest():
@@ -338,6 +345,19 @@ def get_lowboys(item_dict, table):
 				item_dict['stats'] = {}
 
 			item_dict['stats']['random'] = True
+
+		elif "Click To Read" in text:
+			# book_text = ""
+
+			# pages = driver.find_element(By.ID, "book-generic").find_elements(By.CSS_SELECTOR, "div.page")
+			# for page in pages:
+			# 	book_text += page.text+"\n"
+
+			item_dict['click_to_read'] = True
+
+		else:
+			print("NO MATCH FOUND FOR {} in LOWBOYS".format(text))
+
 
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
 	TOTAL_CALLS[fn] +=1
@@ -697,7 +717,6 @@ def extract_stats(items, item_dict):
 	return item_dict
 
 
-
 def created_by(tab, I):
 	start = datetime.datetime.now()
 	fn = 'created_by'
@@ -745,50 +764,6 @@ def created_by(tab, I):
 	# 	print('ERROR in {} ({})'.format(fn, I))
 	# 	log_error(I, fn)
 
-def reagant_for(tab, I):
-	start = datetime.datetime.now()
-	fn = 'reagant_for'
-	trs = tab.find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr")
-
-	if "creates" not in ALL_ITEMS[I].keys():
-		ALL_ITEMS[I]["creates"] = {}
-	for row in trs:
-		icon = row.find_element(By.XPATH, "./td[1]/div[@class='iconmedium']")
-		link = icon.find_element(By.XPATH, "./a")
-		href = link.get_attribute('href')
-		link_re = re.compile(r"\?item\=([\d]+)")
-		link_match = link_re.search(href)
-		if link_match:
-			ix = str(link_match.group(1))
-			if ix in ALL_ITEMS.keys():
-				if 'materials' not in ALL_ITEMS[ix].keys():
-					ALL_ITEMS[ix]['materials'] = get_mats(row)
-		else:
-			match_fail_disclaimer('reagant_for, item', I, link_re)
-			continue
-
-		spell_link = row.find_element(By.XPATH, "./td[2]/div/a")
-		spell_href = spell_link.get_attribute('href')
-		spell_link_re = re.compile(r"\?spell=([\d]+)")
-		spell_match = spell_link_re.search(spell_href)
-		if spell_match:
-			spell_ix = str(spell_match.group(1))
-			spell_name = spell_link.text
-			if spell_ix not in const.SPELLS.keys():
-				create_spell(spell_ix, spell_name)
-		else:
-			match_fail_disclaimer('reagant_for, spell', I, spell_link_re)
-			continue
-
-
-		ALL_ITEMS[I]["creates"][spell_ix] = int(ix)
-		# elif tab.text.startswith("Objective"):
-		# 	trs = driver.find_element(By.ID, "tab-objective-of").find_elements(By.XPATH, "./table[@class='listview-mode-default']/tbody/tr]")
-		# 	pass
-
-	TOTAL_CALLS[fn] += 1
-
-	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
 
 def log_error(I, fn):
 
@@ -809,10 +784,16 @@ def get_ilvl(infobox):
 	fn = "get_ilvl"
 	ilvl = 0
 	regex = re.compile(r"([\d]+)", re.M)
-	matched = regex.search(infobox.find_elements(By.TAG_NAME, 'li')[0].text)
-	if matched:
-		ilvl = int(matched.group(1))
+	if check_element_exists_by_css(infobox, 'li'):
 
+		txt = infobox.find_element(By.TAG_NAME, 'li').text
+		matched = regex.search(txt)
+		if matched:
+			ilvl = int(matched.group(1))
+
+		else:
+			print("UNABLE TO LOCATE iLVL")
+			NEW['ERRORS'] += 1
 	TOTAL_CALLS[fn] += 1
 
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
@@ -904,5 +885,17 @@ def sleepy_time(n):
 				#q[i] = q[i].upper()
 		print("".rjust(ix, 'z'))
 		time.sleep(1)
+
+def get_item_list(path):
+	all_items = ''
+	mode = "w+" if not os.path.exists(path) else "r"
+	with open(path, mode) as f:
+		all_items = json.load(f) if os.path.getsize(path)>0 else {}
+
+	if len(all_items) > 0:
+		sorted_dict = dict(sorted(all_items.items()))
+		return sorted_dict
+	else:
+		return all_items
 
 main()
