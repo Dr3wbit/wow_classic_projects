@@ -152,6 +152,71 @@ class Item(models.Model):
 	class Meta:
 		ordering = ['name']
 
+#
+# class Armor(Item):
+# 	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS,FINGER,TRINKET,BACK = 1,2,3,4,5,6,7,8,9,10,11,13,15
+# 	CLOTH,LEATHER,MAIL,PLATE = 1,2,3,4
+#
+# 	ARMOR_TYPES = (
+# 		(CLOTH, 'Cloth'),
+# 		(LEATHER, 'Leather'),
+# 		(MAIL, 'Mail'),
+# 		(PLATE, 'Plate'),
+# 	)
+#
+# 	SLOT_CHOICES = (
+# 		(HEAD, 'Head'),
+# 		(NECK, 'Neck'),
+# 		(SHOULDER, 'Shoulder'),
+# 		(SHIRT, 'Shirt'),
+# 		(CHEST, 'Chest'),
+# 		(BELT, 'Belt'),
+# 		(LEGS, 'Legs'),
+# 		(FEET, 'Feet'),
+# 		(WRIST, 'Wrist'),
+# 		(HANDS, 'Hands'),
+# 		(BACK, 'Back'),
+# 	)
+#
+# 	armor_amount = models.PositiveSmallIntegerField(default=0)
+# 	durability = models.PositiveSmallIntegerField(default=0)
+# 	proficiency = models.PositiveSmallIntegerField(choices=ARMOR_TYPES)
+# 	slot = models.PositiveSmallIntegerField(choices=SLOT_CHOICES)
+#
+# 	def __str__(self):
+# 		st = "{}\n".format(title_case(self.name))
+# 		if self.bop:
+# 			st = st+"Binds when picked up\n"
+# 		if self.unique:
+# 			st = st+"Unique\n"
+# 		if self.slot:
+# 			st = st+"{}\t\t\t".format(self.slot)
+#
+# 		st = st+"\t\t\t{}\n".format(self.proficiency) if self.proficiency else st+"\n"
+# 		if self.armor:
+# 			st = st+"{} Armor\n"
+# 		if self.durability:
+# 			st = st+"Durability {} / {}\n".format(self.durability, self.durability)
+# 		if self.required_lvl:
+# 			st = st+"Requires Level {}\n".format(self.required_lvl)
+# 		if self.use:
+# 			st = st+'"{}"\n'.format(self.use)
+# 		if self.description:
+# 			st = st+'"{}"\n'.format(self.description)
+#
+# 		return st
+
+# class Stat(models.Model):
+# 	STAT_CHOICES = (
+# 		(1, 'Agility'),
+# 		(2, 'Intellect'),
+# 		(3, 'Spirit'),
+# 		(4, 'Stamina'),
+# 		(5, 'Strength'),
+# 	)
+#
+# 	stat = models.CharField(max_length=20, choices=ARMOR_TYPES, blank=True)
+# 	amount = models.SmallIntegerField(blank=True, null=True)
 
 class Crafted(models.Model):
 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
@@ -580,6 +645,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 		('bow', 'Bow'),
 # 		('crossbow','Crossbow'),
 # 		('dagger', 'Dagger'),
+#		('fist weapon', 'Fist Weapon')
 # 	)
 #
 # 	WEAPON_TYPES = (

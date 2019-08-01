@@ -92,7 +92,7 @@ RANKS = {
 		"First Sergeant": 5,
 		"Stone Guard": 6,
 		"Blood Guard": 7,
-		"Legionnare": 8,
+		"Legionnaire": 8,
 		"Centurion": 9,
 		"Champion": 10,
 		"Lieutenant General": 11,

@@ -28681,7 +28681,11 @@
         "n": "Essence of the Exile",
         "image_name": "inv_stone_01",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 1712,
+        "reward_from": {
+            "1714": 1
+        }
     },
     "6866": {
         "i": 6866,
@@ -28702,6 +28706,10 @@
         "use": {
             "s": 8593,
             "t": "The Symbol of Life will bring the person attuned to it back to life."
+        },
+        "provided_for": 1781,
+        "reward_from": {
+            "1790": 1
         }
     },
     "6887": {
@@ -28733,7 +28741,123 @@
             "materials": {
                 "4603": 1
             }
-        }
+        },
+        "dropped": {
+            "3662": 0.743,
+            "3691": 0.743,
+            "3692": 0.743,
+            "3693": 0.743,
+            "3695": 0.743,
+            "3694": 0.743
+        },
+        "sold": {
+            "3086": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3540": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "7943": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6727": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "8931": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1684": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3497": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4305": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4200": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "2834": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3178": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4221": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1678": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "153470": 10.0,
+                "3707": 10.0,
+                "2656": 0.02
+            }
+        },
+        "objective": 8613
     },
     "6888": {
         "i": 6888,
@@ -28762,6 +28886,10 @@
                 "6889": 1,
                 "2678": 1
             }
+        },
+        "materials": {
+            "6889": 1,
+            "2678": 1
         }
     },
     "6889": {
@@ -28775,6 +28903,30 @@
             "gold": 0,
             "silver": 0,
             "copper": 4
+        },
+        "dropped": {
+            "1194": 71.0,
+            "428": 67.0,
+            "14268": 64.0,
+            "154": 64.0,
+            "1109": 63.0,
+            "1997": 61.0,
+            "2971": 60.0,
+            "1996": 59.0,
+            "1995": 58.0,
+            "12138": 57.0,
+            "199": 56.0,
+            "10158": 56.0,
+            "10160": 56.0,
+            "10159": 56.0,
+            "2970": 55.0,
+            "10157": 54.0,
+            "2969": 52.0
+        },
+        "creates": {
+            "21144": 17198,
+            "21143": 17197,
+            "8604": 6888
         }
     },
     "6890": {
@@ -28827,6 +28979,22 @@
         "use": {
             "s": 8608,
             "t": "Teaches you how to cook Smoked Bear Meat."
+        },
+        "sold": {
+            "3556": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "1465": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 2,
+                    "gold": 0
+                }
+            }
         }
     },
     "6893": {
@@ -28836,7 +29004,10 @@
         "image_name": "inv_misc_key_06",
         "ilvl": 0,
         "bop": true,
-        "unique": true
+        "unique": true,
+        "dropped": {
+            "6235": 100.0
+        }
     },
     "6894": {
         "i": 6894,
@@ -28844,7 +29015,11 @@
         "n": "Whirlwind Heart",
         "image_name": "inv_misc_gem_sapphire_01",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "6239": 100.0
+        },
+        "objective": 1713
     },
     "6895": {
         "i": 6895,
@@ -28853,7 +29028,13 @@
         "image_name": "inv_hammer_09",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "91138": 100.0
+            }
+        },
+        "objective": 1654
     },
     "6898": {
         "i": 6898,
@@ -28888,6 +29069,31 @@
         "use": {
             "s": 18956,
             "t": "Restores 25 health every 3 sec for 30 sec. (cooldown 30 min)"
+        },
+        "reward_from": {
+            "1740": 1
+        },
+        "disenchant": {
+            "10998": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 15.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6900": {
@@ -28914,6 +29120,17 @@
             "class": [
                 "Warlock"
             ]
+        },
+        "reward_from": {
+            "4786": 1
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6901": {
@@ -28937,6 +29154,17 @@
         },
         "requirements": {
             "level": 24
+        },
+        "dropped": {
+            "4830": 33.0
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6902": {
@@ -28961,6 +29189,31 @@
         },
         "requirements": {
             "level": 22
+        },
+        "dropped": {
+            "4830": 33.0
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6903": {
@@ -28985,6 +29238,31 @@
         },
         "requirements": {
             "level": 23
+        },
+        "dropped": {
+            "4832": 50.0
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6904": {
@@ -29021,6 +29299,17 @@
                     "t": "Poisons target for 4 Nature damage every 2 sec for 20 sec."
                 }
             ]
+        },
+        "dropped": {
+            "4830": 33.0
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6905": {
@@ -29051,6 +29340,31 @@
         },
         "requirements": {
             "level": 22
+        },
+        "dropped": {
+            "6243": 50.0
+        },
+        "disenchant": {
+            "11082": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11083": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6906": {
@@ -29075,6 +29389,17 @@
         },
         "requirements": {
             "level": 23
+        },
+        "dropped": {
+            "6243": 50.0
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6907": {
@@ -29097,6 +29422,17 @@
         },
         "requirements": {
             "level": 20
+        },
+        "dropped": {
+            "4887": 50.0
+        },
+        "disenchant": {
+            "10978": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6908": {
@@ -29121,6 +29457,31 @@
         },
         "requirements": {
             "level": 20
+        },
+        "dropped": {
+            "4887": 50.0
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10998": {
+                "chance": 15.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6909": {
@@ -29157,6 +29518,17 @@
                     "t": "Corrosive acid that deals 7 Nature damage every 3 sec and lowers target's armor by 50 for 30 sec."
                 }
             ]
+        },
+        "dropped": {
+            "4829": 33.0
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6910": {
@@ -29182,6 +29554,17 @@
         },
         "requirements": {
             "level": 26
+        },
+        "dropped": {
+            "4829": 33.0
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6911": {
@@ -29206,6 +29589,17 @@
         },
         "requirements": {
             "level": 26
+        },
+        "dropped": {
+            "4829": 33.0
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6912": {
@@ -29215,7 +29609,13 @@
         "image_name": "spell_nature_naturetouchgrow",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "93192": 100.0
+            }
+        },
+        "objective": 1738
     },
     "6913": {
         "i": 6913,
@@ -29228,7 +29628,9 @@
         "use": {
             "s": 8674,
             "t": "Call forth a succubus using the summoning circle. (cooldown 3 min)"
-        }
+        },
+        "provided_for": 1739,
+        "objective": 1739
     },
     "6914": {
         "i": 6914,
@@ -29237,7 +29639,11 @@
         "image_name": "inv_misc_orb_04",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "4809": 100.0
+        },
+        "objective": 1740
     },
     "6915": {
         "i": 6915,
@@ -29246,7 +29652,11 @@
         "image_name": "inv_misc_orb_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "3855": 25.0
+        },
+        "objective": 1740
     },
     "6916": {
         "i": 6916,
@@ -29260,7 +29670,11 @@
             "level": 12,
             "faction": "A"
         },
-        "starts": 1646
+        "starts": 1646,
+        "provided_for": 1646,
+        "reward_from": {
+            "1645": 1
+        }
     },
     "6926": {
         "i": 6926,
@@ -29270,7 +29684,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This letter is seale"
+        "description": "This letter is seale",
+        "provided_for": 1703,
+        "objective": 1703
     },
     "6927": {
         "i": 6927,
@@ -29291,7 +29707,9 @@
         "use": {
             "s": 7728,
             "t": "Call forth a voidwalker using the summoning circle. (cooldown 3 min)"
-        }
+        },
+        "provided_for": 1689,
+        "objective": 1689
     },
     "6929": {
         "i": 6929,
@@ -29301,7 +29719,8 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 1712
     },
     "6930": {
         "i": 6930,
@@ -29310,7 +29729,12 @@
         "image_name": "inv_wand_07",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "1038": 80.0,
+            "1057": 80.0
+        },
+        "objective": 1805
     },
     "6931": {
         "i": 6931,
@@ -29324,7 +29748,13 @@
             "s": 8712,
             "t": "Call forth a felhunter using the summoning circle. (cooldown 3 min)"
         },
-        "description": "Faint letters on the cover of the locked book read, 'Tome of the Cabal."
+        "description": "Faint letters on the cover of the locked book read, 'Tome of the Cabal.",
+        "contained": {
+            "objects": {
+                "92013": 100.0
+            }
+        },
+        "objective": 1803
     },
     "6947": {
         "i": 6947,
@@ -29350,6 +29780,22 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "sold": {
+            "5139": {
+                "cost": {
+                    "copper": 22,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "10364": {
+                "cost": {
+                    "copper": 22,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "6948": {
@@ -29366,6 +29812,127 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "sold": {
+            "2352": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "1247": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6727": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "295": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "5111": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6734": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "8931": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "1464": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6272": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6930": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6738": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "11103": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6737": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "7736": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "7744": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6790": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "15309": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "6949": {
@@ -29392,6 +29959,22 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "sold": {
+            "5139": {
+                "cost": {
+                    "copper": 80,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "10364": {
+                "cost": {
+                    "copper": 80,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "6950": {
@@ -29418,6 +30001,22 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "sold": {
+            "5139": {
+                "cost": {
+                    "copper": 20,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "10364": {
+                "cost": {
+                    "copper": 20,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "6951": {
@@ -29453,7 +30052,12 @@
         "image_name": "inv_misc_pelt_bear_01",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "1128": 80.0,
+            "1196": 80.0
+        },
+        "objective": 317
     },
     "6953": {
         "i": 6953,
@@ -29486,6 +30090,17 @@
             "class": [
                 "Paladin"
             ]
+        },
+        "reward_from": {
+            "1806": 1
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6966": {
@@ -29517,6 +30132,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1693": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6967": {
@@ -29548,6 +30182,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1693": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6968": {
@@ -29579,6 +30232,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1693": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6969": {
@@ -29610,6 +30282,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1693": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6970": {
@@ -29636,6 +30327,31 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1702": 1
+        },
+        "disenchant": {
+            "10939": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6971": {
@@ -29662,6 +30378,31 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1706": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6972": {
@@ -29692,6 +30433,17 @@
         "use": {
             "s": 9174,
             "t": "Increase Rage by 30. (cooldown 1 hr)"
+        },
+        "reward_from": {
+            "1782": 1
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6973": {
@@ -29718,6 +30470,31 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1711": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6974": {
@@ -29744,6 +30521,31 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1709": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6975": {
@@ -29776,6 +30578,17 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1792": 1
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6976": {
@@ -29808,6 +30621,17 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1792": 1
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6977": {
@@ -29840,6 +30664,17 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1792": 1
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6978": {
@@ -29871,6 +30706,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1682": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6979": {
@@ -29902,6 +30756,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1667": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6980": {
@@ -29933,6 +30806,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1667": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6981": {
@@ -29964,6 +30856,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1682": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6982": {
@@ -29995,6 +30906,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1682": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6983": {
@@ -30026,6 +30956,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1667": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6984": {
@@ -30057,6 +31006,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1682": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6985": {
@@ -30088,6 +31056,25 @@
             "class": [
                 "Warrior"
             ]
+        },
+        "reward_from": {
+            "1667": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "6986": {
@@ -30101,6 +31088,28 @@
             "gold": 0,
             "silver": 0,
             "copper": 50
+        },
+        "dropped": {
+            "2247": 5.0,
+            "4668": 5.0,
+            "2246": 5.0,
+            "2243": 4.0,
+            "2591": 4.0,
+            "2588": 4.0,
+            "4705": 4.0,
+            "2319": 4.0,
+            "2245": 4.0,
+            "2242": 4.0,
+            "2590": 4.0,
+            "4667": 3.0,
+            "14221": 3.0,
+            "2241": 3.0,
+            "4666": 3.0,
+            "2587": 3.0,
+            "2589": 3.0,
+            "4664": 3.0,
+            "4665": 3.0,
+            "4663": 3.0
         }
     },
     "6987": {
@@ -30114,6 +31123,13 @@
             "gold": 0,
             "silver": 0,
             "copper": 13
+        },
+        "dropped": {
+            "905": 1.93,
+            "2174": 1.38,
+            "1193": 1.24,
+            "8236": 1.11,
+            "6033": 0.19
         }
     },
     "6989": {
@@ -30123,7 +31139,17 @@
         "image_name": "inv_potion_08",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "4670": 80.0,
+            "4671": 80.0,
+            "4672": 80.0,
+            "4673": 80.0,
+            "4674": 80.0,
+            "4675": 80.0,
+            "14225": 80.0
+        },
+        "objective": 4783
     },
     "6990": {
         "i": 6990,
@@ -30132,7 +31158,12 @@
         "image_name": "inv_stone_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "4676": 100.0,
+            "11937": 100.0
+        },
+        "objective": 4783
     },
     "6991": {
         "i": 6991,
@@ -30141,7 +31172,11 @@
         "image_name": "inv_ore_mithril_01",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "2760": 80.0
+        },
+        "objective": 4784
     },
     "6992": {
         "i": 6992,
@@ -30150,7 +31185,13 @@
         "image_name": "inv_crate_06",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "92420": 100.0
+            }
+        },
+        "objective": 1655
     },
     "6993": {
         "i": 6993,
@@ -30159,7 +31200,11 @@
         "image_name": "inv_crate_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 1654,
+        "reward_from": {
+            "1655": 1
+        }
     },
     "6994": {
         "i": 6994,
@@ -30168,7 +31213,11 @@
         "image_name": "inv_tradeskillitem_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "641": 100.0
+        },
+        "objective": 1654
     },
     "6995": {
         "i": 6995,
@@ -30177,7 +31226,13 @@
         "image_name": "inv_misc_gem_ruby_02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "4802": 25.0,
+            "4803": 25.0,
+            "4805": 25.0
+        },
+        "objective": 1442
     },
     "6996": {
         "i": 6996,
@@ -30187,7 +31242,8 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 1654
     },
     "6997": {
         "i": 6997,
@@ -30201,7 +31257,13 @@
             "s": 8712,
             "t": "Call forth a felhunter using the summoning circle. (cooldown 3 min)"
         },
-        "description": "A large number of papers from the 'Tome of the Cabal."
+        "description": "A large number of papers from the 'Tome of the Cabal.",
+        "contained": {
+            "objects": {
+                "92423": 100.0
+            }
+        },
+        "objective": 1803
     },
     "6998": {
         "i": 6998,
@@ -30222,6 +31284,31 @@
             "agility": 3,
             "spirit": 5,
             "durability": 35
+        },
+        "reward_from": {
+            "1199": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10998": {
+                "chance": 15.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "6999": {
@@ -30235,6 +31322,8 @@
         "use": {
             "s": 8712,
             "t": "Call forth a felhunter using the summoning circle. (cooldown 3 min)"
-        }
+        },
+        "provided_for": 1795,
+        "objective": 1795
     }
 }

@@ -18,8 +18,9 @@ TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 iStart = datetime.datetime.now()
 
-prefix = int(input("Enter starting number from 1-22: "))
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items{}.js'.format(prefix)))
+prefix = int(input("Enter starting number from 1-23: "))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items{}.js'.format(prefix)))
+
 
 def main():
 	start = prefix*1000
@@ -162,7 +163,7 @@ def main():
 
 def save_and_close():
 
-	with open(os.path.abspath('../js/items{}.js'.format(prefix)), 'w+') as f:
+	with open(os.path.abspath('../js/items/items{}.js'.format(prefix)), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4)
 
 	with open(os.path.abspath('image_list.txt'), 'w+') as f:
@@ -174,6 +175,9 @@ def save_and_close():
 
 	with open(os.path.abspath('../js/quests.js'), 'w+') as f:
 		json.dump(const.QUESTS, f, indent=4)
+
+	with open(os.path.abspath('../js/itemsets.js'), 'w+') as f:
+		json.dump(const.ITEMSETS, f, indent=4)
 
 	T = datetime.datetime.now() - START_TIME
 	print('==============\nTIME ELAPSED: {}\nMISSING ITEMS: ({})\nERRORS: ({})\n'.format(str(T), NEW['MISSING'], NEW['ERRORS']))
@@ -527,7 +531,7 @@ def create_itemset(id, name, lower_table):
 					match = regex.search(href)
 					spell_id = match.group(1)
 					t = a_elem.text
-					const.ITEMSETS[ix]['bonuses'][required_pieces] = {"s": spell_id, "t":t}
+					const.ITEMSETS[ix]['bonuses'][required_pieces] = {"s": int(spell_id), "t":t}
 
 				else:
 					match_fail_disclaimer('itemset bonus', text, regex)
