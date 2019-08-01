@@ -1,4 +1,28 @@
 {
+    "102984": {
+        "i": 102984,
+        "n": "Bink's Toolbox"
+    },
+    "102985": {
+        "i": 102985,
+        "n": "Balnir Snapdragons"
+    },
+    "103574": {
+        "i": 103574,
+        "n": "Filled Containment Coffer"
+    },
+    "103600": {
+        "i": 103600,
+        "n": "Andron's Bookshelf"
+    },
+    "103628": {
+        "i": 103628,
+        "n": "Ur's Treatise on Shadow Magic"
+    },
+    "103662": {
+        "i": 103662,
+        "n": "Bolt Charged Bramble"
+    },
     "103664": {
         "i": 103664,
         "n": "Rituals of Power"
@@ -15,9 +39,57 @@
         "i": 103774,
         "n": "Standard Issue Tools"
     },
+    "103815": {
+        "i": 103815,
+        "n": "Ambermill Strongbox"
+    },
     "103820": {
         "i": 103820,
         "n": "Red Rocket"
+    },
+    "103821": {
+        "i": 103821,
+        "n": "Doan's Strongbox"
+    },
+    "104564": {
+        "i": 104564,
+        "n": "Bingles's Toolbucket"
+    },
+    "104569": {
+        "i": 104569,
+        "n": "Bingles's Toolbucket"
+    },
+    "104574": {
+        "i": 104574,
+        "n": "Bingles's Toolbucket"
+    },
+    "104575": {
+        "i": 104575,
+        "n": "Bingles's Blastencapper"
+    },
+    "105169": {
+        "i": 105169,
+        "n": "Agamand Weapon Rack"
+    },
+    "105170": {
+        "i": 105170,
+        "n": "Agamand Weapon Rack"
+    },
+    "105171": {
+        "i": 105171,
+        "n": "Agamand Weapon Rack"
+    },
+    "105172": {
+        "i": 105172,
+        "n": "Agamand Weapon Rack"
+    },
+    "105174": {
+        "i": 105174,
+        "n": "Chest of Containment Coffers"
+    },
+    "105175": {
+        "i": 105175,
+        "n": "Cantation of Manifestation"
     },
     "105569": {
         "i": 105569,
@@ -51,6 +123,30 @@
         "i": 111095,
         "n": "Tattered Chest"
     },
+    "113757": {
+        "i": 113757,
+        "n": "Shadowforge Cache"
+    },
+    "113768": {
+        "i": 113768,
+        "n": "Brightly Colored Egg"
+    },
+    "113769": {
+        "i": 113769,
+        "n": "Brightly Colored Egg"
+    },
+    "113770": {
+        "i": 113770,
+        "n": "Brightly Colored Egg"
+    },
+    "113771": {
+        "i": 113771,
+        "n": "Brightly Colored Egg"
+    },
+    "113772": {
+        "i": 113772,
+        "n": "Brightly Colored Egg"
+    },
     "1165": {
         "i": 1165,
         "n": "Gunther's Books"
@@ -71,6 +167,50 @@
         "i": 119,
         "n": "Abercrombie's Crate"
     },
+    "121264": {
+        "i": 121264,
+        "n": "Lucius's Lockbox"
+    },
+    "123214": {
+        "i": 123214,
+        "n": "Duskwood Chest"
+    },
+    "123309": {
+        "i": 123309,
+        "n": "Ooze Covered Truesilver Deposit"
+    },
+    "123310": {
+        "i": 123310,
+        "n": "Ooze Covered Mithril Deposit"
+    },
+    "123329": {
+        "i": 123329,
+        "n": "Baelog's Chest"
+    },
+    "123848": {
+        "i": 123848,
+        "n": "Ooze Covered Thorium Vein"
+    },
+    "124388": {
+        "i": 124388,
+        "n": "Garrett Family Chest"
+    },
+    "124389": {
+        "i": 124389,
+        "n": "Krom Stoutarm's Chest"
+    },
+    "125477": {
+        "i": 125477,
+        "n": "Conspicuous Urn"
+    },
+    "126049": {
+        "i": 126049,
+        "n": "Magenta Cap Clusters"
+    },
+    "126158": {
+        "i": 126158,
+        "n": "Tallonkai's Dresser"
+    },
     "126260": {
         "i": 126260,
         "n": "Ancient Chest"
@@ -79,6 +219,10 @@
         "i": 12654,
         "n": "Mathystra Relic"
     },
+    "128293": {
+        "i": 128293,
+        "n": "Magenta Cap Clusters"
+    },
     "128308": {
         "i": 128308,
         "n": "Shallow Grave"
@@ -86,6 +230,10 @@
     "128403": {
         "i": 128403,
         "n": "Shallow Grave"
+    },
+    "129127": {
+        "i": 129127,
+        "n": "Gallywix's Lockbox"
     },
     "131978": {
         "i": 131978,
@@ -119,33 +267,133 @@
         "i": 13949,
         "n": "Pitted Iron Chest"
     },
+    "140911": {
+        "i": 140911,
+        "n": "Spool of Light Chartreuse Silk Thread"
+    },
+    "140971": {
+        "i": 140971,
+        "n": "Gahz'ridian"
+    },
     "141596": {
         "i": 141596,
         "n": "Witch Doctor's Chest"
+    },
+    "141853": {
+        "i": 141853,
+        "n": "Violet Tragan"
+    },
+    "141931": {
+        "i": 141931,
+        "n": "Hippogryph Egg"
     },
     "141979": {
         "i": 141979,
         "n": "Ancient Treasure"
     },
+    "142076": {
+        "i": 142076,
+        "n": "Clara's Fresh Apples"
+    },
     "142088": {
         "i": 142088,
         "n": "Tablet of Will"
+    },
+    "142140": {
+        "i": 142140,
+        "n": "Purple Lotus"
+    },
+    "142141": {
+        "i": 142141,
+        "n": "Arthas' Tears"
+    },
+    "142142": {
+        "i": 142142,
+        "n": "Sungrass"
+    },
+    "142143": {
+        "i": 142143,
+        "n": "Blindweed"
+    },
+    "142144": {
+        "i": 142144,
+        "n": "Ghost Mushroom"
+    },
+    "142145": {
+        "i": 142145,
+        "n": "Gromsblood"
+    },
+    "142181": {
+        "i": 142181,
+        "n": "Stolen Cargo"
     },
     "142184": {
         "i": 142184,
         "n": "Captain's Chest"
     },
+    "142185": {
+        "i": 142185,
+        "n": "Flame of Byltan"
+    },
+    "142186": {
+        "i": 142186,
+        "n": "Flame of Lahassa"
+    },
+    "142187": {
+        "i": 142187,
+        "n": "Flame of Imbel"
+    },
+    "142188": {
+        "i": 142188,
+        "n": "Flame of Samha"
+    },
     "142191": {
         "i": 142191,
         "n": "Horde Supply Crate"
+    },
+    "142344": {
+        "i": 142344,
+        "n": "Artificial Extrapolator"
+    },
+    "142477": {
+        "i": 142477,
+        "n": "Thermaplugg's Safe"
+    },
+    "143980": {
+        "i": 143980,
+        "n": "Gordunni Scroll"
+    },
+    "144053": {
+        "i": 144053,
+        "n": "Scrimshank's Surveying Gear"
+    },
+    "144054": {
+        "i": 144054,
+        "n": "Shay's Chest"
+    },
+    "144064": {
+        "i": 144064,
+        "n": "Gordunni Dirt Mound"
     },
     "147557": {
         "i": 147557,
         "n": "Stolen Silver"
     },
+    "150079": {
+        "i": 150079,
+        "n": "Mithril Deposit"
+    },
     "150080": {
         "i": 150080,
         "n": "Gold Vein"
+    },
+    "150081": {
+        "i": 150081,
+        "n": "Truesilver Deposit"
+    },
+    "150082": {
+        "i": 150082,
+        "n": "Small Thorium Vein"
     },
     "152608": {
         "i": 152608,
@@ -193,6 +441,10 @@
     },
     "153470": {
         "i": 153470,
+        "n": "Food Crate"
+    },
+    "153471": {
+        "i": 153471,
         "n": "Food Crate"
     },
     "153472": {
@@ -247,6 +499,10 @@
         "i": 1622,
         "n": "Bruiseweed"
     },
+    "165658": {
+        "i": 165658,
+        "n": "Dark Iron Deposit"
+    },
     "167": {
         "i": 167,
         "n": "Abercrombie's Crate"
@@ -283,6 +539,10 @@
         "i": 1735,
         "n": "Iron Deposit"
     },
+    "175404": {
+        "i": 175404,
+        "n": "Rich Thorium Vein"
+    },
     "176224": {
         "i": 176224,
         "n": "Supply Crate"
@@ -298,6 +558,30 @@
     "176582": {
         "i": 176582,
         "n": "Shellfish Trap"
+    },
+    "176636": {
+        "i": 176636,
+        "n": "Sungrass"
+    },
+    "176637": {
+        "i": 176637,
+        "n": "Gromsblood"
+    },
+    "176642": {
+        "i": 176642,
+        "n": "Arthas' Tears"
+    },
+    "176643": {
+        "i": 176643,
+        "n": "Small Thorium Vein"
+    },
+    "176645": {
+        "i": 176645,
+        "n": "Mithril Deposit"
+    },
+    "177388": {
+        "i": 177388,
+        "n": "Ooze Covered Rich Thorium Vein"
     },
     "17783": {
         "i": 17783,
@@ -363,6 +647,10 @@
         "i": 179497,
         "n": "Mossy Footlocker"
     },
+    "179498": {
+        "i": 179498,
+        "n": "Scarlet Footlocker"
+    },
     "179501": {
         "i": 179501,
         "n": "Knot Thimblejack's Cache"
@@ -375,13 +663,29 @@
         "i": 179548,
         "n": "A Dusty Tome"
     },
+    "179564": {
+        "i": 179564,
+        "n": "Gordok Tribute"
+    },
     "179697": {
         "i": 179697,
         "n": "Arena Treasure Chest"
     },
+    "180164": {
+        "i": 180164,
+        "n": "Sungrass"
+    },
+    "180165": {
+        "i": 180165,
+        "n": "Purple Lotus"
+    },
     "180184": {
         "i": 180184,
         "n": "School of Fish"
+    },
+    "180215": {
+        "i": 180215,
+        "n": "Hakkari Thorium Vein"
     },
     "180248": {
         "i": 180248,
@@ -427,6 +731,10 @@
         "i": 180752,
         "n": "Firefin Snapper School"
     },
+    "180753": {
+        "i": 180753,
+        "n": "Patch of Elemental Water"
+    },
     "180900": {
         "i": 180900,
         "n": "Oily Blackmouth School"
@@ -434,6 +742,18 @@
     "180902": {
         "i": 180902,
         "n": "Firefin Snapper School"
+    },
+    "181068": {
+        "i": 181068,
+        "n": "Small Obsidian Chunk"
+    },
+    "181069": {
+        "i": 181069,
+        "n": "Large Obsidian Chunk"
+    },
+    "181108": {
+        "i": 181108,
+        "n": "Truesilver Deposit"
     },
     "181109": {
         "i": 181109,
@@ -466,6 +786,10 @@
     "181804": {
         "i": 181804,
         "n": "Felsteel Chest"
+    },
+    "183046": {
+        "i": 183046,
+        "n": "Blindweed"
     },
     "184980": {
         "i": 184980,
@@ -594,6 +918,14 @@
     "2039": {
         "i": 2039,
         "n": "Hidden Strongbox"
+    },
+    "2040": {
+        "i": 2040,
+        "n": "Mithril Deposit"
+    },
+    "2047": {
+        "i": 2047,
+        "n": "Truesilver Deposit"
     },
     "2054": {
         "i": 2054,
@@ -886,6 +1218,10 @@
     "3239": {
         "i": 3239,
         "n": "Benedict's Chest"
+    },
+    "324": {
+        "i": 324,
+        "n": "Small Thorium Vein"
     },
     "3240": {
         "i": 3240,
@@ -1195,18 +1531,6 @@
         "i": 759,
         "n": "The Holy Spring"
     },
-    "89634": {
-        "i": 89634,
-        "n": "Iron Coral"
-    },
-    "9630": {
-        "i": 9630,
-        "n": "Flagongut's Fossil"
-    },
-    "85563": {
-        "i": 85563,
-        "n": "Dead-tooth's Strongbox"
-    },
     "83763": {
         "i": 83763,
         "n": "Stolen Books"
@@ -1215,32 +1539,44 @@
         "i": 85562,
         "n": "Ironband's Strongbox"
     },
+    "85563": {
+        "i": 85563,
+        "n": "Dead-tooth's Strongbox"
+    },
     "86492": {
         "i": 86492,
         "n": "Crate of Elunite"
     },
-    "113769": {
-        "i": 113769,
-        "n": "Brightly Colored Egg"
-    },
-    "113771": {
-        "i": 113771,
-        "n": "Brightly Colored Egg"
-    },
-    "113770": {
-        "i": 113770,
-        "n": "Brightly Colored Egg"
-    },
-    "113768": {
-        "i": 113768,
-        "n": "Brightly Colored Egg"
-    },
-    "113772": {
-        "i": 113772,
-        "n": "Brightly Colored Egg"
+    "89634": {
+        "i": 89634,
+        "n": "Iron Coral"
     },
     "89635": {
         "i": 89635,
         "n": "Sunscorched Shell"
+    },
+    "91138": {
+        "i": 91138,
+        "n": "Jordan's Hammer"
+    },
+    "92013": {
+        "i": 92013,
+        "n": "Tome of the Cabal"
+    },
+    "92420": {
+        "i": 92420,
+        "n": "Bailor's Ore"
+    },
+    "92423": {
+        "i": 92423,
+        "n": "Damaged Chest"
+    },
+    "93192": {
+        "i": 93192,
+        "n": "Heartswood"
+    },
+    "9630": {
+        "i": 9630,
+        "n": "Flagongut's Fossil"
     }
 }

@@ -51,8 +51,12 @@ else:
 
 # the baseline; everything is an item
 class Item(models.Model):
-	QUALITY_CHOICES = ( (0, 'junk'), (1, 'common'), (2, 'uncommon'), (3, 'rare'), (4, 'epic'), (5, 'legendary'), (6, 'gm'),)
-	REQUIREMENT_KEYS = ['level', 'reputation', 'faction', 'profession']
+	JUNK, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, GM = 0,1,2,3,4,5,6
+	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS,FINGER,TRINKET,BACK = 1,2,3,4,5,6,7,8,9,10,11,13,15
+	CLOTH,LEATHER,MAIL,PLATE = 1,2,3,4
+	QUALITY_CHOICES = ( (JUNK, 'junk'), (COMMON, 'common'), (UNCOMMON, 'uncommon'), (RARE, 'rare'), (EPIC, 'epic'), (LEGENDARY, 'legendary'), (GM, 'gm'),)
+	REQUIREMENT_KEYS = ['level', 'reputation', 'faction', 'profession' 'class']
+	SLOT_CHOICES = ( (HEAD, 'Head'), (NECK, 'Neck'), (SHOULDER, 'Shoulder'), (SHIRT, 'Shirt'), (CHEST, 'Chest'), (BELT, 'Belt'), (LEGS, 'Legs'), (FEET, 'Feet'), (WRIST, 'Wrist'), (HANDS, 'Hands'), (BACK, 'Back'),)
 	i = models.PositiveIntegerField(primary_key=True)
 	n = models.CharField(max_length=100, unique=True, help_text='Name')
 	quality = models.CharField(max_length=10, choices=QUALITY_CHOICES, default=1)
@@ -64,13 +68,20 @@ class Item(models.Model):
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
 	use = models.CharField(max_length=250, blank=True)
-	description = models.CharField(max_length=250, blank=True)
-
+	description = models.CharField(max_length=250, blank=Tru
 	#https://docs.djangoproject.com/en/2.2/ref/contrib/postgres/fields/#hstorefield
 	requirements = HStoreField(validators=KeysValidator(REQUIREMENT_KEYS, strict=True))
 
 	def __str__(self):
 		return self.n
+
+class Weapon(Item):
+	slot =
+
+class Armor(Item):
+	slot =
+	stats = models.ManyToManyField
+
 
 class Recipe(models.Model):
 

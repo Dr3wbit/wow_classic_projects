@@ -10,7 +10,7 @@ from statistics import mean
 
 START_TIME = datetime.datetime.now()
 NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items.js'))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items.js'))
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 # if permissions error: chmod 755 path/to/chromedriver

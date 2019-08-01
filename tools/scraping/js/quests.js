@@ -923,6 +923,16 @@
         },
         "ilvl": 25
     },
+    "1918": {
+        "i": 1918,
+        "n": "The Befouled Element",
+        "zone": "Ashenvale",
+        "requirements": {
+            "level": 23,
+            "faction": "H"
+        },
+        "ilvl": 27
+    },
     "1921": {
         "i": 1921,
         "n": "Gathering Materials",
@@ -991,6 +1001,16 @@
             "faction": "A"
         },
         "ilvl": 18
+    },
+    "2": {
+        "i": 2,
+        "n": "Sharptalon's Claw",
+        "zone": "Ashenvale",
+        "requirements": {
+            "level": 20,
+            "faction": "H"
+        },
+        "ilvl": 30
     },
     "20": {
         "i": 20,
@@ -1253,6 +1273,16 @@
         },
         "ilvl": 35
     },
+    "23": {
+        "i": 23,
+        "n": "Ursangous's Paw",
+        "zone": "Ashenvale",
+        "requirements": {
+            "level": 20,
+            "faction": "H"
+        },
+        "ilvl": 24
+    },
     "230": {
         "i": 230,
         "n": "Sven's Camp",
@@ -1302,6 +1332,16 @@
             "faction": "A"
         },
         "ilvl": 15
+    },
+    "24": {
+        "i": 24,
+        "n": "Shadumbra's Head",
+        "zone": "Ashenvale",
+        "requirements": {
+            "level": 20,
+            "faction": "H"
+        },
+        "ilvl": 27
     },
     "245": {
         "i": 245,
@@ -3254,6 +3294,15 @@
         },
         "ilvl": 10
     },
+    "5202": {
+        "i": 5202,
+        "n": "A Strange Red Key",
+        "zone": "Felwood",
+        "requirements": {
+            "level": 49
+        },
+        "ilvl": 55
+    },
     "524": {
         "i": 524,
         "n": "Elixir of Agony",
@@ -3282,6 +3331,16 @@
             "faction": "A"
         },
         "ilvl": 29
+    },
+    "5262": {
+        "i": 5262,
+        "n": "The Truth Comes Crashing Down",
+        "dungeon": true,
+        "zone": "Stratholme",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
     },
     "53": {
         "i": 53,
@@ -3332,6 +3391,26 @@
             "level": 20
         },
         "zone": "Duskwood"
+    },
+    "5541": {
+        "i": 5541,
+        "n": "Ammo for Rumbleshot",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 5,
+            "faction": "A"
+        },
+        "ilvl": 6
+    },
+    "5582": {
+        "i": 5582,
+        "n": "Healthy Dragon Scale",
+        "dungeon": true,
+        "zone": "Scholomance",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 58
     },
     "565": {
         "i": 565,
@@ -3420,6 +3499,16 @@
         },
         "ilvl": 30
     },
+    "5805": {
+        "i": 5805,
+        "n": "Welcome!",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1,
+            "faction": "A"
+        },
+        "ilvl": 1
+    },
     "582": {
         "i": 582,
         "n": "Headhunting",
@@ -3429,6 +3518,56 @@
             "faction": "H"
         },
         "ilvl": 37
+    },
+    "5841": {
+        "i": 5841,
+        "n": "Welcome!",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1,
+            "faction": "A"
+        },
+        "ilvl": 1
+    },
+    "5842": {
+        "i": 5842,
+        "n": "Welcome!",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1,
+            "faction": "A"
+        },
+        "ilvl": 1
+    },
+    "5843": {
+        "i": 5843,
+        "n": "Welcome!",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1,
+            "faction": "H"
+        },
+        "ilvl": 1
+    },
+    "5844": {
+        "i": 5844,
+        "n": "Welcome!",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1,
+            "faction": "H"
+        },
+        "ilvl": 1
+    },
+    "5847": {
+        "i": 5847,
+        "n": "Welcome!",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1,
+            "faction": "H"
+        },
+        "ilvl": 1
     },
     "59": {
         "i": 59,
@@ -3688,6 +3827,17 @@
         },
         "ilvl": 20
     },
+    "6522": {
+        "i": 6522,
+        "n": "An Unholy Alliance",
+        "dungeon": true,
+        "zone": "Razorfen Downs",
+        "requirements": {
+            "level": 28,
+            "faction": "H"
+        },
+        "ilvl": 36
+    },
     "654": {
         "i": 654,
         "n": "Tanaris Field Sampling",
@@ -3697,6 +3847,26 @@
             "faction": "H"
         },
         "ilvl": 46
+    },
+    "6564": {
+        "i": 6564,
+        "n": "Allegiance to the Old Gods",
+        "dungeon": true,
+        "zone": "Blackfathom Deeps",
+        "requirements": {
+            "level": 17,
+            "faction": "H"
+        },
+        "ilvl": 22
+    },
+    "6681": {
+        "i": 6681,
+        "n": "The Manor, Ravenholdt",
+        "zone": "Rogue",
+        "requirements": {
+            "level": 24
+        },
+        "ilvl": 24
     },
     "68": {
         "i": 68,
@@ -3825,6 +3995,46 @@
         },
         "ilvl": 28
     },
+    "7490": {
+        "i": 7490,
+        "n": "Victory for the Horde",
+        "zone": "Orgrimmar",
+        "requirements": {
+            "level": 60,
+            "faction": "H"
+        },
+        "ilvl": 60
+    },
+    "7495": {
+        "i": 7495,
+        "n": "Victory for the Alliance",
+        "zone": "Stormwind City",
+        "requirements": {
+            "level": 60,
+            "faction": "A"
+        },
+        "ilvl": 60
+    },
+    "7498": {
+        "i": 7498,
+        "n": "Garona: A Study on Stealth and Treachery",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
+    "7499": {
+        "i": 7499,
+        "n": "Codex of Defense",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
     "75": {
         "i": 75,
         "n": "The Legend of Stalvan",
@@ -3834,6 +4044,96 @@
             "faction": "A"
         },
         "ilvl": 28
+    },
+    "7500": {
+        "i": 7500,
+        "n": "The Arcanist's Cookbook",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
+    "7501": {
+        "i": 7501,
+        "n": "The Light and How To Swing It",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
+    "7502": {
+        "i": 7502,
+        "n": "Harnessing Shadows",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
+    "7503": {
+        "i": 7503,
+        "n": "The Greatest Race of Hunters",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
+    "7504": {
+        "i": 7504,
+        "n": "Holy Bologna: What the Light Won't Tell You",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
+    "7505": {
+        "i": 7505,
+        "n": "Frost Shock and You",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
+    "7506": {
+        "i": 7506,
+        "n": "The Emerald Dream...",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 54
+        },
+        "ilvl": 60
+    },
+    "7507": {
+        "i": 7507,
+        "n": "Foror's Compendium",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "7508": {
+        "i": 7508,
+        "n": "The Forging of Quel'Serrar",
+        "dungeon": true,
+        "zone": "Dire Maul",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
     },
     "7521": {
         "i": 7521,
@@ -3861,6 +4161,55 @@
             "level": 4
         },
         "ilvl": 10
+    },
+    "7604": {
+        "i": 7604,
+        "n": "A Binding Contract",
+        "dungeon": true,
+        "zone": "Blackrock Depths",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "7632": {
+        "i": 7632,
+        "n": "The Ancient Leaf",
+        "zone": "Hunter",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "7649": {
+        "i": 7649,
+        "n": "Enchanted Thorium Platemail: Volume I",
+        "dungeon": true,
+        "zone": "Blacksmithing",
+        "requirements": {
+            "level": 50
+        },
+        "ilvl": 60
+    },
+    "7650": {
+        "i": 7650,
+        "n": "Enchanted Thorium Platemail: Volume II",
+        "dungeon": true,
+        "zone": "Blacksmithing",
+        "requirements": {
+            "level": 50
+        },
+        "ilvl": 60
+    },
+    "7651": {
+        "i": 7651,
+        "n": "Enchanted Thorium Platemail: Volume III",
+        "dungeon": true,
+        "zone": "Blacksmithing",
+        "requirements": {
+            "level": 50
+        },
+        "ilvl": 60
     },
     "768": {
         "i": 768,
@@ -3891,6 +4240,35 @@
         },
         "ilvl": 12
     },
+    "7735": {
+        "i": 7735,
+        "n": "Pristine Yeti Hide",
+        "zone": "Feralas",
+        "requirements": {
+            "level": 40
+        },
+        "ilvl": 48
+    },
+    "7738": {
+        "i": 7738,
+        "n": "Perfect Yeti Hide",
+        "zone": "Feralas",
+        "requirements": {
+            "level": 40,
+            "faction": "H"
+        },
+        "ilvl": 48
+    },
+    "7761": {
+        "i": 7761,
+        "n": "Blackhand's Command",
+        "dungeon": true,
+        "zone": "Blackrock Spire",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
     "778": {
         "i": 778,
         "n": "This Is Going to Be Hard",
@@ -3899,6 +4277,35 @@
             "level": 35
         },
         "ilvl": 45
+    },
+    "7781": {
+        "i": 7781,
+        "n": "The Lord of Blackrock",
+        "zone": "Stormwind City",
+        "requirements": {
+            "level": 60,
+            "faction": "A"
+        },
+        "ilvl": 60
+    },
+    "7783": {
+        "i": 7783,
+        "n": "The Lord of Blackrock",
+        "zone": "Orgrimmar",
+        "requirements": {
+            "level": 60,
+            "faction": "H"
+        },
+        "ilvl": 60
+    },
+    "7785": {
+        "i": 7785,
+        "n": "Examine the Vessel",
+        "zone": "Legendary",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
     },
     "7786": {
         "i": 7786,
@@ -3911,12 +4318,12 @@
     },
     "7787": {
         "i": 7787,
-        "ilvl": 60,
         "n": "Rise, Thunderfury!",
+        "zone": "Legendary",
         "requirements": {
             "level": 60
         },
-        "zone": "Legendary"
+        "ilvl": 60
     },
     "7791": {
         "i": 7791,
@@ -3967,6 +4374,15 @@
             "faction": "A"
         },
         "ilvl": 60
+    },
+    "7810": {
+        "i": 7810,
+        "n": "Arena Master",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 55
     },
     "7813": {
         "i": 7813,
@@ -4063,6 +4479,60 @@
         },
         "ilvl": 28
     },
+    "7907": {
+        "i": 7907,
+        "n": "Darkmoon Beast Deck",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "7927": {
+        "i": 7927,
+        "n": "Darkmoon Portals Deck",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "7928": {
+        "i": 7928,
+        "n": "Darkmoon Warlords Deck",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "7929": {
+        "i": 7929,
+        "n": "Darkmoon Elementals Deck",
+        "zone": "undefined",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "7937": {
+        "i": 7937,
+        "n": "Your Fortune Awaits You...",
+        "zone": "undefined",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 60
+    },
+    "7938": {
+        "i": 7938,
+        "n": "Your Fortune Awaits You...",
+        "zone": "undefined",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 60
+    },
     "794": {
         "i": 794,
         "ilvl": 5,
@@ -4080,6 +4550,24 @@
             "level": 40
         },
         "zone": "undefined"
+    },
+    "7944": {
+        "i": 7944,
+        "n": "Your Fortune Awaits You...",
+        "zone": "undefined",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 60
+    },
+    "7945": {
+        "i": 7945,
+        "n": "Your Fortune Awaits You...",
+        "zone": "undefined",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 60
     },
     "8": {
         "i": 8,
@@ -4108,6 +4596,24 @@
             "level": 6
         },
         "zone": "Durotar"
+    },
+    "8183": {
+        "i": 8183,
+        "n": "The Heart of Hakkar",
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 58
+        },
+        "ilvl": 60
+    },
+    "8227": {
+        "i": 8227,
+        "n": "Nat's Measuring Tape",
+        "zone": "Zul'Gurub",
+        "requirements": {
+            "level": 58
+        },
+        "ilvl": 60
     },
     "8241": {
         "i": 8241,
@@ -4146,6 +4652,16 @@
         },
         "ilvl": 9
     },
+    "8308": {
+        "i": 8308,
+        "n": "Brann Bronzebeard's Lost Letter",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 58
+        },
+        "ilvl": 60
+    },
     "84": {
         "i": 84,
         "n": "Back to Billy",
@@ -4155,6 +4671,33 @@
             "faction": "A"
         },
         "ilvl": 6
+    },
+    "8446": {
+        "i": 8446,
+        "n": "Shrouded in Nightmare",
+        "zone": "Dun Morogh",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8470": {
+        "i": 8470,
+        "n": "Deadwood Ritual Totem",
+        "zone": "Felwood",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 55
+    },
+    "8471": {
+        "i": 8471,
+        "n": "Winterfall Ritual Totem",
+        "zone": "Winterspring",
+        "requirements": {
+            "level": 50
+        },
+        "ilvl": 56
     },
     "8492": {
         "i": 8492,
@@ -4189,6 +4732,54 @@
         "zone": "Ahn'Qiraj War",
         "requirements": {
             "level": 1
+        },
+        "ilvl": 60
+    },
+    "8496": {
+        "i": 8496,
+        "n": "Bandages for the Field",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8497": {
+        "i": 8497,
+        "n": "Desert Survival Kits",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8498": {
+        "i": 8498,
+        "n": "Twilight Battle Orders",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8501": {
+        "i": 8501,
+        "n": "Target: Hive'Ashi Stingers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8502": {
+        "i": 8502,
+        "n": "Target: Hive'Ashi Workers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
         },
         "ilvl": 60
     },
@@ -4274,6 +4865,75 @@
         },
         "ilvl": 60
     },
+    "8534": {
+        "i": 8534,
+        "n": "Hive'Zora Scout Report",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8535": {
+        "i": 8535,
+        "n": "Hoary Templar",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8536": {
+        "i": 8536,
+        "n": "Earthen Templar",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8537": {
+        "i": 8537,
+        "n": "Crimson Templar",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8538": {
+        "i": 8538,
+        "n": "The Four Dukes",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8539": {
+        "i": 8539,
+        "n": "Target: Hive'Zora Hive Sisters",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8540": {
+        "i": 8540,
+        "n": "Boots for the Guard",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
     "8541": {
         "i": 8541,
         "n": "Grinding Stones for the Guard",
@@ -4330,6 +4990,15 @@
         },
         "ilvl": 50
     },
+    "8575": {
+        "i": 8575,
+        "n": "Azuregos's Magical Ledger",
+        "zone": "Azshara",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
     "8588": {
         "i": 8588,
         "n": "The Horde Needs Heavy Leather!",
@@ -4376,6 +5045,16 @@
         },
         "ilvl": 60
     },
+    "8687": {
+        "i": 8687,
+        "n": "Target: Hive'Zora Tunnelers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
     "87": {
         "i": 87,
         "n": "Goldtooth",
@@ -4385,6 +5064,231 @@
             "faction": "A"
         },
         "ilvl": 8
+    },
+    "8737": {
+        "i": 8737,
+        "n": "Azure Templar",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8738": {
+        "i": 8738,
+        "n": "Hive'Regal Scout Report",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8739": {
+        "i": 8739,
+        "n": "Hive'Ashi Scout Report",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8740": {
+        "i": 8740,
+        "n": "Twilight Marauders",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8770": {
+        "i": 8770,
+        "n": "Target: Hive'Ashi Defenders",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8771": {
+        "i": 8771,
+        "n": "Target: Hive'Ashi Sandstalkers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8772": {
+        "i": 8772,
+        "n": "Target: Hive'Zora Waywatchers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8773": {
+        "i": 8773,
+        "n": "Target: Hive'Zora Reavers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8774": {
+        "i": 8774,
+        "n": "Target: Hive'Regal Ambushers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8775": {
+        "i": 8775,
+        "n": "Target: Hive'Regal Spitfires",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8776": {
+        "i": 8776,
+        "n": "Target: Hive'Regal Slavemakers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8777": {
+        "i": 8777,
+        "n": "Target: Hive'Regal Burrowers",
+        "group": true,
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8778": {
+        "i": 8778,
+        "n": "The Ironforge Brigade Needs Explosives!",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60,
+            "faction": "A"
+        },
+        "ilvl": 60
+    },
+    "8779": {
+        "i": 8779,
+        "n": "Scrying Materials",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8780": {
+        "i": 8780,
+        "n": "Armor Kits for the Field",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60,
+            "faction": "A"
+        },
+        "ilvl": 60
+    },
+    "8781": {
+        "i": 8781,
+        "n": "Arms for the Field",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60,
+            "faction": "A"
+        },
+        "ilvl": 60
+    },
+    "8782": {
+        "i": 8782,
+        "n": "Uniform Supplies",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8783": {
+        "i": 8783,
+        "n": "Extraordinary Materials",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8784": {
+        "i": 8784,
+        "n": "Secrets of the Qiraji",
+        "zone": "Temple of Ahn'Qiraj",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8785": {
+        "i": 8785,
+        "n": "The Orgrimmar Legion Needs Mojo!",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60,
+            "faction": "H"
+        },
+        "ilvl": 60
+    },
+    "8786": {
+        "i": 8786,
+        "n": "Arms for the Field",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60,
+            "faction": "H"
+        },
+        "ilvl": 60
+    },
+    "8787": {
+        "i": 8787,
+        "n": "Armor Kits for the Field",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60,
+            "faction": "H"
+        },
+        "ilvl": 60
+    },
+    "8791": {
+        "i": 8791,
+        "n": "The Fall of Ossirian",
+        "zone": "Ruins of Ahn'Qiraj",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
     },
     "88": {
         "i": 88,
@@ -4396,9 +5300,82 @@
         },
         "ilvl": 9
     },
+    "8801": {
+        "i": 8801,
+        "n": "C'Thun's Legacy",
+        "zone": "Temple of Ahn'Qiraj",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8804": {
+        "i": 8804,
+        "n": "Desert Survival Kits",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8805": {
+        "i": 8805,
+        "n": "Boots for the Guard",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
     "8806": {
         "i": 8806,
         "n": "Grinding Stones for the Guard",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8807": {
+        "i": 8807,
+        "n": "Scrying Materials",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8808": {
+        "i": 8808,
+        "n": "Uniform Supplies",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8809": {
+        "i": 8809,
+        "n": "Extraordinary Materials",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8810": {
+        "i": 8810,
+        "n": "Bandages for the Field",
+        "zone": "Silithus",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "8829": {
+        "i": 8829,
+        "n": "The Ultimate Deception",
+        "group": true,
         "zone": "Silithus",
         "requirements": {
             "level": 60
@@ -4474,6 +5451,17 @@
             "faction": "A"
         },
         "ilvl": 25
+    },
+    "909": {
+        "i": 909,
+        "n": "Baron Aquanis",
+        "group": true,
+        "zone": "Ashenvale",
+        "requirements": {
+            "level": 21,
+            "faction": "H"
+        },
+        "ilvl": 30
     },
     "91": {
         "i": 91,
@@ -4589,43 +5577,64 @@
         },
         "ilvl": 15
     },
-    "5202": {
-        "i": 5202,
-        "n": "A Strange Red Key",
-        "zone": "Felwood",
+    "9324": {
+        "i": 9324,
+        "n": "Stealing Orgrimmar's Flame",
+        "zone": "undefined",
         "requirements": {
-            "level": 49
-        },
-        "ilvl": 55
-    },
-    "5262": {
-        "i": 5262,
-        "n": "The Truth Comes Crashing Down",
-        "dungeon": true,
-        "zone": "Stratholme",
-        "requirements": {
-            "level": 55
+            "level": 50,
+            "faction": "A"
         },
         "ilvl": 60
     },
-    "5541": {
-        "i": 5541,
-        "n": "Ammo for Rumbleshot",
-        "zone": "Dun Morogh",
+    "9325": {
+        "i": 9325,
+        "n": "Stealing Thunder Bluff's Flame",
+        "zone": "undefined",
         "requirements": {
-            "level": 5,
+            "level": 50,
             "faction": "A"
         },
-        "ilvl": 6
+        "ilvl": 60
     },
-    "5582": {
-        "i": 5582,
-        "n": "Healthy Dragon Scale",
-        "dungeon": true,
-        "zone": "Scholomance",
+    "9326": {
+        "i": 9326,
+        "n": "Stealing the Undercity's Flame",
+        "zone": "undefined",
         "requirements": {
-            "level": 55
+            "level": 50,
+            "faction": "A"
         },
-        "ilvl": 58
+        "ilvl": 60
+    },
+    "9330": {
+        "i": 9330,
+        "n": "Stealing Stormwind's Flame",
+        "zone": "undefined",
+        "requirements": {
+            "level": 50,
+            "faction": "H"
+        },
+        "ilvl": 60
+    },
+    "9331": {
+        "i": 9331,
+        "n": "Stealing Ironforge's Flame",
+        "zone": "undefined",
+        "requirements": {
+            "level": 50,
+            "faction": "H"
+        },
+        "ilvl": 60
+    },
+    "9332": {
+        "i": 9332,
+        "n": "Stealing Darnassus's Flame",
+        "zone": "undefined",
+        "requirements": {
+            "level": 50,
+            "faction": "H"
+        },
+        "ilvl": 60
     }
 }

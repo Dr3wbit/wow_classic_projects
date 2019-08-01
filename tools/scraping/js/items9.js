@@ -5384,7 +5384,9 @@
         "n": "A Carefully-packed Crate",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3022,
+        "objective": 3022
     },
     "9508": {
         "boe": true,
@@ -5414,6 +5416,17 @@
             "durability": 80,
             "intellect": 15,
             "stamina": 5
+        },
+        "dropped": {
+            "6407": 0.6
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9509": {
@@ -5439,6 +5452,29 @@
             "armor": 90,
             "durability": 75,
             "stamina": 6
+        },
+        "dropped": {
+            "6220": 0.089,
+            "6232": 0.066,
+            "6234": 0.043,
+            "6211": 0.04,
+            "6225": 0.035,
+            "6226": 0.035,
+            "6230": 0.032,
+            "6206": 0.02,
+            "6207": 0.02,
+            "6223": 0.02,
+            "6233": 0.018,
+            "6227": 0.017,
+            "6212": 0.012
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9510": {
@@ -5464,6 +5500,25 @@
             "durability": 60,
             "stamina": 10,
             "strength": 4
+        },
+        "dropped": {
+            "6230": 0.063,
+            "6215": 0.05,
+            "6234": 0.043,
+            "6226": 0.035,
+            "6232": 0.033,
+            "6225": 0.02,
+            "6233": 0.02,
+            "6227": 0.017,
+            "6212": 0.012
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9511": {
@@ -5500,6 +5555,17 @@
         "speed": 1.8,
         "stats": {
             "durability": 90
+        },
+        "dropped": {
+            "7608": 0.18
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9512": {
@@ -5523,6 +5589,23 @@
             "agility": 12,
             "armor": 33,
             "stamina": 5
+        },
+        "dropped": {
+            "7274": 0.093,
+            "10082": 0.08,
+            "7608": 0.061,
+            "7605": 0.06,
+            "7797": 0.03,
+            "7272": 0.02,
+            "7795": 0.02
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9513": {
@@ -5555,6 +5638,25 @@
             "durability": 45,
             "intellect": 1,
             "spirit": 1
+        },
+        "reward_from": {
+            "1861": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9514": {
@@ -5587,6 +5689,25 @@
             "durability": 45,
             "intellect": 1,
             "spirit": 1
+        },
+        "reward_from": {
+            "1882": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9515": {
@@ -5613,6 +5734,31 @@
             "durability": 70,
             "intellect": 9,
             "stamina": 6
+        },
+        "reward_from": {
+            "1946": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9516": {
@@ -5639,6 +5785,31 @@
             "durability": 70,
             "intellect": 9,
             "stamina": 6
+        },
+        "reward_from": {
+            "1942": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9517": {
@@ -5678,6 +5849,17 @@
         "stats": {
             "durability": 100,
             "intellect": 8
+        },
+        "reward_from": {
+            "1958": 1
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9518": {
@@ -5698,6 +5880,31 @@
             "armor": 64,
             "durability": 30,
             "strength": 11
+        },
+        "reward_from": {
+            "1177": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9519": {
@@ -5719,6 +5926,31 @@
             "durability": 35,
             "spirit": 9,
             "strength": 4
+        },
+        "reward_from": {
+            "1177": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9520": {
@@ -5745,6 +5977,31 @@
         "stats": {
             "agility": 7,
             "durability": 55
+        },
+        "reward_from": {
+            "679": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9521": {
@@ -5772,6 +6029,31 @@
             "durability": 85,
             "stamina": 4,
             "strength": 15
+        },
+        "reward_from": {
+            "679": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9522": {
@@ -5794,6 +6076,31 @@
             "durability": 85,
             "spirit": 7,
             "stamina": 2
+        },
+        "reward_from": {
+            "2418": 1
+        },
+        "disenchant": {
+            "11135": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9523": {
@@ -5803,7 +6110,26 @@
         "n": "Troll Temper",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "dropped": {
+            "5648": 55.0,
+            "5649": 55.0,
+            "5650": 55.0,
+            "7246": 55.0,
+            "7247": 55.0,
+            "7267": 55.0,
+            "7272": 55.0,
+            "7274": 55.0,
+            "7797": 55.0,
+            "8127": 55.0,
+            "10081": 55.0,
+            "10080": 55.0,
+            "7286": 55.0,
+            "7796": 55.0,
+            "10082": 55.0,
+            "7276": 55.0
+        },
+        "objective": 3042
     },
     "9527": {
         "bop": true,
@@ -5830,6 +6156,31 @@
             "durability": 85,
             "intellect": 16,
             "stamina": 6
+        },
+        "reward_from": {
+            "2846": 1
+        },
+        "disenchant": {
+            "11175": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9528": {
@@ -5839,7 +6190,11 @@
         "n": "Edana's Dark Heart",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "dropped": {
+            "8075": 100.0
+        },
+        "objective": 3062
     },
     "9530": {
         "i": 9530,
@@ -5857,6 +6212,12 @@
         "use": {
             "s": 11840,
             "t": "Summons Edana Hatetalon."
+        },
+        "dropped": {
+            "5362": 100.0,
+            "5363": 100.0,
+            "5364": 100.0,
+            "5366": 100.0
         }
     },
     "9531": {
@@ -5878,6 +6239,31 @@
             "durability": 70,
             "stamina": 9,
             "strength": 10
+        },
+        "reward_from": {
+            "2846": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9533": {
@@ -5896,6 +6282,17 @@
         "stats": {
             "agility": 13,
             "stamina": 5
+        },
+        "reward_from": {
+            "2768": 1
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9534": {
@@ -5917,6 +6314,17 @@
             "durability": 60,
             "intellect": 23,
             "spirit": 9
+        },
+        "reward_from": {
+            "2768": 1
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9535": {
@@ -5938,6 +6346,31 @@
             "armor": 87,
             "durability": 35,
             "stamina": 1
+        },
+        "reward_from": {
+            "2904": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9536": {
@@ -5959,6 +6392,31 @@
             "durability": 45,
             "intellect": 8,
             "stamina": 1
+        },
+        "reward_from": {
+            "2904": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9538": {
@@ -5978,7 +6436,18 @@
             "spirit": 4,
             "stamina": 9
         },
-        "unique": true
+        "unique": true,
+        "reward_from": {
+            "2948": 1
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        }
     },
     "9539": {
         "i": 9539,
@@ -5990,6 +6459,9 @@
             "copper": 50,
             "gold": 0,
             "silver": 0
+        },
+        "reward_from": {
+            "2749": 1
         }
     },
     "9540": {
@@ -6002,6 +6474,9 @@
             "copper": 50,
             "gold": 0,
             "silver": 1
+        },
+        "reward_from": {
+            "2748": 1
         }
     },
     "9541": {
@@ -6014,6 +6489,9 @@
             "copper": 0,
             "gold": 0,
             "silver": 2
+        },
+        "reward_from": {
+            "2747": 1
         }
     },
     "9542": {
@@ -6024,7 +6502,9 @@
         "n": "Simple Letter",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3100,
+        "objective": 3100
     },
     "9543": {
         "click_to_read": true,
@@ -6034,7 +6514,9 @@
         "n": "Simple Rune",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3106,
+        "objective": 3106
     },
     "9544": {
         "click_to_read": true,
@@ -6044,7 +6526,9 @@
         "n": "Simple Memorandum",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3112,
+        "objective": 3112
     },
     "9545": {
         "click_to_read": true,
@@ -6054,7 +6538,9 @@
         "n": "Simple Sigil",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3116,
+        "objective": 3116
     },
     "9546": {
         "click_to_read": true,
@@ -6064,7 +6550,9 @@
         "n": "Simple Scroll",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3095,
+        "objective": 3095
     },
     "9547": {
         "click_to_read": true,
@@ -6074,7 +6562,9 @@
         "n": "Simple Note",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3091,
+        "objective": 3091
     },
     "9548": {
         "click_to_read": true,
@@ -6084,7 +6574,9 @@
         "n": "Hallowed Letter",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3103,
+        "objective": 3103
     },
     "9550": {
         "click_to_read": true,
@@ -6094,7 +6586,9 @@
         "n": "Encrypted Rune",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3109,
+        "objective": 3109
     },
     "9551": {
         "click_to_read": true,
@@ -6104,7 +6598,9 @@
         "n": "Encrypted Sigil",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3118,
+        "objective": 3118
     },
     "9552": {
         "click_to_read": true,
@@ -6114,7 +6610,9 @@
         "n": "Rune-Inscribed Note",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3093,
+        "objective": 3093
     },
     "9553": {
         "click_to_read": true,
@@ -6124,7 +6622,9 @@
         "n": "Etched Parchment",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3087,
+        "objective": 3087
     },
     "9554": {
         "click_to_read": true,
@@ -6134,7 +6634,9 @@
         "n": "Encrypted Tablet",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3083,
+        "objective": 3083
     },
     "9555": {
         "click_to_read": true,
@@ -6144,7 +6646,9 @@
         "n": "Encrypted Letter",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3102,
+        "objective": 3102
     },
     "9556": {
         "click_to_read": true,
@@ -6154,7 +6658,9 @@
         "n": "Hallowed Rune",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3110,
+        "objective": 3110
     },
     "9557": {
         "click_to_read": true,
@@ -6164,7 +6670,9 @@
         "n": "Hallowed Sigil",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3119,
+        "objective": 3119
     },
     "9558": {
         "click_to_read": true,
@@ -6174,7 +6682,9 @@
         "n": "Encrypted Memorandum",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3113,
+        "objective": 3113
     },
     "9559": {
         "click_to_read": true,
@@ -6184,7 +6694,9 @@
         "n": "Encrypted Scroll",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3096,
+        "objective": 3096
     },
     "9560": {
         "click_to_read": true,
@@ -6194,7 +6706,9 @@
         "n": "Encrypted Parchment",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3088,
+        "objective": 3088
     },
     "9561": {
         "click_to_read": true,
@@ -6204,7 +6718,9 @@
         "n": "Hallowed Tablet",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3085,
+        "objective": 3085
     },
     "9562": {
         "click_to_read": true,
@@ -6214,7 +6730,9 @@
         "n": "Rune-Inscribed Tablet",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3084,
+        "objective": 3084
     },
     "9563": {
         "click_to_read": true,
@@ -6224,7 +6742,9 @@
         "n": "Consecrated Rune",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3107,
+        "objective": 3107
     },
     "9564": {
         "click_to_read": true,
@@ -6234,7 +6754,9 @@
         "n": "Etched Tablet",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3082,
+        "objective": 3082
     },
     "9565": {
         "click_to_read": true,
@@ -6244,7 +6766,9 @@
         "n": "Etched Note",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3092,
+        "objective": 3092
     },
     "9566": {
         "click_to_read": true,
@@ -6254,7 +6778,9 @@
         "n": "Etched Rune",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3108,
+        "objective": 3108
     },
     "9567": {
         "click_to_read": true,
@@ -6264,7 +6790,9 @@
         "n": "Etched Sigil",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3117,
+        "objective": 3117
     },
     "9568": {
         "click_to_read": true,
@@ -6274,7 +6802,9 @@
         "n": "Rune-Inscribed Parchment",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3089,
+        "objective": 3089
     },
     "9569": {
         "click_to_read": true,
@@ -6284,7 +6814,9 @@
         "n": "Hallowed Scroll",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3097,
+        "objective": 3097
     },
     "9570": {
         "click_to_read": true,
@@ -6294,7 +6826,9 @@
         "n": "Consecrated Letter",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3101,
+        "objective": 3101
     },
     "9571": {
         "click_to_read": true,
@@ -6304,7 +6838,9 @@
         "n": "Glyphic Letter",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3104,
+        "objective": 3104
     },
     "9572": {
         "i": 9572,
@@ -6318,7 +6854,9 @@
             "level": 1
         },
         "starts": 3111,
-        "unique": true
+        "unique": true,
+        "provided_for": 3111,
+        "objective": 3111
     },
     "9573": {
         "click_to_read": true,
@@ -6328,7 +6866,9 @@
         "n": "Glyphic Memorandum",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3114,
+        "objective": 3114
     },
     "9574": {
         "click_to_read": true,
@@ -6338,7 +6878,9 @@
         "n": "Glyphic Scroll",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3098,
+        "objective": 3098
     },
     "9575": {
         "click_to_read": true,
@@ -6348,7 +6890,9 @@
         "n": "Glyphic Tablet",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3086,
+        "objective": 3086
     },
     "9576": {
         "click_to_read": true,
@@ -6358,7 +6902,9 @@
         "n": "Tainted Letter",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3105,
+        "objective": 3105
     },
     "9577": {
         "click_to_read": true,
@@ -6368,7 +6914,9 @@
         "n": "Tainted Memorandum",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3115,
+        "objective": 3115
     },
     "9578": {
         "click_to_read": true,
@@ -6378,7 +6926,9 @@
         "n": "Tainted Scroll",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3099,
+        "objective": 3099
     },
     "9579": {
         "click_to_read": true,
@@ -6388,7 +6938,9 @@
         "n": "Tainted Parchment",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3090,
+        "objective": 3090
     },
     "9580": {
         "click_to_read": true,
@@ -6398,7 +6950,9 @@
         "n": "Verdant Sigil",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3120,
+        "objective": 3120
     },
     "9581": {
         "click_to_read": true,
@@ -6408,7 +6962,9 @@
         "n": "Verdant Note",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3094,
+        "objective": 3094
     },
     "9587": {
         "bop": true,
@@ -6424,7 +6980,10 @@
         },
         "slot": "Bag",
         "slots": 14,
-        "unique": true
+        "unique": true,
+        "reward_from": {
+            "2440": 1
+        }
     },
     "9588": {
         "bop": true,
@@ -6443,7 +7002,18 @@
             "spirit": 4,
             "stamina": 9
         },
-        "unique": true
+        "unique": true,
+        "reward_from": {
+            "2950": 1
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        }
     },
     "9589": {
         "i": 9589,
@@ -6452,7 +7022,17 @@
         "n": "Encrusted Minerals",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "dropped": {
+            "5276": 80.0,
+            "5278": 80.0,
+            "5357": 80.0,
+            "5358": 80.0,
+            "7997": 80.0,
+            "14604": 80.0,
+            "14640": 80.0
+        },
+        "objective": 3128
     },
     "9590": {
         "i": 9590,
@@ -6461,7 +7041,11 @@
         "n": "Splintered Log",
         "quality": 1,
         "quest_item": true,
-        "stack": 2
+        "stack": 2,
+        "dropped": {
+            "7584": 80.0
+        },
+        "objective": 3128
     },
     "9591": {
         "i": 9591,
@@ -6470,7 +7054,19 @@
         "n": "Resilient Sinew",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "dropped": {
+            "2927": 80.0,
+            "2928": 80.0,
+            "2929": 80.0,
+            "5300": 80.0,
+            "5304": 80.0,
+            "5305": 80.0,
+            "5306": 80.0,
+            "5347": 80.0,
+            "7808": 80.0
+        },
+        "objective": 3128
     },
     "9592": {
         "i": 9592,
@@ -6479,7 +7075,24 @@
         "n": "Metallic Fragments",
         "quality": 1,
         "quest_item": true,
-        "stack": 40
+        "stack": 40,
+        "dropped": {
+            "2927": 80.0,
+            "2928": 80.0,
+            "2929": 80.0,
+            "5300": 80.0,
+            "5304": 80.0,
+            "5305": 80.0,
+            "5306": 80.0,
+            "5347": 80.0,
+            "5357": 80.0,
+            "5358": 80.0,
+            "7584": 80.0,
+            "14604": 80.0,
+            "14640": 80.0,
+            "7808": 80.0
+        },
+        "objective": 3128
     },
     "9593": {
         "created_by": {
@@ -6491,7 +7104,8 @@
         "n": "Treant Muisek",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "objective": 3126
     },
     "9594": {
         "created_by": {
@@ -6503,7 +7117,8 @@
         "n": "Wildkin Muisek",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "objective": 3123
     },
     "9595": {
         "created_by": {
@@ -6515,7 +7130,8 @@
         "n": "Hippogryph Muisek",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "objective": 3124
     },
     "9596": {
         "created_by": {
@@ -6527,7 +7143,8 @@
         "n": "Faerie Dragon Muisek",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "objective": 3125
     },
     "9597": {
         "created_by": {
@@ -6539,7 +7156,8 @@
         "n": "Mountain Giant Muisek",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "objective": 3127
     },
     "9598": {
         "bop": true,
@@ -6559,6 +7177,25 @@
             "armor": 19,
             "durability": 45,
             "stamina": 1
+        },
+        "reward_from": {
+            "2561": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9599": {
@@ -6579,6 +7216,25 @@
             "armor": 94,
             "durability": 50,
             "stamina": 1
+        },
+        "reward_from": {
+            "483": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9600": {
@@ -6598,6 +7254,9 @@
         "stats": {
             "armor": 19,
             "durability": 35
+        },
+        "reward_from": {
+            "2520": 1
         }
     },
     "9601": {
@@ -6617,6 +7276,9 @@
         "stats": {
             "armor": 40,
             "durability": 30
+        },
+        "reward_from": {
+            "2520": 1
         }
     },
     "9602": {
@@ -6643,6 +7305,25 @@
         "stats": {
             "durability": 45,
             "stamina": 1
+        },
+        "reward_from": {
+            "2561": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9603": {
@@ -6669,6 +7350,25 @@
         "stats": {
             "durability": 45,
             "stamina": 1
+        },
+        "reward_from": {
+            "483": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9604": {
@@ -6696,6 +7396,31 @@
             "durability": 85,
             "intellect": 3,
             "stamina": 10
+        },
+        "reward_from": {
+            "2930": 1
+        },
+        "disenchant": {
+            "11082": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11083": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9605": {
@@ -6716,6 +7441,31 @@
             "armor": 21,
             "intellect": 1,
             "spirit": 6
+        },
+        "reward_from": {
+            "2930": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9606": {
@@ -6729,7 +7479,9 @@
         "use": {
             "s": 11885,
             "t": "Shrink and Capture a Fallen Treant. (cooldown 30 sec)"
-        }
+        },
+        "provided_for": 3126,
+        "objective": 3126
     },
     "9607": {
         "bop": true,
@@ -6762,6 +7514,31 @@
             "armor": 495,
             "block": 9,
             "durability": 75
+        },
+        "reward_from": {
+            "1652": 1
+        },
+        "disenchant": {
+            "10998": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 15.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9608": {
@@ -6795,6 +7572,31 @@
         "speed": 1.9,
         "stats": {
             "durability": 75
+        },
+        "reward_from": {
+            "2928": 1
+        },
+        "disenchant": {
+            "11134": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11083": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9609": {
@@ -6816,6 +7618,31 @@
             "durability": 25,
             "intellect": 6,
             "spirit": 6
+        },
+        "reward_from": {
+            "2928": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9618": {
@@ -6829,7 +7656,9 @@
         "use": {
             "s": 11886,
             "t": "Shrink and Capture a Fallen Wildkin. (cooldown 30 sec)"
-        }
+        },
+        "provided_for": 3123,
+        "objective": 3123
     },
     "9619": {
         "i": 9619,
@@ -6842,7 +7671,9 @@
         "use": {
             "s": 11887,
             "t": "Shrink and Capture a Fallen Hippogryph. (cooldown 30 sec)"
-        }
+        },
+        "provided_for": 3124,
+        "objective": 3124
     },
     "9620": {
         "i": 9620,
@@ -6855,7 +7686,9 @@
         "use": {
             "s": 11888,
             "t": "Shrink and Capture a Fallen Faerie Dragon. (cooldown 30 sec)"
-        }
+        },
+        "provided_for": 3125,
+        "objective": 3125
     },
     "9621": {
         "i": 9621,
@@ -6868,7 +7701,9 @@
         "use": {
             "s": 11889,
             "t": "Shrink and Capture a Fallen Mountain Giant. (cooldown 30 sec)"
-        }
+        },
+        "provided_for": 3127,
+        "objective": 3127
     },
     "9622": {
         "bop": true,
@@ -6886,6 +7721,31 @@
         "stats": {
             "spirit": 6,
             "stamina": 3
+        },
+        "reward_from": {
+            "1203": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9623": {
@@ -6907,6 +7767,17 @@
             "durability": 80,
             "spirit": 18,
             "stamina": 7
+        },
+        "reward_from": {
+            "2929": 1
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9624": {
@@ -6929,6 +7800,17 @@
             "durability": 75,
             "stamina": 6,
             "strength": 3
+        },
+        "reward_from": {
+            "2929": 1
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9625": {
@@ -6956,6 +7838,17 @@
         "stats": {
             "armor": 391,
             "durability": 90
+        },
+        "reward_from": {
+            "2929": 1
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9626": {
@@ -6983,6 +7876,31 @@
             "durability": 85,
             "stamina": 11,
             "strength": 12
+        },
+        "reward_from": {
+            "2240": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9627": {
@@ -7001,6 +7919,31 @@
         "stats": {
             "spirit": 6,
             "stamina": 7
+        },
+        "reward_from": {
+            "2240": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9628": {
@@ -7010,7 +7953,9 @@
         "n": "Neeru's Herb Pouch",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3122,
+        "objective": 3122
     },
     "9629": {
         "i": 9629,
@@ -7019,7 +7964,9 @@
         "n": "A Shrunken Head",
         "quality": 1,
         "quest_item": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 3121,
+        "objective": 3121
     },
     "9630": {
         "bop": true,
@@ -7040,6 +7987,31 @@
             "armor": 84,
             "durability": 45,
             "stamina": 6
+        },
+        "reward_from": {
+            "2821": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9631": {
@@ -7061,6 +8033,31 @@
             "armor": 76,
             "durability": 30,
             "strength": 10
+        },
+        "reward_from": {
+            "2821": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9632": {
@@ -7082,6 +8079,31 @@
             "armor": 76,
             "durability": 30,
             "strength": 10
+        },
+        "reward_from": {
+            "2822": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9633": {
@@ -7103,6 +8125,31 @@
             "armor": 84,
             "durability": 45,
             "stamina": 6
+        },
+        "reward_from": {
+            "2822": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9634": {
@@ -7125,6 +8172,31 @@
             "durability": 25,
             "intellect": 10,
             "stamina": 6
+        },
+        "reward_from": {
+            "864": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9635": {
@@ -7145,6 +8217,31 @@
             "armor": 30,
             "intellect": 1,
             "spirit": 10
+        },
+        "reward_from": {
+            "864": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9636": {
@@ -7166,6 +8263,31 @@
             "durability": 25,
             "stamina": 9,
             "strength": 10
+        },
+        "reward_from": {
+            "2874": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9637": {
@@ -7187,6 +8309,31 @@
             "armor": 300,
             "durability": 55,
             "strength": 10
+        },
+        "reward_from": {
+            "2874": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9638": {
@@ -7208,6 +8355,31 @@
             "durability": 35,
             "intellect": 10,
             "stamina": 4
+        },
+        "reward_from": {
+            "1560": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9639": {
@@ -7244,6 +8416,17 @@
         "speed": 2.7,
         "stats": {
             "durability": 90
+        },
+        "dropped": {
+            "8127": 25.0
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9640": {
@@ -7274,6 +8457,17 @@
         "stats": {
             "armor": 318,
             "durability": 45
+        },
+        "dropped": {
+            "8127": 25.0
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9641": {
@@ -7295,6 +8489,17 @@
         "stats": {
             "spirit": 5,
             "stamina": 13
+        },
+        "dropped": {
+            "8127": 25.0
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9642": {
@@ -7312,6 +8517,31 @@
         "slot": "Finger",
         "stats": {
             "armor": 120
+        },
+        "reward_from": {
+            "1560": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9643": {
@@ -7341,6 +8571,31 @@
             "block": 25,
             "durability": 85,
             "strength": 5
+        },
+        "reward_from": {
+            "648": 1
+        },
+        "disenchant": {
+            "16202": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14343": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9644": {
@@ -7359,6 +8614,31 @@
         "stats": {
             "agility": 3,
             "spirit": 11
+        },
+        "reward_from": {
+            "648": 1
+        },
+        "disenchant": {
+            "16202": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14343": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9645": {
@@ -7381,6 +8661,31 @@
             "intellect": 2,
             "spirit": 11,
             "stamina": 7
+        },
+        "reward_from": {
+            "836": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9646": {
@@ -7401,6 +8706,31 @@
             "armor": 324,
             "durability": 55,
             "stamina": 16
+        },
+        "reward_from": {
+            "836": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9647": {
@@ -7422,6 +8752,31 @@
             "armor": 96,
             "durability": 50,
             "strength": 10
+        },
+        "reward_from": {
+            "2767": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9648": {
@@ -7443,6 +8798,31 @@
             "armor": 31,
             "intellect": 3,
             "spirit": 10
+        },
+        "reward_from": {
+            "2767": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9649": {
@@ -7465,6 +8845,31 @@
             "intellect": 3,
             "spirit": 16,
             "stamina": 3
+        },
+        "reward_from": {
+            "2938": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16202": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14343": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9650": {
@@ -7487,6 +8892,31 @@
             "intellect": 3,
             "stamina": 3,
             "strength": 22
+        },
+        "reward_from": {
+            "2938": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16202": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14343": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9651": {
@@ -7520,6 +8950,31 @@
         "speed": 2.7,
         "stats": {
             "durability": 75
+        },
+        "reward_from": {
+            "2994": 1
+        },
+        "disenchant": {
+            "16202": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14343": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9652": {
@@ -7541,6 +8996,31 @@
             "armor": 122,
             "durability": 65,
             "strength": 15
+        },
+        "reward_from": {
+            "2994": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16202": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14343": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9653": {
@@ -7562,6 +9042,28 @@
             "armor": 53,
             "durability": 45,
             "intellect": 14
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9654": {
@@ -7587,6 +9089,31 @@
         "speed": 1.8,
         "stats": {
             "durability": 55
+        },
+        "reward_from": {
+            "2942": 1
+        },
+        "disenchant": {
+            "11175": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9655": {
@@ -7605,6 +9132,31 @@
         "stats": {
             "spirit": 10,
             "strength": 4
+        },
+        "reward_from": {
+            "2942": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9656": {
@@ -7625,6 +9177,31 @@
             "armor": 295,
             "durability": 40,
             "strength": 15
+        },
+        "reward_from": {
+            "2845": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9657": {
@@ -7646,6 +9223,31 @@
             "durability": 30,
             "stamina": 3,
             "strength": 14
+        },
+        "reward_from": {
+            "2845": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9658": {
@@ -7668,6 +9270,31 @@
             "durability": 35,
             "intellect": 9,
             "spirit": 6
+        },
+        "reward_from": {
+            "2987": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9660": {
@@ -7687,6 +9314,31 @@
         "stats": {
             "armor": 28,
             "spirit": 10
+        },
+        "reward_from": {
+            "2987": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9661": {
@@ -7709,6 +9361,31 @@
             "durability": 85,
             "spirit": 9,
             "stamina": 1
+        },
+        "reward_from": {
+            "2903": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9662": {
@@ -7730,6 +9407,31 @@
             "armor": 262,
             "durability": 55,
             "stamina": 10
+        },
+        "reward_from": {
+            "2903": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9663": {
@@ -7751,6 +9453,31 @@
             "armor": 248,
             "durability": 100,
             "spirit": 5
+        },
+        "reward_from": {
+            "2871": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9664": {
@@ -7773,6 +9500,31 @@
             "durability": 70,
             "spirit": 6,
             "stamina": 12
+        },
+        "reward_from": {
+            "2871": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9665": {
@@ -7794,6 +9546,31 @@
             "durability": 25,
             "intellect": 10,
             "stamina": 11
+        },
+        "reward_from": {
+            "3062": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9666": {
@@ -7815,6 +9592,31 @@
             "durability": 35,
             "intellect": 10,
             "stamina": 11
+        },
+        "reward_from": {
+            "3062": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9678": {
@@ -7841,6 +9643,31 @@
         "stats": {
             "durability": 85,
             "stamina": 18
+        },
+        "reward_from": {
+            "1427": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9679": {
@@ -7868,6 +9695,31 @@
             "durability": 85,
             "stamina": 6,
             "strength": 15
+        },
+        "reward_from": {
+            "1427": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9680": {
@@ -7895,6 +9747,31 @@
             "agility": 6,
             "durability": 55,
             "stamina": 3
+        },
+        "reward_from": {
+            "1427": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9681": {
@@ -7915,6 +9792,9 @@
         "use": {
             "s": 1129,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
+        },
+        "reward_from": {
+            "1430": 10
         }
     },
     "9682": {
@@ -7936,6 +9816,31 @@
             "durability": 30,
             "intellect": 12,
             "stamina": 3
+        },
+        "reward_from": {
+            "1430": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9683": {
@@ -7963,6 +9868,31 @@
             "durability": 85,
             "intellect": 18,
             "stamina": 7
+        },
+        "reward_from": {
+            "3129": 1
+        },
+        "disenchant": {
+            "11175": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9684": {
@@ -7989,6 +9919,31 @@
         "stats": {
             "agility": 9,
             "durability": 75
+        },
+        "reward_from": {
+            "3129": 1
+        },
+        "disenchant": {
+            "16202": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14343": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9686": {
@@ -8015,6 +9970,31 @@
         "stats": {
             "durability": 75,
             "stamina": 9
+        },
+        "reward_from": {
+            "3129": 1
+        },
+        "disenchant": {
+            "16202": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14343": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9687": {
@@ -8036,6 +10016,31 @@
             "durability": 30,
             "stamina": 5,
             "strength": 7
+        },
+        "reward_from": {
+            "1440": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9698": {
@@ -8057,6 +10062,31 @@
             "durability": 30,
             "intellect": 6,
             "stamina": 7
+        },
+        "reward_from": {
+            "1440": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9699": {
@@ -8077,6 +10107,31 @@
             "agility": 3,
             "armor": 23,
             "stamina": 6
+        },
+        "reward_from": {
+            "1440": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9703": {
@@ -8097,6 +10152,31 @@
             "armor": 28,
             "spirit": 9,
             "stamina": 2
+        },
+        "reward_from": {
+            "1169": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9704": {
@@ -8118,6 +10198,31 @@
             "durability": 30,
             "intellect": 9,
             "strength": 9
+        },
+        "reward_from": {
+            "1169": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9705": {
@@ -8138,6 +10243,31 @@
             "armor": 66,
             "durability": 30,
             "strength": 13
+        },
+        "reward_from": {
+            "1168": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9706": {
@@ -8159,6 +10289,31 @@
             "block": 19,
             "durability": 85,
             "stamina": 10
+        },
+        "reward_from": {
+            "1168": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "9718": {
@@ -8202,6 +10357,21 @@
             "durability": 90,
             "stamina": 8,
             "strength": 3
+        },
+        "disenchant": {
+            "11139": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
+        },
+        "materials": {
+            "9719": 1,
+            "3859": 4,
+            "3466": 4,
+            "7068": 2,
+            "3486": 2
         }
     },
     "9719": {
@@ -8230,6 +10400,24 @@
         "use": {
             "s": 11923,
             "t": "The sword must be reforged before it can be used. Reforging the sword requires 4 Steel Bars, 4 Strong Flux , 2 Elemental Fire and 2 Heavy Grinding Stones."
+        },
+        "dropped": {
+            "2817": 0.4
+        },
+        "contained": {
+            "objects": {
+                "2857": 5.0,
+                "105581": 5.0,
+                "4149": 4.0,
+                "2855": 3.0,
+                "105570": 3.0,
+                "105578": 3.0,
+                "105579": 3.0,
+                "153462": 0.02
+            }
+        },
+        "creates": {
+            "11923": 9718
         }
     },
     "9738": {
@@ -8239,7 +10427,11 @@
         "n": "Gem of Cobrahn",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "dropped": {
+            "3669": 100.0
+        },
+        "objective": 914
     },
     "9739": {
         "i": 9739,
@@ -8248,7 +10440,11 @@
         "n": "Gem of Anacondra",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "dropped": {
+            "3671": 100.0
+        },
+        "objective": 914
     },
     "9740": {
         "i": 9740,
@@ -8257,7 +10453,11 @@
         "n": "Gem of Pythas",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "dropped": {
+            "3670": 100.0
+        },
+        "objective": 914
     },
     "9741": {
         "i": 9741,
@@ -8266,7 +10466,11 @@
         "n": "Gem of Serpentis",
         "quality": 1,
         "quest_item": true,
-        "stack": 20
+        "stack": 20,
+        "dropped": {
+            "3673": 100.0
+        },
+        "objective": 914
     },
     "9742": {
         "i": 9742,
@@ -8287,6 +10491,40 @@
         "stats": {
             "armor": 12,
             "durability": 16
+        },
+        "dropped": {
+            "5823": 4.0,
+            "1910": 3.0,
+            "1911": 3.0,
+            "5787": 3.0,
+            "5808": 3.0,
+            "5809": 3.0,
+            "5826": 3.0,
+            "10357": 3.0,
+            "10358": 3.0,
+            "14429": 3.0,
+            "10359": 3.0,
+            "10356": 3.0,
+            "5785": 1.754,
+            "1130": 1.449,
+            "6124": 1.282,
+            "2066": 0.763,
+            "1193": 0.719,
+            "5435": 0.64,
+            "5807": 0.6,
+            "1271": 0.56
+        },
+        "contained": {
+            "objects": {
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "1765": 0.16
+            }
         }
     },
     "9743": {
@@ -8308,6 +10546,40 @@
         "stats": {
             "armor": 15,
             "durability": 25
+        },
+        "dropped": {
+            "1910": 3.0,
+            "1911": 3.0,
+            "5787": 3.0,
+            "5808": 3.0,
+            "5809": 3.0,
+            "5826": 3.0,
+            "10357": 3.0,
+            "10358": 3.0,
+            "14429": 3.0,
+            "10359": 3.0,
+            "10356": 3.0,
+            "1130": 3.0,
+            "472": 1.62,
+            "5823": 1.54,
+            "6113": 0.943,
+            "1271": 0.844,
+            "2062": 0.719,
+            "833": 0.647,
+            "5785": 0.64,
+            "2067": 0.64
+        },
+        "contained": {
+            "objects": {
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "1765": 0.1
+            }
         }
     },
     "9744": {
@@ -8329,6 +10601,40 @@
         "stats": {
             "armor": 9,
             "durability": 16
+        },
+        "dropped": {
+            "1130": 3.0,
+            "5785": 1.754,
+            "5823": 1.482,
+            "2066": 0.763,
+            "2061": 0.54,
+            "2064": 0.5,
+            "1271": 0.422,
+            "583": 0.374,
+            "99": 0.36,
+            "5807": 0.34,
+            "1946": 0.27,
+            "833": 0.27,
+            "448": 0.25,
+            "6497": 0.24,
+            "79": 0.237,
+            "1656": 0.237,
+            "6123": 0.218,
+            "1971": 0.203,
+            "1118": 0.2,
+            "3197": 0.2
+        },
+        "contained": {
+            "objects": {
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "1765": 0.14
+            }
         }
     },
     "9745": {
@@ -8349,6 +10655,43 @@
         "slot": "Back",
         "stats": {
             "armor": 10
+        },
+        "dropped": {
+            "5823": 4.0,
+            "1910": 3.0,
+            "1911": 3.0,
+            "5787": 3.0,
+            "5808": 3.0,
+            "5809": 3.0,
+            "5826": 3.0,
+            "10357": 3.0,
+            "10358": 3.0,
+            "14429": 3.0,
+            "10359": 3.0,
+            "10356": 3.0,
+            "2979": 1.373,
+            "5435": 1.28,
+            "5785": 1.17,
+            "99": 1.042,
+            "1130": 0.725,
+            "472": 0.54,
+            "448": 0.501,
+            "3068": 0.46
+        },
+        "contained": {
+            "objects": {
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "1765": 0.22
+            },
+            "items": {
+                "20708": 0.2
+            }
         }
     },
     "9746": {
@@ -8370,6 +10713,43 @@
         "stats": {
             "armor": 15,
             "durability": 18
+        },
+        "dropped": {
+            "1910": 3.0,
+            "1911": 3.0,
+            "5787": 3.0,
+            "5808": 3.0,
+            "5809": 3.0,
+            "5826": 3.0,
+            "10357": 3.0,
+            "10358": 3.0,
+            "14429": 3.0,
+            "10359": 3.0,
+            "10356": 3.0,
+            "5823": 2.0,
+            "2191": 1.88,
+            "5785": 1.754,
+            "1130": 1.449,
+            "3530": 1.299,
+            "3533": 0.9,
+            "2065": 0.88,
+            "5807": 0.52,
+            "3532": 0.5
+        },
+        "contained": {
+            "objects": {
+                "2850": 0.465,
+                "3714": 0.465,
+                "3715": 0.465,
+                "2849": 0.465,
+                "111095": 0.465,
+                "2847": 0.424,
+                "106319": 0.424,
+                "1765": 0.08
+            },
+            "items": {
+                "21509": 0.7
+            }
         }
     },
     "9747": {
@@ -8392,6 +10772,43 @@
         "stats": {
             "armor": 23,
             "durability": 40
+        },
+        "dropped": {
+            "2191": 2.0,
+            "12432": 2.0,
+            "12433": 2.0,
+            "5837": 1.786
+        },
+        "contained": {
+            "objects": {
+                "2847": 0.448,
+                "106319": 0.448,
+                "2850": 0.301,
+                "3714": 0.301,
+                "3715": 0.301,
+                "2849": 0.301,
+                "111095": 0.301,
+                "1765": 0.02
+            },
+            "items": {
+                "21509": 3.0
+            }
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9748": {
@@ -8414,6 +10831,42 @@
         "stats": {
             "armor": 28,
             "durability": 50
+        },
+        "dropped": {
+            "2191": 2.0,
+            "12432": 2.0,
+            "12433": 2.0,
+            "5837": 1.786
+        },
+        "contained": {
+            "objects": {
+                "2847": 0.448,
+                "106319": 0.448,
+                "2850": 0.301,
+                "3714": 0.301,
+                "3715": 0.301,
+                "2849": 0.301,
+                "111095": 0.301
+            },
+            "items": {
+                "21509": 0.9
+            }
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9749": {
@@ -8436,6 +10889,42 @@
         "stats": {
             "armor": 28,
             "durability": 50
+        },
+        "dropped": {
+            "2191": 2.0,
+            "12432": 2.0,
+            "12433": 2.0,
+            "5837": 1.786
+        },
+        "contained": {
+            "objects": {
+                "2847": 0.448,
+                "106319": 0.448,
+                "2850": 0.301,
+                "3714": 0.301,
+                "3715": 0.301,
+                "2849": 0.301,
+                "111095": 0.301
+            },
+            "items": {
+                "21509": 1.1
+            }
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "9750": {

@@ -10,7 +10,7 @@ from statistics import mean
 
 START_TIME = datetime.datetime.now()
 NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items6.js'))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items9.js'))
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 # if permissions error: chmod 755 path/to/chromedriver
@@ -19,8 +19,8 @@ iStart = datetime.datetime.now()
 
 
 def main():
-	start = 6850
-	end = 7000
+	start = 9500
+	end = 9750
 	BASE_URL = "https://classicdb.ch/?item="
 
 	item_numbers = range(int(start), int(end))
@@ -68,7 +68,7 @@ def main():
 	save_and_close()
 
 def save_and_close():
-	with open(os.path.abspath('../js/items6.js'), 'w+') as f:
+	with open(os.path.abspath('../js/items9.js'), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4)
 
 	with open(os.path.abspath('../js/ERRORS.js'), 'w+') as f:
