@@ -1,11 +1,10 @@
 from django.contrib import admin
 from home.models import Item, WoWClass
-
+from django.conf import settings
 
 admin.site.register(WoWClass)
 admin.site.register(Item)
 
-from django.conf import settings
 if not settings.LOCAL:
 
 	from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
@@ -13,14 +12,12 @@ if not settings.LOCAL:
 	from home.models import User
 
 	class UserAdmin(DjangoUserAdmin):
-
 		"""Define admin model for custom User model with no email field."""
-
 		fieldsets = (
 			(None, {'fields': ('email', 'password')}),
 			(_('Personal info'), {'fields': ('first_name', 'last_name')}),
 			(_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
-										   'groups', 'user_permissions')}),
+				'groups', 'user_permissions')}),
 			(_('Important dates'), {'fields': ('last_login', 'date_joined')}),
 		)
 		readonly_fields = ('date_joined',)

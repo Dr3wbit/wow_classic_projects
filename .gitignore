@@ -2,6 +2,7 @@
 venv
 __pycache__.DS_Store
 .DS_Store
+<<<<<<< HEAD
 */__pycache__
 */*/__pycache__
 db.sqlite3
@@ -10,3 +11,4 @@ keys
 ONY_BUFF_KEY.pem
 static
 *__pycache__
+db

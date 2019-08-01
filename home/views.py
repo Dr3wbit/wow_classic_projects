@@ -118,12 +118,6 @@ class IndexView(TemplateView):
 		return render(request, self.template_name, context)
 
 
-	# def get_context_data(self, **kwargs):
-	# 	context = super().get_context_data(**kwargs)
-	# 	context['consume_lists'] = ConsumeList.objects.all()
-	# 	context['rangen'] = range(5)
-
-
 
 
 	def post(self, request, *args, **kwargs):
@@ -289,6 +283,7 @@ class TalentBuilderRedirectView(RedirectView):
 	permanent = False
 
 	def get_redirect_url(self, *args, **kwargs):
+		new_url = "{}://{}/talent_calc".format(self.request.scheme, self.request.get_host())
 
 		new_url = "{}://{}/talent_calc".format(self.request.scheme, self.request.get_host())
 
@@ -308,11 +303,9 @@ class ConsumeBuilderRedirectView(RedirectView):
 	query_string = False
 	pattern_name = 'consume_tool'
 	permanent = False
-
 	def get_redirect_url(self, *args, **kwargs):
 
 		new_url = "{}://{}/consume_tool".format(self.request.scheme, self.request.get_host())
-
 		if 'id' in self.request.session:
 			del self.request.session['id']
 

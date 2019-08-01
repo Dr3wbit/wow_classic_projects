@@ -82,7 +82,6 @@ else:
 		USERNAME_FIELD = 'email'
 		REQUIRED_FIELDS = []
 
-
 		def email_user(self, subject, message, from_email=None, **kwargs):
 				'''Sends an email to this User.'''
 				send_mail(subject, message, from_email, [self.email], **kwargs)
@@ -253,7 +252,7 @@ class TalentTree(models.Model):
 	name = models.CharField(max_length=40)
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 	position = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(3)])
-	_architect = models.CharField(max_length=100, default="[]")
+	_architect = models.CharField(max_length=2500, default="[]")
 
 	@property
 	def architect(self):
@@ -280,6 +279,7 @@ class Talent(models.Model):
 	locked = models.ForeignKey("self", blank=True, null=True, on_delete=models.CASCADE)
 	class Meta:
 		unique_together = ['wow_class', 'name', 'tree']
+		ordering = ['id']
 
 	def __str__(self):
 		return(self.name)
@@ -328,7 +328,7 @@ class Tag(models.Model):
 		('alliance', 'Alliance'),
 	)
 
-	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
+	name = models.CharField(max_length=15, choices=TAG_NAME_CHOICES, unique=True)
 
 	def __str__(self):
 		return(self.name)
@@ -420,192 +420,3 @@ class Consume(models.Model):
 		return(self.item.materials)
 
 from home.signals import savedspec_limit, consumelist_limit
-
-
-# class Faction(models.Model):
-# 	FACTION_CHOICES = (
-# 		('A', 'Alliance'),
-# 		('H', 'Horde'),
-# 		('N', 'Neutral')
-# 	)
-# 	name = models.CharField(max_length=1, choices=FACTION_CHOICES, unique=True)
-#
-# 	def __str__(self):
-# 		return self.name
-#
-# class Race(models.Model):
-#
-# 	name = models.CharField()
-# 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
-#
-# 	def __str__(self):
-# 		return "{}, {}".format(self.name, self.faction)
-#
-# class Zone(models.Model):
-#
-# 	name = models.CharField(max_length=100)
-# 	reaction = models.ForeignKey('Faction', on_delete=models.CASCADE)
-# 	continent = models.ForeignKey('Continent', on_delete=models.CASCADE)
-#
-# 	def __str__(self):
-# 		return "{},{}".format(titleCase(self.name), self.continent)
-#
-#
-# class Continent(models.Model):
-# 	name = models.CharField(max_length=100)
-#
-# 	def __str__(self):
-# 		return titleCase(self.name)
-#
-# class Quest(models.Model):
-#	tier = models.PositiveSmallIntegerField(default=0,  validators=[MinValueValidator(0), MaxValueValidator(60)])
-# 	start = models.ForeignKey('NPC')
-# 	end = models.ForeignKey('NPC')
-# 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
-#
-# 	required_level = models.PositiveSmallIntegerField(default=1,  validators=[MinValueValidator(1), MaxValueValidator(60)])
-# 	name = models.CharField(max_length=100)
-# 	description = models.CharField(max_length=1000)
-# 	progress = models.CharField(max_length=1000)
-# 	completion = models.CharField(max_length=1000)
-#	class Meta:
-#		unique_together = ['name', 'tier']
-
-# class Loot(models.Model):
-# 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
-# 	mob = models.ForeignKey('NPC', on_delete=models.CASCADE)
-# 	drop_chance = models.DecimalField(default=0.0, max_digits=4, decimal_places=2, validators=[MaxValueValidator(0.00), MaxValueValidator(100.00)])
-#
-
-# class NPC(models.Model):
-# 	MOB_TYPES = (
-# 		('dragon', 'Dragonkin'),
-# 		('human', 'Humanoid'),
-# 		('undead', 'Undead'),
-# 		('beast', 'Beast'),
-# 		('giant', 'Giant'),
-# 		('ele', 'Elemental'),
-# 		('crit', 'Critter'),
-# 		('mech', 'Mechanical')
-# 		('demon', 'Demon')
-# 	)
-#
-# 	name = models.CharField(max_length=75, default='')
-# 	drops = models.ManyToManyField('Loot')
-# 	health = models.PositiveIntegerField()
-# 	level = models.PositiveSmallIntegerField()
-# 	boss = models.BooleanField()
-# 	max_damage = models.PositiveSmallIntegerField()
-# 	min_damage = models.PositiveSmallIntegerField()
-# 	armor = models.PositiveSmallIntegerField()
-# 	mob_type = models.CharField(max_length=75, choices=MOB_TYPES)
-#
-# 	@property
-# 	def skinnable(self):
-# 		if self.mob_type is 'beast' or 'dragon':
-# 			return True
-# 		else:
-# 			return False
-
-#
-#
-#
-# class Equipable(Item):
-# 	SLOT_CHOICES = (
-# 	('back', 'Back'),
-# 	('bag', 'Bag'),
-# 	('chest', 'Chest'),
-# 	('feet', 'Feet'),
-# 	('hands', 'Hands'),
-# 	('head', 'Head'),
-# 	('neck', 'Neck'),
-# 	('ring', 'Ring'),
-# 	('shield', 'Shield'),
-# 	('shirt', 'Shirt'),
-# 	('shoulder', 'Shoulder'),
-# 	('trinket', 'Trinket'),
-# 	('waist', 'Waist'),
-# 	('wrist', 'Wrist')
-# 	)
-#
-# 	slot = models.CharField(max_length=20, choices=SLOT_CHOICES)
-# 	durability = models.PositiveSmallIntegerField(default=0)
-#
-# 	class Meta:
-# 		abstract = True
-#
-#
-# class Weapon(Equipable):
-# 	WEAPON_PROFICIENCIES = (
-# 		('axe', 'Axe'),
-# 		('sword', 'Sword'),
-# 		('staff', 'Staff'),
-# 		('staff', 'Staff'),
-# 		('polearm', 'Polearm'),
-# 		('gun', 'Gun'),
-# 		('wand', 'Wand'),
-# 		('bow', 'Bow'),
-# 		('crossbow','Crossbow'),
-# 		('dagger', 'Dagger'),
-# 	)
-#
-# 	WEAPON_TYPES = (
-# 		('oh', 'Off-Hand'),
-# 		('1h', 'One-Hand'),
-# 		('mh', 'Main-Hand'),
-# 		('thrown', 'Thrown'),
-# 		('ranged', 'Ranged'),
-# 		('2h', 'Two-Hand'),
-# 	)
-#
-# 	hand = models.CharField(max_length=6, choices=WEAPON_TYPES)
-# 	proficiency = models.CharField(max_length=50, choices=WEAPON_PROFICIENCIES)
-# 	max_damage = models.PositiveSmallIntegerField(default=2)
-# 	min_damage = models.PositiveSmallIntegerField(default=1)
-# 	speed = models.DecimalField(default=0.0, max_digits=4, decimal_places=2)
-# 	effects = models.ManyToManyField('Effect')
-#
-# 	@property
-# 	def dps(self):
-# 		return((self.max_damage+self.min_damage/2)/self.speed)
-
-
-# # i.e. Equip: +60 Attack Power
-# class Effect(models.Model):
-# 	amount = models.PositiveSmallIntegerField(default=0)
-# 	# i.e crit%, attack power, hit%
-# 	effect = models.CharField(max_length=400, blank=True)
-#
-# class Armor(Equipable):
-#
-# 	ARMOR_TYPES = (
-# 	('cloth', 'Cloth'),
-# 	('leather', 'Leather'),
-# 	('mail', 'Mail'),
-# 	('plate', 'Plate'),
-# 	)
-#
-# 	# for validation purposes
-# 	SLOT_CHOICES = (
-# 	('head', 'Head'),
-# 	('shoulders', 'Shoulder'),
-# 	('back', 'Back'),
-# 	('chest', 'Chest'),
-# 	('wrist', 'Wrist'),
-# 	('Hands', 'Hands'),
-# 	('waist', 'Waist'),
-# 	)
-#
-# 	proficiency = models.CharField(max_length=20, unique=True, choices=ARMOR_TYPES)
-# 	slot = models.CharField(max_length=20, unique=True, choices=SLOT_CHOICES)
-# 	amount = models.PositiveSmallIntegerField(default=0)
-#
-# class Stat(models.Model):
-# 	CHOICES = (
-# 	('agility', 'Agility'),
-# 	('strength', 'Strength'),
-# 	('intellect', 'Intellect'),
-# 	('spirit', 'Spirit'),
-# 	('Stamina', 'Stamina'),
-# 	)
-# 	name = models.CharField(max_length=20, unique=True, choices=CHOICES)
