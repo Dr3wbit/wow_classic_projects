@@ -1,4 +1,3 @@
-from home.models import Profile
 from django.contrib.auth import models
 
 
@@ -9,14 +8,6 @@ def add_navlinks_to_context(request):
 		"consume_tool": "Consumable Tool", "enchant_tool": "Enchant Tool",
 		"contact": "Contact"
 		}
-	# print(request.user)
-	context['user'] = Profile.objects.get(email=request.user.email) if not request.user.is_anonymous else models.AnonymousUser
-
-	# context['profile'] = Profile.objects.get()
-	# print('request: ', request)
-	# print(request.content_params)
-	# print('meta: ', request.META)
-
 	return context
 
 
