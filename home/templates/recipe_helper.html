@@ -5,18 +5,16 @@
 
     {% for recipe,v in recipes.items %}
     <div class="row">
-        <div class="col-8">
-            <div class="prof-item-recipe" name="{{recipe}}">
+            <div class="prof-item-recipe col-6" name="{{recipe}}">
                 {% with "images/icons/consumes/"|add:recipe|add:".jpg" as item_image %}
-                <span class="recipe-container {{v.rarity}}" name="{{recipe}}">
+                <div class="recipe-container {{v.rarity}}" name="{{recipe}}">
                 <img class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
                 style="background-image: url({% static item_image %});">
                 {% endwith %}
                 <span class="consume-name" name="{{recipe}}">{{v.name|titlecase}}</span>
-            </span>
+                </div>
             </div>
-        </div>
-        <div class="col-4 reagant-list">
+        <div class="col-6 reagant-list">
             {% for mat_name,val in v.materials.items %}
             <div class="reagant-list-container" name="{{mat_name}}">
                 <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
@@ -95,9 +93,7 @@
             e.stopImmediatePropagation()
             var amount = 1
             let name = $(e.target).closest(".recipe-container").attr('name')
-            if ((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) {
-                return false
-            }
+
             if (e.shiftKey) {
                 amount = 5
             }
@@ -105,6 +101,13 @@
             if (e.which === 3) {
                 amount = amount*(-1)
             }
+
+            if (((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) && (e.which != 3)) {
+                // NOTE: visual indicator for
+                alert('100 is the limit, fix me')
+                return false
+            }
+            combatText(e, amount)
             update_consume_list(name, amount)
             addCraftedItem(name, amount)
             update_url('', '')

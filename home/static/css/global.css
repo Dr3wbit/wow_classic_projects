@@ -907,3 +907,41 @@ a#discord-login:hover{
 .fix-me {
     color: orange;
 }
+
+.notification-container{
+    position: absolute;
+    font-size: 250%;
+    color: #ffc107;
+    left:50%;
+    top: 200px;
+    background-color: #000000;
+    border-radius: 5px;
+}
+
+.floating-container{
+    position: absolute;
+    font-size: 150%;
+    color: #ffc107;
+    user-select: none;
+    pointer-events: none;
+    animation-name: float-up;
+    animation-duration: 3s;
+    animation-direction: normal;
+    z-index: 2000;
+}
+
+@keyframes float-up {
+	0% {
+        transform: translate(-30px, -10px);
+        opacity: 1;
+    }
+
+	50% {
+		opacity: 1;
+    }
+
+	100% {
+        transform: translate(-30px,-130px);
+        opacity: 0;
+	}
+}

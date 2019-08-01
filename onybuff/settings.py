@@ -24,7 +24,8 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 DEV = False
-#SECURE_SSL_REDIRECT = True
+
+LOCAL = bool(int(os.environ['DJANGO_LOCAL']))
 ALLOWED_HOSTS = ['13.59.19.192', 'onybuff.com']
 
 AUTHENTICATION_BACKENDS = [
@@ -65,7 +66,6 @@ if DEV:
 	INSTALLED_APPS.append('debug_toolbar')
 	MIDDLEWARE.insert(1, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
-
 ROOT_URLCONF = 'onybuff.urls'
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -83,7 +83,7 @@ TEMPLATES = [
 				'django.contrib.messages.context_processors.messages',
 				'home.context_processors.add_navlinks_to_context',
 				'social_django.context_processors.backends',
-        			'social_django.context_processors.login_redirect',
+				'social_django.context_processors.login_redirect',
 			],
 		},
 	},
@@ -114,7 +114,6 @@ else:
 			'PORT': '',
 		}
 	}
-
 
 CACHES = {
 	'default': {
@@ -155,16 +154,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
-#STATICFILES_DIRS = (
-#	os.path.join(BASE_DIR, "static"),
-#)
 
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-
-#LOGIN_REDIRECT_URL = '/authorize'
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/authorize'
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True

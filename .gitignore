@@ -2,16 +2,13 @@
 venv
 __pycache__.DS_Store
 .DS_Store
-account/__pycache__
-account/migrations/__pycache__
-home/__pycache__
-home/migrations/__pycache__
-onybuff/__pycache__
-home/templatetags/__pycache__
-db.sqlite3access.log
-error.log
-home/templatetags/__pycache__
-access.log
-account/__pycache__
+<<<<<<< HEAD
+*/__pycache__
+*/*/__pycache__
+db.sqlite3
+*.log
+keys
+ONY_BUFF_KEY.pem
 static
+*__pycache__
 db

@@ -1,11 +1,12 @@
 from django.contrib import admin
 from home.models import Item, WoWClass
+from django.conf import settings
 
 admin.site.register(WoWClass)
 admin.site.register(Item)
 
-from django.conf import settings
 if not settings.LOCAL:
+
 	from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 	from django.utils.translation import ugettext_lazy as _
 	from home.models import User

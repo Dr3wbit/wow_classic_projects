@@ -31,12 +31,11 @@
 #total_crafted {
     padding:0;
     text-align: left;
-    pointer-events: auto;
 }
 
 #totals_container {
     overflow-y: scroll;
-    padding-top: 10px;
+    padding-top: 4px;
 }
 
 .crafted-list-item {
@@ -59,7 +58,7 @@
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    text-indent: 15px;
+    text-indent: 22px;
 }
 
 .materials-list *{
@@ -82,7 +81,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     background-color: #343a40;
-    user-select: none;
     cursor: pointer;
     text-align: left;
     max-width: 188px;
@@ -119,12 +117,9 @@
     background-position: left 1px top 1px;
     background-repeat: no-repeat;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-    pointer-events: all;
 }
 
 .recipe-container {
-    pointer-events: auto;
-    user-select: auto;
 }
 
 .recipe-container:hover > span {
@@ -134,14 +129,12 @@
 #recipe_list {
     overflow-y: scroll;
     text-align: left;
-    pointer-events: auto;
     height: 100%;
     border-right: 1px solid black;
+    user-select: none;
 }
 
 .material-container {
-    pointer-events: auto;
-    user-select: auto;
 }
 
 .material-container:hover > span {
@@ -172,15 +165,15 @@
     z-index: auto;
 }
 .prof-item-recipe {
-    margin-bottom: 4px;
+    margin-top: 4px;
     cursor: pointer;
     background-color: #101010;
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    pointer-events: none;
-    text-indent: 15px;
-    user-select: none;
+    padding-left: 5px;
+    margin-left: 10px;
+    margin-right: -10px;
 }
 
 .icon-medium {
@@ -192,16 +185,19 @@
     background-position: left 1px top 1px;
     background-repeat: no-repeat;
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-    pointer-events: all;
 }
 
 .reagant-list {
-    margin-bottom: 4px;
+    margin-top: 4px;
     background-color: #101010;
 }
 
 .reagant-list-container {
     position: relative;
     display: inline-block;
-    float: left;
+}
+
+.recipe-container:hover {
+    box-shadow: -10px 0 5px -5px #ffc107;
+    cursor: pointer;
 }
