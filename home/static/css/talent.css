@@ -1,0 +1,414 @@
+.locked, .grayed  {
+    -webkit-filter: grayscale(95%);
+       -moz-filter: grayscale(95%);
+         -o-filter: grayscale(95%);
+        -ms-filter: grayscale(95%);
+            filter: grayscale(95%);
+}
+
+.talent-slot {
+    margin: 8px;
+    position: relative;
+}
+
+.talent {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgb(23, 253, 23);
+    border-style: ridge;
+    border-radius: 5px;
+    background-size: 38px 38px;
+    background-position: left 1px top 1px;
+    background-repeat: no-repeat;
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+    pointer-events: all
+}
+
+.talent-container:active:not(.grayed):not(.locked){
+
+    transform: scale(0.97);
+    -webkit-filter: saturate(120%);
+       -moz-filter: saturate(120%);
+         -o-filter: saturate(120%);
+        -ms-filter: saturate(120%);
+            filter: saturate(120%);
+}
+
+.talent.locked, .talent.grayed {
+    border-color: rgb(22, 22, 22);
+}
+
+.max {
+  border-color: rgb(231, 186, 0);
+  color: rgb(231, 186, 0);
+}
+
+.talent:hover {
+
+  box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+              inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+
+.openSlot {
+    min-width: 42px;
+    height: 42px;
+    margin: 8px;
+    position: relative;
+}
+
+.talentTable {
+    margin-left: 5px;
+    background-color: grey;
+    background-size: 100% 100%;
+    border: 2px solid black;
+}
+
+.treeTitle {
+    color: azure;
+    margin-top: 10px;
+}
+
+.spentPoints {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 29px;
+    left: 30px;
+    padding-top: 2px;
+    /* background-color: rgba(0,0,0, 0.6); */
+    background-image: url(../images/icons/small/bubble2.png);
+    background-repeat: no-repeat;
+
+    color: rgb(23, 253, 23);
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+
+}
+
+/* .unlearned {
+    color: rgb(23, 253, 23);
+} */
+
+.talentFooter-spentPoints{
+  background-color: transparent;
+  font-size: 14px;
+  position: relative;
+}
+
+
+.spentPoints.locked, .spentPoints.grayed  {
+    visibility: hidden;
+}
+
+
+.spentPoints.max {
+    color: rgb(231, 186, 0);
+    border: 1px rgba(231,186,0, 0.9);
+    border-radius: 5px;
+}
+
+@font-face {
+    font-family: 'Quattro';
+    src: url('../fonts/Quattrocento-Regular.ttf');
+}
+
+.talentFooter {
+    color: azure;
+    border: 1px solid black;
+    margin: 10px;
+    margin-top: 20px;
+    position: relative;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+
+}
+
+/* #buttonCity>:not(div) {
+  -webkit-filter: grayscale(60%);
+     -moz-filter: grayscale(60%);
+       -o-filter: grayscale(60%);
+      -ms-filter: grayscale(60%);
+          filter: grayscale(60%);
+          cursor: pointer;
+} */
+
+/* #buttonCity>a:hover{
+    color: blue;
+} */
+
+
+/* #buttonCity>:not(div):hover {
+    -webkit-filter: grayscale(0%);
+       -moz-filter: grayscale(0%);
+         -o-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+            filter: grayscale(0%);
+} */
+
+#buttonCity>*:focus {
+    outline: none;
+}
+
+.talentFooter span.treeName {
+  width: 18px;
+  height: 18px;
+  font-size: 14px;
+  background: left center no-repeat;
+  padding-right: 5px;
+  padding-left: 25px;
+
+}
+
+
+
+/* .tooltip.show {
+    opacity: .9
+} */
+
+
+.talentcalc-arrow {
+    z-index: 5;
+    pointer-events: none;
+    position: absolute;
+    background-repeat: no-repeat;
+
+}
+.talentcalc-arrow.right {
+    background-image: url(../images/arrows/right.png);
+    top: 12px;
+    width: 20px;
+    height: 100%;
+    background-position-x: right;
+    left: 40px;
+}
+
+.talentcalc-arrow.rightdown {
+    background-image: url(../images/arrows/rightdown.png);
+    top: 12px;
+    width: 42px;
+    height: 15px;
+    background-position-x: right;
+    left: 42px;
+
+}
+
+.talentcalc-arrow-down {
+    background-image:url(../images/arrows/down.png);
+    width: 100%;
+    background-position-x: center;
+    background-position-y: bottom;
+}
+
+.talentcalc-arrow.down-0 {
+    height: 20px;
+}
+
+.talentcalc-arrow.down-1 {
+    height: 78px;
+}
+
+.talentcalc-arrow.down-2 {
+    height: 135px;
+}
+
+.talentcalc-arrow.rightdown div:last-child {
+    background-image: url(../images/arrows/down.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 15px;
+    width: 15px;
+    height: 33px;
+    background-position-y: bottom;
+    left: 27px;
+}
+
+/* .tooltip-container {
+    position: relative;
+    right: 120px;
+    top: 40px;
+} */
+
+.talentcalc-button {
+  background-repeat: no-repeat;
+  height: 18px;
+  width: 16px;
+  border: none;
+  margin-right: 4px;
+  vertical-align: text-bottom;
+  background-color: transparent;
+
+}
+
+.talentcalc-button#resetTalents {
+    height: 16px;
+    width: 16px;
+    background-image: url(../images/icons/small/reset.gif);
+    background-repeat: no-repeat;
+}
+
+.talentcalc-button.lock {
+    background: url(../images/icons/small/lock.gif);
+}
+
+.talentcalc-button.unlock {
+    background-image: url(../images/icons/small/unlock.gif);
+}
+
+
+#getSpecName{
+    background-size: contain;
+    background-image: url(../images/icons/save_icon.png);
+}
+
+
+#buttonCity > *:hover {
+    color: rgba(231, 186, 0, 1)!important;
+}
+#specSaverPrompt, #export {
+   color: #3d7e9a;
+   cursor: pointer;
+   -webkit-appearance: none;
+   background-color: transparent;
+   border: 0;
+}
+
+/* #specSaverPrompt:hover, #export:hover {
+} */
+
+#buttonCity {
+    vertical-align: text-bottom;
+    width: 100%;
+    display: block;
+    padding-right: 0;
+}
+
+#requiredLevel {
+  max-width: 30%;
+}
+
+#talentHeader {
+  height: 25px;
+  margin-left: 5px;
+  width:100%;
+  max-width: 718px;
+  border-top: 1px solid black;
+  border-bottom: 2px solid black;
+  color: white;
+  background-color: #272727;
+
+  display: flex;
+  font-size: 14px;
+  position: relative;
+  /* text-shadow: -0.02rem -0.02rem 0.02rem black; */
+}
+
+@media only screen and (max-width: 1200px) {
+    #talentHeader {
+      width: 75%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #talentHeader {
+      max-width: 477px;
+    }
+
+    #allottedTalentPoints {
+      padding-right: 5px;
+    }
+    #requiredLevel {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    #pointsRemaining {
+      padding-left: 5px;
+      padding-right: 5px;
+
+    }
+
+    #buttonCity {
+      padding-left: 5px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+  #talentHeader {
+      width: 477px;
+    max-width: 477px;
+  }
+
+  #allottedTalentPoints {
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: center!important;
+  }
+  #requiredLevel {
+    visibility: hidden;
+    width: 0px;
+    flex: 0 0 0%;
+  }
+
+  #pointsRemaining {
+    visibility: hidden;
+    width: 0px;
+    flex: 0 0 0%;
+  }
+
+  #buttonCity {
+    padding-left: 0px;
+    min-width: 120px;
+    left: 140px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+    .promptArrow {
+        display: none
+    }
+  #talentHeader {
+    width: 90%;
+  }
+}
+
+.resetTree {
+    height: 16px;
+    width: 16px;
+    background: url(../images/icons/small/reset.gif);
+    background-repeat: no-repeat;
+    border: none;
+    right: 2px;
+    top: 3px;
+    position: absolute;
+}
+
+svg.icon {
+    vertical-align: text-bottom;
+    padding-top: 2px;
+}
+
+svg.icon path {
+  fill:#ffc000;
+}
+
+svg.icon:hover path{
+  fill: #3d7e9a;
+}
+
+#talentLock {
+    margin-bottom: 1px;
+}
+
+#resetTalents {
+    margin-bottom: 1px;
+}
+

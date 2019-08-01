@@ -1,0 +1,203 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
+
+<div class="row saveBlock">
+        <h1 class="saveTitle col-12">SAVE</h1>
+    <div class="container">
+    <form class="saved-list-form" method="post" data-url='{{ request.build_absolute_uri|safe }}'>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="fieldWrapper row justify-content-center">
+            <div class="privateSelect col-12">
+                    {{ form.private.errors }}
+                    {{ form.private }}
+                    <label for="{{ form.private.id_for_label }}">Private?</label>
+            </div>
+        </div>
+
+
+        {% if "talent_calc" in request.path %}
+        <div class="fieldWrapper row">
+            <span class="col-3">
+                <label id="wow_class_label" class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
+                <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
+            </span>
+            <span class="col-3">
+                <label id="talents_spent" for="id_spent">(0/0/0)</label>
+                <input class="tree-input" id="tree0" type="hidden" value="Arms,10" name="spent">
+            </span>
+            <span class="col-3">
+                <input class="tree-input" id="tree1" type="hidden" value="Fury,15" name="spent">
+            </span>
+            <span class="col-3">
+                <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
+            </span>
+        </div>
+        {% else %}
+        <div class="fieldWrapper" style="display:none;">
+            <div id="all_consumes"></div>
+        </div>
+        {% endif %}
+
+        <div class="fieldWrapper row">
+            {{ form.name.errors }}
+            <label class="col-2" for="{{ form.name.id_for_label }}">Title:</label>
+            <div class="col-8 p-0">
+                    {{ form.name }}
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="fieldWrapper row">
+            {{ form.description.errors }}
+            <label class="col-2" for="{{ form.description.id_for_label }}">Notes:</label>
+            <div class="col-8 p-0">
+                    {{ form.description }}
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="fieldWrapper row">
+            {{ form.tags.errors }}
+            <label class="col-2"for="{{ form.tags.id_for_label }}">Tags:</label>
+            <div class="col-10 left-align">
+                    {% for checkbox in form.tags %}
+                    <span class="checkbox">{{checkbox}}</span>
+                    {% endfor %}
+            </div>
+        </div>
+        <div class="fieldWrapper row">
+            <input id="list_hash" type="hidden" value="test" name="hash">
+        </div>
+
+
+        <div class="form-actions row justify-content-center">
+            <button class="btn btn-lg btn-dark pl-5 pr-5 mb-4"type="submit">Save</button>
+        </div>
+    </form>
+</div>
+</div>
+
+<script>
+function update_consume_inputs() {
+    var all_consumes = $("#all_consumes")
+    for (let [profname, v] of Object.entries(my_consume_list)) {
+        for (let [crafted, amount] of Object.entries(v)) {
+            all_consumes.append($('<input/>', {
+                name:"spent",
+                value: `${crafted},${amount}`,
+                type: 'hidden'
+            }
+        ))
+        }
+    }
+}
+
+function update_tree_inputs() {
+    $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
+    $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
+    $("#tree2").val(`${talentPointsSpent.treeNames[2]},${talentPointsSpent[talentPointsSpent.treeNames[2]].total()}`)
+    $("#list_hash").val(urlBuilder())
+}
+
+$(".saved-list-form").on({
+    submit: e=> {
+        if (window.location.pathname.includes("talent_calc")) {
+            update_tree_inputs()
+        } else {
+            update_consume_inputs()
+        }
+        e.preventDefault()
+        var $myForm = $(".saved-list-form")
+        var $thisURL = $myForm.attr('data-url') || window.location.href
+        var $formData = $myForm.serialize()
+        console.log($formData)
+        $.ajax({
+            method: "POST",
+            url: $thisURL,
+            data: $formData,
+            success: savedListSuccess,
+            error: savedListError,
+        })
+    }
+})
+
+function savedListSuccess(data, textStatus, jqXHR){
+    append_list_item(data)
+    let message = data['message']
+    notifyUser(message) // <-- NOTE: do something with message
+    console.log(data)
+    console.log(textStatus)
+    console.log(jqXHR)
+    // $myForm.reset(); // reset form data
+}
+
+function savedListError(jqXHR, textStatus, errorThrown){
+    notifyUser(errorThrown)
+    console.log(jqXHR)
+    console.log(textStatus)
+    console.log(errorThrown) // <-- NOTE: or this one
+}
+
+function append_list_item(data) {
+
+    let wow_class = data.wow_class
+    let name = data.name
+    let spec_cont = $("<div/>", {
+        class: "spec-container",
+    })
+    let spec_info = $("<div/>", {
+        class: "spec-info",
+    })
+
+    let child_text = (wow_class) ? `${utilities.titleCase(wow_class)}` : `${name}`
+    let spec_info_child = $("<span/>", {
+        text: child_text,
+    })
+    if (wow_class) {
+        spec_info_child.addClass(`${wow_class}`)
+        spec_info.append(spec_info_child, ' ', $("<span/>", {
+            style: "font-size: 90%;",
+            text: `(${data.spent[0]}/${data.spent[1]}/${data.spent[2]})`,
+        }))
+    } else {
+        spec_info.append(spec_info_child)
+    }
+
+    let spec_item = $("<div/>", {
+        class: "spec-list-item progress-bar-striped progress-bar-animated",
+        name: name,
+        text: name,
+        style: "position: relative;",
+        href: `${document.location.pathname}?${data.hash}`,
+    })
+    if (wow_class) {
+        spec_item.attr("data-wowclass", wow_class)
+    }
+
+    let trashcan = ($("<button/>", {
+        class: "btn btn-sm float-right trashcan",
+        name: "delete",
+        value: name,
+        type: "button",
+        title: "Delete"
+    })).on({
+       click: e=> {
+           $( e.target ).triggerHandler("click");
+       }
+    })
+
+    trashcan.append($("<span/>", {
+        class: "glyphicon glyphicon-trash glyphicon-custom"
+    }))
+
+    spec_item.append(trashcan)
+    spec_cont.append(spec_info, spec_item)
+
+    if (wow_class) {
+        $("#saved-specs").append(spec_cont)
+    } else {
+        $("#saved-consume-lists").append(spec_cont)
+    }
+}
+
+</script>

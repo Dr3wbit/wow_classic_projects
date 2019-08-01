@@ -1,0 +1,29 @@
+[Unit]
+Description=Gunicorn server for SITENAME
+Requires=gunicorn.socket
+
+[Service]
+Restart=on-failure
+
+User=USERNAME
+Group=www-data
+WorkingDirectory=/home/USERNAME/SITENAME
+Environment=DJANGO_SECRET_KEY=""
+Environment=DJANGO_INTERNAL_IPS=["127.0.0.1"]
+Environment=DISCORD_SECRET_KEY=""
+Environment=DISCORD_KEY=""
+
+ExecStart=/home/USERNAME/SITENAME/venv/bin/gunicorn \
+        --bind unix:/tmp/SITENAME.socket \
+        --access-logfile access.log \
+        --error-logfile error.log \
+        --forwarded-allow-ips=* \
+        --worker-class=gevent \
+        --workers=2 \
+        --threads=2 \
+        --keep-alive=5 \
+        --reload=True \
+        PROJECTNAME.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,182 @@
+
+.spec-list-item{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: #343a40;
+    user-select: none;
+    cursor: pointer;
+    text-align: left;
+    max-width: 188px;
+    padding-left: 6px;
+    padding-top: 2px;
+}
+
+.black-out{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.692);
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1021;
+}
+
+
+
+.spec-list-item.selected:hover{
+    background-color: rgba(10,10,160, 1);
+}
+
+.spec-list-item.selected {
+    background-color: rgba(0,0,120, 1);
+}
+.spec-list-item:hover{
+    background-color: #6d6e70;
+}
+
+.spec-list {
+    border-bottom: #404040;
+}
+
+.saved-title {
+ background-color: #1C1C1C;
+ height: 8vh;
+ box-shadow: 0 4px 2px -4px #000000;
+}
+
+.saved{
+    color: rgb(255, 255, 255);
+    position: fixed;
+    background-color: #181818;
+    display: inline-block;
+    height: 93vh;
+    width: 250px;
+    z-index: 1300;
+}
+
+.saved-container {
+    width: 100%;
+    padding: 0;
+}
+
+.custom-saves {
+    padding: 20px;
+    overflow: hidden;
+    height: 82vh;
+    margin-right: 10px;
+}
+
+.custom-saves:hover {
+    overflow-y: scroll;
+    margin-right: 0;
+}
+
+/* .custom-saves::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-saves::-webkit-scrollbar-thumb {
+    background-color: #404040;
+} */
+
+.side-min{
+    left: -220px;
+    background-color: transparent;
+}
+
+.side-bar-toggle{
+    position: absolute;
+    background-size:100% 100%;
+    border: 1px solid black;
+    height: 8vh;
+    width: 30px;
+    right: 0;
+    background-color: #272727;
+    background-image: url("../images/icons/double-chevron.png");
+}
+
+.side-bar-toggle:hover{
+    background-image: url("../images/icons/double-chevron-dark.png");
+    background-color: #333333;
+}
+
+.flip-background {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.form-check-label {
+    position: relative;
+    right: 5px;
+}
+
+#specNameChoice {
+    text-align:left;
+    width: 100%;
+}
+#includeInName {
+    text-align:left;
+}
+
+
+.form-check-input {
+    position: relative;
+    margin-top: .3rem;
+    margin-right: 5px;
+}
+
+legend.col-form-label{
+    font-size: 15px;
+}
+
+div.modal-footer {
+    align-items: flex-start;
+}
+
+
+
+#specName {
+    width: 65%;
+    font-size: 12px;
+    padding-left: 5px;
+
+}
+
+.invalid-feedback {
+    text-align: left;
+    font-size: 95%;
+    display: block;
+    position: relative;
+    left: 60px;
+}
+
+.spec-info {
+    background-color: #141414;
+    font-size: 85%;
+    justify-content: space-evenly;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    user-select: none;
+}
+
+.spec-container {
+    margin: 8px 0px 8px 5px;
+}
+
+.glyphicon-trash {
+    right: 0;
+}
+
+.glyphicon {
+    padding: 0;
+}
+
+.progress-bar-striped {
+        background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,rgba(10, 10, 160, .75) 25%,rgba(10, 10, 160, .75) 50%,
+            rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,rgba(10, 10, 160, .75) 75%,rgba(10, 10, 160, .75));
+}

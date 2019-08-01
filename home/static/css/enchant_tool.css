@@ -1,0 +1,286 @@
+
+.itemslot {
+    height: 48px;
+    width: 48px;
+    background-size: cover;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.bottom-slots>.itemslot {
+    margin: 0;
+}
+
+.mainBody{
+    min-height: 0
+}
+
+.pageColumn{
+    background-image: url("../images/textured_background.png");
+    background-size: cover;
+    border: 1px rgba(240, 255, 255, 0.95) solid;
+    min-height: 475px;
+    max-height: 475px;
+    color: #1EFF00;
+    /* border: 1px solid #78797a; */
+}
+.enchantOptionContainer {
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 5px;
+}
+
+.materialContainer {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 5px;
+}
+
+.materialContainer::-webkit-scrollbar {
+    width: 5px;
+}
+
+.materialContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0);
+}
+
+.selectedEnchantContainer {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.selectedEnchantContainer::-webkit-scrollbar {
+    width: 5px;
+}
+
+.selectedEnchantContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0);
+}
+
+.right-slots {
+    padding: 0
+}
+
+.left-slots {
+    padding: 0
+}
+
+.enchantHolder {
+    pointer-events: none;
+    margin-left: 5px; /* offsets scrollbar */
+}
+.enchantOptions {
+    background-image: url("../images/textured_background.png");
+    background-size: cover;
+    border-radius: 5px;
+    border: 2px black solid;
+    width: 100%;
+    min-height: 419px;
+    max-height: 419px;
+    overflow-y: scroll;
+}
+
+.enchantOptions::-webkit-scrollbar {
+    width: 5px;
+}
+
+.enchantOptions::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0);
+}
+
+.bookImg {
+    background-image: url("../images/enchanted_book_3_small.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 5px;
+    height: 100%;
+}
+
+.enchantOption {
+    font-size: 90%;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px black solid;
+    background-color: black;
+    display: block;
+    text-overflow: ellipsis;
+    border-radius: 4px;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.enchantOption:hover {
+    background-color: grey;
+}
+
+.columnTitle {
+    border: 1px solid black;
+    color: rgba(240, 255, 255, 0.95);
+    line-height: 38px;
+    box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
+}
+
+.enchant-slot-title {
+    color: rgba(240, 255, 255, .85);
+    font-size: 100%;
+    padding: 2px;
+    border-radius: 2px;
+    border: 1px solid #b6bbc0;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61), 0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+}
+
+.selected-enchant {
+    padding-top: 10px;
+}
+
+.enchantInfo {
+    font-size: 100%;
+    padding: 1px;
+    margin-top: 5px;
+    background-image: url("../images/textured_background.png");
+    border-radius: 2px;
+    border: 1px solid #b6bbc0;
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    color: #1EFF00;
+    margin-left: 5px; /* offsets scrollbar */
+
+}
+
+.totalContainer {
+   padding-top: 10px;
+   margin-left: 5px; /* offsets scrollbar */
+}
+
+.copyTotal {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    background-image: url(../images/icons/medium/copy_clipboard.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: -1px;
+}
+.copyTotal:hover {
+    transform: scale(0.90);
+}
+
+.enchantable {
+    cursor: pointer;
+}
+
+.focus {
+    border: 2px greenyellow solid;
+    border-radius: 5px;
+    border-style: groove;
+}
+
+.filterOptions{
+    background-image: linear-gradient(rgb(20, 20, 20), black, rgb(20, 20, 20));
+    box-shadow: inset 0 0 5px rgb(40, 40, 40);
+    border: 1px solid black;
+    margin-left: 5px;
+    color: rgba(240, 255, 255, 0.95);
+}
+
+#belt {
+    background-image: url("../images/equipment_slots/belt.png")
+}
+
+#bracer {
+    background-image: url("../images/equipment_slots/bracer.png")
+}
+
+#cloak {
+    background-image: url("../images/equipment_slots/cloak.png")
+}
+
+#ring {
+    background-image: url("../images/equipment_slots/ring.png")
+}
+
+#gloves {
+    background-image: url("../images/equipment_slots/gloves.png")
+}
+
+#head {
+    background-image: url("../images/equipment_slots/head.png")
+}
+
+#legs {
+    background-image: url("../images/equipment_slots/legs.png")
+}
+
+#weapon {
+    background-image: url("../images/equipment_slots/weapon.png")
+}
+
+#shield {
+    background-image: url("../images/equipment_slots/shield.png")
+}
+
+#ranged {
+    background-image: url("../images/equipment_slots/ranged.png")
+}
+
+#shoulders {
+    background-image: url("../images/equipment_slots/shoulders.png")
+}
+
+#tabard {
+    background-image: url("../images/equipment_slots/tabard.png")
+}
+
+#trinket {
+    background-image: url("../images/equipment_slots/trinket.png")
+}
+
+#neck {
+    background-image: url("../images/equipment_slots/neck.png")
+}
+
+#chest {
+    background-image: url("../images/equipment_slots/chest.png")
+}
+
+#shirt {
+    background-image: url("../images/equipment_slots/shirt.png")
+}
+
+#pants {
+    background-image: url("../images/equipment_slots/pants.png")
+}
+
+#boots {
+    background-image: url("../images/equipment_slots/boots.png")
+}
+
+.not-enchantable {
+    opacity: 0.3;
+}
+
+.tooltip-container {
+    font-size: 100%;
+}
+
+.form-check-label {
+    position: relative;
+    top: 2px;
+}
+
+.materials-list-item {
+    position: relative;
+    margin-top: 3px;
+    text-align: left;
+    pointer-events: auto;
+}
+
+.materials-name {
+    pointer-events: auto;
+}
+
+.nav-is-sticky {
+    padding-top: 0 !important;
+}

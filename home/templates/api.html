@@ -1,0 +1,849 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<script type="text/javascript" src="{% static "js/timer/jquery.countdown.js" %}"></script>
+<script type="text/javascript" src="{% static "js/timer/jquery.countdown.min.js" %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/stars.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/api.css" %}">
+
+<script src="{% static "js/landing_page.js" %}"></script>
+{% endblock extra_head %}
+
+{% block title_splash %}
+    <div class="container titleSplash pt-5">
+        <div class="p-3 page-description">Classic World of Warcraft Tools for the Experienced Player</div>
+        <div class="row class-selection nav-is-sticky steel-textured"></div>
+    </div>
+    {% endblock title_splash %}
+
+    {% block mainbody %}
+    <div class="mainBody container">
+        <div class="row selection-header sticky-top">
+            <!-- <h2 class="my-auto font-weight-bold">Onybuff.com</h2> -->
+        </div>
+        <div class="row content-container mt-4">
+            <div class="card-container col-lg-8 col-12 recent-news">
+                <div class="card mb-3 bg-transparent border-light text-center">
+                    <div class="card-header bg-transparent border-light text-light">
+                        <button class="btn btn-sm float-left" title="Refresh"
+        					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
+        					<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        				</button>
+                        <!-- <div class="clearfix"></div> -->
+                        <h5><span class="fix-me">NEW SAVED SPECS</span></h5>
+                    </div>
+                {% for specname,spec in specs.items %}
+                <div class="card-body text-light">
+                    <h5 class="card-title text-center">
+                        <a name="{{spec.obj.name}}" class="saved-list-href" data-id="{{spec.obj.id}}" href="{% url 'talents' spec.obj.wow_class.name %}?{{spec.obj.hash}}">{{spec.obj.name}}</a>
+                    </h5>
+                    <div class="row justify-content-between">
+                        <div class="col-sm">
+                            <p>By:
+                            {% if spec.obj.user == request.user %}
+                                <a href="">me</a>
+                                {% elif not spec.obj.private %}
+                                <a href="">{{spec.obj.user.disc_username}}</a>
+                                {% else %}
+                                anonymous
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-sm">
+                            <span class="{{spec.obj.wow_class.name}}">{{spec.obj.wow_class.name|title}}</span> --
+                            <span>
+                            {% with trees=spec.obj.treeallotted_set.all %}
+                            {% for tree in trees %}
+                            {% if not tree == trees|first %}
+                            /
+                            {% else %}
+                            {% endif %}
+                            {{tree.invested}}
+                            {% endfor %}
+                            {% endwith %}
+                            </span>
+                        </div>
+
+                            {# ratings #}
+
+                          <div class="col-sm" style="left: 50px;">
+                              {% if request.user.is_superuser and spec.obj.user != request.user %}
+<!-- NOTE: FIX-ME -->         <span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px"><a href="" class="remove-rating">({{spec.obj.ratings.count}})</a></span>
+                               {% else %}
+                               <span style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:55px">({{spec.obj.ratings.count}})</span>
+                               {% endif %}
+                          <div class="ratings-container" name="{{spec.obj.name}}" data-id="{{spec.obj.id}}" data-wowclass="{{spec.obj.wow_class.name}}">
+                          {% if not request.user.is_authenticated or spec.has_voted or request.user == spec.obj.user %}
+
+                            <div class="star-box">
+                                {% widthratio spec.obj.rating 1 20 as width %}
+                              <div class="star-limiter" style="width:{{width|default:0}}%">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                  <span class="glyphicon glyphicon-star"></span>
+                                    {% endfor %}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="star-bg">
+                                <div class="longbar">
+                                    {% for n in rangen %}
+                                  <span class="glyphicon glyphicon-star"></span>
+                                    {% endfor %}
+                            </div>
+                          </div>
+                          <!-- <p id="rating_data"></p> -->
+                          {% else %}
+                          <div class="star-box rating-vote">
+                            <div class="star-limiter" style="width: 0%">
+                              <div class="longbar">
+                                  {% for n in rangen %}
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                  {% endfor %}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="star-bg rating-vote">
+                              <div class="longbar">
+                                  {% for n in rangen %}
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                  {% endfor %}
+                              </div>
+                        </div>
+                          {% endif %}
+                          <div class="clearfix"></div>
+                      </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+
+                    <div class="col-2">
+                    </div>
+                    <div class="col-6 flex-column">
+                        <div class="mb-auto p-2">
+                            <span class="fix-me">Description</span>: <span>{{spec.obj.description}}</span>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-2 flex-row"></div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="col-4">
+                        <span class="fix-me"> Added</span>:
+                        <span class="text-muted" style="font-size: 10px; font-style: italic;"> {{spec.obj.created}}</span>
+                </div>
+
+                <div class="col-7">
+                    <div class="p-2">
+                        {% for tag in spec.obj.tags.all %}
+                            <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
+                            {% endfor %}
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="p-2">
+                        {% if spec.obj.user.email == request.user.email %}
+                            <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
+                            type="button" role="button" {% comment %} href="{% url 'talents' spec.obj.wow_class.name %}?{{spec.obj.hash}}" {% endcomment %}>
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
+                            </a>
+                            <div class="clearfix"></div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+            <hr style="border: 1px solid grey; width: 40%; margin-top:10px; margin-bottom:10px;"></hr>
+            <div class="row">
+                    <br>
+                    <table style="margin:auto;">
+                        <thead>
+                            <tr>
+                                <th colspan="2"><div><h5 class="fix-me">AVAILABLE PROPERTIES</h5></div><div><span style="font-size:80%;">not 100% comprehensive</span></div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span>spec name</span></td>
+                                <td><span class="fix-me">{{spec.obj.name}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>created</span></td>
+                                <td><span class="fix-me">{{spec.obj.created}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>last updated</span></td>
+                                <td><span class="fix-me">{{spec.obj.updated}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>num ratings</span></td>
+                                <td><span class="fix-me">{{spec.obj.ratings.count}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>avg rating</span></td>
+                                <td><span class="fix-me">{{spec.obj.rating}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>wow class name</span></td>
+                                <td><span class="fix-me">{{spec.obj.wow_class.name}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>hash</span></td>
+                                <td><span class="fix-me">{{spec.obj.hash}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>private?</span></td>
+                                <td><span class="fix-me">{{spec.obj.private}}</span></td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th colspan="2">USER</th>
+                            </tr>
+                        </thead>
+                        {% with user=spec.obj.user %}
+                        <tbody>
+                            <tr>
+                                <td><span>discord uid</span></td>
+                                <td><span class="fix-me">{{user.uid}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>discord username</span></td>
+                                <td><span class="fix-me">{{user.disc_username}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>discord tag</span></td>
+                                <td><span class="fix-me">{{user.tag}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>date joined</span></td>
+                                <td><span class="fix-me">{{user.date_joined}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>db index</span></td>
+                                <td><span class="fix-me">{{user.id}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>email</span></td>
+                                <td><span class="fix-me">{{user.email}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>staff?</span></td>
+                                <td><span class="fix-me">{{user.is_staff}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>admin?</span></td>
+                                <td><span class="fix-me">{{user.is_superuser}}</span></td>
+                            </tr>
+                        </tbody>
+                        {% endwith %}
+                        <thead>
+                            <tr>
+                                <th colspan="2">TREES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tree in spec.obj.treeallotted_set.all %}
+                            <tr>
+                                <td>{{tree.name}}</td>
+                                <td class="fix-me">{{tree.invested}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th colspan="2">TAGS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tag in spec.obj.tags.all %}
+                            <tr>
+                                <td colspan="2" class="fix-me">{{tag.name}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                        <br>
+                    </div>
+                </div>
+                <hr style="border: 1px solid white; width: 100%;"></hr>
+
+                {% endfor %} {# endspecs #}
+
+                {% for consumelist in consume_lists %}
+                <div class="card-body text-light">
+                    <h5 class="card-title text-center"><a href="{% url 'consume_tool' %}?{{consumelist.hash}}">{{consumelist.name}}</a></h5>
+                {% for n in rangen %}
+                    {% if n == rangen|first %}
+                    <a class="btn btn-sm float-right"
+                        style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true" title="Edit"></span>
+                    </a>
+                    {% else %}
+                    <a class="btn btn-sm float-right"
+                        style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: rgb(231, 186, 0); border: 0; -webkit-appearance: unset;">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true" title="Edit"></span>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                <div class="clearfix"></div>
+                <p>By:
+                {% if consumelist.user.email == request.user.email %}
+                    <a href="">me</a>
+                {% elif not consumelist.private %}
+                    <a href="">{{consumelist.user.disc_username}}</a>
+                {% else %}
+                    anonymous
+                {% endif %}
+                </p>
+                <span> -------------------- </span>
+                <p><span style="text-decoration: underline;">Description</span>: {{consumelist.description}}</p>
+                <p><span style="text-decoration: underline;"> Added</span>:<span class="text-muted"> {{consumelist.created}}</span></p>
+
+                {% for tag in consumelist.tags.all %}
+                    <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
+                {% endfor %}
+                {% if consumelist.user.email == request.user.email %}
+                    <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
+                    type="button" role="button" {% comment %} href="{% url 'consume_tool' %}?{{consumelist.hash}}" {% endcomment %}>
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
+                    </a>
+                    <div class="clearfix"></div>
+                {% endif %}
+                <table class="table table-sm table-striped table-dark table-hover" style="margin:auto;">
+                    <thead>
+                        <tr>
+                            <th colspan="3">
+                                <div>
+                                    <h5 class="fix-me">AVAILABLE PROPERTIES</h5>
+                                </div>
+                                <div>
+                                    <span style="font-size:80%;">not 100% comprehensive</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>list name</span></td>
+                            <td><span class="fix-me">{{consumelist.name}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.name}}{% endverbatim %}</code></td>
+                        </tr>
+                        <tr>
+                            <td><span>created</span></td>
+                            <td><span class="fix-me">{{consumelist.created}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.created}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>last updated</span></td>
+                            <td><span class="fix-me">{{consumelist.updated}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.updated}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>num ratings</span></td>
+                            <td><span class="fix-me">{{consumelist.ratings.count}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.ratings.count}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>avg rating</span></td>
+                            <td><span class="fix-me">{{consumelist.rating}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.rating}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>hash</span></td>
+                            <td><span class="fix-me">{{consumelist.hash}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.hash}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>private?</span></td>
+                            <td><span class="fix-me">{{consumelist.private}}</span></td>
+                            <td><code>{% verbatim %}{{consumelist.private}}{% endverbatim %}</code></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th style="color: #96c6f5" colspan="1">USER</th>
+                            <th colspan="2"><code>{% verbatim %}{% with user=consumelist.user %}{% endverbatim %}</code></th>
+
+                        </tr>
+                    </thead>
+                    {% with user=consumelist.user %}
+                    <tbody>
+                        <tr>
+                            <td><span>discord uid</span></td>
+                            <td><span class="fix-me">{{user.uid}}</span></td>
+                            <td><code>{% verbatim %}{{user.uid}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>discord username</span></td>
+                            <td><span class="fix-me">{{user.disc_username}}</span></td>
+                            <td><code>{% verbatim %}{{user.disc_username}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>discord tag</span></td>
+                            <td><span class="fix-me">{{user.tag}}</span></td>
+                            <td><code>{% verbatim %}{{user.tag}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>date joined</span></td>
+                            <td><span class="fix-me">{{user.date_joined}}</span></td>
+                            <td><code>{% verbatim %}{{user.date_joined}}{% endverbatim %}</code></td>
+                        </tr>
+                        <tr>
+                            <td><span>db index</span></td>
+                            <td><span class="fix-me">{{user.id}}</span></td>
+                            <td><code>{% verbatim %}{{user.id}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>email</span></td>
+                            <td><span class="fix-me">{{user.email}}</span></td>
+                            <td><code>{% verbatim %}{{user.email}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>staff?</span></td>
+                            <td><span class="fix-me">{{user.is_staff}}</span></td>
+                            <td><code>{% verbatim %}{{user.is_staff}}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr>
+                            <td><span>admin?</span></td>
+                            <td><span class="fix-me">{{user.is_superuser}}</span></td>
+                            <td><code>{% verbatim %}{{user.is_superuser}}{% endverbatim %}</code></td>
+
+                        </tr>
+                    </tbody>
+                    {% endwith %}
+                    <thead>
+                        <tr>
+                            <!-- <th>VIA CUSTOM DICT</th> -->
+                            <th colspan="3"><code>{% verbatim %}{% for listname,y in saved_list.items %}{% endverbatim %}</code></th>
+                        </tr>
+                    </thead>
+                    {% for listname,y in saved_lists.items %}
+                    {% if listname == consumelist.name %}
+                    <thead>
+                        <tr>
+                            <th style="color: #96c6f5" colspan="1">listname</th>
+                            <th colspan="1" class="fix-me">{{listname}}</th>
+                            <th colspan="1"><code>{% verbatim %}{{listname}}{% endverbatim %}</code></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th colspan="3"><code>{% verbatim %}{% for profname,b in y.consumes.items %}{% endverbatim %}</code></th>
+                        </tr>
+                    </thead>
+                    {% for profname,b in y.consumes.items %}
+                    <thead>
+                        <tr>
+                            <th style="color: #96c6f5" scope="col">profession</th>
+                            <th scope="col" class="fix-me">{{profname}}</th>
+                            <th scope="col"><code>{% verbatim %}{{profname}}{% endverbatim %}</code></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr colspan="3">
+                            <td colspan="3"><code>{% verbatim %}{% for consume_name,quantity in b.items %}{% endverbatim %}</code></td>
+
+                        </tr>
+                        <tr colspan="3">
+                            <td colspan="2"><code>{% verbatim %}{{consume_name}}{% endverbatim %}</code></td>
+                            <td><code>{% verbatim %}{{quantity}}{% endverbatim %}</code></td>
+                        </tr>
+                        {% for consume_name,quantity in b.items %}
+                            <tr>
+                                <td colspan="2">{{consume_name}}</td>
+                                <td class="fix-me">{{quantity}}</td>
+                            </tr>
+                        {% endfor %}
+
+                    {% endfor %}
+                    </tbody>
+                    {% else %}
+                    {% endif %}
+                    {% endfor %}
+                    <thead>
+                        <tr>
+                            <th colspan="3">TAGS</th>
+                        </tr>
+                        <tr>
+                            <th colspan="3"><code>{% verbatim %}{% for tag in consumelist.tags.all %}{% endverbatim %}</code></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                {% for tag in consumelist.tags.all %}
+                                <span class="fix-me">{{tag.name}}</span>,
+
+                                {% endfor %}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr style="border: 1px solid white; width: 100%;"></hr>
+                </div>
+                {% endfor %} {# endconsumelists #}
+
+                </div>
+
+
+                <div class="pt-4">
+                    <div class="card mb-3 bg-transparent border-light text-center">
+                        <h5 class="card-header bg-transparent border-light text-light">
+                            Changelog
+                        </h5>
+                        <div class="card-body text-light">
+                            <p class="card-text text-left">7/16/2019</p>
+                            <ul class="card-text text-left">
+                                <li> API page created </li>
+                                <li> Rating System Implemented </li>
+                            </ul>
+                            <p class="card-text text-left">7/14/2019</p>
+                            <ul class="card-text text-left">
+                                <li>
+                                    Implemented ability to save and view saved consume lists
+                                </li>
+                            </ul>
+                            <p class="card-text text-left">7/1/2019</p>
+                            <ul class="card-text text-left">
+                                <li>
+                                    Django migration
+                                </li>
+                            </ul>
+                            <p class="card-text text-left">4/29/2019</p>
+                            <ul class="card-text text-left">
+                                <li>
+                                    Added Specs and Guides Section.
+                                </li>
+                                <li>
+                                    Added Working Talent Calculator.
+                                </li>
+                                <li>
+                                    Updated Consume Tool to display more useful information.
+                                </li>
+                                <li>
+                                    Changed overall site style and design.
+                                </li>
+                            </ul>
+                            <p class="card-text text-left">1/5/2019</p>
+                            <ul class="card-text text-left">
+                                <li>
+                                    Initial Launch with consume tool and enchant tool.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-muted border-light">
+                            <p>We are constantly adding new things to Onybuff.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% load titlecase from custom_filters %}
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-8">
+    <table class="table table-sm table-striped table-dark table-hover" style="margin:auto; overflow-y: scroll;">
+        <thead>
+            <tr>
+                <th scope="col">recipe</th>
+                <th scope="col">materials</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+            <tr>
+                <td style="text-align: left;">
+                    <span class="recipe-container {{recipe.rarity}}" name="{{recipe.name}}">
+                        <img name="{{recipe.name}}" class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
+                        style="background-image: url({% static item_image %});">
+                        <span class="consume-name" name="{{recipe.name}}">{{recipe.name|titlecase}}</span>
+                    </span>
+                </td>
+                <td class="reagant-list">
+                    {% for mat in recipe.materials.all %}
+                    <img name="{{mat.name}}" class="icon-medium" src="{% static "images/icon_border_2.png" %}"
+                        style="background-image: url({% static "images/icons/medium/materials/"|add:mat.name|add:".jpg" %});">
+                        {% if mat.amount > 1 %}
+                        <span class="count-container">
+                            <div class="material-count">{% widthratio mat.amount 1 1 %}</div>
+                            <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{% widthratio mat.amount 1 1 %}</div>
+                            <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{% widthratio mat.amount 1 1 %}</div>
+                            <div class="material-count" style="color: black; right: 3px; z-index: 4;">{% widthratio mat.amount 1 1 %}</div>
+                        </span>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+    {% endblock mainbody %}
+
+    {% block footer %}
+    {# "not necessary, here to demonstrate block.super" #}
+    {{block.super}}
+    {% endblock footer %}
+
+{% block javascript %}
+<script>
+
+$(".glyphicon-star-empty").on({
+    mouseenter: e=> {
+        var target = $( e.target )
+        var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
+        var index = empty_stars.index( target )+1
+        for (var i=0;i<index;i++) {
+            $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
+        }
+
+    },
+    mouseleave: e=> {
+        let target = $( e.target )
+        let longbar = target.closest($("div.longbar"))
+        let stars = longbar.find($(".glyphicon"))
+        stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
+    },
+    mousedown: e=> {
+        // need some sort of confirmation here
+        var target = $( e.target )
+        var rating = target.closest($("div.longbar")).find($(".glyphicon-star")).length
+        var container = target.closest($(".ratings-container"))
+        var id = container.attr("data-id")
+        var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+        var data = {
+            wow_class: wow_class,
+            id: id,
+            rating: rating
+        }
+        rate_saved_list(data)
+    }
+
+})
+
+function rate_saved_list(d) {
+    var spec = (d.wow_class) ? true : false
+    var rating = d.rating
+    var id = d.id
+    $.ajax({
+        method: "POST",
+        url: '/ajax/save_rating/',
+        data: {
+            'value': rating,
+            'id': id,
+            'spec': spec,
+        },
+        dataType: 'json',
+
+        success: function (data) {
+            console.log('data: ', data)
+            // TODO: remove elements that would allow user to potentially vote again
+        }
+    });
+}
+
+{% if request.user.is_staff %}
+
+$("a.remove-rating").on({
+    click: e=> {
+        e.preventDefault()
+        var target = $( e.target )
+
+        var container = target.closest($("div.col-sm")).find($(".ratings-container"))
+        var id = container.attr("data-id")
+        var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+
+        var data = {
+            wow_class: wow_class,
+            id: id,
+        }
+        delete_rating(data)
+
+    }
+})
+
+function delete_rating(d) {
+    var spec = (d.wow_class) ? true : false
+    var id = d.id
+    $.ajax({
+        method: "POST",
+        url: '/ajax/delete_rating/',
+        data: {
+            'id': id,
+            'spec': spec,
+        },
+        dataType: 'json',
+
+        success: function (data) {
+            console.log('data: ', data)
+            // TODO: remove elements that would allow user to potentially vote again
+        }
+    });
+}
+
+$(".consume-name, .recipe-image").on({
+    mouseenter: e=> {
+        clear_tooltip()
+        get_tooltip_info(e)
+    },
+    mouseleave: e=> {
+        $("#tooltip_container").hide()
+    },
+    mousemove: e=> {
+        move_tooltip(e)
+    }
+})
+
+function get_tooltip_info(e) {
+    var $name = $(e.target).attr("name")
+    var $data = {}
+    $data['name'] = $name
+
+    $.ajax({
+        method: "GET",
+        url: `/ajax/tooltip`,
+        data: $data,
+        dataType: 'json',
+        success: create_tooltip
+    })
+}
+
+function create_tooltip(data) {
+
+    const tooltip_container = $("#tooltip_container")
+
+    const image_name = data.image_name
+
+    delete data.image_name
+
+    const tooltip = $('<div/>', {
+        class: 'tooltip-container',
+        id: "tooltip",
+        style: "float: right;"
+    })
+
+    for (let [key, val] of Object.entries(data)) {
+        // tooltip.append($('<div/>', {
+        //     class: `${key}`,
+        //     text: ''
+        // }))
+        console.log('name: ', name)
+        console.log('val: ', val)
+    }
+
+    const image = (image_name) ? $('<img/>', {
+        class: 'icon-medium',
+        src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
+        style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/${image_name})`
+    }) : null
+
+    tooltip.append($('<div/>', {
+        class: `title ${data.rarity}`,
+        text: `${utilities.titleCase(data.name)}`,
+    }))
+
+    const bop = (data.bop) ? $('<div/>', {
+        class: 'bop',
+        text: "Binds when picked up"
+    }) : null
+
+    const unique = (data.unique) ? $('<div/>', {
+        class: 'unique',
+        text: "Unique"
+    }) : null
+
+    const req_lvl = (data.required_level) ? $('<div/>', {
+        class: 'required_level',
+        text: `Requires Level ${data.required_level}`
+    }) : null
+
+    const use = (data.use) ? $('<div/>', {
+        class: 'use',
+        text: `Use: ${data.use}`
+    }) : null
+
+    const description = (data.description) ? $('<div/>', {
+        class: 'description',
+        text: `${data.description}`,
+    }) : null
+
+    tooltip.append(bop, unique, req_lvl, use, description)
+
+    tooltip_container.append(image, tooltip)
+
+    var x = 0
+    var y = 0
+
+    try {
+        if (image) {
+            x = e.pageX + 15
+            y = e.pageY - 25
+        } else {
+            x = $(e.target).offset().left + 45
+            y = $(e.target).offset().top - 45
+        }
+    } catch (err) {
+        console.log('suppressing errors')
+    }
+
+    // utilities_v2.getTooltipPosition(e, tooltip_container)
+
+    tooltip_container.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
+
+    // const test_table = $('<table/>', {
+    //
+    // }).append($('<tbody/>', {
+    //
+    // }).append($('<tr/>', {
+    //
+    // }).append($('<td/>', {
+    //
+    // }).append($('<table/>', {
+    //     style: "white-space: no-wrap; width: 100%;"
+    //
+    // }), $('<table/>', {
+    //     style: "width: 100%;"
+    //
+    // })
+}
+function clear_tooltip() {
+	$("#tooltip_container").empty()
+	$("#tooltip_container").hide()
+}
+
+function move_tooltip(e) {
+	let pageY = e.pageY
+	let pageX = e.pageX+15
+    const tooltip = $("#tooltip_container")
+    tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visiblity: visible;`)
+}
+
+{% endif %}
+
+</script>
+<script src="{% static "js/utilities.js" %}"></script>
+{% endblock javascript %}

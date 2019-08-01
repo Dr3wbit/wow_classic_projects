@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/enchant_tool.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "js/enchants.js" %}">
+    <script src="{% static "js/enchants.js" %}"></script>
+
+    <script src="{% static "js/polyfill.js" %}"></script>
+    <script src="{% static "js/utilities.js" %}"></script>
+    <script src="{% static "js/all_materials.js" %}"></script>
+    <script src="{% static "js/enchant_tool.js" %}"></script>
+    {% endblock extra_head %}
+
+    {% block navbar %}{{block.super}}{% endblock navbar %}
+
+
+    {% block title_splash %}
+    <div class="container titleSplash">
+        <div class="page-title">
+            <div class="p-3 page-description">
+                <!-- A Classic World of Warcraft Enchanting Tool! Click a gear slot and choose
+                    from the availible enchants to see what materials you need. -->
+            </div>
+        </div>
+        <div class="row class-selection nav-is-sticky steel-textured" id="class_selection">
+            <div class="col-lg-4 col-12 columnTitle">Choose Enchant(s)</div>
+            <div class="col-lg-4 columnTitle d-none d-lg-block">Selected Enchants</div>
+            <div class="col-lg-4 columnTitle d-none d-lg-block">Total Materials</div>
+        </div>
+    </div>
+    {% endblock title_splash %}
+    {% block mainbody %}
+    <div class="container mainBody">
+        <div class="row selection-header sticky-top"></div>
+        <div class="row">
+            <div class="col-12 col-lg-4 enchantOptionContainer pageColumn">
+                <div class="row">
+                    <div class="col-2 left-slots">
+                        <div class="itemslot enchantable " id="head" data-toggle="tooltip" data-placement="left"
+                            title="Head"></div>
+                        <div class="itemslot not-enchantable " id="neck" data-toggle="tooltip" data-placement="left"
+                            data-placement="left" title="Neck"></div>
+                        <div class="itemslot not-enchantable " id="shoulders" data-toggle="tooltip"
+                            data-placement="left" title="Shoulders"></div>
+                        <div class="itemslot enchantable " id="cloak" data-toggle="tooltip" data-placement="left"
+                            title="Cloak"></div>
+                        <div class="itemslot enchantable " id="chest" data-toggle="tooltip" data-placement="left"
+                            title="Chest"></div>
+                        <div class="itemslot not-enchantable " id="shirt" data-toggle="tooltip" data-placement="left"
+                            title="Shirt"></div>
+                        <div class="itemslot not-enchantable " id="tabard" data-toggle="tooltip" data-placement="left"
+                            title="Tabard"></div>
+                        <div class="itemslot enchantable " id="bracer" data-toggle="tooltip" data-placement="left"
+                            title="Bracer"></div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="enchantOptions">
+                                <div class="filterOptions sticky-top">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="endGameRadio" value="end_game">
+                                        <label class="form-check-label" for="endGameRadio">End Game</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="allRadio" value="all">
+                                        <label class="form-check-label" for="allRadio">All</label>
+                                    </div>
+                                </div>
+                                <div class="bookImg">
+                                    <div class="enchantHolder">
+                                        <div class="enchant-slot-title" style="font-size:110%">Click a Slot to
+                                            Enchant</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 right-slots">
+                        <div class="itemslot enchantable " id="gloves" data-toggle="tooltip" data-placement="left"
+                            title="Gloves"></div>
+                        <div class="itemslot not-enchantable " id="belt" data-toggle="tooltip" data-placement="left"
+                            title="Belt"></div>
+                        <div class="itemslot enchantable " id="legs" data-toggle="tooltip" data-placement="left"
+                            title="Legs"></div>
+                        <div class="itemslot enchantable " id="boots" data-toggle="tooltip" data-placement="left"
+                            title="Boots"></div>
+                        <div class="itemslot not-enchantable " id="ring1" data-toggle="tooltip" data-placement="left"
+                            title="Ring"></div>
+                        <div class="itemslot not-enchantable " id="ring2" data-toggle="tooltip" data-placement="left"
+                            title="Ring"></div>
+                        <div class="itemslot not-enchantable " id="trinket1" data-toggle="tooltip" data-placement="left"
+                            title="Trinket"></div>
+                        <div class="itemslot not-enchantable " id="trinket2" data-toggle="tooltip" data-placement="left"
+                            title="Trinket"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 bottom-slots">
+                        <div class="itemslot enchantable d-inline-block" id="weapon" data-toggle="tooltip"
+                            data-placement="left" title="Main Hand"></div>
+
+                        <div class="itemslot enchantable d-inline-block" id="shield" data-toggle="tooltip"
+                            data-placement="left" title="shield"></div>
+
+                        <div class="itemslot not-enchantable d-inline-block" id="ranged" data-toggle="tooltip"
+                            data-placement="left" title="Ranged"></div>
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col">
+                        <button class="btn btn-dark" type="button" onclick="clearData()">Reset All</button>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-12 columnTitle d-lg-none">
+                <!-- Selected Enchants -->
+            </div>
+            <div class="col-12 col-lg-4 selectedEnchantContainer pageColumn">
+                <div class="selected-enchant"></div>
+            </div>
+            <div class="col-12 columnTitle d-lg-none">
+                <!-- Total Materials -->
+            </div>
+            <div class="col-12 col-lg-4 materialContainer pageColumn">
+                <div class="totalContainer">
+                    <div class="results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock mainbody %}
+
+    <div id="tooltip" style="visibility: hidden;"></div>
+</body>
+
+</html>

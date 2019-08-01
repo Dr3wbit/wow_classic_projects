@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts_and_styles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}">
+<script src="{% static "js/contact.js" %}"></script>
+{% endblock scripts_and_styles %}
+
+{% block title_splash %}
+    </div>
+    <div class="container titleSplash">
+        <div class="page-title">Success!
+        </div>
+    </div>
+ {% endblock title_splash %}
+
+ {% block class_selection %}
+ <div class="row class-selection nav-is-sticky steel-textured" id="class_selection">
+ </div>
+ {% endblock class_selection %}
+
+
+ {% block mainbody %}
+
+ <div class="container mainBody">
+     <div class="row about-section">
+         <div class="col-2"></div>
+         <div class="col-8 formContainer">
+             <div id="form-messages"></div>
+         </div>
+         <div class="col-2"></div>
+     </div>
+ </div>
+ <br>
+ {% endblock mainbody %}

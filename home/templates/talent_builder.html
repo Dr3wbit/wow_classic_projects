@@ -1,0 +1,73 @@
+{% load static %}
+<script src="{% static "js/talent.js" %}"></script>
+{% if blueprints %}
+	{% load static %}
+	{% load titlecase from custom_filters %}
+	{% for tree,bp in blueprints.items %}
+	{% with "images/talent_spells/"|add:selected|add:"/"|add:tree|add:".jpg" as background_image %}
+	<div class="talentTable" id="{{tree}}" style="background-image: url('{% static background_image %}');">
+		<div class="treeTitle col">
+	{% endwith %}
+		{% for outer in bp %}
+		{% with forloop.counter0 as outer_ix %}
+			<div class="row">
+				{% for talent in outer %}
+				{% with forloop.counter0 as inner_ix %}
+
+				{% if talent %}
+				{% with "images/talent_spells/"|add:selected|add:"/"|add:tree|add:"/" as tree_image_path %}
+					<div class="talent-slot">
+						<div class="talent-container">
+							<img class="talent {% if outer_ix > 0 %}grayed{% else %}{% endif %} {% if talent.1.locked %}locked{% endif %}" src="{% static "images/icon_border_2.png" %}"
+								style="background-image: url('{% static tree_image_path|add:talent.1.sanitized|add:'.jpg' %}');"
+								name="{{talent.1.name}}" data-j={{outer_ix}} data-k={{inner_ix}} {% if talent.1.unlocks %}data-unlocks="{{ talent.1.unlocks|join:"," }}"{% endif %}>
+							<div class="spentPoints {% if outer_ix > 0 %}grayed{% else %}{% endif %} {% if talent.1.locked %}locked{% endif %}">{{talent.2}}</div>
+						</div>
+						{% for val in talent.0 %}
+						{% with val.0|get_digit:"1" as v %}
+							{# downarrow #}
+							{% if v > 2 and 6 > v %}
+							<div class="talentcalc-arrow talentcalc-arrow-down down-{{ v|add:"-3" }} locked {% if outer_ix > 0 %}grayed{% else %}{% endif %}"
+								data-unlocks="{{ val.1 }}"></div>
+							{# right arrow #}
+							{% elif v == 6 %}
+							<div class="talentcalc-arrow right locked{% if outer_ix > 0 %} grayed{% else %}{% endif %}"
+								data-unlocks="{{ val.1 }}">
+							</div>
+							{# rightdown arrow #}
+							{% elif v == 7 %}
+							<div class="talentcalc-arrow rightdown locked{% if outer_ix > 0 %} grayed{% else %}{% endif %}"
+								data-unlocks="{{ val.1 }}">
+								<div class="talentcalc-arrow rightdown locked{% if outer_ix > 0 %} grayed{% else %}{% endif %}"
+									data-unlocks="{{ val.1 }}"></div>
+							</div>
+							{% else %}
+							{% endif %}
+						{% endwith %}
+						{% empty %}
+						{% endfor %}
+					</div>
+					{% endwith %}
+					{% else %}
+					<div class="openSlot"></div>
+					{% endif %}
+					{% endwith %}
+					{% endfor %}
+			</div>
+		{% endwith %}
+		{% endfor %} {# ends bp loop #}
+		</div>
+		<div class="talentFooter">
+			<span class="treeName" style="background-image: url('{% static 'images/talent_spells/'|add:selected|add:'/small_'|add:tree|add:'_icon.jpg' %}');">{{tree|titlecase}}</span>
+
+			<span class="talentFooter-spentPoints">(0)</span>
+			<button type="button" class="resetTree" title="Clear" id="clear{{tree}}"></button>
+		</div>
+	</div>
+	{% endfor %}
+<script>
+$("#wow_class").val("{{selected}}")
+$("#wow_class_label").text("{{selected|title}}")
+$("#wow_class_label").attr("class", "{{selected}}")
+</script>
+{% endif %}

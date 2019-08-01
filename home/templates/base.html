@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131655338-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-131655338-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Ony Buff{% block title %}{% endblock title %}</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static "images/favicon.ico" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="{% static "js/jquery-3.4.1.min.js" %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/global.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/global.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/sidebar.css" %}">
+    <script src="{% static "js/polyfill.js" %}"></script>
+
+    {% block extra_head %}
+    {% endblock extra_head %}
+</head>
+
+<body>
+    {% block navbar %}{% include "nav.html" %}{% endblock navbar %}
+
+    {% comment %} {% block title_splash %}
+    {% endblock title_splash %} {% endcomment %}
+
+    {# load cache #}
+    {# cache 15 sidebar #}
+
+    {% include "sidebar.html" %}
+    {# endcache #}
+
+    {% block mainbody %}
+    {% endblock mainbody %}
+
+    {% block modal %}
+    {% endblock modal %}
+
+    {% block footer %}
+    <footer class="footer">
+        <span class="text-muted">&copy Ony Buff 2019 | <a style="color: rgba(240, 255, 255, 0.95);" href="{% url "thanks" %}">Contributors</a> | </span>
+        <a class="discordLink" href="https://discord.gg/MKfVQhm" style="display: inline-block;"></a>
+    </footer>
+    {% endblock footer %}
+
+    {% block javascript %}
+    {% endblock javascript %}
+    <div id="tooltip_container" style="visibility: hidden;">
+        <div id="tooltip"></div>
+    </div>
+    <script src="{% static "js/global.js" %}"></script>
+
+</body>
+
+</html>
