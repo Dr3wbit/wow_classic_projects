@@ -3047,46 +3047,342 @@
             }
         }
     },
-    "65": {
-        "n": "Spider's Kiss",
-        "i": 65,
+    "512": {
+        "n": "Darkmantle Armor",
+        "i": 512,
         "items": [
-            13218,
-            13183
+            22002,
+            22003,
+            22004,
+            22005,
+            22006,
+            22007,
+            22008,
+            22009
         ],
         "bonuses": {
             "2": {
-                "s": "17332",
-                "t": "Chance on Hit: Immobilizes the target and lowers their armor by 100 for 10 sec."
+                "s": 18679,
+                "t": "+8 All Resistances."
+            },
+            "4": {
+                "s": 27787,
+                "t": "Chance on melee attack to restore 35 energy."
+            },
+            "6": {
+                "s": 14049,
+                "t": "+40 Attack Power."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
             }
         }
     },
-    "81": {
-        "n": "The Postmaster",
-        "i": 81,
+    "513": {
+        "n": "Feralheart Raiment",
+        "i": 513,
         "items": [
-            13390,
-            13388,
-            13391,
-            13392,
-            13389
+            22106,
+            22107,
+            22108,
+            22109,
+            22110,
+            22111,
+            22112,
+            22113
         ],
         "bonuses": {
             "2": {
-                "s": "9764",
-                "t": "+50 Armor."
-            },
-            "3": {
-                "s": "14712",
-                "t": "+10 Arcane Resistance."
+                "s": 18679,
+                "t": "+8 All Resistances."
             },
             "4": {
-                "s": "9417",
-                "t": "Increases damage and healing done by magical spells and effects by up to 12."
+                "s": 27781,
+                "t": "When struck in combat has a chance of returning 300 mana, 10 rage, or 40 energy to the wearer."
             },
-            "5": {
-                "s": "9106",
-                "t": "+10 Intellect."
+            "6": {
+                "s": 9334,
+                "t": "+26 Attack Power."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
+            }
+        }
+    },
+    "514": {
+        "n": "Vestments of the Virtuous",
+        "i": 514,
+        "items": [
+            22078,
+            22079,
+            22080,
+            22081,
+            22082,
+            22083,
+            22084,
+            22085
+        ],
+        "bonuses": {
+            "2": {
+                "s": 18679,
+                "t": "+8 All Resistances."
+            },
+            "4": {
+                "s": 27778,
+                "t": "When struck in combat has a chance of shielding the wearer in a protective shield which will absorb 350 damage."
+            },
+            "6": {
+                "s": 14047,
+                "t": "Increases damage and healing done by magical spells and effects by up to 23."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
+            }
+        }
+    },
+    "515": {
+        "n": "Beastmaster Armor",
+        "i": 515,
+        "items": [
+            22010,
+            22011,
+            22061,
+            22013,
+            22015,
+            22016,
+            22017,
+            22060
+        ],
+        "bonuses": {
+            "2": {
+                "s": 18679,
+                "t": "+8 All Resistances."
+            },
+            "4": {
+                "s": 27785,
+                "t": "Your normal ranged attacks have a 4% chance of restoring 200 mana."
+            },
+            "6": {
+                "s": 14049,
+                "t": "+40 Attack Power."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
+            }
+        }
+    },
+    "516": {
+        "n": "Soulforge Armor",
+        "i": 516,
+        "items": [
+            22086,
+            22087,
+            22088,
+            22089,
+            22090,
+            22091,
+            22092,
+            22093
+        ],
+        "bonuses": {
+            "2": {
+                "s": 18679,
+                "t": "+8 All Resistances."
+            },
+            "4": {
+                "s": 27498,
+                "t": "Chance on melee attack to increase your damage and healing done by magical spells and effects by up to 95 for 10 sec."
+            },
+            "6": {
+                "s": 14049,
+                "t": "+40 Attack Power."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
+            }
+        }
+    },
+    "517": {
+        "n": "Sorcerer's Regalia",
+        "i": 517,
+        "items": [
+            22062,
+            22063,
+            22064,
+            22065,
+            22066,
+            22067,
+            22068,
+            22069
+        ],
+        "bonuses": {
+            "2": {
+                "s": 18679,
+                "t": "+8 All Resistances."
+            },
+            "4": {
+                "s": 27867,
+                "t": "When struck in combat has a chance of freezing the attacker in place for 3 sec."
+            },
+            "6": {
+                "s": 14047,
+                "t": "Increases damage and healing done by magical spells and effects by up to 23."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
+            }
+        }
+    },
+    "518": {
+        "n": "Deathmist Raiment",
+        "i": 518,
+        "items": [
+            22070,
+            22071,
+            22072,
+            22073,
+            22074,
+            22075,
+            22076,
+            22077
+        ],
+        "bonuses": {
+            "2": {
+                "s": 18679,
+                "t": "+8 All Resistances."
+            },
+            "4": {
+                "s": 27780,
+                "t": "When struck in combat has a chance of causing the attacker to flee in terror for 2 seconds."
+            },
+            "6": {
+                "s": 14047,
+                "t": "Increases damage and healing done by magical spells and effects by up to 23."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
+            }
+        }
+    },
+    "519": {
+        "n": "The Five Thunders",
+        "i": 519,
+        "items": [
+            22095,
+            22096,
+            22097,
+            22098,
+            22099,
+            22100,
+            22101,
+            22102
+        ],
+        "bonuses": {
+            "2": {
+                "s": 18679,
+                "t": "+8 All Resistances."
+            },
+            "4": {
+                "s": 27774,
+                "t": "Chance on spell cast to increase your damage and healing by up to 95 for 10 sec."
+            },
+            "6": {
+                "s": 14047,
+                "t": "Increases damage and healing done by magical spells and effects by up to 23."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
+            }
+        }
+    },
+    "520": {
+        "n": "Ironweave Battlesuit",
+        "i": 520,
+        "items": [
+            22306,
+            22311,
+            22313,
+            22302,
+            22304,
+            22305,
+            22303,
+            22301
+        ],
+        "bonuses": {
+            "4": {
+                "s": 27733,
+                "t": "Increases your chance to resist Silence and Interrupt effects by 10%."
+            },
+            "8": {
+                "s": 14803,
+                "t": "+200 Armor."
+            }
+        }
+    },
+    "521": {
+        "n": "Dreamwalker Raiment",
+        "i": 521,
+        "items": [
+            22492,
+            22494,
+            22493,
+            22490,
+            22489,
+            22491,
+            22488,
+            22495,
+            23064
+        ],
+        "bonuses": {
+            "2": {
+                "s": 28716,
+                "t": "Your Rejuvenation ticks have a chance to restore 60 mana, 8 energy, or 2 rage to your target."
+            },
+            "4": {
+                "s": 28743,
+                "t": "Reduces the mana cost of your Healing Touch, Regrowth, Rejuvenation, and Tranquility spells by 3%."
+            },
+            "6": {
+                "s": 28744,
+                "t": "Your initial cast and Regrowth ticks will increase the maximum health of your target by up to 50, stacking up to 7 times."
+            },
+            "8": {
+                "s": 28719,
+                "t": "On Healing Touch critical hits, you regain 30% of the mana cost of the spell."
+            }
+        }
+    },
+    "522": {
+        "n": "Champion's Guard",
+        "i": 522,
+        "items": [
+            22864,
+            22856,
+            22879,
+            22880,
+            23257,
+            23258
+        ],
+        "bonuses": {
+            "2": {
+                "s": 14049,
+                "t": "+40 Attack Power."
+            },
+            "4": {
+                "s": 23048,
+                "t": "Reduces the cooldown of your Gouge ability by 1 sec."
+            },
+            "6": {
+                "s": 14467,
+                "t": "+20 Stamina."
             }
         }
     },
@@ -3222,72 +3518,6 @@
             }
         }
     },
-    "529": {
-        "n": "Plagueheart Raiment",
-        "i": 529,
-        "items": [
-            22510,
-            22511,
-            22506,
-            22509,
-            22505,
-            22504,
-            22508,
-            22507,
-            23063
-        ],
-        "bonuses": {
-            "2": {
-                "s": 28831,
-                "t": "Your Shadow Bolts now have a chance to heal you for 270 to 331."
-            },
-            "4": {
-                "s": 28829,
-                "t": "Increases damage caused by your Corruption by 12%."
-            },
-            "6": {
-                "s": 28746,
-                "t": "Your spell critical hits generate 25% less threat. In addition, Corruption, Immolate, Curse of Agony, and Siphon Life generate 25% less threat."
-            },
-            "8": {
-                "s": 28830,
-                "t": "Reduces health cost of your Life Tap by 12%."
-            }
-        }
-    },
-    "521": {
-        "n": "Dreamwalker Raiment",
-        "i": 521,
-        "items": [
-            22492,
-            22494,
-            22493,
-            22490,
-            22489,
-            22491,
-            22488,
-            22495,
-            23064
-        ],
-        "bonuses": {
-            "2": {
-                "s": 28716,
-                "t": "Your Rejuvenation ticks have a chance to restore 60 mana, 8 energy, or 2 rage to your target."
-            },
-            "4": {
-                "s": 28743,
-                "t": "Reduces the mana cost of your Healing Touch, Regrowth, Rejuvenation, and Tranquility spells by 3%."
-            },
-            "6": {
-                "s": 28744,
-                "t": "Your initial cast and Regrowth ticks will increase the maximum health of your target by up to 50, stacking up to 7 times."
-            },
-            "8": {
-                "s": 28719,
-                "t": "On Healing Touch critical hits, you regain 30% of the mana cost of the spell."
-            }
-        }
-    },
     "527": {
         "n": "The Earthshatterer",
         "i": 527,
@@ -3351,6 +3581,39 @@
             "8": {
                 "s": 28787,
                 "t": "Your Cleanse spell also heals the target for 200."
+            }
+        }
+    },
+    "529": {
+        "n": "Plagueheart Raiment",
+        "i": 529,
+        "items": [
+            22510,
+            22511,
+            22506,
+            22509,
+            22505,
+            22504,
+            22508,
+            22507,
+            23063
+        ],
+        "bonuses": {
+            "2": {
+                "s": 28831,
+                "t": "Your Shadow Bolts now have a chance to heal you for 270 to 331."
+            },
+            "4": {
+                "s": 28829,
+                "t": "Increases damage caused by your Corruption by 12%."
+            },
+            "6": {
+                "s": 28746,
+                "t": "Your spell critical hits generate 25% less threat. In addition, Corruption, Immolate, Curse of Agony, and Siphon Life generate 25% less threat."
+            },
+            "8": {
+                "s": 28830,
+                "t": "Reduces health cost of your Life Tap by 12%."
             }
         }
     },
@@ -3473,25 +3736,25 @@
             }
         }
     },
-    "543": {
-        "n": "Champion's Pursuance",
-        "i": 543,
+    "538": {
+        "n": "Champion's Stormcaller",
+        "i": 538,
         "items": [
-            22843,
-            22862,
-            23251,
-            23252,
-            22874,
-            22875
+            22857,
+            22867,
+            22876,
+            22887,
+            23259,
+            23260
         ],
         "bonuses": {
             "2": {
-                "s": 14384,
-                "t": "+20 Agility."
+                "s": 14049,
+                "t": "+40 Attack Power."
             },
             "4": {
-                "s": 23158,
-                "t": "Reduces the cooldown of your Concussive Shot by 1 sec."
+                "s": 22804,
+                "t": "Improves your chance to get a critical strike with all Shock spells by 2%."
             },
             "6": {
                 "s": 14467,
@@ -3525,84 +3788,6 @@
             }
         }
     },
-    "541": {
-        "n": "Champion's Dreadgear",
-        "i": 541,
-        "items": [
-            22865,
-            22855,
-            23255,
-            23256,
-            22881,
-            22884
-        ],
-        "bonuses": {
-            "2": {
-                "s": 14047,
-                "t": "Increases damage and healing done by magical spells and effects by up to 23."
-            },
-            "4": {
-                "s": 23047,
-                "t": "Reduces the casting time of your Immolate spell by 0.2 sec."
-            },
-            "6": {
-                "s": 14467,
-                "t": "+20 Stamina."
-            }
-        }
-    },
-    "522": {
-        "n": "Champion's Guard",
-        "i": 522,
-        "items": [
-            22864,
-            22856,
-            22879,
-            22880,
-            23257,
-            23258
-        ],
-        "bonuses": {
-            "2": {
-                "s": 14049,
-                "t": "+40 Attack Power."
-            },
-            "4": {
-                "s": 23048,
-                "t": "Reduces the cooldown of your Gouge ability by 1 sec."
-            },
-            "6": {
-                "s": 14467,
-                "t": "+20 Stamina."
-            }
-        }
-    },
-    "538": {
-        "n": "Champion's Stormcaller",
-        "i": 538,
-        "items": [
-            22857,
-            22867,
-            22876,
-            22887,
-            23259,
-            23260
-        ],
-        "bonuses": {
-            "2": {
-                "s": 14049,
-                "t": "+40 Attack Power."
-            },
-            "4": {
-                "s": 22804,
-                "t": "Improves your chance to get a critical strike with all Shock spells by 2%."
-            },
-            "6": {
-                "s": 14467,
-                "t": "+20 Stamina."
-            }
-        }
-    },
     "540": {
         "n": "Champion's Investiture",
         "i": 540,
@@ -3622,6 +3807,32 @@
             "4": {
                 "s": 23044,
                 "t": "Increases the duration of your Psychic Scream spell by 1 sec."
+            },
+            "6": {
+                "s": 14467,
+                "t": "+20 Stamina."
+            }
+        }
+    },
+    "541": {
+        "n": "Champion's Dreadgear",
+        "i": 541,
+        "items": [
+            22865,
+            22855,
+            23255,
+            23256,
+            22881,
+            22884
+        ],
+        "bonuses": {
+            "2": {
+                "s": 14047,
+                "t": "Increases damage and healing done by magical spells and effects by up to 23."
+            },
+            "4": {
+                "s": 23047,
+                "t": "Reduces the casting time of your Immolate spell by 0.2 sec."
             },
             "6": {
                 "s": 14467,
@@ -3655,6 +3866,32 @@
             }
         }
     },
+    "543": {
+        "n": "Champion's Pursuance",
+        "i": 543,
+        "items": [
+            22843,
+            22862,
+            23251,
+            23252,
+            22874,
+            22875
+        ],
+        "bonuses": {
+            "2": {
+                "s": 14384,
+                "t": "+20 Agility."
+            },
+            "4": {
+                "s": 23158,
+                "t": "Reduces the cooldown of your Concussive Shot by 1 sec."
+            },
+            "6": {
+                "s": 14467,
+                "t": "+20 Stamina."
+            }
+        }
+    },
     "544": {
         "n": "Lieutenant Commander's Redoubt",
         "i": 544,
@@ -3681,42 +3918,16 @@
             }
         }
     },
-    "550": {
-        "n": "Lieutenant Commander's Pursuance",
-        "i": 550,
+    "545": {
+        "n": "Lieutenant Commander's Battlearmor",
+        "i": 545,
         "items": [
-            23292,
-            23293,
-            23278,
-            23279,
-            23306,
-            23307
-        ],
-        "bonuses": {
-            "2": {
-                "s": 14384,
-                "t": "+20 Agility."
-            },
-            "4": {
-                "s": 23158,
-                "t": "Reduces the cooldown of your Concussive Shot by 1 sec."
-            },
-            "6": {
-                "s": 14467,
-                "t": "+20 Stamina."
-            }
-        }
-    },
-    "551": {
-        "n": "Lieutenant Commander's Refuge",
-        "i": 551,
-        "items": [
-            23294,
-            23295,
-            23280,
-            23281,
-            23308,
-            23309
+            23300,
+            23301,
+            23286,
+            23287,
+            23314,
+            23315
         ],
         "bonuses": {
             "2": {
@@ -3724,8 +3935,34 @@
                 "t": "+40 Attack Power."
             },
             "4": {
-                "s": 23218,
-                "t": "Increases your movement speed by 15% while in Bear, Cat, or Travel Form. Only active outdoors."
+                "s": 22738,
+                "t": "Reduces the cooldown of your Intercept ability by 5 sec."
+            },
+            "6": {
+                "s": 14467,
+                "t": "+20 Stamina."
+            }
+        }
+    },
+    "546": {
+        "n": "Lieutenant Commander's Arcanum",
+        "i": 546,
+        "items": [
+            23304,
+            23305,
+            23290,
+            23291,
+            23318,
+            23319
+        ],
+        "bonuses": {
+            "2": {
+                "s": 14047,
+                "t": "Increases damage and healing done by magical spells and effects by up to 23."
+            },
+            "4": {
+                "s": 23025,
+                "t": "Reduces the cooldown of your Blink spell by 1.5 sec."
             },
             "6": {
                 "s": 14467,
@@ -3785,32 +4022,6 @@
             }
         }
     },
-    "545": {
-        "n": "Lieutenant Commander's Battlearmor",
-        "i": 545,
-        "items": [
-            23300,
-            23301,
-            23286,
-            23287,
-            23314,
-            23315
-        ],
-        "bonuses": {
-            "2": {
-                "s": 14049,
-                "t": "+40 Attack Power."
-            },
-            "4": {
-                "s": 22738,
-                "t": "Reduces the cooldown of your Intercept ability by 5 sec."
-            },
-            "6": {
-                "s": 14467,
-                "t": "+20 Stamina."
-            }
-        }
-    },
     "549": {
         "n": "Lieutenant Commander's Investiture",
         "i": 549,
@@ -3837,29 +4048,98 @@
             }
         }
     },
-    "546": {
-        "n": "Lieutenant Commander's Arcanum",
-        "i": 546,
+    "550": {
+        "n": "Lieutenant Commander's Pursuance",
+        "i": 550,
         "items": [
-            23304,
-            23305,
-            23290,
-            23291,
-            23318,
-            23319
+            23292,
+            23293,
+            23278,
+            23279,
+            23306,
+            23307
         ],
         "bonuses": {
             "2": {
-                "s": 14047,
-                "t": "Increases damage and healing done by magical spells and effects by up to 23."
+                "s": 14384,
+                "t": "+20 Agility."
             },
             "4": {
-                "s": 23025,
-                "t": "Reduces the cooldown of your Blink spell by 1.5 sec."
+                "s": 23158,
+                "t": "Reduces the cooldown of your Concussive Shot by 1 sec."
             },
             "6": {
                 "s": 14467,
                 "t": "+20 Stamina."
+            }
+        }
+    },
+    "551": {
+        "n": "Lieutenant Commander's Refuge",
+        "i": 551,
+        "items": [
+            23294,
+            23295,
+            23280,
+            23281,
+            23308,
+            23309
+        ],
+        "bonuses": {
+            "2": {
+                "s": 14049,
+                "t": "+40 Attack Power."
+            },
+            "4": {
+                "s": 23218,
+                "t": "Increases your movement speed by 15% while in Bear, Cat, or Travel Form. Only active outdoors."
+            },
+            "6": {
+                "s": 14467,
+                "t": "+20 Stamina."
+            }
+        }
+    },
+    "65": {
+        "n": "Spider's Kiss",
+        "i": 65,
+        "items": [
+            13218,
+            13183
+        ],
+        "bonuses": {
+            "2": {
+                "s": "17332",
+                "t": "Chance on Hit: Immobilizes the target and lowers their armor by 100 for 10 sec."
+            }
+        }
+    },
+    "81": {
+        "n": "The Postmaster",
+        "i": 81,
+        "items": [
+            13390,
+            13388,
+            13391,
+            13392,
+            13389
+        ],
+        "bonuses": {
+            "2": {
+                "s": "9764",
+                "t": "+50 Armor."
+            },
+            "3": {
+                "s": "14712",
+                "t": "+10 Arcane Resistance."
+            },
+            "4": {
+                "s": "9417",
+                "t": "Increases damage and healing done by magical spells and effects by up to 12."
+            },
+            "5": {
+                "s": "9106",
+                "t": "+10 Intellect."
             }
         }
     }
