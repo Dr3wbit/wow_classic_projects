@@ -15,25 +15,25 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#USE_X_FORWARDED_HOST = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+DEV = False
 #SECURE_SSL_REDIRECT = True
-ALLOWED_HOSTS = ['127.0.0.1','localhost', '13.59.19.192']
-#INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
+ALLOWED_HOSTS = ['13.59.19.192', 'onybuff.com']
+
 AUTHENTICATION_BACKENDS = [
 	'social_core.backends.discord.DiscordOAuth2',
 	'django.contrib.auth.backends.ModelBackend',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+LOCAL = bool(int(os.environ['DJANGO_LOCAL']))
 
 # Application definition
 
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-	'home.apps.HomeConfig',
+	'home',
 	'account',
 	'social_django',
 ]
@@ -55,30 +55,20 @@ MIDDLEWARE = [
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'social_django.middleware.SocialAuthExceptionMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     'loggers': {
-#         'django.db.backends': {
-#             'handlers': ['console'],
-#             'level': 'DEBUG',
-#         },
-#     },
-# }
+if DEV:
+	INTERNAL_IPS = os.environ['DJANGO_INTERNAL_IPS']
+	INSTALLED_APPS.append('debug_toolbar')
+	MIDDLEWARE.insert(1, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+
 
 ROOT_URLCONF = 'onybuff.urls'
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_COOKIE_SECURE = False # necessary for dev
 
 TEMPLATES = [
 	{
@@ -93,7 +83,7 @@ TEMPLATES = [
 				'django.contrib.messages.context_processors.messages',
 				'home.context_processors.add_navlinks_to_context',
 				'social_django.context_processors.backends',
-        		'social_django.context_processors.login_redirect',
+        			'social_django.context_processors.login_redirect',
 			],
 		},
 	},
@@ -101,16 +91,30 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'onybuff.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if LOCAL:
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3',
+			'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		}
 	}
-}
+else:
+	AUTH_USER_MODEL = 'home.User'
+	SOCIAL_AUTH_USER_MODEL = 'home.User'
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.postgresql_psycopg2',
+			'NAME': os.environ['DB_NAME'],
+			'USER': os.environ['DB_USER'],
+			'PASSWORD': os.environ['DB_PASS'],
+			'HOST': os.environ['DB_HOST'],
+			'PORT': '',
+		}
+	}
+
 
 CACHES = {
 	'default': {
@@ -142,13 +146,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'America/Chicago'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
@@ -156,11 +156,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, "static"),
-)
+#STATICFILES_DIRS = (
+#	os.path.join(BASE_DIR, "static"),
+#)
 
-# SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
+
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+#LOGIN_REDIRECT_URL = '/authorize'
+
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/authorize'
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
@@ -180,9 +185,7 @@ SOCIAL_AUTH_DISCORD_EXTRA_DATA = [
 
 SOCIAL_AUTH_DISCORD_SCOPE = ["email"]
 SOCIAL_AUTH_DISCORD_REQUIRES_EMAIL_VALIDATION = True
-SOCIAL_AUTH_DISCORD_REDIRECT_STATE = True
-
-
+SOCIAL_AUTH_DISCORD_REDIRECT_STATE = False
 SOCIAL_AUTH_PIPELINE = (
   'social_core.pipeline.social_auth.social_details',
   'social_core.pipeline.social_auth.social_uid',

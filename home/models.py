@@ -2,10 +2,12 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Avg
 import datetime, math, re, time
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from social_django.models import UserSocialAuth
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
+from .managers import UserManager
+from django.utils.translation import ugettext_lazy as _
 
 nope = re.compile(r"[\-]")
 forbiden = re.compile(r"[\:\'\(\)]")
@@ -27,49 +29,87 @@ def sanitize(s):
 	a = nope.sub(' ', a).strip().replace(' ', '_').lower()
 	return(a)
 
-class Profile(User):
+from django.conf import settings
+if settings.LOCAL:
+	from django.contrib.auth.models import User
+	class Profile(User):
 
-	class Meta:
-		proxy = True
+		class Meta:
+			proxy = True
 
-	@property
-	def spec_ratings_ids(self):
-		return([x.get('object_id') for x in self.rating_set.filter(content_type_id=20).values('object_id')])
+		@property
+		def spec_ratings_ids(self):
+			return([x.get('object_id') for x in self.rating_set.filter(content_type_id=20).values('object_id')])
 
-	@property
-	def cl_ratings_ids(self):
-		return([x.get('object_id') for x in self.rating_set.filter(content_type_id=23).values('object_id')])
+		@property
+		def cl_ratings_ids(self):
+			return([x.get('object_id') for x in self.rating_set.filter(content_type_id=23).values('object_id')])
 
-	@property
-	def discord(self):
-		return(UserSocialAuth.objects.get(user=self))
+		@property
+		def discord(self):
+			return(UserSocialAuth.objects.get(user=self))
 
-	@property
-	def extra_data(self):
-		return(self.discord.extra_data)
+		@property
+		def extra_data(self):
+			return(self.discord.extra_data)
 
-	# @property
-	# def is_authenticated(self):
-	# 	if not self.social_auth.exists():
-	# 		return(False)
-	# 	else:
-	# 		self.expiration_date = self.extra_data['auth_time'] + self.extra_data['expires']
-	# 		return(self.expiration_date - datetime.datetime.now().timestamp() > 0)
+		@property
+		def uid(self):
+			if not self.social_auth.exists():
+				return(0)
+			else:
+				return(self.discord.uid)
 
-	@property
-	def uid(self):
-		if not self.social_auth.exists():
-			return(0)
-		else:
-			return(self.discord.uid)
+		@property
+		def tag(self):
+			return(self.extra_data['tag'])
 
-	@property
-	def tag(self):
-		return(self.extra_data['tag'])
+		@property
+		def disc_username(self):
+			return(self.extra_data['disc_username'])
 
-	@property
-	def disc_username(self):
-		return(self.extra_data['disc_username'])
+else:
+	from django.contrib.auth.models import AbstractUser
+	from django.utils.translation import ugettext_lazy as _
+	from .managers import UserManager
+
+	class User(AbstractUser):
+		username = None
+		email = models.EmailField(_('email address'), unique=True)
+		date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
+		is_active = models.BooleanField(_('active'), default=True)
+		avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+
+		objects = UserManager()
+
+		USERNAME_FIELD = 'email'
+		REQUIRED_FIELDS = []
+
+
+		def email_user(self, subject, message, from_email=None, **kwargs):
+				'''Sends an email to this User.'''
+				send_mail(subject, message, from_email, [self.email], **kwargs)
+
+		@property
+		def discord(self):
+			return UserSocialAuth.objects.get(user=self) if self.social_auth.exists() else False
+
+		@property
+		def tag(self):
+			return self.discord.extra_data['tag'] if self.discord else False
+
+		@property
+		def avatar(self):
+			return self.discord.extra_data['avatar'] if self.discord else False
+
+		@property
+		def uid(self):
+			return self.discord.uid if self.discord else False
+
+
+		@property
+		def disc_username(self):
+			return self.discord.extra_data['disc_username'] if self.discord else False
 
 # the baseline; everything is an item
 class Item(models.Model):
@@ -217,7 +257,7 @@ class TalentTree(models.Model):
 	name = models.CharField(max_length=40)
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 	position = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(3)])
-	_architect = models.CharField(max_length=100, default="[]")
+	_architect = models.CharField(max_length=2500, default="[]")
 
 	@property
 	def sanitized(self):
@@ -248,6 +288,7 @@ class Talent(models.Model):
 	locked = models.ForeignKey("self", blank=True, null=True, on_delete=models.CASCADE)
 	class Meta:
 		unique_together = ['wow_class', 'name', 'tree']
+		ordering = ['id']
 
 	def __str__(self):
 		return(self.name)
@@ -296,7 +337,7 @@ class Tag(models.Model):
 		('alliance', 'Alliance'),
 	)
 
-	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
+	name = models.CharField(max_length=15, choices=TAG_NAME_CHOICES, unique=True)
 
 	def __str__(self):
 		return(self.name)
@@ -323,7 +364,7 @@ class Rating(models.Model):
 	value = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
 	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
 	object_id = models.PositiveIntegerField()
-	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
+	user = models.ForeignKey('Profile', on_delete=models.CASCADE) if settings.LOCAL else models.ForeignKey('User', on_delete=models.CASCADE)
 	content_object = GenericForeignKey('content_type', 'object_id')
 	help_text = "Spec or ConsumeList"
 
@@ -337,7 +378,7 @@ class Rating(models.Model):
 class SavedList(models.Model):
 
 	name = models.CharField(max_length=30, default='')
-	user = models.ForeignKey('Profile', on_delete=models.CASCADE)
+	user = models.ForeignKey('Profile', on_delete=models.CASCADE) if settings.LOCAL else models.ForeignKey('User', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='testy test')
 	description = models.CharField(default='couple line of text...', max_length=1000)
 	private = models.BooleanField(default=False)

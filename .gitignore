@@ -10,3 +10,8 @@ onybuff/__pycache__
 home/templatetags/__pycache__
 db.sqlite3access.log
 error.log
+home/templatetags/__pycache__
+access.log
+account/__pycache__
+static
+db
