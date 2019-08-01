@@ -19,7 +19,7 @@ driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriv
 iStart = datetime.datetime.now()
 
 prefix = int(input("Enter starting number from 1-23: "))
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items{}.js'.format(prefix)))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items24-30.js'.format(prefix)))
 
 
 def main():
@@ -163,7 +163,7 @@ def main():
 
 def save_and_close():
 
-	with open(os.path.abspath('../js/items/items{}.js'.format(prefix)), 'w+') as f:
+	with open(os.path.abspath('../js/items/items24-30.js'.format(prefix)), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4)
 
 	with open(os.path.abspath('image_list.txt'), 'w+') as f:

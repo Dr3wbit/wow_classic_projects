@@ -55,8 +55,10 @@ class Item(models.Model):
 	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS,FINGER,TRINKET,BACK = 1,2,3,4,5,6,7,8,9,10,11,13,15
 	CLOTH,LEATHER,MAIL,PLATE = 1,2,3,4
 	QUALITY_CHOICES = ( (JUNK, 'junk'), (COMMON, 'common'), (UNCOMMON, 'uncommon'), (RARE, 'rare'), (EPIC, 'epic'), (LEGENDARY, 'legendary'), (GM, 'gm'),)
-	REQUIREMENT_KEYS = ['level', 'reputation', 'faction', 'profession' 'class']
 	SLOT_CHOICES = ( (HEAD, 'Head'), (NECK, 'Neck'), (SHOULDER, 'Shoulder'), (SHIRT, 'Shirt'), (CHEST, 'Chest'), (BELT, 'Belt'), (LEGS, 'Legs'), (FEET, 'Feet'), (WRIST, 'Wrist'), (HANDS, 'Hands'), (BACK, 'Back'),)
+
+	REQUIREMENT_KEYS = ['level', 'reputation', 'faction', 'profession' 'class']
+
 	i = models.PositiveIntegerField(primary_key=True)
 	n = models.CharField(max_length=100, unique=True, help_text='Name')
 	quality = models.CharField(max_length=10, choices=QUALITY_CHOICES, default=1)
@@ -68,15 +70,15 @@ class Item(models.Model):
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
 	use = models.CharField(max_length=250, blank=True)
-	description = models.CharField(max_length=250, blank=Tru
+	description = models.CharField(max_length=250, blank=True)
 	#https://docs.djangoproject.com/en/2.2/ref/contrib/postgres/fields/#hstorefield
 	requirements = HStoreField(validators=KeysValidator(REQUIREMENT_KEYS, strict=True))
 
 	def __str__(self):
 		return self.n
 
-class Weapon(Item):
-	slot =
+class Crafted(Item):
+	prof = models.ForeignKey('Profession', on_delete=models.CASCADE, blank=True, null=True)
 
 class Armor(Item):
 	slot =

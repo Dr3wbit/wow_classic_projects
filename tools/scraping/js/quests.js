@@ -5473,14 +5473,167 @@
         },
         "ilvl": 23
     },
-    "9197": {
-        "i": 9197,
-        "ilvl": 60,
-        "n": "Craftsman's Writ - Gnomish Battle Chicken",
+    "9120": {
+        "i": 9120,
+        "n": "The Fall of Kel'Thuzad",
+        "zone": "Naxxramas",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "9178": {
+        "i": 9178,
+        "n": "Craftsman's Writ - Dense Weightstone",
+        "zone": "Eastern Plaguelands",
         "requirements": {
             "level": 55
         },
-        "zone": "Eastern Plaguelands"
+        "ilvl": 60
+    },
+    "9179": {
+        "i": 9179,
+        "n": "Craftsman's Writ - Imperial Plate Chest",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9181": {
+        "i": 9181,
+        "n": "Craftsman's Writ - Volcanic Hammer",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9182": {
+        "i": 9182,
+        "n": "Craftsman's Writ - Huge Thorium Battleaxe",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9183": {
+        "i": 9183,
+        "n": "Craftsman's Writ - Radiant Circlet",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9184": {
+        "i": 9184,
+        "n": "Craftsman's Writ - Wicked Leather Headband",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9185": {
+        "i": 9185,
+        "n": "Craftsman's Writ - Rugged Armor Kit",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9186": {
+        "i": 9186,
+        "n": "Craftsman's Writ - Wicked Leather Belt",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9187": {
+        "i": 9187,
+        "n": "Craftsman's Writ - Runic Leather Pants",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9188": {
+        "i": 9188,
+        "n": "Craftsman's Writ - Brightcloth Pants",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9190": {
+        "i": 9190,
+        "n": "Craftsman's Writ - Runecloth Boots",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9191": {
+        "i": 9191,
+        "n": "Craftsman's Writ - Runecloth Bag",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9194": {
+        "i": 9194,
+        "n": "Craftsman's Writ - Runecloth Robe",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9195": {
+        "i": 9195,
+        "n": "Craftsman's Writ - Goblin Sapper Charge",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9196": {
+        "i": 9196,
+        "n": "Craftsman's Writ - Thorium Grenade",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9197": {
+        "i": 9197,
+        "n": "Craftsman's Writ - Gnomish Battle Chicken",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9198": {
+        "i": 9198,
+        "n": "Craftsman's Writ - Thorium Tube",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
     },
     "92": {
         "i": 92,
@@ -5491,6 +5644,96 @@
             "faction": "A"
         },
         "ilvl": 18
+    },
+    "9200": {
+        "i": 9200,
+        "n": "Craftsman's Writ - Major Mana Potion",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9201": {
+        "i": 9201,
+        "n": "Craftsman's Writ - Greater Arcane Protection Potion",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9202": {
+        "i": 9202,
+        "n": "Craftsman's Writ - Major Healing Potion",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9203": {
+        "i": 9203,
+        "n": "Craftsman's Writ - Flask of Petrification",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9204": {
+        "i": 9204,
+        "n": "Craftsman's Writ - Stonescale Eel",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9205": {
+        "i": 9205,
+        "n": "Craftsman's Writ - Plated Armorfish",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9206": {
+        "i": 9206,
+        "n": "Craftsman's Writ - Lightning Eel",
+        "zone": "Eastern Plaguelands",
+        "requirements": {
+            "level": 55
+        },
+        "ilvl": 60
+    },
+    "9233": {
+        "i": 9233,
+        "n": "Omarion's Handbook",
+        "zone": "Naxxramas",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
+    },
+    "9247": {
+        "i": 9247,
+        "n": "The Keeper's Call",
+        "zone": "Scourge Invasion",
+        "requirements": {
+            "level": 1
+        },
+        "ilvl": 60
+    },
+    "9250": {
+        "i": 9250,
+        "n": "Frame of Atiesh",
+        "zone": "Legendary",
+        "requirements": {
+            "level": 60
+        },
+        "ilvl": 60
     },
     "9259": {
         "i": 9259,
@@ -5519,6 +5762,24 @@
         },
         "ilvl": 12
     },
+    "9295": {
+        "i": 9295,
+        "n": "Letter from the Front",
+        "zone": "Scourge Invasion",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 60
+    },
+    "9299": {
+        "i": 9299,
+        "n": "Note from the Front",
+        "zone": "Scourge Invasion",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 60
+    },
     "93": {
         "i": 93,
         "n": "Dusky Crab Cakes",
@@ -5529,6 +5790,42 @@
         },
         "ilvl": 20
     },
+    "9300": {
+        "i": 9300,
+        "n": "Page from the Front",
+        "zone": "Scourge Invasion",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 60
+    },
+    "9301": {
+        "i": 9301,
+        "n": "Envelope from the Front",
+        "zone": "Scourge Invasion",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 60
+    },
+    "9302": {
+        "i": 9302,
+        "n": "Missive from the Front",
+        "zone": "Scourge Invasion",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 60
+    },
+    "9304": {
+        "i": 9304,
+        "n": "Document from the Front",
+        "zone": "Scourge Invasion",
+        "requirements": {
+            "level": 45
+        },
+        "ilvl": 60
+    },
     "932": {
         "i": 932,
         "n": "Twisted Hatred",
@@ -5537,45 +5834,6 @@
             "level": 4
         },
         "ilvl": 7
-    },
-    "94": {
-        "i": 94,
-        "n": "A Watchful Eye",
-        "zone": "Redridge Mountains",
-        "requirements": {
-            "level": 20,
-            "faction": "A"
-        },
-        "ilvl": 21
-    },
-    "968": {
-        "i": 968,
-        "n": "The Powers Below",
-        "zone": "Darkshore",
-        "requirements": {
-            "level": 10
-        },
-        "ilvl": 20
-    },
-    "98": {
-        "i": 98,
-        "n": "The Legend of Stalvan",
-        "zone": "Duskwood",
-        "requirements": {
-            "level": 22,
-            "faction": "A"
-        },
-        "ilvl": 35
-    },
-    "99": {
-        "i": 99,
-        "n": "Arugal's Folly",
-        "group": true,
-        "zone": "Silverpine Forest",
-        "requirements": {
-            "level": 9
-        },
-        "ilvl": 15
     },
     "9324": {
         "i": 9324,
@@ -5636,5 +5894,44 @@
             "faction": "H"
         },
         "ilvl": 60
+    },
+    "94": {
+        "i": 94,
+        "n": "A Watchful Eye",
+        "zone": "Redridge Mountains",
+        "requirements": {
+            "level": 20,
+            "faction": "A"
+        },
+        "ilvl": 21
+    },
+    "968": {
+        "i": 968,
+        "n": "The Powers Below",
+        "zone": "Darkshore",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 20
+    },
+    "98": {
+        "i": 98,
+        "n": "The Legend of Stalvan",
+        "zone": "Duskwood",
+        "requirements": {
+            "level": 22,
+            "faction": "A"
+        },
+        "ilvl": 35
+    },
+    "99": {
+        "i": 99,
+        "n": "Arugal's Folly",
+        "group": true,
+        "zone": "Silverpine Forest",
+        "requirements": {
+            "level": 9
+        },
+        "ilvl": 15
     }
 }

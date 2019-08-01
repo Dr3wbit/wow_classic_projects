@@ -380,7 +380,68 @@
                 23195,
                 23196,
                 23211,
-                23720
+                23720,
+                22046,
+                22047,
+                22048,
+                22049,
+                22050,
+                22051,
+                22052,
+                22056,
+                22115,
+                22131,
+                22132,
+                22133,
+                22134,
+                22135,
+                22136,
+                22154,
+                22155,
+                22156,
+                22157,
+                22158,
+                22159,
+                22160,
+                22161,
+                22162,
+                22163,
+                22164,
+                22165,
+                22166,
+                22167,
+                22168,
+                22169,
+                22170,
+                22171,
+                22172,
+                22178,
+                22260,
+                22262,
+                22263,
+                22283,
+                22284,
+                22285,
+                22286,
+                22287,
+                22288,
+                22289,
+                22290,
+                22291,
+                22292,
+                22293,
+                22294,
+                22295,
+                22296,
+                22297,
+                22298,
+                22299,
+                22300,
+                22484,
+                22719,
+                22727,
+                22754,
+                22822
             ]
         },
         "multiple_choices": {
@@ -416,7 +477,10 @@
                 21023,
                 21171,
                 21174,
-                21975
+                21975,
+                22048,
+                22283,
+                22288
             ]
         }
     },
@@ -1891,68 +1955,142 @@
             ]
         },
         "(2) Set: +8 All Resistances.\n(4) Set: Chance on melee attack to heal you for 88 to 133.\n(6) Set: +40 Attack Power.\n(8) Set: +200 Armor.": {
-            "count": 6,
+            "count": 8,
             "i": [
                 "21994",
                 "21995",
                 "21996",
                 "21997",
                 "21998",
-                "21999"
+                "21999",
+                "22000",
+                "22001"
             ]
         },
         "(2) Set: Increases the damage done by your Revenge ability by 75.\n(4) Set: Improves your chance to hit with Taunt and Challenging Shout by 5%.\n(6) Set: Improves your chance to hit with Sunder Armor, Heroic Strike, Revenge, and Shield Slam by 5%.\n(8) Set: When your health drops below 20%, for the next 5 seconds healing spells cast on you help you to Cheat Death, increasing healing done by up to 160.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23059"
+                "23059",
+                "22416",
+                "22417",
+                "22418",
+                "22419",
+                "22420",
+                "22421",
+                "22422",
+                "22423"
             ]
         },
         "(2) Set: Your normal melee swings have a chance to Invigorate you, healing you for 90 to 111.\n(4) Set: Your Backstab, Sinister Strike, and Hemorrhage critical hits cause you to regain 5 energy.\n(6) Set: Reduces the threat from your Backstab, Sinister Strike, Hemorrhage, and Eviscerate abilities.\n(8) Set: Your Eviscerate has a chance per combo point to reveal a flaw in your opponent's armor, granting a 100% critical hit chance for your next Backstab, Sinister Strike, or Hemorrhage.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23060"
+                "23060",
+                "22476",
+                "22477",
+                "22478",
+                "22479",
+                "22480",
+                "22481",
+                "22482",
+                "22483"
             ]
         },
         "(2) Set: Reduces the mana cost of your Renew spell by 12%.\n(4) Set: On Greater Heal critical hits, your target will gain Armor of Faith, absorbing up to 500 damage.\n(6) Set: Reduces the threat from your healing spells.\n(8) Set: Each spell you cast can trigger an Epiphany, increasing your mana regeneration by 24 for 30 sec.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23061"
+                "23061",
+                "22512",
+                "22513",
+                "22514",
+                "22515",
+                "22516",
+                "22517",
+                "22518",
+                "22519"
             ]
         },
         "(2) Set: Reduces cooldown on your Evocation by 1 minute.\n(4) Set: Gives your Mage Armor a chance when struck by a harmful spell to increase resistance against that school of magic by 1 for 30 sec.\n(6) Set: Your damage spells have a chance to cause your target to take up to 200 increased damage from subsequent spells.\n(8) Set: Your damage spells have a chance to displace you, causing the next spell cast to generate no threat.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23062"
+                "23062",
+                "22496",
+                "22497",
+                "22498",
+                "22499",
+                "22500",
+                "22501",
+                "22502",
+                "22503"
             ]
         },
         "(2) Set: Your Shadow Bolts now have a chance to heal you for 270 to 331.\n(4) Set: Increases damage caused by your Corruption by 12%.\n(6) Set: Your spell critical hits generate 25% less threat. In addition, Corruption, Immolate, Curse of Agony, and Siphon Life generate 25% less threat.\n(8) Set: Reduces health cost of your Life Tap by 12%.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23063"
+                "23063",
+                "22504",
+                "22505",
+                "22506",
+                "22507",
+                "22508",
+                "22509",
+                "22510",
+                "22511"
             ]
         },
         "(2) Set: Your Rejuvenation ticks have a chance to restore 60 mana, 8 energy, or 2 rage to your target.\n(4) Set: Reduces the mana cost of your Healing Touch, Regrowth, Rejuvenation, and Tranquility spells by 3%.\n(6) Set: Your initial cast and Regrowth ticks will increase the maximum health of your target by up to 50, stacking up to 7 times.\n(8) Set: On Healing Touch critical hits, you regain 30% of the mana cost of the spell.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23064"
+                "23064",
+                "22488",
+                "22489",
+                "22490",
+                "22491",
+                "22492",
+                "22493",
+                "22494",
+                "22495"
             ]
         },
         "(2) Set: Reduces the mana cost of your totem spells by 12%.\n(4) Set: Increases the mana gained from your Mana Spring totems by 25%.\n(6) Set: Your Healing Wave and Lesser Healing Wave spells have a chance to imbue your target with Totemic Power.\n(8) Set: Your Lightning Shield spell also grants you 15 mana per 5 sec. while active.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23065"
+                "23065",
+                "22464",
+                "22465",
+                "22466",
+                "22467",
+                "22468",
+                "22469",
+                "22470",
+                "22471"
             ]
         },
         "(2) Set: Increases the amount healed by your Judgement of Light by 20.\n(4) Set: Reduces cooldown on your Lay on Hands by 12 min.\n(6) Set: Your Flash of Light and Holy Light spells have a chance to imbue your target with Holy Power.\n(8) Set: Your Cleanse spell also heals the target for 200.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23066"
+                "23066",
+                "22424",
+                "22425",
+                "22426",
+                "22427",
+                "22428",
+                "22429",
+                "22430",
+                "22431"
             ]
         },
         "(2) Set: Increases the duration of your Rapid Fire by 4 secs.\n(4) Set: Increases Attack Power by 50 for both you and your pet.\n(6) Set: Your ranged critical hits cause an Adrenaline Rush, granting you 50 mana.\n(8) Set: Reduces the mana cost of your Multi-Shot and Aimed Shot by 20.": {
-            "count": 1,
+            "count": 9,
             "i": [
-                "23067"
+                "23067",
+                "22436",
+                "22437",
+                "22438",
+                "22439",
+                "22440",
+                "22441",
+                "22442",
+                "22443"
             ]
         },
         "(3) Set: Increases your damage against undead by 2%.": {
@@ -1973,7 +2111,7 @@
             ]
         },
         "(2) Set: +40 Attack Power.\n(4) Set: Reduces the cooldown of your Intercept ability by 5 sec.\n(6) Set: +20 Stamina.": {
-            "count": 8,
+            "count": 12,
             "i": [
                 "23243",
                 "23244",
@@ -1982,11 +2120,15 @@
                 "23300",
                 "23301",
                 "23314",
-                "23315"
+                "23315",
+                "22858",
+                "22868",
+                "22872",
+                "22873"
             ]
         },
         "(2) Set: +20 Agility.\n(4) Set: Reduces the cooldown of your Concussive Shot by 1 sec.\n(6) Set: +20 Stamina.": {
-            "count": 8,
+            "count": 12,
             "i": [
                 "23251",
                 "23252",
@@ -1995,11 +2137,15 @@
                 "23292",
                 "23293",
                 "23306",
-                "23307"
+                "23307",
+                "22843",
+                "22862",
+                "22874",
+                "22875"
             ]
         },
         "(2) Set: +40 Attack Power.\n(4) Set: Increases your movement speed by 15% while in Bear, Cat, or Travel Form. Only active outdoors.\n(6) Set: +20 Stamina.": {
-            "count": 8,
+            "count": 12,
             "i": [
                 "23253",
                 "23254",
@@ -2008,11 +2154,15 @@
                 "23294",
                 "23295",
                 "23308",
-                "23309"
+                "23309",
+                "22852",
+                "22863",
+                "22877",
+                "22878"
             ]
         },
         "(2) Set: Increases damage and healing done by magical spells and effects by up to 23.\n(4) Set: Reduces the casting time of your Immolate spell by 0.2 sec.\n(6) Set: +20 Stamina.": {
-            "count": 8,
+            "count": 12,
             "i": [
                 "23255",
                 "23256",
@@ -2021,11 +2171,15 @@
                 "23296",
                 "23297",
                 "23310",
-                "23311"
+                "23311",
+                "22855",
+                "22865",
+                "22881",
+                "22884"
             ]
         },
         "(2) Set: +40 Attack Power.\n(4) Set: Reduces the cooldown of your Gouge ability by 1 sec.\n(6) Set: +20 Stamina.": {
-            "count": 8,
+            "count": 12,
             "i": [
                 "23257",
                 "23258",
@@ -2034,18 +2188,26 @@
                 "23298",
                 "23299",
                 "23312",
-                "23313"
+                "23313",
+                "22856",
+                "22864",
+                "22879",
+                "22880"
             ]
         },
         "(2) Set: +40 Attack Power.\n(4) Set: Improves your chance to get a critical strike with all Shock spells by 2%.\n(6) Set: +20 Stamina.": {
-            "count": 2,
+            "count": 6,
             "i": [
                 "23259",
-                "23260"
+                "23260",
+                "22857",
+                "22867",
+                "22876",
+                "22887"
             ]
         },
         "(2) Set: Increases damage and healing done by magical spells and effects by up to 23.\n(4) Set: Increases the duration of your Psychic Scream spell by 1 sec.\n(6) Set: +20 Stamina.": {
-            "count": 8,
+            "count": 12,
             "i": [
                 "23261",
                 "23262",
@@ -2054,11 +2216,15 @@
                 "23302",
                 "23303",
                 "23316",
-                "23317"
+                "23317",
+                "22859",
+                "22869",
+                "22882",
+                "22885"
             ]
         },
         "(2) Set: Increases damage and healing done by magical spells and effects by up to 23.\n(4) Set: Reduces the cooldown of your Blink spell by 1.5 sec.\n(6) Set: +20 Stamina.": {
-            "count": 8,
+            "count": 12,
             "i": [
                 "23263",
                 "23264",
@@ -2067,7 +2233,11 @@
                 "23304",
                 "23305",
                 "23318",
-                "23319"
+                "23319",
+                "22860",
+                "22870",
+                "22883",
+                "22886"
             ]
         },
         "(2) Set: Increases damage and healing done by magical spells and effects by up to 23.\n(4) Set: Reduces the cooldown of your Hammer of Justice by 10 sec.\n(6) Set: +20 Stamina.": {
@@ -2079,6 +2249,129 @@
                 "23275",
                 "23276",
                 "23277"
+            ]
+        },
+        "(2) Set: +8 All Resistances.\n(4) Set: Chance on melee attack to restore 35 energy.\n(6) Set: +40 Attack Power.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22002",
+                "22003",
+                "22004",
+                "22005",
+                "22006",
+                "22007",
+                "22008",
+                "22009"
+            ]
+        },
+        "(2) Set: +8 All Resistances.\n(4) Set: Your normal ranged attacks have a 4% chance of restoring 200 mana.\n(6) Set: +40 Attack Power.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22010",
+                "22011",
+                "22013",
+                "22015",
+                "22016",
+                "22017",
+                "22060",
+                "22061"
+            ]
+        },
+        "(2) Set: +8 All Resistances.\n(4) Set: When struck in combat has a chance of freezing the attacker in place for 3 sec.\n(6) Set: Increases damage and healing done by magical spells and effects by up to 23.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22062",
+                "22063",
+                "22064",
+                "22065",
+                "22066",
+                "22067",
+                "22068",
+                "22069"
+            ]
+        },
+        "(2) Set: +8 All Resistances.\n(4) Set: When struck in combat has a chance of causing the attacker to flee in terror for 2 seconds.\n(6) Set: Increases damage and healing done by magical spells and effects by up to 23.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22070",
+                "22071",
+                "22072",
+                "22073",
+                "22074",
+                "22075",
+                "22076",
+                "22077"
+            ]
+        },
+        "(2) Set: +8 All Resistances.\n(4) Set: When struck in combat has a chance of shielding the wearer in a protective shield which will absorb 350 damage.\n(6) Set: Increases damage and healing done by magical spells and effects by up to 23.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22078",
+                "22079",
+                "22080",
+                "22081",
+                "22082",
+                "22083",
+                "22084",
+                "22085"
+            ]
+        },
+        "(2) Set: +8 All Resistances.\n(4) Set: Chance on melee attack to increase your damage and healing done by magical spells and effects by up to 95 for 10 sec.\n(6) Set: +40 Attack Power.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22086",
+                "22087",
+                "22088",
+                "22089",
+                "22090",
+                "22091",
+                "22092",
+                "22093"
+            ]
+        },
+        "(2) Set: +8 All Resistances.\n(4) Set: Chance on spell cast to increase your damage and healing by up to 95 for 10 sec.\n(6) Set: Increases damage and healing done by magical spells and effects by up to 23.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22095",
+                "22096",
+                "22097",
+                "22098",
+                "22099",
+                "22100",
+                "22101",
+                "22102"
+            ]
+        },
+        "(2) Set: +8 All Resistances.\n(4) Set: When struck in combat has a chance of returning 300 mana, 10 rage, or 40 energy to the wearer.\n(6) Set: Increases damage and healing done by magical spells and effects by up to 15.\n(6) Set: +26 Attack Power.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22106",
+                "22107",
+                "22108",
+                "22109",
+                "22110",
+                "22111",
+                "22112",
+                "22113"
+            ]
+        },
+        "(4) Set: Increases your chance to resist Silence and Interrupt effects by 10%.\n(8) Set: +200 Armor.": {
+            "count": 8,
+            "i": [
+                "22301",
+                "22302",
+                "22303",
+                "22304",
+                "22305",
+                "22306",
+                "22311",
+                "22313"
+            ]
+        },
+        "No description: 28414": {
+            "count": 1,
+            "i": [
+                "22691"
             ]
         }
     },
