@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 DEBUG = True
 DEV = False
 #SECURE_SSL_REDIRECT = True
-ALLOWED_HOSTS = ['13.59.19.192']
+ALLOWED_HOSTS = ['13.59.19.192', 'onybuff.com']
 
 AUTHENTICATION_BACKENDS = [
 	'social_core.backends.discord.DiscordOAuth2',
@@ -162,7 +162,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
-#SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 #LOGIN_REDIRECT_URL = '/authorize'
 
