@@ -1,7 +1,7 @@
 Provisioning a new site
 ===============================
 
-## Required packages:
+## Required packages/libraries:
 
 * nginx
 * python 3.6.x (django, gunicorn, virtualenv)
@@ -10,9 +10,11 @@ Provisioning a new site
 * certbot (SSL encryption)
 * sendmail
 * fail2ban
+* logrotate
+* postgresql
 
 ```
-$ sudo apt-get install nginx memcached git certbot-nginx certbot sendmail fail2ban
+$ sudo apt-get install nginx memcached git certbot-nginx certbot sendmail fail2ban logrotate postgresql
 ```
 
 #### Environment variables for use with the sed command throughout setup
@@ -67,7 +69,8 @@ postgres=# \q
 
 #### setup nginx
 ```
-$ sudo cp /path/to/nginx.template.conf /etc/nginx/sites-available/nginx.template.conf
+$ cd ~/$SITENAME/tools/deploy
+$ sudo cp nginx.template.conf /etc/nginx/sites-available/nginx.template.conf
 $ cd /etc/nginx/sites-available
 $ sed -i "s/SITENAME/$SITENAME/g" nginx.template.conf
 $ sed -i "s/USERNAME/$USERNAME/g" nginx.template.conf
@@ -76,19 +79,25 @@ $ sudo ln -s /etc/nginx/sites-available/$SITENAME /etc/nginx/sites-enabled/$SITE
 ```
 
 #### Getting an SSL certificate
-
 ```
 $ sudo certbot --nginx -d $SITENAME
 ```
 
-### install and setup virtualenv:
+#### setup logrotate for gunicorn
+```
+$ cd ~/$SITENAME/tools/deploy
+$ sudo cp logrotate.template.conf /etc/logrotate.d/$SITENAME
+$ cd /etc/logrotate.d/$SITENAME
+$ sed -i "s/SITENAME/$SITENAME/g" logrotate.template.conf
+```
+#### setup virtualenv:
 
-### import existing data into database (optional)
+#### import existing data into database (optional)
 ```
 (venv) $ python manage.py loaddata datadump.json --exclude=contenttypes --exclude=auth --exclude=home.ConsumeList --exclude=home.Spec --exclude=home.Rating --exclude=home.TreeAllotted --exclude=home.Consume
 ```
 
-### start the services
+#### start the services
 ```
 $ sudo systemctl reload nginx
 $ sudo systemctl enable gunicorn-$SITENAME
