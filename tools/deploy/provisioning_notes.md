@@ -78,6 +78,8 @@ $ sudo mv nginx.template.conf $SITENAME
 $ sudo ln -s /etc/nginx/sites-available/$SITENAME /etc/nginx/sites-enabled/$SITENAME
 ```
 
+#### setup fail2ban
+
 #### Getting an SSL certificate
 ```
 $ sudo certbot --nginx -d $SITENAME
