@@ -201,3 +201,8 @@
     box-shadow: -10px 0 5px -5px #ffc107;
     cursor: pointer;
 }
+
+.add-subtract-button{
+    position: absolute;
+    right: 0;
+}
