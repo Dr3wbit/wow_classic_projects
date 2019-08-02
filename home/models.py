@@ -280,6 +280,7 @@ class Talent(models.Model):
 	locked = models.ForeignKey("self", blank=True, null=True, on_delete=models.CASCADE)
 	class Meta:
 		unique_together = ['wow_class', 'name', 'tree']
+		order = ['id']
 
 	def __str__(self):
 		return(self.name)
