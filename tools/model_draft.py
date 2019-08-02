@@ -5,12 +5,9 @@ import datetime, math, re, time
 from social_django.models import UserSocialAuth
 from django.contrib.postgres.fields import HStoreField
 from django.contrib.postgres.validators import KeysValidator
-
-
-else:
-	from django.contrib.auth.models import AbstractUser
-	from django.utils.translation import ugettext_lazy as _
-	from .managers import UserManager
+from django.contrib.auth.models import AbstractUser
+from django.utils.translation import ugettext_lazy as _
+from .managers import UserManager
 
 	class User(AbstractUser):
 		username = None
@@ -49,33 +46,121 @@ else:
 		def disc_username(self):
 			return self.discord.extra_data['disc_username'] if self.discord else False
 
+### NOTE: NEW
 # the baseline; everything is an item
 class Item(models.Model):
 	JUNK, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, GM = 0,1,2,3,4,5,6
-	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS,FINGER,TRINKET,BACK = 1,2,3,4,5,6,7,8,9,10,11,13,15
+	OFFHAND_LIST = ['Held In Off-Hand', 'Shield', 'Off Hand']
+	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS,FINGER,TRINKET,BACK,MAINHAND,OFFHAND,RANGED,TABBARD = 1,2,3,4,5,6,7,8,9,10,11,13,15,16,17,18,19
 	CLOTH,LEATHER,MAIL,PLATE = 1,2,3,4
+	BAG_CHOICES = range(20,23)
+	RELIC = 18
+	RELIC_PROFICIENCIES = ['Totem', 'Libram', 'Idol']
 	QUALITY_CHOICES = ( (JUNK, 'junk'), (COMMON, 'common'), (UNCOMMON, 'uncommon'), (RARE, 'rare'), (EPIC, 'epic'), (LEGENDARY, 'legendary'), (GM, 'gm'),)
-	SLOT_CHOICES = ( (HEAD, 'Head'), (NECK, 'Neck'), (SHOULDER, 'Shoulder'), (SHIRT, 'Shirt'), (CHEST, 'Chest'), (BELT, 'Belt'), (LEGS, 'Legs'), (FEET, 'Feet'), (WRIST, 'Wrist'), (HANDS, 'Hands'), (BACK, 'Back'),)
+	SLOT_CHOICES = (
+		(HEAD, 'Head'), (NECK, 'Neck'), (SHOULDER, 'Shoulder'), (SHIRT, 'Shirt'),
+		(CHEST, 'Chest'), (BELT, 'Belt'), (LEGS, 'Legs'), (FEET, 'Feet'), (WRIST, 'Wrist'),
+		(HANDS, 'Hands'), (BACK, 'Back'), (MAINHAND, 'Main Hand'), (OFFHAND, 'Off Hand'),
+		(RANGED, 'Ranged'), (BAG, 'Bag'),
+	)
 
 	REQUIREMENT_KEYS = ['level', 'reputation', 'faction', 'profession' 'class']
 
 	i = models.PositiveIntegerField(primary_key=True)
 	n = models.CharField(max_length=100, unique=True, help_text='Name')
-	quality = models.CharField(max_length=10, choices=QUALITY_CHOICES, default=1)
-
-	ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
-	image_name = models.CharField(max_length=50)
-	rarity = models.CharField(max_length=10, choices=RARITY_CHOICES, default='common')
 	quality = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(6)])
+	ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
+
+	image = models.CharField(max_length=50)
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
 	use = models.CharField(max_length=250, blank=True)
 	description = models.CharField(max_length=250, blank=True)
+	slot = models.PositiveSmallIntegerField(default=None, choices=SLOT_CHOICES)
 	#https://docs.djangoproject.com/en/2.2/ref/contrib/postgres/fields/#hstorefield
+
 	requirements = HStoreField(validators=KeysValidator(REQUIREMENT_KEYS, strict=True))
 
 	def __str__(self):
 		return self.n
+
+class Armor(models.Model):
+	i = models.PositiveIntegerField(primary_key=True)
+class WoWClass(models.Model):
+	class_choices = (
+			('druid', 'druid'),
+			('hunter', 'hunter'),
+			('mage', 'mage'),
+			('paladin', 'paladin'),
+			('priest', 'priest'),
+			('rogue', 'rogue'),
+			('shaman', 'shaman'),
+			('warlock', 'warlock'),
+			('warrior', 'warrior')
+	)
+
+	name = models.CharField(max_length=30, choices=class_choices, default='warrior', unique=True)
+	icon_image_name = models.CharField(max_length=20)
+
+	def __str__(self):
+		return(self.name)
+
+	class Meta:
+		ordering = ['name']
+
+class Profession(models.Model):
+	PROFESSION_CHOICES = (
+		('alchemy', 'alchemy'),
+		('blacksmithing', 'blacksmithing'),
+		('cooking', 'cooking'),
+		('enchanting', 'enchanting'),
+		('engineering', 'engineering'),
+		('leatherworking', 'leatherworking'),
+		('first_aid', 'first_aid'),
+		('skinning', 'skinning'),
+		('fishing', 'fishing'),
+		('herbalism', 'herbalism'),
+		('mining', 'mining'),
+		('tailoring', 'tailoring'),
+		('riding', 'riding'),
+	)
+
+	TYPE_CHOICES = (
+		('primary', 'Primary'),
+		('secondary', 'Secondary'),
+	)
+
+	i = models.PositiveIntegerField(primary_key=True)
+	n = models.CharField(max_length=20, unique=True, choices=PROFESSION_CHOICES, default='alchemy')
+	image = models.CharField(max_length=30)
+
+	type_of = models.CharField(max_length=25, default='primary')
+
+	# level required to craft an item
+	# craft_level = models.PositiveSmallIntegerField(validators=[MaxValueValidator(300)], default=1)
+
+	def __str__(self):
+		return(self.name)
+
+class TalentTree(models.Model):
+	i = models.PositiveIntegerField(primary_key=True)
+	n = models.CharField(max_length=40)
+	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
+	position = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(3)])
+	_architect = models.CharField(max_length=100, default="[]")
+	image = models.CharField(max_length=30)
+
+	@property
+	def architect(self):
+		return eval(self._architect)
+
+	def __str__(self):
+		return(self.name)
+
+	class Meta:
+		ordering = ['position']
+		unique_together = ['wow_class', 'name']
+
 
 class Crafted(Item):
 	prof = models.ForeignKey('Profession', on_delete=models.CASCADE, blank=True, null=True)
@@ -87,6 +172,7 @@ class Armor(Item):
 
 class Recipe(models.Model):
 
+### NOTE: old
 
 class Crafted(models.Model):
 	item = models.ForeignKey('Item', on_delete=models.CASCADE)

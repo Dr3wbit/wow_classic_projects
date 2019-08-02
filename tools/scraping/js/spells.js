@@ -611,9 +611,17 @@
         "i": 12595,
         "n": "Mithril Blunderbuss"
     },
+    "12596": {
+        "i": 12596,
+        "n": "Hi-Impact Mithril Slugs"
+    },
     "12597": {
         "i": 12597,
         "n": "Deadly Scope"
+    },
+    "12603": {
+        "i": 12603,
+        "n": "Mithril Frag Bomb"
     },
     "12607": {
         "i": 12607,
@@ -639,9 +647,17 @@
         "i": 12618,
         "n": "Rose Colored Goggles"
     },
+    "12619": {
+        "i": 12619,
+        "n": "Hi-Explosive Bomb"
+    },
     "12620": {
         "i": 12620,
         "n": "Sniper Scope"
+    },
+    "12621": {
+        "i": 12621,
+        "n": "Mithril Gyro-Shot"
     },
     "12622": {
         "i": 12622,
@@ -659,6 +675,10 @@
         "i": 12666,
         "n": "Improved Thunder Clap"
     },
+    "12715": {
+        "i": 12715,
+        "n": "Goblin Rocket Fuel Recipe"
+    },
     "12716": {
         "i": 12716,
         "n": "Goblin Mortar"
@@ -675,9 +695,17 @@
         "i": 12719,
         "n": "Explosive Arrow"
     },
+    "12720": {
+        "i": 12720,
+        "n": "Goblin \"Boom\" Box"
+    },
     "12722": {
         "i": 12722,
         "n": "Goblin Radio"
+    },
+    "12735": {
+        "i": 12735,
+        "n": "Fill the Egg of Hakkar"
     },
     "12754": {
         "i": 12754,
@@ -699,6 +727,10 @@
         "i": 12760,
         "n": "Goblin Sapper Charge"
     },
+    "12895": {
+        "i": 12895,
+        "n": "Inlaid Mithril Cylinder Plans"
+    },
     "12897": {
         "i": 12897,
         "n": "Gnomish Goggles"
@@ -706,6 +738,10 @@
     "12899": {
         "i": 12899,
         "n": "Gnomish Shrink Ray"
+    },
+    "12900": {
+        "i": 12900,
+        "n": "Mobile Alarm"
     },
     "12902": {
         "i": 12902,
@@ -779,13 +815,45 @@
         "i": 13230,
         "n": "Wound Poison IV"
     },
+    "13240": {
+        "i": 13240,
+        "n": "The Mortar: Reloaded"
+    },
+    "13361": {
+        "i": 13361,
+        "n": "Greater Magic Essence"
+    },
+    "13399": {
+        "i": 13399,
+        "n": "Cultivate Packet of Seeds"
+    },
+    "13497": {
+        "i": 13497,
+        "n": "Greater Astral Essence"
+    },
     "13628": {
         "i": 13628,
         "n": "Runed Golden Rod"
     },
+    "13632": {
+        "i": 13632,
+        "n": "Greater Mystic Essence"
+    },
     "13702": {
         "i": 13702,
         "n": "Runed Truesilver Rod"
+    },
+    "13714": {
+        "i": 13714,
+        "n": "Create Samophlange Manual"
+    },
+    "13739": {
+        "i": 13739,
+        "n": "Greater Nether Essence"
+    },
+    "13909": {
+        "i": 13909,
+        "n": "Create Elemental Totem"
     },
     "14084": {
         "i": 14084,
@@ -807,6 +875,10 @@
         "i": 14092,
         "n": "zzOLDImproved Vanish"
     },
+    "14199": {
+        "i": 14199,
+        "n": "Create Samophlange Manual"
+    },
     "14293": {
         "i": 14293,
         "n": "Lesser Magic Wand"
@@ -818,6 +890,18 @@
     "14807": {
         "i": 14807,
         "n": "Greater Magic Wand"
+    },
+    "14809": {
+        "i": 14809,
+        "n": "Lesser Mystic Wand"
+    },
+    "14810": {
+        "i": 14810,
+        "n": "Greater Mystic Wand"
+    },
+    "14891": {
+        "i": 14891,
+        "n": "Smelt Dark Iron"
     },
     "14930": {
         "i": 14930,
@@ -931,6 +1015,10 @@
         "i": 16129,
         "n": "Improved Magma Totem"
     },
+    "16153": {
+        "i": 16153,
+        "n": "Smelt Thorium"
+    },
     "16188": {
         "i": 16188,
         "n": "Nature's Swiftness"
@@ -983,6 +1071,18 @@
         "i": 16504,
         "n": "zzOLDInitiative"
     },
+    "16642": {
+        "i": 16642,
+        "n": "Thorium Armor"
+    },
+    "16643": {
+        "i": 16643,
+        "n": "Thorium Belt"
+    },
+    "16644": {
+        "i": 16644,
+        "n": "Thorium Bracers"
+    },
     "16645": {
         "i": 16645,
         "n": "Radiant Belt"
@@ -1006,6 +1106,10 @@
     "16651": {
         "i": 16651,
         "n": "Thorium Shield Spike"
+    },
+    "16652": {
+        "i": 16652,
+        "n": "Thorium Boots"
     },
     "16653": {
         "i": 16653,
@@ -1042,6 +1146,10 @@
     "16661": {
         "i": 16661,
         "n": "Storm Gauntlets"
+    },
+    "16662": {
+        "i": 16662,
+        "n": "Thorium Leggings"
     },
     "16663": {
         "i": 16663,
@@ -1186,6 +1294,10 @@
     "16999": {
         "i": 16999,
         "n": "Savage Fury"
+    },
+    "17180": {
+        "i": 17180,
+        "n": "Enchanted Thorium"
     },
     "17527": {
         "i": 17527,
@@ -1467,6 +1579,10 @@
         "i": 18418,
         "n": "Cindercloth Cloak"
     },
+    "18421": {
+        "i": 18421,
+        "n": "Wizardweave Leggings"
+    },
     "18422": {
         "i": 18422,
         "n": "Cloak of Fire"
@@ -1490,6 +1606,10 @@
     "18441": {
         "i": 18441,
         "n": "Ghostweave Pants"
+    },
+    "18446": {
+        "i": 18446,
+        "n": "Wizardweave Robe"
     },
     "18450": {
         "i": 18450,
@@ -1815,6 +1935,10 @@
         "i": 19566,
         "n": "Salt Shaker"
     },
+    "19567": {
+        "i": 19567,
+        "n": "Salt Shaker"
+    },
     "19666": {
         "i": 19666,
         "n": "Silver Skeleton Key"
@@ -1858,6 +1982,10 @@
     "19819": {
         "i": 19819,
         "n": "Voice Amplification Modulator"
+    },
+    "19825": {
+        "i": 19825,
+        "n": "Master Engineer's Goggles"
     },
     "19830": {
         "i": 19830,
@@ -1942,6 +2070,30 @@
     "20849": {
         "i": 20849,
         "n": "Flarecore Gloves"
+    },
+    "20872": {
+        "i": 20872,
+        "n": "Fiery Chain Girdle"
+    },
+    "20873": {
+        "i": 20873,
+        "n": "Fiery Chain Shoulders"
+    },
+    "20874": {
+        "i": 20874,
+        "n": "Dark Iron Bracers"
+    },
+    "20876": {
+        "i": 20876,
+        "n": "Dark Iron Leggings"
+    },
+    "20890": {
+        "i": 20890,
+        "n": "Dark Iron Reaver"
+    },
+    "20897": {
+        "i": 20897,
+        "n": "Dark Iron Destroyer"
     },
     "20916": {
         "i": 20916,
@@ -2127,6 +2279,10 @@
         "i": 22711,
         "n": "Shadowskin Gloves"
     },
+    "22732": {
+        "i": 22732,
+        "n": "Major Rejuvenation Potion"
+    },
     "22757": {
         "i": 22757,
         "n": "Elemental Sharpening Stone"
@@ -2231,6 +2387,10 @@
         "i": 23081,
         "n": "Hyper-Radiant Flame Reflector"
     },
+    "23082": {
+        "i": 23082,
+        "n": "Ultra-Flash Shadow Reflector"
+    },
     "23096": {
         "i": 23096,
         "n": "Alarm-O-Bot"
@@ -2326,6 +2486,34 @@
     "23633": {
         "i": 23633,
         "n": "Gloves of the Dawn"
+    },
+    "23636": {
+        "i": 23636,
+        "n": "Dark Iron Helm"
+    },
+    "23637": {
+        "i": 23637,
+        "n": "Dark Iron Gauntlets"
+    },
+    "23638": {
+        "i": 23638,
+        "n": "Black Amnesty"
+    },
+    "23639": {
+        "i": 23639,
+        "n": "Blackfury"
+    },
+    "23650": {
+        "i": 23650,
+        "n": "Ebon Hand"
+    },
+    "23652": {
+        "i": 23652,
+        "n": "Blackguard"
+    },
+    "23653": {
+        "i": 23653,
+        "n": "Nightfall"
     },
     "23662": {
         "i": 23662,
@@ -2443,6 +2631,10 @@
         "i": 24368,
         "n": "Major Troll's Blood Potion"
     },
+    "24399": {
+        "i": 24399,
+        "n": "Dark Iron Boots"
+    },
     "24479": {
         "i": 24479,
         "n": "Improved Faerie Fire"
@@ -2519,6 +2711,10 @@
         "i": 24896,
         "n": "Create Scepter of Beckoning: Air"
     },
+    "24897": {
+        "i": 24897,
+        "n": "Create Scepter of Beckoning: Earth"
+    },
     "24898": {
         "i": 24898,
         "n": "Create Scepter of Beckoning: Water"
@@ -2538,6 +2734,18 @@
     "24940": {
         "i": 24940,
         "n": "Black Whelp Tunic"
+    },
+    "25124": {
+        "i": 25124,
+        "n": "Minor Wizard Oil"
+    },
+    "25125": {
+        "i": 25125,
+        "n": "Minor Mana Oil"
+    },
+    "25126": {
+        "i": 25126,
+        "n": "Lesser Wizard Oil"
     },
     "25127": {
         "i": 25127,
@@ -2699,6 +2907,18 @@
         "i": 26422,
         "n": "Large Red Rocket"
     },
+    "26423": {
+        "i": 26423,
+        "n": "Blue Rocket Cluster"
+    },
+    "26424": {
+        "i": 26424,
+        "n": "Green Rocket Cluster"
+    },
+    "26425": {
+        "i": 26425,
+        "n": "Red Rocket Cluster"
+    },
     "26442": {
         "i": 26442,
         "n": "Firework Launcher"
@@ -2858,6 +3078,10 @@
     "27829": {
         "i": 27829,
         "n": "Titanic Leggings"
+    },
+    "27830": {
+        "i": 27830,
+        "n": "Persuader"
     },
     "27847": {
         "i": 27847,
@@ -3634,6 +3858,10 @@
     "3960": {
         "i": 3960,
         "n": "Portable Bronze Mortar"
+    },
+    "3961": {
+        "i": 3961,
+        "n": "Gyrochronatom"
     },
     "3962": {
         "i": 3962,
@@ -4526,89 +4754,5 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
-    },
-    "22732": {
-        "i": 22732,
-        "n": "Major Rejuvenation Potion"
-    },
-    "12735": {
-        "i": 12735,
-        "n": "Fill the Egg of Hakkar"
-    },
-    "19825": {
-        "i": 19825,
-        "n": "Master Engineer's Goggles"
-    },
-    "12596": {
-        "i": 12596,
-        "n": "Hi-Impact Mithril Slugs"
-    },
-    "12621": {
-        "i": 12621,
-        "n": "Mithril Gyro-Shot"
-    },
-    "26423": {
-        "i": 26423,
-        "n": "Blue Rocket Cluster"
-    },
-    "26424": {
-        "i": 26424,
-        "n": "Green Rocket Cluster"
-    },
-    "12619": {
-        "i": 12619,
-        "n": "Hi-Explosive Bomb"
-    },
-    "12603": {
-        "i": 12603,
-        "n": "Mithril Frag Bomb"
-    },
-    "26425": {
-        "i": 26425,
-        "n": "Red Rocket Cluster"
-    },
-    "13240": {
-        "i": 13240,
-        "n": "The Mortar: Reloaded"
-    },
-    "12720": {
-        "i": 12720,
-        "n": "Goblin \"Boom\" Box"
-    },
-    "3961": {
-        "i": 3961,
-        "n": "Gyrochronatom"
-    },
-    "19567": {
-        "i": 19567,
-        "n": "Salt Shaker"
-    },
-    "12900": {
-        "i": 12900,
-        "n": "Mobile Alarm"
-    },
-    "16153": {
-        "i": 16153,
-        "n": "Smelt Thorium"
-    },
-    "12715": {
-        "i": 12715,
-        "n": "Goblin Rocket Fuel Recipe"
-    },
-    "12895": {
-        "i": 12895,
-        "n": "Inlaid Mithril Cylinder Plans"
-    },
-    "13361": {
-        "i": 13361,
-        "n": "Greater Magic Essence"
-    },
-    "25124": {
-        "i": 25124,
-        "n": "Minor Wizard Oil"
-    },
-    "13497": {
-        "i": 13497,
-        "n": "Greater Astral Essence"
     }
 }

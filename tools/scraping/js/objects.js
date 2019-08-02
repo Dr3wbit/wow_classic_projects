@@ -379,6 +379,50 @@
         "i": 147557,
         "n": "Stolen Silver"
     },
+    "148499": {
+        "i": 148499,
+        "n": "Felix's Box"
+    },
+    "148506": {
+        "i": 148506,
+        "n": "Twilight Artifact"
+    },
+    "148513": {
+        "i": 148513,
+        "n": "Tablet of Jin'yael"
+    },
+    "148514": {
+        "i": 148514,
+        "n": "Tablet of Markri"
+    },
+    "148515": {
+        "i": 148515,
+        "n": "Tablet of Sael'hai"
+    },
+    "148516": {
+        "i": 148516,
+        "n": "Tablet of Beth'Amara"
+    },
+    "149036": {
+        "i": 149036,
+        "n": "Marvon's Chest"
+    },
+    "149480": {
+        "i": 149480,
+        "n": "Rune of Jin'yael"
+    },
+    "149481": {
+        "i": 149481,
+        "n": "Rune of Beth'Amara"
+    },
+    "149482": {
+        "i": 149482,
+        "n": "Rune of Markri"
+    },
+    "149483": {
+        "i": 149483,
+        "n": "Rune of Sael'hai"
+    },
     "150079": {
         "i": 150079,
         "n": "Mithril Deposit"
@@ -395,6 +439,14 @@
         "i": 150082,
         "n": "Small Thorium Vein"
     },
+    "152094": {
+        "i": 152094,
+        "n": "Hyacinth Mushroom"
+    },
+    "152095": {
+        "i": 152095,
+        "n": "Moonpetal Lily"
+    },
     "152608": {
         "i": 152608,
         "n": "Kolkar's Booty"
@@ -403,9 +455,29 @@
         "i": 152618,
         "n": "Kolkar's Booty"
     },
+    "152620": {
+        "i": 152620,
+        "n": "Azsharite Formation"
+    },
+    "152621": {
+        "i": 152621,
+        "n": "Azsharite Formation"
+    },
+    "152622": {
+        "i": 152622,
+        "n": "Azsharite Formation"
+    },
+    "152631": {
+        "i": 152631,
+        "n": "Azsharite Formation"
+    },
     "153123": {
         "i": 153123,
         "n": "Kim'jael's Equipment"
+    },
+    "153239": {
+        "i": 153239,
+        "n": "Wildkin Feather"
     },
     "153451": {
         "i": 153451,
@@ -455,6 +527,10 @@
         "i": 153473,
         "n": "Food Crate"
     },
+    "154357": {
+        "i": 154357,
+        "n": "Glinting Mud"
+    },
     "1560": {
         "i": 1560,
         "n": "Storage Chest"
@@ -467,6 +543,10 @@
         "i": 1571,
         "n": "Dusty Spellbooks"
     },
+    "157936": {
+        "i": 157936,
+        "n": "Un'Goro Dirt Pile"
+    },
     "1594": {
         "i": 1594,
         "n": "Berard's Bookshelf"
@@ -475,9 +555,37 @@
         "i": 160845,
         "n": "Dark Coffer"
     },
+    "161495": {
+        "i": 161495,
+        "n": "Secret Safe"
+    },
+    "161513": {
+        "i": 161513,
+        "n": "Farm Chicken Egg"
+    },
+    "161521": {
+        "i": 161521,
+        "n": "Research Equipment"
+    },
+    "161526": {
+        "i": 161526,
+        "n": "Crate of Foodstuffs"
+    },
+    "161527": {
+        "i": 161527,
+        "n": "Dinosaur Bone"
+    },
+    "161557": {
+        "i": 161557,
+        "n": "Milly's Harvest"
+    },
     "1617": {
         "i": 1617,
         "n": "Silverleaf"
+    },
+    "161752": {
+        "i": 161752,
+        "n": "Tool Bucket"
     },
     "1618": {
         "i": 1618,
@@ -499,9 +607,77 @@
         "i": 1622,
         "n": "Bruiseweed"
     },
+    "164658": {
+        "i": 164658,
+        "n": "Blue Power Crystal"
+    },
+    "164659": {
+        "i": 164659,
+        "n": "Green Power Crystal"
+    },
+    "164660": {
+        "i": 164660,
+        "n": "Red Power Crystal"
+    },
+    "164661": {
+        "i": 164661,
+        "n": "Yellow Power Crystal"
+    },
+    "164662": {
+        "i": 164662,
+        "n": "Equipment Boxes"
+    },
+    "164690": {
+        "i": 164690,
+        "n": "Krom'zar's Banner"
+    },
+    "164778": {
+        "i": 164778,
+        "n": "Blue Power Crystal"
+    },
+    "164779": {
+        "i": 164779,
+        "n": "Green Power Crystal"
+    },
+    "164780": {
+        "i": 164780,
+        "n": "Red Power Crystal"
+    },
+    "164781": {
+        "i": 164781,
+        "n": "Yellow Power Crystal"
+    },
+    "164798": {
+        "i": 164798,
+        "n": "Evoroot"
+    },
+    "164910": {
+        "i": 164910,
+        "n": "Ornate Chest"
+    },
+    "164958": {
+        "i": 164958,
+        "n": "Bloodpetal Sprout"
+    },
+    "165554": {
+        "i": 165554,
+        "n": "Heart of the Mountain"
+    },
     "165658": {
         "i": 165658,
         "n": "Dark Iron Deposit"
+    },
+    "165738": {
+        "i": 165738,
+        "n": "Dark Iron Ale Mug"
+    },
+    "165739": {
+        "i": 165739,
+        "n": "Grim Guzzler Boar"
+    },
+    "166863": {
+        "i": 166863,
+        "n": "Fresh Threshadon Carcass"
     },
     "167": {
         "i": 167,
@@ -515,6 +691,10 @@
         "i": 17155,
         "n": "Defias Gunpowder"
     },
+    "171938": {
+        "i": 171938,
+        "n": "Cactus Apple"
+    },
     "17282": {
         "i": 17282,
         "n": "Plant Bundle"
@@ -527,6 +707,18 @@
         "i": 1732,
         "n": "Tin Vein"
     },
+    "173232": {
+        "i": 173232,
+        "n": "Blacksmithing Plans"
+    },
+    "173234": {
+        "i": 173234,
+        "n": "Blacksmithing Plans"
+    },
+    "173266": {
+        "i": 173266,
+        "n": "Goodsteel Ledger"
+    },
     "1733": {
         "i": 1733,
         "n": "Silver Vein"
@@ -538,6 +730,10 @@
     "1735": {
         "i": 1735,
         "n": "Iron Deposit"
+    },
+    "174728": {
+        "i": 174728,
+        "n": "Damaged Crate"
     },
     "175404": {
         "i": 175404,
@@ -559,6 +755,22 @@
         "i": 176582,
         "n": "Shellfish Trap"
     },
+    "176583": {
+        "i": 176583,
+        "n": "Golden Sansam"
+    },
+    "176584": {
+        "i": 176584,
+        "n": "Dreamfoil"
+    },
+    "176586": {
+        "i": 176586,
+        "n": "Mountain Silversage"
+    },
+    "176587": {
+        "i": 176587,
+        "n": "Plaguebloom"
+    },
     "176636": {
         "i": 176636,
         "n": "Sungrass"
@@ -566,6 +778,22 @@
     "176637": {
         "i": 176637,
         "n": "Gromsblood"
+    },
+    "176638": {
+        "i": 176638,
+        "n": "Golden Sansam"
+    },
+    "176639": {
+        "i": 176639,
+        "n": "Dreamfoil"
+    },
+    "176640": {
+        "i": 176640,
+        "n": "Mountain Silversage"
+    },
+    "176641": {
+        "i": 176641,
+        "n": "Plaguebloom"
     },
     "176642": {
         "i": 176642,
@@ -578,6 +806,10 @@
     "176645": {
         "i": 176645,
         "n": "Mithril Deposit"
+    },
+    "176944": {
+        "i": 176944,
+        "n": "Old Treasure Chest"
     },
     "177388": {
         "i": 177388,
@@ -678,6 +910,18 @@
     "180165": {
         "i": 180165,
         "n": "Purple Lotus"
+    },
+    "180166": {
+        "i": 180166,
+        "n": "Mountain Silversage"
+    },
+    "180167": {
+        "i": 180167,
+        "n": "Golden Sansam"
+    },
+    "180168": {
+        "i": 180168,
+        "n": "Dreamfoil"
     },
     "180184": {
         "i": 180184,
@@ -998,6 +1242,14 @@
     "24798": {
         "i": 24798,
         "n": "Sundried Driftwood"
+    },
+    "249": {
+        "i": 249,
+        "n": "Crate of Foodstuffs"
+    },
+    "251": {
+        "i": 251,
+        "n": "Research Equipment"
     },
     "2554": {
         "i": 2554,
@@ -1579,84 +1831,8 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "176944": {
-        "i": 176944,
-        "n": "Old Treasure Chest"
-    },
-    "148499": {
-        "i": 148499,
-        "n": "Felix's Box"
-    },
-    "148506": {
-        "i": 148506,
-        "n": "Twilight Artifact"
-    },
-    "148516": {
-        "i": 148516,
-        "n": "Tablet of Beth'Amara"
-    },
-    "148513": {
-        "i": 148513,
-        "n": "Tablet of Jin'yael"
-    },
-    "148514": {
-        "i": 148514,
-        "n": "Tablet of Markri"
-    },
-    "148515": {
-        "i": 148515,
-        "n": "Tablet of Sael'hai"
-    },
-    "149036": {
-        "i": 149036,
-        "n": "Marvon's Chest"
-    },
-    "149481": {
-        "i": 149481,
-        "n": "Rune of Beth'Amara"
-    },
-    "149480": {
-        "i": 149480,
-        "n": "Rune of Jin'yael"
-    },
-    "149482": {
-        "i": 149482,
-        "n": "Rune of Markri"
-    },
-    "149483": {
-        "i": 149483,
-        "n": "Rune of Sael'hai"
-    },
-    "152094": {
-        "i": 152094,
-        "n": "Hyacinth Mushroom"
-    },
-    "152095": {
-        "i": 152095,
-        "n": "Moonpetal Lily"
-    },
-    "152620": {
-        "i": 152620,
-        "n": "Azsharite Formation"
-    },
-    "152621": {
-        "i": 152621,
-        "n": "Azsharite Formation"
-    },
-    "152622": {
-        "i": 152622,
-        "n": "Azsharite Formation"
-    },
-    "152631": {
-        "i": 152631,
-        "n": "Azsharite Formation"
-    },
-    "153239": {
-        "i": 153239,
-        "n": "Wildkin Feather"
-    },
-    "154357": {
-        "i": 154357,
-        "n": "Glinting Mud"
+    "160836": {
+        "i": 160836,
+        "n": "Relic Coffer"
     }
 }
