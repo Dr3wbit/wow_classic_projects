@@ -1578,5 +1578,85 @@
     "9630": {
         "i": 9630,
         "n": "Flagongut's Fossil"
+    },
+    "176944": {
+        "i": 176944,
+        "n": "Old Treasure Chest"
+    },
+    "148499": {
+        "i": 148499,
+        "n": "Felix's Box"
+    },
+    "148506": {
+        "i": 148506,
+        "n": "Twilight Artifact"
+    },
+    "148516": {
+        "i": 148516,
+        "n": "Tablet of Beth'Amara"
+    },
+    "148513": {
+        "i": 148513,
+        "n": "Tablet of Jin'yael"
+    },
+    "148514": {
+        "i": 148514,
+        "n": "Tablet of Markri"
+    },
+    "148515": {
+        "i": 148515,
+        "n": "Tablet of Sael'hai"
+    },
+    "149036": {
+        "i": 149036,
+        "n": "Marvon's Chest"
+    },
+    "149481": {
+        "i": 149481,
+        "n": "Rune of Beth'Amara"
+    },
+    "149480": {
+        "i": 149480,
+        "n": "Rune of Jin'yael"
+    },
+    "149482": {
+        "i": 149482,
+        "n": "Rune of Markri"
+    },
+    "149483": {
+        "i": 149483,
+        "n": "Rune of Sael'hai"
+    },
+    "152094": {
+        "i": 152094,
+        "n": "Hyacinth Mushroom"
+    },
+    "152095": {
+        "i": 152095,
+        "n": "Moonpetal Lily"
+    },
+    "152620": {
+        "i": 152620,
+        "n": "Azsharite Formation"
+    },
+    "152621": {
+        "i": 152621,
+        "n": "Azsharite Formation"
+    },
+    "152622": {
+        "i": 152622,
+        "n": "Azsharite Formation"
+    },
+    "152631": {
+        "i": 152631,
+        "n": "Azsharite Formation"
+    },
+    "153239": {
+        "i": 153239,
+        "n": "Wildkin Feather"
+    },
+    "154357": {
+        "i": 154357,
+        "n": "Glinting Mud"
     }
 }

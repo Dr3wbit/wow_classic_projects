@@ -4526,5 +4526,89 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
+    },
+    "22732": {
+        "i": 22732,
+        "n": "Major Rejuvenation Potion"
+    },
+    "12735": {
+        "i": 12735,
+        "n": "Fill the Egg of Hakkar"
+    },
+    "19825": {
+        "i": 19825,
+        "n": "Master Engineer's Goggles"
+    },
+    "12596": {
+        "i": 12596,
+        "n": "Hi-Impact Mithril Slugs"
+    },
+    "12621": {
+        "i": 12621,
+        "n": "Mithril Gyro-Shot"
+    },
+    "26423": {
+        "i": 26423,
+        "n": "Blue Rocket Cluster"
+    },
+    "26424": {
+        "i": 26424,
+        "n": "Green Rocket Cluster"
+    },
+    "12619": {
+        "i": 12619,
+        "n": "Hi-Explosive Bomb"
+    },
+    "12603": {
+        "i": 12603,
+        "n": "Mithril Frag Bomb"
+    },
+    "26425": {
+        "i": 26425,
+        "n": "Red Rocket Cluster"
+    },
+    "13240": {
+        "i": 13240,
+        "n": "The Mortar: Reloaded"
+    },
+    "12720": {
+        "i": 12720,
+        "n": "Goblin \"Boom\" Box"
+    },
+    "3961": {
+        "i": 3961,
+        "n": "Gyrochronatom"
+    },
+    "19567": {
+        "i": 19567,
+        "n": "Salt Shaker"
+    },
+    "12900": {
+        "i": 12900,
+        "n": "Mobile Alarm"
+    },
+    "16153": {
+        "i": 16153,
+        "n": "Smelt Thorium"
+    },
+    "12715": {
+        "i": 12715,
+        "n": "Goblin Rocket Fuel Recipe"
+    },
+    "12895": {
+        "i": 12895,
+        "n": "Inlaid Mithril Cylinder Plans"
+    },
+    "13361": {
+        "i": 13361,
+        "n": "Greater Magic Essence"
+    },
+    "25124": {
+        "i": 25124,
+        "n": "Minor Wizard Oil"
+    },
+    "13497": {
+        "i": 13497,
+        "n": "Greater Astral Essence"
     }
 }

@@ -1,21 +1,33 @@
 from django.db.models.signals import pre_save
 from django.core.exceptions import PermissionDenied, ValidationError
-from home.models import ConsumeList, Profile, Spec
+from home.models import ConsumeList, Spec, User
 from django.dispatch import receiver
+
+from django.conf import settings
+if settings.LOCAL:
+	from home.models import Profile
+else:
+	from home.models import User
 
 @receiver(pre_save, sender=Spec, weak=False)
 def savedspec_limit(sender, instance, **kwargs):
 	print('***signals test***')
-	profile = Profile.objects.get(email=instance.user.email)
-	if profile.spec_set.count() >= 10:
+	if settings.LOCAL:
+		user = Profile.objects.get(email=instance.user.email)
+	else:
+		user = User.objects.get(email=instance.user.email)
+	if user.spec_set.count() >= 10:
 		raise PermissionDenied("Username: %s can only save 10 specs"%instance.user.email)
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
 
 @receiver(pre_save, sender=ConsumeList, weak=False)
 def consumelist_limit(sender, instance, **kwargs):
 	print('***signals test***')
-	profile = Profile.objects.get(email=instance.user.email)
-	if profile.consumelist_set.count() >= 10:
+	if settings.LOCAL:
+		user = Profile.objects.get(email=instance.user.email)
+	else:
+		user = User.objects.get(email=instance.user.email)
+	if user.consumelist_set.count() >= 10:
 		raise PermissionDenied("Username: %s can only save 10 consume lists"%instance.user.email)
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
 
