@@ -26,7 +26,8 @@ def main():
 	end = (prefix+1)*1000
 	BASE_URL = "https://classicdb.ch/?item="
 
-	item_numbers = range(int(start), int(end))
+	# item_numbers = range(int(start), int(end))
+	item_numbers = range(11750, 12000)
 
 	iStart = datetime.datetime.now()
 
@@ -455,14 +456,18 @@ def reward_from(tab, I, which):
 			#nnn = const.QUESTS[quest_ix]['n']
 
 	if which == 'reward_from':
-		xpath = "./td[5]/div/div[@class='iconsmall']/a[contains(@href, 'item={}')]".format(I)
-		elem = row.find_element(By.XPATH, xpath)
-		rel = elem.get_attribute('rel')
-		amount = int(rel) if rel else 1
-		if which not in ALL_ITEMS[I].keys():
-			ALL_ITEMS[I][which] = {}
+		td = row.find_element(By.XPATH, "./td[5]")
+		if check_element_exists_by_css(td, "td div.iconsmall a[href='?item={}'".format(I)):
 
-		ALL_ITEMS[I][which][str(quest_ix)] = amount
+			xpath = "./div/div[@class='iconsmall']/a[contains(@href, 'item={}')]".format(I)
+
+			elem = td.find_element(By.XPATH, xpath)
+			rel = elem.get_attribute('rel')
+			amount = int(rel) if rel else 1
+			if which not in ALL_ITEMS[I].keys():
+				ALL_ITEMS[I][which] = {}
+
+			ALL_ITEMS[I][which][str(quest_ix)] = amount
 
 	else:
 		ALL_ITEMS[I][which] = int(quest_ix)
