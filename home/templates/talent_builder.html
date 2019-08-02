@@ -2,10 +2,10 @@
 <script src="{% static "js/talent.js" %}"></script>
 {% if blueprints %}
 	{% load static %}
-	{% load titlecase from custom_filters %}
+	{% load titlecase sanitize from custom_filters %}
 	{% for tree,bp in blueprints.items %}
-	{% with "images/talent_spells/"|add:selected|add:"/"|add:tree|add:".jpg" as background_image %}
-	<div class="talentTable" id="{{tree}}" style="background-image: url('{% static background_image %}');">
+	{% with "images/talent_spells/"|add:selected|add:"/"|add:tree|sanitize|add:".jpg" as background_image %}
+	<div class="talentTable" id="{{tree|sanitize}}" style="background-image: url('{% static background_image %}');">
 		<div class="treeTitle col">
 	{% endwith %}
 		{% for outer in bp %}
@@ -15,7 +15,7 @@
 				{% with forloop.counter0 as inner_ix %}
 
 				{% if talent %}
-				{% with "images/talent_spells/"|add:selected|add:"/"|add:tree|add:"/" as tree_image_path %}
+				{% with "images/talent_spells/"|add:selected|add:"/"|add:tree|sanitize|add:"/" as tree_image_path %}
 					<div class="talent-slot">
 						<div class="talent-container">
 							<img class="talent {% if outer_ix > 0 %}grayed{% else %}{% endif %} {% if talent.1.locked %}locked{% endif %}" src="{% static "images/icon_border_2.png" %}"
