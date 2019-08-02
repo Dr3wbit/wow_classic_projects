@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
 
 <div class="row saveBlock">
-        <h1 class="saveTitle col-12">SAVE</h1>
+    <h1 class="saveTitle col-12">SAVE</h1>
     <div class="container">
     <form class="saved-list-form" method="post" data-url='{{ request.build_absolute_uri|safe }}'>
         {% csrf_token %}
@@ -12,25 +12,25 @@
             <div class="privateSelect col-12">
                     {{ form.private.errors }}
                     {{ form.private }}
-                    <label for="{{ form.private.id_for_label }}">Private?</label>
+                    <label for="{{ form.private.id_for_label }}">Anonymous?</label>
             </div>
         </div>
 
 
         {% if "talent_calc" in request.path %}
         <div class="fieldWrapper row">
-            <span class="col-3">
+            <span class="col-6">
                 <label id="wow_class_label" class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
                 <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class">
             </span>
-            <span class="col-3">
+            <span class="col-6">
                 <label id="talents_spent" for="id_spent">(0/0/0)</label>
                 <input class="tree-input" id="tree0" type="hidden" value="Arms,10" name="spent">
             </span>
-            <span class="col-3">
+            <span class="d-none">
                 <input class="tree-input" id="tree1" type="hidden" value="Fury,15" name="spent">
             </span>
-            <span class="col-3">
+            <span class="d-none">
                 <input class="tree-input" id="tree2" type="hidden" value="Protection,10" name="spent">
             </span>
         </div>
@@ -61,7 +61,7 @@
             <label class="col-2"for="{{ form.tags.id_for_label }}">Tags:</label>
             <div class="col-10 left-align">
                     {% for checkbox in form.tags %}
-                    <span class="checkbox">{{checkbox}}</span>
+                    <div class="checkbox">{{checkbox}}</div>
                     {% endfor %}
             </div>
         </div>
