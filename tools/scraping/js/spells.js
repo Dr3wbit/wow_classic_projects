@@ -991,6 +991,10 @@
         "i": 15915,
         "n": "Spiced Chili Crab"
     },
+    "15933": {
+        "i": 15933,
+        "n": "Monster Omelet"
+    },
     "15935": {
         "i": 15935,
         "n": "Crispy Bat Wing"
@@ -1071,6 +1075,18 @@
         "i": 16504,
         "n": "zzOLDInitiative"
     },
+    "16639": {
+        "i": 16639,
+        "n": "Dense Grinding Stone"
+    },
+    "16640": {
+        "i": 16640,
+        "n": "Dense Weightstone"
+    },
+    "16641": {
+        "i": 16641,
+        "n": "Dense Sharpening Stone"
+    },
     "16642": {
         "i": 16642,
         "n": "Thorium Armor"
@@ -1086,6 +1102,10 @@
     "16645": {
         "i": 16645,
         "n": "Radiant Belt"
+    },
+    "16646": {
+        "i": 16646,
+        "n": "Imperial Plate Shoulders"
     },
     "16647": {
         "i": 16647,
@@ -1155,6 +1175,10 @@
         "i": 16663,
         "n": "Imperial Plate Chest"
     },
+    "16664": {
+        "i": 16664,
+        "n": "Runic Plate Shoulders"
+    },
     "16665": {
         "i": 16665,
         "n": "Runic Plate Boots"
@@ -1211,6 +1235,10 @@
         "i": 16745,
         "n": "Enchanted Thorium Breastplate"
     },
+    "16746": {
+        "i": 16746,
+        "n": "Invulnerable Mail"
+    },
     "16769": {
         "i": 16769,
         "n": "Improved Arcane Missiles"
@@ -1247,9 +1275,17 @@
         "i": 16967,
         "n": "Inlaid Thorium Hammer"
     },
+    "16969": {
+        "i": 16969,
+        "n": "Ornate Thorium Handaxe"
+    },
     "16970": {
         "i": 16970,
         "n": "Dawn's Edge"
+    },
+    "16971": {
+        "i": 16971,
+        "n": "Huge Thorium Battleaxe"
     },
     "16973": {
         "i": 16973,
@@ -1258,6 +1294,10 @@
     "16978": {
         "i": 16978,
         "n": "Blazing Rapier"
+    },
+    "16983": {
+        "i": 16983,
+        "n": "Serenity"
     },
     "16984": {
         "i": 16984,
@@ -1271,9 +1311,21 @@
         "i": 16986,
         "n": "Blood Talon"
     },
+    "16987": {
+        "i": 16987,
+        "n": "Darkspear"
+    },
     "16988": {
         "i": 16988,
         "n": "Hammer of the Titans"
+    },
+    "16990": {
+        "i": 16990,
+        "n": "Arcanite Champion"
+    },
+    "16991": {
+        "i": 16991,
+        "n": "Annihilator"
     },
     "16992": {
         "i": 16992,
@@ -1282,6 +1334,10 @@
     "16993": {
         "i": 16993,
         "n": "Masterwork Stormhammer"
+    },
+    "16994": {
+        "i": 16994,
+        "n": "Arcanite Reaper"
     },
     "16995": {
         "i": 16995,
@@ -1298,6 +1354,10 @@
     "17180": {
         "i": 17180,
         "n": "Enchanted Thorium"
+    },
+    "17187": {
+        "i": 17187,
+        "n": "Transmute: Arcanite"
     },
     "17527": {
         "i": 17527,
@@ -1947,6 +2007,14 @@
         "i": 19668,
         "n": "Truesilver Skeleton Key"
     },
+    "19669": {
+        "i": 19669,
+        "n": "Arcanite Skeleton Key"
+    },
+    "19788": {
+        "i": 19788,
+        "n": "Dense Blasting Powder"
+    },
     "19790": {
         "i": 19790,
         "n": "Thorium Grenade"
@@ -1979,6 +2047,10 @@
         "i": 19814,
         "n": "Masterwork Target Dummy"
     },
+    "19815": {
+        "i": 19815,
+        "n": "Delicate Arcanite Converter"
+    },
     "19819": {
         "i": 19819,
         "n": "Voice Amplification Modulator"
@@ -2006,6 +2078,10 @@
     "20175": {
         "i": 20175,
         "n": "Guardian's Favor"
+    },
+    "20201": {
+        "i": 20201,
+        "n": "Arcanite Rod"
     },
     "20224": {
         "i": 20224,
@@ -2130,6 +2206,10 @@
     "21161": {
         "i": 21161,
         "n": "Sulfuron Hammer"
+    },
+    "21175": {
+        "i": 21175,
+        "n": "Spider Sausage"
     },
     "21228": {
         "i": 21228,
@@ -2271,6 +2351,10 @@
         "i": 22211,
         "n": "Create Chapter 4 DND"
     },
+    "22480": {
+        "i": 22480,
+        "n": "Tender Wolf Steak"
+    },
     "22704": {
         "i": 22704,
         "n": "Field Repair Bot 74A"
@@ -2294,6 +2378,10 @@
     "22793": {
         "i": 22793,
         "n": "Biznicks 247x128 Accurascope"
+    },
+    "22795": {
+        "i": 22795,
+        "n": "Core Marksman Rifle"
     },
     "22797": {
         "i": 22797,
@@ -2327,6 +2415,10 @@
         "i": 22868,
         "n": "Inferno Gloves"
     },
+    "22870": {
+        "i": 22870,
+        "n": "Cloak of Warding"
+    },
     "22921": {
         "i": 22921,
         "n": "Girdle of Insight"
@@ -2350,6 +2442,10 @@
     "22928": {
         "i": 22928,
         "n": "Shifting Cloak"
+    },
+    "22967": {
+        "i": 22967,
+        "n": "Smelt Elementium"
     },
     "23066": {
         "i": 23066,
@@ -2611,6 +2707,22 @@
         "i": 24137,
         "n": "Bloodsoul Shoulders"
     },
+    "24138": {
+        "i": 24138,
+        "n": "Bloodsoul Gauntlets"
+    },
+    "24139": {
+        "i": 24139,
+        "n": "Darksoul Breastplate"
+    },
+    "24140": {
+        "i": 24140,
+        "n": "Darksoul Leggings"
+    },
+    "24141": {
+        "i": 24141,
+        "n": "Darksoul Shoulders"
+    },
     "24188": {
         "i": 24188,
         "n": "Improved Hammer of Justice"
@@ -2687,6 +2799,10 @@
         "i": 24885,
         "n": "Create Crest of Beckoning: Air"
     },
+    "24887": {
+        "i": 24887,
+        "n": "Create Crest of Beckoning: Earth"
+    },
     "24888": {
         "i": 24888,
         "n": "Create Crest of Beckoning: Water"
@@ -2698,6 +2814,10 @@
     "24890": {
         "i": 24890,
         "n": "Create Signet of Beckoning: Air"
+    },
+    "24891": {
+        "i": 24891,
+        "n": "Create Signet of Beckoning: Earth"
     },
     "24892": {
         "i": 24892,
@@ -2826,6 +2946,10 @@
     "25662": {
         "i": 25662,
         "n": "Copy of Nightfin Soup"
+    },
+    "25664": {
+        "i": 25664,
+        "n": "DIRGE TEST"
     },
     "25704": {
         "i": 25704,
@@ -3083,6 +3207,10 @@
         "i": 27830,
         "n": "Persuader"
     },
+    "27832": {
+        "i": 27832,
+        "n": "Sageblade"
+    },
     "27847": {
         "i": 27847,
         "n": "Cleanse Cost Reduced"
@@ -3170,6 +3298,10 @@
     "28439": {
         "i": 28439,
         "n": "Create Eternal Quintessence"
+    },
+    "28461": {
+        "i": 28461,
+        "n": "Ironvine Breastplate"
     },
     "2881": {
         "i": 2881,
@@ -3963,6 +4095,10 @@
         "i": 6129,
         "n": "Conjure Food"
     },
+    "6310": {
+        "i": 6310,
+        "n": "Divining Scroll Spell"
+    },
     "6366": {
         "i": 6366,
         "n": "Create Firestone (Lesser)"
@@ -4754,5 +4890,37 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
+    },
+    "23708": {
+        "i": 23708,
+        "n": "Chromatic Gauntlets"
+    },
+    "16980": {
+        "i": 16980,
+        "n": "Rune Edge"
+    },
+    "16960": {
+        "i": 16960,
+        "n": "Thorium Greatsword"
+    },
+    "28463": {
+        "i": 28463,
+        "n": "Ironvine Belt"
+    },
+    "28462": {
+        "i": 28462,
+        "n": "Ironvine Gloves"
+    },
+    "22867": {
+        "i": 22867,
+        "n": "Felcloth Gloves"
+    },
+    "18451": {
+        "i": 18451,
+        "n": "Felcloth Robe"
+    },
+    "16781": {
+        "i": 16781,
+        "n": "Combining Charms"
     }
 }

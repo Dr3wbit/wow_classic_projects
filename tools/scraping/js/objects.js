@@ -551,6 +551,10 @@
         "i": 1594,
         "n": "Berard's Bookshelf"
     },
+    "160836": {
+        "i": 160836,
+        "n": "Relic Coffer"
+    },
     "160845": {
         "i": 160845,
         "n": "Dark Coffer"
@@ -735,9 +739,85 @@
         "i": 174728,
         "n": "Damaged Crate"
     },
+    "175165": {
+        "i": 175165,
+        "n": "Silver Dawning's Lockbox"
+    },
+    "175166": {
+        "i": 175166,
+        "n": "Mist Veil's Lockbox"
+    },
+    "175207": {
+        "i": 175207,
+        "n": "Beached Sea Creature"
+    },
+    "175264": {
+        "i": 175264,
+        "n": "Broodling Essence"
+    },
+    "175322": {
+        "i": 175322,
+        "n": "Forged Seal of Ascension"
+    },
+    "175324": {
+        "i": 175324,
+        "n": "Frostmaul Shards"
+    },
+    "175329": {
+        "i": 175329,
+        "n": "Blackwood Nut Stores"
+    },
+    "175330": {
+        "i": 175330,
+        "n": "Blackwood Fruit Stores"
+    },
+    "175331": {
+        "i": 175331,
+        "n": "Blackwood Grain Stores"
+    },
+    "175334": {
+        "i": 175334,
+        "n": "Bijou's Belongings"
+    },
+    "175382": {
+        "i": 175382,
+        "n": "Doomrigger's Coffer"
+    },
+    "175384": {
+        "i": 175384,
+        "n": "Highperch Wyvern Egg"
+    },
+    "175385": {
+        "i": 175385,
+        "n": "Darkstone Tablet"
+    },
     "175404": {
         "i": 175404,
         "n": "Rich Thorium Vein"
+    },
+    "175407": {
+        "i": 175407,
+        "n": "Moontouched Feather"
+    },
+    "175487": {
+        "i": 175487,
+        "n": "Third Mosh'aru Tablet"
+    },
+    "175488": {
+        "i": 175488,
+        "n": "Fourth Mosh'aru Tablet"
+    },
+    "175565": {
+        "i": 175565,
+        "n": "Alien Egg"
+    },
+    "175889": {
+        "i": 175889,
+        "n": "Ancient Egg"
+    },
+    "176189": {
+        "i": 176189,
+        "n": "Skeletal Sea Turtle"
     },
     "176224": {
         "i": 176224,
@@ -814,6 +894,10 @@
     "177388": {
         "i": 177388,
         "n": "Ooze Covered Rich Thorium Vein"
+    },
+    "177624": {
+        "i": 177624,
+        "n": "Xabraxxis' Demon Bag"
     },
     "17783": {
         "i": 17783,
@@ -1831,8 +1915,60 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "160836": {
-        "i": 160836,
-        "n": "Relic Coffer"
+    "175628": {
+        "i": 175628,
+        "n": "Jaron's Supplies"
+    },
+    "175629": {
+        "i": 175629,
+        "n": "Jaron's Supplies"
+    },
+    "175588": {
+        "i": 175588,
+        "n": "Spire Spider Egg"
+    },
+    "175606": {
+        "i": 175606,
+        "n": "Spire Spider Egg"
+    },
+    "175886": {
+        "i": 175886,
+        "n": "Roughshod Pike"
+    },
+    "175785": {
+        "i": 175785,
+        "n": "Inconspicuous Documents"
+    },
+    "175802": {
+        "i": 175802,
+        "n": "Small Lockbox"
+    },
+    "175708": {
+        "i": 175708,
+        "n": "Crossroads' Supply Crates"
+    },
+    "175928": {
+        "i": 175928,
+        "n": "Incendia Agave"
+    },
+    "175966": {
+        "i": 175966,
+        "n": "Enchanted Scarlet Thread"
+    },
+    "175965": {
+        "i": 175965,
+        "n": "Frostwhisper's Embalming Fluid"
+    },
+    "175566": {
+        "i": 175566,
+        "n": "Gloom Weed"
+    },
+    "175949": {
+        "i": 175949,
+        "n": "Fifth Mosh'aru Tablet"
+    },
+    "175950": {
+        "i": 175950,
+        "n": "Sixth Mosh'aru Tablet"
     }
 }
