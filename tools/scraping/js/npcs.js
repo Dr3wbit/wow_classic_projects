@@ -839,6 +839,33 @@
             51
         ]
     },
+    "10263": {
+        "i": 10263,
+        "n": "Burning Felguard",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Demon",
+        "level": [
+            56,
+            57
+        ],
+        "class": "Elite"
+    },
+    "10264": {
+        "i": 10264,
+        "n": "Solakar Flamewreath",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Dragonkin",
+        "level": [
+            60
+        ],
+        "class": "Elite"
+    },
     "10268": {
         "i": 10268,
         "n": "Gizrul the Slavener",
@@ -1214,6 +1241,19 @@
         "zone": [
             16
         ]
+    },
+    "10363": {
+        "i": 10363,
+        "n": "General Drakkisath",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Dragonkin",
+        "level": [
+            0
+        ],
+        "class": "Boss"
     },
     "10364": {
         "class": "",
@@ -2041,6 +2081,19 @@
             400
         ]
     },
+    "10429": {
+        "i": 10429,
+        "n": "Warchief Rend Blackhand",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss"
+    },
     "1043": {
         "i": 1043,
         "n": "Lost Whelp",
@@ -2056,6 +2109,51 @@
         "class": "",
         "zone": [
             11
+        ]
+    },
+    "10430": {
+        "i": 10430,
+        "n": "The Beast",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            0
+        ],
+        "class": "Boss"
+    },
+    "10432": {
+        "i": 10432,
+        "n": "Vectus",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
+        ]
+    },
+    "10433": {
+        "i": 10433,
+        "n": "Marduk Blackpool",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Undead",
+        "level": [
+            58
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
         ]
     },
     "10435": {
@@ -2074,6 +2172,23 @@
             2017
         ]
     },
+    "10436": {
+        "i": 10436,
+        "n": "Baroness Anastari",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            58,
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2017
+        ]
+    },
     "10437": {
         "class": "Elite",
         "i": 10437,
@@ -2086,6 +2201,22 @@
             -1
         ],
         "type": "Undead",
+        "zone": [
+            2017
+        ]
+    },
+    "10438": {
+        "i": 10438,
+        "n": "Maleki the Pallid",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            61
+        ],
+        "class": "Rare Elite",
         "zone": [
             2017
         ]
@@ -2119,6 +2250,23 @@
         "type": "Dragonkin",
         "zone": [
             11
+        ]
+    },
+    "10440": {
+        "i": 10440,
+        "n": "Baron Rivendare",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            61,
+            62
+        ],
+        "class": "Rare Elite",
+        "zone": [
+            2017
         ]
     },
     "10442": {
@@ -2383,6 +2531,23 @@
             11
         ]
     },
+    "10485": {
+        "i": 10485,
+        "n": "Risen Aberration",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57,
+            58
+        ],
+        "class": "",
+        "zone": [
+            2057
+        ]
+    },
     "10486": {
         "class": "Elite",
         "i": 10486,
@@ -2532,6 +2697,23 @@
             2057
         ]
     },
+    "10499": {
+        "i": 10499,
+        "n": "Spectral Researcher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            58,
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
+        ]
+    },
     "1050": {
         "i": 1050,
         "n": "Scalebane Royal Guard",
@@ -2566,6 +2748,22 @@
             2057
         ]
     },
+    "10502": {
+        "i": 10502,
+        "n": "Lady Illucia Barov",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
+        ]
+    },
     "10503": {
         "i": 10503,
         "n": "Jandice Barov",
@@ -2576,6 +2774,23 @@
         "type": "Undead",
         "level": [
             61
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
+        ]
+    },
+    "10504": {
+        "i": 10504,
+        "n": "Lord Alexei Barov",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            59,
+            60
         ],
         "class": "Elite",
         "zone": [
@@ -2613,6 +2828,36 @@
         "zone": [
             2057
         ]
+    },
+    "10508": {
+        "i": 10508,
+        "n": "Ras Frostwhisper",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            61,
+            62
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
+        ]
+    },
+    "10509": {
+        "i": 10509,
+        "n": "Jed Runewatcher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            59
+        ],
+        "class": "Elite"
     },
     "1051": {
         "class": "Elite",
@@ -2683,6 +2928,22 @@
             11
         ]
     },
+    "10558": {
+        "i": 10558,
+        "n": "Hearthsinger Forresten",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Undead",
+        "level": [
+            57
+        ],
+        "class": "Elite",
+        "zone": [
+            2017
+        ]
+    },
     "10559": {
         "class": "Rare Elite",
         "i": 10559,
@@ -2732,6 +2993,19 @@
             36,
             47
         ]
+    },
+    "10584": {
+        "i": 10584,
+        "n": "Urok Doomhowl",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss"
     },
     "1059": {
         "i": 1059,
@@ -3632,6 +3906,22 @@
             618
         ]
     },
+    "10809": {
+        "i": 10809,
+        "n": "Stonespine",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2017
+        ]
+    },
     "1081": {
         "class": "",
         "i": 1081,
@@ -3646,6 +3936,22 @@
         "type": "Elemental",
         "zone": [
             41
+        ]
+    },
+    "10811": {
+        "i": 10811,
+        "n": "Archivist Galford",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2017
         ]
     },
     "10813": {
@@ -3675,6 +3981,22 @@
             -1
         ],
         "type": "Dragonkin"
+    },
+    "10816": {
+        "i": 10816,
+        "n": "Wandering Skeleton",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            55
+        ],
+        "class": "",
+        "zone": [
+            28
+        ]
     },
     "10817": {
         "i": 10817,
@@ -3855,6 +4177,19 @@
             44
         ]
     },
+    "10836": {
+        "i": 10836,
+        "n": "Farmer Dalson",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            56
+        ],
+        "class": ""
+    },
     "1084": {
         "class": "",
         "i": 1084,
@@ -3924,6 +4259,19 @@
             8
         ]
     },
+    "10882": {
+        "i": 10882,
+        "n": "Arikara",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Beast",
+        "level": [
+            28
+        ],
+        "class": "Elite"
+    },
     "10896": {
         "i": 10896,
         "n": "Arnak Grimtotem",
@@ -3939,6 +4287,19 @@
         "zone": [
             400
         ]
+    },
+    "10899": {
+        "i": 10899,
+        "n": "Goraluk Anvilcrack",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            61
+        ],
+        "class": "Rare Elite"
     },
     "10901": {
         "i": 10901,
@@ -4082,6 +4443,20 @@
             400
         ]
     },
+    "10943": {
+        "i": 10943,
+        "n": "Decrepit Guardian",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            55,
+            56
+        ],
+        "class": "Elite"
+    },
     "10946": {
         "i": 10946,
         "n": "Horgus the Ravager",
@@ -4193,6 +4568,23 @@
         "level": [
             52,
             53
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
+    "10983": {
+        "i": 10983,
+        "n": "Winterax Troll",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            57,
+            58
         ],
         "class": "Elite",
         "zone": [
@@ -4409,6 +4801,22 @@
         "class": "",
         "zone": [
             33
+        ]
+    },
+    "11082": {
+        "i": 11082,
+        "n": "Stratholme Courier",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57
+        ],
+        "class": "Elite",
+        "zone": [
+            2017
         ]
     },
     "1109": {
@@ -4968,6 +5376,22 @@
             1
         ]
     },
+    "11261": {
+        "i": 11261,
+        "n": "Doctor Theolen Krastinov",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
+        ]
+    },
     "11262": {
         "i": 11262,
         "n": "Onyxian Whelp",
@@ -5331,6 +5755,22 @@
             1
         ]
     },
+    "11340": {
+        "i": 11340,
+        "n": "Hakkari Blood Priest",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            1977
+        ]
+    },
     "11346": {
         "i": 11346,
         "n": "Hakkari Oracle",
@@ -5627,6 +6067,38 @@
             1
         ]
     },
+    "11380": {
+        "i": 11380,
+        "n": "Jin'do the Hexxer",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss",
+        "zone": [
+            1977
+        ]
+    },
+    "11382": {
+        "i": 11382,
+        "n": "Bloodlord Mandokir",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss",
+        "zone": [
+            1977
+        ]
+    },
     "11383": {
         "i": 11383,
         "n": "High Priestess Hai'watna",
@@ -5895,6 +6367,23 @@
             2557
         ]
     },
+    "11452": {
+        "i": 11452,
+        "n": "Wildspawn Rogue",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Demon",
+        "level": [
+            56,
+            57
+        ],
+        "class": "Elite",
+        "zone": [
+            2557
+        ]
+    },
     "11453": {
         "i": 11453,
         "n": "Wildspawn Trickster",
@@ -6146,6 +6635,40 @@
             33
         ]
     },
+    "11470": {
+        "i": 11470,
+        "n": "Eldreth Sorcerer",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            58,
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2557
+        ]
+    },
+    "11471": {
+        "i": 11471,
+        "n": "Eldreth Apparition",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            56,
+            58
+        ],
+        "class": "Elite",
+        "zone": [
+            2557
+        ]
+    },
     "11472": {
         "i": 11472,
         "n": "Eldreth Spirit",
@@ -6157,6 +6680,40 @@
         "level": [
             57,
             58
+        ],
+        "class": "Elite",
+        "zone": [
+            2557
+        ]
+    },
+    "11473": {
+        "i": 11473,
+        "n": "Eldreth Spectre",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            56,
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2557
+        ]
+    },
+    "11475": {
+        "i": 11475,
+        "n": "Eldreth Phantasm",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57,
+            59
         ],
         "class": "Elite",
         "zone": [
@@ -6611,6 +7168,23 @@
             11
         ]
     },
+    "11582": {
+        "i": 11582,
+        "n": "Scholomance Dark Summoner",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            58,
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
+        ]
+    },
     "11583": {
         "i": 11583,
         "n": "Nefarian",
@@ -6639,6 +7213,20 @@
         "zone": [
             11
         ]
+    },
+    "11598": {
+        "i": 11598,
+        "n": "Risen Guardian",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            59,
+            61
+        ],
+        "class": ""
     },
     "116": {
         "class": "",
@@ -6856,6 +7444,22 @@
         "class": "",
         "zone": [
             38
+        ]
+    },
+    "11622": {
+        "i": 11622,
+        "n": "Rattlegore",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
         ]
     },
     "1163": {
@@ -7587,6 +8191,23 @@
             1377
         ]
     },
+    "11728": {
+        "i": 11728,
+        "n": "Hive'Zora Reaver",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Uncategorized",
+        "level": [
+            59,
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            1377
+        ]
+    },
     "1173": {
         "class": "",
         "i": 1173,
@@ -7602,6 +8223,24 @@
         "type": "Humanoid",
         "zone": [
             38
+        ]
+    },
+    "11730": {
+        "i": 11730,
+        "n": "Hive'Regal Ambusher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Uncategorized",
+        "level": [
+            59,
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            490,
+            1377
         ]
     },
     "11734": {
@@ -8396,6 +9035,22 @@
             1637
         ]
     },
+    "11873": {
+        "i": 11873,
+        "n": "Spectral Attendant",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "",
+        "zone": [
+            36
+        ]
+    },
     "11874": {
         "i": 11874,
         "n": "Masat T'andr",
@@ -8491,6 +9146,22 @@
         "class": "",
         "zone": [
             38
+        ]
+    },
+    "11896": {
+        "i": 11896,
+        "n": "Borelgore",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            139
         ]
     },
     "11897": {
@@ -9458,6 +10129,19 @@
         ],
         "type": "Beast"
     },
+    "12128": {
+        "i": 12128,
+        "n": "Crimson Elite",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            60
+        ],
+        "class": "Rare Elite"
+    },
     "12129": {
         "i": 12129,
         "n": "Onyxian Warder",
@@ -9565,6 +10249,19 @@
         "zone": [
             2597
         ]
+    },
+    "12158": {
+        "i": 12158,
+        "n": "Winterax Hunter",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            59
+        ],
+        "class": "Elite"
     },
     "1216": {
         "class": "",
@@ -10035,6 +10732,22 @@
             139
         ]
     },
+    "12337": {
+        "i": 12337,
+        "n": "Crimson Courier",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            139
+        ]
+    },
     "12339": {
         "i": 12339,
         "n": "Demetria",
@@ -10248,6 +10961,23 @@
         "type": "Humanoid",
         "level": [
             55
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
+    "12387": {
+        "i": 12387,
+        "n": "Large Vile Slime",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Uncategorized",
+        "level": [
+            56,
+            57
         ],
         "class": "",
         "zone": [
@@ -10644,6 +11374,22 @@
         "type": "Dragonkin",
         "level": [
             60
+        ],
+        "class": "Elite",
+        "zone": [
+            331
+        ]
+    },
+    "12476": {
+        "i": 12476,
+        "n": "Emeraldon Oracle",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Dragonkin",
+        "level": [
+            61
         ],
         "class": "Elite",
         "zone": [
@@ -11135,6 +11881,22 @@
         "class": "",
         "zone": [
             38
+        ]
+    },
+    "12784": {
+        "i": 12784,
+        "n": "Lieutenant Jackspring",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            55
+        ],
+        "class": "",
+        "zone": [
+            2918
         ]
     },
     "12794": {
@@ -12027,6 +12789,22 @@
         ],
         "class": "Elite"
     },
+    "13088": {
+        "i": 13088,
+        "n": "Masha Swiftcut",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            58
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
     "13089": {
         "i": 13089,
         "n": "Coldmine Guard",
@@ -12182,6 +12960,22 @@
         ],
         "class": ""
     },
+    "13138": {
+        "i": 13138,
+        "n": "Lieutenant Spencer",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
     "1314": {
         "i": 1314,
         "n": "Duncan Cullen",
@@ -12196,6 +12990,22 @@
         "class": "",
         "zone": [
             1519
+        ]
+    },
+    "13140": {
+        "i": 13140,
+        "n": "Commander Dardosh",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
         ]
     },
     "13141": {
@@ -12235,6 +13045,54 @@
     "13143": {
         "i": 13143,
         "n": "Lieutenant Stronghoof",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
+    "13144": {
+        "i": 13144,
+        "n": "Lieutenant Vol'talar",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
+    "13145": {
+        "i": 13145,
+        "n": "Lieutenant Grummus",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Undead",
+        "level": [
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
+    "13147": {
+        "i": 13147,
+        "n": "Lieutenant Lewis",
         "react": [
             -1,
             1
@@ -12289,6 +13147,38 @@
             57
         ],
         "class": "Elite"
+    },
+    "13152": {
+        "i": 13152,
+        "n": "Commander Malgor",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
+    "13153": {
+        "i": 13153,
+        "n": "Commander Mulfort",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
     },
     "13155": {
         "i": 13155,
@@ -12653,6 +13543,22 @@
             2100
         ]
     },
+    "13284": {
+        "i": 13284,
+        "n": "Frostwolf Shaman",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            58
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
     "13285": {
         "class": "Elite",
         "i": 13285,
@@ -12668,6 +13574,22 @@
         "type": "Elemental",
         "zone": [
             2557
+        ]
+    },
+    "13297": {
+        "i": 13297,
+        "n": "Lieutenant Stouthandle",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            59
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
         ]
     },
     "1330": {
@@ -12713,6 +13635,22 @@
         "type": "Humanoid",
         "level": [
             58
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
+    "13320": {
+        "i": 13320,
+        "n": "Commander Karl Philips",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            61
         ],
         "class": "Elite",
         "zone": [
@@ -13083,6 +14021,23 @@
             60
         ],
         "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
+    "13448": {
+        "i": 13448,
+        "n": "Sergeant Yazra Bloodsnarl",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            56,
+            57
+        ],
+        "class": "",
         "zone": [
             2597
         ]
@@ -13548,6 +14503,22 @@
             2597
         ]
     },
+    "13577": {
+        "i": 13577,
+        "n": "Stormpike Ram Rider Commander",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
     "13596": {
         "class": "Elite",
         "i": 13596,
@@ -13774,6 +14745,40 @@
         "class": "",
         "zone": [
             36
+        ]
+    },
+    "13797": {
+        "i": 13797,
+        "n": "Mountaineer Boombellow",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Humanoid",
+        "level": [
+            60,
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
+        ]
+    },
+    "13798": {
+        "i": 13798,
+        "n": "Jotek",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            60,
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            2597
         ]
     },
     "1380": {
@@ -14016,6 +15021,22 @@
             11
         ]
     },
+    "14020": {
+        "i": 14020,
+        "n": "Chromaggus",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Dragonkin",
+        "level": [
+            0
+        ],
+        "class": "Boss",
+        "zone": [
+            2677
+        ]
+    },
     "1407": {
         "i": 1407,
         "n": "Sranda",
@@ -14098,6 +15119,22 @@
         "zone": [
             11,
             45
+        ]
+    },
+    "14187": {
+        "i": 14187,
+        "n": "Athramanis",
+        "react": [
+            1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            60
+        ],
+        "class": "",
+        "zone": [
+            2597
         ]
     },
     "1421": {
@@ -15603,6 +16640,109 @@
             11
         ]
     },
+    "14502": {
+        "i": 14502,
+        "n": "Xorothian Dreadsteed",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Demon",
+        "level": [
+            62
+        ],
+        "class": "Rare Elite"
+    },
+    "14507": {
+        "i": 14507,
+        "n": "High Priest Venoxis",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss",
+        "zone": [
+            1977
+        ]
+    },
+    "14509": {
+        "i": 14509,
+        "n": "High Priest Thekal",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss",
+        "zone": [
+            1977
+        ]
+    },
+    "14510": {
+        "i": 14510,
+        "n": "High Priestess Mar'li",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss",
+        "zone": [
+            1977
+        ]
+    },
+    "14515": {
+        "i": 14515,
+        "n": "High Priestess Arlokk",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "undefined",
+        "level": [
+            0
+        ],
+        "class": "Boss"
+    },
+    "14517": {
+        "i": 14517,
+        "n": "High Priestess Jeklik",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss",
+        "zone": [
+            1977
+        ]
+    },
+    "14518": {
+        "i": 14518,
+        "n": "Aspect of Banality",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite"
+    },
     "14519": {
         "i": 14519,
         "n": "Aspect of Corruption",
@@ -15952,6 +17092,19 @@
             38
         ]
     },
+    "14684": {
+        "i": 14684,
+        "n": "Balzaphon",
+        "react": [
+            1,
+            1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite"
+    },
     "1469": {
         "i": 1469,
         "n": "Vrok Blunderblast",
@@ -15967,6 +17120,32 @@
         "zone": [
             38
         ]
+    },
+    "14695": {
+        "i": 14695,
+        "n": "Lord Blackwood",
+        "react": [
+            1,
+            1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite"
+    },
+    "14697": {
+        "i": 14697,
+        "n": "Lumbering Horror",
+        "react": [
+            1,
+            1
+        ],
+        "type": "Undead",
+        "level": [
+            1
+        ],
+        "class": ""
     },
     "1471": {
         "i": 1471,
@@ -16112,6 +17291,22 @@
             1977
         ]
     },
+    "14825": {
+        "i": 14825,
+        "n": "Withered Mistress",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            1977
+        ]
+    },
     "1483": {
         "i": 1483,
         "n": "Murphy West",
@@ -16126,6 +17321,22 @@
         "class": "",
         "zone": [
             11
+        ]
+    },
+    "14834": {
+        "i": 14834,
+        "n": "Hakkar",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Uncategorized",
+        "level": [
+            0
+        ],
+        "class": "Boss",
+        "zone": [
+            1977
         ]
     },
     "14846": {
@@ -16177,6 +17388,22 @@
         "zone": [
             40,
             405
+        ]
+    },
+    "14861": {
+        "i": 14861,
+        "n": "Blood Steward of Kirtonos",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Demon",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
         ]
     },
     "14864": {
@@ -16810,6 +18037,22 @@
             42
         ],
         "class": "Elite"
+    },
+    "15111": {
+        "i": 15111,
+        "n": "Mad Servant",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Demon",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            1977
+        ]
     },
     "15114": {
         "i": 15114,
@@ -17541,6 +18784,22 @@
             1637
         ]
     },
+    "15355": {
+        "i": 15355,
+        "n": "Anubisath Guardian",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Uncategorized",
+        "level": [
+            62
+        ],
+        "class": "Elite",
+        "zone": [
+            3453
+        ]
+    },
     "1536": {
         "class": "",
         "i": 1536,
@@ -17753,6 +19012,22 @@
         "type": "Humanoid",
         "zone": [
             85
+        ]
+    },
+    "15461": {
+        "i": 15461,
+        "n": "Shrieker Scarab",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Uncategorized",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            3453
         ]
     },
     "1547": {
@@ -18557,6 +19832,22 @@
             618
         ]
     },
+    "16022": {
+        "i": 16022,
+        "n": "Surgical Assistant",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            3456
+        ]
+    },
     "16067": {
         "i": 16067,
         "n": "Deathcharger Steed",
@@ -18618,9 +19909,67 @@
             139
         ]
     },
+    "16165": {
+        "i": 16165,
+        "n": "Necro Knight",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            61
+        ],
+        "class": "Elite",
+        "zone": [
+            3456
+        ]
+    },
+    "16184": {
+        "i": 16184,
+        "n": "Nerubian Overseer",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
+    "16194": {
+        "i": 16194,
+        "n": "Unholy Axe",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            61
+        ],
+        "class": "Rare Elite"
+    },
     "16215": {
         "i": 16215,
         "n": "Unholy Staff",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            61
+        ],
+        "class": "Rare Elite"
+    },
+    "16216": {
+        "i": 16216,
+        "n": "Unholy Swords",
         "react": [
             -1,
             -1
@@ -18677,6 +20026,22 @@
         "class": "",
         "zone": [
             12
+        ]
+    },
+    "16447": {
+        "i": 16447,
+        "n": "Plagued Ghoul",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            61
+        ],
+        "class": "Rare Elite",
+        "zone": [
+            3456
         ]
     },
     "16448": {
@@ -44223,6 +45588,23 @@
             17
         ]
     },
+    "4364": {
+        "i": 4364,
+        "n": "Strashaz Warrior",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            59,
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            17
+        ]
+    },
     "4366": {
         "i": 4366,
         "n": "Strashaz Serpent Guard",
@@ -51814,6 +53196,22 @@
         "type": "Dragonkin",
         "level": [
             60
+        ],
+        "class": "Elite",
+        "zone": [
+            357
+        ]
+    },
+    "5320": {
+        "i": 5320,
+        "n": "Jademir Boughguard",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Dragonkin",
+        "level": [
+            62
         ],
         "class": "Elite",
         "zone": [
@@ -68452,6 +69850,23 @@
             139
         ]
     },
+    "8527": {
+        "i": 8527,
+        "n": "Scourge Guard",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57,
+            58
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
     "8528": {
         "i": 8528,
         "n": "Dread Weaver",
@@ -68554,6 +69969,23 @@
             139
         ]
     },
+    "8538": {
+        "i": 8538,
+        "n": "Unseen Servant",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            55,
+            56
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
     "854": {
         "i": 854,
         "n": "Young Jungle Stalker",
@@ -68569,6 +70001,57 @@
         "class": "",
         "zone": [
             33
+        ]
+    },
+    "8540": {
+        "i": 8540,
+        "n": "Torn Screamer",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            53,
+            55
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
+    "8541": {
+        "i": 8541,
+        "n": "Hate Shrieker",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            55,
+            57
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
+    "8543": {
+        "i": 8543,
+        "n": "Stitched Horror",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57,
+            58
+        ],
+        "class": "",
+        "zone": [
+            139
         ]
     },
     "8546": {
@@ -68598,6 +70081,23 @@
         "level": [
             53,
             54
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
+    "8548": {
+        "i": 8548,
+        "n": "Vile Tutor",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            56,
+            57
         ],
         "class": "",
         "zone": [
@@ -69356,6 +70856,22 @@
         "type": "Demon",
         "level": [
             62
+        ],
+        "class": "Elite",
+        "zone": [
+            33
+        ]
+    },
+    "8717": {
+        "i": 8717,
+        "n": "Felguard Elite",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Demon",
+        "level": [
+            63
         ],
         "class": "Elite",
         "zone": [
@@ -71576,6 +73092,19 @@
         ],
         "class": "Elite"
     },
+    "9219": {
+        "i": 9219,
+        "n": "Spirestone Butcher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            57
+        ],
+        "class": "Elite"
+    },
     "922": {
         "i": 922,
         "n": "Silt Crawler",
@@ -73465,6 +74994,19 @@
         ],
         "type": "Humanoid"
     },
+    "9736": {
+        "i": 9736,
+        "n": "Quartermaster Zigris",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            0
+        ],
+        "class": "Boss"
+    },
     "976": {
         "i": 976,
         "n": "Kurzen War Tiger",
@@ -73581,6 +75123,19 @@
         "zone": [
             41
         ]
+    },
+    "9816": {
+        "i": 9816,
+        "n": "Pyroguard Emberseer",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Elemental",
+        "level": [
+            0
+        ],
+        "class": "Boss"
     },
     "9817": {
         "class": "Elite",
@@ -73851,263 +75406,68 @@
             1584
         ]
     },
-    "10429": {
-        "i": 10429,
-        "n": "Warchief Rend Blackhand",
+    "15391": {
+        "i": 15391,
+        "n": "Captain Qeez",
         "react": [
             -1,
             -1
         ],
-        "type": "Humanoid",
-        "level": [
-            0
-        ],
-        "class": "Boss"
-    },
-    "12784": {
-        "i": 12784,
-        "n": "Lieutenant Jackspring",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            55
-        ],
-        "class": "",
-        "zone": [
-            2918
-        ]
-    },
-    "10264": {
-        "i": 10264,
-        "n": "Solakar Flamewreath",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Dragonkin",
-        "level": [
-            60
-        ],
-        "class": "Elite"
-    },
-    "10363": {
-        "i": 10363,
-        "n": "General Drakkisath",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Dragonkin",
-        "level": [
-            0
-        ],
-        "class": "Boss"
-    },
-    "10509": {
-        "i": 10509,
-        "n": "Jed Runewatcher",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            59
-        ],
-        "class": "Elite"
-    },
-    "14020": {
-        "i": 14020,
-        "n": "Chromaggus",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Dragonkin",
-        "level": [
-            0
-        ],
-        "class": "Boss",
-        "zone": [
-            2677
-        ]
-    },
-    "9219": {
-        "i": 9219,
-        "n": "Spirestone Butcher",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            57
-        ],
-        "class": "Elite"
-    },
-    "14502": {
-        "i": 14502,
-        "n": "Xorothian Dreadsteed",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Demon",
+        "type": "undefined",
         "level": [
             62
         ],
         "class": "Rare Elite"
     },
-    "8717": {
-        "i": 8717,
-        "n": "Felguard Elite",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Demon",
-        "level": [
-            63
-        ],
-        "class": "Elite",
-        "zone": [
-            33
-        ]
-    },
-    "15111": {
-        "i": 15111,
-        "n": "Mad Servant",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Demon",
-        "level": [
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            1977
-        ]
-    },
-    "11452": {
-        "i": 11452,
-        "n": "Wildspawn Rogue",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Demon",
-        "level": [
-            56,
-            57
-        ],
-        "class": "Elite",
-        "zone": [
-            2557
-        ]
-    },
-    "10263": {
-        "i": 10263,
-        "n": "Burning Felguard",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Demon",
-        "level": [
-            56,
-            57
-        ],
-        "class": "Elite"
-    },
-    "13147": {
-        "i": 13147,
-        "n": "Lieutenant Lewis",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            59
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "13138": {
-        "i": 13138,
-        "n": "Lieutenant Spencer",
+    "10618": {
+        "i": 10618,
+        "n": "Rivern Frostwind",
         "react": [
             1,
             -1
         ],
         "type": "Humanoid",
         "level": [
-            59
+            62
         ],
-        "class": "Elite",
+        "class": "",
         "zone": [
-            2597
+            618
         ]
     },
-    "12387": {
-        "i": 12387,
-        "n": "Large Vile Slime",
+    "8529": {
+        "i": 8529,
+        "n": "Scourge Champion",
         "react": [
             -1,
             -1
         ],
-        "type": "Uncategorized",
+        "type": "Undead",
         "level": [
-            56,
-            57
+            59,
+            60
         ],
         "class": "",
         "zone": [
             139
         ]
     },
-    "11730": {
-        "i": 11730,
-        "n": "Hive'Regal Ambusher",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Uncategorized",
-        "level": [
-            59,
-            60
-        ],
-        "class": "Elite",
-        "zone": [
-            490,
-            1377
-        ]
-    },
-    "10943": {
-        "i": 10943,
-        "n": "Decrepit Guardian",
+    "11058": {
+        "i": 11058,
+        "n": "Fras Siabi",
         "react": [
             -1,
             -1
         ],
         "type": "Undead",
         "level": [
-            55,
-            56
+            61
         ],
         "class": "Elite"
     },
-    "11873": {
-        "i": 11873,
-        "n": "Spectral Attendant",
+    "11143": {
+        "i": 11143,
+        "n": "Postmaster Malown",
         "react": [
             -1,
             -1
@@ -74116,504 +75476,115 @@
         "level": [
             60
         ],
-        "class": "",
-        "zone": [
-            36
-        ]
+        "class": "Elite"
     },
-    "13284": {
-        "i": 13284,
-        "n": "Frostwolf Shaman",
+    "10808": {
+        "i": 10808,
+        "n": "Timmy the Cruel",
         "react": [
             -1,
-            1
+            -1
         ],
-        "type": "Humanoid",
+        "type": "Undead",
+        "level": [
+            57,
+            58
+        ],
+        "class": "Elite"
+    },
+    "10516": {
+        "i": 10516,
+        "n": "The Unforgiven",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Undead",
+        "level": [
+            56,
+            57
+        ],
+        "class": "Elite"
+    },
+    "11075": {
+        "i": 11075,
+        "n": "Cauldron Lord Bilemaw",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            53
+        ],
+        "class": ""
+    },
+    "11077": {
+        "i": 11077,
+        "n": "Cauldron Lord Malvinious",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            55
+        ],
+        "class": ""
+    },
+    "11078": {
+        "i": 11078,
+        "n": "Cauldron Lord Soulwrath",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
         "level": [
             58
         ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
+        "class": ""
     },
-    "13144": {
-        "i": 13144,
-        "n": "Lieutenant Vol'talar",
+    "11076": {
+        "i": 11076,
+        "n": "Cauldron Lord Razarch",
         "react": [
             -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            59
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "13297": {
-        "i": 13297,
-        "n": "Lieutenant Stouthandle",
-        "react": [
-            1,
             -1
         ],
-        "type": "Humanoid",
+        "type": "Undead",
         "level": [
-            59
+            56
         ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
+        "class": ""
     },
-    "13797": {
-        "i": 13797,
-        "n": "Mountaineer Boombellow",
+    "9718": {
+        "i": 9718,
+        "n": "Ghok Bashguud",
         "react": [
             0,
             0
         ],
         "type": "Humanoid",
         "level": [
-            60,
-            61
+            59
         ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
+        "class": "Elite"
     },
-    "13088": {
-        "i": 13088,
-        "n": "Masha Swiftcut",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            58
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "16447": {
-        "i": 16447,
-        "n": "Plagued Ghoul",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Undead",
-        "level": [
-            61
-        ],
-        "class": "Rare Elite",
-        "zone": [
-            3456
-        ]
-    },
-    "13577": {
-        "i": 13577,
-        "n": "Stormpike Ram Rider Commander",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            60
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "11728": {
-        "i": 11728,
-        "n": "Hive'Zora Reaver",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Uncategorized",
-        "level": [
-            59,
-            60
-        ],
-        "class": "Elite",
-        "zone": [
-            1377
-        ]
-    },
-    "16022": {
-        "i": 16022,
-        "n": "Surgical Assistant",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Undead",
-        "level": [
-            60
-        ],
-        "class": "Elite",
-        "zone": [
-            3456
-        ]
-    },
-    "10983": {
-        "i": 10983,
-        "n": "Winterax Troll",
+    "9517": {
+        "i": 9517,
+        "n": "Shadow Lord Fel'dan",
         "react": [
             -1,
             -1
         ],
         "type": "Humanoid",
         "level": [
-            57,
-            58
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "14187": {
-        "i": 14187,
-        "n": "Athramanis",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            60
-        ],
-        "class": "",
-        "zone": [
-            2597
-        ]
-    },
-    "13448": {
-        "i": 13448,
-        "n": "Sergeant Yazra Bloodsnarl",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            56,
             57
         ],
         "class": "",
         "zone": [
-            2597
+            618
         ]
-    },
-    "13153": {
-        "i": 13153,
-        "n": "Commander Mulfort",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "11896": {
-        "i": 11896,
-        "n": "Borelgore",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Beast",
-        "level": [
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            139
-        ]
-    },
-    "12158": {
-        "i": 12158,
-        "n": "Winterax Hunter",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            59
-        ],
-        "class": "Elite"
-    },
-    "13798": {
-        "i": 13798,
-        "n": "Jotek",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            60,
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "5320": {
-        "i": 5320,
-        "n": "Jademir Boughguard",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Dragonkin",
-        "level": [
-            62
-        ],
-        "class": "Elite",
-        "zone": [
-            357
-        ]
-    },
-    "15461": {
-        "i": 15461,
-        "n": "Shrieker Scarab",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Uncategorized",
-        "level": [
-            60
-        ],
-        "class": "Elite",
-        "zone": [
-            3453
-        ]
-    },
-    "11598": {
-        "i": 11598,
-        "n": "Risen Guardian",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Undead",
-        "level": [
-            59,
-            61
-        ],
-        "class": ""
-    },
-    "14518": {
-        "i": 14518,
-        "n": "Aspect of Banality",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Undead",
-        "level": [
-            60
-        ],
-        "class": "Elite"
-    },
-    "13145": {
-        "i": 13145,
-        "n": "Lieutenant Grummus",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Undead",
-        "level": [
-            59
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "10430": {
-        "i": 10430,
-        "n": "The Beast",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Beast",
-        "level": [
-            0
-        ],
-        "class": "Boss"
-    },
-    "10584": {
-        "i": 10584,
-        "n": "Urok Doomhowl",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            0
-        ],
-        "class": "Boss"
-    },
-    "12476": {
-        "i": 12476,
-        "n": "Emeraldon Oracle",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Dragonkin",
-        "level": [
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            331
-        ]
-    },
-    "13140": {
-        "i": 13140,
-        "n": "Commander Dardosh",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "13152": {
-        "i": 13152,
-        "n": "Commander Malgor",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "16194": {
-        "i": 16194,
-        "n": "Unholy Axe",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Undead",
-        "level": [
-            61
-        ],
-        "class": "Rare Elite"
-    },
-    "4364": {
-        "i": 4364,
-        "n": "Strashaz Warrior",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            59,
-            60
-        ],
-        "class": "Elite",
-        "zone": [
-            17
-        ]
-    },
-    "13320": {
-        "i": 13320,
-        "n": "Commander Karl Philips",
-        "react": [
-            1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            61
-        ],
-        "class": "Elite",
-        "zone": [
-            2597
-        ]
-    },
-    "10899": {
-        "i": 10899,
-        "n": "Goraluk Anvilcrack",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Humanoid",
-        "level": [
-            61
-        ],
-        "class": "Rare Elite"
-    },
-    "10816": {
-        "i": 10816,
-        "n": "Wandering Skeleton",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Undead",
-        "level": [
-            55
-        ],
-        "class": "",
-        "zone": [
-            28
-        ]
-    },
-    "10836": {
-        "i": 10836,
-        "n": "Farmer Dalson",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Undead",
-        "level": [
-            56
-        ],
-        "class": ""
     }
 }

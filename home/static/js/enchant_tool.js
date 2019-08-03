@@ -1,5 +1,5 @@
 
-
+var allEnchants = enchants;
 let materialArray = [];
 
 $(document).ready(initializeApp)
@@ -50,11 +50,11 @@ function radioOption() {
 
 function findSlot(selection, filter) {
     const slot = selection.attr("id")
-    const dataObject = enchants[slot]
+    const dataObject = allEnchants[slot]
     let dataKeys = []
 
     if (filter === "end_game"){
-        dataKeys = Object.keys(enchants[slot])
+        dataKeys = Object.keys(allEnchants[slot])
         let filteredKeys = []
         dataKeys.forEach(key => {
             if(dataObject[key].end_game){
@@ -63,7 +63,7 @@ function findSlot(selection, filter) {
         })
         dataKeys = filteredKeys
     }else{
-        dataKeys = Object.keys(enchants[slot])
+        dataKeys = Object.keys(allEnchants[slot])
     }
     const enchantData = getenchantData(dataObject, dataKeys, slot)
     $('.enchantHolder').append($('<div/>', {
@@ -79,6 +79,7 @@ function getenchantData(dataObject, dataKeys, slot) {
     for (let i = 0; i < dataKeys.length; i++) {
         slotEnchants = $('<div/>', {
             class: 'enchantOption',
+            name: dataKeys[i],
             text: utilities.titleCase(dataKeys[i]) + " : " + dataObject[dataKeys[i]].effect,
         }).on({
             click: e => {
@@ -126,7 +127,7 @@ function getenchantData(dataObject, dataKeys, slot) {
 function removeEnchant(enchant, slot) {
     let materialsToDelete = []
 
-    const enchantMaterialsToRemove = enchants[slot][enchant].materials
+    const enchantMaterialsToRemove = allEnchants[slot][enchant].materials
 
     const materialKeys = Object.getOwnPropertyNames(enchantMaterialsToRemove);
     for (let i = 0; i < materialKeys.length; i++) {
@@ -168,13 +169,36 @@ function calculateData() {
 
         let materialsContainer = $('<div/>', {
             class: 'materials-list-item',
+            name: `${material[i]}`,
         }).append($('<img/>', {
-            class: 'icon-small',
+            class: 'icon-small material-image',
             src: "static/images/icons/small/icon_border.png",
             style: `background-image: url(static/images/icons/small/${material[i]}.${imageType});`,
+        }).on({
+            mouseenter: e => {
+                clearTooltip()
+                tooltip_v2(e, false, 2)
+            },
+            mouseleave: e => {
+                clearTooltip()
+            },
+            mousemove: e => {
+                update_tooltip(e)
+            }
         })).append($('<span/>', {
             text: utilities.titleCase(material[i]),
             class: `materials-name rarity ${allMaterials[material[i]].rarity}`,
+        }).on({
+            mouseenter: e => {
+                clearTooltip()
+                tooltip_v2(e, false, 2)
+            },
+            mouseleave: e => {
+                clearTooltip()
+            },
+            mousemove: e => {
+                update_tooltip(e)
+            }
         })).append($('<span/>', {
             text: ` [${counts[material[i]]}]`,
             class: 'amount',
@@ -185,74 +209,86 @@ function calculateData() {
     $('.results').append(materialsToAppend)
 }
 
+
+
+
 function materialsTooltip() {
-    $(".results").on({
+    $(".materials-name, .material-image").on({
         mouseenter: e => {
-
-            const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
-            let matName = closestMat.text()
-
-            if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
-                return false
-            } else {
-                $(".results").find('.materials-name').removeClass('underlined')
-                closestMat.addClass('underlined')
-				$("#tooltip").children().remove()
-				$("#tooltip").hide()
-                const thisMat = allMaterials[utilities.sanitize(matName)]
-
-				const rarity = thisMat.rarity
-				const tooltipElems = [{class: `title ${rarity}`, text: matName}]
-                if (thisMat.bop) {
-                    tooltipElems.push({class:'bop', text: "Binds when picked up"})
-                }
-                if (thisMat.unique) {
-                    tooltipElems.push({class: 'unique', text: "Unique",})
-                }
-				if (thisMat.req){
-                    tooltipElems.push({class: 'requiredLevel', text: `Requires Level ${thisMat.req}`})
-                }
-                if (thisMat.use) {
-                    tooltipElems.push({class: 'use', text: `Use: ${thisMat.use}`})
-                }
-                if (thisMat.description) {
-                    tooltipElems.push({class: 'description', text:`"${thisMat.description}"`})
-                }
-
-				utilities.bigdaddytooltip(closestMat, tooltipElems)
-            }
+            clearTooltip()
+            tooltip_v2(e, false, 2)
         },
         mouseleave: e => {
-            $(".results").find('.materials-name').removeClass('underlined')
-            $("#tooltip").hide()
-            $("#tooltip").children().remove()
-
+            clearTooltip()
+        },
+        mousemove: e => {
+            update_tooltip(e)
         }
-    })
+    });
 }
+
+
+// function materialsTooltip() {
+//     $(".results").on({
+//         mouseenter: e => {
+//
+//             clearTooltip()
+//             tooltip_v2(e)
+//
+//
+//             const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
+//             let matName = closestMat.text()
+//
+//             if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
+//                 return false
+//             } else {
+//                 $(".results").find('.materials-name').removeClass('underlined')
+//                 closestMat.addClass('underlined')
+// 				$("#tooltip").children().remove()
+// 				$("#tooltip").hide()
+//                 const thisMat = allMaterials[utilities.sanitize(matName)]
+//
+// 				const rarity = thisMat.rarity
+// 				const tooltipElems = [{class: `title ${rarity}`, text: matName}]
+//                 if (thisMat.bop) {
+//                     tooltipElems.push({class:'bop', text: "Binds when picked up"})
+//                 }
+//                 if (thisMat.unique) {
+//                     tooltipElems.push({class: 'unique', text: "Unique",})
+//                 }
+// 				if (thisMat.req){
+//                     tooltipElems.push({class: 'requiredLevel', text: `Requires Level ${thisMat.req}`})
+//                 }
+//                 if (thisMat.use) {
+//                     tooltipElems.push({class: 'use', text: `Use: ${thisMat.use}`})
+//                 }
+//                 if (thisMat.description) {
+//                     tooltipElems.push({class: 'description', text:`"${thisMat.description}"`})
+//                 }
+//
+// 				utilities.bigdaddytooltip(closestMat, tooltipElems)
+//             }
+//         },
+//         mouseleave: e => {
+//             clearTooltip()
+//             $(".results").find('.materials-name').removeClass('underlined')
+//             $("#tooltip").hide()
+//             $("#tooltip").children().remove()
+//
+//         }
+//     })
+// }
 
 function showEnchantEffect() {
     $('.enchantHolder').on({
         mouseenter: e=> {
-        	const tooltipElems = []
-        	const targetEnchant = $(e.target)
-        	let a = targetEnchant.text()
-        	let matched = a.match(/([\w\s]+):/)
-        	if (matched) {
-        		const selection = $("div.itemslot.enchantable.focus")
-        		const slot = selection.attr("id")
-        		const b = utilities.sanitize(matched[1].trim())
-        		const thisEnch = enchants[slot][b]
-        		const enchName = utilities.titleCase(b)
-        		const slotName = utilities.titleCase(slot.toLowerCase())
-        		tooltipElems.push({class: "title spell", text: `Enchant ${slotName} - ${enchName}`,})
-        		tooltipElems.push({class: "description", text: thisEnch.description})
-        		utilities.bigdaddytooltip(targetEnchant, tooltipElems)
-        	}
+            tooltip_v2(e, false, 3)
+        },
+        mousemove: e=> {
+            update_tooltip(e)
         },
         mouseleave: e=>  {
-            $("#tooltip").children().remove()
-            $("#tooltip").hide()
+            clearTooltip()
         }
     })
 }
