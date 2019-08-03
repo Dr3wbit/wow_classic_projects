@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Avg
 import datetime, math, re, time
+from django.core import mail
 from social_django.models import UserSocialAuth
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
@@ -75,7 +76,6 @@ else:
 		email = models.EmailField(_('email address'), unique=True)
 		date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
 		is_active = models.BooleanField(_('active'), default=True)
-		avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
 		objects = UserManager()
 
@@ -85,7 +85,7 @@ else:
 
 		def email_user(self, subject, message, from_email=None, **kwargs):
 				'''Sends an email to this User.'''
-				send_mail(subject, message, from_email, [self.email], **kwargs)
+				mail.send_mail(subject, message, from_email, [self.email], **kwargs)
 
 		@property
 		def discord(self):
