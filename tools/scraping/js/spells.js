@@ -1247,6 +1247,10 @@
         "i": 16770,
         "n": "Improved Arcane Missiles"
     },
+    "16781": {
+        "i": 16781,
+        "n": "Combining Charms"
+    },
     "16934": {
         "i": 16934,
         "n": "Ferocity"
@@ -1266,6 +1270,10 @@
     "16938": {
         "i": 16938,
         "n": "Ferocity"
+    },
+    "16960": {
+        "i": 16960,
+        "n": "Thorium Greatsword"
     },
     "16965": {
         "i": 16965,
@@ -1294,6 +1302,10 @@
     "16978": {
         "i": 16978,
         "n": "Blazing Rapier"
+    },
+    "16980": {
+        "i": 16980,
+        "n": "Rune Edge"
     },
     "16983": {
         "i": 16983,
@@ -1351,6 +1363,10 @@
         "i": 16999,
         "n": "Savage Fury"
     },
+    "17133": {
+        "i": 17133,
+        "n": "Create Pamela's Doll"
+    },
     "17180": {
         "i": 17180,
         "n": "Enchanted Thorium"
@@ -1403,9 +1419,17 @@
         "i": 17562,
         "n": "Transmute: Water to Air"
     },
+    "17563": {
+        "i": 17563,
+        "n": "Transmute: Undeath to Water"
+    },
     "17564": {
         "i": 17564,
         "n": "Transmute: Water to Undeath"
+    },
+    "17565": {
+        "i": 17565,
+        "n": "Transmute: Life to Earth"
     },
     "17566": {
         "i": 17566,
@@ -1675,6 +1699,14 @@
         "i": 18450,
         "n": "Wizardweave Turban"
     },
+    "18451": {
+        "i": 18451,
+        "n": "Felcloth Robe"
+    },
+    "18452": {
+        "i": 18452,
+        "n": "Mooncloth Circlet"
+    },
     "18453": {
         "i": 18453,
         "n": "Felcloth Shoulders"
@@ -1907,6 +1939,10 @@
         "i": 19090,
         "n": "Stormshroud Shoulders"
     },
+    "19091": {
+        "i": 19091,
+        "n": "Runic Leather Pants"
+    },
     "19092": {
         "i": 19092,
         "n": "Wicked Leather Belt"
@@ -1930,6 +1966,14 @@
     "19101": {
         "i": 19101,
         "n": "Volcanic Shoulders"
+    },
+    "19102": {
+        "i": 19102,
+        "n": "Runic Leather Armor"
+    },
+    "19103": {
+        "i": 19103,
+        "n": "Runic Leather Shoulders"
     },
     "19104": {
         "i": 19104,
@@ -2143,9 +2187,17 @@
         "i": 20757,
         "n": "Create Soulstone (Major)"
     },
+    "20848": {
+        "i": 20848,
+        "n": "Flarecore Mantle"
+    },
     "20849": {
         "i": 20849,
         "n": "Flarecore Gloves"
+    },
+    "20855": {
+        "i": 20855,
+        "n": "Black Dragonscale Boots"
     },
     "20872": {
         "i": 20872,
@@ -2411,6 +2463,10 @@
         "i": 22866,
         "n": "Belt of the Archmage"
     },
+    "22867": {
+        "i": 22867,
+        "n": "Felcloth Gloves"
+    },
     "22868": {
         "i": 22868,
         "n": "Inferno Gloves"
@@ -2619,6 +2675,14 @@
         "i": 23663,
         "n": "Mantle of the Timbermaw"
     },
+    "23664": {
+        "i": 23664,
+        "n": "Argent Boots"
+    },
+    "23665": {
+        "i": 23665,
+        "n": "Argent Shoulders"
+    },
     "23666": {
         "i": 23666,
         "n": "Flarecore Robe"
@@ -2631,9 +2695,25 @@
         "i": 23703,
         "n": "Might of the Timbermaw"
     },
+    "23704": {
+        "i": 23704,
+        "n": "Timbermaw Brawlers"
+    },
     "23705": {
         "i": 23705,
         "n": "Dawn Treaders"
+    },
+    "23706": {
+        "i": 23706,
+        "n": "Golden Mantle of the Dawn"
+    },
+    "23708": {
+        "i": 23708,
+        "n": "Chromatic Gauntlets"
+    },
+    "23709": {
+        "i": 23709,
+        "n": "Corehound Belt"
     },
     "23710": {
         "i": 23710,
@@ -2699,6 +2779,30 @@
         "i": 2406,
         "n": "Gray Woolen Shirt"
     },
+    "24091": {
+        "i": 24091,
+        "n": "Bloodvine Vest"
+    },
+    "24092": {
+        "i": 24092,
+        "n": "Bloodvine Leggings"
+    },
+    "24093": {
+        "i": 24093,
+        "n": "Bloodvine Boots"
+    },
+    "24121": {
+        "i": 24121,
+        "n": "Primal Batskin Jerkin"
+    },
+    "24122": {
+        "i": 24122,
+        "n": "Primal Batskin Gloves"
+    },
+    "24123": {
+        "i": 24123,
+        "n": "Primal Batskin Bracers"
+    },
     "24136": {
         "i": 24136,
         "n": "Bloodsoul Breastplate"
@@ -2726,6 +2830,18 @@
     "24188": {
         "i": 24188,
         "n": "Improved Hammer of Justice"
+    },
+    "24266": {
+        "i": 24266,
+        "n": "Gurubashi Mojo Madness"
+    },
+    "24356": {
+        "i": 24356,
+        "n": "Bloodvine Goggles"
+    },
+    "24357": {
+        "i": 24357,
+        "n": "Bloodvine Lens"
     },
     "24365": {
         "i": 24365,
@@ -2778,6 +2894,10 @@
     "24691": {
         "i": 24691,
         "n": "Barrage"
+    },
+    "24703": {
+        "i": 24703,
+        "n": "Dreamscale Breastplate"
     },
     "24846": {
         "i": 24846,
@@ -2838,6 +2958,14 @@
     "24898": {
         "i": 24898,
         "n": "Create Scepter of Beckoning: Water"
+    },
+    "24902": {
+        "i": 24902,
+        "n": "Runed Stygian Belt"
+    },
+    "24903": {
+        "i": 24903,
+        "n": "Runed Stygian Boots"
     },
     "24912": {
         "i": 24912,
@@ -2966,6 +3094,10 @@
     "26085": {
         "i": 26085,
         "n": "Soul Pouch"
+    },
+    "26086": {
+        "i": 26086,
+        "n": "Felcloth Bag"
     },
     "26087": {
         "i": 26087,
@@ -3171,13 +3303,25 @@
         "i": 27587,
         "n": "Thick Obsidian Breastplate"
     },
+    "27588": {
+        "i": 27588,
+        "n": "Light Obsidian Belt"
+    },
     "27589": {
         "i": 27589,
         "n": "Black Grasp of the Destroyer"
     },
+    "27590": {
+        "i": 27590,
+        "n": "Obsidian Mail Tunic"
+    },
     "27658": {
         "i": 27658,
         "n": "Enchanted Mageweave Pouch"
+    },
+    "27660": {
+        "i": 27660,
+        "n": "Big Bag of Enchantment"
     },
     "27724": {
         "i": 27724,
@@ -3238,6 +3382,10 @@
     "28209": {
         "i": 28209,
         "n": "Glacial Wrists"
+    },
+    "28210": {
+        "i": 28210,
+        "n": "Gaea's Embrace"
     },
     "28219": {
         "i": 28219,
@@ -3302,6 +3450,38 @@
     "28461": {
         "i": 28461,
         "n": "Ironvine Breastplate"
+    },
+    "28462": {
+        "i": 28462,
+        "n": "Ironvine Gloves"
+    },
+    "28463": {
+        "i": 28463,
+        "n": "Ironvine Belt"
+    },
+    "28472": {
+        "i": 28472,
+        "n": "Bramblewood Helm"
+    },
+    "28473": {
+        "i": 28473,
+        "n": "Bramblewood Boots"
+    },
+    "28474": {
+        "i": 28474,
+        "n": "Bramblewood Belt"
+    },
+    "28480": {
+        "i": 28480,
+        "n": "Sylvan Vest"
+    },
+    "28481": {
+        "i": 28481,
+        "n": "Sylvan Crown"
+    },
+    "28482": {
+        "i": 28482,
+        "n": "Sylvan Shoulders"
     },
     "2881": {
         "i": 2881,
@@ -4890,37 +5070,5 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
-    },
-    "23708": {
-        "i": 23708,
-        "n": "Chromatic Gauntlets"
-    },
-    "16980": {
-        "i": 16980,
-        "n": "Rune Edge"
-    },
-    "16960": {
-        "i": 16960,
-        "n": "Thorium Greatsword"
-    },
-    "28463": {
-        "i": 28463,
-        "n": "Ironvine Belt"
-    },
-    "28462": {
-        "i": 28462,
-        "n": "Ironvine Gloves"
-    },
-    "22867": {
-        "i": 22867,
-        "n": "Felcloth Gloves"
-    },
-    "18451": {
-        "i": 18451,
-        "n": "Felcloth Robe"
-    },
-    "16781": {
-        "i": 16781,
-        "n": "Combining Charms"
     }
 }

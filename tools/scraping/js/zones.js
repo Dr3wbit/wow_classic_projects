@@ -151,6 +151,10 @@
         "i": 2877,
         "n": "undefined"
     },
+    "2918": {
+        "i": 2918,
+        "n": "undefined"
+    },
     "3": {
         "i": 3,
         "n": "Badlands"
@@ -282,9 +286,5 @@
     "85": {
         "i": 85,
         "n": "Tirisfal Glades"
-    },
-    "2918": {
-        "i": 2918,
-        "n": "undefined"
     }
 }
