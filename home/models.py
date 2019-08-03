@@ -129,9 +129,10 @@ class Item(models.Model):
 		('other', 'other'),
 	)
 
-	# ilvl = models.PositiveSmallIntegerField(default=1)
+	# ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
 	image_name = models.CharField(max_length=50)
 	rarity = models.CharField(max_length=10, choices=RARITY_CHOICES, default='common')
+	quality = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(6)])
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
 	use = models.CharField(max_length=250, blank=True)
@@ -151,6 +152,71 @@ class Item(models.Model):
 	class Meta:
 		ordering = ['name']
 
+#
+# class Armor(Item):
+# 	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS,FINGER,TRINKET,BACK = 1,2,3,4,5,6,7,8,9,10,11,13,15
+# 	CLOTH,LEATHER,MAIL,PLATE = 1,2,3,4
+#
+# 	ARMOR_TYPES = (
+# 		(CLOTH, 'Cloth'),
+# 		(LEATHER, 'Leather'),
+# 		(MAIL, 'Mail'),
+# 		(PLATE, 'Plate'),
+# 	)
+#
+# 	SLOT_CHOICES = (
+# 		(HEAD, 'Head'),
+# 		(NECK, 'Neck'),
+# 		(SHOULDER, 'Shoulder'),
+# 		(SHIRT, 'Shirt'),
+# 		(CHEST, 'Chest'),
+# 		(BELT, 'Belt'),
+# 		(LEGS, 'Legs'),
+# 		(FEET, 'Feet'),
+# 		(WRIST, 'Wrist'),
+# 		(HANDS, 'Hands'),
+# 		(BACK, 'Back'),
+# 	)
+#
+# 	armor_amount = models.PositiveSmallIntegerField(default=0)
+# 	durability = models.PositiveSmallIntegerField(default=0)
+# 	proficiency = models.PositiveSmallIntegerField(choices=ARMOR_TYPES)
+# 	slot = models.PositiveSmallIntegerField(choices=SLOT_CHOICES)
+#
+# 	def __str__(self):
+# 		st = "{}\n".format(title_case(self.name))
+# 		if self.bop:
+# 			st = st+"Binds when picked up\n"
+# 		if self.unique:
+# 			st = st+"Unique\n"
+# 		if self.slot:
+# 			st = st+"{}\t\t\t".format(self.slot)
+#
+# 		st = st+"\t\t\t{}\n".format(self.proficiency) if self.proficiency else st+"\n"
+# 		if self.armor:
+# 			st = st+"{} Armor\n"
+# 		if self.durability:
+# 			st = st+"Durability {} / {}\n".format(self.durability, self.durability)
+# 		if self.required_lvl:
+# 			st = st+"Requires Level {}\n".format(self.required_lvl)
+# 		if self.use:
+# 			st = st+'"{}"\n'.format(self.use)
+# 		if self.description:
+# 			st = st+'"{}"\n'.format(self.description)
+#
+# 		return st
+
+# class Stat(models.Model):
+# 	STAT_CHOICES = (
+# 		(1, 'Agility'),
+# 		(2, 'Intellect'),
+# 		(3, 'Spirit'),
+# 		(4, 'Stamina'),
+# 		(5, 'Strength'),
+# 	)
+#
+# 	stat = models.CharField(max_length=20, choices=ARMOR_TYPES, blank=True)
+# 	amount = models.SmallIntegerField(blank=True, null=True)
 
 class Crafted(models.Model):
 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
@@ -209,7 +275,8 @@ class Profession(models.Model):
 		('fishing', 'fishing'),
 		('herbalism', 'herbalism'),
 		('mining', 'mining'),
-		('tailoring', 'tailoring')
+		('tailoring', 'tailoring'),
+		('riding', 'riding'),
 	)
 
 	TYPE_CHOICES = (
@@ -422,7 +489,37 @@ class Consume(models.Model):
 
 from home.signals import savedspec_limit, consumelist_limit
 
+# class Requirement(models.Model):
+# 	value = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(300)])
+# 	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+# 	object_id = models.PositiveIntegerField()
+# 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
+# 	content_object = GenericForeignKey('content_type', 'object_id')
+#
+# 	def __str__(self):
+# 		return("Item: {}, Requirement: {}".format(self.item.name, self.content_object.__class__.__name__))
+#
 
+# class Rank(models.Model):
+# 	CHOICES =
+# 		{'ALLIANCE':
+# 			['Private', 'Corporal', 'Sergeant', 'Master Sergeant',
+# 			'Sergeant Major', 'Knight', 'Knight-Lieutenent', 'Knight-Captain',
+# 			'Knight-Champion', 'Lieutenent-Commander', 'Commander', 'Marshal',
+# 			'Field Marshal', 'Grand Marshal']
+# 		},
+# 		{'HORDE':
+# 			['Scout', 'Grunt', 'Sergeant', 'Senior Sergeant', 'First Sergeant',
+# 			'Stone Guard', 'Blood Guard', 'Legionnaire', 'Centurion', 'Champion',
+# 			'Lieutenant General', 'General', 'Warlord', 'High Warlord']
+# 		}
+#
+# 	value = models.PositiveSmallIntegerField(default=0,  validators=[MinValueValidator(0), MaxValueValidator(14)])
+#
+# 	@property
+# 	def name(self, faction):
+# 		return self.CHOICES[faction][self.value]
+#
 # class Faction(models.Model):
 # 	FACTION_CHOICES = (
 # 		('A', 'Alliance'),
@@ -463,7 +560,8 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	start = models.ForeignKey('NPC')
 # 	end = models.ForeignKey('NPC')
 # 	faction = models.ForeignKey('Faction', on_delete=models.CASCADE)
-#
+#	pre_req = models.ManyToManyField('Quest', on_delete=models.CASCADE)
+#	opens = models.ManyToManyField('Quest')
 # 	required_level = models.PositiveSmallIntegerField(default=1,  validators=[MinValueValidator(1), MaxValueValidator(60)])
 # 	name = models.CharField(max_length=100)
 # 	description = models.CharField(max_length=1000)
@@ -548,6 +646,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 		('bow', 'Bow'),
 # 		('crossbow','Crossbow'),
 # 		('dagger', 'Dagger'),
+#		('fist weapon', 'Fist Weapon')
 # 	)
 #
 # 	WEAPON_TYPES = (
@@ -607,6 +706,26 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	('strength', 'Strength'),
 # 	('intellect', 'Intellect'),
 # 	('spirit', 'Spirit'),
-# 	('Stamina', 'Stamina'),
+# 	('stamina', 'Stamina'),
+#
 # 	)
 # 	name = models.CharField(max_length=20, unique=True, choices=CHOICES)
+#
+#
+# class ItemSet(models.Model):
+# 	name = models.CharField(max_length=75)
+# 	items = models.ManyToManyField('Item')
+# 	bonuses = models.ManyToManyField('Bonus')
+#
+# 	def __str__(self):
+# 		return self.name
+#
+#
+# class Bonus(models.Model):
+#
+# 	value = models.PositiveSmallIntegerField(default=1)
+# 	itemset = models.ForeignKey('ItemSet', on_delete=models.CASCADE)
+# 	stat = models.ForeignKey('Stat', on_delete=models.CASCADE, blank=True, null=True)
+# 	effect = models.ForeignKey('Effect', on_delete=models.CASCADE, blank=True, null=True)
+# 	pieces_required = models.PositiveSmallIntegerField(default=1)
+#
