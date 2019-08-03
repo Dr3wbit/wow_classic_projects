@@ -967,6 +967,10 @@
         "i": 176224,
         "n": "Supply Crate"
     },
+    "176249": {
+        "i": 176249,
+        "n": "Scourge Data"
+    },
     "176325": {
         "i": 176325,
         "n": "Blacksmithing Plans"
@@ -1230,6 +1234,10 @@
     "181069": {
         "i": 181069,
         "n": "Large Obsidian Chunk"
+    },
+    "181085": {
+        "i": 181085,
+        "n": "Stratholme Supply Crate"
     },
     "181108": {
         "i": 181108,
@@ -2067,12 +2075,56 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "176249": {
-        "i": 176249,
-        "n": "Scourge Data"
+    "176356": {
+        "i": 176356,
+        "n": "Sacred Highborne Writings"
     },
-    "181085": {
-        "i": 181085,
-        "n": "Stratholme Supply Crate"
+    "176360": {
+        "i": 176360,
+        "n": "Postbox Parcel"
+    },
+    "175245": {
+        "i": 175245,
+        "n": "Father Flame"
+    },
+    "180712": {
+        "i": 180712,
+        "n": "Stonescale Eel Swarm"
+    },
+    "184930": {
+        "i": 184930,
+        "n": "Solid Fel Iron Chest"
+    },
+    "184935": {
+        "i": 184935,
+        "n": "Solid Fel Iron Chest"
+    },
+    "184933": {
+        "i": 184933,
+        "n": "Solid Fel Iron Chest"
+    },
+    "176485": {
+        "i": 176485,
+        "n": "The Deed to Caer Darrow"
+    },
+    "176486": {
+        "i": 176486,
+        "n": "The Deed to Southshore"
+    },
+    "176487": {
+        "i": 176487,
+        "n": "The Deed to Tarren Mill"
+    },
+    "176588": {
+        "i": 176588,
+        "n": "Icecap"
+    },
+    "176589": {
+        "i": 176589,
+        "n": "Black Lotus"
+    },
+    "176484": {
+        "i": 176484,
+        "n": "The Deed to Brill"
     }
 }

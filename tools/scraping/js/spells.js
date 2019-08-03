@@ -5070,5 +5070,17 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
+    },
+    "17551": {
+        "i": 17551,
+        "n": "Stonescale Oil"
+    },
+    "17572": {
+        "i": 17572,
+        "n": "Purification Potion"
+    },
+    "27725": {
+        "i": 27725,
+        "n": "Satchel of Cenarius"
     }
 }
