@@ -575,7 +575,7 @@
             {% for recipe in recipes %}
             <tr>
                 <td style="text-align: left;">
-                    <span class="recipe-container {{recipe.rarity}}" name="{{recipe.name}}">
+                    <span class="recipe-container {{recipe.quality}}" name="{{recipe.name}}">
                         <img name="{{recipe.name}}" class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
                         style="background-image: url({% static item_image %});">
                         <span class="consume-name" name="{{recipe.name}}">{{recipe.name|titlecase}}</span>
@@ -762,7 +762,7 @@ function create_tooltip(data) {
     }) : null
 
     tooltip.append($('<div/>', {
-        class: `title ${data.rarity}`,
+        class: `title ${data.quality}`,
         text: `${utilities.titleCase(data.name)}`,
     }))
 

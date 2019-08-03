@@ -111,7 +111,7 @@ else:
 # the baseline; everything is an item
 class Item(models.Model):
 	name = models.CharField(max_length=100, unique=True)
-	RARITY_CHOICES = (
+	QUALITY_CHOICES = (
 		('junk', 'junk'),
 		('common', 'common'),
 		('uncommon', 'uncommon'),
@@ -131,8 +131,8 @@ class Item(models.Model):
 
 	# ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
 	image_name = models.CharField(max_length=50)
-	rarity = models.CharField(max_length=10, choices=RARITY_CHOICES, default='common')
-	quality = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(6)])
+	quality = models.CharField(max_length=10, choices=QUALITY_CHOICES, default='common')
+	# quality = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(6)])
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
 	use = models.CharField(max_length=250, blank=True)
@@ -231,8 +231,8 @@ class Crafted(models.Model):
 		return self.item.name
 
 	@property
-	def rarity(self):
-		return self.item.rarity
+	def quality(self):
+		return self.item.quality
 
 	def __str__(self):
 		return self.item.__str__()
@@ -249,8 +249,8 @@ class Material(models.Model):
 		return self.item.name
 
 	@property
-	def rarity(self):
-		return self.item.rarity
+	def quality(self):
+		return self.item.quality
 
 	@property
 	def adjusted_amount(self):
