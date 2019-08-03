@@ -1,53 +1,6 @@
 
-function tooltip_v2(e) {
-	const targetElement = $(e.target)
-	const name = targetElement.attr('name')
-
-	var thisObj = allConsumes[name]
-	thisObj = (thisObj) ? thisObj : allMaterials[name]
-	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
-	const rarity = thisObj.rarity
-	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
-	if (thisObj.bop) {
-		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
-	}
-	if (thisObj.unique) {
-		tooltipElems.push({class: 'unique', text: "Unique",})
-	}
-	let requirementText = ''
-	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-		requirementText = thisObj.req
-	} else {
-		requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? utilities.titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
-	}
-
-	if (thisObj.req || thisObj.stats) {
-		tooltipElems.push({class: 'requiredLevel', text: requirementText})
-	}
-	if (thisObj.use) {
-		tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
-	}
-	if (thisObj.description) {
-		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
-	}
-	utilities_v2.bigdaddytooltip(e, tooltipElems)
-}
-
-function update_tooltip(e) {
-	let pageY = e.pageY
-	let pageX = e.pageX+15
-    const tooltip = $("#tooltip_container")
-    tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visiblity: visible;`)
-}
-
-
 function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
-}
-
-function clearTooltip() {
-	$("#tooltip_container").empty()
-	$("#tooltip_container").hide()
 }
 
 function addCraftedItem(name, numAdded=1) {
@@ -103,30 +56,37 @@ function addCraftedItem(name, numAdded=1) {
 			style: "color: azure;"
 		}))
 
-		craftedContainerJr.append(expandButton, $('<img/>', {
+		let crafted_image = $('<img/>', {
 				name: `${name}`,
 				class: 'icon-small crafted-image',
 				src: "/static/images/icons/small/icon_border.png",
 				style: `background-image: url(/static/images/icons/consumes/${name}.jpg);`,
-			}).on({
-				mouseenter: e => {
-					clearTooltip()
-					tooltip_v2(e)
-				},
-				mouseleave: e => {
-					clearTooltip()
-				},
-				mousemove: e => {
-					update_tooltip(e)
-				}
-			}), $('<span/>', {
+		})
+
+		crafted_image.on({
+					mouseenter: e => {
+						clearTooltip()
+						console.log('test 222222')
+						tooltip_v2(e, false, 2)
+					},
+					mouseleave: e => {
+						clearTooltip()
+					},
+					mousemove: e => {
+						update_tooltip(e)
+					}
+		})
+
+		let crafted_span = $('<span/>', {
 				class: `crafted-name ${craftedItemObj.rarity}`,
 				text: `${utilities.titleCase(name)}`,
 				name: `${name}`
-			}).on({
+		})
+
+		crafted_span.on({
 				mouseenter: e => {
 					clearTooltip()
-					tooltip_v2(e)
+					tooltip_v2(e, false, 2)
 				},
 				mouseleave: e => {
 					clearTooltip()
@@ -134,7 +94,9 @@ function addCraftedItem(name, numAdded=1) {
 				mousemove: e => {
 					update_tooltip(e)
 				}
-			}), " ", $('<span/>', {
+		})
+
+		craftedContainerJr.append(expandButton, crafted_image, crafted_span, " ", $('<span/>', {
 				text: "[",
 			}), $('<span/>', {
 				class: 'amount',
@@ -214,7 +176,7 @@ function updateOrCreate(parentElem, consume_name, numAdded) {
 				}).on({
 			        mouseenter: e => {
 			            clearTooltip()
-			            tooltip_v2(e)
+			            tooltip_v2(e, false, 2)
 			        },
 			        mouseleave: e => {
 			            clearTooltip()
@@ -229,7 +191,7 @@ function updateOrCreate(parentElem, consume_name, numAdded) {
 				}).on({
 			        mouseenter: e => {
 			            clearTooltip()
-			            tooltip_v2(e)
+			            tooltip_v2(e, false, 2)
 			        },
 			        mouseleave: e => {
 			            clearTooltip()
@@ -279,7 +241,8 @@ function updateOrCreate(parentElem, consume_name, numAdded) {
 				mouseenter: e => {
 					clearTooltip()
 					e.stopPropagation()
-					updatetooltip($(e.target).closest(".material-container"), 'material')
+					tooltip_v2(e, false, 2)
+					// updatetooltip($(e.target).closest(".material-container"), 'material')
 				},
 				mouseleave: e => {
 					clearTooltip()

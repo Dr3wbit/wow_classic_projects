@@ -49,7 +49,7 @@ const utilities = {
 			}
 		}
 		else if (yCoeff >= 30 && yCoeff < 70) {
-			// sets tooltip vertically centered with talent
+			// sets tooltip vertically centered with element
 			// NOTE: not good for talent calc as the elements resize
 			// let a = (height - 40)/2
 			// top = $(e.target).offset().top - (a+20)
@@ -88,24 +88,44 @@ const utilities = {
 
 
 const utilities_v2 = {
-	getTooltipPosition: function(e, tooltip) {
+	get_tooltip_pos: function(e, static) {
+		var tooltip = $("#tooltip_container")
+
 		this.coords = {}
-		this.coords.x = e.pageX+15
-		this.coords.y = e.pageY
+		let offset = $(e.target).offset()
+
+		var x = 0
+		var y = 0
+		if (static) {
+			x = $(e.target).offset().left + 35
+			y = $(e.target).offset().top - Math.max(tooltip.outerHeight(true), 35)
+		} else {
+			x = e.pageX - 30
+			y = e.pageY - tooltip.outerHeight(true)
+		}
+
+		if (x + 10 + tooltip.outerWidth(true) > window.innerWidth) {
+			x = (x - tooltip.outerWidth(true) + 10)
+		}
+
+		this.coords.x = x
+		this.coords.y = y
 		return this.coords
+
+
 	},
 	bigdaddytooltip: function(e, ...args) {
-		const name = $(e.target).attr("name")
-		const tooltip_container = $("#tooltip_container")
-		const elems = args[0]
-
-		const image = (name) ? $('<img/>', {
+		var name = $(e.target).attr("name")
+		var tooltip_container = $("#tooltip_container")
+		var elems = args[0]
+		var static = elems.pop()
+		var image = (!static) ? $('<img/>', {
 			class: 'icon-medium',
 			src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
 			style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/images/icons/consumes/${name}.jpg)`
 		}) : null
 
-		const tooltip = $('<div/>', {
+		var tooltip = $('<div/>', {
 			class: 'tooltip-container',
 			id: "tooltip",
 			style: "float: right;"
@@ -118,20 +138,25 @@ const utilities_v2 = {
 			}))
 		})
 
+
 		tooltip_container.append(image, tooltip)
 
-		var x = 0
-		var y = 0
+		// var static = (image) ? false : true
 
-		if (image) {
-			x = e.pageX + 15
-			y = e.pageY - 25
-		} else {
-			x = $(e.target).offset().left + 45
-			y = $(e.target).offset().top - 45
-		}
-		// utilities_v2.getTooltipPosition(e, tooltip_container)
+		let coords = utilities_v2.get_tooltip_pos(e, static)
 
-		tooltip_container.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
+		// if (image) {
+		// 	x = e.pageX + 15
+		// 	y = e.pageY - 25
+		// } else {
+		// 	x = $(e.target).offset().left + 45
+		// 	y = $(e.target).offset().top - 45
+		// }
+		// console.log('x: ', x, ' y: ', y)
+		// if (x + tooltip_container.outerWidth(true) > window.innerWidth) {
+		// 	x = (x - tooltip_container.outerWidth(true) - 30)
+		// }
+
+		tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; visibility: visible;`)
 	}
 }

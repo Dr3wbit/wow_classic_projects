@@ -811,17 +811,169 @@
         "i": 175565,
         "n": "Alien Egg"
     },
+    "175566": {
+        "i": 175566,
+        "n": "Gloom Weed"
+    },
+    "175588": {
+        "i": 175588,
+        "n": "Spire Spider Egg"
+    },
+    "175606": {
+        "i": 175606,
+        "n": "Spire Spider Egg"
+    },
+    "175628": {
+        "i": 175628,
+        "n": "Jaron's Supplies"
+    },
+    "175629": {
+        "i": 175629,
+        "n": "Jaron's Supplies"
+    },
+    "175708": {
+        "i": 175708,
+        "n": "Crossroads' Supply Crates"
+    },
+    "175785": {
+        "i": 175785,
+        "n": "Inconspicuous Documents"
+    },
+    "175802": {
+        "i": 175802,
+        "n": "Small Lockbox"
+    },
+    "175886": {
+        "i": 175886,
+        "n": "Roughshod Pike"
+    },
+    "175888": {
+        "i": 175888,
+        "n": "Highborne Relic Fragment"
+    },
     "175889": {
         "i": 175889,
         "n": "Ancient Egg"
+    },
+    "175891": {
+        "i": 175891,
+        "n": "Highborne Relic Fragment"
+    },
+    "175892": {
+        "i": 175892,
+        "n": "Highborne Relic Fragment"
+    },
+    "175893": {
+        "i": 175893,
+        "n": "Highborne Relic Fragment"
+    },
+    "175928": {
+        "i": 175928,
+        "n": "Incendia Agave"
+    },
+    "175949": {
+        "i": 175949,
+        "n": "Fifth Mosh'aru Tablet"
+    },
+    "175950": {
+        "i": 175950,
+        "n": "Sixth Mosh'aru Tablet"
+    },
+    "175964": {
+        "i": 175964,
+        "n": "Skin of Shadow"
+    },
+    "175965": {
+        "i": 175965,
+        "n": "Frostwhisper's Embalming Fluid"
+    },
+    "175966": {
+        "i": 175966,
+        "n": "Enchanted Scarlet Thread"
+    },
+    "175970": {
+        "i": 175970,
+        "n": "Unforged Runic Breastplate"
+    },
+    "176089": {
+        "i": 176089,
+        "n": "Unfired Plate Gauntlets"
+    },
+    "176092": {
+        "i": 176092,
+        "n": "Box of Incendiaries"
+    },
+    "176112": {
+        "i": 176112,
+        "n": "Malor's Strongbox"
+    },
+    "176116": {
+        "i": 176116,
+        "n": "Pamela's Doll's Head"
+    },
+    "176142": {
+        "i": 176142,
+        "n": "Pamela's Doll's Left Side"
+    },
+    "176143": {
+        "i": 176143,
+        "n": "Pamela's Doll's Right Side"
+    },
+    "176145": {
+        "i": 176145,
+        "n": "Joseph Redpath's Monument"
+    },
+    "176150": {
+        "i": 176150,
+        "n": "Musty Tome"
+    },
+    "176151": {
+        "i": 176151,
+        "n": "Musty Tome"
+    },
+    "176188": {
+        "i": 176188,
+        "n": "Ritual Candle"
     },
     "176189": {
         "i": 176189,
         "n": "Skeletal Sea Turtle"
     },
+    "176206": {
+        "i": 176206,
+        "n": "Davil's Libram"
+    },
+    "176207": {
+        "i": 176207,
+        "n": "Redpath's Shield"
+    },
+    "176208": {
+        "i": 176208,
+        "n": "Horgus' Skull"
+    },
+    "176209": {
+        "i": 176209,
+        "n": "Shattered Sword of Marduk"
+    },
+    "176213": {
+        "i": 176213,
+        "n": "Blood of Heroes"
+    },
+    "176215": {
+        "i": 176215,
+        "n": "Cannonball Stack"
+    },
     "176224": {
         "i": 176224,
         "n": "Supply Crate"
+    },
+    "176325": {
+        "i": 176325,
+        "n": "Blacksmithing Plans"
+    },
+    "176327": {
+        "i": 176327,
+        "n": "Blacksmithing Plans"
     },
     "176344": {
         "i": 176344,
@@ -1915,60 +2067,12 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "175628": {
-        "i": 175628,
-        "n": "Jaron's Supplies"
+    "176249": {
+        "i": 176249,
+        "n": "Scourge Data"
     },
-    "175629": {
-        "i": 175629,
-        "n": "Jaron's Supplies"
-    },
-    "175588": {
-        "i": 175588,
-        "n": "Spire Spider Egg"
-    },
-    "175606": {
-        "i": 175606,
-        "n": "Spire Spider Egg"
-    },
-    "175886": {
-        "i": 175886,
-        "n": "Roughshod Pike"
-    },
-    "175785": {
-        "i": 175785,
-        "n": "Inconspicuous Documents"
-    },
-    "175802": {
-        "i": 175802,
-        "n": "Small Lockbox"
-    },
-    "175708": {
-        "i": 175708,
-        "n": "Crossroads' Supply Crates"
-    },
-    "175928": {
-        "i": 175928,
-        "n": "Incendia Agave"
-    },
-    "175966": {
-        "i": 175966,
-        "n": "Enchanted Scarlet Thread"
-    },
-    "175965": {
-        "i": 175965,
-        "n": "Frostwhisper's Embalming Fluid"
-    },
-    "175566": {
-        "i": 175566,
-        "n": "Gloom Weed"
-    },
-    "175949": {
-        "i": 175949,
-        "n": "Fifth Mosh'aru Tablet"
-    },
-    "175950": {
-        "i": 175950,
-        "n": "Sixth Mosh'aru Tablet"
+    "181085": {
+        "i": 181085,
+        "n": "Stratholme Supply Crate"
     }
 }
