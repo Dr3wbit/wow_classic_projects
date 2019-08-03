@@ -4,10 +4,10 @@ __pycache__.DS_Store
 .DS_Store
 */__pycache__
 */*/__pycache__
+*/*/*/__pycache__
 db.sqlite3
 *.log
 keys
 ONY_BUFF_KEY.pem
-tools/scraping/py/__pycache__
-static/admin static/css static/fonts static/images static/js static/json static/py static/testing
+*__pycache__
 /static*

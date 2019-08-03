@@ -24,7 +24,6 @@ class APIView(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 
-
 		if request.user.groups.filter(name='admins').exists():
 
 			context = {}
@@ -71,72 +70,21 @@ class IndexView(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
-		context['rangen'] = range(5)
+		context['rangen'] = range(5) # 5 stars
 		context['specs'] = {}
 		context['wowclasses'] = WoWClass.objects.all()
 		context['wowprofessions'] = Profession.objects.all()
 		context['tags'] = Tag.objects.all()
 		context['specs'] = Spec.objects.all()
 		context['consume_lists'] = ConsumeList.objects.all()
-		# context['request'] = request
-		#
-		# for spec in Spec.objects.all():
-		# 	context['specs'][spec.name] = {}
-		# 	context['specs'][spec.name]['obj'] = spec
-		# 	context['specs'][spec.name]['has_voted'] = False
-		#
-		# 	if request.user.is_authenticated:
-		# 		if spec.ratings.filter(user=request.user).exists():
-		# 			context['specs'][spec.name]['has_voted'] = True
-		#
-		# context['consume_lists'] = {}
-		# for cl in ConsumeList.objects.all():
-		# 	name = cl.name
-		# 	context['consume_lists'][name] = {}
-		# 	context['consume_lists'][name]['obj'] = cl
-		# 	context['consume_lists'][name]['has_voted'] = False
-		# 	context['consume_lists'][name]['consumes'] = {}
-		#
-		# 	if request.user.is_authenticated:
-		# 		if cl.ratings.filter(user=request.user).exists():
-		# 			context['consume_lists'][name]['has_voted'] = True
-		#
-		# 	for consume in cl.consumes.all():
-		# 		c = consume.item
-		# 		if not consume.item.prof:
-		# 			prof_name = 'other'
-		# 		else:
-		# 			prof_name = consume.item.prof.name
-		#
-		# 		if prof_name not in context['consume_lists'][name]['consumes'].keys():
-		# 			context['consume_lists'][name]['consumes'][prof_name] = {}
-		#
-		# 		context['consume_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
-
-		# qs = cl.consumes.values('item__prof__name', 'item__item__name').annotate(Count('item')).order_by('item__prof__name')
 
 		return render(request, self.template_name, context)
-
-
-	# def get_context_data(self, **kwargs):
-	# 	context = super().get_context_data(**kwargs)
-	# 	context['consume_lists'] = ConsumeList.objects.all()
-	# 	context['rangen'] = range(5)
-
-
 
 
 	def post(self, request, *args, **kwargs):
 		pass
 		# NOTE: saved-list ratings
-		# name = request.POST.get('name', None)
-		# rating = request.POST.get('rating', 0)
-		# user = Profile.objects.get(username=request.user.email)
 
-		# saved_list = Spec.objects.get
-
-		# rating creation
-		# z = Rating(content_object=saved_list, value=val, user=user)
 
 class TalentCalcTemplate(TemplateView):
 	form_class = SpecForm
@@ -459,7 +407,7 @@ class ConsumeToolTemplate(TemplateView):
 			splitted = re.split(r'([a-zA-Z]{1}[\d]{1,2})', y)
 			item_str_list = list(filter(None, splitted))
 			for str_item in item_str_list:
-
+				print(str_item)
 				item_name = translator[prof_name][str_item[:1]]
 				quantity = str_item[1:]
 				my_consumes[prof_name][item_name] = int(quantity)
@@ -530,10 +478,8 @@ class ConsumeToolTemplate(TemplateView):
 				c_list.consumes.add(c)
 				c_list.save()
 
-
 		return data
 		# return JsonResponse(data)
-
 
 	def url_builder(self, consume_list):
 		stringy_boy = ''
@@ -642,8 +588,6 @@ def save_rating(request):
 		data['num_ratings'] = saved_list.ratings.count()
 		data['message'] = "user: {} successfully rated {}".format(user.email, saved_list.name)
 
-	# saved_list =
-
 	return JsonResponse(data)
 
 def delete_rating(request):
@@ -686,7 +630,7 @@ def delete_rating(request):
 def save_rating(request):
 	id = request.POST.get('id', None)
 	value = request.POST.get('value', None)
-	spec = request.POST.get('spec', False)
+	spec = bool(int(request.POST.get('spec', 0)))
 	type_of = 'spec' if spec else 'consume_list'
 	data = {}
 	if (request.user.is_authenticated and id and value):
@@ -702,8 +646,6 @@ def save_rating(request):
 		data['average_rating'] = saved_list.rating
 		data['num_ratings'] = saved_list.ratings.count()
 		data['message'] = "user: {} successfully rated {}".format(user.email, saved_list.name)
-
-	# saved_list =
 
 	return JsonResponse(data)
 
@@ -739,7 +681,6 @@ def delete_rating(request):
 			data['success'] = False
 			data['message'] = 'No id found or user is not authenticated'
 
-		# saved_list =
 	else:
 		data['success'] = False
 		data['message'] = 'Insufficient permissions'
@@ -854,7 +795,7 @@ def apply_filters(request):
 			#created, descending(newest):
 			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=True)
 
-			#top rated (filter out saved lists not yet rated):
+			#top rated (filters out saved lists with 0 ratings):
 			specs = specs.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
 			consume_lists = consume_lists.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
 

@@ -27,7 +27,7 @@ DEBUG = True
 DEV = False
 
 #SECURE_SSL_REDIRECT = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '13.59.19.192']
+ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', '13.59.19.192']
 
 LOCAL = bool(int(os.environ['DJANGO_LOCAL']))
 

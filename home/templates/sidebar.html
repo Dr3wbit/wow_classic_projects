@@ -11,6 +11,11 @@
 				<div id="saved-specs">
 				{% for spec in user.spec_set.all %}
 				<div class="spec-container">
+				{% with "images/icons/large/class/"|add:spec.wow_class.name|add:".jpg" as class_image %}		
+				<div class="saved-list-icon" style="background-image: url('{% static class_image %}');">
+				</div>
+				{% endwith %}
+				<div class="info-container">
 					<div class="spec-info">
 						<span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span>
 						<span style="font-size: 90%;">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
@@ -34,12 +39,15 @@
 					</div>
 					{% endif %}
 				</div>
+				</div>
 				{% endfor %}
 			</div>
 			<div id="saved-consume-lists">
 				<h5>CONSUME LISTS</h5>
 				{% for consume_list in user.consumelist_set.all %}
 				<div class="spec-container">
+					<div class="saved-list-icon"></div>
+					<div class="info-container">
 					<div class="spec-info">
 						<span>{{consume_list.name}}</span>
 					</div>
@@ -61,6 +69,7 @@
 						</button>
 					</div>
 					{% endif %}
+				</div>
 				</div>
 				{% endfor %}
 			</div>

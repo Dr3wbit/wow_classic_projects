@@ -7,9 +7,19 @@
     user-select: none;
     cursor: pointer;
     text-align: left;
-    max-width: 188px;
     padding-left: 6px;
     padding-top: 2px;
+    height: 21px;
+}
+
+.black-out{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.692);
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1021;
 }
 
 
@@ -51,7 +61,7 @@
 }
 
 .custom-saves {
-    padding: 20px;
+    padding: 8px;
     overflow: hidden;
     height: 82vh;
     margin-right: 10px;
@@ -61,14 +71,6 @@
     overflow-y: scroll;
     margin-right: 0;
 }
-
-/* .custom-saves::-webkit-scrollbar {
-    width: 10px;
-}
-
-.custom-saves::-webkit-scrollbar-thumb {
-    background-color: #404040;
-} */
 
 .side-min{
     left: -220px;
@@ -150,12 +152,26 @@ div.modal-footer {
     font-size: 85%;
     justify-content: space-evenly;
     width: 100%;
-    border-radius: 3px 3px 0 0;
     user-select: none;
+    height: 14px;
+    text-align: center;
+}
+
+.info-container{
+    max-width: 180px;
+    min-width: 180px;
+    display: inline-block;
 }
 
 .spec-container {
     margin: 8px 0px 8px 5px;
+    text-align: left;
+    height: 39px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: #000000;
+    max-width: 219px;
+    min-width: 219px;
 }
 
 .glyphicon-trash {
@@ -169,4 +185,17 @@ div.modal-footer {
 .progress-bar-striped {
         background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,rgba(10, 10, 160, .75) 25%,rgba(10, 10, 160, .75) 50%,
             rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,rgba(10, 10, 160, .75) 75%,rgba(10, 10, 160, .75));
+}
+
+.saved-list-icon{
+    height: 35px;
+    width: 35px;
+    background-color: #03040e;
+    display: inline-block;
+    box-shadow: inset 0 0 5px 3px black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+
 }
