@@ -306,13 +306,13 @@ class ConsumeToolTemplate(TemplateView):
 		for recipe in recipes:
 			nombre = recipe.name
 			context["recipes"][nombre] = {}
-			context["recipes"][nombre]['rarity'] = recipe.rarity
+			context["recipes"][nombre]['quality'] = recipe.quality
 			context["recipes"][nombre]['name'] = str(recipe)
 			context["recipes"][nombre]['materials'] = {}
 			for mat in recipe.materials.all():
 				m_nombre = mat.name
 				context["recipes"][nombre]['materials'][m_nombre] = {}
-				context["recipes"][nombre]['materials'][m_nombre]['rarity'] = mat.rarity
+				context["recipes"][nombre]['materials'][m_nombre]['quality'] = mat.quality
 				context["recipes"][nombre]['materials'][m_nombre]['amount'] = int(recipe.step*mat.amount)
 				context["recipes"][nombre]['materials'][m_nombre]['name'] = str(mat)
 
@@ -329,7 +329,7 @@ class ConsumeToolTemplate(TemplateView):
 						if mat.name not in context['materials'].keys():
 							context['materials'][mat.name] = {}
 							context['materials'][mat.name]['value'] = 0
-							context['materials'][mat.name]['rarity'] = mat.item.rarity
+							context['materials'][mat.name]['quality'] = mat.item.quality
 
 
 						context['materials'][mat.name]['value'] += int(c.amount * mat.amount)
@@ -739,7 +739,7 @@ def ajax_tooltip(request):
 	item = Item.objects.get(name=name)
 
 	data['name'] = name
-	data['rarity'] = item.rarity
+	data['quality'] = item.quality
 	data['image_name'] = item.image_name
 
 	if item.description:
