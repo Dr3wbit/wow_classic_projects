@@ -68,39 +68,35 @@ function load_event_handlers() {
     $(".material-container").on({
         mouseenter: e => {
             clearTooltip()
-            updatetooltip($(e.target).closest(".material-container"), 'material')
+            tooltip_v2(e, false, 2)
         },
         mouseleave: e => {
             clearTooltip()
         },
 
     });
-
-    $(".crafted-name, .crafted-image, .material-name, .material-image").on({
-        mouseenter: e => {
-            clearTooltip()
-            tooltip_v2(e)
-        },
-        mouseleave: e => {
-            clearTooltip()
-        },
-        mousemove: e => {
-            update_tooltip(e)
-        }
-    });
+    //
+    // $(".crafted-name, .crafted-image, .material-name, .material-image").on({
+    //     mouseenter: e => {
+    //         clearTooltip()
+    //         tooltip_v2(e)
+    //     },
+    //     mouseleave: e => {
+    //         clearTooltip()
+    //     },
+    //     mousemove: e => {
+    //         update_tooltip(e)
+    //     }
+    // });
 
     $(".materials-list").on({
         'shown.bs.collapse': e => {
             let id = $( e.target ).attr("id")
             $(`span.crafted-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
-            // $(`span.crafted-container[name="${name}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
-            // let targetID = $(e.target).attr('id').replace('_collapse', '')
         },
         'hidden.bs.collapse': e => {
             let id = $( e.target ).attr("id")
             $(`span.crafted-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
-            // $(`span.crafted-container[name="${name}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
-            // let targetID = $(e.target).attr('id').replace('_collapse', '')
         },
     });
 }

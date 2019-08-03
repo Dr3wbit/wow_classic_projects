@@ -345,7 +345,7 @@ function talentHandler() {
 
 		mouseenter: e => {
 			clearTooltip()
-			updateTooltip(e)
+			tooltip_v2(e, true, 1)
 		},
 
 		mouseleave: e => {
@@ -354,14 +354,11 @@ function talentHandler() {
 
 		mousedown: e => {
 			mouseDownHandler(e)
+			clearTooltip()
+			tooltip_v2(e, true, 1)
 		},
 
 	})
-}
-
-function clearTooltip() {
-	$("#tooltip_container").hide()
-	$("#tooltip_container").children().remove()
 }
 
 function mouseDownHandler(e = null, talent, tree) {
@@ -370,7 +367,7 @@ function mouseDownHandler(e = null, talent, tree) {
 		manuallyClicked = true
 		var targetTalent = $(e.target)
 
-		clearTooltip()
+		// clearTooltip()
 
 		// var treeName = targetTalent.closest('div.talentTable')[0].id
 		var treeName = utilities.titleCase(targetTalent.closest('div.talentTable')[0].id)
@@ -388,7 +385,7 @@ function mouseDownHandler(e = null, talent, tree) {
 		talentObj.invested = parseInt(targetTalent.closest('.talent-container').find('.spentPoints').first().text()) // should insure points don't carry over when switching between classes
 
 		if (((talentObj.invested === talentObj.maxRank) && e.which === 1) || (talentPointsSpent.hardLocked)) {
-			updateTooltip(e) //tooltip goes away otherwise, unsure why
+			// updateTooltip(e) //tooltip goes away otherwise, unsure why
 			return
 		}
 	}
@@ -406,7 +403,7 @@ function mouseDownHandler(e = null, talent, tree) {
 		let url = new URL(document.location)
 		url.search = urlBuilder()
 		history.replaceState(null, null, url)
-		updateTooltip(e)
+		// tooltip_v2(e, true, true)
 	}
 
 	updateTalentHeader()
@@ -430,6 +427,8 @@ function updateTalentHeader() {
 function updateTooltip(e) {
 	const targetTalent = $(e.target)
 	const name = utilities.titleCase(targetTalent.attr('name'))
+
+
 	const tree = utilities.titleCase(targetTalent.closest('div.talentTable')[0].id)
 
 	const found = classData.trees.find(function (x) {
@@ -512,7 +511,6 @@ function updateTooltip(e) {
 	}
 
 	utilities.bigdaddytooltip(targetTalent, tooltipElems)
-
 }
 
 function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
