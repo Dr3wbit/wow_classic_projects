@@ -214,7 +214,7 @@
             var rating = target.closest($("div.longbar")).find($(".glyphicon-star")).length
             var container = target.closest($(".ratings-container"))
             var id = container.attr("data-id")
-            var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+            var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : 0
             var data = {
                 wow_class: wow_class,
                 id: id,
@@ -225,7 +225,7 @@
     })
 
     function rate_saved_list(d) {
-        var spec = (d.wow_class) ? true : false
+        var spec = (d.wow_class) ? 1 : 0
         var rating = d.rating
         var id = d.id
         $.ajax({
