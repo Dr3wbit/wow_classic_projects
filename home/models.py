@@ -347,6 +347,7 @@ class Talent(models.Model):
 	locked = models.ForeignKey("self", blank=True, null=True, on_delete=models.CASCADE)
 	class Meta:
 		unique_together = ['wow_class', 'name', 'tree']
+		ordering = ['id']
 
 	def __str__(self):
 		return(self.name)
@@ -395,7 +396,7 @@ class Tag(models.Model):
 		('alliance', 'Alliance'),
 	)
 
-	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
+	name = models.CharField(max_length=10, choices=TAG_NAME_CHOICES, unique=True)
 
 	def __str__(self):
 		return(self.name)

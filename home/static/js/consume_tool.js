@@ -77,7 +77,6 @@ function addCraftedItem(name, numAdded=1) {
 			return false
 		}
 
-
 	} else {
 		updatedAmount = step * numAdded
 		if (updatedAmount <= 0) {
