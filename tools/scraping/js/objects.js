@@ -751,6 +751,10 @@
         "i": 175207,
         "n": "Beached Sea Creature"
     },
+    "175245": {
+        "i": 175245,
+        "n": "Father Flame"
+    },
     "175264": {
         "i": 175264,
         "n": "Broodling Essence"
@@ -967,6 +971,10 @@
         "i": 176224,
         "n": "Supply Crate"
     },
+    "176249": {
+        "i": 176249,
+        "n": "Scourge Data"
+    },
     "176325": {
         "i": 176325,
         "n": "Blacksmithing Plans"
@@ -978,6 +986,30 @@
     "176344": {
         "i": 176344,
         "n": "Document Chest"
+    },
+    "176356": {
+        "i": 176356,
+        "n": "Sacred Highborne Writings"
+    },
+    "176360": {
+        "i": 176360,
+        "n": "Postbox Parcel"
+    },
+    "176484": {
+        "i": 176484,
+        "n": "The Deed to Brill"
+    },
+    "176485": {
+        "i": 176485,
+        "n": "The Deed to Caer Darrow"
+    },
+    "176486": {
+        "i": 176486,
+        "n": "The Deed to Southshore"
+    },
+    "176487": {
+        "i": 176487,
+        "n": "The Deed to Tarren Mill"
     },
     "1765": {
         "i": 1765,
@@ -1002,6 +1034,22 @@
     "176587": {
         "i": 176587,
         "n": "Plaguebloom"
+    },
+    "176588": {
+        "i": 176588,
+        "n": "Icecap"
+    },
+    "176589": {
+        "i": 176589,
+        "n": "Black Lotus"
+    },
+    "176630": {
+        "i": 176630,
+        "n": "Keepsake of Remembrance"
+    },
+    "176634": {
+        "i": 176634,
+        "n": "Kerlonian's Chest"
     },
     "176636": {
         "i": 176636,
@@ -1038,6 +1086,26 @@
     "176645": {
         "i": 176645,
         "n": "Mithril Deposit"
+    },
+    "176751": {
+        "i": 176751,
+        "n": "Kodo Bones"
+    },
+    "176752": {
+        "i": 176752,
+        "n": "Kodo Bones"
+    },
+    "176753": {
+        "i": 176753,
+        "n": "Doom Weed"
+    },
+    "176785": {
+        "i": 176785,
+        "n": "Ammo Crate"
+    },
+    "176793": {
+        "i": 176793,
+        "n": "Bundle of Wood"
     },
     "176944": {
         "i": 176944,
@@ -1203,6 +1271,10 @@
         "i": 180683,
         "n": "Firefin Snapper School"
     },
+    "180712": {
+        "i": 180712,
+        "n": "Stonescale Eel Swarm"
+    },
     "180750": {
         "i": 180750,
         "n": "Oily Blackmouth School"
@@ -1230,6 +1302,10 @@
     "181069": {
         "i": 181069,
         "n": "Large Obsidian Chunk"
+    },
+    "181085": {
+        "i": 181085,
+        "n": "Stratholme Supply Crate"
     },
     "181108": {
         "i": 181108,
@@ -1270,6 +1346,18 @@
     "183046": {
         "i": 183046,
         "n": "Blindweed"
+    },
+    "184930": {
+        "i": 184930,
+        "n": "Solid Fel Iron Chest"
+    },
+    "184933": {
+        "i": 184933,
+        "n": "Solid Fel Iron Chest"
+    },
+    "184935": {
+        "i": 184935,
+        "n": "Solid Fel Iron Chest"
     },
     "184980": {
         "i": 184980,
@@ -2067,12 +2155,12 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "176249": {
-        "i": 176249,
-        "n": "Scourge Data"
+    "180228": {
+        "i": 180228,
+        "n": "Jinxed Hoodoo Pile"
     },
-    "181085": {
-        "i": 181085,
-        "n": "Stratholme Supply Crate"
+    "180229": {
+        "i": 180229,
+        "n": "Jinxed Hoodoo Pile"
     }
 }

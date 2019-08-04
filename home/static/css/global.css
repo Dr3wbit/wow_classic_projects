@@ -546,6 +546,10 @@ ul {
     text-shadow: 0px 0px 0.1rem rgba(0, 0, 30, 0.85);
 }
 
+.junk {
+	color: rgba(157,157,157,1);
+}
+
 .common {
     color: rgba(240,255,255,0.95);
 }
