@@ -1379,6 +1379,10 @@
         "i": 17527,
         "n": "Mighty Rage Potion"
     },
+    "17551": {
+        "i": 17551,
+        "n": "Stonescale Oil"
+    },
     "17552": {
         "i": 17552,
         "n": "Mighty Rage Potion"
@@ -1442,6 +1446,10 @@
     "17571": {
         "i": 17571,
         "n": "Elixir of the Mongoose"
+    },
+    "17572": {
+        "i": 17572,
+        "n": "Purification Potion"
     },
     "17573": {
         "i": 17573,
@@ -1611,6 +1619,18 @@
         "i": 18238,
         "n": "Spotted Yellowtail"
     },
+    "18239": {
+        "i": 18239,
+        "n": "Cooked Glossy Mightfish"
+    },
+    "18240": {
+        "i": 18240,
+        "n": "Grilled Squid"
+    },
+    "18241": {
+        "i": 18241,
+        "n": "Filet of Redgill"
+    },
     "18242": {
         "i": 18242,
         "n": "Hot Smoked Bass"
@@ -1619,6 +1639,10 @@
         "i": 18243,
         "n": "Nightfin Soup"
     },
+    "18244": {
+        "i": 18244,
+        "n": "Poached Sunscale Salmon"
+    },
     "18245": {
         "i": 18245,
         "n": "Lobster Stew"
@@ -1626,6 +1650,10 @@
     "18246": {
         "i": 18246,
         "n": "Mightfish Steak"
+    },
+    "18247": {
+        "i": 18247,
+        "n": "Baked Salmon"
     },
     "18403": {
         "i": 18403,
@@ -2115,6 +2143,10 @@
         "i": 19875,
         "n": "zzOLDShield Discipline"
     },
+    "20051": {
+        "i": 20051,
+        "n": "Runed Arcanite Rod"
+    },
     "20174": {
         "i": 20174,
         "n": "Guardian's Favor"
@@ -2471,9 +2503,17 @@
         "i": 22868,
         "n": "Inferno Gloves"
     },
+    "22869": {
+        "i": 22869,
+        "n": "Mooncloth Gloves"
+    },
     "22870": {
         "i": 22870,
         "n": "Cloak of Warding"
+    },
+    "22902": {
+        "i": 22902,
+        "n": "Mooncloth Robe"
     },
     "22921": {
         "i": 22921,
@@ -3326,6 +3366,10 @@
     "27724": {
         "i": 27724,
         "n": "Cenarion Herb Bag"
+    },
+    "27725": {
+        "i": 27725,
+        "n": "Satchel of Cenarius"
     },
     "27752": {
         "i": 27752,
@@ -5070,5 +5114,129 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
+    },
+    "19093": {
+        "i": 19093,
+        "n": "Onyxia Scale Cloak"
+    },
+    "23079": {
+        "i": 23079,
+        "n": "Major Recombobulator"
+    },
+    "19072": {
+        "i": 19072,
+        "n": "Runic Leather Belt"
+    },
+    "19055": {
+        "i": 19055,
+        "n": "Runic Leather Gauntlets"
+    },
+    "19082": {
+        "i": 19082,
+        "n": "Runic Leather Headband"
+    },
+    "19831": {
+        "i": 19831,
+        "n": "Arcane Bomb"
+    },
+    "18401": {
+        "i": 18401,
+        "n": "Bolt of Runecloth"
+    },
+    "23070": {
+        "i": 23070,
+        "n": "Dense Dynamite"
+    },
+    "18630": {
+        "i": 18630,
+        "n": "Heavy Runecloth Bandage"
+    },
+    "18629": {
+        "i": 18629,
+        "n": "Runecloth Bandage"
+    },
+    "30021": {
+        "i": 30021,
+        "n": "Crystal Infused Bandage"
+    },
+    "18455": {
+        "i": 18455,
+        "n": "Bottomless Bag"
+    },
+    "18440": {
+        "i": 18440,
+        "n": "Mooncloth Leggings"
+    },
+    "18448": {
+        "i": 18448,
+        "n": "Mooncloth Shoulders"
+    },
+    "18447": {
+        "i": 18447,
+        "n": "Mooncloth Vest"
+    },
+    "24901": {
+        "i": 24901,
+        "n": "Runed Stygian Leggings"
+    },
+    "18420": {
+        "i": 18420,
+        "n": "Brightcloth Cloak"
+    },
+    "18415": {
+        "i": 18415,
+        "n": "Brightcloth Gloves"
+    },
+    "18439": {
+        "i": 18439,
+        "n": "Brightcloth Pants"
+    },
+    "18414": {
+        "i": 18414,
+        "n": "Brightcloth Robe"
+    },
+    "27659": {
+        "i": 27659,
+        "n": "Enchanted Runecloth Bag"
+    },
+    "18442": {
+        "i": 18442,
+        "n": "Felcloth Hood"
+    },
+    "18419": {
+        "i": 18419,
+        "n": "Felcloth Pants"
+    },
+    "23707": {
+        "i": 23707,
+        "n": "Lava Belt"
+    },
+    "18423": {
+        "i": 18423,
+        "n": "Runecloth Boots"
+    },
+    "18409": {
+        "i": 18409,
+        "n": "Runecloth Cloak"
+    },
+    "18444": {
+        "i": 18444,
+        "n": "Runecloth Headband"
+    },
+    "18438": {
+        "i": 18438,
+        "n": "Runecloth Pants"
+    },
+    "18406": {
+        "i": 18406,
+        "n": "Runecloth Robe"
+    },
+    "18449": {
+        "i": 18449,
+        "n": "Runecloth Shoulders"
+    },
+    "18407": {
+        "i": 18407,
+        "n": "Runecloth Tunic"
     }
 }
