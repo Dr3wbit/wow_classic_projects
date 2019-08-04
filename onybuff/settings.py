@@ -76,7 +76,7 @@ TEMPLATES = [
 	{
 		'BACKEND': 'django.template.backends.django.DjangoTemplates',
 		'DIRS': [os.path.join(BASE_DIR, 'home/templates')],
-		'APP_DIRS': True,
+		# 'APP_DIRS': True,
 		'OPTIONS': {
 			'context_processors': [
 				'django.template.context_processors.debug',
@@ -87,6 +87,10 @@ TEMPLATES = [
 				'social_django.context_processors.backends',
 				'social_django.context_processors.login_redirect',
 			],
+			'loaders': [
+				'django.template.loaders.filesystem.Loader',
+				'django.template.loaders.app_directories.Loader',
+			]
 		},
 	},
 ]
