@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-      
+
   <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}">
   {% if cl.formset %}
     <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
@@ -24,10 +24,8 @@
 {% endblock %}
 
 {% block result_list %}
-<p> pee pee doo doo </p>
 
     {% if action_form and actions_on_top and cl.show_admin_actions %}{% admin_actions %}{% endif %}
     {% result_list cl %}
-    <p> doo doo </p>
     {% if action_form and actions_on_bottom and cl.show_admin_actions %}{% admin_actions %}{% endif %}
 {% endblock result_list %}
