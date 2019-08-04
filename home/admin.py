@@ -1,6 +1,7 @@
 from django.contrib import admin
 from home.models import Item, WoWClass, Spec, ConsumeList
-from django.utils.html import format_html
+from django.utils import html
+from django.conf import settings
 
 QUALITY = {
 	"junk": "rgba(157,157,157,1)",
@@ -20,9 +21,24 @@ class ItemAdmin(admin.ModelAdmin):
 	model = Item
 	# change_list_results_template = "change_list_results.html"
 	list_display = ('name', 'quality', 'image')
+	# def image(self, obj):
+	#     return format_html(
+	#         '<img class="icon-medium" src=style="color: #{};">{} {}</span>',
+	#         self.color_code,
+	#         self.first_name,
+	#         self.last_name,
+	#     )
 
 	def image(self, obj):
-		return "{}".format(obj.image_name)
+		# format_html_join()
+		return html.format_html(
+			'<img class="icon-medium" src="{}" style="background-image: url({});">',
+			html.format_html(settings.STATIC_URL+"images/icon_border_2.png"),
+			html.format_html(settings.STATIC_URL+"images/icons/consumes/"+obj.name+".jpg"),
+	)
+	#
+	# def image(self, obj):
+	# 	return "{}".format(obj.image_name)
 
 	image.short_description = 'Image'
 
