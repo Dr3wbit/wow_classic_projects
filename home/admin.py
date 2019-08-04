@@ -1,9 +1,48 @@
 from django.contrib import admin
-from home.models import Item, WoWClass
+from home.models import Item, WoWClass, Spec, ConsumeList
+from django.utils.html import format_html
 
+QUALITY = {
+	"junk": "rgba(157,157,157,1)",
+	"common": "rgba(240,255,255,0.95)",
+	"uncommon":"rgba(30,255,0,0.95)",
+	"rare":"rgba(0, 112, 221, 1)",
+	"epic": "rgba(163, 53, 238, 1)",
+	"legendary": "rgba(255, 128, 0, 0.95)",
+}
 
+admin.site.site_header = 'Onybuff Admin'
 admin.site.register(WoWClass)
-admin.site.register(Item)
+admin.site.register(Spec)
+admin.site.register(ConsumeList)
+
+class ItemAdmin(admin.ModelAdmin):
+	model = Item
+	# change_list_results_template = "change_list_results.html"
+	list_display = ('name', 'quality', 'image')
+
+	def image(self, obj):
+		return "{}".format(obj.image_name)
+
+	image.short_description = 'Image'
+
+	# def get_list_display(self, request):
+	# 	list_display = super().get_list_display(request)
+	# 	print('\nlist_display: ', list_display)
+	# 	list_display += ('quality', )
+	# 	return list_display
+
+	# def colored_name(self):
+	# 	color = QUALITY[self.quality]
+	# 	return format_html(
+	# 		'<span style="color: {};">{}</span>',
+	# 		color, self.name
+	# 	)
+	# colored_name.admin_order_field = 'name'
+
+# print(dir(ItemAdmin))
+
+admin.site.register(Item, ItemAdmin)
 
 from django.conf import settings
 if not settings.LOCAL:
