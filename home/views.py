@@ -645,7 +645,7 @@ def save_rating(request):
 		data['success'] = True
 		data['average_rating'] = saved_list.rating
 		data['num_ratings'] = saved_list.ratings.count()
-		data['message'] = "user: {} successfully rated {}".format(user.email, saved_list.name)
+		data['message'] = "USER: {} SUCCESSFULLY RATED {}".format(user.email, saved_list.name)
 
 	return JsonResponse(data)
 
@@ -704,9 +704,11 @@ def delete_list(request):
 				data['name'] = name
 				saved_list.delete()
 				data['message'] = 'SUCCESSFULLY DELETED {}'.format(name)
+				data['success'] = True
 				response = JsonResponse(data)
 
 			else:
+				data['success'] = False
 				data['message'] = 'SAVED LIST {} NOT FOUND, UNABLE TO DELETE'.format(name)
 				response = JsonResponse(data)
 
