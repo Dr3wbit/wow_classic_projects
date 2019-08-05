@@ -118,6 +118,7 @@ function lockSpec() {
 				talentUnlocker()
 				lockButton.removeClass("lock").addClass("unlock")
 				lockButton.attr('title', 'Unlocked')
+				lockButton.css({"color": "#3d7e9a"})
 				params.delete('L')
 				if (talentPointsSpent.softLocked) {
 					talentLocker()
@@ -130,6 +131,7 @@ function lockSpec() {
 
 				lockButton.removeClass("unlock").addClass("lock")
 				lockButton.attr('title', 'Locked')
+				lockButton.css({"color": "rgba(231, 186, 0, 1)"})
 			}
 
 		},

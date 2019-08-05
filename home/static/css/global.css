@@ -21,6 +21,7 @@ body {
 .footer {
     width: 100%;
     position: absolute;
+    height: 3vh;
     bottom: 0;
     background-color: #1C1C1C;
     z-index: 1310;
@@ -710,15 +711,8 @@ ul {
 }
 
 .discordLink {
-    background-image: url(../images/icons/discord_link.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 90px;
-    height: 20px;
+    color: white;
     cursor: pointer;
-    /* padding: 10px; */
-    /* margin-left: auto; */
-    /* position: relative; */
 }
 
 @media only screen and (max-width: 992px) {
