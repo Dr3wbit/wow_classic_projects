@@ -1371,6 +1371,10 @@
         "i": 17180,
         "n": "Enchanted Thorium"
     },
+    "17181": {
+        "i": 17181,
+        "n": "Enchanted Leather"
+    },
     "17187": {
         "i": 17187,
         "n": "Transmute: Arcanite"
@@ -1655,6 +1659,10 @@
         "i": 18247,
         "n": "Baked Salmon"
     },
+    "18401": {
+        "i": 18401,
+        "n": "Bolt of Runecloth"
+    },
     "18403": {
         "i": 18403,
         "n": "Frostweave Tunic"
@@ -1663,9 +1671,21 @@
         "i": 18404,
         "n": "Frostweave Robe"
     },
+    "18406": {
+        "i": 18406,
+        "n": "Runecloth Robe"
+    },
+    "18407": {
+        "i": 18407,
+        "n": "Runecloth Tunic"
+    },
     "18408": {
         "i": 18408,
         "n": "Cindercloth Vest"
+    },
+    "18409": {
+        "i": 18409,
+        "n": "Runecloth Cloak"
     },
     "18410": {
         "i": 18410,
@@ -1683,6 +1703,14 @@
         "i": 18413,
         "n": "Ghostweave Gloves"
     },
+    "18414": {
+        "i": 18414,
+        "n": "Brightcloth Robe"
+    },
+    "18415": {
+        "i": 18415,
+        "n": "Brightcloth Gloves"
+    },
     "18416": {
         "i": 18416,
         "n": "Ghostweave Vest"
@@ -1691,6 +1719,14 @@
         "i": 18418,
         "n": "Cindercloth Cloak"
     },
+    "18419": {
+        "i": 18419,
+        "n": "Felcloth Pants"
+    },
+    "18420": {
+        "i": 18420,
+        "n": "Brightcloth Cloak"
+    },
     "18421": {
         "i": 18421,
         "n": "Wizardweave Leggings"
@@ -1698,6 +1734,10 @@
     "18422": {
         "i": 18422,
         "n": "Cloak of Fire"
+    },
+    "18423": {
+        "i": 18423,
+        "n": "Runecloth Boots"
     },
     "18424": {
         "i": 18424,
@@ -1715,13 +1755,49 @@
         "i": 18437,
         "n": "Felcloth Boots"
     },
+    "18438": {
+        "i": 18438,
+        "n": "Runecloth Pants"
+    },
+    "18439": {
+        "i": 18439,
+        "n": "Brightcloth Pants"
+    },
+    "18440": {
+        "i": 18440,
+        "n": "Mooncloth Leggings"
+    },
     "18441": {
         "i": 18441,
         "n": "Ghostweave Pants"
     },
+    "18442": {
+        "i": 18442,
+        "n": "Felcloth Hood"
+    },
+    "18444": {
+        "i": 18444,
+        "n": "Runecloth Headband"
+    },
+    "18445": {
+        "i": 18445,
+        "n": "Mooncloth Bag"
+    },
     "18446": {
         "i": 18446,
         "n": "Wizardweave Robe"
+    },
+    "18447": {
+        "i": 18447,
+        "n": "Mooncloth Vest"
+    },
+    "18448": {
+        "i": 18448,
+        "n": "Mooncloth Shoulders"
+    },
+    "18449": {
+        "i": 18449,
+        "n": "Runecloth Shoulders"
     },
     "18450": {
         "i": 18450,
@@ -1742,6 +1818,10 @@
     "18454": {
         "i": 18454,
         "n": "Gloves of Spell Mastery"
+    },
+    "18455": {
+        "i": 18455,
+        "n": "Bottomless Bag"
     },
     "18456": {
         "i": 18456,
@@ -1770,6 +1850,18 @@
     "18539": {
         "i": 18539,
         "n": "zzOLDImproved Smite"
+    },
+    "18560": {
+        "i": 18560,
+        "n": "Mooncloth"
+    },
+    "18629": {
+        "i": 18629,
+        "n": "Runecloth Bandage"
+    },
+    "18630": {
+        "i": 18630,
+        "n": "Heavy Runecloth Bandage"
     },
     "18821": {
         "i": 18821,
@@ -1827,6 +1919,10 @@
         "i": 18887,
         "n": "Create Nimboya's Laden Pike"
     },
+    "19029": {
+        "i": 19029,
+        "n": "Create Coagulated Rot"
+    },
     "19047": {
         "i": 19047,
         "n": "Cured Rugged Hide"
@@ -1843,6 +1939,10 @@
         "i": 19050,
         "n": "Green Dragonscale Breastplate"
     },
+    "19051": {
+        "i": 19051,
+        "n": "Heavy Scorpid Vest"
+    },
     "19052": {
         "i": 19052,
         "n": "Wicked Leather Bracers"
@@ -1854,6 +1954,10 @@
     "19054": {
         "i": 19054,
         "n": "Red Dragonscale Breastplate"
+    },
+    "19055": {
+        "i": 19055,
+        "n": "Runic Leather Gauntlets"
     },
     "19059": {
         "i": 19059,
@@ -1903,6 +2007,10 @@
         "i": 19071,
         "n": "Wicked Leather Headband"
     },
+    "19072": {
+        "i": 19072,
+        "n": "Runic Leather Belt"
+    },
     "19073": {
         "i": 19073,
         "n": "Chimeric Leggings"
@@ -1910,6 +2018,10 @@
     "19074": {
         "i": 19074,
         "n": "Frostsaber Leggings"
+    },
+    "19075": {
+        "i": 19075,
+        "n": "Heavy Scorpid Leggings"
     },
     "19076": {
         "i": 19076,
@@ -1934,6 +2046,10 @@
     "19081": {
         "i": 19081,
         "n": "Chimeric Vest"
+    },
+    "19082": {
+        "i": 19082,
+        "n": "Runic Leather Headband"
     },
     "19083": {
         "i": 19083,
@@ -1975,6 +2091,10 @@
         "i": 19092,
         "n": "Wicked Leather Belt"
     },
+    "19093": {
+        "i": 19093,
+        "n": "Onyxia Scale Cloak"
+    },
     "19094": {
         "i": 19094,
         "n": "Black Dragonscale Shoulders"
@@ -1991,6 +2111,10 @@
         "i": 19098,
         "n": "Wicked Leather Armor"
     },
+    "19100": {
+        "i": 19100,
+        "n": "Heavy Scorpid Shoulders"
+    },
     "19101": {
         "i": 19101,
         "n": "Volcanic Shoulders"
@@ -2006,6 +2130,10 @@
     "19104": {
         "i": 19104,
         "n": "Frostsaber Tunic"
+    },
+    "19106": {
+        "i": 19106,
+        "n": "Onyxia Scale Breastplate"
     },
     "19107": {
         "i": 19107,
@@ -2083,6 +2211,10 @@
         "i": 19669,
         "n": "Arcanite Skeleton Key"
     },
+    "19720": {
+        "i": 19720,
+        "n": "Combine Pendants"
+    },
     "19788": {
         "i": 19788,
         "n": "Dense Blasting Powder"
@@ -2115,6 +2247,10 @@
         "i": 19799,
         "n": "Dark Iron Bomb"
     },
+    "19800": {
+        "i": 19800,
+        "n": "Thorium Shells"
+    },
     "19814": {
         "i": 19814,
         "n": "Masterwork Target Dummy"
@@ -2135,6 +2271,10 @@
         "i": 19830,
         "n": "Arcanite Dragonling"
     },
+    "19831": {
+        "i": 19831,
+        "n": "Arcane Bomb"
+    },
     "19833": {
         "i": 19833,
         "n": "Flawless Arcanite Rifle"
@@ -2142,6 +2282,10 @@
     "19875": {
         "i": 19875,
         "n": "zzOLDShield Discipline"
+    },
+    "20039": {
+        "i": 20039,
+        "n": "Greater Eternal Essence"
     },
     "20051": {
         "i": 20051,
@@ -2226,6 +2370,14 @@
     "20849": {
         "i": 20849,
         "n": "Flarecore Gloves"
+    },
+    "20853": {
+        "i": 20853,
+        "n": "Corehound Boots"
+    },
+    "20854": {
+        "i": 20854,
+        "n": "Molten Helm"
     },
     "20855": {
         "i": 20855,
@@ -2435,6 +2587,14 @@
         "i": 22211,
         "n": "Create Chapter 4 DND"
     },
+    "22430": {
+        "i": 22430,
+        "n": "Refined Scale of Onyxia"
+    },
+    "22434": {
+        "i": 22434,
+        "n": "Charged Scale of Onyxia"
+    },
     "22480": {
         "i": 22480,
         "n": "Tender Wolf Steak"
@@ -2446,6 +2606,10 @@
     "22711": {
         "i": 22711,
         "n": "Shadowskin Gloves"
+    },
+    "22727": {
+        "i": 22727,
+        "n": "Core Armor Kit"
     },
     "22732": {
         "i": 22732,
@@ -2559,6 +2723,10 @@
         "i": 23069,
         "n": "EZ-Thro Dynamite II"
     },
+    "23070": {
+        "i": 23070,
+        "n": "Dense Dynamite"
+    },
     "23071": {
         "i": 23071,
         "n": "Truesilver Transformer"
@@ -2570,6 +2738,10 @@
     "23078": {
         "i": 23078,
         "n": "Goblin Jumper Cables XL"
+    },
+    "23079": {
+        "i": 23079,
+        "n": "Major Recombobulator"
     },
     "23080": {
         "i": 23080,
@@ -2747,6 +2919,10 @@
         "i": 23706,
         "n": "Golden Mantle of the Dawn"
     },
+    "23707": {
+        "i": 23707,
+        "n": "Lava Belt"
+    },
     "23708": {
         "i": 23708,
         "n": "Chromatic Gauntlets"
@@ -2842,6 +3018,14 @@
     "24123": {
         "i": 24123,
         "n": "Primal Batskin Bracers"
+    },
+    "24124": {
+        "i": 24124,
+        "n": "Blood Tiger Breastplate"
+    },
+    "24125": {
+        "i": 24125,
+        "n": "Blood Tiger Shoulders"
     },
     "24136": {
         "i": 24136,
@@ -2951,6 +3135,14 @@
         "i": 24848,
         "n": "Spitfire Breastplate"
     },
+    "24850": {
+        "i": 24850,
+        "n": "Sandstalker Gauntlets"
+    },
+    "24851": {
+        "i": 24851,
+        "n": "Sandstalker Breastplate"
+    },
     "24874": {
         "i": 24874,
         "n": "Create Crest of Beckoning: Fire"
@@ -2998,6 +3190,10 @@
     "24898": {
         "i": 24898,
         "n": "Create Scepter of Beckoning: Water"
+    },
+    "24901": {
+        "i": 24901,
+        "n": "Runed Stygian Leggings"
     },
     "24902": {
         "i": 24902,
@@ -3215,6 +3411,18 @@
         "i": 26425,
         "n": "Red Rocket Cluster"
     },
+    "26426": {
+        "i": 26426,
+        "n": "Large Blue Rocket Cluster"
+    },
+    "26427": {
+        "i": 26427,
+        "n": "Large Green Rocket Cluster"
+    },
+    "26428": {
+        "i": 26428,
+        "n": "Large Red Rocket Cluster"
+    },
     "26442": {
         "i": 26442,
         "n": "Firework Launcher"
@@ -3358,6 +3566,10 @@
     "27658": {
         "i": 27658,
         "n": "Enchanted Mageweave Pouch"
+    },
+    "27659": {
+        "i": 27659,
+        "n": "Enchanted Runecloth Bag"
     },
     "27660": {
         "i": 27660,
@@ -3538,6 +3750,10 @@
     "2964": {
         "i": 2964,
         "n": "Bolt of Woolen Cloth"
+    },
+    "30021": {
+        "i": 30021,
+        "n": "Crystal Infused Bandage"
     },
     "30047": {
         "i": 30047,
@@ -5115,128 +5331,16 @@
         "i": 9997,
         "n": "Wicked Mithril Blade"
     },
-    "19093": {
-        "i": 19093,
-        "n": "Onyxia Scale Cloak"
+    "20529": {
+        "i": 20529,
+        "n": "Bind Chapter 1"
     },
-    "23079": {
-        "i": 23079,
-        "n": "Major Recombobulator"
+    "20530": {
+        "i": 20530,
+        "n": "Bind Chapter 2"
     },
-    "19072": {
-        "i": 19072,
-        "n": "Runic Leather Belt"
-    },
-    "19055": {
-        "i": 19055,
-        "n": "Runic Leather Gauntlets"
-    },
-    "19082": {
-        "i": 19082,
-        "n": "Runic Leather Headband"
-    },
-    "19831": {
-        "i": 19831,
-        "n": "Arcane Bomb"
-    },
-    "18401": {
-        "i": 18401,
-        "n": "Bolt of Runecloth"
-    },
-    "23070": {
-        "i": 23070,
-        "n": "Dense Dynamite"
-    },
-    "18630": {
-        "i": 18630,
-        "n": "Heavy Runecloth Bandage"
-    },
-    "18629": {
-        "i": 18629,
-        "n": "Runecloth Bandage"
-    },
-    "30021": {
-        "i": 30021,
-        "n": "Crystal Infused Bandage"
-    },
-    "18455": {
-        "i": 18455,
-        "n": "Bottomless Bag"
-    },
-    "18440": {
-        "i": 18440,
-        "n": "Mooncloth Leggings"
-    },
-    "18448": {
-        "i": 18448,
-        "n": "Mooncloth Shoulders"
-    },
-    "18447": {
-        "i": 18447,
-        "n": "Mooncloth Vest"
-    },
-    "24901": {
-        "i": 24901,
-        "n": "Runed Stygian Leggings"
-    },
-    "18420": {
-        "i": 18420,
-        "n": "Brightcloth Cloak"
-    },
-    "18415": {
-        "i": 18415,
-        "n": "Brightcloth Gloves"
-    },
-    "18439": {
-        "i": 18439,
-        "n": "Brightcloth Pants"
-    },
-    "18414": {
-        "i": 18414,
-        "n": "Brightcloth Robe"
-    },
-    "27659": {
-        "i": 27659,
-        "n": "Enchanted Runecloth Bag"
-    },
-    "18442": {
-        "i": 18442,
-        "n": "Felcloth Hood"
-    },
-    "18419": {
-        "i": 18419,
-        "n": "Felcloth Pants"
-    },
-    "23707": {
-        "i": 23707,
-        "n": "Lava Belt"
-    },
-    "18423": {
-        "i": 18423,
-        "n": "Runecloth Boots"
-    },
-    "18409": {
-        "i": 18409,
-        "n": "Runecloth Cloak"
-    },
-    "18444": {
-        "i": 18444,
-        "n": "Runecloth Headband"
-    },
-    "18438": {
-        "i": 18438,
-        "n": "Runecloth Pants"
-    },
-    "18406": {
-        "i": 18406,
-        "n": "Runecloth Robe"
-    },
-    "18449": {
-        "i": 18449,
-        "n": "Runecloth Shoulders"
-    },
-    "18407": {
-        "i": 18407,
-        "n": "Runecloth Tunic"
+    "20531": {
+        "i": 20531,
+        "n": "Bind Chapter 3"
     }
 }

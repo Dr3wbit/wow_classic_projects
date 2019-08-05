@@ -21,6 +21,15 @@
             "materials": {
                 "12359": 6
             }
+        },
+        "objective": 9198,
+        "creates": {
+            "22795": 18282,
+            "22793": 18283,
+            "19796": 16004,
+            "19833": 16007,
+            "23079": 18637,
+            "19814": 16023
         }
     },
     "16001": {
@@ -30,7 +39,13 @@
         "image_name": "inv_misc_armorkit_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177804": 100.0
+            }
+        },
+        "objective": 6185
     },
     "16002": {
         "i": 16002,
@@ -39,7 +54,13 @@
         "image_name": "inv_misc_armorkit_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177805": 100.0
+            }
+        },
+        "objective": 6185
     },
     "16003": {
         "i": 16003,
@@ -48,7 +69,13 @@
         "image_name": "inv_misc_armorkit_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177806": 100.0
+            }
+        },
+        "objective": 6185
     },
     "16004": {
         "i": 16004,
@@ -95,6 +122,22 @@
                 "12361": 2,
                 "12799": 2,
                 "8170": 4
+            }
+        },
+        "materials": {
+            "16000": 2,
+            "11371": 6,
+            "10546": 2,
+            "12361": 2,
+            "12799": 2,
+            "8170": 4
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -157,6 +200,17 @@
                 "12360": 1,
                 "14227": 1
             }
+        },
+        "objective": 8921,
+        "creates": {
+            "22795": 18282,
+            "22797": 18168,
+            "19830": 16022,
+            "22793": 18283,
+            "24356": 19999,
+            "24357": 19998,
+            "19819": 16009,
+            "19831": 16040
         }
     },
     "16007": {
@@ -213,6 +267,22 @@
                 "12800": 2,
                 "12810": 2
             }
+        },
+        "materials": {
+            "12360": 10,
+            "16000": 2,
+            "7078": 2,
+            "7076": 2,
+            "12800": 2,
+            "12810": 2
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16008": {
@@ -252,6 +322,28 @@
                 "12364": 2,
                 "12810": 4
             }
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16009": {
@@ -287,6 +379,34 @@
                 "10558": 1,
                 "15994": 1,
                 "12799": 1
+            }
+        },
+        "materials": {
+            "16006": 2,
+            "10558": 1,
+            "15994": 1,
+            "12799": 1
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -329,6 +449,22 @@
                 "10558": 4,
                 "12810": 6
             }
+        },
+        "materials": {
+            "10576": 1,
+            "16006": 8,
+            "12655": 10,
+            "15994": 6,
+            "10558": 4,
+            "12810": 6
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16023": {
@@ -367,6 +503,14 @@
                 "8170": 2,
                 "14047": 4
             }
+        },
+        "materials": {
+            "10561": 1,
+            "16000": 1,
+            "15994": 2,
+            "6037": 1,
+            "8170": 2,
+            "14047": 4
         }
     },
     "16039": {
@@ -399,6 +543,17 @@
         },
         "requirements": {
             "level": 52
+        },
+        "dropped": {
+            "10826": 50.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16040": {
@@ -434,6 +589,11 @@
                 "12359": 3,
                 "14047": 1
             }
+        },
+        "materials": {
+            "16006": 1,
+            "12359": 3,
+            "14047": 1
         }
     },
     "16041": {
@@ -455,6 +615,15 @@
         "use": {
             "s": 19845,
             "t": "Teaches you how to make a Thorium Grenade."
+        },
+        "sold": {
+            "5175": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16042": {
@@ -476,6 +645,15 @@
         "use": {
             "s": 19846,
             "t": "Teaches you how to make a Thorium Widget."
+        },
+        "sold": {
+            "5175": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16043": {
@@ -497,6 +675,32 @@
         "use": {
             "s": 19847,
             "t": "Teaches you how to make a Thorium Rifle."
+        },
+        "dropped": {
+            "12397": 3.0,
+            "12337": 0.28,
+            "8400": 0.22,
+            "9441": 0.18,
+            "13397": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153469": 0.5,
+                "153464": 0.5,
+                "153463": 0.5,
+                "153468": 0.5,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153451": 0.5,
+                "160845": 0.2,
+                "153462": 0.024,
+                "2656": 0.02
+            },
+            "items": {
+                "19035": 8.0,
+                "5758": 0.4
+            }
         }
     },
     "16044": {
@@ -518,6 +722,26 @@
         "use": {
             "s": 19848,
             "t": "Teaches you how to make a Lifelike Mechanical Toad."
+        },
+        "dropped": {
+            "14889": 1.896,
+            "14887": 1.896,
+            "14888": 1.896,
+            "14890": 1.896,
+            "10184": 0.952,
+            "6109": 0.952,
+            "11583": 0.952,
+            "15114": 0.952,
+            "9438": 0.52,
+            "12397": 0.42
+        },
+        "contained": {
+            "objects": {
+                "153462": 0.02
+            },
+            "items": {
+                "5758": 0.05
+            }
         }
     },
     "16045": {
@@ -539,6 +763,9 @@
         "use": {
             "s": 19849,
             "t": "Teaches you how to make a Spellpower Goggles Xtreme Plus."
+        },
+        "dropped": {
+            "6195": 0.8
         }
     },
     "16046": {
@@ -560,6 +787,16 @@
         "use": {
             "s": 19851,
             "t": "Teaches you how to make a Masterwork Target Dummy."
+        },
+        "sold": {
+            "11185": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 1
+                }
+            }
         }
     },
     "16047": {
@@ -581,6 +818,16 @@
         "use": {
             "s": 19859,
             "t": "Teaches you how to make a Thorium Tube."
+        },
+        "sold": {
+            "11185": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 1
+                }
+            }
         }
     },
     "16048": {
@@ -602,6 +849,9 @@
         "use": {
             "s": 19860,
             "t": "Teaches you how to make a Dark Iron Rifle."
+        },
+        "dropped": {
+            "8897": 1.8
         }
     },
     "16049": {
@@ -623,6 +873,9 @@
         "use": {
             "s": 19861,
             "t": "Teaches you how to make a Dark Iron Bomb."
+        },
+        "dropped": {
+            "8920": 1.033
         }
     },
     "16050": {
@@ -644,6 +897,16 @@
         "use": {
             "s": 19863,
             "t": "Teaches you how to make a Delicate Arcanite Converter."
+        },
+        "sold": {
+            "11185": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "16051": {
@@ -665,6 +928,29 @@
         "use": {
             "s": 19862,
             "t": "Teaches you how to make Thorium Shells."
+        },
+        "dropped": {
+            "13088": 3.0,
+            "12397": 2.0,
+            "13138": 0.26,
+            "12396": 0.24,
+            "13958": 0.22,
+            "9264": 0.14,
+            "13296": 0.14,
+            "13143": 0.14,
+            "11598": 0.14,
+            "13147": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153462": 0.029
+            },
+            "items": {
+                "5758": 0.2
+            }
         }
     },
     "16052": {
@@ -686,6 +972,9 @@
         "use": {
             "s": 19864,
             "t": "Teaches you how to make a Voice Amplification Modulator."
+        },
+        "dropped": {
+            "10426": 5.0
         }
     },
     "16053": {
@@ -707,6 +996,9 @@
         "use": {
             "s": 19865,
             "t": "Teaches you how to make Master Engineer's Goggles."
+        },
+        "dropped": {
+            "8900": 0.7
         }
     },
     "16054": {
@@ -728,6 +1020,9 @@
         "use": {
             "s": 19866,
             "t": "Teaches you how to make an Arcanite Dragonling."
+        },
+        "dropped": {
+            "7437": 0.78
         }
     },
     "16055": {
@@ -749,6 +1044,33 @@
         "use": {
             "s": 19867,
             "t": "Teaches you how to make an Arcane Bomb."
+        },
+        "dropped": {
+            "14889": 1.896,
+            "14887": 1.896,
+            "14888": 1.896,
+            "14890": 1.896,
+            "10184": 0.952,
+            "6109": 0.952,
+            "11583": 0.952,
+            "15114": 0.952,
+            "13236": 0.48,
+            "13958": 0.22,
+            "12397": 0.14,
+            "9678": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153469": 0.5,
+                "153464": 0.5,
+                "153463": 0.5,
+                "153468": 0.5,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "181804": 0.11,
+                "153462": 0.02
+            }
         }
     },
     "16056": {
@@ -770,6 +1092,9 @@
         "use": {
             "s": 19868,
             "t": "Teaches you how to make a Flawless Arcanite Rifle."
+        },
+        "dropped": {
+            "8561": 1.0
         }
     },
     "16057": {
@@ -811,6 +1136,17 @@
                     "t": "Increases healing done by spells and effects by up to 37."
                 }
             ]
+        },
+        "reward_from": {
+            "5944": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16059": {
@@ -824,7 +1160,79 @@
             "silver": 1,
             "copper": 0
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "sold": {
+            "1214": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3554": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1291": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3486": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "8358": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3683": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4558": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3317": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "5108": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4185": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            }
+        }
     },
     "16060": {
         "i": 16060,
@@ -837,7 +1245,79 @@
             "silver": 1,
             "copper": 0
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "sold": {
+            "1214": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3554": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1291": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3486": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "8358": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3683": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4558": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3317": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "5108": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4185": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            }
+        }
     },
     "16072": {
         "i": 16072,
@@ -858,6 +1338,22 @@
         "use": {
             "s": 19886,
             "t": "Teaches you how to be an Expert Cook, allowing a maximum of 225 cooking skill."
+        },
+        "sold": {
+            "3955": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12033": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16083": {
@@ -880,6 +1376,15 @@
         "use": {
             "s": 19889,
             "t": "Teaches you how to be an Expert Fisherman, allowing a maximum of 225 fishing skill."
+        },
+        "sold": {
+            "2626": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16084": {
@@ -901,6 +1406,22 @@
         "use": {
             "s": 19903,
             "t": "Teaches you how to be an expert in first aid, allowing a maximum of 225 first aid skill."
+        },
+        "sold": {
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16110": {
@@ -922,6 +1443,29 @@
         "use": {
             "s": 19950,
             "t": "Teaches you how to cook a Monster Omelet."
+        },
+        "sold": {
+            "2806": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "11187": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "2803": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16111": {
@@ -943,6 +1487,29 @@
         "use": {
             "s": 19949,
             "t": "Teaches you how to cook Spiced Chili Crab."
+        },
+        "sold": {
+            "989": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "4305": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "1149": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16112": {
@@ -964,6 +1531,22 @@
         "use": {
             "s": 7931,
             "t": "Teaches you how to make a Heavy Silk Bandage."
+        },
+        "sold": {
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            }
         }
     },
     "16113": {
@@ -985,6 +1568,22 @@
         "use": {
             "s": 10842,
             "t": "Teaches you how to make a Mageweave Bandage."
+        },
+        "sold": {
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            }
         }
     },
     "16114": {
@@ -998,7 +1597,9 @@
         "use": {
             "s": 19938,
             "t": "Wakes up a targeted sleeping peon. (cooldown 5 sec)"
-        }
+        },
+        "provided_for": 5441,
+        "objective": 5441
     },
     "16115": {
         "i": 16115,
@@ -1007,7 +1608,9 @@
         "image_name": "inv_crate_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6285,
+        "objective": 6285
     },
     "16165": {
         "i": 16165,
@@ -1037,6 +1640,28 @@
                     "t": "+14 Arcane Resistance."
                 }
             ]
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16166": {
@@ -1054,6 +1679,92 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "16167": {
@@ -1074,6 +1785,92 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "16168": {
@@ -1094,6 +1891,92 @@
         "use": {
             "s": 1129,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "16169": {
@@ -1114,6 +1997,92 @@
         "use": {
             "s": 1127,
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
         }
     },
     "16170": {
@@ -1134,6 +2103,92 @@
         "use": {
             "s": 435,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            }
         }
     },
     "16171": {
@@ -1154,6 +2209,50 @@
         "use": {
             "s": 1131,
             "t": "Restores 2148 health over 30 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            }
         }
     },
     "16189": {
@@ -1163,7 +2262,9 @@
         "image_name": "inv_letter_05",
         "ilvl": 1,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 5881,
+        "objective": 5881
     },
     "16190": {
         "i": 16190,
@@ -1171,7 +2272,11 @@
         "n": "Bloodfury Ripper's Remains",
         "image_name": "inv_misc_organ_02",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12579": 100.0
+        },
+        "objective": 6283
     },
     "16192": {
         "i": 16192,
@@ -1179,7 +2284,11 @@
         "n": "Besseleth's Fang",
         "image_name": "inv_misc_monsterfang_01",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "11921": 100.0
+        },
+        "objective": 6284
     },
     "16202": {
         "i": 16202,
@@ -1199,6 +2308,362 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "creates": {
+            "20039": 16203,
+            "17181": 12810
+        },
+        "disenchant": {
+            "7947": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "8134": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "8282": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9643": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9644": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9651": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9684": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9686": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9944": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9974": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10078": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10093": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10195": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10652": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10686": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10708": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10709": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10744": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10803": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10804": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10805": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11120": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11743": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11863": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11864": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11870": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11906": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11907": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11915": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11964": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "12000": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "12773": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14790": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14852": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14916": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14954": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15216": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15217": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15228": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15229": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15236": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15237": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15253": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15254": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15274": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15275": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15279": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15280": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15291": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16203": {
@@ -1221,6 +2686,367 @@
             "materials": {
                 "16202": 2
             }
+        },
+        "materials": {
+            "16202": 2
+        },
+        "objective": 8921,
+        "creates": {
+            "22434": 17968,
+            "27659": 22248,
+            "20051": 16207
+        },
+        "disenchant": {
+            "8313": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10158": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10271": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10366": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10367": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "13315": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "14812": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "14982": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15220": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15221": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15239": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15240": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15246": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15247": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15257": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15258": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15266": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15267": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15273": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15283": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15288": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15289": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15296": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15667": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15675": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15687": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15887": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15931": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15940": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15941": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15942": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15943": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15968": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15987": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15988": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15989": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15991": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "17002": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "17003": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "17004": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "18347": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "18352": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "18353": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "20723": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "20724": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "8275": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "8320": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10362": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10363": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10364": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16204": {
@@ -1234,6 +3060,368 @@
             "gold": 1,
             "silver": 20,
             "copper": 0
+        },
+        "contained": {
+            "items": {
+                "11568": 1.0
+            }
+        },
+        "creates": {
+            "22434": 17968,
+            "20051": 16207,
+            "25128": 20750
+        },
+        "disenchant": {
+            "8283": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "8290": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "8296": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "8303": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "8309": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10135": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10139": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10140": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10141": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10142": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10143": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10146": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10149": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10150": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10151": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10152": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10153": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10154": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10155": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10157": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10160": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10161": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10162": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10163": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10215": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10217": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10218": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10220": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10226": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10227": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10246": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10247": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10248": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10249": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10250": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10251": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10252": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10253": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10254": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10255": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10256": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10257": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10259": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10260": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10261": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10262": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10263": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10264": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10265": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            }
         }
     },
     "16205": {
@@ -1243,7 +3431,13 @@
         "image_name": "inv_misc_food_02",
         "stack": 10,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177926": 100.0
+            }
+        },
+        "objective": 6301
     },
     "16206": {
         "i": 16206,
@@ -1268,6 +3462,9 @@
                 "12360": 3,
                 "12644": 1
             }
+        },
+        "creates": {
+            "20051": 16207
         }
     },
     "16207": {
@@ -1297,6 +3494,14 @@
                 "14343": 4,
                 "14344": 2
             }
+        },
+        "materials": {
+            "16206": 1,
+            "13926": 1,
+            "16204": 10,
+            "16203": 4,
+            "14343": 4,
+            "14344": 2
         }
     },
     "16208": {
@@ -1309,7 +3514,9 @@
         "use": {
             "s": 20269,
             "t": "Place the Gaea seed into the Gaea dirt mound."
-        }
+        },
+        "provided_for": 6381,
+        "objective": 6381
     },
     "16209": {
         "i": 16209,
@@ -1319,7 +3526,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6321,
+        "objective": 6321
     },
     "16210": {
         "i": 16210,
@@ -1328,7 +3537,9 @@
         "image_name": "inv_crate_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6324,
+        "objective": 6324
     },
     "16214": {
         "i": 16214,
@@ -1349,6 +3560,9 @@
         "use": {
             "s": 20065,
             "t": "Teaches you how to permanently enchant a bracer to give +7 Intellect."
+        },
+        "dropped": {
+            "2642": 2.0
         }
     },
     "16215": {
@@ -1370,6 +3584,34 @@
         "use": {
             "s": 20067,
             "t": "Teaches you how to permanently enchant a pair of boots to grant +7 Stamina."
+        },
+        "dropped": {
+            "13540": 3.0,
+            "12397": 1.66,
+            "14476": 1.02,
+            "9437": 0.92,
+            "9438": 0.34,
+            "6501": 0.28,
+            "9441": 0.18,
+            "8198": 0.16,
+            "10663": 0.16,
+            "8196": 0.12,
+            "5470": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153451": 0.5,
+                "160845": 0.2,
+                "2656": 0.02,
+                "153462": 0.016
+            },
+            "items": {
+                "5758": 0.3,
+                "16885": 0.05
+            }
         }
     },
     "16216": {
@@ -1391,6 +3633,9 @@
         "use": {
             "s": 20068,
             "t": "Teaches you how to permanently enchant a cloak so it adds 5 to all resistances."
+        },
+        "dropped": {
+            "5259": 1.48
         }
     },
     "16217": {
@@ -1413,6 +3658,24 @@
         "use": {
             "s": 20069,
             "t": "Teaches you how to permanently enchant a shield to grant +7 Stamina."
+        },
+        "sold": {
+            "4561": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "4229": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16218": {
@@ -1434,6 +3697,28 @@
         "use": {
             "s": 20070,
             "t": "Teaches you how to permanently enchant a bracer to give +9 Spirit."
+        },
+        "dropped": {
+            "12397": 1.52,
+            "10982": 0.16,
+            "10802": 0.14,
+            "4469": 0.12,
+            "8914": 0.11
+        },
+        "contained": {
+            "objects": {
+                "179697": 0.8,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153451": 0.5,
+                "160845": 0.3,
+                "2656": 0.02,
+                "153462": 0.02
+            },
+            "items": {
+                "5758": 0.5
+            }
         }
     },
     "16219": {
@@ -1455,6 +3740,9 @@
         "use": {
             "s": 20071,
             "t": "Teaches you how to permanently enchant gloves to give +7 Agility."
+        },
+        "dropped": {
+            "6201": 0.9
         }
     },
     "16220": {
@@ -1476,6 +3764,31 @@
         "use": {
             "s": 20072,
             "t": "Teaches you how to permanently enchant a pair of boots to grant +5 Spirit."
+        },
+        "dropped": {
+            "13089": 4.0,
+            "12397": 1.66,
+            "8976": 0.74,
+            "9438": 0.52,
+            "8301": 0.32,
+            "10662": 0.22,
+            "14340": 0.2,
+            "9267": 0.14,
+            "13447": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153451": 0.5,
+                "179697": 0.3,
+                "153462": 0.031
+            },
+            "items": {
+                "5758": 0.2,
+                "16885": 0.05
+            }
         }
     },
     "16221": {
@@ -1497,6 +3810,16 @@
         "use": {
             "s": 20073,
             "t": "Teaches you how to permanently enchant a piece of chest armor to give +100 health."
+        },
+        "sold": {
+            "11189": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 1
+                }
+            }
         }
     },
     "16222": {
@@ -1518,6 +3841,9 @@
         "use": {
             "s": 20074,
             "t": "Teaches you how to permanently enchant a shield to grant +9 Spirit."
+        },
+        "dropped": {
+            "9447": 0.44
         }
     },
     "16223": {
@@ -1539,6 +3865,9 @@
         "use": {
             "s": 20075,
             "t": "Teaches you how to permanently enchant a weapon to give it an icy chill that sometimes slows its target."
+        },
+        "dropped": {
+            "7524": 0.92
         }
     },
     "16224": {
@@ -1560,6 +3889,16 @@
         "use": {
             "s": 20076,
             "t": "Teaches you how to permanently enchant a cloak to give 70 additional armor."
+        },
+        "sold": {
+            "12022": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "16242": {
@@ -1581,6 +3920,9 @@
         "use": {
             "s": 20077,
             "t": "Teaches you how to permanently enchant a piece of chest armor to give +100 mana."
+        },
+        "dropped": {
+            "9452": 1.02
         }
     },
     "16243": {
@@ -1602,6 +3944,16 @@
         "use": {
             "s": 20078,
             "t": "Teaches you how to make a Runed Arcanite Rod."
+        },
+        "sold": {
+            "12022": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            }
         }
     },
     "16244": {
@@ -1623,6 +3975,9 @@
         "use": {
             "s": 20079,
             "t": "Teaches you how to permanently enchant gloves to give +7 Strength."
+        },
+        "dropped": {
+            "9198": 10.0
         }
     },
     "16245": {
@@ -1644,6 +3999,40 @@
         "use": {
             "s": 20080,
             "t": "Teaches you how to permanently enchant a pair of boots to grant +7 Agility."
+        },
+        "dropped": {
+            "12397": 3.0,
+            "13538": 2.0,
+            "13448": 0.36,
+            "4374": 0.286,
+            "12477": 0.24,
+            "14518": 0.24,
+            "10680": 0.2,
+            "13957": 0.2,
+            "11032": 0.16,
+            "11454": 0.14,
+            "7846": 0.14,
+            "15979": 0.13,
+            "9201": 0.12,
+            "11453": 0.12,
+            "15462": 0.12,
+            "11365": 0.101
+        },
+        "contained": {
+            "objects": {
+                "153469": 0.5,
+                "153464": 0.5,
+                "153463": 0.5,
+                "153468": 0.5,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153462": 0.022
+            },
+            "items": {
+                "5759": 0.2,
+                "5758": 0.1
+            }
         }
     },
     "16246": {
@@ -1665,6 +4054,9 @@
         "use": {
             "s": 20081,
             "t": "Teaches you how to permanently enchant a bracer to give +9 Strength."
+        },
+        "dropped": {
+            "7372": 0.9
         }
     },
     "16247": {
@@ -1686,6 +4078,9 @@
         "use": {
             "s": 20082,
             "t": "Teaches you how to permanently enchant a two-handed weapon to do 9 additional damage."
+        },
+        "dropped": {
+            "10317": 3.0
         }
     },
     "16248": {
@@ -1707,6 +4102,9 @@
         "use": {
             "s": 20083,
             "t": "Teaches you how to permanently enchant a weapon to occasionally curse those it strikes."
+        },
+        "dropped": {
+            "10398": 0.88
         }
     },
     "16249": {
@@ -1728,6 +4126,9 @@
         "use": {
             "s": 20084,
             "t": "Teaches you how to permanently enchant a two-handed weapon so it grants +9 Intellect."
+        },
+        "dropped": {
+            "10422": 2.0
         }
     },
     "16250": {
@@ -1749,6 +4150,9 @@
         "use": {
             "s": 20085,
             "t": "Teaches you how to permanently enchant a weapon to do 5 additional damage."
+        },
+        "dropped": {
+            "9216": 3.0
         }
     },
     "16251": {
@@ -1770,6 +4174,42 @@
         "use": {
             "s": 20086,
             "t": "Teaches you how to permanently enchant a bracer to give +9 Stamina."
+        },
+        "dropped": {
+            "12397": 1.3,
+            "11878": 1.14,
+            "12339": 1.06,
+            "16193": 0.9,
+            "10201": 0.66,
+            "16453": 0.44,
+            "1839": 0.4,
+            "16451": 0.34,
+            "13152": 0.32,
+            "11387": 0.3,
+            "13296": 0.28,
+            "16020": 0.27,
+            "14398": 0.26,
+            "11340": 0.252,
+            "15979": 0.25,
+            "11459": 0.24,
+            "16452": 0.24,
+            "11657": 0.24,
+            "11352": 0.22,
+            "11356": 0.22
+        },
+        "contained": {
+            "objects": {
+                "160845": 1.0,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "181804": 0.16,
+                "153462": 0.02
+            },
+            "items": {
+                "5760": 1.064,
+                "5759": 0.4
+            }
         }
     },
     "16252": {
@@ -1791,6 +4231,9 @@
         "use": {
             "s": 20087,
             "t": "Teaches you how to permanently enchant a weapon to occasionally bless the wielder with great strength."
+        },
+        "dropped": {
+            "4494": 0.18
         }
     },
     "16253": {
@@ -1812,6 +4255,16 @@
         "use": {
             "s": 20088,
             "t": "Teaches you how to permanently enchant a piece of chest armor to give +4 to each of the five attributes."
+        },
+        "dropped": {
+            "14889": 1.896,
+            "14887": 1.896,
+            "14888": 1.896,
+            "14890": 1.896,
+            "10184": 0.952,
+            "6109": 0.952,
+            "11583": 0.952,
+            "15114": 0.952
         }
     },
     "16254": {
@@ -1833,6 +4286,9 @@
         "use": {
             "s": 20089,
             "t": "Teaches you how to permanently enchant a weapon to occasionally steal some of the health of the foe and give it to the wielder."
+        },
+        "dropped": {
+            "10499": 0.88
         }
     },
     "16255": {
@@ -1854,6 +4310,9 @@
         "use": {
             "s": 20090,
             "t": "Teaches you how to permanently enchant a two-handed weapon so it grants +9 Spirit."
+        },
+        "dropped": {
+            "10469": 2.0
         }
     },
     "16262": {
@@ -1863,7 +4322,9 @@
         "image_name": "inv_misc_bone_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6341,
+        "objective": 6341
     },
     "16263": {
         "i": 16263,
@@ -1873,7 +4334,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6343,
+        "objective": 6343
     },
     "16282": {
         "i": 16282,
@@ -1882,7 +4345,9 @@
         "image_name": "inv_misc_leatherscrap_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6362,
+        "objective": 6362
     },
     "16283": {
         "i": 16283,
@@ -1891,7 +4356,9 @@
         "image_name": "inv_misc_bag_10",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6363,
+        "objective": 6363
     },
     "16302": {
         "i": 16302,
@@ -1915,6 +4382,99 @@
         "use": {
             "s": 20270,
             "t": "Teaches Imp Firebolt (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "16303": {
@@ -1929,7 +4489,12 @@
             "level": 20,
             "faction": "H"
         },
-        "starts": 23
+        "starts": 23,
+        "dropped": {
+            "12678": 100.0
+        },
+        "provided_for": 23,
+        "objective": 23
     },
     "16304": {
         "i": 16304,
@@ -1943,7 +4508,12 @@
             "level": 20,
             "faction": "H"
         },
-        "starts": 24
+        "starts": 24,
+        "dropped": {
+            "12677": 100.0
+        },
+        "provided_for": 24,
+        "objective": 24
     },
     "16305": {
         "i": 16305,
@@ -1957,7 +4527,12 @@
             "level": 20,
             "faction": "H"
         },
-        "starts": 2
+        "starts": 2,
+        "dropped": {
+            "12676": 100.0
+        },
+        "provided_for": 2,
+        "objective": 2
     },
     "16306": {
         "i": 16306,
@@ -1966,7 +4541,9 @@
         "image_name": "inv_misc_food_13",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6384,
+        "objective": 6384
     },
     "16307": {
         "i": 16307,
@@ -1976,7 +4553,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6386,
+        "objective": 6386
     },
     "16309": {
         "i": 16309,
@@ -1999,6 +4578,9 @@
         "description": "The Blood of Drakkisath Flows Within..",
         "created_by": {
             "materials": {}
+        },
+        "reward_from": {
+            "6502": 1
         }
     },
     "16310": {
@@ -2009,7 +4591,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6391,
+        "objective": 6391
     },
     "16311": {
         "i": 16311,
@@ -2018,7 +4602,9 @@
         "image_name": "inv_pick_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6392,
+        "objective": 6392
     },
     "16312": {
         "i": 16312,
@@ -2027,7 +4613,13 @@
         "image_name": "inv_misc_gem_opal_02",
         "stack": 10,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "4036": 80.0,
+            "4037": 80.0,
+            "4038": 80.0
+        },
+        "objective": 6393
     },
     "16313": {
         "i": 16313,
@@ -2035,7 +4627,13 @@
         "n": "Felix's Chest",
         "image_name": "inv_box_04",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178084": 100.0
+            }
+        },
+        "objective": 3361
     },
     "16314": {
         "i": 16314,
@@ -2043,7 +4641,13 @@
         "n": "Felix's Bucket of Bolts",
         "image_name": "inv_misc_gear_06",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178085": 100.0
+            }
+        },
+        "objective": 3361
     },
     "16316": {
         "i": 16316,
@@ -2067,6 +4671,99 @@
         "use": {
             "s": 20312,
             "t": "Teaches Imp Firebolt (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            }
         }
     },
     "16317": {
@@ -2091,6 +4788,99 @@
         "use": {
             "s": 20313,
             "t": "Teaches Imp Firebolt (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            }
         }
     },
     "16318": {
@@ -2115,6 +4905,99 @@
         "use": {
             "s": 20314,
             "t": "Teaches Imp Firebolt (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16319": {
@@ -2139,6 +5022,99 @@
         "use": {
             "s": 20315,
             "t": "Teaches Imp Firebolt (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            }
         }
     },
     "16320": {
@@ -2163,6 +5139,99 @@
         "use": {
             "s": 20316,
             "t": "Teaches Imp Firebolt (Rank 7)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            }
         }
     },
     "16321": {
@@ -2187,6 +5256,99 @@
         "use": {
             "s": 20397,
             "t": "Teaches Imp Blood Pact (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "16322": {
@@ -2211,6 +5373,99 @@
         "use": {
             "s": 20318,
             "t": "Teaches Imp Blood Pact (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            }
         }
     },
     "16323": {
@@ -2235,6 +5490,99 @@
         "use": {
             "s": 20319,
             "t": "Teaches Imp Blood Pact (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            }
         }
     },
     "16324": {
@@ -2259,6 +5607,99 @@
         "use": {
             "s": 20320,
             "t": "Teaches Imp Blood Pact (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16325": {
@@ -2283,6 +5724,99 @@
         "use": {
             "s": 20321,
             "t": "Teaches Imp Blood Pact (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "16326": {
@@ -2307,6 +5841,99 @@
         "use": {
             "s": 20322,
             "t": "Teaches Imp Fire Shield (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            }
         }
     },
     "16327": {
@@ -2331,6 +5958,99 @@
         "use": {
             "s": 20323,
             "t": "Teaches Imp Fire Shield (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            }
         }
     },
     "16328": {
@@ -2355,6 +6075,99 @@
         "use": {
             "s": 20324,
             "t": "Teaches Imp Fire Shield (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            }
         }
     },
     "16329": {
@@ -2379,6 +6192,99 @@
         "use": {
             "s": 20326,
             "t": "Teaches Imp Fire Shield (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16330": {
@@ -2403,6 +6309,99 @@
         "use": {
             "s": 20327,
             "t": "Teaches Imp Fire Shield (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "16331": {
@@ -2427,6 +6426,99 @@
         "use": {
             "s": 20329,
             "t": "Teaches Imp Phase Shift."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            }
         }
     },
     "16332": {
@@ -2435,7 +6527,13 @@
         "n": "Thazz'ril's Pick",
         "image_name": "inv_pick_01",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178087": 100.0
+            }
+        },
+        "objective": 6394
     },
     "16333": {
         "i": 16333,
@@ -2452,6 +6550,9 @@
         "use": {
             "s": 20364,
             "t": "Bury at Marla's Grave."
+        },
+        "dropped": {
+            "1919": 100.0
         }
     },
     "16335": {
@@ -2476,6 +6577,15 @@
             "level": 58,
             "rank": 4,
             "faction": "Horde"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 4
+                }
+            }
         }
     },
     "16341": {
@@ -2501,6 +6611,15 @@
             "level": 45,
             "rank": 3,
             "faction": "Alliance"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 14,
+                    "gold": 2
+                }
+            }
         }
     },
     "16342": {
@@ -2526,6 +6645,15 @@
             "level": 58,
             "rank": 3,
             "faction": "Alliance"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 54,
+                    "silver": 41,
+                    "gold": 4
+                }
+            }
         }
     },
     "16345": {
@@ -2569,6 +6697,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 16,
+                    "silver": 74,
+                    "gold": 24
+                }
+            }
         }
     },
     "16346": {
@@ -2593,6 +6730,71 @@
         "use": {
             "s": 20317,
             "t": "Teaches Voidwalker Torment (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "16347": {
@@ -2617,6 +6819,71 @@
         "use": {
             "s": 20377,
             "t": "Teaches Voidwalker Torment (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            }
         }
     },
     "16348": {
@@ -2641,6 +6908,71 @@
         "use": {
             "s": 20378,
             "t": "Teaches Voidwalker Torment (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16349": {
@@ -2665,6 +6997,71 @@
         "use": {
             "s": 20379,
             "t": "Teaches Voidwalker Torment (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "16350": {
@@ -2689,6 +7086,71 @@
         "use": {
             "s": 20380,
             "t": "Teaches Voidwalker Torment (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            }
         }
     },
     "16351": {
@@ -2713,6 +7175,71 @@
         "use": {
             "s": 20381,
             "t": "Teaches Voidwalker Sacrifice (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            }
         }
     },
     "16352": {
@@ -2737,6 +7264,71 @@
         "use": {
             "s": 20382,
             "t": "Teaches Voidwalker Sacrifice (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            }
         }
     },
     "16353": {
@@ -2761,6 +7353,71 @@
         "use": {
             "s": 20383,
             "t": "Teaches Voidwalker Sacrifice (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            }
         }
     },
     "16354": {
@@ -2785,6 +7442,71 @@
         "use": {
             "s": 20384,
             "t": "Teaches Voidwalker Sacrifice (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16355": {
@@ -2809,6 +7531,71 @@
         "use": {
             "s": 20385,
             "t": "Teaches Voidwalker Sacrifice (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            }
         }
     },
     "16356": {
@@ -2833,6 +7620,71 @@
         "use": {
             "s": 20386,
             "t": "Teaches Voidwalker Sacrifice (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            }
         }
     },
     "16357": {
@@ -2857,6 +7709,71 @@
         "use": {
             "s": 20387,
             "t": "Teaches Voidwalker Consume Shadows (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            }
         }
     },
     "16358": {
@@ -2881,6 +7798,71 @@
         "use": {
             "s": 20388,
             "t": "Teaches Voidwalker Consume Shadows (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            }
         }
     },
     "16359": {
@@ -2905,6 +7887,71 @@
         "use": {
             "s": 20389,
             "t": "Teaches Voidwalker Consume Shadows (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            }
         }
     },
     "16360": {
@@ -2929,6 +7976,71 @@
         "use": {
             "s": 20390,
             "t": "Teaches Voidwalker Consume Shadows (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16361": {
@@ -2953,6 +8065,71 @@
         "use": {
             "s": 20391,
             "t": "Teaches Voidwalker Consume Shadows (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "16362": {
@@ -2977,6 +8154,71 @@
         "use": {
             "s": 20392,
             "t": "Teaches Voidwalker Consume Shadows (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            }
         }
     },
     "16363": {
@@ -3001,6 +8243,71 @@
         "use": {
             "s": 20393,
             "t": "Teaches Voidwalker Suffering (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            }
         }
     },
     "16364": {
@@ -3025,6 +8332,71 @@
         "use": {
             "s": 20394,
             "t": "Teaches Voidwalker Suffering (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            }
         }
     },
     "16365": {
@@ -3049,6 +8421,71 @@
         "use": {
             "s": 20395,
             "t": "Teaches Voidwalker Suffering (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            }
         }
     },
     "16366": {
@@ -3073,6 +8510,71 @@
         "use": {
             "s": 20396,
             "t": "Teaches Voidwalker Suffering (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            }
         }
     },
     "16368": {
@@ -3097,6 +8599,43 @@
         "use": {
             "s": 20398,
             "t": "Teaches Succubus Lash of Pain (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            }
         }
     },
     "16369": {
@@ -3163,6 +8702,43 @@
         "use": {
             "s": 20399,
             "t": "Teaches Succubus Lash of Pain (Rank 3)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            }
         }
     },
     "16372": {
@@ -3187,6 +8763,43 @@
         "use": {
             "s": 20400,
             "t": "Teaches Succubus Lash of Pain (Rank 4)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16373": {
@@ -3211,6 +8824,50 @@
         "use": {
             "s": 20401,
             "t": "Teaches Succubus Lash of Pain (Rank 5)."
+        },
+        "sold": {
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            }
         }
     },
     "16374": {
@@ -3235,6 +8892,50 @@
         "use": {
             "s": 20402,
             "t": "Teaches Succubus Lash of Pain (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            }
         }
     },
     "16375": {
@@ -3259,6 +8960,43 @@
         "use": {
             "s": 20403,
             "t": "Teaches Succubus Soothing Kiss (Rank 1)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            }
         }
     },
     "16376": {
@@ -3283,6 +9021,50 @@
         "use": {
             "s": 20404,
             "t": "Teaches Succubus Soothing Kiss (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            }
         }
     },
     "16377": {
@@ -3307,6 +9089,43 @@
         "use": {
             "s": 20405,
             "t": "Teaches Succubus Soothing Kiss (Rank 3)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            }
         }
     },
     "16378": {
@@ -3331,6 +9150,43 @@
         "use": {
             "s": 20406,
             "t": "Teaches Succubus Soothing Kiss (Rank 4)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            }
         }
     },
     "16379": {
@@ -3355,6 +9211,43 @@
         "use": {
             "s": 20407,
             "t": "Teaches Succubus Seduction."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            }
         }
     },
     "16380": {
@@ -3379,6 +9272,43 @@
         "use": {
             "s": 20408,
             "t": "Teaches Succubus Lesser Invisibility."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            }
         }
     },
     "16381": {
@@ -3403,6 +9333,43 @@
         "use": {
             "s": 20426,
             "t": "Teaches Felhunter Devour Magic (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16382": {
@@ -3427,6 +9394,22 @@
         "use": {
             "s": 20427,
             "t": "Teaches Felhunter Devour Magic (Rank 3)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            }
         }
     },
     "16383": {
@@ -3451,6 +9434,43 @@
         "use": {
             "s": 20428,
             "t": "Teaches Felhunter Devour Magic (Rank 4)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "16384": {
@@ -3478,6 +9498,43 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            }
         }
     },
     "16385": {
@@ -3502,6 +9559,43 @@
         "use": {
             "s": 20430,
             "t": "Teaches Felhunter Tainted Blood (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16386": {
@@ -3526,6 +9620,43 @@
         "use": {
             "s": 20431,
             "t": "Teaches Felhunter Tainted Blood (Rank 3)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            }
         }
     },
     "16387": {
@@ -3550,6 +9681,43 @@
         "use": {
             "s": 20432,
             "t": "Teaches Felhunter Tainted Blood (Rank 4)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            }
         }
     },
     "16388": {
@@ -3574,6 +9742,43 @@
         "use": {
             "s": 20433,
             "t": "Teaches Felhunter Spell Lock (Rank 1)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            }
         }
     },
     "16389": {
@@ -3598,6 +9803,43 @@
         "use": {
             "s": 20434,
             "t": "Teaches Felhunter Spell Lock (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            }
         }
     },
     "16390": {
@@ -3622,6 +9864,43 @@
         "use": {
             "s": 20435,
             "t": "Teaches Felhunter Paranoia."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16391": {
@@ -4019,7 +10298,12 @@
             "profession": "Affliction",
             "skill": {},
             "materials": {}
-        }
+        },
+        "dropped": {
+            "12759": 100.0
+        },
+        "provided_for": 1918,
+        "objective": 1918
     },
     "16409": {
         "i": 16409,
@@ -5172,6 +11456,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 19,
+                    "silver": 76,
+                    "gold": 8
+                }
+            }
         }
     },
     "16440": {
@@ -5219,6 +11512,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 90,
+                    "gold": 5
+                }
+            }
         }
     },
     "16441": {
@@ -5266,6 +11568,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 78,
+                    "silver": 28,
+                    "gold": 10
+                }
+            }
         }
     },
     "16442": {
@@ -5313,6 +11624,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 1,
+                    "silver": 89,
+                    "gold": 11
+                }
+            }
         }
     },
     "16443": {
@@ -5360,6 +11680,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 64,
+                    "silver": 84,
+                    "gold": 12
+                }
+            }
         }
     },
     "16444": {
@@ -5407,6 +11736,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 13,
+                    "silver": 67,
+                    "gold": 9
+                }
+            }
         }
     },
     "16446": {
@@ -5449,6 +11787,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 6,
+                    "silver": 52,
+                    "gold": 10
+                }
+            }
         }
     },
     "16448": {
@@ -5496,6 +11843,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 62,
+                    "silver": 6,
+                    "gold": 7
+                }
+            }
         }
     },
     "16449": {
@@ -5541,6 +11897,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 56,
+                    "silver": 31,
+                    "gold": 12
+                }
+            }
         }
     },
     "16450": {
@@ -5586,6 +11951,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 60,
+                    "silver": 23,
+                    "gold": 14
+                }
+            }
         }
     },
     "16451": {
@@ -5635,6 +12009,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 55,
+                    "silver": 40,
+                    "gold": 12
+                }
+            }
         }
     },
     "16452": {
@@ -5683,6 +12066,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 14,
+                    "silver": 60,
+                    "gold": 16
+                }
+            }
         }
     },
     "16453": {
@@ -5729,6 +12121,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 21,
+                    "silver": 66,
+                    "gold": 16
+                }
+            }
         }
     },
     "16454": {
@@ -5771,6 +12172,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 22,
+                    "silver": 22,
+                    "gold": 7
+                }
+            }
         }
     },
     "16455": {
@@ -5817,6 +12227,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 64,
+                    "silver": 58,
+                    "gold": 12
+                }
+            }
         }
     },
     "16456": {
@@ -5863,6 +12282,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 93,
+                    "silver": 54,
+                    "gold": 14
+                }
+            }
         }
     },
     "16457": {
@@ -5905,6 +12333,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 63,
+                    "silver": 67,
+                    "gold": 12
+                }
+            }
         }
     },
     "16459": {
@@ -5950,6 +12387,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 63,
+                    "silver": 24,
+                    "gold": 10
+                }
+            }
         }
     },
     "16462": {
@@ -5993,6 +12439,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 12,
+                    "silver": 49,
+                    "gold": 12
+                }
+            }
         }
     },
     "16463": {
@@ -6040,6 +12495,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 21,
+                    "silver": 32,
+                    "gold": 8
+                }
+            }
         }
     },
     "16465": {
@@ -6083,6 +12547,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 86,
+                    "silver": 55,
+                    "gold": 14
+                }
+            }
         }
     },
     "16466": {
@@ -6126,6 +12599,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 44,
+                    "silver": 48,
+                    "gold": 19
+                }
+            }
         }
     },
     "16467": {
@@ -6169,6 +12651,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 89,
+                    "gold": 16
+                }
+            }
         }
     },
     "16468": {
@@ -6212,6 +12703,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 80,
+                    "silver": 78,
+                    "gold": 14
+                }
+            }
         }
     },
     "16471": {
@@ -6259,6 +12759,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 48,
+                    "silver": 71,
+                    "gold": 5
+                }
+            }
         }
     },
     "16472": {
@@ -6306,6 +12815,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 28,
+                    "silver": 60,
+                    "gold": 8
+                }
+            }
         }
     },
     "16473": {
@@ -6357,6 +12875,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 70,
+                    "silver": 32,
+                    "gold": 13
+                }
+            }
         }
     },
     "16474": {
@@ -6408,6 +12935,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 17,
+                    "silver": 3,
+                    "gold": 10
+                }
+            }
         }
     },
     "16475": {
@@ -6455,6 +12991,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 69,
+                    "silver": 89,
+                    "gold": 11
+                }
+            }
         }
     },
     "16476": {
@@ -6502,6 +13047,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 87,
+                    "silver": 37,
+                    "gold": 9
+                }
+            }
         }
     },
     "16477": {
@@ -6545,6 +13099,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 55,
+                    "gold": 12
+                }
+            }
         }
     },
     "16478": {
@@ -6587,6 +13150,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 16,
+                    "silver": 45,
+                    "gold": 9
+                }
+            }
         }
     },
     "16479": {
@@ -6633,6 +13205,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 82,
+                    "silver": 92,
+                    "gold": 10
+                }
+            }
         }
     },
     "16480": {
@@ -6676,6 +13257,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 35,
+                    "silver": 52,
+                    "gold": 9
+                }
+            }
         }
     },
     "16483": {
@@ -6719,6 +13309,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 12,
+                    "silver": 32,
+                    "gold": 8
+                }
+            }
         }
     },
     "16484": {
@@ -6765,6 +13364,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 79,
+                    "silver": 56,
+                    "gold": 5
+                }
+            }
         }
     },
     "16485": {
@@ -6839,6 +13447,15 @@
             "level": 58,
             "rank": 5,
             "faction": "Horde"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 77,
+                    "silver": 84,
+                    "gold": 2
+                }
+            }
         }
     },
     "16487": {
@@ -7172,6 +13789,15 @@
             "level": 58,
             "rank": 5,
             "faction": "Horde"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 2,
+                    "silver": 44,
+                    "gold": 3
+                }
+            }
         }
     },
     "16498": {
@@ -8407,6 +15033,15 @@
             "level": 58,
             "rank": 5,
             "faction": "Horde"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 2,
+                    "silver": 48,
+                    "gold": 4
+                }
+            }
         }
     },
     "16533": {
@@ -8454,6 +15089,15 @@
         "itemset": {
             "n": "Warlord's Regalia",
             "i": 387
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 23,
+                    "silver": 25,
+                    "gold": 10
+                }
+            }
         }
     },
     "16534": {
@@ -8501,6 +15145,15 @@
         "itemset": {
             "n": "Warlord's Regalia",
             "i": 387
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 4,
+                    "silver": 85,
+                    "gold": 11
+                }
+            }
         }
     },
     "16535": {
@@ -8548,6 +15201,15 @@
         "itemset": {
             "n": "Warlord's Regalia",
             "i": 387
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 69,
+                    "silver": 76,
+                    "gold": 13
+                }
+            }
         }
     },
     "16536": {
@@ -8595,6 +15257,15 @@
         "itemset": {
             "n": "Warlord's Regalia",
             "i": 387
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 58,
+                    "silver": 37,
+                    "gold": 9
+                }
+            }
         }
     },
     "16539": {
@@ -8642,6 +15313,15 @@
         "itemset": {
             "n": "Warlord's Regalia",
             "i": 387
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 82,
+                    "silver": 41,
+                    "gold": 8
+                }
+            }
         }
     },
     "16540": {
@@ -8689,6 +15369,15 @@
         "itemset": {
             "n": "Warlord's Regalia",
             "i": 387
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 63,
+                    "gold": 5
+                }
+            }
         }
     },
     "16541": {
@@ -8732,6 +15421,15 @@
         "itemset": {
             "n": "Warlord's Battlegear",
             "i": 383
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 94,
+                    "silver": 8,
+                    "gold": 13
+                }
+            }
         }
     },
     "16542": {
@@ -8774,6 +15472,15 @@
         "itemset": {
             "n": "Warlord's Battlegear",
             "i": 383
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 35,
+                    "silver": 85,
+                    "gold": 9
+                }
+            }
         }
     },
     "16543": {
@@ -8820,6 +15527,15 @@
         "itemset": {
             "n": "Warlord's Battlegear",
             "i": 383
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 39,
+                    "gold": 11
+                }
+            }
         }
     },
     "16544": {
@@ -8863,6 +15579,15 @@
         "itemset": {
             "n": "Warlord's Battlegear",
             "i": 383
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 53,
+                    "silver": 92,
+                    "gold": 9
+                }
+            }
         }
     },
     "16545": {
@@ -8906,6 +15631,15 @@
         "itemset": {
             "n": "Warlord's Battlegear",
             "i": 383
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 54,
+                    "silver": 60,
+                    "gold": 8
+                }
+            }
         }
     },
     "16548": {
@@ -8952,6 +15686,15 @@
         "itemset": {
             "n": "Warlord's Battlegear",
             "i": 383
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 93,
+                    "silver": 79,
+                    "gold": 5
+                }
+            }
         }
     },
     "16549": {
@@ -9000,6 +15743,15 @@
         "itemset": {
             "n": "Warlord's Sanctuary",
             "i": 398
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 84,
+                    "gold": 16
+                }
+            }
         }
     },
     "16550": {
@@ -9049,6 +15801,15 @@
         "itemset": {
             "n": "Warlord's Sanctuary",
             "i": 398
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 88,
+                    "silver": 67,
+                    "gold": 12
+                }
+            }
         }
     },
     "16551": {
@@ -9094,6 +15855,15 @@
         "itemset": {
             "n": "Warlord's Sanctuary",
             "i": 398
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 72,
+                    "gold": 12
+                }
+            }
         }
     },
     "16552": {
@@ -9139,6 +15909,15 @@
         "itemset": {
             "n": "Warlord's Sanctuary",
             "i": 398
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 67,
+                    "silver": 70,
+                    "gold": 14
+                }
+            }
         }
     },
     "16554": {
@@ -9184,6 +15963,15 @@
         "itemset": {
             "n": "Warlord's Sanctuary",
             "i": 398
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 87,
+                    "silver": 10,
+                    "gold": 11
+                }
+            }
         }
     },
     "16555": {
@@ -9231,6 +16019,15 @@
         "itemset": {
             "n": "Warlord's Sanctuary",
             "i": 398
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 95,
+                    "silver": 90,
+                    "gold": 6
+                }
+            }
         }
     },
     "16558": {
@@ -9273,6 +16070,15 @@
         "itemset": {
             "n": "Warlord's Vestments",
             "i": 393
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 23,
+                    "silver": 48,
+                    "gold": 10
+                }
+            }
         }
     },
     "16560": {
@@ -9315,6 +16121,15 @@
         "itemset": {
             "n": "Warlord's Vestments",
             "i": 393
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 7
+                }
+            }
         }
     },
     "16561": {
@@ -9361,6 +16176,15 @@
         "itemset": {
             "n": "Warlord's Vestments",
             "i": 393
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 27,
+                    "gold": 12
+                }
+            }
         }
     },
     "16562": {
@@ -9403,6 +16227,15 @@
         "itemset": {
             "n": "Warlord's Vestments",
             "i": 393
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 56,
+                    "silver": 31,
+                    "gold": 12
+                }
+            }
         }
     },
     "16563": {
@@ -9449,6 +16282,15 @@
         "itemset": {
             "n": "Warlord's Vestments",
             "i": 393
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 47,
+                    "gold": 16
+                }
+            }
         }
     },
     "16564": {
@@ -9495,6 +16337,15 @@
         "itemset": {
             "n": "Warlord's Vestments",
             "i": 393
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 84,
+                    "silver": 28,
+                    "gold": 14
+                }
+            }
         }
     },
     "16565": {
@@ -9538,6 +16389,15 @@
         "itemset": {
             "n": "Warlord's Pursuit",
             "i": 396
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 17,
+                    "silver": 92,
+                    "gold": 19
+                }
+            }
         }
     },
     "16566": {
@@ -9581,6 +16441,15 @@
         "itemset": {
             "n": "Warlord's Pursuit",
             "i": 396
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 59,
+                    "silver": 99,
+                    "gold": 14
+                }
+            }
         }
     },
     "16567": {
@@ -9624,6 +16493,15 @@
         "itemset": {
             "n": "Warlord's Pursuit",
             "i": 396
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 33,
+                    "silver": 33,
+                    "gold": 17
+                }
+            }
         }
     },
     "16568": {
@@ -9667,6 +16545,15 @@
         "itemset": {
             "n": "Warlord's Pursuit",
             "i": 396
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 17,
+                    "gold": 15
+                }
+            }
         }
     },
     "16569": {
@@ -9710,6 +16597,15 @@
         "itemset": {
             "n": "Warlord's Pursuit",
             "i": 396
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 26,
+                    "silver": 15,
+                    "gold": 13
+                }
+            }
         }
     },
     "16571": {
@@ -9757,6 +16653,15 @@
         "itemset": {
             "n": "Warlord's Pursuit",
             "i": 396
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 55,
+                    "silver": 16,
+                    "gold": 8
+                }
+            }
         }
     },
     "16573": {
@@ -9807,6 +16712,15 @@
         "itemset": {
             "n": "Warlord's Earthshaker",
             "i": 386
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 76,
+                    "silver": 39,
+                    "gold": 12
+                }
+            }
         }
     },
     "16574": {
@@ -9850,6 +16764,15 @@
         "itemset": {
             "n": "Warlord's Earthshaker",
             "i": 386
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 91,
+                    "silver": 25,
+                    "gold": 8
+                }
+            }
         }
     },
     "16577": {
@@ -9901,6 +16824,15 @@
         "itemset": {
             "n": "Warlord's Earthshaker",
             "i": 386
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 6,
+                    "silver": 34,
+                    "gold": 19
+                }
+            }
         }
     },
     "16578": {
@@ -9952,6 +16884,15 @@
         "itemset": {
             "n": "Warlord's Earthshaker",
             "i": 386
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 86,
+                    "silver": 55,
+                    "gold": 14
+                }
+            }
         }
     },
     "16579": {
@@ -10002,6 +16943,15 @@
         "itemset": {
             "n": "Warlord's Earthshaker",
             "i": 386
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 13,
+                    "silver": 83,
+                    "gold": 16
+                }
+            }
         }
     },
     "16580": {
@@ -10046,6 +16996,15 @@
         "itemset": {
             "n": "Warlord's Earthshaker",
             "i": 386
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 31,
+                    "silver": 73,
+                    "gold": 14
+                }
+            }
         }
     },
     "16581": {
@@ -10056,7 +17015,15 @@
         "stack": 20,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Magic stirs deep inside"
+        "description": "Magic stirs deep inside",
+        "contained": {
+            "objects": {
+                "178104": 100.0,
+                "178105": 100.0,
+                "178106": 100.0
+            }
+        },
+        "objective": 6421
     },
     "16583": {
         "i": 16583,
@@ -10069,7 +17036,155 @@
             "gold": 0,
             "silver": 25,
             "copper": 0
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "16602": {
         "i": 16602,
@@ -10078,7 +17193,13 @@
         "image_name": "inv_jewelry_talisman_14",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178144": 100.0
+            }
+        },
+        "objective": 6462
     },
     "16603": {
         "i": 16603,
@@ -10090,7 +17211,9 @@
         "use": {
             "s": 20513,
             "t": "Smash enchanted Resonite Crystal into Resonite Cask."
-        }
+        },
+        "provided_for": 6481,
+        "objective": 6481
     },
     "16604": {
         "i": 16604,
@@ -10115,6 +17238,25 @@
             "class": [
                 "Priest"
             ]
+        },
+        "reward_from": {
+            "5621": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16605": {
@@ -10140,6 +17282,25 @@
             "class": [
                 "Priest"
             ]
+        },
+        "reward_from": {
+            "5625": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16606": {
@@ -10165,6 +17326,25 @@
             "class": [
                 "Priest"
             ]
+        },
+        "reward_from": {
+            "5648": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16607": {
@@ -10190,6 +17370,25 @@
             "class": [
                 "Priest"
             ]
+        },
+        "reward_from": {
+            "5650": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16608": {
@@ -10216,6 +17415,31 @@
             "class": [
                 "Druid"
             ]
+        },
+        "reward_from": {
+            "31": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10939": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16622": {
@@ -10241,6 +17465,31 @@
         },
         "stats": {
             "durability": 65
+        },
+        "reward_from": {
+            "4902": 1
+        },
+        "disenchant": {
+            "16203": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16204": {
+                "chance": 22.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16623": {
@@ -10259,6 +17508,31 @@
         "stats": {
             "intellect": 13,
             "stamina": 3
+        },
+        "reward_from": {
+            "4902": 1
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16642": {
@@ -10276,6 +17550,13 @@
                 "16647": 1,
                 "16648": 1
             }
+        },
+        "objective": 6504,
+        "materials": {
+            "16645": 1,
+            "16646": 1,
+            "16647": 1,
+            "16648": 1
         }
     },
     "16643": {
@@ -10293,6 +17574,13 @@
                 "16651": 1,
                 "16652": 1
             }
+        },
+        "objective": 6504,
+        "materials": {
+            "16649": 1,
+            "16650": 1,
+            "16651": 1,
+            "16652": 1
         }
     },
     "16644": {
@@ -10310,6 +17598,13 @@
                 "16655": 1,
                 "16656": 1
             }
+        },
+        "objective": 6504,
+        "materials": {
+            "16653": 1,
+            "16654": 1,
+            "16655": 1,
+            "16656": 1
         }
     },
     "16645": {
@@ -10327,6 +17622,36 @@
         "use": {
             "s": 20529,
             "t": "Bind pages 1-4 into Chapter 1 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "10643": 4.0,
+            "12836": 3.0,
+            "3986": 2.0,
+            "3940": 2.0,
+            "4619": 2.0,
+            "3736": 1.88,
+            "10559": 1.78,
+            "3807": 1.7,
+            "3833": 1.698,
+            "3725": 1.64,
+            "3732": 1.64,
+            "3943": 1.62,
+            "3808": 1.58,
+            "3733": 1.56,
+            "11684": 1.54,
+            "3941": 1.52,
+            "3780": 1.48,
+            "3806": 1.46,
+            "3727": 1.44,
+            "3735": 1.42
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.66
+            }
+        },
+        "creates": {
+            "20529": 16642
         }
     },
     "16646": {
@@ -10344,6 +17669,36 @@
         "use": {
             "s": 20529,
             "t": "Bind pages 1-4 into Chapter 1 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "12836": 5.0,
+            "10640": 3.0,
+            "3773": 3.0,
+            "10647": 2.0,
+            "11683": 2.0,
+            "3931": 1.8,
+            "3735": 1.78,
+            "11680": 1.74,
+            "10642": 1.724,
+            "3932": 1.72,
+            "3804": 1.66,
+            "3807": 1.64,
+            "3941": 1.6,
+            "3725": 1.54,
+            "3727": 1.54,
+            "11682": 1.52,
+            "3742": 1.5,
+            "3732": 1.48,
+            "3806": 1.46,
+            "3733": 1.44
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.72
+            }
+        },
+        "creates": {
+            "20529": 16642
         }
     },
     "16647": {
@@ -10361,6 +17716,36 @@
         "use": {
             "s": 20529,
             "t": "Bind pages 1-4 into Chapter 1 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "12858": 33.0,
+            "10643": 4.0,
+            "12836": 3.0,
+            "3773": 3.0,
+            "10642": 2.0,
+            "10639": 2.0,
+            "3986": 2.0,
+            "3804": 1.8,
+            "11683": 1.8,
+            "11656": 1.62,
+            "3808": 1.54,
+            "3732": 1.5,
+            "3736": 1.5,
+            "3932": 1.5,
+            "3727": 1.46,
+            "3733": 1.46,
+            "3806": 1.46,
+            "11681": 1.46,
+            "3739": 1.42,
+            "3740": 1.42
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.58
+            }
+        },
+        "creates": {
+            "20529": 16642
         }
     },
     "16648": {
@@ -10378,6 +17763,36 @@
         "use": {
             "s": 20529,
             "t": "Bind pages 1-4 into Chapter 1 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "12836": 3.0,
+            "10641": 3.0,
+            "3942": 2.0,
+            "3730": 1.76,
+            "3808": 1.74,
+            "11656": 1.72,
+            "11683": 1.72,
+            "3804": 1.62,
+            "3807": 1.58,
+            "3733": 1.56,
+            "3732": 1.5,
+            "3806": 1.5,
+            "3780": 1.48,
+            "3735": 1.42,
+            "3740": 1.38,
+            "10639": 1.376,
+            "11684": 1.34,
+            "12037": 1.34,
+            "3773": 1.32,
+            "3986": 1.32
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.64
+            }
+        },
+        "creates": {
+            "20529": 16642
         }
     },
     "16649": {
@@ -10395,6 +17810,36 @@
         "use": {
             "s": 20530,
             "t": "Bind pages 5-8 into Chapter 2 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "3773": 4.0,
+            "11683": 3.0,
+            "12037": 2.0,
+            "11682": 1.88,
+            "10642": 1.724,
+            "11680": 1.72,
+            "10640": 1.7,
+            "3780": 1.64,
+            "3806": 1.64,
+            "12836": 1.562,
+            "3808": 1.56,
+            "3834": 1.54,
+            "4619": 1.54,
+            "3833": 1.528,
+            "3807": 1.52,
+            "3941": 1.52,
+            "3942": 1.48,
+            "3732": 1.42,
+            "3804": 1.42,
+            "11681": 1.34
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.64
+            }
+        },
+        "creates": {
+            "20530": 16643
         }
     },
     "16650": {
@@ -10412,6 +17857,36 @@
         "use": {
             "s": 20530,
             "t": "Bind pages 5-8 into Chapter 2 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "12836": 3.0,
+            "3773": 3.0,
+            "11682": 1.88,
+            "3919": 1.76,
+            "11656": 1.72,
+            "10640": 1.7,
+            "3833": 1.698,
+            "3940": 1.62,
+            "3732": 1.6,
+            "3804": 1.6,
+            "11681": 1.58,
+            "3733": 1.56,
+            "3808": 1.56,
+            "11680": 1.44,
+            "11683": 1.42,
+            "3730": 1.38,
+            "10641": 1.38,
+            "3807": 1.36,
+            "3941": 1.36,
+            "3806": 1.34
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.42
+            }
+        },
+        "creates": {
+            "20530": 16643
         }
     },
     "16651": {
@@ -10429,6 +17904,36 @@
         "use": {
             "s": 20530,
             "t": "Bind pages 5-8 into Chapter 2 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "10641": 7.0,
+            "12836": 5.0,
+            "10647": 3.0,
+            "3773": 3.0,
+            "3942": 3.0,
+            "4619": 2.0,
+            "11656": 1.82,
+            "11682": 1.8,
+            "3804": 1.74,
+            "3943": 1.72,
+            "11680": 1.72,
+            "11683": 1.72,
+            "3808": 1.7,
+            "11681": 1.7,
+            "3931": 1.66,
+            "3664": 1.64,
+            "3806": 1.64,
+            "3733": 1.54,
+            "3833": 1.528,
+            "3740": 1.5
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.86
+            }
+        },
+        "creates": {
+            "20530": 16643
         }
     },
     "16652": {
@@ -10446,6 +17951,36 @@
         "use": {
             "s": 20530,
             "t": "Bind pages 5-8 into Chapter 2 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "12836": 3.0,
+            "10559": 3.0,
+            "3792": 2.0,
+            "11683": 2.0,
+            "11681": 2.0,
+            "10642": 1.724,
+            "3727": 1.62,
+            "3733": 1.62,
+            "3740": 1.62,
+            "3806": 1.62,
+            "3808": 1.56,
+            "11680": 1.54,
+            "3941": 1.52,
+            "3804": 1.5,
+            "3834": 1.5,
+            "3780": 1.48,
+            "3942": 1.48,
+            "11682": 1.48,
+            "3807": 1.42,
+            "4619": 1.42
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.58
+            }
+        },
+        "creates": {
+            "20530": 16643
         }
     },
     "16653": {
@@ -10463,6 +17998,36 @@
         "use": {
             "s": 20531,
             "t": "Bind pages 9-12 into Chapter 3 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "11684": 8.0,
+            "3736": 3.0,
+            "3986": 2.0,
+            "10647": 1.9,
+            "3834": 1.86,
+            "11680": 1.84,
+            "11656": 1.78,
+            "3808": 1.74,
+            "11683": 1.72,
+            "3806": 1.68,
+            "12836": 1.562,
+            "3733": 1.56,
+            "3730": 1.54,
+            "11682": 1.52,
+            "3732": 1.48,
+            "3807": 1.48,
+            "3941": 1.44,
+            "3664": 1.42,
+            "3780": 1.4,
+            "3804": 1.4
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.62
+            }
+        },
+        "creates": {
+            "20531": 16644
         }
     },
     "16654": {
@@ -10480,6 +18045,36 @@
         "use": {
             "s": 20531,
             "t": "Bind pages 9-12 into Chapter 3 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "10642": 3.0,
+            "3792": 2.0,
+            "11681": 2.0,
+            "11656": 2.0,
+            "12836": 2.0,
+            "12037": 2.0,
+            "11684": 1.92,
+            "3736": 1.88,
+            "4619": 1.86,
+            "3942": 1.82,
+            "3806": 1.68,
+            "3941": 1.68,
+            "11680": 1.64,
+            "3732": 1.62,
+            "3931": 1.6,
+            "3733": 1.54,
+            "3804": 1.52,
+            "3807": 1.52,
+            "3808": 1.5,
+            "11683": 1.5
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.74
+            }
+        },
+        "creates": {
+            "20531": 16644
         }
     },
     "16655": {
@@ -10497,6 +18092,36 @@
         "use": {
             "s": 20531,
             "t": "Bind pages 9-12 into Chapter 3 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "12836": 6.0,
+            "12037": 5.0,
+            "3792": 3.0,
+            "10640": 3.0,
+            "3736": 1.88,
+            "11680": 1.84,
+            "3808": 1.82,
+            "10642": 1.724,
+            "11684": 1.72,
+            "3807": 1.7,
+            "3833": 1.698,
+            "3804": 1.68,
+            "10643": 1.66,
+            "3733": 1.64,
+            "4619": 1.64,
+            "11683": 1.64,
+            "3727": 1.58,
+            "3780": 1.54,
+            "3940": 1.54,
+            "3732": 1.42
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.64
+            }
+        },
+        "creates": {
+            "20531": 16644
         }
     },
     "16656": {
@@ -10514,6 +18139,36 @@
         "use": {
             "s": 20531,
             "t": "Bind pages 9-12 into Chapter 3 of the Shredder Operating Manual."
+        },
+        "dropped": {
+            "3773": 5.0,
+            "10642": 3.0,
+            "12836": 3.0,
+            "3664": 3.0,
+            "3792": 2.0,
+            "10559": 2.0,
+            "4619": 2.0,
+            "11682": 1.84,
+            "3919": 1.82,
+            "3942": 1.82,
+            "11656": 1.82,
+            "10643": 1.66,
+            "3780": 1.64,
+            "3740": 1.6,
+            "3986": 1.58,
+            "3742": 1.56,
+            "3733": 1.54,
+            "3732": 1.5,
+            "3808": 1.5,
+            "11680": 1.5
+        },
+        "contained": {
+            "objects": {
+                "3743": 1.62
+            }
+        },
+        "creates": {
+            "20531": 16644
         }
     },
     "16658": {
@@ -10541,6 +18196,31 @@
                     "t": "Attack Power increased by 18 when fighting Beasts."
                 }
             ]
+        },
+        "reward_from": {
+            "247": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16659": {
@@ -10570,6 +18250,31 @@
                     "t": "+12 Attack Power."
                 }
             ]
+        },
+        "reward_from": {
+            "824": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16660": {
@@ -10593,6 +18298,31 @@
             "strength": 2,
             "stamina": 3,
             "durability": 80
+        },
+        "reward_from": {
+            "824": 1
+        },
+        "disenchant": {
+            "11082": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11083": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16661": {
@@ -10612,6 +18342,31 @@
         "stats": {
             "armor": 20,
             "intellect": 5
+        },
+        "reward_from": {
+            "824": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16662": {
@@ -10621,7 +18376,9 @@
         "image_name": "inv_misc_gem_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6501,
+        "objective": 6501
     },
     "16663": {
         "i": 16663,
@@ -10630,7 +18387,11 @@
         "image_name": "inv_potion_27",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "10363": 100.0
+        },
+        "objective": 6502
     },
     "16665": {
         "i": 16665,
@@ -10645,6 +18406,9 @@
                 "Hunter"
             ],
             "level": 60
+        },
+        "dropped": {
+            "12118": 100.0
         }
     },
     "16666": {
@@ -10674,6 +18438,18 @@
         "itemset": {
             "n": "The Elements",
             "i": 187
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9011,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16667": {
@@ -10704,6 +18480,18 @@
         "itemset": {
             "n": "The Elements",
             "i": 187
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9011,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16668": {
@@ -10735,6 +18523,18 @@
         "itemset": {
             "n": "The Elements",
             "i": 187
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 8957,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16669": {
@@ -10765,6 +18565,18 @@
         "itemset": {
             "n": "The Elements",
             "i": 187
+        },
+        "dropped": {
+            "10339": 20.0
+        },
+        "objective": 8957,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16670": {
@@ -10793,6 +18605,19 @@
         "itemset": {
             "n": "The Elements",
             "i": 187
+        },
+        "dropped": {
+            "10584": 20.0,
+            "9196": 17.0
+        },
+        "objective": 8957,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16671": {
@@ -10822,6 +18647,21 @@
         "itemset": {
             "n": "The Elements",
             "i": 187
+        },
+        "dropped": {
+            "11043": 3.0,
+            "10413": 1.5,
+            "10478": 1.5,
+            "10412": 1.25
+        },
+        "objective": 8918,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16672": {
@@ -10852,6 +18692,18 @@
         "itemset": {
             "n": "The Elements",
             "i": 187
+        },
+        "dropped": {
+            "9816": 20.0
+        },
+        "objective": 8942,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16673": {
@@ -10882,6 +18734,24 @@
         "itemset": {
             "n": "The Elements",
             "i": 187
+        },
+        "dropped": {
+            "9266": 3.0,
+            "10083": 2.0,
+            "9264": 2.0,
+            "9736": 1.5,
+            "9262": 1.25,
+            "9257": 1.0,
+            "9693": 1.0
+        },
+        "objective": 8942,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16674": {
@@ -10913,6 +18783,18 @@
         "itemset": {
             "n": "Beaststalker Armor",
             "i": 186
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9008,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16675": {
@@ -10941,6 +18823,18 @@
         "itemset": {
             "n": "Beaststalker Armor",
             "i": 186
+        },
+        "dropped": {
+            "10437": 20.0
+        },
+        "objective": 9017,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16676": {
@@ -10971,6 +18865,18 @@
         "itemset": {
             "n": "Beaststalker Armor",
             "i": 186
+        },
+        "dropped": {
+            "9237": 17.0
+        },
+        "objective": 8938,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16677": {
@@ -11001,6 +18907,18 @@
         "itemset": {
             "n": "Beaststalker Armor",
             "i": 186
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9008,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16678": {
@@ -11031,6 +18949,18 @@
         "itemset": {
             "n": "Beaststalker Armor",
             "i": 186
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 9017,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16679": {
@@ -11061,6 +18991,18 @@
         "itemset": {
             "n": "Beaststalker Armor",
             "i": 186
+        },
+        "dropped": {
+            "9568": 14.0
+        },
+        "objective": 9017,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16680": {
@@ -11092,6 +19034,24 @@
         "itemset": {
             "n": "Beaststalker Armor",
             "i": 186
+        },
+        "dropped": {
+            "9241": 2.0,
+            "9258": 1.75,
+            "9260": 1.75,
+            "10366": 1.0,
+            "9692": 1.0,
+            "9736": 0.75,
+            "9259": 0.75
+        },
+        "objective": 8938,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16681": {
@@ -11120,6 +19080,21 @@
         "itemset": {
             "n": "Beaststalker Armor",
             "i": 186
+        },
+        "dropped": {
+            "9096": 2.0,
+            "10406": 1.75,
+            "10421": 1.75,
+            "10407": 1.5
+        },
+        "objective": 8914,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16682": {
@@ -11149,6 +19124,18 @@
         "itemset": {
             "n": "Magister's Regalia",
             "i": 181
+        },
+        "dropped": {
+            "10558": 20.0
+        },
+        "objective": 9018,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16683": {
@@ -11178,6 +19165,23 @@
         "itemset": {
             "n": "Magister's Regalia",
             "i": 181
+        },
+        "dropped": {
+            "10372": 2.0,
+            "9264": 1.5,
+            "9693": 1.25,
+            "9262": 1.0,
+            "9098": 1.0,
+            "9736": 0.75
+        },
+        "objective": 8915,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16684": {
@@ -11207,6 +19211,18 @@
         "itemset": {
             "n": "Magister's Regalia",
             "i": 181
+        },
+        "dropped": {
+            "11261": 14.0
+        },
+        "objective": 8939,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16685": {
@@ -11236,6 +19252,24 @@
         "itemset": {
             "n": "Magister's Regalia",
             "i": 181
+        },
+        "dropped": {
+            "10425": 3.0,
+            "9239": 3.0,
+            "10422": 2.0,
+            "10469": 1.5,
+            "10398": 1.0,
+            "10400": 1.0,
+            "10419": 1.0
+        },
+        "objective": 8939,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16686": {
@@ -11265,6 +19299,18 @@
         "itemset": {
             "n": "Magister's Regalia",
             "i": 181
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9014,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16687": {
@@ -11294,6 +19340,18 @@
         "itemset": {
             "n": "Magister's Regalia",
             "i": 181
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 9018,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16688": {
@@ -11323,6 +19381,18 @@
         "itemset": {
             "n": "Magister's Regalia",
             "i": 181
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9014,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16689": {
@@ -11352,6 +19422,18 @@
         "itemset": {
             "n": "Magister's Regalia",
             "i": 181
+        },
+        "dropped": {
+            "10508": 16.0
+        },
+        "objective": 9018,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16690": {
@@ -11381,6 +19463,18 @@
         "itemset": {
             "n": "Vestments of the Devout",
             "i": 182
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9009,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16691": {
@@ -11410,6 +19504,18 @@
         "itemset": {
             "n": "Vestments of the Devout",
             "i": 182
+        },
+        "dropped": {
+            "10438": 20.0
+        },
+        "objective": 9019,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16692": {
@@ -11439,6 +19545,18 @@
         "itemset": {
             "n": "Vestments of the Devout",
             "i": 182
+        },
+        "dropped": {
+            "10811": 20.0
+        },
+        "objective": 8940,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16693": {
@@ -11468,6 +19586,18 @@
         "itemset": {
             "n": "Vestments of the Devout",
             "i": 182
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9009,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16694": {
@@ -11497,6 +19627,18 @@
         "itemset": {
             "n": "Vestments of the Devout",
             "i": 182
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 9019,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16695": {
@@ -11526,6 +19668,18 @@
         "itemset": {
             "n": "Vestments of the Devout",
             "i": 182
+        },
+        "dropped": {
+            "10264": 20.0
+        },
+        "objective": 9019,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16696": {
@@ -11555,6 +19709,24 @@
         "itemset": {
             "n": "Vestments of the Devout",
             "i": 182
+        },
+        "dropped": {
+            "9818": 4.0,
+            "9263": 2.0,
+            "9240": 2.0,
+            "9717": 1.5,
+            "9261": 1.0,
+            "9098": 1.0,
+            "9736": 0.5
+        },
+        "objective": 8940,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16697": {
@@ -11584,6 +19756,22 @@
         "itemset": {
             "n": "Vestments of the Devout",
             "i": 182
+        },
+        "dropped": {
+            "10423": 4.0,
+            "10420": 2.0,
+            "10398": 1.0,
+            "10400": 1.0,
+            "10419": 1.0
+        },
+        "objective": 8916,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16698": {
@@ -11613,6 +19801,18 @@
         "itemset": {
             "n": "Dreadmist Raiment",
             "i": 183
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9012,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16699": {
@@ -11642,6 +19842,18 @@
         "itemset": {
             "n": "Dreadmist Raiment",
             "i": 183
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 9021,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16700": {
@@ -11671,6 +19883,18 @@
         "itemset": {
             "n": "Dreadmist Raiment",
             "i": 183
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9012,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16701": {
@@ -11700,6 +19924,18 @@
         "itemset": {
             "n": "Dreadmist Raiment",
             "i": 183
+        },
+        "dropped": {
+            "10503": 14.0
+        },
+        "objective": 9021,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16702": {
@@ -11729,6 +19965,21 @@
         "itemset": {
             "n": "Dreadmist Raiment",
             "i": 183
+        },
+        "dropped": {
+            "10477": 1.5,
+            "10398": 1.0,
+            "10400": 1.0,
+            "10419": 1.0
+        },
+        "objective": 8943,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16703": {
@@ -11758,6 +20009,25 @@
         "itemset": {
             "n": "Dreadmist Raiment",
             "i": 183
+        },
+        "dropped": {
+            "10680": 4.0,
+            "9817": 4.0,
+            "9269": 2.0,
+            "9263": 1.75,
+            "9736": 1.5,
+            "9717": 1.25,
+            "9257": 1.0,
+            "9261": 1.0
+        },
+        "objective": 8919,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16704": {
@@ -11787,6 +20057,18 @@
         "itemset": {
             "n": "Dreadmist Raiment",
             "i": 183
+        },
+        "dropped": {
+            "10436": 20.0
+        },
+        "objective": 9021,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16705": {
@@ -11816,6 +20098,18 @@
         "itemset": {
             "n": "Dreadmist Raiment",
             "i": 183
+        },
+        "dropped": {
+            "10901": 17.0
+        },
+        "objective": 8943,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16706": {
@@ -11845,6 +20139,18 @@
         "itemset": {
             "n": "Wildheart Raiment",
             "i": 185
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9007,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16707": {
@@ -11875,6 +20181,18 @@
         "itemset": {
             "n": "Shadowcraft Armor",
             "i": 184
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9010,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16708": {
@@ -11903,6 +20221,18 @@
         "itemset": {
             "n": "Shadowcraft Armor",
             "i": 184
+        },
+        "dropped": {
+            "10997": 10.0
+        },
+        "objective": 9020,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16709": {
@@ -11932,6 +20262,18 @@
         "itemset": {
             "n": "Shadowcraft Armor",
             "i": 184
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 9020,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16710": {
@@ -11960,6 +20302,22 @@
         "itemset": {
             "n": "Shadowcraft Armor",
             "i": 184
+        },
+        "dropped": {
+            "10505": 4.0,
+            "10472": 2.0,
+            "10405": 1.5,
+            "10488": 1.5,
+            "11284": 1.5
+        },
+        "objective": 8917,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16711": {
@@ -11988,6 +20346,18 @@
         "itemset": {
             "n": "Shadowcraft Armor",
             "i": 184
+        },
+        "dropped": {
+            "11622": 14.0
+        },
+        "objective": 9020,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16712": {
@@ -12018,6 +20388,18 @@
         "itemset": {
             "n": "Shadowcraft Armor",
             "i": 184
+        },
+        "dropped": {
+            "9236": 17.0
+        },
+        "objective": 8941,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16713": {
@@ -12048,6 +20430,24 @@
         "itemset": {
             "n": "Shadowcraft Armor",
             "i": 184
+        },
+        "dropped": {
+            "10318": 3.0,
+            "9265": 2.0,
+            "9736": 1.5,
+            "9260": 1.5,
+            "9097": 1.0,
+            "9716": 1.0,
+            "9259": 0.75
+        },
+        "objective": 8941,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16714": {
@@ -12076,6 +20476,21 @@
         "itemset": {
             "n": "Wildheart Raiment",
             "i": 185
+        },
+        "dropped": {
+            "10464": 1.75,
+            "10426": 1.75,
+            "10463": 1.5,
+            "10495": 1.5
+        },
+        "objective": 8913,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16715": {
@@ -12105,6 +20520,18 @@
         "itemset": {
             "n": "Wildheart Raiment",
             "i": 185
+        },
+        "dropped": {
+            "10596": 25.0
+        },
+        "objective": 9016,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16716": {
@@ -12134,6 +20561,24 @@
         "itemset": {
             "n": "Wildheart Raiment",
             "i": 185
+        },
+        "dropped": {
+            "10507": 4.0,
+            "11257": 2.0,
+            "10500": 1.5,
+            "10499": 1.5,
+            "9736": 1.5,
+            "9258": 1.25,
+            "9692": 1.25
+        },
+        "objective": 8927,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16717": {
@@ -12162,6 +20607,18 @@
         "itemset": {
             "n": "Wildheart Raiment",
             "i": 185
+        },
+        "dropped": {
+            "10516": 20.0
+        },
+        "objective": 8927,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16718": {
@@ -12191,6 +20648,18 @@
         "itemset": {
             "n": "Wildheart Raiment",
             "i": 185
+        },
+        "dropped": {
+            "10268": 25.0
+        },
+        "objective": 9016,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16719": {
@@ -12222,6 +20691,18 @@
         "itemset": {
             "n": "Wildheart Raiment",
             "i": 185
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 9016,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16720": {
@@ -12252,6 +20733,18 @@
         "itemset": {
             "n": "Wildheart Raiment",
             "i": 185
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9007,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16721": {
@@ -12281,6 +20774,18 @@
         "itemset": {
             "n": "Shadowcraft Armor",
             "i": 184
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9010,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16722": {
@@ -12311,6 +20816,20 @@
         "itemset": {
             "n": "Lightforge Armor",
             "i": 188
+        },
+        "dropped": {
+            "10504": 5.0,
+            "10487": 3.0,
+            "10486": 2.0
+        },
+        "objective": 8908,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16723": {
@@ -12341,6 +20860,21 @@
         "itemset": {
             "n": "Lightforge Armor",
             "i": 188
+        },
+        "dropped": {
+            "10409": 2.0,
+            "10408": 2.0,
+            "10418": 1.75,
+            "10424": 1.75
+        },
+        "objective": 8933,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16724": {
@@ -12370,6 +20904,18 @@
         "itemset": {
             "n": "Lightforge Armor",
             "i": 188
+        },
+        "dropped": {
+            "10808": 20.0
+        },
+        "objective": 8933,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16725": {
@@ -12399,6 +20945,18 @@
         "itemset": {
             "n": "Lightforge Armor",
             "i": 188
+        },
+        "dropped": {
+            "10813": 19.0
+        },
+        "objective": 8954,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16726": {
@@ -12429,6 +20987,18 @@
         "itemset": {
             "n": "Lightforge Armor",
             "i": 188
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9002,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16727": {
@@ -12460,6 +21030,18 @@
         "itemset": {
             "n": "Lightforge Armor",
             "i": 188
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9002,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16728": {
@@ -12491,6 +21073,18 @@
         "itemset": {
             "n": "Lightforge Armor",
             "i": 188
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 8954,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16729": {
@@ -12522,6 +21116,18 @@
         "itemset": {
             "n": "Lightforge Armor",
             "i": 188
+        },
+        "dropped": {
+            "10430": 19.0
+        },
+        "objective": 8954,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16730": {
@@ -12552,6 +21158,18 @@
         "itemset": {
             "n": "Battlegear of Valor",
             "i": 189
+        },
+        "dropped": {
+            "10363": 11.0
+        },
+        "objective": 9013,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16731": {
@@ -12582,6 +21200,18 @@
         "itemset": {
             "n": "Battlegear of Valor",
             "i": 189
+        },
+        "dropped": {
+            "1853": 11.0
+        },
+        "objective": 9013,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16732": {
@@ -12612,6 +21242,18 @@
         "itemset": {
             "n": "Battlegear of Valor",
             "i": 189
+        },
+        "dropped": {
+            "10440": 11.0
+        },
+        "objective": 9022,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16733": {
@@ -12641,6 +21283,18 @@
         "itemset": {
             "n": "Battlegear of Valor",
             "i": 189
+        },
+        "dropped": {
+            "10429": 21.0
+        },
+        "objective": 9022,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16734": {
@@ -12671,6 +21325,18 @@
         "itemset": {
             "n": "Battlegear of Valor",
             "i": 189
+        },
+        "dropped": {
+            "10506": 11.0
+        },
+        "objective": 9022,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16735": {
@@ -12701,6 +21367,24 @@
         "itemset": {
             "n": "Battlegear of Valor",
             "i": 189
+        },
+        "dropped": {
+            "10319": 3.0,
+            "9267": 2.0,
+            "9736": 1.5,
+            "9260": 1.25,
+            "9716": 1.25,
+            "9097": 1.0,
+            "9259": 0.75
+        },
+        "objective": 8920,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16736": {
@@ -12731,6 +21415,21 @@
         "itemset": {
             "n": "Battlegear of Valor",
             "i": 189
+        },
+        "dropped": {
+            "10414": 3.0,
+            "10417": 2.0,
+            "10416": 2.0,
+            "9268": 2.0
+        },
+        "objective": 8944,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16737": {
@@ -12761,6 +21460,18 @@
         "itemset": {
             "n": "Battlegear of Valor",
             "i": 189
+        },
+        "dropped": {
+            "10439": 14.0
+        },
+        "objective": 8944,
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16738": {
@@ -12782,6 +21493,31 @@
             "spirit": 13,
             "stamina": 7,
             "durability": 25
+        },
+        "reward_from": {
+            "5863": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16739": {
@@ -12804,6 +21540,31 @@
             "stamina": 6,
             "spirit": 4,
             "durability": 50
+        },
+        "reward_from": {
+            "5863": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16740": {
@@ -12826,6 +21587,31 @@
             "stamina": 5,
             "agility": 2,
             "durability": 25
+        },
+        "reward_from": {
+            "6504": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16741": {
@@ -12848,6 +21634,31 @@
             "intellect": 2,
             "stamina": 2,
             "durability": 30
+        },
+        "reward_from": {
+            "6504": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16742": {
@@ -12857,7 +21668,11 @@
         "image_name": "inv_axe_16",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6571,
+        "reward_from": {
+            "6581": 1
+        }
     },
     "16743": {
         "i": 16743,
@@ -12866,7 +21681,22 @@
         "image_name": "inv_misc_bandage_06",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "3743": 80.0,
+            "3745": 80.0,
+            "3746": 80.0,
+            "3748": 80.0,
+            "3749": 80.0,
+            "3750": 80.0,
+            "3921": 80.0,
+            "3922": 80.0,
+            "3923": 80.0,
+            "3924": 80.0,
+            "3925": 80.0,
+            "3926": 80.0
+        },
+        "objective": 6571
     },
     "16744": {
         "i": 16744,
@@ -12875,7 +21705,13 @@
         "image_name": "inv_potion_64",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178195": 100.0
+            }
+        },
+        "objective": 6571
     },
     "16745": {
         "i": 16745,
@@ -12884,7 +21720,13 @@
         "image_name": "inv_crate_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178204": 100.0
+            }
+        },
+        "objective": 6571
     },
     "16746": {
         "i": 16746,
@@ -12893,7 +21735,14 @@
         "image_name": "inv_scroll_06",
         "stack": 20,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "contained": {
+            "items": {
+                "16783": 100.0,
+                "16882": 0.05
+            }
+        },
+        "objective": 6547
     },
     "16747": {
         "i": 16747,
@@ -12906,6 +21755,14 @@
             "gold": 0,
             "silver": 0,
             "copper": 27
+        },
+        "dropped": {
+            "3928": 1.14
+        },
+        "contained": {
+            "objects": {
+                "19021": 29.0
+            }
         }
     },
     "16748": {
@@ -12919,6 +21776,14 @@
             "gold": 0,
             "silver": 0,
             "copper": 15
+        },
+        "dropped": {
+            "3928": 0.88
+        },
+        "contained": {
+            "objects": {
+                "19021": 32.0
+            }
         }
     },
     "16762": {
@@ -12928,7 +21793,13 @@
         "image_name": "inv_misc_stonetablet_08",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177964": 100.0
+            }
+        },
+        "objective": 6921
     },
     "16763": {
         "i": 16763,
@@ -12937,7 +21808,11 @@
         "image_name": "inv_letter_12",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6543,
+        "reward_from": {
+            "6545": 1
+        }
     },
     "16764": {
         "i": 16764,
@@ -12946,7 +21821,11 @@
         "image_name": "inv_letter_12",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6543,
+        "reward_from": {
+            "6547": 1
+        }
     },
     "16765": {
         "i": 16765,
@@ -12955,7 +21834,11 @@
         "image_name": "inv_letter_12",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6543,
+        "reward_from": {
+            "6546": 1
+        }
     },
     "16766": {
         "i": 16766,
@@ -13009,6 +21892,16 @@
         "use": {
             "s": 20628,
             "t": "Teaches you how to cook a hot Undermine Clam Chowder."
+        },
+        "sold": {
+            "8139": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            }
         }
     },
     "16768": {
@@ -13030,6 +21923,37 @@
         "use": {
             "s": 20631,
             "t": "Restores 100 health every 1 sec for 10 sec. (cooldown 20 min)"
+        },
+        "sold": {
+            "11555": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            }
+        },
+        "disenchant": {
+            "16202": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14343": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16769": {
@@ -13060,6 +21984,37 @@
         },
         "requirements": {
             "level": 47
+        },
+        "sold": {
+            "11555": {
+                "cost": {
+                    "copper": 81,
+                    "silver": 30,
+                    "gold": 13
+                }
+            }
+        },
+        "disenchant": {
+            "16202": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11176": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14343": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16782": {
@@ -13074,7 +22029,12 @@
             "level": 21,
             "faction": "H"
         },
-        "starts": 909
+        "starts": 909,
+        "dropped": {
+            "12876": 100.0
+        },
+        "provided_for": 909,
+        "objective": 6922
     },
     "16783": {
         "i": 16783,
@@ -13083,7 +22043,8 @@
         "image_name": "inv_scroll_07",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6543
     },
     "16784": {
         "i": 16784,
@@ -13092,7 +22053,15 @@
         "image_name": "inv_misc_gem_sapphire_03",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178184": 100.0,
+                "178185": 100.0,
+                "178186": 100.0
+            }
+        },
+        "objective": 6563
     },
     "16785": {
         "i": 16785,
@@ -13102,7 +22071,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6568,
+        "objective": 6568
     },
     "16786": {
         "i": 16786,
@@ -13111,7 +22082,24 @@
         "image_name": "inv_misc_eye_01",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "9096": 80.0,
+            "9568": 80.0,
+            "10083": 80.0,
+            "10366": 80.0,
+            "10371": 80.0,
+            "10372": 80.0,
+            "12463": 80.0,
+            "12464": 80.0,
+            "12465": 80.0,
+            "12467": 80.0,
+            "12468": 80.0,
+            "10264": 80.0,
+            "10258": 80.0,
+            "10683": 80.0
+        },
+        "objective": 6569
     },
     "16787": {
         "i": 16787,
@@ -13127,7 +22115,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 6570
     },
     "16788": {
         "i": 16788,
@@ -13148,6 +22137,31 @@
             "block": 14,
             "stamina": 8,
             "durability": 85
+        },
+        "reward_from": {
+            "6161": 1
+        },
+        "disenchant": {
+            "11135": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16789": {
@@ -13173,6 +22187,31 @@
         },
         "stats": {
             "durability": 55
+        },
+        "reward_from": {
+            "6161": 1
+        },
+        "disenchant": {
+            "11135": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16790": {
@@ -13187,7 +22226,12 @@
             "level": 17,
             "faction": "H"
         },
-        "starts": 6564
+        "starts": 6564,
+        "dropped": {
+            "4802": 33.0
+        },
+        "provided_for": 6564,
+        "objective": 6564
     },
     "16791": {
         "i": 16791,
@@ -13209,6 +22253,31 @@
             "spirit": 4,
             "intellect": 5,
             "durability": 25
+        },
+        "reward_from": {
+            "6027": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16793": {
@@ -13230,6 +22299,31 @@
             "agility": 9,
             "stamina": 5,
             "durability": 60
+        },
+        "reward_from": {
+            "6027": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16794": {
@@ -13252,6 +22346,31 @@
             "strength": 5,
             "agility": 3,
             "durability": 35
+        },
+        "reward_from": {
+            "5581": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16795": {
@@ -13299,6 +22418,18 @@
         "itemset": {
             "n": "Arcanist Regalia",
             "i": 201
+        },
+        "dropped": {
+            "12057": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16796": {
@@ -13346,6 +22477,18 @@
         "itemset": {
             "n": "Arcanist Regalia",
             "i": 201
+        },
+        "dropped": {
+            "11982": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16797": {
@@ -13393,6 +22536,18 @@
         "itemset": {
             "n": "Arcanist Regalia",
             "i": 201
+        },
+        "dropped": {
+            "12056": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16798": {
@@ -13436,6 +22591,18 @@
         "itemset": {
             "n": "Arcanist Regalia",
             "i": 201
+        },
+        "dropped": {
+            "11988": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16799": {
@@ -13480,6 +22647,32 @@
         "itemset": {
             "n": "Arcanist Regalia",
             "i": 201
+        },
+        "dropped": {
+            "11658": 0.44,
+            "11673": 0.42,
+            "11667": 0.38,
+            "11664": 0.38,
+            "11659": 0.36,
+            "12100": 0.34,
+            "11668": 0.34,
+            "11666": 0.32,
+            "11662": 0.3,
+            "12119": 0.26,
+            "11661": 0.24,
+            "12101": 0.22,
+            "12076": 0.18,
+            "11663": 0.16,
+            "11665": 0.11
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16800": {
@@ -13527,6 +22720,18 @@
         "itemset": {
             "n": "Arcanist Regalia",
             "i": 201
+        },
+        "dropped": {
+            "12118": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16801": {
@@ -13574,6 +22779,18 @@
         "itemset": {
             "n": "Arcanist Regalia",
             "i": 201
+        },
+        "dropped": {
+            "12264": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16802": {
@@ -13617,6 +22834,32 @@
         "itemset": {
             "n": "Arcanist Regalia",
             "i": 201
+        },
+        "dropped": {
+            "11659": 0.58,
+            "11662": 0.56,
+            "12119": 0.42,
+            "11658": 0.38,
+            "11667": 0.34,
+            "12100": 0.32,
+            "11666": 0.32,
+            "11673": 0.3,
+            "11668": 0.3,
+            "11661": 0.28,
+            "12076": 0.26,
+            "12101": 0.24,
+            "11663": 0.24,
+            "11664": 0.2,
+            "11665": 0.11
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16803": {
@@ -13659,6 +22902,18 @@
         "itemset": {
             "n": "Felheart Raiment",
             "i": 203
+        },
+        "dropped": {
+            "12264": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16804": {
@@ -13699,6 +22954,32 @@
         "itemset": {
             "n": "Felheart Raiment",
             "i": 203
+        },
+        "dropped": {
+            "11661": 0.56,
+            "12119": 0.46,
+            "11673": 0.46,
+            "11659": 0.46,
+            "11667": 0.42,
+            "11658": 0.4,
+            "11664": 0.38,
+            "11668": 0.32,
+            "11666": 0.3,
+            "12101": 0.28,
+            "11662": 0.26,
+            "12076": 0.24,
+            "12100": 0.24,
+            "11663": 0.24,
+            "11665": 0.13
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16805": {
@@ -13746,6 +23027,18 @@
         "itemset": {
             "n": "Felheart Raiment",
             "i": 203
+        },
+        "dropped": {
+            "12118": 30.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16806": {
@@ -13789,6 +23082,32 @@
         "itemset": {
             "n": "Felheart Raiment",
             "i": 203
+        },
+        "dropped": {
+            "11659": 0.58,
+            "11662": 0.56,
+            "11666": 0.5,
+            "12100": 0.48,
+            "11658": 0.46,
+            "11667": 0.46,
+            "11661": 0.42,
+            "12119": 0.42,
+            "12101": 0.36,
+            "11673": 0.34,
+            "11668": 0.32,
+            "11663": 0.24,
+            "11664": 0.24,
+            "12076": 0.2,
+            "11665": 0.12
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16807": {
@@ -13832,6 +23151,18 @@
         "itemset": {
             "n": "Felheart Raiment",
             "i": 203
+        },
+        "dropped": {
+            "12056": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16808": {
@@ -13875,6 +23206,18 @@
         "itemset": {
             "n": "Felheart Raiment",
             "i": 203
+        },
+        "dropped": {
+            "12057": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16809": {
@@ -13921,6 +23264,18 @@
         "itemset": {
             "n": "Felheart Raiment",
             "i": 203
+        },
+        "dropped": {
+            "11988": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16810": {
@@ -13964,6 +23319,18 @@
         "itemset": {
             "n": "Felheart Raiment",
             "i": 203
+        },
+        "dropped": {
+            "11982": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16811": {
@@ -14007,6 +23374,18 @@
         "itemset": {
             "n": "Vestments of Prophecy",
             "i": 202
+        },
+        "dropped": {
+            "12264": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16812": {
@@ -14054,6 +23433,18 @@
         "itemset": {
             "n": "Vestments of Prophecy",
             "i": 202
+        },
+        "dropped": {
+            "12259": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16813": {
@@ -14097,6 +23488,18 @@
         "itemset": {
             "n": "Vestments of Prophecy",
             "i": 202
+        },
+        "dropped": {
+            "12057": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16814": {
@@ -14144,6 +23547,18 @@
         "itemset": {
             "n": "Vestments of Prophecy",
             "i": 202
+        },
+        "dropped": {
+            "11982": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16815": {
@@ -14187,6 +23602,18 @@
         "itemset": {
             "n": "Vestments of Prophecy",
             "i": 202
+        },
+        "dropped": {
+            "11988": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16816": {
@@ -14230,6 +23657,18 @@
         "itemset": {
             "n": "Vestments of Prophecy",
             "i": 202
+        },
+        "dropped": {
+            "12098": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16817": {
@@ -14277,6 +23716,32 @@
         "itemset": {
             "n": "Vestments of Prophecy",
             "i": 202
+        },
+        "dropped": {
+            "11664": 0.54,
+            "11658": 0.44,
+            "11659": 0.44,
+            "11668": 0.4,
+            "11661": 0.38,
+            "11666": 0.38,
+            "11663": 0.36,
+            "11673": 0.34,
+            "11662": 0.32,
+            "12100": 0.3,
+            "11667": 0.3,
+            "12101": 0.24,
+            "12076": 0.2,
+            "12119": 0.18,
+            "11665": 0.13
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16818": {
@@ -14320,6 +23785,18 @@
         "itemset": {
             "n": "Netherwind Regalia",
             "i": 210
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16819": {
@@ -14364,6 +23841,31 @@
         "itemset": {
             "n": "Vestments of Prophecy",
             "i": 202
+        },
+        "dropped": {
+            "11667": 1.2,
+            "11664": 0.44,
+            "11661": 0.42,
+            "11662": 0.4,
+            "11658": 0.38,
+            "11663": 0.38,
+            "11673": 0.34,
+            "12119": 0.34,
+            "11668": 0.28,
+            "12100": 0.28,
+            "11659": 0.28,
+            "11666": 0.26,
+            "12101": 0.24,
+            "12076": 0.24
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16820": {
@@ -14407,6 +23909,18 @@
         "itemset": {
             "n": "Nightslayer Armor",
             "i": 204
+        },
+        "dropped": {
+            "11988": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16821": {
@@ -14450,6 +23964,18 @@
         "itemset": {
             "n": "Nightslayer Armor",
             "i": 204
+        },
+        "dropped": {
+            "12057": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16822": {
@@ -14493,6 +24019,18 @@
         "itemset": {
             "n": "Nightslayer Armor",
             "i": 204
+        },
+        "dropped": {
+            "11982": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16823": {
@@ -14536,6 +24074,18 @@
         "itemset": {
             "n": "Nightslayer Armor",
             "i": 204
+        },
+        "dropped": {
+            "12098": 30.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16824": {
@@ -14570,6 +24120,18 @@
         "itemset": {
             "n": "Nightslayer Armor",
             "i": 204
+        },
+        "dropped": {
+            "12264": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16825": {
@@ -14601,6 +24163,32 @@
         "itemset": {
             "n": "Nightslayer Armor",
             "i": 204
+        },
+        "dropped": {
+            "11666": 0.46,
+            "11659": 0.46,
+            "11658": 0.4,
+            "11673": 0.38,
+            "12100": 0.34,
+            "12119": 0.34,
+            "11668": 0.34,
+            "11661": 0.32,
+            "11663": 0.3,
+            "11664": 0.3,
+            "12076": 0.28,
+            "11667": 0.26,
+            "11662": 0.26,
+            "12101": 0.2,
+            "11665": 0.13
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16826": {
@@ -14644,6 +24232,18 @@
         "itemset": {
             "n": "Nightslayer Armor",
             "i": 204
+        },
+        "dropped": {
+            "12259": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16827": {
@@ -14687,6 +24287,32 @@
         "itemset": {
             "n": "Nightslayer Armor",
             "i": 204
+        },
+        "dropped": {
+            "12119": 0.64,
+            "11662": 0.48,
+            "11664": 0.42,
+            "11667": 0.38,
+            "11673": 0.36,
+            "11661": 0.32,
+            "11659": 0.32,
+            "11666": 0.3,
+            "12100": 0.3,
+            "11668": 0.3,
+            "11658": 0.3,
+            "12101": 0.28,
+            "11663": 0.22,
+            "12076": 0.2,
+            "11665": 0.11
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16828": {
@@ -14734,6 +24360,32 @@
         "itemset": {
             "n": "Cenarion Raiment",
             "i": 205
+        },
+        "dropped": {
+            "11668": 0.38,
+            "11658": 0.38,
+            "11659": 0.38,
+            "11666": 0.34,
+            "11664": 0.34,
+            "12100": 0.32,
+            "11673": 0.3,
+            "12101": 0.3,
+            "12119": 0.3,
+            "12076": 0.28,
+            "11667": 0.26,
+            "11661": 0.24,
+            "11662": 0.22,
+            "11663": 0.14,
+            "11665": 0.12
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16829": {
@@ -14781,6 +24433,18 @@
         "itemset": {
             "n": "Cenarion Raiment",
             "i": 205
+        },
+        "dropped": {
+            "12118": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16830": {
@@ -14821,6 +24485,32 @@
         "itemset": {
             "n": "Cenarion Raiment",
             "i": 205
+        },
+        "dropped": {
+            "11666": 0.44,
+            "11659": 0.44,
+            "11658": 0.44,
+            "11664": 0.42,
+            "12100": 0.4,
+            "11661": 0.38,
+            "12119": 0.38,
+            "11668": 0.32,
+            "12101": 0.32,
+            "11663": 0.3,
+            "11673": 0.26,
+            "11667": 0.24,
+            "11662": 0.22,
+            "12076": 0.2,
+            "11665": 0.15
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16831": {
@@ -14864,6 +24554,18 @@
         "itemset": {
             "n": "Cenarion Raiment",
             "i": 205
+        },
+        "dropped": {
+            "12264": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16832": {
@@ -14907,6 +24609,18 @@
         "itemset": {
             "n": "Bloodfang Armor",
             "i": 213
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16833": {
@@ -14954,6 +24668,18 @@
         "itemset": {
             "n": "Cenarion Raiment",
             "i": 205
+        },
+        "dropped": {
+            "11988": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16834": {
@@ -14997,6 +24723,18 @@
         "itemset": {
             "n": "Cenarion Raiment",
             "i": 205
+        },
+        "dropped": {
+            "12057": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16835": {
@@ -15048,6 +24786,18 @@
         "itemset": {
             "n": "Cenarion Raiment",
             "i": 205
+        },
+        "dropped": {
+            "11982": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16836": {
@@ -15095,6 +24845,18 @@
         "itemset": {
             "n": "Cenarion Raiment",
             "i": 205
+        },
+        "dropped": {
+            "12056": 51.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16837": {
@@ -15138,6 +24900,18 @@
         "itemset": {
             "n": "The Earthfury",
             "i": 207
+        },
+        "dropped": {
+            "12118": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16838": {
@@ -15185,6 +24959,31 @@
         "itemset": {
             "n": "The Earthfury",
             "i": 207
+        },
+        "dropped": {
+            "11659": 0.56,
+            "12119": 0.52,
+            "11662": 0.44,
+            "11673": 0.36,
+            "11666": 0.32,
+            "11668": 0.28,
+            "12100": 0.28,
+            "11658": 0.28,
+            "12101": 0.2,
+            "11661": 0.16,
+            "11667": 0.16,
+            "12076": 0.16,
+            "11664": 0.16,
+            "11665": 0.12
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16839": {
@@ -15232,6 +25031,18 @@
         "itemset": {
             "n": "The Earthfury",
             "i": 207
+        },
+        "dropped": {
+            "12259": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16840": {
@@ -15272,6 +25083,30 @@
         "itemset": {
             "n": "The Earthfury",
             "i": 207
+        },
+        "dropped": {
+            "11661": 0.48,
+            "11666": 0.4,
+            "11664": 0.4,
+            "11659": 0.32,
+            "11658": 0.28,
+            "11673": 0.24,
+            "11662": 0.24,
+            "11668": 0.24,
+            "12100": 0.24,
+            "11667": 0.16,
+            "12076": 0.16,
+            "12101": 0.16,
+            "12119": 0.14
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16841": {
@@ -15319,6 +25154,18 @@
         "itemset": {
             "n": "The Earthfury",
             "i": 207
+        },
+        "dropped": {
+            "11988": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16842": {
@@ -15366,6 +25213,18 @@
         "itemset": {
             "n": "The Earthfury",
             "i": 207
+        },
+        "dropped": {
+            "12057": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16843": {
@@ -15413,6 +25272,18 @@
         "itemset": {
             "n": "The Earthfury",
             "i": 207
+        },
+        "dropped": {
+            "11982": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16844": {
@@ -15460,6 +25331,18 @@
         "itemset": {
             "n": "The Earthfury",
             "i": 207
+        },
+        "dropped": {
+            "12056": 30.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16845": {
@@ -15503,6 +25386,18 @@
         "itemset": {
             "n": "Giantstalker Armor",
             "i": 206
+        },
+        "dropped": {
+            "11988": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16846": {
@@ -15547,6 +25442,18 @@
         "itemset": {
             "n": "Giantstalker Armor",
             "i": 206
+        },
+        "dropped": {
+            "12057": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16847": {
@@ -15591,6 +25498,18 @@
         "itemset": {
             "n": "Giantstalker Armor",
             "i": 206
+        },
+        "dropped": {
+            "11982": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16848": {
@@ -15635,6 +25554,18 @@
         "itemset": {
             "n": "Giantstalker Armor",
             "i": 206
+        },
+        "dropped": {
+            "12098": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16849": {
@@ -15670,6 +25601,18 @@
         "itemset": {
             "n": "Giantstalker Armor",
             "i": 206
+        },
+        "dropped": {
+            "12259": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16850": {
@@ -15703,6 +25646,32 @@
         "itemset": {
             "n": "Giantstalker Armor",
             "i": 206
+        },
+        "dropped": {
+            "11658": 0.46,
+            "11668": 0.42,
+            "11662": 0.4,
+            "11673": 0.4,
+            "11661": 0.38,
+            "11666": 0.38,
+            "11659": 0.38,
+            "11667": 0.36,
+            "12100": 0.32,
+            "11664": 0.32,
+            "12119": 0.3,
+            "12101": 0.28,
+            "12076": 0.26,
+            "11663": 0.24,
+            "11665": 0.14
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16851": {
@@ -15747,6 +25716,32 @@
         "itemset": {
             "n": "Giantstalker Armor",
             "i": 206
+        },
+        "dropped": {
+            "11667": 0.58,
+            "11664": 0.5,
+            "11659": 0.46,
+            "11661": 0.38,
+            "11658": 0.34,
+            "11673": 0.32,
+            "11668": 0.32,
+            "11662": 0.3,
+            "11666": 0.3,
+            "12100": 0.28,
+            "12076": 0.26,
+            "12119": 0.26,
+            "12101": 0.22,
+            "11663": 0.18,
+            "11665": 0.14
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16852": {
@@ -15789,6 +25784,18 @@
         "itemset": {
             "n": "Giantstalker Armor",
             "i": 206
+        },
+        "dropped": {
+            "12264": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16853": {
@@ -15833,6 +25840,18 @@
         "itemset": {
             "n": "Lawbringer Armor",
             "i": 208
+        },
+        "dropped": {
+            "11988": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16854": {
@@ -15881,6 +25900,18 @@
         "itemset": {
             "n": "Lawbringer Armor",
             "i": 208
+        },
+        "dropped": {
+            "12057": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16855": {
@@ -15929,6 +25960,18 @@
         "itemset": {
             "n": "Lawbringer Armor",
             "i": 208
+        },
+        "dropped": {
+            "11982": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16856": {
@@ -15973,6 +26016,18 @@
         "itemset": {
             "n": "Lawbringer Armor",
             "i": 208
+        },
+        "dropped": {
+            "12056": 30.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16857": {
@@ -16014,6 +26069,31 @@
         "itemset": {
             "n": "Lawbringer Armor",
             "i": 208
+        },
+        "dropped": {
+            "12119": 0.38,
+            "11659": 0.32,
+            "11658": 0.3,
+            "11668": 0.3,
+            "11663": 0.3,
+            "11673": 0.24,
+            "11664": 0.22,
+            "11667": 0.2,
+            "11661": 0.18,
+            "11662": 0.18,
+            "11666": 0.18,
+            "12100": 0.18,
+            "12076": 0.16,
+            "12101": 0.14
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16858": {
@@ -16058,6 +26138,29 @@
         "itemset": {
             "n": "Lawbringer Armor",
             "i": 208
+        },
+        "dropped": {
+            "12119": 0.34,
+            "11658": 0.32,
+            "11667": 0.3,
+            "11659": 0.26,
+            "11673": 0.24,
+            "12101": 0.2,
+            "11664": 0.2,
+            "11661": 0.18,
+            "11668": 0.18,
+            "12100": 0.18,
+            "11662": 0.14,
+            "11666": 0.14
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16859": {
@@ -16106,6 +26209,18 @@
         "itemset": {
             "n": "Lawbringer Armor",
             "i": 208
+        },
+        "dropped": {
+            "12118": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16860": {
@@ -16150,6 +26265,18 @@
         "itemset": {
             "n": "Lawbringer Armor",
             "i": 208
+        },
+        "dropped": {
+            "12259": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16861": {
@@ -16181,6 +26308,32 @@
         "itemset": {
             "n": "Battlegear of Might",
             "i": 209
+        },
+        "dropped": {
+            "11664": 0.6,
+            "11658": 0.38,
+            "11673": 0.36,
+            "11663": 0.36,
+            "11668": 0.34,
+            "12119": 0.34,
+            "11667": 0.32,
+            "11659": 0.3,
+            "12100": 0.28,
+            "11661": 0.25,
+            "12101": 0.24,
+            "11666": 0.22,
+            "12076": 0.2,
+            "11662": 0.18,
+            "11665": 0.13
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16862": {
@@ -16223,6 +26376,18 @@
         "itemset": {
             "n": "Battlegear of Might",
             "i": 209
+        },
+        "dropped": {
+            "12259": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16863": {
@@ -16269,6 +26434,18 @@
         "itemset": {
             "n": "Battlegear of Might",
             "i": 209
+        },
+        "dropped": {
+            "12118": 30.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16864": {
@@ -16315,6 +26492,32 @@
         "itemset": {
             "n": "Battlegear of Might",
             "i": 209
+        },
+        "dropped": {
+            "11666": 0.56,
+            "11664": 0.38,
+            "12100": 0.36,
+            "11667": 0.32,
+            "11668": 0.32,
+            "11673": 0.32,
+            "11658": 0.32,
+            "11663": 0.3,
+            "11659": 0.3,
+            "12119": 0.26,
+            "11662": 0.23,
+            "12076": 0.2,
+            "12101": 0.2,
+            "11665": 0.15,
+            "11661": 0.15
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16865": {
@@ -16361,6 +26564,18 @@
         "itemset": {
             "n": "Battlegear of Might",
             "i": 209
+        },
+        "dropped": {
+            "11988": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16866": {
@@ -16407,6 +26622,18 @@
         "itemset": {
             "n": "Battlegear of Might",
             "i": 209
+        },
+        "dropped": {
+            "12057": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16867": {
@@ -16453,6 +26680,18 @@
         "itemset": {
             "n": "Battlegear of Might",
             "i": 209
+        },
+        "dropped": {
+            "11982": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16868": {
@@ -16499,6 +26738,18 @@
         "itemset": {
             "n": "Battlegear of Might",
             "i": 209
+        },
+        "dropped": {
+            "12098": 30.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16869": {
@@ -16508,7 +26759,11 @@
         "image_name": "inv_misc_head_dragon_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "10664": 100.0
+        },
+        "objective": 6582
     },
     "16870": {
         "i": 16870,
@@ -16517,7 +26772,11 @@
         "image_name": "inv_misc_head_dragon_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12900": 100.0
+        },
+        "objective": 6583
     },
     "16871": {
         "i": 16871,
@@ -16526,7 +26785,11 @@
         "image_name": "inv_misc_head_dragon_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "8197": 100.0
+        },
+        "objective": 6584
     },
     "16872": {
         "i": 16872,
@@ -16535,7 +26798,11 @@
         "image_name": "inv_misc_head_dragon_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12899": 100.0
+        },
+        "objective": 6585
     },
     "16873": {
         "i": 16873,
@@ -16557,6 +26824,31 @@
             "stamina": 5,
             "spirit": 4,
             "durability": 30
+        },
+        "reward_from": {
+            "5581": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16882": {
@@ -16564,28 +26856,151 @@
         "quality": 1,
         "n": "Battered Junkbox",
         "image_name": "inv_box_01",
-        "ilvl": 20
+        "ilvl": 20,
+        "dropped": {
+            "7067": 25.0,
+            "7050": 11.0,
+            "7056": 10.0,
+            "7052": 6.0,
+            "12352": 5.0
+        },
+        "contained": {
+            "items": {
+                "16882": 0.2
+            }
+        },
+        "pickpocketed": {
+            "2108": 60.0,
+            "1755": 57.0,
+            "4428": 55.0,
+            "711": 50.0,
+            "1159": 50.0,
+            "3696": 50.0,
+            "10617": 44.0,
+            "334": 43.0,
+            "7053": 42.0,
+            "1026": 41.0,
+            "5849": 40.0,
+            "5930": 40.0,
+            "6207": 40.0,
+            "6218": 40.0,
+            "10896": 40.0,
+            "4541": 33.0,
+            "5932": 33.0,
+            "1696": 32.0,
+            "1051": 31.0,
+            "1666": 31.0
+        }
     },
     "16883": {
         "i": 16883,
         "quality": 1,
         "n": "Worn Junkbox",
         "image_name": "inv_box_01",
-        "ilvl": 30
+        "ilvl": 30,
+        "dropped": {
+            "1434": 0.84
+        },
+        "contained": {
+            "items": {
+                "16883": 0.2
+            }
+        },
+        "pickpocketed": {
+            "7357": 50.0,
+            "2306": 45.0,
+            "6068": 38.0,
+            "2596": 35.0,
+            "2714": 30.0,
+            "1200": 29.0,
+            "12865": 29.0,
+            "2412": 28.0,
+            "1062": 28.0,
+            "2738": 26.0,
+            "2421": 26.0,
+            "2422": 26.0,
+            "813": 25.0,
+            "1095": 25.0,
+            "2320": 25.0,
+            "5622": 25.0,
+            "4679": 24.0,
+            "6072": 24.0,
+            "4543": 23.0,
+            "3984": 23.0
+        }
     },
     "16884": {
         "i": 16884,
         "quality": 1,
         "n": "Sturdy Junkbox",
         "image_name": "inv_box_03",
-        "ilvl": 40
+        "ilvl": 40,
+        "dropped": {
+            "7788": 13.0
+        },
+        "contained": {
+            "items": {
+                "16884": 0.1
+            }
+        },
+        "pickpocketed": {
+            "11794": 27.0,
+            "7604": 25.0,
+            "4848": 21.0,
+            "2621": 20.0,
+            "7267": 20.0,
+            "8296": 20.0,
+            "10802": 20.0,
+            "1060": 18.0,
+            "4403": 18.0,
+            "12236": 18.0,
+            "2530": 18.0,
+            "2944": 18.0,
+            "2546": 17.0,
+            "3977": 17.0,
+            "7606": 17.0,
+            "14342": 17.0,
+            "5976": 16.0,
+            "6190": 15.0,
+            "7397": 15.0,
+            "5256": 15.0
+        }
     },
     "16885": {
         "i": 16885,
         "quality": 1,
         "n": "Heavy Junkbox",
         "image_name": "inv_box_03",
-        "ilvl": 50
+        "ilvl": 50,
+        "dropped": {
+            "10987": 22.0,
+            "11602": 11.0,
+            "4979": 8.0,
+            "11677": 0.12
+        },
+        "pickpocketed": {
+            "6649": 31.0,
+            "10491": 30.0,
+            "10901": 29.0,
+            "4368": 25.0,
+            "13996": 21.0,
+            "8408": 20.0,
+            "11353": 20.0,
+            "10399": 19.0,
+            "11383": 18.0,
+            "11032": 17.0,
+            "5717": 17.0,
+            "8304": 17.0,
+            "9454": 17.0,
+            "11831": 17.0,
+            "9236": 16.0,
+            "10382": 16.0,
+            "10486": 16.0,
+            "4366": 16.0,
+            "10422": 16.0,
+            "5710": 15.0
+        },
+        "objective": 8249
     },
     "16886": {
         "i": 16886,
@@ -16618,6 +27033,17 @@
                     "t": "+15 Attack Power."
                 }
             ]
+        },
+        "reward_from": {
+            "6922": 1
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16887": {
@@ -16636,6 +27062,17 @@
         "stats": {
             "intellect": 7,
             "stamina": 4
+        },
+        "reward_from": {
+            "6922": 1
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16888": {
@@ -16645,7 +27082,9 @@
         "image_name": "inv_jewelry_talisman_11",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6601,
+        "objective": 6601
     },
     "16889": {
         "i": 16889,
@@ -16672,6 +27111,31 @@
             "intellect": 7,
             "stamina": 3,
             "durability": 75
+        },
+        "reward_from": {
+            "6544": 1
+        },
+        "disenchant": {
+            "10998": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 15.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16890": {
@@ -16699,6 +27163,31 @@
             "strength": 2,
             "agility": 2,
             "durability": 65
+        },
+        "reward_from": {
+            "6544": 1
+        },
+        "disenchant": {
+            "10998": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 15.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16891": {
@@ -16725,6 +27214,31 @@
         "stats": {
             "stamina": 3,
             "durability": 60
+        },
+        "reward_from": {
+            "6284": 1
+        },
+        "disenchant": {
+            "10998": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 15.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16892": {
@@ -16798,6 +27312,31 @@
             "intellect": 5,
             "stamina": 4,
             "durability": 65
+        },
+        "reward_from": {
+            "6284": 1
+        },
+        "disenchant": {
+            "10998": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 15.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16895": {
@@ -16892,6 +27431,18 @@
         "itemset": {
             "n": "Stormrage Raiment",
             "i": 214
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16898": {
@@ -16939,6 +27490,18 @@
         "itemset": {
             "n": "Stormrage Raiment",
             "i": 214
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16899": {
@@ -16982,6 +27545,20 @@
         "itemset": {
             "n": "Stormrage Raiment",
             "i": 214
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16900": {
@@ -17030,6 +27607,18 @@
         "itemset": {
             "n": "Stormrage Raiment",
             "i": 214
+        },
+        "dropped": {
+            "10184": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16901": {
@@ -17078,6 +27667,18 @@
         "itemset": {
             "n": "Stormrage Raiment",
             "i": 214
+        },
+        "dropped": {
+            "11502": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16902": {
@@ -17125,6 +27726,18 @@
         "itemset": {
             "n": "Stormrage Raiment",
             "i": 214
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16903": {
@@ -17172,6 +27785,18 @@
         "itemset": {
             "n": "Stormrage Raiment",
             "i": 214
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16904": {
@@ -17212,6 +27837,18 @@
         "itemset": {
             "n": "Stormrage Raiment",
             "i": 214
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16905": {
@@ -17260,6 +27897,18 @@
         "itemset": {
             "n": "Bloodfang Armor",
             "i": 213
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16906": {
@@ -17303,6 +27952,18 @@
         "itemset": {
             "n": "Bloodfang Armor",
             "i": 213
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16907": {
@@ -17346,6 +28007,20 @@
         "itemset": {
             "n": "Bloodfang Armor",
             "i": 213
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16908": {
@@ -17390,6 +28065,18 @@
         "itemset": {
             "n": "Bloodfang Armor",
             "i": 213
+        },
+        "dropped": {
+            "10184": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16909": {
@@ -17434,6 +28121,18 @@
         "itemset": {
             "n": "Bloodfang Armor",
             "i": 213
+        },
+        "dropped": {
+            "11502": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16910": {
@@ -17477,6 +28176,18 @@
         "itemset": {
             "n": "Bloodfang Armor",
             "i": 213
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16911": {
@@ -17516,6 +28227,18 @@
         "itemset": {
             "n": "Bloodfang Armor",
             "i": 213
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16912": {
@@ -17559,6 +28282,18 @@
         "itemset": {
             "n": "Netherwind Regalia",
             "i": 210
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16913": {
@@ -17606,6 +28341,20 @@
         "itemset": {
             "n": "Netherwind Regalia",
             "i": 210
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16914": {
@@ -17654,6 +28403,18 @@
         "itemset": {
             "n": "Netherwind Regalia",
             "i": 210
+        },
+        "dropped": {
+            "10184": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16915": {
@@ -17702,6 +28463,18 @@
         "itemset": {
             "n": "Netherwind Regalia",
             "i": 210
+        },
+        "dropped": {
+            "11502": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16916": {
@@ -17750,6 +28523,18 @@
         "itemset": {
             "n": "Netherwind Regalia",
             "i": 210
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16917": {
@@ -17797,6 +28582,18 @@
         "itemset": {
             "n": "Netherwind Regalia",
             "i": 210
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16918": {
@@ -17841,6 +28638,18 @@
         "itemset": {
             "n": "Netherwind Regalia",
             "i": 210
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16919": {
@@ -17884,6 +28693,18 @@
         "itemset": {
             "n": "Vestments of Transcendence",
             "i": 211
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16920": {
@@ -17931,6 +28752,20 @@
         "itemset": {
             "n": "Vestments of Transcendence",
             "i": 211
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16921": {
@@ -17975,6 +28810,18 @@
         "itemset": {
             "n": "Vestments of Transcendence",
             "i": 211
+        },
+        "dropped": {
+            "10184": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16922": {
@@ -18023,6 +28870,18 @@
         "itemset": {
             "n": "Vestments of Transcendence",
             "i": 211
+        },
+        "dropped": {
+            "11502": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16923": {
@@ -18067,6 +28926,18 @@
         "itemset": {
             "n": "Vestments of Transcendence",
             "i": 211
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16924": {
@@ -18110,6 +28981,18 @@
         "itemset": {
             "n": "Vestments of Transcendence",
             "i": 211
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16925": {
@@ -18153,6 +29036,18 @@
         "itemset": {
             "n": "Vestments of Transcendence",
             "i": 211
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16926": {
@@ -18193,6 +29088,18 @@
         "itemset": {
             "n": "Vestments of Transcendence",
             "i": 211
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16927": {
@@ -18236,6 +29143,18 @@
         "itemset": {
             "n": "Nemesis Raiment",
             "i": 212
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16928": {
@@ -18286,6 +29205,20 @@
         "itemset": {
             "n": "Nemesis Raiment",
             "i": 212
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16929": {
@@ -18334,6 +29267,18 @@
         "itemset": {
             "n": "Nemesis Raiment",
             "i": 212
+        },
+        "dropped": {
+            "10184": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16930": {
@@ -18378,6 +29323,18 @@
         "itemset": {
             "n": "Nemesis Raiment",
             "i": 212
+        },
+        "dropped": {
+            "11502": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16931": {
@@ -18426,6 +29383,18 @@
         "itemset": {
             "n": "Nemesis Raiment",
             "i": 212
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16932": {
@@ -18473,6 +29442,18 @@
         "itemset": {
             "n": "Nemesis Raiment",
             "i": 212
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16933": {
@@ -18520,6 +29501,18 @@
         "itemset": {
             "n": "Nemesis Raiment",
             "i": 212
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16934": {
@@ -18560,6 +29553,18 @@
         "itemset": {
             "n": "Nemesis Raiment",
             "i": 212
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16935": {
@@ -18593,6 +29598,18 @@
         "itemset": {
             "n": "Dragonstalker Armor",
             "i": 215
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16936": {
@@ -18637,6 +29654,18 @@
         "itemset": {
             "n": "Dragonstalker Armor",
             "i": 215
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16937": {
@@ -18681,6 +29710,18 @@
         "itemset": {
             "n": "Dragonstalker Armor",
             "i": 215
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16938": {
@@ -18730,6 +29771,18 @@
         "itemset": {
             "n": "Dragonstalker Armor",
             "i": 215
+        },
+        "dropped": {
+            "11502": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16939": {
@@ -18775,6 +29828,18 @@
         "itemset": {
             "n": "Dragonstalker Armor",
             "i": 215
+        },
+        "dropped": {
+            "10184": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16940": {
@@ -18819,6 +29884,20 @@
         "itemset": {
             "n": "Dragonstalker Armor",
             "i": 215
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16941": {
@@ -18855,6 +29934,18 @@
         "itemset": {
             "n": "Dragonstalker Armor",
             "i": 215
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16942": {
@@ -18900,6 +29991,18 @@
         "itemset": {
             "n": "Dragonstalker Armor",
             "i": 215
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16943": {
@@ -18940,6 +30043,18 @@
         "itemset": {
             "n": "The Ten Storms",
             "i": 216
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16944": {
@@ -18987,6 +30102,18 @@
         "itemset": {
             "n": "The Ten Storms",
             "i": 216
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16945": {
@@ -19030,6 +30157,18 @@
         "itemset": {
             "n": "The Ten Storms",
             "i": 216
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16946": {
@@ -19078,6 +30217,18 @@
         "itemset": {
             "n": "The Ten Storms",
             "i": 216
+        },
+        "dropped": {
+            "11502": 23.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16947": {
@@ -19130,6 +30281,18 @@
         "itemset": {
             "n": "The Ten Storms",
             "i": 216
+        },
+        "dropped": {
+            "10184": 23.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16948": {
@@ -19181,6 +30344,20 @@
         "itemset": {
             "n": "The Ten Storms",
             "i": 216
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16949": {
@@ -19224,6 +30401,18 @@
         "itemset": {
             "n": "The Ten Storms",
             "i": 216
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16950": {
@@ -19268,6 +30457,18 @@
         "itemset": {
             "n": "The Ten Storms",
             "i": 216
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16951": {
@@ -19309,6 +30510,18 @@
         "itemset": {
             "n": "Judgement Armor",
             "i": 217
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16952": {
@@ -19353,6 +30566,18 @@
         "itemset": {
             "n": "Judgement Armor",
             "i": 217
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16953": {
@@ -19401,6 +30626,18 @@
         "itemset": {
             "n": "Judgement Armor",
             "i": 217
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16954": {
@@ -19450,6 +30687,18 @@
         "itemset": {
             "n": "Judgement Armor",
             "i": 217
+        },
+        "dropped": {
+            "11502": 23.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16955": {
@@ -19495,6 +30744,18 @@
         "itemset": {
             "n": "Judgement Armor",
             "i": 217
+        },
+        "dropped": {
+            "10184": 23.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16956": {
@@ -19543,6 +30804,20 @@
         "itemset": {
             "n": "Judgement Armor",
             "i": 217
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16957": {
@@ -19587,6 +30862,18 @@
         "itemset": {
             "n": "Judgement Armor",
             "i": 217
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16958": {
@@ -19636,6 +30923,18 @@
         "itemset": {
             "n": "Judgement Armor",
             "i": 217
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16959": {
@@ -19667,6 +30966,18 @@
         "itemset": {
             "n": "Battlegear of Wrath",
             "i": 218
+        },
+        "dropped": {
+            "12435": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16960": {
@@ -19713,6 +31024,18 @@
         "itemset": {
             "n": "Battlegear of Wrath",
             "i": 218
+        },
+        "dropped": {
+            "13020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16961": {
@@ -19759,6 +31082,18 @@
         "itemset": {
             "n": "Battlegear of Wrath",
             "i": 218
+        },
+        "dropped": {
+            "14020": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16962": {
@@ -19806,6 +31141,18 @@
         "itemset": {
             "n": "Battlegear of Wrath",
             "i": 218
+        },
+        "dropped": {
+            "11502": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16963": {
@@ -19849,6 +31196,18 @@
         "itemset": {
             "n": "Battlegear of Wrath",
             "i": 218
+        },
+        "dropped": {
+            "10184": 41.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16964": {
@@ -19895,6 +31254,20 @@
         "itemset": {
             "n": "Battlegear of Wrath",
             "i": 218
+        },
+        "dropped": {
+            "11983": 7.0,
+            "11981": 7.0,
+            "14601": 7.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16965": {
@@ -19941,6 +31314,18 @@
         "itemset": {
             "n": "Battlegear of Wrath",
             "i": 218
+        },
+        "dropped": {
+            "12017": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16966": {
@@ -19984,6 +31369,18 @@
         "itemset": {
             "n": "Battlegear of Wrath",
             "i": 218
+        },
+        "dropped": {
+            "11583": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16967": {
@@ -19993,7 +31390,8 @@
         "image_name": "inv_misc_monsterhead_02",
         "ilvl": 40,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6607
     },
     "16968": {
         "i": 16968,
@@ -20002,7 +31400,8 @@
         "image_name": "inv_misc_fish_32",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6607
     },
     "16969": {
         "i": 16969,
@@ -20011,7 +31410,8 @@
         "image_name": "inv_misc_fish_08",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6607
     },
     "16970": {
         "i": 16970,
@@ -20020,7 +31420,8 @@
         "image_name": "inv_misc_fish_21",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6607
     },
     "16971": {
         "i": 16971,
@@ -20040,6 +31441,9 @@
         "use": {
             "s": 10256,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 12 Stamina and Spirit for 15 min."
+        },
+        "reward_from": {
+            "6610": 20
         }
     },
     "16972": {
@@ -20058,7 +31462,8 @@
         "use": {
             "s": 20737,
             "t": "Place at the Foulweald Totem Mound."
-        }
+        },
+        "provided_for": 6621
     },
     "16973": {
         "i": 16973,
@@ -20070,7 +31475,8 @@
         "quest_item": true,
         "created_by": {
             "materials": {}
-        }
+        },
+        "objective": 5247
     },
     "16974": {
         "i": 16974,
@@ -20088,7 +31494,8 @@
         "use": {
             "s": 20814,
             "t": "Fill at the Dire Pool."
-        }
+        },
+        "provided_for": 5247
     },
     "16975": {
         "i": 16975,
@@ -20109,6 +31516,17 @@
             "intellect": 9,
             "stamina": 4,
             "durability": 30
+        },
+        "reward_from": {
+            "6571": 1
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16976": {
@@ -20117,7 +31535,14 @@
         "n": "Murgut's Totem",
         "image_name": "inv_misc_idol_03",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "3743": 100.0,
+                "178227": 100.0
+            }
+        },
+        "objective": 6621
     },
     "16977": {
         "i": 16977,
@@ -20138,6 +31563,17 @@
             "agility": 8,
             "stamina": 6,
             "durability": 45
+        },
+        "reward_from": {
+            "6571": 1
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16978": {
@@ -20159,6 +31595,17 @@
             "strength": 10,
             "stamina": 3,
             "durability": 40
+        },
+        "reward_from": {
+            "6571": 1
+        },
+        "disenchant": {
+            "11084": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16979": {
@@ -20206,6 +31653,15 @@
                 "12810": 2,
                 "14341": 2
             }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16980": {
@@ -20249,6 +31705,15 @@
                 "12810": 6,
                 "14341": 2
             }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16981": {
@@ -20271,6 +31736,31 @@
             "stamina": 1,
             "spirit": 1,
             "durability": 20
+        },
+        "reward_from": {
+            "6481": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10939": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16982": {
@@ -20311,6 +31801,14 @@
                 "17010": 6,
                 "17011": 2,
                 "14341": 2
+            }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -20359,6 +31857,14 @@
                 "17010": 3,
                 "17011": 6,
                 "14341": 2
+            }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -20413,6 +31919,15 @@
                 "17011": 3,
                 "14341": 2
             }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16985": {
@@ -20433,6 +31948,31 @@
             "armor": 27,
             "spirit": 6,
             "durability": 35
+        },
+        "reward_from": {
+            "6381": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10998": {
+                "chance": 15.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16986": {
@@ -20454,6 +31994,31 @@
             "strength": 5,
             "stamina": 2,
             "durability": 30
+        },
+        "reward_from": {
+            "6381": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10998": {
+                "chance": 15.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16987": {
@@ -20484,6 +32049,31 @@
                     "t": "+12 Attack Power."
                 }
             ]
+        },
+        "reward_from": {
+            "6283": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16988": {
@@ -20523,6 +32113,15 @@
                 "11371": 16,
                 "17010": 4,
                 "17011": 5
+            }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
             }
         }
     },
@@ -20565,6 +32164,14 @@
                 "17010": 3,
                 "17011": 3
             }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16990": {
@@ -20585,6 +32192,31 @@
             "armor": 20,
             "agility": 4,
             "stamina": 3
+        },
+        "reward_from": {
+            "6283": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16991": {
@@ -20597,7 +32229,8 @@
         "use": {
             "s": 20804,
             "t": "Use on Injured, Badly Injured, and Critically Injured Soldiers."
-        }
+        },
+        "provided_for": 6624
     },
     "16992": {
         "i": 16992,
@@ -20622,6 +32255,31 @@
         },
         "stats": {
             "durability": 65
+        },
+        "reward_from": {
+            "6041": 1
+        },
+        "disenchant": {
+            "16203": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16204": {
+                "chance": 22.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16993": {
@@ -20647,6 +32305,31 @@
         },
         "stats": {
             "durability": 55
+        },
+        "reward_from": {
+            "6041": 1
+        },
+        "disenchant": {
+            "16203": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16204": {
+                "chance": 22.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16994": {
@@ -20669,6 +32352,31 @@
             "stamina": 11,
             "spirit": 5,
             "durability": 30
+        },
+        "reward_from": {
+            "6135": 1
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16995": {
@@ -20690,6 +32398,31 @@
             "agility": 17,
             "stamina": 6,
             "durability": 50
+        },
+        "reward_from": {
+            "6135": 1
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16996": {
@@ -20718,6 +32451,17 @@
             "agility": 3,
             "strength": 2,
             "durability": 75
+        },
+        "reward_from": {
+            "6148": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16997": {
@@ -20745,6 +32489,17 @@
             "stamina": 8,
             "intellect": 5,
             "durability": 65
+        },
+        "reward_from": {
+            "6148": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16998": {
@@ -20767,6 +32522,17 @@
             "stamina": 15,
             "intellect": 10,
             "durability": 100
+        },
+        "reward_from": {
+            "6148": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16999": {
@@ -20789,6 +32555,14 @@
         },
         "requirements": {
             "level": 54
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     }
 }

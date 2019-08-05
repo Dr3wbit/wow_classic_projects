@@ -274,8 +274,6 @@ def items_for_result(cl, result, form):
         if str(result_repr) == '':
             result_repr = mark_safe('&nbsp;')
 
-        print(result_repr)
-
         row_class = mark_safe(' class="%s"' % ' '.join(row_classes))
         # If list_display_links not defined, add the link tag to the first field
         if link_in_col(first, field_name, cl):
@@ -304,22 +302,10 @@ def items_for_result(cl, result, form):
                     this_item = Item.objects.get(id=value)
                     style = this_item.quality
 
-                # print('cl.opts: ', cl.opts)
-                # print('cl.opts.model_name: ', cl.opts.model_name)
-                #
-                # print('dir(cl.opts): ', dir(cl.opts))
-                #
-                # print('dir(cl): ', dir(cl))
-                # print('cl.model: ', cl.model)
-                # print('dir(cl.model): ', dir(cl.model))
-                # print('quality: ', cl.model.quality)
-                #
-                # print('cl.model: ', str(cl.model))
 
-
-                print('attr: ', attr)
-                print('result: ', result)
-                print('value: ', value)
+                # print('attr: ', attr)
+                # print('result: ', result)
+                # print('value: ', value)
                 link_or_text = format_html(
                     '<a class="{}" href="{}"{}>{}</a>',
                     style,

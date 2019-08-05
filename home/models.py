@@ -3,6 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Avg
 import datetime, math, re, time
 from django.core import mail
+from django.contrib.postgres import fields as postgres
 from social_django.models import UserSocialAuth
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType

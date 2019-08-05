@@ -160,6 +160,28 @@
 			"i": 461,
 		},
 	},
+	"15772": {
+        "i": 15772,
+        "quality": 3,
+        "n": "Pattern: Devilsaur Leggings",
+        "image_name": "inv_scroll_05",
+        "ilvl": 60,
+        "sells_for": {
+            "gold": 0,
+            "silver": 75,
+            "copper": 0
+        },
+        "requirements": {
+            "leatherworking": {
+                "level": 300,
+                "Tribal": true
+            }
+        },
+        "use": {
+            "s": 19216,
+            "t": "Teaches you how to craft a Devilsaur Leggings."
+        }
+    },
 	"20076": {
 		"n": "Zandalar Signet of Mojo",
 		"i": 20076,
@@ -477,7 +499,7 @@
 		"p": [0.43],
 		"avg": {
 			"t": ,
-			"p": 
+			"p":
 		}
 	}
 }
