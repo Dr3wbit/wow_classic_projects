@@ -21,6 +21,15 @@
             "materials": {
                 "12359": 6
             }
+        },
+        "objective": 9198,
+        "creates": {
+            "22795": 18282,
+            "22793": 18283,
+            "19796": 16004,
+            "19833": 16007,
+            "23079": 18637,
+            "19814": 16023
         }
     },
     "16001": {
@@ -30,7 +39,13 @@
         "image_name": "inv_misc_armorkit_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177804": 100.0
+            }
+        },
+        "objective": 6185
     },
     "16002": {
         "i": 16002,
@@ -39,7 +54,13 @@
         "image_name": "inv_misc_armorkit_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177805": 100.0
+            }
+        },
+        "objective": 6185
     },
     "16003": {
         "i": 16003,
@@ -48,7 +69,13 @@
         "image_name": "inv_misc_armorkit_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177806": 100.0
+            }
+        },
+        "objective": 6185
     },
     "16004": {
         "i": 16004,
@@ -95,6 +122,22 @@
                 "12361": 2,
                 "12799": 2,
                 "8170": 4
+            }
+        },
+        "materials": {
+            "16000": 2,
+            "11371": 6,
+            "10546": 2,
+            "12361": 2,
+            "12799": 2,
+            "8170": 4
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -157,6 +200,17 @@
                 "12360": 1,
                 "14227": 1
             }
+        },
+        "objective": 8921,
+        "creates": {
+            "22795": 18282,
+            "22797": 18168,
+            "19830": 16022,
+            "22793": 18283,
+            "24356": 19999,
+            "24357": 19998,
+            "19819": 16009,
+            "19831": 16040
         }
     },
     "16007": {
@@ -213,6 +267,22 @@
                 "12800": 2,
                 "12810": 2
             }
+        },
+        "materials": {
+            "12360": 10,
+            "16000": 2,
+            "7078": 2,
+            "7076": 2,
+            "12800": 2,
+            "12810": 2
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16008": {
@@ -252,6 +322,28 @@
                 "12364": 2,
                 "12810": 4
             }
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16009": {
@@ -287,6 +379,34 @@
                 "10558": 1,
                 "15994": 1,
                 "12799": 1
+            }
+        },
+        "materials": {
+            "16006": 2,
+            "10558": 1,
+            "15994": 1,
+            "12799": 1
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -329,6 +449,22 @@
                 "10558": 4,
                 "12810": 6
             }
+        },
+        "materials": {
+            "10576": 1,
+            "16006": 8,
+            "12655": 10,
+            "15994": 6,
+            "10558": 4,
+            "12810": 6
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16023": {
@@ -367,6 +503,14 @@
                 "8170": 2,
                 "14047": 4
             }
+        },
+        "materials": {
+            "10561": 1,
+            "16000": 1,
+            "15994": 2,
+            "6037": 1,
+            "8170": 2,
+            "14047": 4
         }
     },
     "16039": {
@@ -399,6 +543,17 @@
         },
         "requirements": {
             "level": 52
+        },
+        "dropped": {
+            "10826": 50.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16040": {
@@ -434,6 +589,11 @@
                 "12359": 3,
                 "14047": 1
             }
+        },
+        "materials": {
+            "16006": 1,
+            "12359": 3,
+            "14047": 1
         }
     },
     "16041": {
@@ -455,6 +615,15 @@
         "use": {
             "s": 19845,
             "t": "Teaches you how to make a Thorium Grenade."
+        },
+        "sold": {
+            "5175": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16042": {
@@ -476,6 +645,15 @@
         "use": {
             "s": 19846,
             "t": "Teaches you how to make a Thorium Widget."
+        },
+        "sold": {
+            "5175": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16043": {
@@ -497,6 +675,32 @@
         "use": {
             "s": 19847,
             "t": "Teaches you how to make a Thorium Rifle."
+        },
+        "dropped": {
+            "12397": 3.0,
+            "12337": 0.28,
+            "8400": 0.22,
+            "9441": 0.18,
+            "13397": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153469": 0.5,
+                "153464": 0.5,
+                "153463": 0.5,
+                "153468": 0.5,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153451": 0.5,
+                "160845": 0.2,
+                "153462": 0.024,
+                "2656": 0.02
+            },
+            "items": {
+                "19035": 8.0,
+                "5758": 0.4
+            }
         }
     },
     "16044": {
@@ -518,6 +722,26 @@
         "use": {
             "s": 19848,
             "t": "Teaches you how to make a Lifelike Mechanical Toad."
+        },
+        "dropped": {
+            "14889": 1.896,
+            "14887": 1.896,
+            "14888": 1.896,
+            "14890": 1.896,
+            "10184": 0.952,
+            "6109": 0.952,
+            "11583": 0.952,
+            "15114": 0.952,
+            "9438": 0.52,
+            "12397": 0.42
+        },
+        "contained": {
+            "objects": {
+                "153462": 0.02
+            },
+            "items": {
+                "5758": 0.05
+            }
         }
     },
     "16045": {
@@ -539,6 +763,9 @@
         "use": {
             "s": 19849,
             "t": "Teaches you how to make a Spellpower Goggles Xtreme Plus."
+        },
+        "dropped": {
+            "6195": 0.8
         }
     },
     "16046": {
@@ -560,6 +787,16 @@
         "use": {
             "s": 19851,
             "t": "Teaches you how to make a Masterwork Target Dummy."
+        },
+        "sold": {
+            "11185": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 1
+                }
+            }
         }
     },
     "16047": {
@@ -581,6 +818,16 @@
         "use": {
             "s": 19859,
             "t": "Teaches you how to make a Thorium Tube."
+        },
+        "sold": {
+            "11185": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 1
+                }
+            }
         }
     },
     "16048": {
@@ -602,6 +849,9 @@
         "use": {
             "s": 19860,
             "t": "Teaches you how to make a Dark Iron Rifle."
+        },
+        "dropped": {
+            "8897": 1.8
         }
     },
     "16049": {
@@ -623,6 +873,9 @@
         "use": {
             "s": 19861,
             "t": "Teaches you how to make a Dark Iron Bomb."
+        },
+        "dropped": {
+            "8920": 1.033
         }
     },
     "16050": {
@@ -644,6 +897,16 @@
         "use": {
             "s": 19863,
             "t": "Teaches you how to make a Delicate Arcanite Converter."
+        },
+        "sold": {
+            "11185": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "16051": {
@@ -665,6 +928,29 @@
         "use": {
             "s": 19862,
             "t": "Teaches you how to make Thorium Shells."
+        },
+        "dropped": {
+            "13088": 3.0,
+            "12397": 2.0,
+            "13138": 0.26,
+            "12396": 0.24,
+            "13958": 0.22,
+            "9264": 0.14,
+            "13296": 0.14,
+            "13143": 0.14,
+            "11598": 0.14,
+            "13147": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153462": 0.029
+            },
+            "items": {
+                "5758": 0.2
+            }
         }
     },
     "16052": {
@@ -686,6 +972,9 @@
         "use": {
             "s": 19864,
             "t": "Teaches you how to make a Voice Amplification Modulator."
+        },
+        "dropped": {
+            "10426": 5.0
         }
     },
     "16053": {
@@ -707,6 +996,9 @@
         "use": {
             "s": 19865,
             "t": "Teaches you how to make Master Engineer's Goggles."
+        },
+        "dropped": {
+            "8900": 0.7
         }
     },
     "16054": {
@@ -728,6 +1020,9 @@
         "use": {
             "s": 19866,
             "t": "Teaches you how to make an Arcanite Dragonling."
+        },
+        "dropped": {
+            "7437": 0.78
         }
     },
     "16055": {
@@ -749,6 +1044,33 @@
         "use": {
             "s": 19867,
             "t": "Teaches you how to make an Arcane Bomb."
+        },
+        "dropped": {
+            "14889": 1.896,
+            "14887": 1.896,
+            "14888": 1.896,
+            "14890": 1.896,
+            "10184": 0.952,
+            "6109": 0.952,
+            "11583": 0.952,
+            "15114": 0.952,
+            "13236": 0.48,
+            "13958": 0.22,
+            "12397": 0.14,
+            "9678": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153469": 0.5,
+                "153464": 0.5,
+                "153463": 0.5,
+                "153468": 0.5,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "181804": 0.11,
+                "153462": 0.02
+            }
         }
     },
     "16056": {
@@ -770,6 +1092,9 @@
         "use": {
             "s": 19868,
             "t": "Teaches you how to make a Flawless Arcanite Rifle."
+        },
+        "dropped": {
+            "8561": 1.0
         }
     },
     "16057": {
@@ -811,6 +1136,17 @@
                     "t": "Increases healing done by spells and effects by up to 37."
                 }
             ]
+        },
+        "reward_from": {
+            "5944": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16059": {
@@ -824,7 +1160,79 @@
             "silver": 1,
             "copper": 0
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "sold": {
+            "1214": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3554": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1291": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3486": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "8358": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3683": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4558": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3317": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "5108": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4185": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            }
+        }
     },
     "16060": {
         "i": 16060,
@@ -837,7 +1245,79 @@
             "silver": 1,
             "copper": 0
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "sold": {
+            "1214": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3554": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1291": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3486": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "8358": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3683": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4558": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3317": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "5108": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4185": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            }
+        }
     },
     "16072": {
         "i": 16072,
@@ -858,6 +1338,22 @@
         "use": {
             "s": 19886,
             "t": "Teaches you how to be an Expert Cook, allowing a maximum of 225 cooking skill."
+        },
+        "sold": {
+            "3955": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12033": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16083": {
@@ -880,6 +1376,15 @@
         "use": {
             "s": 19889,
             "t": "Teaches you how to be an Expert Fisherman, allowing a maximum of 225 fishing skill."
+        },
+        "sold": {
+            "2626": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16084": {
@@ -901,6 +1406,22 @@
         "use": {
             "s": 19903,
             "t": "Teaches you how to be an expert in first aid, allowing a maximum of 225 first aid skill."
+        },
+        "sold": {
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16110": {
@@ -922,6 +1443,29 @@
         "use": {
             "s": 19950,
             "t": "Teaches you how to cook a Monster Omelet."
+        },
+        "sold": {
+            "2806": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "11187": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "2803": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16111": {
@@ -943,6 +1487,29 @@
         "use": {
             "s": 19949,
             "t": "Teaches you how to cook Spiced Chili Crab."
+        },
+        "sold": {
+            "989": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "4305": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "1149": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16112": {
@@ -964,6 +1531,22 @@
         "use": {
             "s": 7931,
             "t": "Teaches you how to make a Heavy Silk Bandage."
+        },
+        "sold": {
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            }
         }
     },
     "16113": {
@@ -985,6 +1568,22 @@
         "use": {
             "s": 10842,
             "t": "Teaches you how to make a Mageweave Bandage."
+        },
+        "sold": {
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            }
         }
     },
     "16114": {
@@ -998,7 +1597,9 @@
         "use": {
             "s": 19938,
             "t": "Wakes up a targeted sleeping peon. (cooldown 5 sec)"
-        }
+        },
+        "provided_for": 5441,
+        "objective": 5441
     },
     "16115": {
         "i": 16115,
@@ -1007,7 +1608,9 @@
         "image_name": "inv_crate_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6285,
+        "objective": 6285
     },
     "16165": {
         "i": 16165,
@@ -1037,6 +1640,28 @@
                     "t": "+14 Arcane Resistance."
                 }
             ]
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11134": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "16166": {
@@ -1054,6 +1679,92 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "16167": {
@@ -1074,6 +1785,92 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "16168": {
@@ -1094,6 +1891,92 @@
         "use": {
             "s": 1129,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "16169": {
@@ -1114,6 +1997,92 @@
         "use": {
             "s": 1127,
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
         }
     },
     "16170": {
@@ -1134,6 +2103,92 @@
         "use": {
             "s": 435,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4266": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "12019": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "6091": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4167": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4181": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "12026": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            }
         }
     },
     "16171": {
@@ -1154,6 +2209,50 @@
         "use": {
             "s": 1131,
             "t": "Restores 2148 health over 30 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4191": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "2303": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "3961": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "7941": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "4195": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            }
         }
     },
     "16189": {
@@ -1163,7 +2262,9 @@
         "image_name": "inv_letter_05",
         "ilvl": 1,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 5881,
+        "objective": 5881
     },
     "16190": {
         "i": 16190,
@@ -1171,7 +2272,11 @@
         "n": "Bloodfury Ripper's Remains",
         "image_name": "inv_misc_organ_02",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12579": 100.0
+        },
+        "objective": 6283
     },
     "16192": {
         "i": 16192,
@@ -1179,7 +2284,11 @@
         "n": "Besseleth's Fang",
         "image_name": "inv_misc_monsterfang_01",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "11921": 100.0
+        },
+        "objective": 6284
     },
     "16202": {
         "i": 16202,
@@ -1199,6 +2308,362 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "creates": {
+            "20039": 16203,
+            "17181": 12810
+        },
+        "disenchant": {
+            "7947": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "8134": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "8282": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9643": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9644": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9651": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9684": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9686": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9944": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "9974": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10078": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10093": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10195": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10652": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10686": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10708": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10709": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10744": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10803": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10804": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10805": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11120": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11743": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11863": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11864": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11870": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11906": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11907": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11915": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11964": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "12000": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "12773": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14790": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14852": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14916": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14954": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15216": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15217": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15228": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15229": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15236": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15237": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15253": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15254": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15274": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15275": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15279": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15280": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "15291": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16203": {
@@ -1221,6 +2686,367 @@
             "materials": {
                 "16202": 2
             }
+        },
+        "materials": {
+            "16202": 2
+        },
+        "objective": 8921,
+        "creates": {
+            "22434": 17968,
+            "27659": 22248,
+            "20051": 16207
+        },
+        "disenchant": {
+            "8313": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10158": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10271": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10366": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "10367": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "13315": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "14812": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "14982": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15220": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15221": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15239": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15240": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15246": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15247": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15257": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15258": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15266": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15267": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15273": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15283": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15288": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15289": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15296": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15667": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15675": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15687": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15887": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15931": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15940": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15941": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15942": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15943": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15968": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15987": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15988": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15989": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "15991": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "17002": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "17003": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "17004": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "18347": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "18352": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "18353": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "20723": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "20724": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "8275": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "8320": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10362": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10363": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10364": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "16204": {
@@ -1234,6 +3060,368 @@
             "gold": 1,
             "silver": 20,
             "copper": 0
+        },
+        "contained": {
+            "items": {
+                "11568": 1.0
+            }
+        },
+        "creates": {
+            "22434": 17968,
+            "20051": 16207,
+            "25128": 20750
+        },
+        "disenchant": {
+            "8283": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "8290": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "8296": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "8303": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "8309": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10135": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10139": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10140": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10141": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10142": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10143": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10146": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10149": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10150": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10151": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10152": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10153": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10154": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10155": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10157": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10160": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10161": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10162": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10163": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10215": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10217": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10218": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10220": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10226": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10227": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10246": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10247": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10248": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10249": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10250": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10251": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10252": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10253": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10254": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10255": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10256": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10257": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10259": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10260": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10261": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10262": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10263": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10264": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "10265": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            }
         }
     },
     "16205": {
@@ -1243,7 +3431,13 @@
         "image_name": "inv_misc_food_02",
         "stack": 10,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177926": 100.0
+            }
+        },
+        "objective": 6301
     },
     "16206": {
         "i": 16206,
@@ -1268,6 +3462,9 @@
                 "12360": 3,
                 "12644": 1
             }
+        },
+        "creates": {
+            "20051": 16207
         }
     },
     "16207": {
@@ -1297,6 +3494,14 @@
                 "14343": 4,
                 "14344": 2
             }
+        },
+        "materials": {
+            "16206": 1,
+            "13926": 1,
+            "16204": 10,
+            "16203": 4,
+            "14343": 4,
+            "14344": 2
         }
     },
     "16208": {
@@ -1309,7 +3514,9 @@
         "use": {
             "s": 20269,
             "t": "Place the Gaea seed into the Gaea dirt mound."
-        }
+        },
+        "provided_for": 6381,
+        "objective": 6381
     },
     "16209": {
         "i": 16209,
@@ -1319,7 +3526,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6321,
+        "objective": 6321
     },
     "16210": {
         "i": 16210,
@@ -1328,7 +3537,9 @@
         "image_name": "inv_crate_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6324,
+        "objective": 6324
     },
     "16214": {
         "i": 16214,
@@ -1349,6 +3560,9 @@
         "use": {
             "s": 20065,
             "t": "Teaches you how to permanently enchant a bracer to give +7 Intellect."
+        },
+        "dropped": {
+            "2642": 2.0
         }
     },
     "16215": {
@@ -1370,6 +3584,34 @@
         "use": {
             "s": 20067,
             "t": "Teaches you how to permanently enchant a pair of boots to grant +7 Stamina."
+        },
+        "dropped": {
+            "13540": 3.0,
+            "12397": 1.66,
+            "14476": 1.02,
+            "9437": 0.92,
+            "9438": 0.34,
+            "6501": 0.28,
+            "9441": 0.18,
+            "8198": 0.16,
+            "10663": 0.16,
+            "8196": 0.12,
+            "5470": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153451": 0.5,
+                "160845": 0.2,
+                "2656": 0.02,
+                "153462": 0.016
+            },
+            "items": {
+                "5758": 0.3,
+                "16885": 0.05
+            }
         }
     },
     "16216": {
@@ -1391,6 +3633,9 @@
         "use": {
             "s": 20068,
             "t": "Teaches you how to permanently enchant a cloak so it adds 5 to all resistances."
+        },
+        "dropped": {
+            "5259": 1.48
         }
     },
     "16217": {
@@ -1413,6 +3658,24 @@
         "use": {
             "s": 20069,
             "t": "Teaches you how to permanently enchant a shield to grant +7 Stamina."
+        },
+        "sold": {
+            "4561": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "4229": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16218": {
@@ -1434,6 +3697,28 @@
         "use": {
             "s": 20070,
             "t": "Teaches you how to permanently enchant a bracer to give +9 Spirit."
+        },
+        "dropped": {
+            "12397": 1.52,
+            "10982": 0.16,
+            "10802": 0.14,
+            "4469": 0.12,
+            "8914": 0.11
+        },
+        "contained": {
+            "objects": {
+                "179697": 0.8,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153451": 0.5,
+                "160845": 0.3,
+                "2656": 0.02,
+                "153462": 0.02
+            },
+            "items": {
+                "5758": 0.5
+            }
         }
     },
     "16219": {
@@ -1455,6 +3740,9 @@
         "use": {
             "s": 20071,
             "t": "Teaches you how to permanently enchant gloves to give +7 Agility."
+        },
+        "dropped": {
+            "6201": 0.9
         }
     },
     "16220": {
@@ -1476,6 +3764,31 @@
         "use": {
             "s": 20072,
             "t": "Teaches you how to permanently enchant a pair of boots to grant +5 Spirit."
+        },
+        "dropped": {
+            "13089": 4.0,
+            "12397": 1.66,
+            "8976": 0.74,
+            "9438": 0.52,
+            "8301": 0.32,
+            "10662": 0.22,
+            "14340": 0.2,
+            "9267": 0.14,
+            "13447": 0.12
+        },
+        "contained": {
+            "objects": {
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153451": 0.5,
+                "179697": 0.3,
+                "153462": 0.031
+            },
+            "items": {
+                "5758": 0.2,
+                "16885": 0.05
+            }
         }
     },
     "16221": {
@@ -1497,6 +3810,16 @@
         "use": {
             "s": 20073,
             "t": "Teaches you how to permanently enchant a piece of chest armor to give +100 health."
+        },
+        "sold": {
+            "11189": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 1
+                }
+            }
         }
     },
     "16222": {
@@ -1518,6 +3841,9 @@
         "use": {
             "s": 20074,
             "t": "Teaches you how to permanently enchant a shield to grant +9 Spirit."
+        },
+        "dropped": {
+            "9447": 0.44
         }
     },
     "16223": {
@@ -1539,6 +3865,9 @@
         "use": {
             "s": 20075,
             "t": "Teaches you how to permanently enchant a weapon to give it an icy chill that sometimes slows its target."
+        },
+        "dropped": {
+            "7524": 0.92
         }
     },
     "16224": {
@@ -1560,6 +3889,16 @@
         "use": {
             "s": 20076,
             "t": "Teaches you how to permanently enchant a cloak to give 70 additional armor."
+        },
+        "sold": {
+            "12022": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "16242": {
@@ -1581,6 +3920,9 @@
         "use": {
             "s": 20077,
             "t": "Teaches you how to permanently enchant a piece of chest armor to give +100 mana."
+        },
+        "dropped": {
+            "9452": 1.02
         }
     },
     "16243": {
@@ -1602,6 +3944,16 @@
         "use": {
             "s": 20078,
             "t": "Teaches you how to make a Runed Arcanite Rod."
+        },
+        "sold": {
+            "12022": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            }
         }
     },
     "16244": {
@@ -1623,6 +3975,9 @@
         "use": {
             "s": 20079,
             "t": "Teaches you how to permanently enchant gloves to give +7 Strength."
+        },
+        "dropped": {
+            "9198": 10.0
         }
     },
     "16245": {
@@ -1644,6 +3999,40 @@
         "use": {
             "s": 20080,
             "t": "Teaches you how to permanently enchant a pair of boots to grant +7 Agility."
+        },
+        "dropped": {
+            "12397": 3.0,
+            "13538": 2.0,
+            "13448": 0.36,
+            "4374": 0.286,
+            "12477": 0.24,
+            "14518": 0.24,
+            "10680": 0.2,
+            "13957": 0.2,
+            "11032": 0.16,
+            "11454": 0.14,
+            "7846": 0.14,
+            "15979": 0.13,
+            "9201": 0.12,
+            "11453": 0.12,
+            "15462": 0.12,
+            "11365": 0.101
+        },
+        "contained": {
+            "objects": {
+                "153469": 0.5,
+                "153464": 0.5,
+                "153463": 0.5,
+                "153468": 0.5,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "153462": 0.022
+            },
+            "items": {
+                "5759": 0.2,
+                "5758": 0.1
+            }
         }
     },
     "16246": {
@@ -1665,6 +4054,9 @@
         "use": {
             "s": 20081,
             "t": "Teaches you how to permanently enchant a bracer to give +9 Strength."
+        },
+        "dropped": {
+            "7372": 0.9
         }
     },
     "16247": {
@@ -1686,6 +4078,9 @@
         "use": {
             "s": 20082,
             "t": "Teaches you how to permanently enchant a two-handed weapon to do 9 additional damage."
+        },
+        "dropped": {
+            "10317": 3.0
         }
     },
     "16248": {
@@ -1707,6 +4102,9 @@
         "use": {
             "s": 20083,
             "t": "Teaches you how to permanently enchant a weapon to occasionally curse those it strikes."
+        },
+        "dropped": {
+            "10398": 0.88
         }
     },
     "16249": {
@@ -1728,6 +4126,9 @@
         "use": {
             "s": 20084,
             "t": "Teaches you how to permanently enchant a two-handed weapon so it grants +9 Intellect."
+        },
+        "dropped": {
+            "10422": 2.0
         }
     },
     "16250": {
@@ -1749,6 +4150,9 @@
         "use": {
             "s": 20085,
             "t": "Teaches you how to permanently enchant a weapon to do 5 additional damage."
+        },
+        "dropped": {
+            "9216": 3.0
         }
     },
     "16251": {
@@ -1770,6 +4174,42 @@
         "use": {
             "s": 20086,
             "t": "Teaches you how to permanently enchant a bracer to give +9 Stamina."
+        },
+        "dropped": {
+            "12397": 1.3,
+            "11878": 1.14,
+            "12339": 1.06,
+            "16193": 0.9,
+            "10201": 0.66,
+            "16453": 0.44,
+            "1839": 0.4,
+            "16451": 0.34,
+            "13152": 0.32,
+            "11387": 0.3,
+            "13296": 0.28,
+            "16020": 0.27,
+            "14398": 0.26,
+            "11340": 0.252,
+            "15979": 0.25,
+            "11459": 0.24,
+            "16452": 0.24,
+            "11657": 0.24,
+            "11352": 0.22,
+            "11356": 0.22
+        },
+        "contained": {
+            "objects": {
+                "160845": 1.0,
+                "153454": 0.5,
+                "181798": 0.5,
+                "153453": 0.5,
+                "181804": 0.16,
+                "153462": 0.02
+            },
+            "items": {
+                "5760": 1.064,
+                "5759": 0.4
+            }
         }
     },
     "16252": {
@@ -1791,6 +4231,9 @@
         "use": {
             "s": 20087,
             "t": "Teaches you how to permanently enchant a weapon to occasionally bless the wielder with great strength."
+        },
+        "dropped": {
+            "4494": 0.18
         }
     },
     "16253": {
@@ -1812,6 +4255,16 @@
         "use": {
             "s": 20088,
             "t": "Teaches you how to permanently enchant a piece of chest armor to give +4 to each of the five attributes."
+        },
+        "dropped": {
+            "14889": 1.896,
+            "14887": 1.896,
+            "14888": 1.896,
+            "14890": 1.896,
+            "10184": 0.952,
+            "6109": 0.952,
+            "11583": 0.952,
+            "15114": 0.952
         }
     },
     "16254": {
@@ -1833,6 +4286,9 @@
         "use": {
             "s": 20089,
             "t": "Teaches you how to permanently enchant a weapon to occasionally steal some of the health of the foe and give it to the wielder."
+        },
+        "dropped": {
+            "10499": 0.88
         }
     },
     "16255": {
@@ -1854,6 +4310,9 @@
         "use": {
             "s": 20090,
             "t": "Teaches you how to permanently enchant a two-handed weapon so it grants +9 Spirit."
+        },
+        "dropped": {
+            "10469": 2.0
         }
     },
     "16262": {
@@ -1863,7 +4322,9 @@
         "image_name": "inv_misc_bone_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6341,
+        "objective": 6341
     },
     "16263": {
         "i": 16263,
@@ -1873,7 +4334,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6343,
+        "objective": 6343
     },
     "16282": {
         "i": 16282,
@@ -1882,7 +4345,9 @@
         "image_name": "inv_misc_leatherscrap_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6362,
+        "objective": 6362
     },
     "16283": {
         "i": 16283,
@@ -1891,7 +4356,9 @@
         "image_name": "inv_misc_bag_10",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6363,
+        "objective": 6363
     },
     "16302": {
         "i": 16302,
@@ -1915,6 +4382,99 @@
         "use": {
             "s": 20270,
             "t": "Teaches Imp Firebolt (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "16303": {
@@ -1929,7 +4489,12 @@
             "level": 20,
             "faction": "H"
         },
-        "starts": 23
+        "starts": 23,
+        "dropped": {
+            "12678": 100.0
+        },
+        "provided_for": 23,
+        "objective": 23
     },
     "16304": {
         "i": 16304,
@@ -1943,7 +4508,12 @@
             "level": 20,
             "faction": "H"
         },
-        "starts": 24
+        "starts": 24,
+        "dropped": {
+            "12677": 100.0
+        },
+        "provided_for": 24,
+        "objective": 24
     },
     "16305": {
         "i": 16305,
@@ -1957,7 +4527,12 @@
             "level": 20,
             "faction": "H"
         },
-        "starts": 2
+        "starts": 2,
+        "dropped": {
+            "12676": 100.0
+        },
+        "provided_for": 2,
+        "objective": 2
     },
     "16306": {
         "i": 16306,
@@ -1966,7 +4541,9 @@
         "image_name": "inv_misc_food_13",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6384,
+        "objective": 6384
     },
     "16307": {
         "i": 16307,
@@ -1976,7 +4553,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6386,
+        "objective": 6386
     },
     "16309": {
         "i": 16309,
@@ -1999,6 +4578,9 @@
         "description": "The Blood of Drakkisath Flows Within..",
         "created_by": {
             "materials": {}
+        },
+        "reward_from": {
+            "6502": 1
         }
     },
     "16310": {
@@ -2009,7 +4591,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 6391,
+        "objective": 6391
     },
     "16311": {
         "i": 16311,
@@ -2018,7 +4602,9 @@
         "image_name": "inv_pick_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6392,
+        "objective": 6392
     },
     "16312": {
         "i": 16312,
@@ -2027,7 +4613,13 @@
         "image_name": "inv_misc_gem_opal_02",
         "stack": 10,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "4036": 80.0,
+            "4037": 80.0,
+            "4038": 80.0
+        },
+        "objective": 6393
     },
     "16313": {
         "i": 16313,
@@ -2035,7 +4627,13 @@
         "n": "Felix's Chest",
         "image_name": "inv_box_04",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178084": 100.0
+            }
+        },
+        "objective": 3361
     },
     "16314": {
         "i": 16314,
@@ -2043,7 +4641,13 @@
         "n": "Felix's Bucket of Bolts",
         "image_name": "inv_misc_gear_06",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178085": 100.0
+            }
+        },
+        "objective": 3361
     },
     "16316": {
         "i": 16316,
@@ -2067,6 +4671,99 @@
         "use": {
             "s": 20312,
             "t": "Teaches Imp Firebolt (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            }
         }
     },
     "16317": {
@@ -2091,6 +4788,99 @@
         "use": {
             "s": 20313,
             "t": "Teaches Imp Firebolt (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            }
         }
     },
     "16318": {
@@ -2115,6 +4905,99 @@
         "use": {
             "s": 20314,
             "t": "Teaches Imp Firebolt (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16319": {
@@ -2139,6 +5022,99 @@
         "use": {
             "s": 20315,
             "t": "Teaches Imp Firebolt (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            }
         }
     },
     "16320": {
@@ -2163,6 +5139,99 @@
         "use": {
             "s": 20316,
             "t": "Teaches Imp Firebolt (Rank 7)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            }
         }
     },
     "16321": {
@@ -2187,6 +5256,99 @@
         "use": {
             "s": 20397,
             "t": "Teaches Imp Blood Pact (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "16322": {
@@ -2211,6 +5373,99 @@
         "use": {
             "s": 20318,
             "t": "Teaches Imp Blood Pact (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            }
         }
     },
     "16323": {
@@ -2235,6 +5490,99 @@
         "use": {
             "s": 20319,
             "t": "Teaches Imp Blood Pact (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            }
         }
     },
     "16324": {
@@ -2259,6 +5607,99 @@
         "use": {
             "s": 20320,
             "t": "Teaches Imp Blood Pact (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16325": {
@@ -2283,6 +5724,99 @@
         "use": {
             "s": 20321,
             "t": "Teaches Imp Blood Pact (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "16326": {
@@ -2307,6 +5841,99 @@
         "use": {
             "s": 20322,
             "t": "Teaches Imp Fire Shield (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 9,
+                    "gold": 0
+                }
+            }
         }
     },
     "16327": {
@@ -2331,6 +5958,99 @@
         "use": {
             "s": 20323,
             "t": "Teaches Imp Fire Shield (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            }
         }
     },
     "16328": {
@@ -2355,6 +6075,99 @@
         "use": {
             "s": 20324,
             "t": "Teaches Imp Fire Shield (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            }
         }
     },
     "16329": {
@@ -2379,6 +6192,99 @@
         "use": {
             "s": 20326,
             "t": "Teaches Imp Fire Shield (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16330": {
@@ -2403,6 +6309,99 @@
         "use": {
             "s": 20327,
             "t": "Teaches Imp Fire Shield (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "16331": {
@@ -2427,6 +6426,99 @@
         "use": {
             "s": 20329,
             "t": "Teaches Imp Phase Shift."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "12776": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5749": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 6,
+                    "gold": 0
+                }
+            }
         }
     },
     "16332": {
@@ -2435,7 +6527,13 @@
         "n": "Thazz'ril's Pick",
         "image_name": "inv_pick_01",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178087": 100.0
+            }
+        },
+        "objective": 6394
     },
     "16333": {
         "i": 16333,
@@ -2452,6 +6550,9 @@
         "use": {
             "s": 20364,
             "t": "Bury at Marla's Grave."
+        },
+        "dropped": {
+            "1919": 100.0
         }
     },
     "16335": {
@@ -2476,6 +6577,15 @@
             "level": 58,
             "rank": 4,
             "faction": "Horde"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 4
+                }
+            }
         }
     },
     "16341": {
@@ -2501,6 +6611,15 @@
             "level": 45,
             "rank": 3,
             "faction": "Alliance"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 14,
+                    "gold": 2
+                }
+            }
         }
     },
     "16342": {
@@ -2526,6 +6645,15 @@
             "level": 58,
             "rank": 3,
             "faction": "Alliance"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 54,
+                    "silver": 41,
+                    "gold": 4
+                }
+            }
         }
     },
     "16345": {
@@ -2569,6 +6697,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 16,
+                    "silver": 74,
+                    "gold": 24
+                }
+            }
         }
     },
     "16346": {
@@ -2593,6 +6730,71 @@
         "use": {
             "s": 20317,
             "t": "Teaches Voidwalker Torment (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "16347": {
@@ -2617,6 +6819,71 @@
         "use": {
             "s": 20377,
             "t": "Teaches Voidwalker Torment (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 0
+                }
+            }
         }
     },
     "16348": {
@@ -2641,6 +6908,71 @@
         "use": {
             "s": 20378,
             "t": "Teaches Voidwalker Torment (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16349": {
@@ -2665,6 +6997,71 @@
         "use": {
             "s": 20379,
             "t": "Teaches Voidwalker Torment (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "16350": {
@@ -2689,6 +7086,71 @@
         "use": {
             "s": 20380,
             "t": "Teaches Voidwalker Torment (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            }
         }
     },
     "16351": {
@@ -2713,6 +7175,71 @@
         "use": {
             "s": 20381,
             "t": "Teaches Voidwalker Sacrifice (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 12,
+                    "gold": 0
+                }
+            }
         }
     },
     "16352": {
@@ -2737,6 +7264,71 @@
         "use": {
             "s": 20382,
             "t": "Teaches Voidwalker Sacrifice (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            }
         }
     },
     "16353": {
@@ -2761,6 +7353,71 @@
         "use": {
             "s": 20383,
             "t": "Teaches Voidwalker Sacrifice (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            }
         }
     },
     "16354": {
@@ -2785,6 +7442,71 @@
         "use": {
             "s": 20384,
             "t": "Teaches Voidwalker Sacrifice (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16355": {
@@ -2809,6 +7531,71 @@
         "use": {
             "s": 20385,
             "t": "Teaches Voidwalker Sacrifice (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            }
         }
     },
     "16356": {
@@ -2833,6 +7620,71 @@
         "use": {
             "s": 20386,
             "t": "Teaches Voidwalker Sacrifice (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            }
         }
     },
     "16357": {
@@ -2857,6 +7709,71 @@
         "use": {
             "s": 20387,
             "t": "Teaches Voidwalker Consume Shadows (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 15,
+                    "gold": 0
+                }
+            }
         }
     },
     "16358": {
@@ -2881,6 +7798,71 @@
         "use": {
             "s": 20388,
             "t": "Teaches Voidwalker Consume Shadows (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            }
         }
     },
     "16359": {
@@ -2905,6 +7887,71 @@
         "use": {
             "s": 20389,
             "t": "Teaches Voidwalker Consume Shadows (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            }
         }
     },
     "16360": {
@@ -2929,6 +7976,71 @@
         "use": {
             "s": 20390,
             "t": "Teaches Voidwalker Consume Shadows (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16361": {
@@ -2953,6 +8065,71 @@
         "use": {
             "s": 20391,
             "t": "Teaches Voidwalker Consume Shadows (Rank 5)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "16362": {
@@ -2977,6 +8154,71 @@
         "use": {
             "s": 20392,
             "t": "Teaches Voidwalker Consume Shadows (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            }
         }
     },
     "16363": {
@@ -3001,6 +8243,71 @@
         "use": {
             "s": 20393,
             "t": "Teaches Voidwalker Suffering (Rank 1)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 0
+                }
+            }
         }
     },
     "16364": {
@@ -3025,6 +8332,71 @@
         "use": {
             "s": 20394,
             "t": "Teaches Voidwalker Suffering (Rank 2)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            }
         }
     },
     "16365": {
@@ -3049,6 +8421,71 @@
         "use": {
             "s": 20395,
             "t": "Teaches Voidwalker Suffering (Rank 3)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            }
         }
     },
     "16366": {
@@ -3073,6 +8510,71 @@
         "use": {
             "s": 20396,
             "t": "Teaches Voidwalker Suffering (Rank 4)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6328": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5750": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6027": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            }
         }
     },
     "16368": {
@@ -3097,6 +8599,43 @@
         "use": {
             "s": 20398,
             "t": "Teaches Succubus Lash of Pain (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            }
         }
     },
     "16369": {
@@ -3163,6 +8702,43 @@
         "use": {
             "s": 20399,
             "t": "Teaches Succubus Lash of Pain (Rank 3)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            }
         }
     },
     "16372": {
@@ -3187,6 +8763,43 @@
         "use": {
             "s": 20400,
             "t": "Teaches Succubus Lash of Pain (Rank 4)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "16373": {
@@ -3211,6 +8824,50 @@
         "use": {
             "s": 20401,
             "t": "Teaches Succubus Lash of Pain (Rank 5)."
+        },
+        "sold": {
+            "6373": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            }
         }
     },
     "16374": {
@@ -3235,6 +8892,50 @@
         "use": {
             "s": 20402,
             "t": "Teaches Succubus Lash of Pain (Rank 6)."
+        },
+        "sold": {
+            "6374": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 2
+                }
+            }
         }
     },
     "16375": {
@@ -3259,6 +8960,43 @@
         "use": {
             "s": 20403,
             "t": "Teaches Succubus Soothing Kiss (Rank 1)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 25,
+                    "gold": 0
+                }
+            }
         }
     },
     "16376": {
@@ -3283,6 +9021,50 @@
         "use": {
             "s": 20404,
             "t": "Teaches Succubus Soothing Kiss (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            },
+            "6376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 0
+                }
+            }
         }
     },
     "16377": {
@@ -3307,6 +9089,43 @@
         "use": {
             "s": 20405,
             "t": "Teaches Succubus Soothing Kiss (Rank 3)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            }
         }
     },
     "16378": {
@@ -3331,6 +9150,43 @@
         "use": {
             "s": 20406,
             "t": "Teaches Succubus Soothing Kiss (Rank 4)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 2
+                }
+            }
         }
     },
     "16379": {
@@ -3355,6 +9211,43 @@
         "use": {
             "s": 20407,
             "t": "Teaches Succubus Seduction."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 0
+                }
+            }
         }
     },
     "16380": {
@@ -3379,6 +9272,43 @@
         "use": {
             "s": 20408,
             "t": "Teaches Succubus Lesser Invisibility."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            }
         }
     },
     "16381": {
@@ -3403,6 +9333,43 @@
         "use": {
             "s": 20426,
             "t": "Teaches Felhunter Devour Magic (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 1
+                }
+            }
         }
     },
     "16382": {
@@ -3427,6 +9394,22 @@
         "use": {
             "s": 20427,
             "t": "Teaches Felhunter Devour Magic (Rank 3)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 30,
+                    "gold": 1
+                }
+            }
         }
     },
     "16383": {
@@ -3451,6 +9434,43 @@
         "use": {
             "s": 20428,
             "t": "Teaches Felhunter Devour Magic (Rank 4)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "16384": {
@@ -3478,6 +9498,43 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 70,
+                    "gold": 0
+                }
+            }
         }
     },
     "16385": {
@@ -3502,6 +9559,43 @@
         "use": {
             "s": 20430,
             "t": "Teaches Felhunter Tainted Blood (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16386": {
@@ -3526,6 +9620,43 @@
         "use": {
             "s": 20431,
             "t": "Teaches Felhunter Tainted Blood (Rank 3)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 40,
+                    "gold": 1
+                }
+            }
         }
     },
     "16387": {
@@ -3550,6 +9681,43 @@
         "use": {
             "s": 20432,
             "t": "Teaches Felhunter Tainted Blood (Rank 4)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 2
+                }
+            }
         }
     },
     "16388": {
@@ -3574,6 +9742,43 @@
         "use": {
             "s": 20433,
             "t": "Teaches Felhunter Spell Lock (Rank 1)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 90,
+                    "gold": 0
+                }
+            }
         }
     },
     "16389": {
@@ -3598,6 +9803,43 @@
         "use": {
             "s": 20434,
             "t": "Teaches Felhunter Spell Lock (Rank 2)."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 80,
+                    "gold": 1
+                }
+            }
         }
     },
     "16390": {
@@ -3622,6 +9864,43 @@
         "use": {
             "s": 20435,
             "t": "Teaches Felhunter Paranoia."
+        },
+        "sold": {
+            "12807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "6382": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5815": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            },
+            "5520": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 1
+                }
+            }
         }
     },
     "16391": {
@@ -4019,7 +10298,12 @@
             "profession": "Affliction",
             "skill": {},
             "materials": {}
-        }
+        },
+        "dropped": {
+            "12759": 100.0
+        },
+        "provided_for": 1918,
+        "objective": 1918
     },
     "16409": {
         "i": 16409,
@@ -5172,6 +11456,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 19,
+                    "silver": 76,
+                    "gold": 8
+                }
+            }
         }
     },
     "16440": {
@@ -5219,6 +11512,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 90,
+                    "gold": 5
+                }
+            }
         }
     },
     "16441": {
@@ -5266,6 +11568,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 78,
+                    "silver": 28,
+                    "gold": 10
+                }
+            }
         }
     },
     "16442": {
@@ -5313,6 +11624,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 1,
+                    "silver": 89,
+                    "gold": 11
+                }
+            }
         }
     },
     "16443": {
@@ -5360,6 +11680,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 64,
+                    "silver": 84,
+                    "gold": 12
+                }
+            }
         }
     },
     "16444": {
@@ -5407,6 +11736,15 @@
         "itemset": {
             "n": "Field Marshal's Regalia",
             "i": 388
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 13,
+                    "silver": 67,
+                    "gold": 9
+                }
+            }
         }
     },
     "16446": {
@@ -5449,6 +11787,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 6,
+                    "silver": 52,
+                    "gold": 10
+                }
+            }
         }
     },
     "16448": {
@@ -5496,6 +11843,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 62,
+                    "silver": 6,
+                    "gold": 7
+                }
+            }
         }
     },
     "16449": {
@@ -5541,6 +11897,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 56,
+                    "silver": 31,
+                    "gold": 12
+                }
+            }
         }
     },
     "16450": {
@@ -5586,6 +11951,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 60,
+                    "silver": 23,
+                    "gold": 14
+                }
+            }
         }
     },
     "16451": {
@@ -5635,6 +12009,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 55,
+                    "silver": 40,
+                    "gold": 12
+                }
+            }
         }
     },
     "16452": {
@@ -5683,6 +12066,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 14,
+                    "silver": 60,
+                    "gold": 16
+                }
+            }
         }
     },
     "16453": {
@@ -5729,6 +12121,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 21,
+                    "silver": 66,
+                    "gold": 16
+                }
+            }
         }
     },
     "16454": {
@@ -5771,6 +12172,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 22,
+                    "silver": 22,
+                    "gold": 7
+                }
+            }
         }
     },
     "16455": {
@@ -5817,6 +12227,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 64,
+                    "silver": 58,
+                    "gold": 12
+                }
+            }
         }
     },
     "16456": {
@@ -5863,6 +12282,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 93,
+                    "silver": 54,
+                    "gold": 14
+                }
+            }
         }
     },
     "16457": {
@@ -5905,6 +12333,15 @@
         "itemset": {
             "n": "Field Marshal's Vestments",
             "i": 394
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 63,
+                    "silver": 67,
+                    "gold": 12
+                }
+            }
         }
     },
     "16459": {
@@ -5950,6 +12387,15 @@
         "itemset": {
             "n": "Field Marshal's Sanctuary",
             "i": 397
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 63,
+                    "silver": 24,
+                    "gold": 10
+                }
+            }
         }
     },
     "16462": {
@@ -5993,6 +12439,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 12,
+                    "silver": 49,
+                    "gold": 12
+                }
+            }
         }
     },
     "16463": {
@@ -6040,6 +12495,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 21,
+                    "silver": 32,
+                    "gold": 8
+                }
+            }
         }
     },
     "16465": {
@@ -6083,6 +12547,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 86,
+                    "silver": 55,
+                    "gold": 14
+                }
+            }
         }
     },
     "16466": {
@@ -6126,6 +12599,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 44,
+                    "silver": 48,
+                    "gold": 19
+                }
+            }
         }
     },
     "16467": {
@@ -6169,6 +12651,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 89,
+                    "gold": 16
+                }
+            }
         }
     },
     "16468": {
@@ -6212,6 +12703,15 @@
         "itemset": {
             "n": "Field Marshal's Pursuit",
             "i": 395
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 80,
+                    "silver": 78,
+                    "gold": 14
+                }
+            }
         }
     },
     "16471": {
@@ -6259,6 +12759,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 48,
+                    "silver": 71,
+                    "gold": 5
+                }
+            }
         }
     },
     "16472": {
@@ -6306,6 +12815,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 28,
+                    "silver": 60,
+                    "gold": 8
+                }
+            }
         }
     },
     "16473": {
@@ -6357,6 +12875,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 70,
+                    "silver": 32,
+                    "gold": 13
+                }
+            }
         }
     },
     "16474": {
@@ -6408,6 +12935,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 17,
+                    "silver": 3,
+                    "gold": 10
+                }
+            }
         }
     },
     "16475": {
@@ -6455,6 +12991,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 69,
+                    "silver": 89,
+                    "gold": 11
+                }
+            }
         }
     },
     "16476": {
@@ -6502,6 +13047,15 @@
         "itemset": {
             "n": "Field Marshal's Aegis",
             "i": 402
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 87,
+                    "silver": 37,
+                    "gold": 9
+                }
+            }
         }
     },
     "16477": {
@@ -6545,6 +13099,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 55,
+                    "gold": 12
+                }
+            }
         }
     },
     "16478": {
@@ -6587,6 +13150,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 16,
+                    "silver": 45,
+                    "gold": 9
+                }
+            }
         }
     },
     "16479": {
@@ -6633,6 +13205,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 82,
+                    "silver": 92,
+                    "gold": 10
+                }
+            }
         }
     },
     "16480": {
@@ -6676,6 +13257,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 35,
+                    "silver": 52,
+                    "gold": 9
+                }
+            }
         }
     },
     "16483": {
@@ -6719,6 +13309,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 12,
+                    "silver": 32,
+                    "gold": 8
+                }
+            }
         }
     },
     "16484": {
@@ -6765,6 +13364,15 @@
         "itemset": {
             "n": "Field Marshal's Battlegear",
             "i": 384
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 79,
+                    "silver": 56,
+                    "gold": 5
+                }
+            }
         }
     },
     "16485": {
@@ -6839,6 +13447,15 @@
             "level": 58,
             "rank": 5,
             "faction": "Horde"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 77,
+                    "silver": 84,
+                    "gold": 2
+                }
+            }
         }
     },
     "16487": {
@@ -7172,6 +13789,15 @@
             "level": 58,
             "rank": 5,
             "faction": "Horde"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 2,
+                    "silver": 44,
+                    "gold": 3
+                }
+            }
         }
     },
     "16498": {
