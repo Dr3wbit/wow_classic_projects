@@ -708,6 +708,8 @@ def delete_list(request):
 				response = JsonResponse(data)
 
 			else:
+				data['name'] = name
+
 				data['success'] = False
 				data['message'] = 'SAVED LIST {} NOT FOUND, UNABLE TO DELETE'.format(name)
 				response = JsonResponse(data)
@@ -724,6 +726,7 @@ def load_spec(request):
 			data['hash'] = spec.hash
 
 	return JsonResponse(data)
+
 
 def save_consume_list(request):
 	pass
