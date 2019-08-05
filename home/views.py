@@ -703,11 +703,11 @@ def delete_list(request):
 			if saved_list:
 				data['name'] = name
 				saved_list.delete()
-				data['message'] = 'successfully deleted the list'
+				data['message'] = 'SUCCESSFULLY DELETED {}'.format(name)
 				response = JsonResponse(data)
 
 			else:
-				data['message'] = 'unable to delete saved list'
+				data['message'] = 'SAVED LIST {} NOT FOUND, UNABLE TO DELETE'.format(name)
 				response = JsonResponse(data)
 
 	return response
