@@ -54,49 +54,50 @@ def main():
 				defaults=defaults
 			)
 
-			if 'use' in virus.keys():
-				item.use = virus['use']['s']
+			
+			virus = get_unnecessary(virus)
 
-			if 'bop' in virus.keys():
-				item.bop = True
 
-			if 'unique' in virus.keys():
-				item.unique = True
 
-			if 'slot' in virus.keys():
-				item._slot = SLOT_TRANSLATOR[v['slot']]
+def get_unnecessary(virus):
 
-			if 'proficiency' in virus.keys():
-				item._proficiency = get_proficiency(item._slot, v['proficiency'])
+	if 'use' in virus.keys():
+		item.use = virus['use']['s']
 
-			if 'quest_item' in virus.keys():
-				item.quest_item = True
+	if 'bop' in virus.keys():
+		item.bop = True
 
-			# NOTE: need to change profession setup? axesmith, tribal lw, etc.
-			if 'requirements' in virus.keys():
-				item.requirements = v['requirements']
+	if 'unique' in virus.keys():
+		item.unique = True
 
-			# NOTE: need to exclude armor maybe?
-			if 'stats' in virus.keys():
-				item.stats = v['stats']
+	if 'slot' in virus.keys():
+		item._slot = SLOT_TRANSLATOR[v['slot']]
 
-			if 'disenchant' in virus.keys()
+	if 'proficiency' in virus.keys():
+		item._proficiency = get_proficiency(item._slot, v['proficiency'])
 
-				#NOTE: option A, store data differently
-				for AA,BB in v['disenchant'].items():
-					pass
+	if 'quest_item' in virus.keys():
+		item.quest_item = True
 
-				#NOTE: option B, store as is
-				item.disenchant = v['disenchant']
+	# NOTE: need to change profession setup? axesmith, tribal lw, etc.
+	if 'requirements' in virus.keys():
+		item.requirements = v['requirements']
 
-				
-			talentObj,_ = Talent.objects.update_or_create(
-				name=tal_name, wow_class=wow, tree=tree,
-				defaults={'name':tal_name,'wow_class': wow,
-				'tree': tree, 'locked': lockedObj
-				}
-			)
+	# NOTE: need to exclude armor maybe?
+	if 'stats' in virus.keys():
+		item.stats = v['stats']
 
+	if 'disenchant' in virus.keys()
+
+		#NOTE: option A, store data differently
+		for AA,BB in v['disenchant'].items():
+			pass
+
+		#NOTE: option B, store as is
+		item.disenchant = v['disenchant']
+
+
+	return virus
 
 def get_proficiency(_slot, _proficiency):
 	if not _proficiency:
