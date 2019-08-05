@@ -1171,6 +1171,18 @@
         "i": 177794,
         "n": "Strange Lockbox"
     },
+    "177804": {
+        "i": 177804,
+        "n": "Mangled Human Remains"
+    },
+    "177805": {
+        "i": 177805,
+        "n": "Mangled Human Remains"
+    },
+    "177806": {
+        "i": 177806,
+        "n": "Mangled Human Remains"
+    },
     "17783": {
         "i": 17783,
         "n": "Ancient Statuette"
@@ -1178,6 +1190,22 @@
     "177844": {
         "i": 177844,
         "n": "Strange Lockbox"
+    },
+    "177926": {
+        "i": 177926,
+        "n": "Gaea Seed"
+    },
+    "178084": {
+        "i": 178084,
+        "n": "Felix's Chest"
+    },
+    "178085": {
+        "i": 178085,
+        "n": "Felix's Bucket of Bolts"
+    },
+    "178087": {
+        "i": 178087,
+        "n": "Thazz'ril's Pick"
     },
     "178184": {
         "i": 178184,
@@ -2219,32 +2247,36 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "177804": {
-        "i": 177804,
-        "n": "Mangled Human Remains"
+    "178104": {
+        "i": 178104,
+        "n": "Resonite Crystal"
     },
-    "177805": {
-        "i": 177805,
-        "n": "Mangled Human Remains"
+    "178105": {
+        "i": 178105,
+        "n": "Resonite Crystal"
     },
-    "177806": {
-        "i": 177806,
-        "n": "Mangled Human Remains"
+    "178106": {
+        "i": 178106,
+        "n": "Resonite Crystal"
     },
-    "177926": {
-        "i": 177926,
-        "n": "Gaea Seed"
+    "178144": {
+        "i": 178144,
+        "n": "Troll Chest"
     },
-    "178084": {
-        "i": 178084,
-        "n": "Felix's Chest"
+    "178195": {
+        "i": 178195,
+        "n": "Warsong Oil"
     },
-    "178085": {
-        "i": 178085,
-        "n": "Felix's Bucket of Bolts"
+    "178204": {
+        "i": 178204,
+        "n": "Warsong Axe Shipment"
     },
-    "178087": {
-        "i": 178087,
-        "n": "Thazz'ril's Pick"
+    "177964": {
+        "i": 177964,
+        "n": "Fathom Stone"
+    },
+    "178227": {
+        "i": 178227,
+        "n": "Murgut's Totem Basket"
     }
 }
