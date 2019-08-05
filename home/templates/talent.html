@@ -71,11 +71,8 @@
 		{% include "talent_builder.html" %}
 	</div>
 
-	{% if spec %}
-	<h5> description: <span class="fix-me">{{spec.description}}</span></h5>
-	<h5> name: <span class="fix-me">{{spec.name}}</span></h5>
-	{% endif %}
-
+	{% include "info_display.html" %}
+	
 	{% if user.is_authenticated %}
 	{% include "save_form.html" %}
 	{% endif %}
@@ -191,15 +188,6 @@ $(".class-filter").on({
 	   update_url(class_name, '');
    }
 });
-
-// $(".spec-list-item").on({
-//    click: e=> {
-// 	   var class_name = $( e.target ).attr('data-wowclass');
-// 	   var spec_name = $( e.target ).attr('name');
-// 	   update_class(class_name, spec_name)
-//    }
-// });
-
 
 
  </script>
