@@ -1111,17 +1111,101 @@
         "i": 176944,
         "n": "Old Treasure Chest"
     },
+    "177241": {
+        "i": 177241,
+        "n": "Araj's Phylactery"
+    },
+    "177264": {
+        "i": 177264,
+        "n": "Symbol of Lost Honor"
+    },
+    "177287": {
+        "i": 177287,
+        "n": "Unfinished Painting"
+    },
     "177388": {
         "i": 177388,
         "n": "Ooze Covered Rich Thorium Vein"
+    },
+    "177464": {
+        "i": 177464,
+        "n": "Large Termite Mound"
     },
     "177624": {
         "i": 177624,
         "n": "Xabraxxis' Demon Bag"
     },
+    "177681": {
+        "i": 177681,
+        "n": "Gordunni Dirt Mound"
+    },
+    "177747": {
+        "i": 177747,
+        "n": "Quel'Thalas Registry"
+    },
+    "177750": {
+        "i": 177750,
+        "n": "Lunar Fungal Bloom"
+    },
+    "177784": {
+        "i": 177784,
+        "n": "Giant Softshell Clam"
+    },
+    "177785": {
+        "i": 177785,
+        "n": "Bauble Container"
+    },
+    "177789": {
+        "i": 177789,
+        "n": "Augustus' Receipt Book"
+    },
+    "177790": {
+        "i": 177790,
+        "n": "Strange Lockbox"
+    },
+    "177792": {
+        "i": 177792,
+        "n": "Strange Lockbox"
+    },
+    "177794": {
+        "i": 177794,
+        "n": "Strange Lockbox"
+    },
+    "177804": {
+        "i": 177804,
+        "n": "Mangled Human Remains"
+    },
+    "177805": {
+        "i": 177805,
+        "n": "Mangled Human Remains"
+    },
+    "177806": {
+        "i": 177806,
+        "n": "Mangled Human Remains"
+    },
     "17783": {
         "i": 17783,
         "n": "Ancient Statuette"
+    },
+    "177844": {
+        "i": 177844,
+        "n": "Strange Lockbox"
+    },
+    "177926": {
+        "i": 177926,
+        "n": "Gaea Seed"
+    },
+    "178084": {
+        "i": 178084,
+        "n": "Felix's Chest"
+    },
+    "178085": {
+        "i": 178085,
+        "n": "Felix's Bucket of Bolts"
+    },
+    "178087": {
+        "i": 178087,
+        "n": "Thazz'ril's Pick"
     },
     "178184": {
         "i": 178184,
@@ -1234,6 +1318,14 @@
     "180215": {
         "i": 180215,
         "n": "Hakkari Thorium Vein"
+    },
+    "180228": {
+        "i": 180228,
+        "n": "Jinxed Hoodoo Pile"
+    },
+    "180229": {
+        "i": 180229,
+        "n": "Jinxed Hoodoo Pile"
     },
     "180248": {
         "i": 180248,
@@ -2155,12 +2247,36 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "180228": {
-        "i": 180228,
-        "n": "Jinxed Hoodoo Pile"
+    "178104": {
+        "i": 178104,
+        "n": "Resonite Crystal"
     },
-    "180229": {
-        "i": 180229,
-        "n": "Jinxed Hoodoo Pile"
+    "178105": {
+        "i": 178105,
+        "n": "Resonite Crystal"
+    },
+    "178106": {
+        "i": 178106,
+        "n": "Resonite Crystal"
+    },
+    "178144": {
+        "i": 178144,
+        "n": "Troll Chest"
+    },
+    "178195": {
+        "i": 178195,
+        "n": "Warsong Oil"
+    },
+    "178204": {
+        "i": 178204,
+        "n": "Warsong Axe Shipment"
+    },
+    "177964": {
+        "i": 177964,
+        "n": "Fathom Stone"
+    },
+    "178227": {
+        "i": 178227,
+        "n": "Murgut's Totem Basket"
     }
 }

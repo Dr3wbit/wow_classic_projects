@@ -3,7 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Avg
 import datetime, math, re, time
 from social_django.models import UserSocialAuth
-from django.contrib.postgres.fields import HStoreField
+from django.contrib.postgres import fields as postgres
 from django.contrib.postgres.validators import KeysValidator
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
@@ -49,64 +49,193 @@ from .managers import UserManager
 ### NOTE: NEW
 # the baseline; everything is an item
 class Item(models.Model):
-	JUNK, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, GM = 0,1,2,3,4,5,6
-	OFFHAND_LIST = ['Held In Off-Hand', 'Shield', 'Off Hand']
-	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS,FINGER,TRINKET,BACK,MAINHAND,OFFHAND,RANGED,TABBARD = 1,2,3,4,5,6,7,8,9,10,11,13,15,16,17,18,19
-	CLOTH,LEATHER,MAIL,PLATE = 1,2,3,4
-	BAG_CHOICES = range(20,23)
-	RELIC = 18
-	RELIC_PROFICIENCIES = ['Totem', 'Libram', 'Idol']
+	CURRENCY = ['copper', 'gold', 'silver']
+	JUNK, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, GM = range(1,7)
 	QUALITY_CHOICES = ( (JUNK, 'junk'), (COMMON, 'common'), (UNCOMMON, 'uncommon'), (RARE, 'rare'), (EPIC, 'epic'), (LEGENDARY, 'legendary'), (GM, 'gm'),)
+
+	CLOTH,LEATHER,MAIL,PLATE = range(1,5)
+	ARMOR_PROFICIENCIES = (
+		(CLOTH, 'Cloth'),
+		(LEATHER, 'Leather'),
+		(MAIL, 'Mail'),
+		(PLATE, 'Plate'),
+	)
+
+	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS = range(1,11)
+	FINGER,TRINKET,BACK,MAINHAND,OFFHAND,RANGED,TABBARD,BAG, = 11,13,15,16,17,18,19,20
+	TWO_HAND,ONE_HAND,THROWN,RELIC,OH_FRILL,AMMO = 24,25,26,27,28,29,30
+
 	SLOT_CHOICES = (
 		(HEAD, 'Head'), (NECK, 'Neck'), (SHOULDER, 'Shoulder'), (SHIRT, 'Shirt'),
 		(CHEST, 'Chest'), (BELT, 'Belt'), (LEGS, 'Legs'), (FEET, 'Feet'), (WRIST, 'Wrist'),
 		(HANDS, 'Hands'), (BACK, 'Back'), (MAINHAND, 'Main Hand'), (OFFHAND, 'Off Hand'),
-		(RANGED, 'Ranged'), (BAG, 'Bag'),
+		(RANGED, 'Ranged'), (BAG, 'Bag'), (ONE_HAND, 'One-hand'), (TWO_HAND, 'Two-hand'),
+		(THROWN, 'Thrown'), (OH_FRILL, 'Held In Off-Hand'), (RELIC, 'Relic'), (AMMO, 'Projectile'),
 	)
 
-	REQUIREMENT_KEYS = ['level', 'reputation', 'faction', 'profession' 'class']
 
 	i = models.PositiveIntegerField(primary_key=True)
 	n = models.CharField(max_length=100, unique=True, help_text='Name')
 	quality = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(6)])
-	ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
+	img = models.CharField(max_length=50)
 
-	image = models.CharField(max_length=50)
+	ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
+	_slot = models.PositiveSmallIntegerField(default=0, choices=SLOT_CHOICES, validators=[MinValueValidator(0), MaxValueValidator(20)])
+	_proficiency = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
+
+	armor = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(20000)])
+	speed = models.DecimalField(default=0.0, max_digits=4, decimal_places=2, validators=[MinValueValidator(0.0), MaxValueValidator(4.0)])
+
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
-	use = models.CharField(max_length=250, blank=True)
-	description = models.CharField(max_length=250, blank=True)
-	slot = models.PositiveSmallIntegerField(default=None, choices=SLOT_CHOICES)
-	#https://docs.djangoproject.com/en/2.2/ref/contrib/postgres/fields/#hstorefield
+	quest_item = models.BooleanField(default=False)
 
-	requirements = HStoreField(validators=KeysValidator(REQUIREMENT_KEYS, strict=True))
+	use = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(20000)])
+	description = models.CharField(max_length=250, blank=True)
+
+	requirements = postgres.JSONField()
+	val = postgres.JSONField(default=self.get_monetary_value())
+	stats = postgres.JSONField()
+
+	effects = models.ManyToManyField('Effect')
+	disenchant = postgres.JSONField()
+
+
+	#https://docs.djangoproject.com/en/2.2/ref/contrib/postgres/fields/#hstorefield
+	# price = postgres.HStoreField(validators=KeysValidator(REQUIREMENT_KEYS, strict=True))
+
+	ARMOR_SLOTS = [HEAD,SHOULDER,CHEST,BELT,LEGS,FEET,WRIST,HANDS,BACK]
+	RANGED_SLOTS = [RANGED, THROWN]
+	MELEE_SLOTS = [MAINHAND, OFFHAND, ONE_HAND, TWO_HAND]
+	MELEE_CHOICES = {
+		1:'Axe', 2:'Dagger', 3:'Fishing Pole', 4:'Fist Weapon', 5:'Miscellaneous'
+		6:'Polearm', 7:'Shield', 8:'Staff', 9:'Sword'
+	}
+	ARMOR_CHOICES = {1:'Cloth': 2:'Leather', 3:'Mail', 4:'Plate'}
+	AMMO_CHOICES = {1:'Bullet', 2:'Arrow'}
+	RANGED_CHOICES = {1:'Gun', 2:'Bow', 3:'Crossbow', 4:'Thrown', 5:'Wand'}
+	RELIC_CHOICES = {1:'Libram', 2:'Idol', 3:'Totem'}
+	SLOT_NAME_CHOICES = {a:b for (a,b) in SLOT_CHOICES}
+
+
+	def get_monetary_value(self):
+		return {'copper':0, 'silver':0, 'gold':0}
+
+	@property
+	def slot(self):
+		if not self._slot:
+			return ''
+		else:
+			return self.SLOT_NAME_CHOICES[self._slot]
+
+	@property
+	def proficiency(self):
+		if not self._proficiency:
+			return ''
+		else:
+			if self._slot in self.ARMOR_SLOTS:
+				return self.ARMOR_CHOICES[self._proficiency]
+
+			elif self._slot in self.RANGED_SLOTS:
+				return self.RANGED_CHOICES[self._proficiency]
+
+			elif self._slot == self.RELIC:
+				return self.RELIC_CHOICES[self._proficiency]
+
+			elif self._slot == self.AMMO:
+				return self.AMMO_CHOICES[self._proficiency]
+
+			elif self._slot in self.MELEE_SLOTS:
+				return self.MELEE_CHOICES[self._proficiency]
+			else:
+				return ''
 
 	def __str__(self):
 		return self.n
 
-class Armor(models.Model):
-	i = models.PositiveIntegerField(primary_key=True)
-class WoWClass(models.Model):
-	class_choices = (
-			('druid', 'druid'),
-			('hunter', 'hunter'),
-			('mage', 'mage'),
-			('paladin', 'paladin'),
-			('priest', 'priest'),
-			('rogue', 'rogue'),
-			('shaman', 'shaman'),
-			('warlock', 'warlock'),
-			('warrior', 'warrior')
-	)
 
-	name = models.CharField(max_length=30, choices=class_choices, default='warrior', unique=True)
-	icon_image_name = models.CharField(max_length=20)
+class WoWClass(models.Model):
+	DRUID,HUNTER,MAGE,PALADIN,PRIEST,ROGUE,SHAMAN,WARLOCK,WARRIOR = range(1,10)
+	CLASS_CHOICES = (
+			(DRUID, 'Druid'),
+			(HUNTER, 'Hunter'),
+			(MAGE, 'Mage'),
+			(PALADIN, 'Paladin'),
+			(PRIEST, 'Priest'),
+			(ROGUE, 'Rogue'),
+			(SHAMAN, 'Shaman'),
+			(WARLOCK, 'Warlock'),
+			(WARRIOR, 'Warrior')
+	)
+	i = models.PositiveSmallIntegerField(primary_key=True, choices=CLASS_CHOICES, unique=True, default=WARRIOR)
+	image = models.CharField(max_length=30)
+
+	@property
+	def n(self):
+		return self.CLASS_CHOICES[self.i+1]
 
 	def __str__(self):
 		return(self.name)
 
-	class Meta:
-		ordering = ['name']
+
+class Spell(models.Model):
+	SELF_RANGE = 0
+	INSTANT = 0.0
+
+	DISEASE,MAGIC,CURSE,POISON = range(1,5)
+	DISPEL_TYPES =
+	MECHANIC_TYPES = (
+		(SNARE, 'Snared'),
+		(ROOT, 'Rooted'),
+		(DISORIENT, 'Disoriented'),
+		(POLYMORPH, 'Polymorphed'),
+		(STUN, 'Stunned'),
+	)
+	i = models.PositiveSmallIntegerField(primary_key=True, unique=True)
+	range = models.PositiveSmallIntegerField(default=SELF_RANGE, choice=RANGE_CHOICES)
+	cast = models.DecimalField(default=INSTANT, max_digits=5, decimal_places=2)
+	duration = models.DecimalField(default=0.0, max_digits=5, decimal_places=2)
+	mana_cost = models.PositiveSmallIntegerField(default=0)
+
+	school = models.ForeignKey('School', on_delete=models.CASCADE)
+	dispel = models.PositiveSmallIntegerField(default=SELF_RANGE, choice=DISPEL_TYPES)
+	mechanic = models.PositiveSmallIntegerField(default=SELF_RANGE, choice=RANGE_CHOICES)
+
+class Effect(models.Model):
+	PROC,EQUIP,USE = range(1,4)
+	EFFECT_TYPES = (
+		(PROC, 'Chance on hit:'),
+		(EQUIP, 'Equip:'),
+		(USE, 'Use:'),
+	)
+
+	i = models.PositiveIntegerField(primary_key=True, unique=True)
+	effect_type = models.PositiveSmallIntegerField(default=EQUIP, choices=EFFECT_TYPES)
+	t = models.CharField(max_length=400)
+
+	def __str__(self):
+		return self.EFFECT_TYPES[self.i][1]
+
+class School(models.Model):
+
+	PHYSICAL,ARCANE,FIRE,FROST,HOLY,NATURE,SHADOW = range(1,8)
+	SCHOOLS_OF_MAGIC = (
+		(PHYSICAL, 'Physical'),
+		(ARCANE, 'Arcane'),
+		(FIRE, 'Fire'),
+		(FROST, 'Frost'),
+		(HOLY, 'Holy'),
+		(NATURE, 'Nature'),
+		(SHADOW, 'Shadow'),
+	)
+	i = models.PositiveIntegerField(primary_key=True, unique=True)
+
+	@property:
+	def n(self):
+		return self.SCHOOLS_OF_MAGIC[self.i+1][1]
+
+class Armor(models.Model):
+	i = models.PositiveIntegerField(primary_key=True)
 
 class Profession(models.Model):
 	PROFESSION_CHOICES = (
@@ -248,28 +377,6 @@ class Profession(models.Model):
 
 	def __str__(self):
 		return(self.name)
-
-
-class WoWClass(models.Model):
-	class_choices = (
-			('druid', 'druid'),
-			('hunter', 'hunter'),
-			('mage', 'mage'),
-			('paladin', 'paladin'),
-			('priest', 'priest'),
-			('rogue', 'rogue'),
-			('shaman', 'shaman'),
-			('warlock', 'warlock'),
-			('warrior', 'warrior')
-	)
-
-	name = models.CharField(max_length=20, choices=class_choices, default='warrior', unique=True)
-
-	def __str__(self):
-		return(self.name)
-
-	class Meta:
-		ordering = ['name']
 
 
 class TalentTree(models.Model):
@@ -683,3 +790,15 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	effect = models.ForeignKey('Effect', on_delete=models.CASCADE, blank=True, null=True)
 # 	pieces_required = models.PositiveSmallIntegerField(default=1)
 #
+
+
+# MELEE_PROFICIENCIES = (
+# 	(AXE, 'Axe'),
+# 	(DAGGER, 'Dagger'),
+# 	(FISHING_POLE, 'Fishing Pole'),
+# 	(FIST, 'Fist Weapon'),
+# 	(MISC, 'Miscellaneous'),
+# 	(POLEARM, 'Polearm'),
+# 	(STAFF, 'Staff'),
+# 	(SWORD, 'Sword'),
+# )
