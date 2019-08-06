@@ -585,42 +585,6 @@ def save_rating(request):
 
 	return JsonResponse(data)
 
-def delete_rating(request):
-
-	if (request.user.is_staff and request.user.is_superuser):
-
-		id = request.POST.get('id', None)
-		spec = request.POST.get('spec', False)
-		type_of = 'spec' if spec else 'consume_list'
-		data = {}
-		if (request.user.is_authenticated and id):
-			user = request.user
-
-			if spec:
-				if Spec.objects.filter(id=id).exists():
-					saved_list = Spec.objects.get(id=id)
-			else:
-				if ConsumeList.objects.filter(id=id).exists():
-					saved_list = ConsumeList.objects.get(id=id)
-
-			if saved_list:
-				rating = saved_list.ratings.filter(user=user).first()
-				rating.delete()
-
-				data['success'] = True
-				data['average_rating'] = saved_list.rating
-				data['num_ratings'] = saved_list.ratings.count()
-				data['message'] = "user: {} successfully deleted your rating for {}".format(user.email, saved_list.name)
-		else:
-			data['success'] = False
-			data['message'] = 'No id found or user is not authenticated'
-
-		# saved_list =
-	else:
-		data['success'] = False
-		data['message'] = 'Insufficient permissions'
-
-	return JsonResponse(data)
 
 def save_rating(request):
 	id = request.POST.get('id', None)
@@ -686,6 +650,7 @@ def delete_list(request):
 	name = request.POST.get('name', None)
 	wow_class = request.POST.get('wow_class', None)
 	data = {}
+
 	if request.is_ajax():
 		if request.user.is_authenticated:
 			user = request.user

@@ -11,7 +11,7 @@
 				<div id="saved-specs">
 				{% for spec in user.spec_set.all %}
 				<div class="spec-container">
-				{% with "images/icons/large/class/"|add:spec.wow_class.name|add:".jpg" as class_image %}		
+				{% with "images/icons/large/class/"|add:spec.wow_class.name|add:".jpg" as class_image %}
 				<div class="saved-list-icon" style="background-image: url('{% static class_image %}');">
 				</div>
 				{% endwith %}
@@ -33,7 +33,7 @@
 							<span style="left: 0; top: 0; position: absolute; width: 80%; height: 100%;"></span>
 						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
-							value="{{spec.name}}" type="button">
+							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name}}">
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
 						</button>
 					</div>
