@@ -59,7 +59,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8008": {
         "i": 8008,
@@ -85,7 +86,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8009": {
         "i": 8009,
@@ -442,7 +444,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8076": {
         "i": 8076,
@@ -467,7 +470,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8077": {
         "i": 8077,
@@ -492,7 +496,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8078": {
         "i": 8078,
@@ -517,7 +522,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8079": {
         "i": 8079,
@@ -542,7 +548,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8080": {
         "i": 8080,
@@ -866,7 +873,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8106": {
         "i": 8106,
@@ -1822,7 +1830,8 @@
         "use": {
             "s": 10617,
             "t": "Use on the fallen body of Rageclaw."
-        }
+        },
+        "consume": true
     },
     "8150": {
         "i": 8150,
@@ -1905,7 +1914,8 @@
         "use": {
             "s": 10459,
             "t": "Offer at the Temple of the Moon fountain."
-        }
+        },
+        "consume": true
     },
     "8156": {
         "i": 8156,
@@ -2256,7 +2266,8 @@
                 "4304": 5,
                 "4291": 1
             }
-        }
+        },
+        "consume": true
     },
     "8174": {
         "i": 8174,
@@ -6069,7 +6080,8 @@
             "materials": {
                 "8365": 1
             }
-        }
+        },
+        "consume": true
     },
     "8365": {
         "i": 8365,
@@ -6089,7 +6101,8 @@
         "use": {
             "s": 435,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "8366": {
         "i": 8366,
@@ -6625,7 +6638,8 @@
             "s": 10667,
             "t": "Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "description": "Robust Operational Imbue Derived From Snickerfan"
+        "description": "Robust Operational Imbue Derived From Snickerfan",
+        "consume": true
     },
     "8411": {
         "i": 8411,
@@ -6644,7 +6658,8 @@
             "s": 10668,
             "t": "Increases Stamina by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "description": "100% Grade A Lung Juice - Freshly Squeeze"
+        "description": "100% Grade A Lung Juice - Freshly Squeeze",
+        "consume": true
     },
     "8412": {
         "i": 8412,
@@ -6662,7 +6677,8 @@
         "use": {
             "s": 10669,
             "t": "Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
-        }
+        },
+        "consume": true
     },
     "8423": {
         "i": 8423,
@@ -6681,7 +6697,8 @@
             "s": 10692,
             "t": "Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "description": "Best Served Chille"
+        "description": "Best Served Chille",
+        "consume": true
     },
     "8424": {
         "i": 8424,
@@ -6700,7 +6717,8 @@
             "s": 10693,
             "t": "Increases Spirit by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "description": "Strawberry Flavo"
+        "description": "Strawberry Flavo",
+        "consume": true
     },
     "8425": {
         "i": 8425,
@@ -6793,7 +6811,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "8443": {
         "i": 8443,
@@ -6814,7 +6833,8 @@
             "gold": 0,
             "silver": 0,
             "copper": 0
-        }
+        },
+        "consume": true
     },
     "8463": {
         "i": 8463,
@@ -7237,7 +7257,8 @@
                 "141853": 100.0
             }
         },
-        "objective": 2641
+        "objective": 2641,
+        "consume": true
     },
     "8527": {
         "i": 8527,
@@ -7292,7 +7313,8 @@
         },
         "reward_from": {
             "2662": 5
-        }
+        },
+        "consume": true
     },
     "8544": {
         "i": 8544,
@@ -7326,7 +7348,8 @@
                 "4338": 1
             }
         },
-        "objective": 8608
+        "objective": 8608,
+        "consume": true
     },
     "8545": {
         "i": 8545,
@@ -7360,7 +7383,8 @@
                 "4338": 2
             }
         },
-        "objective": 8810
+        "objective": 8810,
+        "consume": true
     },
     "8548": {
         "i": 8548,
@@ -7445,7 +7469,8 @@
             "s": 11758,
             "t": "Fill the Untapped Dowsing Widget at the Sandsorrow Watch water hole."
         },
-        "provided_for": 992
+        "provided_for": 992,
+        "consume": true
     },
     "8585": {
         "i": 8585,
@@ -8023,7 +8048,8 @@
                 "142076": 100.0
             }
         },
-        "objective": 2746
+        "objective": 2746,
+        "consume": true
     },
     "8684": {
         "i": 8684,
@@ -9066,7 +9092,8 @@
                 "11887": 44.0,
                 "16884": 0.05
             }
-        }
+        },
+        "consume": true
     },
     "8827": {
         "i": 8827,
@@ -9093,7 +9120,8 @@
                 "3357": 1,
                 "3372": 1
             }
-        }
+        },
+        "consume": true
     },
     "8831": {
         "i": 8831,
@@ -10045,7 +10073,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "8927": {
         "i": 8927,
@@ -10088,7 +10117,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "8928": {
         "i": 8928,
@@ -10131,7 +10161,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "8932": {
         "i": 8932,
@@ -10366,7 +10397,8 @@
             "7037": 4.0,
             "10420": 4.0
         },
-        "objective": 6610
+        "objective": 6610,
+        "consume": true
     },
     "8948": {
         "i": 8948,
@@ -10594,7 +10626,8 @@
             "7093": 9.0,
             "8607": 9.0,
             "1806": 9.0
-        }
+        },
+        "consume": true
     },
     "8949": {
         "i": 8949,
@@ -10630,7 +10663,8 @@
         },
         "creates": {
             "14930": 8217
-        }
+        },
+        "consume": true
     },
     "8950": {
         "i": 8950,
@@ -10859,7 +10893,8 @@
             "9460": 7.0,
             "9260": 6.0,
             "5977": 6.0
-        }
+        },
+        "consume": true
     },
     "8951": {
         "i": 8951,
@@ -10900,7 +10935,8 @@
         },
         "creates": {
             "14932": 8218
-        }
+        },
+        "consume": true
     },
     "8952": {
         "i": 8952,
@@ -11132,7 +11168,8 @@
             "7157": 8.0,
             "6201": 7.0,
             "7669": 7.0
-        }
+        },
+        "consume": true
     },
     "8953": {
         "i": 8953,
@@ -11363,7 +11400,8 @@
             "10421": 4.0,
             "10471": 3.0,
             "8913": 3.0
-        }
+        },
+        "consume": true
     },
     "8956": {
         "i": 8956,
@@ -11411,7 +11449,8 @@
                 "11887": 13.0
             }
         },
-        "objective": 8785
+        "objective": 8785,
+        "consume": true
     },
     "8957": {
         "i": 8957,
@@ -11587,7 +11626,8 @@
             "objects": {
                 "153471": 20.0
             }
-        }
+        },
+        "consume": true
     },
     "8959": {
         "i": 8959,
@@ -11643,7 +11683,8 @@
             "4366": 5.0,
             "7886": 5.0,
             "7885": 4.0
-        }
+        },
+        "consume": true
     },
     "8964": {
         "i": 8964,
@@ -11730,7 +11771,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "8985": {
         "i": 8985,
@@ -11773,6 +11815,7 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     }
 }

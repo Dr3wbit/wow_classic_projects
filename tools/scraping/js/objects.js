@@ -1195,6 +1195,10 @@
         "i": 177926,
         "n": "Gaea Seed"
     },
+    "177964": {
+        "i": 177964,
+        "n": "Fathom Stone"
+    },
     "178084": {
         "i": 178084,
         "n": "Felix's Chest"
@@ -1207,6 +1211,22 @@
         "i": 178087,
         "n": "Thazz'ril's Pick"
     },
+    "178104": {
+        "i": 178104,
+        "n": "Resonite Crystal"
+    },
+    "178105": {
+        "i": 178105,
+        "n": "Resonite Crystal"
+    },
+    "178106": {
+        "i": 178106,
+        "n": "Resonite Crystal"
+    },
+    "178144": {
+        "i": 178144,
+        "n": "Troll Chest"
+    },
     "178184": {
         "i": 178184,
         "n": "Sapphire of Aku'Mai"
@@ -1218,6 +1238,42 @@
     "178186": {
         "i": 178186,
         "n": "Sapphire of Aku'Mai"
+    },
+    "178195": {
+        "i": 178195,
+        "n": "Warsong Oil"
+    },
+    "178204": {
+        "i": 178204,
+        "n": "Warsong Axe Shipment"
+    },
+    "178227": {
+        "i": 178227,
+        "n": "Murgut's Totem Basket"
+    },
+    "178553": {
+        "i": 178553,
+        "n": "Hive'Ashi Pod"
+    },
+    "178609": {
+        "i": 178609,
+        "n": "Holiday Snow"
+    },
+    "178784": {
+        "i": 178784,
+        "n": "Coldtooth Supplies"
+    },
+    "178785": {
+        "i": 178785,
+        "n": "Irondeep Supplies"
+    },
+    "179024": {
+        "i": 179024,
+        "n": "Stormpike Banner"
+    },
+    "179025": {
+        "i": 179025,
+        "n": "Frostwolf Banner"
     },
     "179426": {
         "i": 179426,
@@ -2247,36 +2303,32 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "178104": {
-        "i": 178104,
-        "n": "Resonite Crystal"
+    "179499": {
+        "i": 179499,
+        "n": "Ogre Tannin Basket"
     },
-    "178105": {
-        "i": 178105,
-        "n": "Resonite Crystal"
+    "179528": {
+        "i": 179528,
+        "n": "Warpwood Pod"
     },
-    "178106": {
-        "i": 178106,
-        "n": "Resonite Crystal"
+    "179516": {
+        "i": 179516,
+        "n": "Fengus's Chest"
     },
-    "178144": {
-        "i": 178144,
-        "n": "Troll Chest"
+    "179545": {
+        "i": 179545,
+        "n": "The Prince's Chest"
     },
-    "178195": {
-        "i": 178195,
-        "n": "Warsong Oil"
+    "179553": {
+        "i": 179553,
+        "n": "Core Fragment"
     },
-    "178204": {
-        "i": 178204,
-        "n": "Warsong Axe Shipment"
+    "179562": {
+        "i": 179562,
+        "n": "Ancient Heated Blade"
     },
-    "177964": {
-        "i": 177964,
-        "n": "Fathom Stone"
-    },
-    "178227": {
-        "i": 178227,
-        "n": "Murgut's Totem Basket"
+    "179559": {
+        "i": 179559,
+        "n": "Felvine Shard"
     }
 }

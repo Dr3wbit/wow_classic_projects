@@ -2,11 +2,11 @@
 import json, os
 import invariables as const
 
-SPELLS = const.get_item_list(os.path.abspath('../js/spells.js'))
+SPELLS = const.get_item_list(os.path.abspath('../../js/spells.js'))
 def main():
 
-	for x in range(1, 15):
-		ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items{}.js'.format(x)))
+	for x in range(15, 25):
+		ALL_ITEMS = const.get_item_list(os.path.abspath('../../js/items/items{}.js'.format(x)))
 		if ALL_ITEMS:
 			for ix, v in ALL_ITEMS.items():
 				if 'effects' in v.keys():
@@ -22,7 +22,7 @@ def main():
 									SPELLS[spell_id] = {}
 									SPELLS[spell_id]['i'] = int(spell_id)
 									SPELLS[spell_id]['t'] = spell_text
-									
+
 					elif 'proc' in v['effects'].keys():
 						for xd in v['effects']['proc']:
 							if 't' in xd.keys():
@@ -52,7 +52,6 @@ def main():
 						spell_text = v['use']['t']
 						if spell_id in SPELLS.keys():
 							SPELLS[spell_id]['t'] = spell_text
-
 						else:
 							SPELLS[spell_id] = {}
 							SPELLS[spell_id]['i'] = int(spell_id)

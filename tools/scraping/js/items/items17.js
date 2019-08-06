@@ -15,6 +15,31 @@
         "resist": {
             "Fire": 10,
             "Frost": 10
+        },
+        "reward_from": {
+            "6163": 1
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17002": {
@@ -48,6 +73,31 @@
                     "t": "Poisons target for 8 Nature damage every 2 sec for 20 sec."
                 }
             ]
+        },
+        "reward_from": {
+            "6136": 1
+        },
+        "disenchant": {
+            "16203": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "16204": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14344": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17003": {
@@ -76,6 +126,31 @@
             "stamina": 4,
             "spirit": 3,
             "durability": 75
+        },
+        "reward_from": {
+            "6136": 1
+        },
+        "disenchant": {
+            "16203": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "16204": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14344": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17004": {
@@ -103,6 +178,31 @@
             "stamina": 20,
             "intellect": 15,
             "durability": 85
+        },
+        "reward_from": {
+            "6136": 1
+        },
+        "disenchant": {
+            "16203": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "16204": {
+                "chance": 22.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "14344": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17005": {
@@ -124,6 +224,31 @@
             "agility": 7,
             "stamina": 6,
             "durability": 80
+        },
+        "reward_from": {
+            "6621": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17006": {
@@ -146,6 +271,31 @@
             "strength": 5,
             "agility": 3,
             "durability": 70
+        },
+        "reward_from": {
+            "6621": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17007": {
@@ -174,6 +324,37 @@
         },
         "requirements": {
             "level": 46
+        },
+        "dropped": {
+            "8924": 0.003,
+            "193": 0.001,
+            "2642": 0.001,
+            "2644": 0.001,
+            "2645": 0.001,
+            "2646": 0.001,
+            "2647": 0.001,
+            "2648": 0.001,
+            "2681": 0.001,
+            "5280": 0.001,
+            "4468": 0.001,
+            "5270": 0.001,
+            "5267": 0.001,
+            "5259": 0.001,
+            "5228": 0.001,
+            "5226": 0.001,
+            "5256": 0.001,
+            "5269": 0.001,
+            "5271": 0.001,
+            "5273": 0.001
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "17008": {
@@ -189,7 +370,12 @@
             "faction": "H"
         },
         "starts": 6522,
-        "description": "The scroll bears an insignia foreign to you"
+        "description": "The scroll bears an insignia foreign to you",
+        "dropped": {
+            "4421": 100.0
+        },
+        "provided_for": 6522,
+        "objective": 6522
     },
     "17009": {
         "i": 17009,
@@ -198,7 +384,11 @@
         "image_name": "inv_misc_head_undead_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12865": 100.0
+        },
+        "objective": 6521
     },
     "17010": {
         "i": 17010,
@@ -211,6 +401,43 @@
             "gold": 0,
             "silver": 20,
             "copper": 0
+        },
+        "dropped": {
+            "11666": 42.0,
+            "11667": 35.0,
+            "11668": 23.0,
+            "11659": 15.0,
+            "12056": 14.0
+        },
+        "objective": 6643,
+        "creates": {
+            "22967": 17771,
+            "23638": 19166,
+            "20855": 16984,
+            "23639": 19167,
+            "23652": 19168,
+            "23708": 19157,
+            "22795": 18282,
+            "23709": 19162,
+            "20853": 16982,
+            "24399": 20039,
+            "20874": 17014,
+            "23637": 19164,
+            "23636": 19148,
+            "20876": 17013,
+            "23650": 19170,
+            "20872": 16989,
+            "20873": 16988,
+            "20849": 16979,
+            "23667": 19165,
+            "20848": 16980,
+            "23666": 19156,
+            "22759": 18263,
+            "23710": 19163,
+            "20854": 16983,
+            "23653": 19169,
+            "21161": 17193,
+            "20890": 17015
         }
     },
     "17011": {
@@ -224,6 +451,43 @@
             "gold": 0,
             "silver": 20,
             "copper": 0
+        },
+        "dropped": {
+            "12076": 24.0,
+            "12100": 22.0,
+            "11659": 15.0,
+            "11988": 14.0,
+            "12057": 14.0,
+            "11665": 12.0,
+            "12101": 3.0
+        },
+        "objective": 6644,
+        "creates": {
+            "23638": 19166,
+            "20855": 16984,
+            "23639": 19167,
+            "23652": 19168,
+            "23708": 19157,
+            "22795": 18282,
+            "20853": 16982,
+            "24399": 20039,
+            "20874": 17014,
+            "23637": 19164,
+            "23636": 19148,
+            "20876": 17013,
+            "23650": 19170,
+            "20872": 16989,
+            "20873": 16988,
+            "23667": 19165,
+            "20848": 16980,
+            "23666": 19156,
+            "23707": 19149,
+            "23710": 19163,
+            "20854": 16983,
+            "23653": 19169,
+            "21161": 17193,
+            "22793": 18283,
+            "20897": 17016
         }
     },
     "17012": {
@@ -237,6 +501,22 @@
             "gold": 0,
             "silver": 10,
             "copper": 0
+        },
+        "skinned": {
+            "11673": 100.0,
+            "11982": 100.0
+        },
+        "objective": 6645,
+        "creates": {
+            "23708": 19157,
+            "26087": 21342,
+            "23709": 19162,
+            "20853": 16982,
+            "24399": 20039,
+            "23637": 19164,
+            "20854": 16983,
+            "18455": 14156,
+            "22727": 18251
         }
     },
     "17013": {
@@ -276,6 +556,19 @@
                 "17010": 4,
                 "17011": 6
             }
+        },
+        "materials": {
+            "11371": 16,
+            "17010": 4,
+            "17011": 6
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17014": {
@@ -314,6 +607,19 @@
                 "11371": 4,
                 "17010": 2,
                 "17011": 2
+            }
+        },
+        "materials": {
+            "11371": 4,
+            "17010": 2,
+            "17011": 2
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -361,6 +667,20 @@
                 "11382": 2,
                 "12810": 2
             }
+        },
+        "materials": {
+            "11371": 16,
+            "17010": 12,
+            "11382": 2,
+            "12810": 2
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17016": {
@@ -407,6 +727,20 @@
                 "11382": 2,
                 "12810": 2
             }
+        },
+        "materials": {
+            "11371": 18,
+            "17011": 12,
+            "11382": 2,
+            "12810": 2
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17017": {
@@ -429,6 +763,15 @@
         "use": {
             "s": 20850,
             "t": "Teaches you how to sew a Flarecore Mantle."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 18
+                }
+            }
         }
     },
     "17018": {
@@ -451,6 +794,15 @@
         "use": {
             "s": 20851,
             "t": "Teaches you how to sew Flarecore Gloves."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 8
+                }
+            }
         }
     },
     "17019": {
@@ -463,7 +815,8 @@
             "gold": 0,
             "silver": 1,
             "copper": 75
-        }
+        },
+        "creates": {}
     },
     "17020": {
         "i": 17020,
@@ -476,7 +829,155 @@
             "gold": 0,
             "silver": 2,
             "copper": 50
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17021": {
         "i": 17021,
@@ -489,7 +990,155 @@
             "gold": 0,
             "silver": 1,
             "copper": 75
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17022": {
         "i": 17022,
@@ -512,6 +1161,15 @@
         "use": {
             "s": 20852,
             "t": "Teaches you how to craft Corehound Boots."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            }
         }
     },
     "17023": {
@@ -535,6 +1193,15 @@
         "use": {
             "s": 20856,
             "t": "Teaches you how to craft a Molten Helm."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 16
+                }
+            }
         }
     },
     "17025": {
@@ -558,6 +1225,15 @@
         "use": {
             "s": 20857,
             "t": "Teaches you how to craft Black Dragonscale Boots."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 16
+                }
+            }
         }
     },
     "17026": {
@@ -571,7 +1247,155 @@
             "gold": 0,
             "silver": 2,
             "copper": 50
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17028": {
         "i": 17028,
@@ -584,7 +1408,155 @@
             "gold": 0,
             "silver": 1,
             "copper": 75
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 7,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17029": {
         "i": 17029,
@@ -597,7 +1569,155 @@
             "gold": 0,
             "silver": 2,
             "copper": 50
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17030": {
         "i": 17030,
@@ -610,7 +1730,155 @@
             "gold": 0,
             "silver": 5,
             "copper": 0
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17031": {
         "i": 17031,
@@ -623,7 +1891,155 @@
             "gold": 0,
             "silver": 2,
             "copper": 50
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17032": {
         "i": 17032,
@@ -636,7 +2052,155 @@
             "gold": 0,
             "silver": 5,
             "copper": 0
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17033": {
         "i": 17033,
@@ -649,7 +2213,155 @@
             "gold": 0,
             "silver": 5,
             "copper": 0
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17034": {
         "i": 17034,
@@ -662,6 +2374,157 @@
             "gold": 0,
             "silver": 0,
             "copper": 50
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 2,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {
+            "25125": 20745,
+            "25124": 20744
         }
     },
     "17035": {
@@ -675,6 +2538,156 @@
             "gold": 0,
             "silver": 1,
             "copper": 0
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 4,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {
+            "25126": 20746
         }
     },
     "17036": {
@@ -688,7 +2701,155 @@
             "gold": 0,
             "silver": 2,
             "copper": 0
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 8,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17037": {
         "i": 17037,
@@ -701,7 +2862,155 @@
             "gold": 0,
             "silver": 3,
             "copper": 50
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 14,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17038": {
         "i": 17038,
@@ -714,7 +3023,155 @@
             "gold": 0,
             "silver": 5,
             "copper": 0
-        }
+        },
+        "sold": {
+            "3562": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1673": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13476": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5110": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1351": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "8361": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4220": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "958": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "2805": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1463": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5151": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3335": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4575": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3323": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3490": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3700": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3542": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4083": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "1673": 0.02
+            }
+        },
+        "creates": {}
     },
     "17039": {
         "i": 17039,
@@ -741,6 +3198,31 @@
             "intellect": 5,
             "stamina": 3,
             "durability": 75
+        },
+        "reward_from": {
+            "6521": 1
+        },
+        "disenchant": {
+            "11135": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17042": {
@@ -766,6 +3248,31 @@
         },
         "stats": {
             "durability": 65
+        },
+        "reward_from": {
+            "6521": 1
+        },
+        "disenchant": {
+            "11135": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17043": {
@@ -788,6 +3295,31 @@
             "intellect": 4,
             "spirit": 3,
             "durability": 70
+        },
+        "reward_from": {
+            "6521": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17044": {
@@ -813,6 +3345,17 @@
                     "t": "+30 Attack Power."
                 }
             ]
+        },
+        "reward_from": {
+            "5125": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17045": {
@@ -831,6 +3374,17 @@
         "stats": {
             "stamina": 15,
             "intellect": 10
+        },
+        "reward_from": {
+            "5125": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17046": {
@@ -858,6 +3412,31 @@
             "strength": 3,
             "stamina": 3,
             "durability": 75
+        },
+        "reward_from": {
+            "1046": 1
+        },
+        "disenchant": {
+            "11134": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11083": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11138": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17047": {
@@ -880,6 +3459,31 @@
             "intellect": 4,
             "spirit": 2,
             "durability": 45
+        },
+        "reward_from": {
+            "1035": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17048": {
@@ -898,6 +3502,9 @@
         "use": {
             "s": 20875,
             "t": "Increases Stamina by 10 for 15 min and gets you drunk to boot!"
+        },
+        "reward_from": {
+            "580": 5
         }
     },
     "17049": {
@@ -921,6 +3528,15 @@
         "use": {
             "s": 20878,
             "t": "Teaches you how to make a Fiery Chain Girdle."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 9
+                }
+            }
         }
     },
     "17050": {
@@ -949,6 +3565,17 @@
         },
         "requirements": {
             "level": 47
+        },
+        "dropped": {
+            "8217": 10.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17051": {
@@ -972,6 +3599,15 @@
         "use": {
             "s": 20880,
             "t": "Teaches you how to make Dark Iron Bracers."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 7
+                }
+            }
         }
     },
     "17052": {
@@ -995,6 +3631,15 @@
         "use": {
             "s": 20881,
             "t": "Teaches you how to make Dark Iron Leggings."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 18
+                }
+            }
         }
     },
     "17053": {
@@ -1018,6 +3663,15 @@
         "use": {
             "s": 20879,
             "t": "Teaches you how to make Fiery Chain Shoulders."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 20
+                }
+            }
         }
     },
     "17054": {
@@ -1054,6 +3708,17 @@
                     "t": "Blasts a target for 70 Arcane damage."
                 }
             ]
+        },
+        "dropped": {
+            "6650": 25.0
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17055": {
@@ -1085,6 +3750,17 @@
         },
         "requirements": {
             "level": 45
+        },
+        "dropped": {
+            "8201": 20.0
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17056": {
@@ -1098,7 +3774,30 @@
             "gold": 0,
             "silver": 0,
             "copper": 7
-        }
+        },
+        "dropped": {
+            "4117": 62.0,
+            "4118": 54.0,
+            "4119": 52.0,
+            "3247": 49.0,
+            "3249": 47.0,
+            "3424": 45.0,
+            "2321": 42.0,
+            "3244": 41.0,
+            "3246": 40.0,
+            "3630": 35.0,
+            "2322": 34.0,
+            "3245": 33.0,
+            "1194": 33.0,
+            "5834": 32.0,
+            "2323": 32.0,
+            "154": 32.0,
+            "1109": 31.0,
+            "10157": 31.0,
+            "3631": 30.0,
+            "428": 30.0
+        },
+        "creates": {}
     },
     "17057": {
         "i": 17057,
@@ -1111,7 +3810,42 @@
             "gold": 0,
             "silver": 0,
             "copper": 7
-        }
+        },
+        "dropped": {
+            "3722": 53.0,
+            "905": 51.0,
+            "2173": 41.0,
+            "2174": 38.0,
+            "2544": 37.0,
+            "12347": 36.0,
+            "14276": 36.0,
+            "12940": 35.0,
+            "2236": 32.0,
+            "922": 31.0,
+            "4827": 30.0,
+            "3814": 30.0,
+            "4460": 30.0,
+            "4715": 30.0,
+            "4363": 30.0,
+            "1026": 30.0,
+            "4716": 30.0,
+            "4459": 30.0,
+            "4712": 29.0,
+            "4401": 29.0
+        },
+        "pickpocketed": {
+            "1028": 1.818,
+            "1024": 0.243
+        },
+        "skinned": {
+            "905": 100.0,
+            "1193": 100.0,
+            "2173": 100.0,
+            "2174": 100.0,
+            "6033": 100.0,
+            "8236": 100.0
+        },
+        "creates": {}
     },
     "17058": {
         "i": 17058,
@@ -1124,7 +3858,30 @@
             "gold": 0,
             "silver": 0,
             "copper": 7
-        }
+        },
+        "dropped": {
+            "14229": 32.0,
+            "14447": 32.0,
+            "4460": 32.0,
+            "2596": 31.0,
+            "4457": 30.0,
+            "4459": 30.0,
+            "4716": 30.0,
+            "5332": 30.0,
+            "4360": 30.0,
+            "2371": 29.0,
+            "4718": 29.0,
+            "14230": 29.0,
+            "2595": 29.0,
+            "4687": 29.0,
+            "2779": 29.0,
+            "747": 29.0,
+            "4361": 29.0,
+            "751": 29.0,
+            "4458": 29.0,
+            "5336": 29.0
+        },
+        "creates": {}
     },
     "17059": {
         "i": 17059,
@@ -1147,6 +3904,15 @@
         "use": {
             "s": 20898,
             "t": "Teaches you how to make a Dark Iron Reaver."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 22
+                }
+            }
         }
     },
     "17060": {
@@ -1170,6 +3936,15 @@
         "use": {
             "s": 20899,
             "t": "Teaches you how to make a Dark Iron Destroyer."
+        },
+        "sold": {
+            "12944": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 22
+                }
+            }
         }
     },
     "17061": {
@@ -1196,6 +3971,34 @@
         },
         "requirements": {
             "level": 53
+        },
+        "dropped": {
+            "10382": 0.02,
+            "10398": 0.02,
+            "10405": 0.02,
+            "10407": 0.02,
+            "10409": 0.02,
+            "10412": 0.02,
+            "10413": 0.02,
+            "10414": 0.02,
+            "10417": 0.02,
+            "10418": 0.02,
+            "10419": 0.02,
+            "10424": 0.02,
+            "10463": 0.02,
+            "11043": 0.02,
+            "10400": 0.02,
+            "10420": 0.02,
+            "10399": 0.02,
+            "10394": 0.02
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17062": {
@@ -1217,6 +4020,71 @@
         "use": {
             "s": 20921,
             "t": "Teaches you how to cook Mithril Head Trout."
+        },
+        "sold": {
+            "4307": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "2664": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "2383": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "4574": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "3333": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "3178": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "5162": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "12962": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "12033": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 22,
+                    "gold": 0
+                }
+            }
         }
     },
     "17063": {
@@ -1247,6 +4115,18 @@
                     "t": "Improves your chance to hit by 2%."
                 }
             ]
+        },
+        "dropped": {
+            "11502": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17064": {
@@ -1277,6 +4157,18 @@
         "itemset": {
             "n": "Shard of the Gods",
             "i": 241
+        },
+        "dropped": {
+            "10184": 8.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17065": {
@@ -1310,6 +4202,18 @@
                     "t": "Increased Defense +8."
                 }
             ]
+        },
+        "dropped": {
+            "11982": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17066": {
@@ -1350,6 +4254,18 @@
                     "t": "Increases the block value of your shield by 23."
                 }
             ]
+        },
+        "dropped": {
+            "12057": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17067": {
@@ -1376,6 +4292,18 @@
         "use": {
             "s": 17490,
             "t": "Summons a Skeleton that will protect you for 1 min. (cooldown 15 min)"
+        },
+        "dropped": {
+            "10184": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17068": {
@@ -1412,6 +4340,18 @@
                     "t": "Sends a shadowy bolt at the enemy causing 110 to 141 Shadow damage."
                 }
             ]
+        },
+        "dropped": {
+            "10184": 8.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17069": {
@@ -1452,6 +4392,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "11982": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17070": {
@@ -1497,6 +4449,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 40."
                 }
             ]
+        },
+        "dropped": {
+            "6109": 19.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17071": {
@@ -1533,6 +4497,18 @@
                     "t": "Sends a shadowy bolt at the enemy causing 75 Shadow damage and lowering all stats by 25 for 30 sec."
                 }
             ]
+        },
+        "dropped": {
+            "12057": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17072": {
@@ -1570,6 +4546,18 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "11988": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17073": {
@@ -1612,6 +4600,18 @@
                     "t": "+22 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "11982": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17074": {
@@ -1655,6 +4655,18 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "dropped": {
+            "12098": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17075": {
@@ -1692,6 +4704,18 @@
                     "t": "Delivers a fatal wound for 240 damage."
                 }
             ]
+        },
+        "dropped": {
+            "10184": 8.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17076": {
@@ -1735,6 +4759,18 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "11502": 8.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17077": {
@@ -1767,6 +4803,21 @@
         },
         "requirements": {
             "level": 58
+        },
+        "dropped": {
+            "12259": 5.0,
+            "12098": 4.0,
+            "12118": 4.0,
+            "12264": 3.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17078": {
@@ -1802,6 +4853,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 14."
                 }
             ]
+        },
+        "dropped": {
+            "10184": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17082": {
@@ -1832,6 +4895,18 @@
         "itemset": {
             "n": "Shard of the Gods",
             "i": 241
+        },
+        "dropped": {
+            "11502": 8.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17102": {
@@ -1859,6 +4934,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "11502": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17103": {
@@ -1901,6 +4988,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 40."
                 }
             ]
+        },
+        "dropped": {
+            "11988": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17104": {
@@ -1941,6 +5040,18 @@
                     "t": "+34 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "11502": 8.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17105": {
@@ -1983,6 +5094,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 25."
                 }
             ]
+        },
+        "dropped": {
+            "12057": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17106": {
@@ -2016,6 +5139,18 @@
                     "t": "Restores 9 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "11502": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17107": {
@@ -2044,6 +5179,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "11502": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17109": {
@@ -2074,6 +5221,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 18."
                 }
             ]
+        },
+        "dropped": {
+            "12118": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17110": {
@@ -2112,6 +5271,18 @@
                     "t": "Restores 3 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "12056": 33.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17111": {
@@ -2144,6 +5315,18 @@
                     "t": "Adds 2 fire damage to your melee attacks."
                 }
             ]
+        },
+        "dropped": {
+            "12397": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17112": {
@@ -2180,6 +5363,18 @@
                     "t": "Increases your attack speed by 20% for 10 sec."
                 }
             ]
+        },
+        "dropped": {
+            "12397": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17113": {
@@ -2228,6 +5423,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 44."
                 }
             ]
+        },
+        "dropped": {
+            "12397": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17114": {
@@ -2237,7 +5444,13 @@
         "image_name": "inv_enchant_shardglowinglarge",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "177241": 100.0
+            }
+        },
+        "objective": 211
     },
     "17117": {
         "i": 17117,
@@ -2250,7 +5463,9 @@
         "use": {
             "s": 21050,
             "t": "Use to lull the vermin infesting the Deeprun Tram into a state of raptured bliss."
-        }
+        },
+        "provided_for": 6661,
+        "objective": 6661
     },
     "17118": {
         "i": 17118,
@@ -2260,7 +5475,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Handle With Care"
+        "description": "Handle With Care",
+        "provided_for": 6662,
+        "objective": 6662
     },
     "17119": {
         "i": 17119,
@@ -2280,6 +5497,18 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "13018": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
+        },
+        "reward_from": {
+            "6662": 10
         }
     },
     "17124": {
@@ -2289,7 +5518,34 @@
         "image_name": "inv_misc_armorkit_03",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "contained": {
+            "items": {
+                "16882": 0.05,
+                "16883": 0.05
+            }
+        },
+        "pickpocketed": {
+            "2240": 80.0,
+            "2241": 80.0,
+            "2242": 80.0,
+            "2243": 80.0,
+            "2244": 80.0,
+            "2245": 80.0,
+            "2246": 80.0,
+            "2247": 80.0,
+            "2260": 80.0,
+            "2261": 80.0,
+            "2319": 80.0,
+            "2586": 80.0,
+            "2587": 80.0,
+            "2588": 80.0,
+            "2589": 80.0,
+            "2590": 80.0,
+            "2591": 80.0,
+            "14221": 80.0
+        },
+        "objective": 6701
     },
     "17125": {
         "i": 17125,
@@ -2298,7 +5554,9 @@
         "image_name": "inv_jewelry_talisman_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 6681,
+        "objective": 6681
     },
     "17126": {
         "i": 17126,
@@ -2317,7 +5575,8 @@
         "starts": 6681,
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 6681
     },
     "17182": {
         "i": 17182,
@@ -2371,6 +5630,10 @@
                 "17193": 1,
                 "17204": 1
             }
+        },
+        "materials": {
+            "17193": 1,
+            "17204": 1
         }
     },
     "17183": {
@@ -2390,6 +5653,36 @@
             "armor": 29,
             "block": 1,
             "durability": 25
+        },
+        "sold": {
+            "2116": {
+                "cost": {
+                    "copper": 34,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "3075": {
+                "cost": {
+                    "copper": 34,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "3161": {
+                "cost": {
+                    "copper": 34,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4559": {
+                "cost": {
+                    "copper": 34,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "17184": {
@@ -2409,6 +5702,36 @@
             "armor": 29,
             "block": 1,
             "durability": 25
+        },
+        "sold": {
+            "3592": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "4240": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "1213": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "1104": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "17185": {
@@ -2431,6 +5754,43 @@
         },
         "requirements": {
             "level": 3
+        },
+        "sold": {
+            "2135": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3080": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3319": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "4559": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3167": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            }
         }
     },
     "17186": {
@@ -2453,6 +5813,43 @@
         },
         "requirements": {
             "level": 3
+        },
+        "sold": {
+            "2046": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "5106": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "4240": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "3613": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "1249": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 2,
+                    "gold": 0
+                }
+            }
         }
     },
     "17187": {
@@ -2475,6 +5872,50 @@
         },
         "requirements": {
             "level": 9
+        },
+        "sold": {
+            "8360": {
+                "cost": {
+                    "copper": 78,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4187": {
+                "cost": {
+                    "copper": 78,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "5107": {
+                "cost": {
+                    "copper": 78,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "3319": {
+                "cost": {
+                    "copper": 78,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4559": {
+                "cost": {
+                    "copper": 78,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "4560": {
+                "cost": {
+                    "copper": 78,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
         }
     },
     "17188": {
@@ -2497,6 +5938,57 @@
         },
         "requirements": {
             "level": 14
+        },
+        "sold": {
+            "1319": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "4240": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "8360": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "3493": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "793": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "5126": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 22,
+                    "gold": 0
+                }
+            },
+            "3319": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 22,
+                    "gold": 0
+                }
+            }
         }
     },
     "17189": {
@@ -2519,6 +6011,106 @@
         },
         "requirements": {
             "level": 29
+        },
+        "sold": {
+            "1349": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "1319": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "4240": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5125": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "2845": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "3095": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "1381": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "1322": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "4177": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5819": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5126": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "1323": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "5812": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            },
+            "8129": {
+                "cost": {
+                    "copper": 43,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "17190": {
@@ -2541,6 +6133,99 @@
         },
         "requirements": {
             "level": 42
+        },
+        "sold": {
+            "1349": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "1319": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "4240": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "3095": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "980": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "4177": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "5819": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "11182": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "5126": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "1323": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "5508": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "5812": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            },
+            "8129": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 46,
+                    "gold": 3
+                }
+            }
         }
     },
     "17191": {
@@ -2557,6 +6242,9 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "reward_from": {
+            "7046": 1
         }
     },
     "17192": {
@@ -2579,6 +6267,92 @@
         },
         "requirements": {
             "level": 19
+        },
+        "sold": {
+            "1349": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "1450": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "1319": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "6028": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "4240": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "3095": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "4886": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "5819": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "226": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "5126": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "1323": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            },
+            "5812": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 43,
+                    "gold": 0
+                }
+            }
         }
     },
     "17193": {
@@ -2632,6 +6406,27 @@
                 "17011": 10,
                 "17010": 10
             }
+        },
+        "materials": {
+            "17203": 8,
+            "11371": 20,
+            "12360": 50,
+            "7078": 25,
+            "11382": 10,
+            "17011": 10,
+            "17010": 10
+        },
+        "creates": {
+            "21160": 17182
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17194": {
@@ -2645,6 +6440,40 @@
             "gold": 0,
             "silver": 0,
             "copper": 10
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
+        },
+        "creates": {
+            "21144": 17198,
+            "21143": 17197
         }
     },
     "17195": {
@@ -2658,6 +6487,29 @@
             "gold": 0,
             "silver": 0,
             "copper": 10
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "17196": {
@@ -2675,6 +6527,39 @@
         "use": {
             "s": 11007,
             "t": "A fairly weak alcoholic beverage."
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
+        },
+        "creates": {
+            "21144": 17198
         }
     },
     "17197": {
@@ -2704,7 +6589,12 @@
                 "6889": 1,
                 "17194": 1
             }
-        }
+        },
+        "materials": {
+            "6889": 1,
+            "17194": 1
+        },
+        "objective": 7025
     },
     "17198": {
         "i": 17198,
@@ -2735,6 +6625,12 @@
                 "17196": 1,
                 "17194": 1
             }
+        },
+        "materials": {
+            "6889": 1,
+            "1179": 1,
+            "17196": 1,
+            "17194": 1
         }
     },
     "17200": {
@@ -2756,6 +6652,36 @@
         "use": {
             "s": 21145,
             "t": "Teaches you how to bake a Gingerbread Cookie."
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "17201": {
@@ -2777,6 +6703,36 @@
         "use": {
             "s": 21146,
             "t": "Teaches you how to make Egg Nog."
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 40,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 40,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 40,
+                    "silver": 2,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 40,
+                    "silver": 2,
+                    "gold": 0
+                }
+            }
         }
     },
     "17202": {
@@ -2799,6 +6755,49 @@
             "materials": {
                 "159": 1
             }
+        },
+        "dropped": {
+            "2251": 0.36,
+            "2256": 0.18,
+            "2250": 0.16
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "178609": 100.0
+            }
+        },
+        "creates": {
+            "21940": 17716
         }
     },
     "17203": {
@@ -2812,6 +6811,13 @@
             "gold": 10,
             "silver": 0,
             "copper": 0
+        },
+        "dropped": {
+            "11988": 20.0
+        },
+        "objective": 7604,
+        "creates": {
+            "21161": 17193
         }
     },
     "17204": {
@@ -2829,6 +6835,12 @@
         "use": {
             "s": 21160,
             "t": "The Eye of Sulfuras can be combined with the Sulfuron Hammer to create Sulfuras, legendary hammer of Ragnaros."
+        },
+        "dropped": {
+            "11502": 3.0
+        },
+        "creates": {
+            "21160": 17182
         }
     },
     "17222": {
@@ -2903,6 +6915,15 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17224": {
@@ -2965,6 +6986,36 @@
             "gold": 0,
             "silver": 0,
             "copper": 2
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "17304": {
@@ -2978,6 +7029,36 @@
             "gold": 0,
             "silver": 0,
             "copper": 2
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "17305": {
@@ -2994,7 +7075,30 @@
         "image_name": "inv_potion_50",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "13424": 100.0,
+            "13138": 100.0,
+            "13298": 100.0,
+            "13299": 100.0,
+            "13297": 100.0,
+            "13426": 100.0,
+            "13317": 100.0,
+            "13316": 100.0,
+            "14284": 100.0,
+            "13617": 100.0,
+            "13577": 100.0,
+            "13447": 100.0,
+            "13097": 100.0,
+            "13096": 100.0,
+            "13089": 100.0,
+            "14188": 100.0,
+            "13078": 100.0,
+            "12127": 100.0,
+            "12050": 100.0,
+            "12048": 100.0
+        },
+        "objective": 6801
     },
     "17307": {
         "i": 17307,
@@ -3007,6 +7111,36 @@
             "gold": 0,
             "silver": 0,
             "copper": 2
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "17308": {
@@ -3023,7 +7157,11 @@
         "image_name": "inv_bracer_07",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "13279": 100.0
+        },
+        "objective": 6804
     },
     "17310": {
         "i": 17310,
@@ -3036,7 +7174,9 @@
         "use": {
             "s": 21332,
             "t": "Used on plagued water elementals in Eastern Plaguelands. (cooldown 30 sec)"
-        }
+        },
+        "provided_for": 6804,
+        "objective": 6804
     },
     "17322": {
         "i": 17322,
@@ -3044,7 +7184,11 @@
         "n": "Eye of the Emberseer",
         "image_name": "inv_misc_gem_pearl_04",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "9816": 100.0
+        },
+        "objective": 6821
     },
     "17323": {
         "i": 17323,
@@ -3117,7 +7261,11 @@
         "stack": 100,
         "ilvl": 1,
         "bop": true,
-        "description": "Alliance: the other, other, OTHER, white meat"
+        "description": "Alliance: the other, other, OTHER, white meat",
+        "dropped": {
+            "1": 33.0
+        },
+        "objective": 6825
     },
     "17327": {
         "i": 17327,
@@ -3126,7 +7274,11 @@
         "image_name": "inv_misc_food_72",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "1": 33.0
+        },
+        "objective": 6826
     },
     "17328": {
         "i": 17328,
@@ -3135,7 +7287,11 @@
         "image_name": "inv_misc_food_69",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "1": 33.0
+        },
+        "objective": 6827
     },
     "17329": {
         "i": 17329,
@@ -3143,7 +7299,11 @@
         "n": "Hand of Lucifron",
         "image_name": "inv_gauntlets_26",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12118": 100.0
+        },
+        "objective": 6824
     },
     "17330": {
         "i": 17330,
@@ -3151,7 +7311,11 @@
         "n": "Hand of Sulfuron",
         "image_name": "inv_gauntlets_03",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12098": 100.0
+        },
+        "objective": 6824
     },
     "17331": {
         "i": 17331,
@@ -3159,7 +7323,11 @@
         "n": "Hand of Gehennas",
         "image_name": "spell_fire_immolation",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12259": 100.0
+        },
+        "objective": 6824
     },
     "17332": {
         "i": 17332,
@@ -3167,7 +7335,11 @@
         "n": "Hand of Shazzrah",
         "image_name": "inv_gauntlets_19",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12264": 100.0
+        },
+        "objective": 6824
     },
     "17333": {
         "i": 17333,
@@ -3207,6 +7379,41 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "13435": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13429": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13420": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "13433": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "items": {
+                "17685": 100.0
+            }
         }
     },
     "17345": {
@@ -3217,7 +7424,12 @@
         "stack": 20,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Ewww.."
+        "description": "Ewww..",
+        "contained": {
+            "objects": {
+                "178553": 100.0
+            }
+        }
     },
     "17346": {
         "i": 17346,
@@ -3226,7 +7438,12 @@
         "image_name": "inv_shield_21",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "13301": 100.0
+        },
+        "provided_for": 6844,
+        "objective": 6844
     },
     "17348": {
         "i": 17348,
@@ -3246,6 +7463,50 @@
         "use": {
             "s": 21393,
             "t": "Restores 980 to 1261 health. This item may only be used in PvP Battlegrounds. (cooldown 2 min)"
+        },
+        "sold": {
+            "13216": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13218": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13219": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "14754": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13217": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
         }
     },
     "17349": {
@@ -3266,6 +7527,64 @@
         "use": {
             "s": 21394,
             "t": "Restores 560 to 721 health. This item may only be used in PvP Battlegrounds. (cooldown 2 min)"
+        },
+        "sold": {
+            "13216": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "13218": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "13219": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "14754": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "15126": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "15127": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "13217": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            }
         }
     },
     "17351": {
@@ -3286,6 +7605,50 @@
         "use": {
             "s": 21395,
             "t": "Restores 980 to 1261 mana. This item may only be used in PvP Battlegrounds. (cooldown 2 min)"
+        },
+        "sold": {
+            "13216": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13218": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13219": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "14754": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13217": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
         }
     },
     "17352": {
@@ -3306,6 +7669,64 @@
         "use": {
             "s": 21396,
             "t": "Restores 560 to 721 mana. This item may only be used in PvP Battlegrounds. (cooldown 2 min)"
+        },
+        "sold": {
+            "13216": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "13218": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "13219": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "14754": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "15126": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "15127": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            },
+            "13217": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 5,
+                    "gold": 0
+                }
+            }
         }
     },
     "17353": {
@@ -3320,7 +7741,8 @@
             "materials": {
                 "9282": 1
             }
-        }
+        },
+        "objective": 6846
     },
     "17355": {
         "i": 17355,
@@ -3330,7 +7752,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 1124,
+        "objective": 1124
     },
     "17362": {
         "i": 17362,
@@ -3401,6 +7825,9 @@
         "use": {
             "s": 21544,
             "t": "Creates a Shredder Unit that you control! (cooldown 45 min)"
+        },
+        "reward_from": {
+            "6861": 1
         }
     },
     "17402": {
@@ -3418,6 +7845,36 @@
         "use": {
             "s": 11009,
             "t": "A strong alcoholic beverage."
+        },
+        "sold": {
+            "13436": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13430": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13418": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13434": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "17403": {
@@ -3435,6 +7892,36 @@
         "use": {
             "s": 11008,
             "t": "A typical alcoholic beverage."
+        },
+        "sold": {
+            "13436": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13430": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13418": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13434": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "17404": {
@@ -3455,6 +7942,41 @@
         "use": {
             "s": 431,
             "t": "Restores 436.8 mana over 21 sec. Must remain seated while drinking."
+        },
+        "sold": {
+            "13436": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13430": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13418": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13434": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "items": {
+                "17685": 100.0
+            }
         }
     },
     "17405": {
@@ -3475,6 +7997,36 @@
         "use": {
             "s": 1133,
             "t": "Restores 1344.6 mana over 27 sec. Must remain seated while drinking."
+        },
+        "sold": {
+            "13436": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13430": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13418": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13434": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
         }
     },
     "17406": {
@@ -3495,6 +8047,41 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "13436": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13430": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13418": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "13434": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "items": {
+                "17685": 100.0
+            }
         }
     },
     "17407": {
@@ -3515,6 +8102,41 @@
         "use": {
             "s": 1127,
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "13436": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13430": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13418": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "13434": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "items": {
+                "17685": 100.0
+            }
         }
     },
     "17408": {
@@ -3535,6 +8157,36 @@
         "use": {
             "s": 1129,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "13436": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13430": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13418": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "13434": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "17410": {
@@ -3548,6 +8200,9 @@
         "use": {
             "s": 21565,
             "t": "Creates a Shredder Unit that you control! (cooldown 45 min)"
+        },
+        "reward_from": {
+            "6862": 1
         }
     },
     "17411": {
@@ -3557,7 +8212,8 @@
         "image_name": "inv_misc_gear_02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 6862
     },
     "17413": {
         "i": 17413,
@@ -3579,6 +8235,28 @@
         "use": {
             "s": 21568,
             "t": "Teaches Prayer of Fortitude (Rank 1)."
+        },
+        "dropped": {
+            "11502": 3.0,
+            "12397": 2.0,
+            "10184": 1.316,
+            "6109": 1.316,
+            "10043": 0.52,
+            "8909": 0.36,
+            "9554": 0.36,
+            "9541": 0.34,
+            "5270": 0.32,
+            "8894": 0.32,
+            "9443": 0.32,
+            "8889": 0.3,
+            "8890": 0.3,
+            "8891": 0.3,
+            "8893": 0.3,
+            "9201": 0.3,
+            "5225": 0.28,
+            "5256": 0.28,
+            "8892": 0.28,
+            "8912": 0.28
         }
     },
     "17414": {
@@ -3601,6 +8279,28 @@
         "use": {
             "s": 21569,
             "t": "Teaches Prayer of Fortitude (Rank 2)."
+        },
+        "dropped": {
+            "11502": 3.0,
+            "12397": 2.0,
+            "14521": 1.4,
+            "10184": 1.316,
+            "6109": 1.316,
+            "10472": 0.633,
+            "11465": 0.62,
+            "9439": 0.54,
+            "10497": 0.5,
+            "9260": 0.48,
+            "9817": 0.48,
+            "9818": 0.48,
+            "10742": 0.46,
+            "9819": 0.44,
+            "10317": 0.44,
+            "10681": 0.44,
+            "10319": 0.42,
+            "14303": 0.42,
+            "10318": 0.4,
+            "11453": 0.4
         }
     },
     "17422": {
@@ -3616,7 +8316,30 @@
             "copper": 2
         },
         "bop": true,
-        "description": "Return to your base blacksmith to help upgrade troop"
+        "description": "Return to your base blacksmith to help upgrade troop",
+        "dropped": {
+            "1": 100.0,
+            "13816": 80.0,
+            "14285": 80.0,
+            "13552": 80.0,
+            "13543": 80.0,
+            "13537": 80.0,
+            "13530": 80.0,
+            "13440": 80.0,
+            "13422": 80.0,
+            "13331": 80.0,
+            "13330": 80.0,
+            "13298": 80.0,
+            "13152": 80.0,
+            "13145": 80.0,
+            "13143": 80.0,
+            "13099": 80.0,
+            "13081": 80.0,
+            "12051": 80.0,
+            "13337": 80.0,
+            "13576": 80.0
+        },
+        "objective": 6741
     },
     "17423": {
         "i": 17423,
@@ -3625,7 +8348,30 @@
         "image_name": "inv_misc_gem_pearl_06",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "14777": 100.0,
+            "14775": 100.0,
+            "14774": 100.0,
+            "14772": 100.0,
+            "13798": 100.0,
+            "13618": 100.0,
+            "13597": 100.0,
+            "13536": 100.0,
+            "13441": 100.0,
+            "13359": 100.0,
+            "13284": 100.0,
+            "13539": 100.0,
+            "13154": 100.0,
+            "13153": 100.0,
+            "13152": 100.0,
+            "13147": 100.0,
+            "13146": 100.0,
+            "13145": 100.0,
+            "13144": 100.0,
+            "13143": 100.0
+        },
+        "objective": 6881
     },
     "17442": {
         "i": 17442,
@@ -3640,7 +8386,8 @@
             "materials": {
                 "9282": 1
             }
-        }
+        },
+        "objective": 6901
     },
     "17502": {
         "i": 17502,
@@ -3649,7 +8396,12 @@
         "image_name": "inv_jewelry_talisman_06",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "1": 33.0,
+            "13218": 7.0
+        },
+        "objective": 6942
     },
     "17503": {
         "i": 17503,
@@ -3658,7 +8410,12 @@
         "image_name": "inv_jewelry_talisman_04",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "1": 33.0,
+            "13218": 7.0
+        },
+        "objective": 6941
     },
     "17504": {
         "i": 17504,
@@ -3667,7 +8424,12 @@
         "image_name": "inv_jewelry_talisman_12",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "1": 33.0,
+            "13218": 7.0
+        },
+        "objective": 6943
     },
     "17505": {
         "i": 17505,
@@ -3752,6 +8514,31 @@
             "stamina": 3,
             "spirit": 8,
             "durability": 85
+        },
+        "reward_from": {
+            "1049": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17522": {
@@ -3766,7 +8553,13 @@
             "silver": 0,
             "copper": 2
         },
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178785": 100.0
+            }
+        },
+        "objective": 6985
     },
     "17523": {
         "i": 17523,
@@ -3788,6 +8581,31 @@
         },
         "resist": {
             "Fire": 10
+        },
+        "reward_from": {
+            "6041": 1
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17542": {
@@ -3802,7 +8620,13 @@
             "silver": 0,
             "copper": 2
         },
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "178784": 100.0
+            }
+        },
+        "objective": 6982
     },
     "17562": {
         "i": 17562,
@@ -4351,6 +9175,15 @@
         "itemset": {
             "n": "Field Marshal's Threads",
             "i": 392
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 60,
+                    "silver": 81,
+                    "gold": 9
+                }
+            }
         }
     },
     "17579": {
@@ -4393,6 +9226,15 @@
         "itemset": {
             "n": "Field Marshal's Threads",
             "i": 392
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 79,
+                    "silver": 34,
+                    "gold": 11
+                }
+            }
         }
     },
     "17580": {
@@ -4435,6 +9277,15 @@
         "itemset": {
             "n": "Field Marshal's Threads",
             "i": 392
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 79,
+                    "silver": 88,
+                    "gold": 9
+                }
+            }
         }
     },
     "17581": {
@@ -4477,6 +9328,15 @@
         "itemset": {
             "n": "Field Marshal's Threads",
             "i": 392
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 23,
+                    "gold": 13
+                }
+            }
         }
     },
     "17583": {
@@ -4519,6 +9379,15 @@
         "itemset": {
             "n": "Field Marshal's Threads",
             "i": 392
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 51,
+                    "silver": 63,
+                    "gold": 8
+                }
+            }
         }
     },
     "17584": {
@@ -4565,6 +9434,15 @@
         "itemset": {
             "n": "Field Marshal's Threads",
             "i": 392
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 80,
+                    "silver": 92,
+                    "gold": 5
+                }
+            }
         }
     },
     "17586": {
@@ -4607,6 +9485,15 @@
         "itemset": {
             "n": "Warlord's Threads",
             "i": 391
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 34,
+                    "silver": 10,
+                    "gold": 8
+                }
+            }
         }
     },
     "17588": {
@@ -4653,6 +9540,15 @@
         "itemset": {
             "n": "Warlord's Threads",
             "i": 391
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 37,
+                    "silver": 44,
+                    "gold": 5
+                }
+            }
         }
     },
     "17590": {
@@ -4695,6 +9591,15 @@
         "itemset": {
             "n": "Warlord's Threads",
             "i": 391
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 55,
+                    "silver": 52,
+                    "gold": 9
+                }
+            }
         }
     },
     "17591": {
@@ -4737,6 +9642,15 @@
         "itemset": {
             "n": "Warlord's Threads",
             "i": 391
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 9,
+                    "silver": 56,
+                    "gold": 9
+                }
+            }
         }
     },
     "17592": {
@@ -4779,6 +9693,15 @@
         "itemset": {
             "n": "Warlord's Threads",
             "i": 391
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 65,
+                    "silver": 79,
+                    "gold": 12
+                }
+            }
         }
     },
     "17593": {
@@ -4821,6 +9744,15 @@
         "itemset": {
             "n": "Warlord's Threads",
             "i": 391
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 61,
+                    "silver": 9,
+                    "gold": 11
+                }
+            }
         }
     },
     "17594": {
@@ -5123,6 +10055,15 @@
         "itemset": {
             "n": "Field Marshal's Raiment",
             "i": 389
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 98,
+                    "silver": 21,
+                    "gold": 10
+                }
+            }
         }
     },
     "17603": {
@@ -5169,6 +10110,15 @@
         "itemset": {
             "n": "Field Marshal's Raiment",
             "i": 389
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 30,
+                    "silver": 81,
+                    "gold": 11
+                }
+            }
         }
     },
     "17604": {
@@ -5211,6 +10161,15 @@
         "itemset": {
             "n": "Field Marshal's Raiment",
             "i": 389
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 27,
+                    "silver": 29,
+                    "gold": 10
+                }
+            }
         }
     },
     "17605": {
@@ -5257,6 +10216,15 @@
         "itemset": {
             "n": "Field Marshal's Raiment",
             "i": 389
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 22,
+                    "silver": 77,
+                    "gold": 13
+                }
+            }
         }
     },
     "17607": {
@@ -5299,6 +10267,15 @@
         "itemset": {
             "n": "Field Marshal's Raiment",
             "i": 389
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 32,
+                    "silver": 13,
+                    "gold": 8
+                }
+            }
         }
     },
     "17608": {
@@ -5345,6 +10322,15 @@
         "itemset": {
             "n": "Field Marshal's Raiment",
             "i": 389
+        },
+        "sold": {
+            "12785": {
+                "cost": {
+                    "copper": 31,
+                    "silver": 44,
+                    "gold": 5
+                }
+            }
         }
     },
     "17610": {
@@ -5643,6 +10629,15 @@
         "itemset": {
             "n": "Warlord's Raiment",
             "i": 390
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 23,
+                    "silver": 70,
+                    "gold": 8
+                }
+            }
         }
     },
     "17620": {
@@ -5689,6 +10684,15 @@
         "itemset": {
             "n": "Warlord's Raiment",
             "i": 390
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 35,
+                    "silver": 84,
+                    "gold": 5
+                }
+            }
         }
     },
     "17622": {
@@ -5731,6 +10735,15 @@
         "itemset": {
             "n": "Warlord's Raiment",
             "i": 390
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 88,
+                    "silver": 21,
+                    "gold": 10
+                }
+            }
         }
     },
     "17623": {
@@ -5777,6 +10790,15 @@
         "itemset": {
             "n": "Warlord's Raiment",
             "i": 390
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 53,
+                    "silver": 25,
+                    "gold": 10
+                }
+            }
         }
     },
     "17624": {
@@ -5823,6 +10845,15 @@
         "itemset": {
             "n": "Warlord's Raiment",
             "i": 390
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 23,
+                    "silver": 72,
+                    "gold": 13
+                }
+            }
         }
     },
     "17625": {
@@ -5869,6 +10900,15 @@
         "itemset": {
             "n": "Warlord's Raiment",
             "i": 390
+        },
+        "sold": {
+            "12795": {
+                "cost": {
+                    "copper": 47,
+                    "silver": 89,
+                    "gold": 11
+                }
+            }
         }
     },
     "17626": {
@@ -5887,7 +10927,8 @@
         "use": {
             "s": 21794,
             "t": "Use to muzzle a Frostwolf. Return the muzzled animal to the Frostwolf Stable Master."
-        }
+        },
+        "provided_for": 7001
     },
     "17642": {
         "i": 17642,
@@ -5896,7 +10937,12 @@
         "image_name": "inv_misc_pelt_bear_02",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "13676": 80.0,
+            "10990": 80.0
+        },
+        "objective": 7002
     },
     "17643": {
         "i": 17643,
@@ -5905,7 +10951,13 @@
         "image_name": "inv_misc_pelt_bear_02",
         "stack": 100,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "dropped": {
+            "13618": 100.0,
+            "14282": 80.0,
+            "10981": 80.0
+        },
+        "objective": 7026
     },
     "17662": {
         "i": 17662,
@@ -5915,7 +10967,11 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Deliver to: Smokywood Pastures Retai"
+        "description": "Deliver to: Smokywood Pastures Retai",
+        "dropped": {
+            "13602": 100.0
+        },
+        "objective": 7043
     },
     "17682": {
         "i": 17682,
@@ -5937,6 +10993,28 @@
         "use": {
             "s": 21851,
             "t": "Teaches Gift of the Wild (Rank 1)."
+        },
+        "dropped": {
+            "12397": 6.0,
+            "11502": 3.0,
+            "10184": 1.316,
+            "6109": 1.316,
+            "9441": 0.52,
+            "9437": 0.46,
+            "9554": 0.4,
+            "7797": 0.36,
+            "9439": 0.36,
+            "8924": 0.34,
+            "9438": 0.34,
+            "5401": 0.32,
+            "8893": 0.32,
+            "8912": 0.32,
+            "9681": 0.31,
+            "5225": 0.3,
+            "8889": 0.28,
+            "8890": 0.28,
+            "8891": 0.28,
+            "9043": 0.28
         }
     },
     "17683": {
@@ -5959,6 +11037,28 @@
         "use": {
             "s": 21852,
             "t": "Teaches Gift of the Wild (Rank 2)."
+        },
+        "dropped": {
+            "12397": 4.0,
+            "11502": 3.0,
+            "10184": 1.316,
+            "6109": 1.316,
+            "14521": 0.68,
+            "14519": 0.56,
+            "9817": 0.54,
+            "9818": 0.52,
+            "10318": 0.52,
+            "9439": 0.51,
+            "9819": 0.48,
+            "9197": 0.46,
+            "10680": 0.46,
+            "9264": 0.44,
+            "10317": 0.44,
+            "11284": 0.44,
+            "14399": 0.44,
+            "16167": 0.43,
+            "9216": 0.42,
+            "10319": 0.42
         }
     },
     "17684": {
@@ -5968,7 +11068,30 @@
         "image_name": "inv_jewelry_talisman_07",
         "stack": 30,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12236": 80.0,
+            "12203": 80.0,
+            "11790": 80.0,
+            "11791": 80.0,
+            "11792": 80.0,
+            "11793": 80.0,
+            "11794": 80.0,
+            "12201": 80.0,
+            "12206": 80.0,
+            "12207": 80.0,
+            "12216": 80.0,
+            "12218": 80.0,
+            "12219": 80.0,
+            "12220": 80.0,
+            "12221": 80.0,
+            "12222": 80.0,
+            "12223": 80.0,
+            "12224": 80.0,
+            "12258": 80.0,
+            "13601": 80.0
+        },
+        "objective": 7028
     },
     "17685": {
         "i": 17685,
@@ -6002,6 +11125,31 @@
         },
         "stats": {
             "durability": 65
+        },
+        "reward_from": {
+            "208": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17687": {
@@ -6027,6 +11175,31 @@
         },
         "stats": {
             "durability": 65
+        },
+        "reward_from": {
+            "208": 1
+        },
+        "disenchant": {
+            "11174": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17688": {
@@ -6048,6 +11221,31 @@
             "stamina": 4,
             "strength": 7,
             "durability": 55
+        },
+        "reward_from": {
+            "338": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17689": {
@@ -6066,7 +11264,8 @@
         "use": {
             "s": 21866,
             "t": "Use to train an Alterac Ram. Return the tamed animal to the Stormpike Stable Master."
-        }
+        },
+        "provided_for": 7027
     },
     "17690": {
         "i": 17690,
@@ -6086,6 +11285,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7163,
+        "reward_from": {
+            "7161": 1
         }
     },
     "17691": {
@@ -6106,6 +11309,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7168,
+        "reward_from": {
+            "7162": 1
         }
     },
     "17692": {
@@ -6124,6 +11331,31 @@
         "stats": {
             "stamina": 3,
             "spirit": 2
+        },
+        "reward_from": {
+            "6641": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10998": {
+                "chance": 15.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17693": {
@@ -6142,7 +11374,8 @@
         "use": {
             "s": 21884,
             "t": "Fill at the orange crystal pool in Maraudon."
-        }
+        },
+        "provided_for": 7041
     },
     "17694": {
         "i": 17694,
@@ -6160,6 +11393,31 @@
         "stats": {
             "agility": 3,
             "strength": 3
+        },
+        "reward_from": {
+            "6565": 1
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 75.0,
+                "v": [
+                    "4",
+                    "6"
+                ]
+            },
+            "10998": {
+                "chance": 15.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10978": {
+                "chance": 10.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17695": {
@@ -6181,6 +11439,31 @@
             "intellect": 6,
             "stamina": 2,
             "durability": 40
+        },
+        "reward_from": {
+            "6565": 1
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17696": {
@@ -6197,7 +11480,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "objective": 7041
     },
     "17702": {
         "i": 17702,
@@ -6206,7 +11490,12 @@
         "image_name": "inv_staff_19",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "13282": 100.0,
+            "13456": 100.0
+        },
+        "objective": 7044
     },
     "17703": {
         "i": 17703,
@@ -6215,7 +11504,11 @@
         "image_name": "inv_jewelry_talisman_08",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12236": 100.0
+        },
+        "objective": 7044
     },
     "17704": {
         "i": 17704,
@@ -6267,6 +11560,28 @@
                 "7069": 2,
                 "4234": 2
             }
+        },
+        "disenchant": {
+            "11135": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11137": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17705": {
@@ -6300,6 +11615,17 @@
                     "t": "Grants an extra attack on your next swing."
                 }
             ]
+        },
+        "reward_from": {
+            "7065": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17706": {
@@ -6321,6 +11647,14 @@
         "use": {
             "s": 21915,
             "t": "Teaches you how to make the Edge of Winter."
+        },
+        "dropped": {
+            "445": 0.02
+        },
+        "contained": {
+            "items": {
+                "17726": 16.0
+            }
         }
     },
     "17707": {
@@ -6343,6 +11677,17 @@
         },
         "requirements": {
             "level": 49
+        },
+        "dropped": {
+            "12201": 27.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17708": {
@@ -6397,6 +11742,11 @@
         "use": {
             "s": 21924,
             "t": "Teaches you how to make an Elixir of Frost Power."
+        },
+        "contained": {
+            "items": {
+                "17726": 16.0
+            }
         }
     },
     "17710": {
@@ -6434,6 +11784,17 @@
                     "t": "Restores 2 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "12201": 27.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17711": {
@@ -6461,6 +11822,17 @@
         },
         "requirements": {
             "level": 49
+        },
+        "dropped": {
+            "12201": 27.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17712": {
@@ -6508,6 +11880,17 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "12201": 27.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17714": {
@@ -6540,6 +11923,17 @@
                     "t": "+30 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "12201": 27.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17715": {
@@ -6565,6 +11959,17 @@
         },
         "requirements": {
             "level": 49
+        },
+        "dropped": {
+            "12201": 27.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17716": {
@@ -6600,7 +12005,8 @@
                 "17202": 4,
                 "3829": 1
             }
-        }
+        },
+        "materials": {}
     },
     "17717": {
         "i": 17717,
@@ -6639,6 +12045,17 @@
                     "t": "+19 ranged Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "13601": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17718": {
@@ -6672,6 +12089,17 @@
                     "t": "Restores 4 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "13601": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17719": {
@@ -6708,6 +12136,17 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "13601": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17720": {
@@ -6729,6 +12168,11 @@
         "use": {
             "s": 21941,
             "t": "Teaches you how to make a SnowMaster 9000."
+        },
+        "contained": {
+            "items": {
+                "17726": 17.0
+            }
         }
     },
     "17721": {
@@ -6776,6 +12220,28 @@
                 "7067": 4,
                 "4291": 1
             }
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11135": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11139": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17722": {
@@ -6797,6 +12263,14 @@
         "use": {
             "s": 21944,
             "t": "Teaches you how to craft Gloves of the Greatfather."
+        },
+        "dropped": {
+            "7856": 0.02
+        },
+        "contained": {
+            "items": {
+                "17726": 17.0
+            }
         }
     },
     "17723": {
@@ -6844,6 +12318,11 @@
         "use": {
             "s": 21946,
             "t": "Teaches you how to sew a Green Holiday Shirt."
+        },
+        "contained": {
+            "items": {
+                "17726": 17.0
+            }
         }
     },
     "17725": {
@@ -6865,6 +12344,11 @@
         "use": {
             "s": 21933,
             "t": "Teaches you how to permanently enchant a weapon to grant up to 7 additional frost damage when casting frost spells."
+        },
+        "contained": {
+            "items": {
+                "17726": 17.0
+            }
         }
     },
     "17726": {
@@ -6874,7 +12358,10 @@
         "image_name": "inv_holiday_christmas_present_01",
         "ilvl": 1,
         "bop": true,
-        "unique": true
+        "unique": true,
+        "reward_from": {
+            "7045": 1
+        }
     },
     "17727": {
         "i": 17727,
@@ -6883,7 +12370,10 @@
         "image_name": "inv_misc_gift_01",
         "ilvl": 1,
         "bop": true,
-        "unique": true
+        "unique": true,
+        "reward_from": {
+            "7025": 1
+        }
     },
     "17728": {
         "i": 17728,
@@ -6910,6 +12400,17 @@
         },
         "requirements": {
             "level": 48
+        },
+        "dropped": {
+            "13596": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17730": {
@@ -6946,6 +12447,17 @@
                     "t": "Wounds the target causing them to bleed for 230 damage over 30 sec."
                 }
             ]
+        },
+        "dropped": {
+            "13596": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17732": {
@@ -6970,6 +12482,17 @@
         },
         "requirements": {
             "level": 48
+        },
+        "dropped": {
+            "13596": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17733": {
@@ -7008,6 +12531,14 @@
                     "t": "Restores 50 mana."
                 }
             ]
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17734": {
@@ -7041,6 +12572,17 @@
                     "t": "Increased Defense +7."
                 }
             ]
+        },
+        "dropped": {
+            "12203": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17735": {
@@ -7054,7 +12596,9 @@
         "click_to_read": true,
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 7063,
+        "objective": 7063
     },
     "17736": {
         "i": 17736,
@@ -7086,6 +12630,17 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "12203": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17737": {
@@ -7110,6 +12665,17 @@
         },
         "requirements": {
             "level": 48
+        },
+        "dropped": {
+            "12203": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17738": {
@@ -7146,6 +12712,17 @@
                     "t": "Poisons target for 9 Nature damage every 2 sec for 20 sec."
                 }
             ]
+        },
+        "dropped": {
+            "12225": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17739": {
@@ -7171,6 +12748,17 @@
         },
         "requirements": {
             "level": 47
+        },
+        "dropped": {
+            "12225": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17740": {
@@ -7196,6 +12784,17 @@
         },
         "requirements": {
             "level": 47
+        },
+        "dropped": {
+            "12225": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17741": {
@@ -7230,6 +12829,17 @@
                     "t": "Restores 8 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "12237": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17742": {
@@ -7254,6 +12864,17 @@
         },
         "requirements": {
             "level": 46
+        },
+        "dropped": {
+            "12237": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17743": {
@@ -7291,6 +12912,17 @@
                     "t": "Restores 5 health every 5 sec."
                 }
             ]
+        },
+        "reward_from": {
+            "7065": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17744": {
@@ -7315,6 +12947,18 @@
         "use": {
             "s": 21954,
             "t": "Removes 1 poison effect. (cooldown 5 min)"
+        },
+        "dropped": {
+            "13456": 80.0,
+            "13282": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17745": {
@@ -7347,6 +12991,18 @@
         },
         "requirements": {
             "level": 46
+        },
+        "dropped": {
+            "13282": 33.0,
+            "13456": 18.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17746": {
@@ -7373,6 +13029,18 @@
         },
         "requirements": {
             "level": 46
+        },
+        "dropped": {
+            "13456": 80.0,
+            "13282": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17747": {
@@ -7393,6 +13061,9 @@
         "use": {
             "s": 21955,
             "t": "Restores 600 health and mana over 10 sec. (cooldown 2 min)"
+        },
+        "dropped": {
+            "12258": 6.0
         }
     },
     "17748": {
@@ -7420,6 +13091,17 @@
         },
         "requirements": {
             "level": 46
+        },
+        "dropped": {
+            "12258": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17749": {
@@ -7447,6 +13129,17 @@
         },
         "requirements": {
             "level": 46
+        },
+        "dropped": {
+            "12258": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17750": {
@@ -7472,6 +13165,31 @@
         },
         "requirements": {
             "level": 46
+        },
+        "dropped": {
+            "12258": 25.0
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16202": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14343": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17751": {
@@ -7499,6 +13217,31 @@
         },
         "requirements": {
             "level": 46
+        },
+        "dropped": {
+            "12258": 25.0
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16202": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14343": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17752": {
@@ -7536,6 +13279,17 @@
                     "t": "Sends a shadowy bolt at the enemy causing 55 to 86 Shadow damage."
                 }
             ]
+        },
+        "dropped": {
+            "12236": 33.0
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17753": {
@@ -7565,6 +13319,17 @@
         },
         "stats": {
             "durability": 75
+        },
+        "reward_from": {
+            "7065": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17754": {
@@ -7597,6 +13362,17 @@
                     "t": "Increased Bows +4."
                 }
             ]
+        },
+        "dropped": {
+            "12236": 33.0
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17755": {
@@ -7624,6 +13400,17 @@
         },
         "requirements": {
             "level": 45
+        },
+        "dropped": {
+            "12236": 33.0
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17756": {
@@ -7633,7 +13420,12 @@
         "image_name": "inv_misc_gem_amethyst_03",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "11777": 80.0,
+            "11778": 80.0
+        },
+        "objective": 7070
     },
     "17757": {
         "i": 17757,
@@ -7646,6 +13438,12 @@
         "use": {
             "s": 21960,
             "t": "Forces the spirits of the first centaur Kahns to manifest in the physical world."
+        },
+        "dropped": {
+            "13718": 100.0
+        },
+        "creates": {
+            "21957": 17758
         }
     },
     "17758": {
@@ -7666,7 +13464,16 @@
                 "17765": 1,
                 "17757": 1
             }
-        }
+        },
+        "materials": {
+            "17761": 1,
+            "17762": 1,
+            "17763": 1,
+            "17764": 1,
+            "17765": 1,
+            "17757": 1
+        },
+        "objective": 7067
     },
     "17759": {
         "i": 17759,
@@ -7692,6 +13499,31 @@
                     "t": "Increases your chance to resist Stun and Fear effects by 1%."
                 }
             ]
+        },
+        "reward_from": {
+            "211": 1
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17760": {
@@ -7701,7 +13533,9 @@
         "image_name": "inv_misc_herb_18",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 7066,
+        "objective": 7066
     },
     "17761": {
         "i": 17761,
@@ -7715,7 +13549,13 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Kolk.."
+        "description": "Found on the body of Kolk..",
+        "dropped": {
+            "13742": 100.0
+        },
+        "creates": {
+            "21957": 17758
+        }
     },
     "17762": {
         "i": 17762,
@@ -7729,7 +13569,13 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Gelk.."
+        "description": "Found on the body of Gelk..",
+        "dropped": {
+            "13741": 100.0
+        },
+        "creates": {
+            "21957": 17758
+        }
     },
     "17763": {
         "i": 17763,
@@ -7743,7 +13589,13 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Magra.."
+        "description": "Found on the body of Magra..",
+        "dropped": {
+            "13740": 100.0
+        },
+        "creates": {
+            "21957": 17758
+        }
     },
     "17764": {
         "i": 17764,
@@ -7757,7 +13609,13 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Maraudos.."
+        "description": "Found on the body of Maraudos..",
+        "dropped": {
+            "13739": 100.0
+        },
+        "creates": {
+            "21957": 17758
+        }
     },
     "17765": {
         "i": 17765,
@@ -7771,7 +13629,13 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Veng.."
+        "description": "Found on the body of Veng..",
+        "dropped": {
+            "13738": 100.0
+        },
+        "creates": {
+            "21957": 17758
+        }
     },
     "17766": {
         "i": 17766,
@@ -7807,6 +13671,17 @@
                     "t": "Wounds the target for 160 damage and lowers their armor by 100."
                 }
             ]
+        },
+        "dropped": {
+            "12201": 27.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17767": {
@@ -7841,6 +13716,17 @@
                     "t": "+36 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "12237": 33.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17768": {
@@ -7859,6 +13745,31 @@
         "stats": {
             "intellect": 9,
             "stamina": 5
+        },
+        "reward_from": {
+            "7041": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17770": {
@@ -7887,6 +13798,31 @@
                     "t": "Restores 2 health per 5 sec."
                 }
             ]
+        },
+        "reward_from": {
+            "7041": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17771": {
@@ -7914,7 +13850,14 @@
                 "17010": 1,
                 "18567": 3
             }
-        }
+        },
+        "materials": {
+            "18562": 1,
+            "12360": 10,
+            "17010": 1,
+            "18567": 3
+        },
+        "objective": 7786
     },
     "17772": {
         "i": 17772,
@@ -7936,6 +13879,31 @@
                     "t": "+20 Attack Power."
                 }
             ]
+        },
+        "reward_from": {
+            "7070": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17773": {
@@ -7953,6 +13921,31 @@
         "slot": "Neck",
         "stats": {
             "intellect": 10
+        },
+        "reward_from": {
+            "7070": 1
+        },
+        "disenchant": {
+            "11137": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "11174": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11177": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17774": {
@@ -7975,6 +13968,31 @@
                     "t": "Has a 2% chance when struck in combat of increasing all stats by 25 for 1 min."
                 }
             ]
+        },
+        "reward_from": {
+            "7067": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17775": {
@@ -7995,6 +14013,31 @@
             "armor": 61,
             "intellect": 20,
             "durability": 70
+        },
+        "reward_from": {
+            "7028": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17776": {
@@ -8016,6 +14059,31 @@
             "agility": 15,
             "stamina": 10,
             "durability": 50
+        },
+        "reward_from": {
+            "7028": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17777": {
@@ -8045,6 +14113,31 @@
                     "t": "+20 Attack Power."
                 }
             ]
+        },
+        "reward_from": {
+            "7028": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17778": {
@@ -8065,6 +14158,31 @@
             "armor": 71,
             "agility": 15,
             "durability": 30
+        },
+        "reward_from": {
+            "7041": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17779": {
@@ -8086,6 +14204,31 @@
             "stamina": 13,
             "strength": 5,
             "durability": 70
+        },
+        "reward_from": {
+            "7028": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11175": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11178": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17780": {
@@ -8123,6 +14266,18 @@
                     "t": "Chance on landing a damaging spell to deal 100 Shadow damage and restore 100 mana to you. (cooldown 30 sec)"
                 }
             ]
+        },
+        "dropped": {
+            "12201": 1.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "17781": {
@@ -8134,7 +14289,8 @@
         "click_to_read": true,
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 7067
     },
     "17782": {
         "i": 17782,
@@ -8168,6 +14324,9 @@
                     "t": "When struck in combat inflicts 4 Nature damage to the attacker."
                 }
             ]
+        },
+        "dropped": {
+            "12057": 5.0
         }
     },
     "17822": {
@@ -8193,7 +14352,13 @@
         "image_name": "inv_banner_02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "179024": 100.0
+            }
+        },
+        "objective": 7162
     },
     "17850": {
         "i": 17850,
@@ -8202,7 +14367,13 @@
         "image_name": "inv_banner_03",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "179025": 100.0
+            }
+        },
+        "objective": 7161
     },
     "17900": {
         "i": 17900,
@@ -8230,6 +14401,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7169,
+        "reward_from": {
+            "7168": 1
         }
     },
     "17901": {
@@ -8262,6 +14437,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7170,
+        "reward_from": {
+            "7169": 1
         }
     },
     "17902": {
@@ -8294,6 +14473,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7171,
+        "reward_from": {
+            "7170": 1
         }
     },
     "17903": {
@@ -8326,6 +14509,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7172,
+        "reward_from": {
+            "7171": 1
         }
     },
     "17904": {
@@ -8359,6 +14546,9 @@
         "description": "The Eye of Comman",
         "created_by": {
             "materials": {}
+        },
+        "reward_from": {
+            "7172": 1
         }
     },
     "17905": {
@@ -8387,6 +14577,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7164,
+        "reward_from": {
+            "7163": 1
         }
     },
     "17906": {
@@ -8419,6 +14613,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7165,
+        "reward_from": {
+            "7164": 1
         }
     },
     "17907": {
@@ -8451,6 +14649,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7166,
+        "reward_from": {
+            "7165": 1
         }
     },
     "17908": {
@@ -8483,6 +14685,10 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "objective": 7167,
+        "reward_from": {
+            "7166": 1
         }
     },
     "17909": {
@@ -8516,6 +14722,9 @@
         "description": "The Eye of Comman",
         "created_by": {
             "materials": {}
+        },
+        "reward_from": {
+            "7167": 1
         }
     },
     "17922": {
@@ -8539,6 +14748,25 @@
         },
         "requirements": {
             "level": 5
+        },
+        "dropped": {
+            "5807": 100.0
+        },
+        "disenchant": {
+            "10940": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10938": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "17943": {
@@ -8575,6 +14803,17 @@
                     "t": "Restores 50 mana."
                 }
             ]
+        },
+        "dropped": {
+            "12203": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "17962": {
@@ -8587,6 +14826,17 @@
             "gold": 0,
             "silver": 47,
             "copper": 62
+        },
+        "dropped": {
+            "14888": 36.0,
+            "14889": 36.0,
+            "14887": 36.0,
+            "14890": 36.0,
+            "10184": 20.0,
+            "11583": 20.0,
+            "6109": 20.0,
+            "15114": 20.0,
+            "12397": 8.0
         }
     },
     "17963": {
@@ -8599,6 +14849,17 @@
             "gold": 0,
             "silver": 2,
             "copper": 13
+        },
+        "dropped": {
+            "14888": 36.0,
+            "14889": 36.0,
+            "14887": 36.0,
+            "14890": 36.0,
+            "10184": 20.0,
+            "11583": 20.0,
+            "6109": 20.0,
+            "15114": 20.0,
+            "12397": 12.0
         }
     },
     "17964": {
@@ -8611,6 +14872,17 @@
             "gold": 0,
             "silver": 55,
             "copper": 12
+        },
+        "dropped": {
+            "14888": 36.0,
+            "14889": 36.0,
+            "14887": 36.0,
+            "14890": 36.0,
+            "10184": 20.0,
+            "11583": 20.0,
+            "6109": 20.0,
+            "15114": 20.0,
+            "12397": 16.0
         }
     },
     "17965": {
@@ -8623,6 +14895,17 @@
             "gold": 0,
             "silver": 2,
             "copper": 13
+        },
+        "dropped": {
+            "14888": 36.0,
+            "14889": 36.0,
+            "14887": 36.0,
+            "14890": 36.0,
+            "10184": 20.0,
+            "11583": 20.0,
+            "6109": 20.0,
+            "15114": 20.0,
+            "12397": 1.205
         }
     },
     "17966": {
@@ -8638,7 +14921,10 @@
         },
         "bop": true,
         "slot": "Bag",
-        "slots": 18
+        "slots": 18,
+        "dropped": {
+            "10184": 100.0
+        }
     },
     "17968": {
         "i": 17968,
@@ -8670,6 +14956,17 @@
             "gold": 0,
             "silver": 47,
             "copper": 73
+        },
+        "dropped": {
+            "14888": 36.0,
+            "14889": 36.0,
+            "14887": 36.0,
+            "14890": 36.0,
+            "10184": 20.0,
+            "11583": 20.0,
+            "6109": 20.0,
+            "15114": 20.0,
+            "12397": 13.0
         }
     },
     "17982": {
@@ -8691,6 +14988,17 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "11502": 95.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     }
 }
