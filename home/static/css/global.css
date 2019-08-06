@@ -786,7 +786,8 @@ ul {
     margin: 1px;
     position: relative;
     width: 20px;
-    right: 8px;
+    right: 5px;
+    bottom: 3px;
     border: 0;
     color: rgba(231, 186, 0, 1);
     -webkit-appearance: none;
