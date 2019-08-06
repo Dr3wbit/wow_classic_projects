@@ -47,22 +47,21 @@
 			<div id="buttonCity" class="col-3 btn-group">
 				<!-- <button type="button" id="resetTalents" class="talentcalc-button reset btn" title="Reset"></button> -->
 				<button id="resetTalents" class="btn btn-sm float-right" aria-label="Reset Talents" title="Reset"
-					style="font-size: margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
+					style="font-size: 15px; margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
 					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 				</button>
 				<button id="talentLock" class="btn btn-sm float-right unlock" aria-label="Lock Talents" title="Lock"
-					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
+					style=" font-size: 14px; margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
 					<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 				</button>
 				<!-- <button class="btn btn-sm float-right" data-toggle="modal" data-target="#specSaverPrompt" aria-label="specSaverPrompt" title="Save"
 					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
 					<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
 				</button> -->
-
 				<button id="export" data-container="#export" data-toggle="popover" data-placement="right"
 					class="btn btn-sm float-right" role="button" aria-label="export spec" title="Export"
-					style="margin: 0 2px 0 2px; padding: 0 2px 0 2px;">
-					<span class="glyphicon glyphicon-link" style="font-size: 15px;" aria-hidden="true"></span>
+					style=" font-size: 15px; margin: 0 2px 0 2px; padding: 0 2px 0 2px;">
+					<span class="glyphicon glyphicon-link" aria-hidden="true"></span>
 				</button>
 			</div>
 		</div>
@@ -71,11 +70,8 @@
 		{% include "talent_builder.html" %}
 	</div>
 
-	{% if spec %}
-	<h5> description: <span class="fix-me">{{spec.description}}</span></h5>
-	<h5> name: <span class="fix-me">{{spec.name}}</span></h5>
-	{% endif %}
-
+	{% include "info_display.html" %}
+	
 	{% if user.is_authenticated %}
 	{% include "save_form.html" %}
 	{% endif %}
@@ -191,15 +187,6 @@ $(".class-filter").on({
 	   update_url(class_name, '');
    }
 });
-
-// $(".spec-list-item").on({
-//    click: e=> {
-// 	   var class_name = $( e.target ).attr('data-wowclass');
-// 	   var spec_name = $( e.target ).attr('name');
-// 	   update_class(class_name, spec_name)
-//    }
-// });
-
 
 
  </script>

@@ -102,7 +102,6 @@ tfoot {
     border-radius: 5px;
     margin: 2px;
     font-size: 80%;
-
 }
 
 .feedTitle{
@@ -159,6 +158,7 @@ a:hover{
     margin-top: 1px;
     padding: 3px;
     border-radius: 2px;
+    font-size: 80%;
 }
 
 .filter-box:hover{
