@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.views.generic import RedirectView, TemplateView
 from django.core.cache import cache
-from django.views.decorators.cache import cache_page, never_cache
-from django.utils.decorators import method_decorator
 from django.db.models import Count, Q, Avg
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
 from django.core import serializers, mail
@@ -194,13 +192,10 @@ class TalentCalcTemplate(TemplateView):
 		data['wow_class'] = wow_class
 		spent = {}
 
-
 		for x in spnt:
 			y = x.split(',')
 			data['spent'].append(y[1])
 			spent[y[0]] = y[1]
-
-		# data['spent'] = spent
 
 		if request.user.is_authenticated:
 			user = request.user
