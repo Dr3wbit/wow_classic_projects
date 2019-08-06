@@ -328,7 +328,7 @@ function tooltip_v2(e, static=false, which=0) {
             break
     }
 	tooltipElems.push(static)
-	bigdaddytooltip(e, tooltipElems)
+	bigdaddytooltip(e, name, tooltipElems)
 }
 
 function update_tooltip(e) {
@@ -389,8 +389,8 @@ function get_tooltip_pos(e, static) {
     return this.coords
 }
 
-function bigdaddytooltip(e, ...args) {
-    var name = $(e.target).attr("name")
+function bigdaddytooltip(e, name, ...args) {
+    // var name = $(e.target).attr("name")
     var tooltip_container = $("#tooltip_container")
     var elems = args[0]
     var static = elems.pop()
