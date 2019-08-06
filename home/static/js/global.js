@@ -105,6 +105,7 @@ function event_handlers() {
 }
 
 function trashCanSuccess(data, textStatus, jqXHR) {
+    console.log(data)
     let list_name = data.name.toString()
     let list_item = $(`.spec-list-item[name="${list_name}"]`).closest(".spec-container");
 

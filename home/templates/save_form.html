@@ -16,7 +16,6 @@
             </div>
         </div>
 
-
         {% if "talent_calc" in request.path %}
         <div class="fieldWrapper row">
             <span class="col-6">
@@ -110,7 +109,7 @@ $(".saved-list-form").on({
         var $myForm = $(".saved-list-form")
         var $thisURL = $myForm.attr('data-url') || window.location.href
         var $formData = $myForm.serialize()
-        console.log($formData)
+        console.log("DATA: ", $formData, $thisURL, $myForm)
         $.ajax({
             method: "POST",
             url: $thisURL,
@@ -157,7 +156,7 @@ function append_list_item(data) {
         spec_info_child.addClass(`${wow_class}`)
         spec_info.append(spec_info_child, ' ', $("<span/>", {
             style: "font-size: 90%;",
-            text: `(${data.spent[0]}/${data.spent[1]}/${data.spent[2]})`,
+            text: `(${data.spent[3]}/${data.spent[4]}/${data.spent[5]})`,
         }))
     } else {
         spec_info.append(spec_info_child)
@@ -198,6 +197,13 @@ function append_list_item(data) {
     } else {
         $("#saved-consume-lists").append(spec_cont)
     }
+
+    setTimeout(()=>{
+        $(".selected").removeClass("selected")
+        $(".progress-bar-striped, .progress-bar-animated").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
+        $(".selected").click()
+    }, 5000)
+    
 }
 
 </script>

@@ -131,32 +131,6 @@
 
 }
 
-/* #buttonCity>:not(div) {
-  -webkit-filter: grayscale(60%);
-     -moz-filter: grayscale(60%);
-       -o-filter: grayscale(60%);
-      -ms-filter: grayscale(60%);
-          filter: grayscale(60%);
-          cursor: pointer;
-} */
-
-/* #buttonCity>a:hover{
-    color: blue;
-} */
-
-
-/* #buttonCity>:not(div):hover {
-    -webkit-filter: grayscale(0%);
-       -moz-filter: grayscale(0%);
-         -o-filter: grayscale(0%);
-        -ms-filter: grayscale(0%);
-            filter: grayscale(0%);
-} */
-
-#buttonCity>*:focus {
-    outline: none;
-}
-
 .talentFooter span.treeName {
   width: 18px;
   height: 18px;
@@ -166,13 +140,6 @@
   padding-left: 25px;
 
 }
-
-
-
-/* .tooltip.show {
-    opacity: .9
-} */
-
 
 .talentcalc-arrow {
     z-index: 5;
@@ -272,6 +239,11 @@
 #buttonCity > *:hover {
     color: rgba(231, 186, 0, 1)!important;
 }
+
+#buttonCity > *:focus { 
+  outline: none; 
+}
+
 #specSaverPrompt, #export {
    color: #3d7e9a;
    cursor: pointer;
@@ -280,11 +252,8 @@
    border: 0;
 }
 
-/* #specSaverPrompt:hover, #export:hover {
-} */
 
 #buttonCity {
-    vertical-align: text-bottom;
     width: 100%;
     display: block;
     padding-right: 0;
@@ -299,8 +268,8 @@
   margin-left: 5px;
   width:100%;
   max-width: 718px;
+  border: 2px solid black;
   border-top: 1px solid black;
-  border-bottom: 2px solid black;
   color: white;
   background-color: #272727;
 
@@ -310,11 +279,6 @@
   /* text-shadow: -0.02rem -0.02rem 0.02rem black; */
 }
 
-@media only screen and (max-width: 1200px) {
-    #talentHeader {
-      width: 75%;
-    }
-}
 
 @media only screen and (max-width: 992px) {
     #talentHeader {
@@ -372,11 +336,10 @@
 }
 
 @media only screen and (max-width: 576px) {
-    .promptArrow {
-        display: none
-    }
-  #talentHeader {
-    width: 90%;
+  #buttonCity {
+    padding-left: 0px;
+    min-width: 120px;
+    left: 40px;
   }
 }
 
