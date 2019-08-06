@@ -8975,7 +8975,8 @@
         "use": {
             "s": 2833,
             "t": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 24. Only usable on items level 15 and above."
-        }
+        },
+        "consume": true
     },
     "4278": {
         "i": 4278,
@@ -13133,7 +13134,8 @@
         "use": {
             "s": 4054,
             "t": "Inflicts 26 to 35 Fire damage in a 5 yard radius. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4359": {
         "contained": {
@@ -13211,7 +13213,8 @@
         "use": {
             "s": 4064,
             "t": "Inflicts 22 to 29 Fire damage and stuns targets in a 3 yard radius for 1 sec. Any damage will break the effect. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4361": {
         "contained": {
@@ -13778,7 +13781,8 @@
         "use": {
             "s": 4061,
             "t": "Inflicts 51 to 70 Fire damage in a 5 yard radius. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4366": {
         "i": 4366,
@@ -13806,7 +13810,8 @@
         "use": {
             "s": 4071,
             "t": "Drops a target dummy on the ground that attracts nearby monsters to attack it. Lasts for 15 seconds or until killed. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "4367": {
         "i": 4367,
@@ -13834,7 +13839,8 @@
         "use": {
             "s": 4056,
             "t": "Blasts open simple locked doors."
-        }
+        },
+        "consume": true
     },
     "4368": {
         "boe": true,
@@ -13969,7 +13975,8 @@
         "use": {
             "s": 4065,
             "t": "Inflicts 43 to 58 Fire damage and stuns targets in a 5 yard radius for 1 sec. Any damage will break the effect. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4371": {
         "contained": {
@@ -14255,7 +14262,8 @@
         "use": {
             "s": 4066,
             "t": "Inflicts 73 to 98 Fire damage and stuns targets in a 3 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4375": {
         "creates": {
@@ -14307,7 +14315,8 @@
         "use": {
             "s": 4057,
             "t": "Absorbs 500 fire damage. Lasts 1 min. (cooldown 15 min)\n5 charges"
-        }
+        },
+        "consume": true
     },
     "4377": {
         "contained": {
@@ -14405,7 +14414,8 @@
         "use": {
             "s": 4062,
             "t": "Inflicts 128 to 173 Fire damage in a 5 yard radius. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4379": {
         "boe": true,
@@ -14488,7 +14498,8 @@
         "use": {
             "s": 4067,
             "t": "Inflicts 85 to 116 Fire damage and stuns targets in a 5 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4381": {
         "disenchant": {
@@ -14538,7 +14549,8 @@
         "use": {
             "s": 18805,
             "t": "Dispels Polymorph effects on a friendly target. Also restores 150 to 251 health and mana. (cooldown 5 min)\n10 charges"
-        }
+        },
+        "consume": true
     },
     "4382": {
         "contained": {
@@ -14772,7 +14784,8 @@
         "use": {
             "s": 4074,
             "t": "Summons an Explosive Sheep which will charge at a nearby enemy and explode for 135 to 166 damage. Lasts for 3 min or until it explodes. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4385": {
         "boe": true,
@@ -14851,7 +14864,8 @@
         "use": {
             "s": 4077,
             "t": "Absorbs 600 frost damage. Lasts 1 min. (cooldown 15 min)\n5 charges"
-        }
+        },
+        "consume": true
     },
     "4387": {
         "contained": {
@@ -14911,7 +14925,8 @@
         "use": {
             "s": 4060,
             "t": "Transforms the target into a Leper Gnome, reducing its melee and spell damage by 40 and its movement rate by 20% for 12 sec. (cooldown 1 min)\n5 charges"
-        }
+        },
+        "consume": true
     },
     "4389": {
         "contained": {
@@ -15020,11 +15035,6 @@
         "i": 4390,
         "ilvl": 35,
         "image_name": "inv_misc_bomb_08",
-        "materials": {
-            "3575": 1,
-            "4306": 1,
-            "4377": 1
-        },
         "n": "Iron Grenade",
         "quality": 1,
         "requirements": {
@@ -15041,6 +15051,21 @@
         "use": {
             "s": 4068,
             "t": "Inflicts 132 to 219 Fire damage and stuns targets for 3 sec in a 3 yard radius. Any damage will break the effect. (cooldown 1 min)"
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {
+                "3575": 1,
+                "4306": 1,
+                "4377": 1
+            },
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 175,
+                "green": 185,
+                "grey": 195
+            },
+            "step": 2,
         }
     },
     "4391": {
@@ -15070,7 +15095,8 @@
         "use": {
             "s": 4078,
             "t": "Creates a Compact Harvest Reaper that will fight for you for 10 min or until it is destroyed. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4392": {
         "i": 4392,
@@ -15099,7 +15125,8 @@
         "use": {
             "s": 4072,
             "t": "Drops a target dummy on the ground that attracts nearby monsters to attack it. Lasts for 15 seconds or until killed. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "4393": {
         "boe": true,
@@ -15165,11 +15192,15 @@
         "i": 4394,
         "ilvl": 43,
         "image_name": "inv_misc_bomb_01",
-        "materials": {
-            "3575": 3,
-            "4377": 3,
-            "4404": 1
-        },
+        "created_by": {
+            "materials": {
+                "3575": 3,
+                "4377": 3,
+                "4404": 1
+            },
+            "profession": "Engineering",
+            "step": 2
+        }
         "n": "Big Iron Bomb",
         "objective": 3639,
         "quality": 1,
@@ -15187,7 +15218,8 @@
         "use": {
             "s": 4069,
             "t": "Inflicts 149 to 202 Fire damage and stuns targets in a 5 yard radius for 3 sec. Any damage will break the effect. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4395": {
         "i": 4395,
@@ -15214,7 +15246,8 @@
         "use": {
             "s": 4100,
             "t": "Places the Goblin Land Mine on the ground. It will explode for 394 to 507 fire damage the next time a hostile creature passes near it. The mine has a duration of 1 min. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "4396": {
         "boe": true,
@@ -15298,7 +15331,8 @@
         "use": {
             "s": 4075,
             "t": "Blasts open difficult locked doors."
-        }
+        },
+        "consume": true
     },
     "4399": {
         "creates": {
@@ -15715,7 +15749,8 @@
         "use": {
             "s": 4067,
             "t": "Inflicts 85 to 116 Fire damage and stuns targets in a 5 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)\n8 charges"
-        }
+        },
+        "consume": true
     },
     "4404": {
         "creates": {
@@ -15861,7 +15896,8 @@
         "use": {
             "s": 3974,
             "t": "Attaches a permanent scope to a bow or gun that increases its damage by 1."
-        }
+        },
+        "consume": true
     },
     "4406": {
         "contained": {
@@ -15894,7 +15930,8 @@
         "use": {
             "s": 3975,
             "t": "Attaches a permanent scope to a bow or gun that increases its damage by 2."
-        }
+        },
+        "consume": true
     },
     "4407": {
         "creates": {
@@ -15923,7 +15960,8 @@
         "use": {
             "s": 3976,
             "t": "Attaches a permanent scope to a bow or gun that increases its damage by 3."
-        }
+        },
+        "consume": true
     },
     "4408": {
         "contained": {
@@ -16465,7 +16503,8 @@
         "use": {
             "s": 8098,
             "t": "Increases the target's Intellect by 12 for 30 min."
-        }
+        },
+        "consume": true
     },
     "4421": {
         "contained": {
@@ -16539,7 +16578,8 @@
         "use": {
             "s": 8095,
             "t": "Increases the target's Armor by 180 for 30 min."
-        }
+        },
+        "consume": true
     },
     "4422": {
         "contained": {
@@ -16604,7 +16644,8 @@
         "use": {
             "s": 8101,
             "t": "Increases the target's Stamina by 12 for 30 min."
-        }
+        },
+        "consume": true
     },
     "4424": {
         "contained": {
@@ -16678,7 +16719,8 @@
         "use": {
             "s": 8114,
             "t": "Increases the target's Spirit by 11 for 30 min."
-        }
+        },
+        "consume": true
     },
     "4425": {
         "contained": {
@@ -16744,7 +16786,8 @@
         "use": {
             "s": 8117,
             "t": "Increases the target's Agility by 13 for 30 min."
-        }
+        },
+        "consume": true
     },
     "4426": {
         "contained": {
@@ -16808,7 +16851,8 @@
         "use": {
             "s": 8120,
             "t": "Increases the target's Strength by 13 for 30 min."
-        }
+        },
+        "consume": true
     },
     "4428": {
         "dropped": {
@@ -17764,7 +17808,8 @@
         "use": {
             "s": 5007,
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 8 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "4458": {
         "dropped": {
@@ -18460,7 +18505,8 @@
         "use": {
             "s": 4141,
             "t": "Summon Myzrael from the Shards of Myzrael."
-        }
+        },
+        "consume": true
     },
     "4473": {
         "dropped": {
@@ -18701,7 +18747,8 @@
         "use": {
             "s": 4132,
             "t": "Banishes a Thundering Exile (cooldown 10 sec)"
-        }
+        },
+        "consume": true
     },
     "4480": {
         "dropped": {
@@ -18725,7 +18772,8 @@
         "use": {
             "s": 4131,
             "t": "Banishes a Cresting Exile (cooldown 10 sec)"
-        }
+        },
+        "consume": true
     },
     "4481": {
         "dropped": {
@@ -18749,7 +18797,8 @@
         "use": {
             "s": 4130,
             "t": "Banishes a Burning Exile (cooldown 10 sec)"
-        }
+        },
+        "consume": true
     },
     "4482": {
         "contained": {
@@ -20120,7 +20169,8 @@
             "s": 4239,
             "t": "Activates Trelane's tower defenses."
         },
-        "provided_for": 695
+        "provided_for": 695,
+        "consume": true
     },
     "4530": {
         "i": 4530,
@@ -20464,7 +20514,8 @@
         "creates": {
             "15861": 12212,
             "6416": 5477
-        }
+        },
+        "consume": true
     },
     "4537": {
         "i": 4537,
@@ -20642,7 +20693,8 @@
             "items": {
                 "5523": 0.05
             }
-        }
+        },
+        "consume": true
     },
     "4538": {
         "i": 4538,
@@ -20890,7 +20942,8 @@
             "7052": 4.0,
             "6223": 4.0,
             "4284": 3.0
-        }
+        },
+        "consume": true
     },
     "4539": {
         "i": 4539,
@@ -21132,7 +21185,8 @@
             "4834": 3.0,
             "2271": 3.0,
             "2587": 3.0
-        }
+        },
+        "consume": true
     },
     "4540": {
         "i": 4540,
@@ -21353,7 +21407,8 @@
         },
         "reward_from": {
             "780": 10
-        }
+        },
+        "consume": true
     },
     "4541": {
         "i": 4541,
@@ -21582,7 +21637,8 @@
         },
         "reward_from": {
             "64": 10
-        }
+        },
+        "consume": true
     },
     "4542": {
         "i": 4542,
@@ -21834,7 +21890,8 @@
         },
         "reward_from": {
             "1025": 10
-        }
+        },
+        "consume": true
     },
     "4543": {
         "bop": true,
@@ -22120,7 +22177,8 @@
             "813": 5.0,
             "2320": 5.0,
             "4665": 5.0
-        }
+        },
+        "consume": true
     },
     "4545": {
         "bop": true,
@@ -22187,7 +22245,8 @@
         },
         "reward_from": {
             "847": 1
-        }
+        },
+        "consume": true
     },
     "4547": {
         "bop": true,
@@ -24226,7 +24285,8 @@
                 "3694": 8.0,
                 "3662": 6.0
             }
-        }
+        },
+        "consume": true
     },
     "4593": {
         "i": 4593,
@@ -24410,7 +24470,8 @@
                 "3693": 9.0,
                 "3662": 6.0
             }
-        }
+        },
+        "consume": true
     },
     "4594": {
         "i": 4594,
@@ -24576,7 +24637,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "4595": {
         "i": 4595,
@@ -24606,7 +24668,8 @@
                 }
             }
         },
-        "objective": 619
+        "objective": 619,
+        "consume": true
     },
     "4596": {
         "i": 4596,
@@ -24629,7 +24692,8 @@
         },
         "reward_from": {
             "429": 1
-        }
+        },
+        "consume": true
     },
     "4597": {
         "i": 4597,
@@ -24674,7 +24738,8 @@
         },
         "reward_from": {
             "189": 8
-        }
+        },
+        "consume": true
     },
     "4599": {
         "i": 4599,
@@ -24919,7 +24984,8 @@
             "4855": 8.0,
             "6184": 8.0,
             "7109": 8.0
-        }
+        },
+        "consume": true
     },
     "4600": {
         "i": 4600,
@@ -24969,7 +25035,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "4601": {
         "i": 4601,
@@ -25209,7 +25276,8 @@
             "2257": 6.0,
             "5270": 6.0,
             "680": 6.0
-        }
+        },
+        "consume": true
     },
     "4602": {
         "i": 4602,
@@ -25453,7 +25521,8 @@
             "4506": 3.0,
             "2693": 3.0,
             "8566": 3.0
-        }
+        },
+        "consume": true
     },
     "4603": {
         "i": 4603,
@@ -25514,7 +25583,8 @@
         },
         "creates": {
             "18238": 6887
-        }
+        },
+        "consume": true
     },
     "4604": {
         "i": 4604,
@@ -25707,7 +25777,8 @@
         },
         "reward_from": {
             "918": 10
-        }
+        },
+        "consume": true
     },
     "4605": {
         "i": 4605,
@@ -25902,7 +25973,8 @@
         },
         "reward_from": {
             "947": 10
-        }
+        },
+        "consume": true
     },
     "4606": {
         "i": 4606,
@@ -26145,7 +26217,8 @@
         },
         "reward_from": {
             "277": 10
-        }
+        },
+        "consume": true
     },
     "4607": {
         "i": 4607,
@@ -26384,7 +26457,8 @@
             "7348": 5.0,
             "2721": 4.0,
             "7342": 4.0
-        }
+        },
+        "consume": true
     },
     "4608": {
         "i": 4608,
@@ -26620,7 +26694,8 @@
             "2405": 4.0,
             "2537": 3.0,
             "4468": 1.887
-        }
+        },
+        "consume": true
     },
     "4609": {
         "i": 4609,
@@ -26887,7 +26962,8 @@
         },
         "reward_from": {
             "715": 2
-        }
+        },
+        "consume": true
     },
     "4624": {
         "i": 4624,
@@ -27339,7 +27415,8 @@
         "dropped": {
             "4363": 8.0,
             "14230": 8.0
-        }
+        },
+        "consume": true
     },
     "4640": {
         "i": 4640,
@@ -27650,7 +27727,8 @@
         },
         "reward_from": {
             "2158": 5
-        }
+        },
+        "consume": true
     },
     "4658": {
         "i": 4658,
@@ -29598,7 +29676,8 @@
         "dropped": {
             "2989": 41.0,
             "2990": 34.0
-        }
+        },
+        "consume": true
     },
     "4703": {
         "i": 4703,
@@ -33789,7 +33868,8 @@
             "24888": 20420,
             "24898": 20450,
             "24892": 20436
-        }
+        },
+        "consume": true
     },
     "4792": {
         "boe": true,
@@ -35207,7 +35287,8 @@
             "s": 4981,
             "t": "Induces a Vision."
         },
-        "provided_for": 772
+        "provided_for": 772,
+        "consume": true
     },
     "4824": {
         "boe": true,
@@ -36535,7 +36616,8 @@
         },
         "reward_from": {
             "705": 1
-        }
+        },
+        "consume": true
     },
     "4854": {
         "bop": true,
@@ -37035,7 +37117,8 @@
         "unique": true,
         "dropped": {
             "3192": 100.0
-        }
+        },
+        "consume": true
     },
     "4883": {
         "i": 4883,
@@ -38042,7 +38125,8 @@
         },
         "reward_from": {
             "818": 10
-        }
+        },
+        "consume": true
     },
     "4942": {
         "bop": true,
@@ -38106,7 +38190,8 @@
         },
         "reward_from": {
             "808": 1
-        }
+        },
+        "consume": true
     },
     "4946": {
         "bop": true,
@@ -38314,7 +38399,8 @@
         },
         "reward_from": {
             "821": 5
-        }
+        },
+        "consume": true
     },
     "4953": {
         "bop": true,
@@ -38335,7 +38421,8 @@
         },
         "reward_from": {
             "822": 5
-        }
+        },
+        "consume": true
     },
     "4954": {
         "bop": true,
@@ -39200,7 +39287,8 @@
         },
         "reward_from": {
             "926": 1
-        }
+        },
+        "consume": true
     },
     "4987": {
         "bop": true,

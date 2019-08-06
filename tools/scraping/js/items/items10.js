@@ -18909,7 +18909,8 @@
             "items": {
                 "20603": 10.0
             }
-        }
+        },
+        "consume": true
     },
     "10306": {
         "i": 10306,
@@ -18970,7 +18971,8 @@
                 "20603": 9.0,
                 "15699": 9.0
             }
-        }
+        },
+        "consume": true
     },
     "10307": {
         "i": 10307,
@@ -19030,7 +19032,8 @@
             "items": {
                 "20603": 10.0
             }
-        }
+        },
+        "consume": true
     },
     "10308": {
         "i": 10308,
@@ -19090,7 +19093,8 @@
             "items": {
                 "20603": 7.0
             }
-        }
+        },
+        "consume": true
     },
     "10309": {
         "i": 10309,
@@ -19150,7 +19154,8 @@
             "items": {
                 "20603": 4.0
             }
-        }
+        },
+        "consume": true
     },
     "10310": {
         "i": 10310,
@@ -19210,7 +19215,8 @@
             "items": {
                 "20603": 5.0
             }
-        }
+        },
+        "consume": true
     },
     "10311": {
         "i": 10311,
@@ -19735,7 +19741,8 @@
             "s": 12186,
             "t": "Teaches you how to sew a Tuxedo Jacket."
         },
-        "provided_for": 881
+        "provided_for": 881,
+        "consume": true
     },
     "10328": {
         "i": 10328,
@@ -20055,7 +20062,8 @@
             "3242": 100.0,
             "3426": 100.0,
             "3466": 100.0
-        }
+        },
+        "consume": true
     },
     "10358": {
         "i": 10358,
@@ -23807,7 +23815,8 @@
         },
         "dropped": {
             "8438": 100.0
-        }
+        },
+        "consume": true
     },
     "10461": {
         "i": 10461,
@@ -24580,7 +24589,8 @@
             "materials": {
                 "10505": 1,
                 "4306": 1
-            }
+            },
+            "step": 2,
         },
         "materials": {
             "10505": 1,
@@ -24589,7 +24599,8 @@
         "objective": 3639,
         "creates": {
             "12754": 10586
-        }
+        },
+        "consume": true
     },
     "10508": {
         "i": 10508,
@@ -24885,7 +24896,8 @@
             "items": {
                 "11422": 28.0
             }
-        }
+        },
+        "consume": true
     },
     "10515": {
         "i": 10515,
@@ -25319,7 +25331,8 @@
             "10559": 1,
             "7909": 2,
             "4304": 2
-        }
+        },
+        "consume": true
     },
     "10547": {
         "i": 10547,
@@ -25385,7 +25398,8 @@
             "10559": 1,
             "7910": 1,
             "6037": 2
-        }
+        },
+        "consume": true
     },
     "10549": {
         "i": 10549,
@@ -25832,7 +25846,8 @@
                 "11422": 28.0
             }
         },
-        "objective": 6026
+        "objective": 6026,
+        "consume": true
     },
     "10563": {
         "i": 10563,
@@ -26598,7 +26613,8 @@
         },
         "creates": {
             "23486": 18984
-        }
+        },
+        "consume": true
     },
     "10587": {
         "i": 10587,
@@ -26794,7 +26810,8 @@
         },
         "creates": {
             "12607": 10501
-        }
+        },
+        "consume": true
     },
     "10593": {
         "i": 10593,
@@ -27374,7 +27391,8 @@
             "s": 12684,
             "t": "Place in the Talon Den."
         },
-        "provided_for": 3514
+        "provided_for": 3514,
+        "consume": true
     },
     "10623": {
         "i": 10623,
@@ -28366,7 +28384,8 @@
             "10505": 3,
             "10560": 1
         },
-        "objective": 9195
+        "objective": 9195,
+        "consume": true
     },
     "10647": {
         "i": 10647,
@@ -29099,7 +29118,8 @@
         },
         "creates": {
             "12735": 10662
-        }
+        },
+        "consume": true
     },
     "10664": {
         "i": 10664,
@@ -29197,7 +29217,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "10686": {
         "i": 10686,
@@ -29267,7 +29288,8 @@
             "items": {
                 "10695": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "10688": {
         "i": 10688,
@@ -29290,7 +29312,8 @@
             "items": {
                 "10695": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "10689": {
         "i": 10689,
@@ -29313,7 +29336,8 @@
             "items": {
                 "10695": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "10690": {
         "i": 10690,
@@ -29336,7 +29360,8 @@
             "items": {
                 "10695": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "10691": {
         "i": 10691,
@@ -32651,7 +32676,8 @@
             "s": 14209,
             "t": "Sign the pledge, swearing to Nixx Sprocketspring that you will keep the knowledge of Goblin Engineering in eternal secrecy."
         },
-        "provided_for": 3638
+        "provided_for": 3638,
+        "consume": true
     },
     "10793": {
         "i": 10793,
@@ -32665,7 +32691,8 @@
             "s": 14227,
             "t": "Sign the pledge, swearing to Tinkmaster Overspark that you will keep the knowledge of Gnome Engineering in eternal secrecy."
         },
-        "provided_for": 3640
+        "provided_for": 3640,
+        "consume": true
     },
     "10794": {
         "i": 10794,
@@ -32679,7 +32706,8 @@
             "s": 14210,
             "t": "Sign the pledge, swearing to Oglethorpe Obnoticus that you will keep the knowledge of Gnome Engineering in eternal secrecy."
         },
-        "provided_for": 3642
+        "provided_for": 3642,
+        "consume": true
     },
     "10795": {
         "i": 10795,
@@ -33698,7 +33726,8 @@
         },
         "reward_from": {
             "3601": 3
-        }
+        },
+        "consume": true
     },
     "10831": {
         "i": 10831,
@@ -33721,7 +33750,8 @@
             "items": {
                 "10834": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "10832": {
         "i": 10832,
@@ -34020,7 +34050,8 @@
                 "3821": 1,
                 "159": 1
             }
-        }
+        },
+        "consume": true
     },
     "10842": {
         "i": 10842,
@@ -34355,7 +34386,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "10919": {
         "i": 10919,
@@ -34443,7 +34475,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "10921": {
         "i": 10921,
@@ -34485,7 +34518,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "10922": {
         "i": 10922,
@@ -34527,7 +34561,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "10938": {
         "i": 10938,
@@ -34978,7 +35013,8 @@
                     "2"
                 ]
             }
-        }
+        },
+        "consume": true
     },
     "10939": {
         "i": 10939,
@@ -35362,7 +35398,8 @@
                     "2"
                 ]
             }
-        }
+        },
+        "consume": true
     },
     "10940": {
         "i": 10940,
@@ -36530,7 +36567,8 @@
                     "2"
                 ]
             }
-        }
+        },
+        "consume": true
     },
     "10999": {
         "i": 10999,

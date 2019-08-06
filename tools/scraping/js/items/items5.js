@@ -676,7 +676,8 @@
             "3273": 3.0,
             "3272": 3.0,
             "3394": 1.407
-        }
+        },
+        "consume": true
     },
     "5021": {
         "i": 5021,
@@ -695,7 +696,8 @@
             "s": 5140,
             "t": "Perfect for destroying flying machines."
         },
-        "provided_for": 849
+        "provided_for": 849,
+        "consume": true
     },
     "5022": {
         "i": 5022,
@@ -1232,7 +1234,8 @@
         },
         "dropped": {
             "3444": 50.0
-        }
+        },
+        "consume": true
     },
     "5054": {
         "i": 5054,
@@ -1296,7 +1299,8 @@
         },
         "reward_from": {
             "184": 5
-        }
+        },
+        "consume": true
     },
     "5058": {
         "i": 5058,
@@ -1581,7 +1585,8 @@
             "objects": {
                 "3743": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "5067": {
         "i": 5067,
@@ -2213,7 +2218,8 @@
                 "6361": 1
             }
         },
-        "objective": 8524
+        "objective": 8524,
+        "consume": true
     },
     "5096": {
         "i": 5096,
@@ -3300,7 +3306,8 @@
             "3254": 80.0,
             "3255": 80.0,
             "3256": 80.0
-        }
+        },
+        "consume": true
     },
     "5166": {
         "i": 5166,
@@ -3826,7 +3833,8 @@
             "s": 4976,
             "t": "Right-click to fill the Crystal Phial at the Shadowglen moonwell."
         },
-        "provided_for": 921
+        "provided_for": 921,
+        "consume": true
     },
     "5186": {
         "i": 5186,
@@ -4510,7 +4518,8 @@
         },
         "reward_from": {
             "2399": 5
-        }
+        },
+        "consume": true
     },
     "5206": {
         "i": 5206,
@@ -4530,7 +4539,8 @@
         },
         "dropped": {
             "3569": 100.0
-        }
+        },
+        "consume": true
     },
     "5207": {
         "i": 5207,
@@ -5278,7 +5288,8 @@
         },
         "reward_from": {
             "941": 1
-        }
+        },
+        "consume": true
     },
     "5219": {
         "i": 5219,
@@ -5353,7 +5364,8 @@
         "created_by": {
             "materials": {}
         },
-        "creates": {}
+        "creates": {},
+        "consume": true
     },
     "5233": {
         "i": 5233,
@@ -5481,7 +5493,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "5238": {
         "i": 5238,
@@ -6159,7 +6172,8 @@
         "provided_for": 944,
         "reward_from": {
             "961": 1
-        }
+        },
+        "consume": true
     },
     "5252": {
         "i": 5252,
@@ -7842,7 +7856,8 @@
         },
         "dropped": {
             "3619": 55.0
-        }
+        },
+        "consume": true
     },
     "5334": {
         "i": 5334,
@@ -7944,7 +7959,8 @@
             "2212": 100.0
         },
         "provided_for": 957,
-        "objective": 956
+        "objective": 956,
+        "consume": true
     },
     "5339": {
         "i": 5339,
@@ -8064,7 +8080,8 @@
         },
         "reward_from": {
             "865": 5
-        }
+        },
+        "consume": true
     },
     "5343": {
         "i": 5343,
@@ -8334,7 +8351,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5350": {
         "i": 5350,
@@ -8356,7 +8374,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5351": {
         "i": 5351,
@@ -9410,7 +9429,8 @@
             "objects": {
                 "17155": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "5398": {
         "i": 5398,
@@ -9518,7 +9538,8 @@
             "s": 4975,
             "t": "Invokes Winterhoof spirits of cleansing."
         },
-        "provided_for": 754
+        "provided_for": 754,
+        "consume": true
     },
     "5412": {
         "i": 5412,
@@ -9582,7 +9603,8 @@
             "s": 4977,
             "t": "Invokes Thunderhorn spirits of cleansing."
         },
-        "provided_for": 758
+        "provided_for": 758,
+        "consume": true
     },
     "5416": {
         "i": 5416,
@@ -9601,7 +9623,8 @@
             "s": 4978,
             "t": "Invokes Wildmane spirits of cleansing."
         },
-        "provided_for": 760
+        "provided_for": 760,
+        "consume": true
     },
     "5417": {
         "i": 5417,
@@ -9704,7 +9727,8 @@
         },
         "reward_from": {
             "706": 1
-        }
+        },
+        "consume": true
     },
     "5422": {
         "i": 5422,
@@ -10781,7 +10805,8 @@
         "unique": true,
         "quest_item": true,
         "description": "The paper is blank save for a few runes. You'll need bracers from the elementals to use it",
-        "provided_for": 1016
+        "provided_for": 1016,
+        "consume": true
     },
     "5457": {
         "i": 5457,
@@ -10802,7 +10827,8 @@
         },
         "reward_from": {
             "488": 5
-        }
+        },
+        "consume": true
     },
     "5458": {
         "i": 5458,
@@ -11167,7 +11193,8 @@
         },
         "reward_from": {
             "4161": 3
-        }
+        },
+        "consume": true
     },
     "5473": {
         "i": 5473,
@@ -11198,7 +11225,8 @@
         },
         "materials": {
             "5466": 1
-        }
+        },
+        "consume": true
     },
     "5474": {
         "i": 5474,
@@ -11231,7 +11259,8 @@
         "materials": {
             "5467": 1,
             "2678": 1
-        }
+        },
+        "consume": true
     },
     "5475": {
         "i": 5475,
@@ -11252,7 +11281,8 @@
         "dropped": {
             "3834": 17.0,
             "3919": 17.0
-        }
+        },
+        "consume": true
     },
     "5476": {
         "i": 5476,
@@ -11288,7 +11318,8 @@
         "materials": {
             "5468": 1,
             "2678": 1
-        }
+        },
+        "consume": true
     },
     "5477": {
         "i": 5477,
@@ -11327,7 +11358,8 @@
         },
         "reward_from": {
             "2178": 5
-        }
+        },
+        "consume": true
     },
     "5478": {
         "i": 5478,
@@ -11364,7 +11396,8 @@
         },
         "reward_from": {
             "862": 5
-        }
+        },
+        "consume": true
     },
     "5479": {
         "i": 5479,
@@ -11400,7 +11433,8 @@
         "materials": {
             "5470": 1,
             "2692": 1
-        }
+        },
+        "consume": true
     },
     "5480": {
         "i": 5480,
@@ -11436,7 +11470,8 @@
         "materials": {
             "5471": 1,
             "2678": 4
-        }
+        },
+        "consume": true
     },
     "5481": {
         "i": 5481,
@@ -12174,7 +12209,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5510": {
         "i": 5510,
@@ -12197,7 +12233,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5511": {
         "i": 5511,
@@ -12220,7 +12257,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5512": {
         "i": 5512,
@@ -12240,7 +12278,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5513": {
         "i": 5513,
@@ -12266,7 +12305,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5514": {
         "i": 5514,
@@ -12292,7 +12332,8 @@
             "profession": "Arcane",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5516": {
         "i": 5516,
@@ -12466,7 +12507,8 @@
             "profession": "Demonology",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "5523": {
         "i": 5523,
@@ -12576,7 +12618,8 @@
         "materials": {
             "5503": 1,
             "159": 1
-        }
+        },
+        "consume": true
     },
     "5526": {
         "i": 5526,
@@ -12617,7 +12660,8 @@
         },
         "dropped": {
             "8386": 20.0
-        }
+        },
+        "consume": true
     },
     "5527": {
         "i": 5527,
@@ -12653,7 +12697,8 @@
         "materials": {
             "5504": 1,
             "2692": 1
-        }
+        },
+        "consume": true
     },
     "5528": {
         "i": 5528,
@@ -14855,7 +14900,8 @@
             "s": 6609,
             "t": "Fill the Jade Phial at the Starbreeze moonwell."
         },
-        "provided_for": 929
+        "provided_for": 929,
+        "consume": true
     },
     "5620": {
         "i": 5620,
@@ -14887,7 +14933,8 @@
             "s": 6610,
             "t": "Fill the Tourmaline Phial at the Pools of Arlithrien moonwell."
         },
-        "provided_for": 933
+        "provided_for": 933,
+        "consume": true
     },
     "5622": {
         "i": 5622,
@@ -14949,7 +14996,8 @@
             "s": 6611,
             "t": "Fill the Amethyst Phial at the Oracle Glade moonwell."
         },
-        "provided_for": 934
+        "provided_for": 934,
+        "consume": true
     },
     "5624": {
         "i": 5624,
@@ -15247,7 +15295,8 @@
             "5635": 1,
             "2450": 1,
             "3371": 1
-        }
+        },
+        "consume": true
     },
     "5633": {
         "i": 5633,
@@ -15291,7 +15340,8 @@
             "5637": 1,
             "3356": 1,
             "3372": 1
-        }
+        },
+        "consume": true
     },
     "5634": {
         "i": 5634,
@@ -15324,7 +15374,8 @@
                 "3820": 1,
                 "3372": 1
             }
-        }
+        },
+        "consume": true
     },
     "5635": {
         "i": 5635,
@@ -15476,7 +15527,8 @@
             "s": 6620,
             "t": "Place near the Venture Co. Airport"
         },
-        "provided_for": 1086
+        "provided_for": 1086,
+        "consume": true
     },
     "5639": {
         "i": 5639,
@@ -15984,7 +16036,8 @@
             "items": {
                 "5738": 95.0
             }
-        }
+        },
+        "consume": true
     },
     "5693": {
         "i": 5693,
@@ -16007,7 +16060,8 @@
             "items": {
                 "5738": 81.0
             }
-        }
+        },
+        "consume": true
     },
     "5694": {
         "i": 5694,
@@ -16030,7 +16084,8 @@
             "items": {
                 "5738": 93.0
             }
-        }
+        },
+        "consume": true
     },
     "5695": {
         "i": 5695,
@@ -16053,7 +16108,8 @@
             "items": {
                 "5738": 79.0
             }
-        }
+        },
+        "consume": true
     },
     "5717": {
         "i": 5717,
@@ -16275,7 +16331,8 @@
             "objects": {
                 "103820": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "5741": {
         "i": 5741,
@@ -18473,7 +18530,8 @@
             "2385": 100.0,
             "2406": 100.0,
             "2407": 100.0
-        }
+        },
+        "consume": true
     },
     "5811": {
         "i": 5811,
@@ -18709,7 +18767,8 @@
         },
         "reward_from": {
             "1017": 1
-        }
+        },
+        "consume": true
     },
     "5817": {
         "i": 5817,
@@ -19318,7 +19377,8 @@
         "quest_item": true,
         "dropped": {
             "4723": 100.0
-        }
+        },
+        "consume": true
     },
     "5852": {
         "i": 5852,
@@ -19513,7 +19573,8 @@
         },
         "dropped": {
             "4054": 100.0
-        }
+        },
+        "consume": true
     },
     "5868": {
         "i": 5868,
@@ -19532,7 +19593,8 @@
             "materials": {}
         },
         "provided_for": 1197,
-        "objective": 1196
+        "objective": 1196,
+        "consume": true
     },
     "5869": {
         "i": 5869,
@@ -19710,7 +19772,8 @@
                 "68865": 0.3
             }
         },
-        "objective": 1221
+        "objective": 1221,
+        "consume": true
     },
     "5881": {
         "i": 5881,
@@ -20118,7 +20181,8 @@
         },
         "reward_from": {
             "6041": 10
-        }
+        },
+        "consume": true
     },
     "5952": {
         "i": 5952,
@@ -21247,7 +21311,8 @@
         },
         "reward_from": {
             "2078": 5
-        }
+        },
+        "consume": true
     },
     "5997": {
         "i": 5997,
@@ -21277,7 +21342,8 @@
                 "3371": 1
             }
         },
-        "objective": 1581
+        "objective": 1581,
+        "consume": true
     },
     "5998": {
         "i": 5998,

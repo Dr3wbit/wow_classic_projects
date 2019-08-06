@@ -30,7 +30,8 @@
         "use": {
             "s": 11359,
             "t": "Removes 1 magic, curse, poison or disease effect on you every 5 seconds for 30 seconds. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "9036": {
         "created_by": {
@@ -63,7 +64,8 @@
         "use": {
             "s": 11364,
             "t": "Increases your resistance to all schools of magic by 50 for 3 min. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "9060": {
         "created_by": {
@@ -150,7 +152,8 @@
         "use": {
             "s": 11371,
             "t": "Increases resistance to shadow by 10. If an enemy strikes the imbiber, the attacker has a 30% chance of being inflicted with disease that increases their damage taken by 8 for 3 min. Lasts for 30 min."
-        }
+        },
+        "consume": true
     },
     "9144": {
         "created_by": {
@@ -183,7 +186,8 @@
         "use": {
             "s": 11387,
             "t": "Restores 1 to 1501 health and 1 to 1501 mana. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "9149": {
         "bop": true,
@@ -252,7 +256,8 @@
         "use": {
             "s": 11389,
             "t": "Shows the location of all nearby undead on the minimap for 1 hr."
-        }
+        },
+        "consume": true
     },
     "9155": {
         "created_by": {
@@ -285,7 +290,8 @@
         "use": {
             "s": 11390,
             "t": "Increases spell damage by up to 20 for 30 min."
-        }
+        },
+        "consume": true
     },
     "9172": {
         "created_by": {
@@ -318,7 +324,8 @@
         "use": {
             "s": 11392,
             "t": "Gives the imbiber invisibility for 18 sec. (cooldown 10 min)"
-        }
+        },
+        "consume": true
     },
     "9173": {
         "created_by": {
@@ -363,7 +370,8 @@
         "use": {
             "s": 11396,
             "t": "Increases Intellect by 25 for 1 hr."
-        }
+        },
+        "consume": true
     },
     "9186": {
         "created_by": {
@@ -389,7 +397,8 @@
         "use": {
             "s": 11399,
             "t": "Coats a weapon with poison that lasts for 30 minutes.\nEach strike has a 20% chance of poisoning the enemy, increasing their casting time by 60% for 14 sec. 100 charges."
-        }
+        },
+        "consume": true
     },
     "9187": {
         "created_by": {
@@ -422,7 +431,8 @@
         "use": {
             "s": 11334,
             "t": "Increases Agility by 25 for 1 hr."
-        }
+        },
+        "consume": true
     },
     "9189": {
         "i": 9189,
@@ -467,7 +477,8 @@
         "use": {
             "s": 11403,
             "t": "Gives you a dream vision that lets you explore areas that are too dangerous to explore in person."
-        }
+        },
+        "consume": true
     },
     "9206": {
         "created_by": {
@@ -500,7 +511,8 @@
         "use": {
             "s": 11405,
             "t": "Increases your Strength by 25 for 1 hr."
-        }
+        },
+        "consume": true
     },
     "9210": {
         "created_by": {
@@ -582,7 +594,8 @@
         "use": {
             "s": 11406,
             "t": "Increases attack power by 265 against demons. Lasts 5 min."
-        }
+        },
+        "consume": true
     },
     "9233": {
         "created_by": {
@@ -614,7 +627,8 @@
         "use": {
             "s": 11407,
             "t": "Shows the location of all nearby demons on the minimap for 1 hr."
-        }
+        },
+        "consume": true
     },
     "9234": {
         "i": 9234,
@@ -688,7 +702,8 @@
         "use": {
             "s": 11435,
             "t": "Use at the Jintha'Alor Altar to create the Mallet of Zul'Farrak."
-        }
+        },
+        "consume": true
     },
     "9242": {
         "click_to_read": true,
@@ -780,7 +795,8 @@
             "gold": 0,
             "silver": 15
         },
-        "unique": true
+        "unique": true,
+        "consume": true
     },
     "9250": {
         "bop": true,
@@ -925,7 +941,8 @@
         "use": {
             "s": 11009,
             "t": "A strong alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "9261": {
         "i": 9261,
@@ -969,7 +986,8 @@
         "use": {
             "s": 11537,
             "t": "Energize at the Equinex Monolith."
-        }
+        },
+        "consume": true
     },
     "9264": {
         "created_by": {
@@ -1001,7 +1019,8 @@
         "use": {
             "s": 11474,
             "t": "Increases spell shadow damage by up to 40 for 30 min."
-        }
+        },
+        "consume": true
     },
     "9265": {
         "i": 9265,
@@ -1142,7 +1161,8 @@
         "use": {
             "s": 11513,
             "t": "Captures radioactive fallout."
-        }
+        },
+        "consume": true
     },
     "9284": {
         "created_by": {
@@ -1679,7 +1699,8 @@
         "use": {
             "s": 11540,
             "t": "Shoots a firework into the air that bursts into a thousand blue stars."
-        }
+        },
+        "consume": true
     },
     "9313": {
         "created_by": {
@@ -1708,7 +1729,8 @@
         "use": {
             "s": 11541,
             "t": "Shoots a firework into the air that bursts into a thousand green stars."
-        }
+        },
+        "consume": true
     },
     "9314": {
         "i": 9314,
@@ -1725,7 +1747,8 @@
         "use": {
             "s": 11542,
             "t": "Shoots a firework into the air that bursts into red streaks."
-        }
+        },
+        "consume": true
     },
     "9315": {
         "i": 9315,
@@ -1742,7 +1765,8 @@
         "use": {
             "s": 11544,
             "t": "Shoots a firework into the air that bursts in a yellow pattern."
-        }
+        },
+        "consume": true
     },
     "9316": {
         "click_to_read": true,
@@ -1775,7 +1799,8 @@
         "use": {
             "s": 11543,
             "t": "Shoots a firework into the air that bursts into red, white and blue stars."
-        }
+        },
+        "consume": true
     },
     "9318": {
         "created_by": {
@@ -1804,7 +1829,8 @@
         "use": {
             "s": 6668,
             "t": "Shoots a firework into the air that bursts into a thousand red stars."
-        }
+        },
+        "consume": true
     },
     "9319": {
         "created_by": {
@@ -1827,7 +1853,8 @@
         "use": {
             "s": 11547,
             "t": "Place at a Witherbark village."
-        }
+        },
+        "consume": true
     },
     "9320": {
         "i": 9320,
@@ -1872,7 +1899,8 @@
         "use": {
             "s": 11548,
             "t": "Use at the Shadra'Alor Altar to summon the spider god."
-        }
+        },
+        "consume": true
     },
     "9324": {
         "i": 9324,
@@ -2124,7 +2152,8 @@
         "use": {
             "s": 11009,
             "t": "A strong alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "9361": {
         "i": 9361,
@@ -2141,7 +2170,8 @@
         "use": {
             "s": 11629,
             "t": "An extremely potent alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "9362": {
         "bop": true,
@@ -2187,7 +2217,8 @@
         "use": {
             "s": 12709,
             "t": "Captures radioactive fallout."
-        }
+        },
+        "consume": true
     },
     "9365": {
         "created_by": {
@@ -3561,7 +3592,8 @@
         "use": {
             "s": 11732,
             "t": "Instantly restores 1200 life. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "9422": {
         "boe": true,
@@ -3999,7 +4031,8 @@
         "use": {
             "s": 11759,
             "t": "Test this sample for quality. Requires Field Testing Kit."
-        }
+        },
+        "consume": true
     },
     "9438": {
         "created_by": {
@@ -4024,7 +4057,8 @@
         "use": {
             "s": 11760,
             "t": "Test this sample for quality. Requires Field Testing Kit."
-        }
+        },
+        "consume": true
     },
     "9440": {
         "created_by": {
@@ -4061,7 +4095,8 @@
         "use": {
             "s": 11761,
             "t": "Test this sample for quality. Requires Field Testing Kit."
-        }
+        },
+        "consume": true
     },
     "9444": {
         "i": 9444,
@@ -4274,7 +4309,8 @@
         "use": {
             "s": 432,
             "t": "Restores 835.2 mana over 24 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "9452": {
         "bop": true,
@@ -4754,7 +4790,8 @@
             "copper": 0,
             "gold": 0,
             "silver": 0
-        }
+        },
+        "consume": true
     },
     "9473": {
         "bop": true,
@@ -5857,7 +5894,8 @@
         "use": {
             "s": 11840,
             "t": "Summons Edana Hatetalon."
-        }
+        },
+        "consume": true
     },
     "9531": {
         "bop": true,
@@ -7915,7 +7953,8 @@
         "use": {
             "s": 1129,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "9682": {
         "bop": true,
