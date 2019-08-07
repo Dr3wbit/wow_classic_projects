@@ -1327,9 +1327,25 @@
         "i": 179498,
         "n": "Scarlet Footlocker"
     },
+    "179499": {
+        "i": 179499,
+        "n": "Ogre Tannin Basket"
+    },
     "179501": {
         "i": 179501,
         "n": "Knot Thimblejack's Cache"
+    },
+    "179516": {
+        "i": 179516,
+        "n": "Fengus's Chest"
+    },
+    "179528": {
+        "i": 179528,
+        "n": "Warpwood Pod"
+    },
+    "179545": {
+        "i": 179545,
+        "n": "The Prince's Chest"
     },
     "179547": {
         "i": 179547,
@@ -1339,13 +1355,41 @@
         "i": 179548,
         "n": "A Dusty Tome"
     },
+    "179553": {
+        "i": 179553,
+        "n": "Core Fragment"
+    },
+    "179559": {
+        "i": 179559,
+        "n": "Felvine Shard"
+    },
+    "179562": {
+        "i": 179562,
+        "n": "Ancient Heated Blade"
+    },
     "179564": {
         "i": 179564,
         "n": "Gordok Tribute"
     },
+    "179644": {
+        "i": 179644,
+        "n": "Imprisoned Doomguard"
+    },
     "179697": {
         "i": 179697,
         "n": "Arena Treasure Chest"
+    },
+    "179703": {
+        "i": 179703,
+        "n": "Cache of the Firelord"
+    },
+    "179826": {
+        "i": 179826,
+        "n": "Secret Plans: Fiery Flux"
+    },
+    "179828": {
+        "i": 179828,
+        "n": "Dark Iron Pillow"
     },
     "180164": {
         "i": 180164,
@@ -2303,32 +2347,24 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "179499": {
-        "i": 179499,
-        "n": "Ogre Tannin Basket"
+    "179908": {
+        "i": 179908,
+        "n": "Slagtree's Lost Tools"
     },
-    "179528": {
-        "i": 179528,
-        "n": "Warpwood Pod"
+    "179915": {
+        "i": 179915,
+        "n": "Pile of Skulls"
     },
-    "179516": {
-        "i": 179516,
-        "n": "Fengus's Chest"
+    "179914": {
+        "i": 179914,
+        "n": "Pile of Bones"
     },
-    "179545": {
-        "i": 179545,
-        "n": "The Prince's Chest"
+    "179922": {
+        "i": 179922,
+        "n": "Vessel of Tainted Blood"
     },
-    "179553": {
-        "i": 179553,
-        "n": "Core Fragment"
-    },
-    "179562": {
-        "i": 179562,
-        "n": "Ancient Heated Blade"
-    },
-    "179559": {
-        "i": 179559,
-        "n": "Felvine Shard"
+    "180392": {
+        "i": 180392,
+        "n": "Full Jug"
     }
 }

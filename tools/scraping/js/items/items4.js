@@ -8976,7 +8976,19 @@
             "s": 2833,
             "t": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 24. Only usable on items level 15 and above."
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 170,
+                "green": 180,
+                "grey": 190
+            },
+            "materials": {
+                "4234": 5,
+                "2321": 1
+            }
+        }
     },
     "4278": {
         "i": 4278,
@@ -13135,7 +13147,20 @@
             "s": 4054,
             "t": "Inflicts 26 to 35 Fire damage in a 5 yard radius. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 30,
+                "green": 45,
+                "grey": 60
+            },
+            "materials": {
+                "4357": 2,
+                "2589": 1
+            },
+            "step": 2
+        }
     },
     "4359": {
         "contained": {
@@ -13214,7 +13239,22 @@
             "s": 4064,
             "t": "Inflicts 22 to 29 Fire damage and stuns targets in a 3 yard radius for 1 sec. Any damage will break the effect. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 60,
+                "green": 75,
+                "grey": 90
+            },
+            "materials": {
+                "2840": 1,
+                "4359": 1,
+                "4357": 2,
+                "2589": 1
+            },
+            "step": 2
+        }
     },
     "4361": {
         "contained": {
@@ -13782,7 +13822,19 @@
             "s": 4061,
             "t": "Inflicts 51 to 70 Fire damage in a 5 yard radius. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 90,
+                "green": 97,
+                "grey": 105
+            },
+            "materials": {
+                "4364": 3,
+                "2589": 1
+            }
+        }
     },
     "4366": {
         "i": 4366,
@@ -13811,7 +13863,21 @@
             "s": 4071,
             "t": "Drops a target dummy on the ground that attracts nearby monsters to attack it. Lasts for 15 seconds or until killed. (cooldown 2 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 115,
+                "green": 130,
+                "grey": 145
+            },
+            "materials": {
+                "4363": 1,
+                "4359": 2,
+                "2841": 1,
+                "2592": 1
+            }
+        }
     },
     "4367": {
         "i": 4367,
@@ -13840,7 +13906,21 @@
             "s": 4056,
             "t": "Blasts open simple locked doors."
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 130,
+                "green": 145,
+                "grey": 160
+            },
+            "materials": {
+                "4364": 2,
+                "4363": 1,
+                "2318": 1,
+                "159": 1
+            }
+        }
     },
     "4368": {
         "boe": true,
@@ -13976,7 +14056,21 @@
             "s": 4065,
             "t": "Inflicts 43 to 58 Fire damage and stuns targets in a 5 yard radius for 1 sec. Any damage will break the effect. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 105,
+                "green": 130,
+                "grey": 155
+            },
+            "materials": {
+                "2840": 3,
+                "4364": 4,
+                "4404": 1
+            },
+            "step": 2
+        }
     },
     "4371": {
         "contained": {
@@ -14263,7 +14357,21 @@
             "s": 4066,
             "t": "Inflicts 73 to 98 Fire damage and stuns targets in a 3 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 120,
+                "green": 145,
+                "grey": 170
+            },
+            "materials": {
+                "4364": 4,
+                "2841": 2,
+                "4404": 1,
+                "2592": 1
+            }
+        }
     },
     "4375": {
         "creates": {
@@ -14316,7 +14424,19 @@
             "s": 4057,
             "t": "Absorbs 500 fire damage. Lasts 1 min. (cooldown 15 min)\n5 charges"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 125,
+                "green": 150,
+                "grey": 175
+            },
+            "materials": {
+                "4375": 1,
+                "4402": 1
+            }
+        }
     },
     "4377": {
         "contained": {
@@ -14415,7 +14535,19 @@
             "s": 4062,
             "t": "Inflicts 128 to 173 Fire damage in a 5 yard radius. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 125,
+                "green": 135,
+                "grey": 145
+            },
+            "materials": {
+                "4377": 2,
+                "2592": 1
+            }
+        }
     },
     "4379": {
         "boe": true,
@@ -14499,7 +14631,21 @@
             "s": 4067,
             "t": "Inflicts 85 to 116 Fire damage and stuns targets in a 5 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 140,
+                "green": 165,
+                "grey": 190
+            },
+            "materials": {
+                "4377": 2,
+                "2841": 3,
+                "4404": 1
+            },
+            "step": 2
+        }
     },
     "4381": {
         "disenchant": {
@@ -14550,7 +14696,21 @@
             "s": 18805,
             "t": "Dispels Polymorph effects on a friendly target. Also restores 150 to 251 health and mana. (cooldown 5 min)\n10 charges"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 165,
+                "green": 177,
+                "grey": 190
+            },
+            "materials": {
+                "4371": 1,
+                "4375": 2,
+                "2319": 2,
+                "1206": 1
+            }
+        }
     },
     "4382": {
         "contained": {
@@ -14785,7 +14945,21 @@
             "s": 4074,
             "t": "Summons an Explosive Sheep which will charge at a nearby enemy and explode for 135 to 166 damage. Lasts for 3 min or until it explodes. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 175,
+                "green": 187,
+                "grey": 200
+            },
+            "materials": {
+                "4382": 1,
+                "4375": 1,
+                "4377": 2,
+                "2592": 2
+            }
+        }
     },
     "4385": {
         "boe": true,
@@ -14865,7 +15039,19 @@
             "s": 4077,
             "t": "Absorbs 600 frost damage. Lasts 1 min. (cooldown 15 min)\n5 charges"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 175,
+                "green": 185,
+                "grey": 195
+            },
+            "materials": {
+                "4375": 1,
+                "3829": 1
+            }
+        }
     },
     "4387": {
         "contained": {
@@ -14926,7 +15112,21 @@
             "s": 4060,
             "t": "Transforms the target into a Leper Gnome, reducing its melee and spell damage by 40 and its movement rate by 20% for 12 sec. (cooldown 1 min)\n5 charges"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 180,
+                "green": 190,
+                "grey": 200
+            },
+            "materials": {
+                "4375": 3,
+                "4306": 2,
+                "1529": 1,
+                "4371": 1
+            }
+        }
     },
     "4389": {
         "contained": {
@@ -15065,7 +15265,7 @@
                 "green": 185,
                 "grey": 195
             },
-            "step": 2,
+            "step": 2
         }
     },
     "4391": {
@@ -15096,7 +15296,21 @@
             "s": 4078,
             "t": "Creates a Compact Harvest Reaper that will fight for you for 10 min or until it is destroyed. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 175,
+                "green": 195,
+                "grey": 215
+            },
+            "materials": {
+                "4387": 2,
+                "4382": 1,
+                "4389": 2,
+                "4234": 4
+            }
+        }
     },
     "4392": {
         "i": 4392,
@@ -15126,7 +15340,21 @@
             "s": 4072,
             "t": "Drops a target dummy on the ground that attracts nearby monsters to attack it. Lasts for 15 seconds or until killed. (cooldown 2 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 185,
+                "green": 205,
+                "grey": 225
+            },
+            "materials": {
+                "4387": 1,
+                "4382": 1,
+                "4389": 1,
+                "4234": 4
+            }
+        }
     },
     "4393": {
         "boe": true,
@@ -15200,7 +15428,7 @@
             },
             "profession": "Engineering",
             "step": 2
-        }
+        },
         "n": "Big Iron Bomb",
         "objective": 3639,
         "quality": 1,
@@ -15247,7 +15475,20 @@
             "s": 4100,
             "t": "Places the Goblin Land Mine on the ground. It will explode for 394 to 507 fire damage the next time a hostile creature passes near it. The mine has a duration of 1 min. (cooldown 1 min)"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 215,
+                "green": 225,
+                "grey": 235
+            },
+            "materials": {
+                "4377": 3,
+                "3575": 2,
+                "4389": 1
+            }
+        }
     },
     "4396": {
         "boe": true,
@@ -15332,7 +15573,20 @@
             "s": 4075,
             "t": "Blasts open difficult locked doors."
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 200,
+                "green": 220,
+                "grey": 240
+            },
+            "materials": {
+                "10505": 2,
+                "4234": 2,
+                "159": 1
+            }
+        }
     },
     "4399": {
         "creates": {
@@ -15750,7 +16004,21 @@
             "s": 4067,
             "t": "Inflicts 85 to 116 Fire damage and stuns targets in a 5 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)\n8 charges"
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 185,
+                "green": 195,
+                "grey": 205
+            },
+            "materials": {
+                "4371": 4,
+                "4387": 1,
+                "4377": 4,
+                "2319": 4
+            }
+        }
     },
     "4404": {
         "creates": {
@@ -15897,7 +16165,20 @@
             "s": 3974,
             "t": "Attaches a permanent scope to a bow or gun that increases its damage by 1."
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 90,
+                "green": 105,
+                "grey": 120
+            },
+            "materials": {
+                "4361": 1,
+                "774": 1,
+                "4359": 1
+            }
+        }
     },
     "4406": {
         "contained": {
@@ -15931,7 +16212,19 @@
             "s": 3975,
             "t": "Attaches a permanent scope to a bow or gun that increases its damage by 2."
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 135,
+                "green": 147,
+                "grey": 160
+            },
+            "materials": {
+                "4371": 1,
+                "1206": 1
+            }
+        }
     },
     "4407": {
         "creates": {
@@ -15961,7 +16254,20 @@
             "s": 3976,
             "t": "Attaches a permanent scope to a bow or gun that increases its damage by 3."
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 200,
+                "green": 210,
+                "grey": 220
+            },
+            "materials": {
+                "4371": 1,
+                "1529": 1,
+                "3864": 1
+            }
+        }
     },
     "4408": {
         "contained": {
@@ -17809,7 +18115,19 @@
             "s": 5007,
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 8 Stamina and Spirit for 15 min."
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 215,
+                "green": 235,
+                "grey": 255
+            },
+            "materials": {
+                "3404": 1,
+                "2692": 1
+            }
+        }
     },
     "4458": {
         "dropped": {
@@ -24286,7 +24604,18 @@
                 "3662": 6.0
             }
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 90,
+                "green": 110,
+                "grey": 130
+            },
+            "materials": {
+                "6289": 1
+            }
+        }
     },
     "4593": {
         "i": 4593,
@@ -24471,7 +24800,18 @@
                 "3662": 6.0
             }
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 140,
+                "green": 160,
+                "grey": 180
+            },
+            "materials": {
+                "6308": 1
+            }
+        }
     },
     "4594": {
         "i": 4594,
@@ -24638,7 +24978,18 @@
                 }
             }
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 190,
+                "green": 210,
+                "grey": 230
+            },
+            "materials": {
+                "6362": 1
+            }
+        }
     },
     "4595": {
         "i": 4595,
@@ -24693,7 +25044,20 @@
         "reward_from": {
             "429": 1
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 80,
+                "green": 100,
+                "grey": 120
+            },
+            "materials": {
+                "3164": 1,
+                "2447": 1,
+                "3371": 1
+            }
+        }
     },
     "4597": {
         "i": 4597,
@@ -26963,7 +27327,20 @@
         "reward_from": {
             "715": 2
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 230,
+                "green": 250,
+                "grey": 270
+            },
+            "materials": {
+                "3858": 1,
+                "3821": 1,
+                "3372": 1
+            }
+        }
     },
     "4624": {
         "i": 4624,
@@ -36617,7 +36994,20 @@
         "reward_from": {
             "705": 1
         },
-        "consume": true
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 185,
+                "green": 205,
+                "grey": 225
+            },
+            "materials": {
+                "4611": 1,
+                "4377": 1,
+                "4306": 1
+            }
+        }
     },
     "4854": {
         "bop": true,

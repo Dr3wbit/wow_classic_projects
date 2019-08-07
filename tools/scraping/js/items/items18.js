@@ -13203,7 +13203,8 @@
         "image_name": "spell_fire_selfdestruct",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "objective": 7521
     },
     "18567": {
         "i": 18567,
@@ -13216,6 +13217,151 @@
             "gold": 3,
             "silver": 75,
             "copper": 0
+        },
+        "sold": {
+            "16376": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "6300": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "8176": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "3343": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "8161": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "3477": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "2844": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "2847": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "9179": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "5512": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "790": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "5411": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "4257": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "14624": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "4597": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "14737": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "3356": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "2999": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "1690": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            },
+            "4259": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 15
+                }
+            }
+        },
+        "creates": {
+            "22967": 17771
         }
     },
     "18582": {
@@ -13273,6 +13419,14 @@
                 "18584": 1,
                 "18583": 1
             }
+        },
+        "creates": {
+            "22989": 18583,
+            "22991": 18584
+        },
+        "materials": {
+            "18584": 1,
+            "18583": 1
         }
     },
     "18583": {
@@ -13321,6 +13475,12 @@
             "materials": {
                 "18582": 1
             }
+        },
+        "materials": {
+            "18582": 1
+        },
+        "creates": {
+            "22990": 18582
         }
     },
     "18584": {
@@ -13365,6 +13525,12 @@
             "materials": {
                 "18582": 1
             }
+        },
+        "materials": {
+            "18582": 1
+        },
+        "creates": {
+            "22990": 18582
         }
     },
     "18585": {
@@ -13383,6 +13549,17 @@
         "stats": {
             "strength": 9,
             "stamina": 4
+        },
+        "reward_from": {
+            "7541": 1
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18586": {
@@ -13402,6 +13579,17 @@
             "intellect": 6,
             "stamina": 6,
             "spirit": 4
+        },
+        "reward_from": {
+            "7541": 1
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18587": {
@@ -13439,6 +13627,13 @@
                 "14227": 2,
                 "7910": 2
             }
+        },
+        "materials": {
+            "15994": 2,
+            "18631": 2,
+            "7191": 2,
+            "14227": 2,
+            "7910": 2
         }
     },
     "18588": {
@@ -13472,6 +13667,15 @@
                 "10505": 1,
                 "4338": 2
             }
+        },
+        "dropped": {
+            "12178": 0.02,
+            "13136": 0.02
+        },
+        "contained": {
+            "items": {
+                "22320": 100.0
+            }
         }
     },
     "18590": {
@@ -13481,7 +13685,15 @@
         "image_name": "inv_potion_33",
         "stack": 30,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "7450": 35.0,
+            "7451": 35.0,
+            "7452": 35.0,
+            "7453": 35.0,
+            "7454": 35.0
+        },
+        "objective": 7563
     },
     "18591": {
         "i": 18591,
@@ -13489,7 +13701,9 @@
         "n": "Case of Blood",
         "image_name": "inv_box_02",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 7564,
+        "objective": 7564
     },
     "18592": {
         "i": 18592,
@@ -13511,6 +13725,9 @@
         "use": {
             "s": 23007,
             "t": "Teaches you how to make a Sulfuron Hammer."
+        },
+        "reward_from": {
+            "7604": 1
         }
     },
     "18594": {
@@ -13563,7 +13780,9 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 172,
+        "objective": 5502
     },
     "18598": {
         "i": 18598,
@@ -13579,7 +13798,9 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 1468,
+        "objective": 171
     },
     "18600": {
         "i": 18600,
@@ -13601,6 +13822,28 @@
         "use": {
             "s": 23030,
             "t": "Teaches Arcane Brilliance (Rank 1)."
+        },
+        "dropped": {
+            "12397": 4.0,
+            "11502": 3.0,
+            "10184": 1.316,
+            "6109": 1.316,
+            "16447": 0.71,
+            "14518": 0.48,
+            "10742": 0.46,
+            "10762": 0.42,
+            "9819": 0.4,
+            "11461": 0.4,
+            "9817": 0.38,
+            "16216": 0.37,
+            "10317": 0.36,
+            "11465": 0.36,
+            "11475": 0.36,
+            "11284": 0.36,
+            "9263": 0.34,
+            "9818": 0.34,
+            "10318": 0.34,
+            "11257": 0.34
         }
     },
     "18601": {
@@ -13614,7 +13857,9 @@
         "use": {
             "s": 23015,
             "t": "Imprisons a Doomguard Commander."
-        }
+        },
+        "provided_for": 7583,
+        "objective": 7583
     },
     "18602": {
         "i": 18602,
@@ -13640,6 +13885,17 @@
                     "t": "Restores 6 health per 5 sec."
                 }
             ]
+        },
+        "reward_from": {
+            "7583": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18603": {
@@ -13649,7 +13905,17 @@
         "image_name": "inv_potion_07",
         "stack": 15,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "11451": 30.0,
+            "11452": 30.0,
+            "11453": 30.0,
+            "11454": 30.0,
+            "11455": 30.0,
+            "11456": 30.0,
+            "11457": 30.0
+        },
+        "objective": 7581
     },
     "18604": {
         "i": 18604,
@@ -13658,7 +13924,13 @@
         "image_name": "inv_misc_gem_amethyst_03",
         "stack": 5,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "7461": 30.0,
+            "7462": 30.0,
+            "7463": 30.0
+        },
+        "objective": 7582
     },
     "18605": {
         "i": 18605,
@@ -13667,7 +13939,13 @@
         "image_name": "inv_misc_gem_amethyst_02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "179644": 100.0
+            }
+        },
+        "objective": 7583
     },
     "18606": {
         "i": 18606,
@@ -13688,6 +13966,15 @@
         "use": {
             "s": 23034,
             "t": "Place a Battle Standard with 1500 health that increases the maximum health of all party members that stay within 45 yards of the Battle Standard by 15%. Lasts 2 min. The Battle Standard may only be used in PvP Battlegrounds. (cooldown 10 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 5
+                }
+            }
         }
     },
     "18607": {
@@ -13709,6 +13996,15 @@
         "use": {
             "s": 23035,
             "t": "Place a Battle Standard with 1500 health that increases the maximum health of all party members that stay within 45 yards of the Battle Standard by 15%. Lasts 2 min. The Battle Standard may only be used in PvP Battlegrounds. (cooldown 10 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 5
+                }
+            }
         }
     },
     "18608": {
@@ -13765,6 +14061,11 @@
                 "18646": 1,
                 "18665": 1
             }
+        },
+        "materials": {
+            "18659": 1,
+            "18646": 1,
+            "18665": 1
         }
     },
     "18609": {
@@ -13841,6 +14142,9 @@
         },
         "stats": {
             "durability": 30
+        },
+        "dropped": {
+            "14432": 100.0
         }
     },
     "18611": {
@@ -13863,6 +14167,9 @@
         },
         "requirements": {
             "level": 2
+        },
+        "dropped": {
+            "14428": 100.0
         }
     },
     "18612": {
@@ -13885,6 +14192,9 @@
         },
         "requirements": {
             "level": 3
+        },
+        "dropped": {
+            "14431": 100.0
         }
     },
     "18622": {
@@ -13893,7 +14203,11 @@
         "n": "Flawless Fel Essence (Jaedenar)",
         "image_name": "inv_stone_02",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "9862": 75.0
+        },
+        "objective": 7602
     },
     "18623": {
         "i": 18623,
@@ -13901,7 +14215,11 @@
         "n": "Flawless Fel Essence (Dark Portal)",
         "image_name": "inv_stone_02",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "6011": 75.0
+        },
+        "objective": 7602
     },
     "18624": {
         "i": 18624,
@@ -13909,7 +14227,13 @@
         "n": "Flawless Fel Essence (Azshara)",
         "image_name": "inv_stone_02",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "6200": 75.0,
+            "6201": 75.0,
+            "6202": 75.0
+        },
+        "objective": 7602
     },
     "18625": {
         "i": 18625,
@@ -13917,7 +14241,11 @@
         "n": "Kroshius' Infernal Core",
         "image_name": "inv_stone_05",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14467": 100.0
+        },
+        "objective": 7603
     },
     "18626": {
         "i": 18626,
@@ -13935,7 +14263,8 @@
         "use": {
             "s": 23054,
             "t": "Ignites Kroshius, reanimating the fallen infernal."
-        }
+        },
+        "provided_for": 7603
     },
     "18628": {
         "i": 18628,
@@ -13952,7 +14281,9 @@
         "description": "Bound in Dark Iron Wirin",
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 7604,
+        "objective": 7604
     },
     "18629": {
         "i": 18629,
@@ -13970,6 +14301,15 @@
         "use": {
             "s": 23061,
             "t": "Restart a failing power node during the Ritual of Greater Summoning. Requires 1 Soul Shard."
+        },
+        "sold": {
+            "14437": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 50
+                }
+            }
         }
     },
     "18631": {
@@ -13996,6 +14336,26 @@
                 "7067": 2,
                 "7069": 1
             }
+        },
+        "dropped": {
+            "8898": 0.02,
+            "9096": 0.02,
+            "10319": 0.02,
+            "10398": 0.02,
+            "10419": 0.02,
+            "11448": 0.02,
+            "11456": 0.02
+        },
+        "creates": {
+            "23077": 18634,
+            "23081": 18638,
+            "23082": 18639,
+            "23486": 18984,
+            "23079": 18637,
+            "23489": 18986,
+            "26443": 21570,
+            "23078": 18587,
+            "26011": 21277
         }
     },
     "18632": {
@@ -14016,6 +14376,29 @@
         "use": {
             "s": 1127,
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "14480": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "14481": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "15354": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
         }
     },
     "18633": {
@@ -14036,6 +14419,29 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "14480": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "14481": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "15354": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "18634": {
@@ -14079,6 +14485,22 @@
                 "3829": 2,
                 "13467": 4
             }
+        },
+        "materials": {
+            "15994": 6,
+            "18631": 2,
+            "12361": 2,
+            "7078": 4,
+            "3829": 2,
+            "13467": 4
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18635": {
@@ -14099,6 +14521,29 @@
         "use": {
             "s": 1129,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "14480": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "14481": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "15354": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "18636": {
@@ -14146,6 +14591,33 @@
                 "18631": 1,
                 "14047": 2
             }
+        },
+        "materials": {
+            "16000": 2,
+            "18631": 1,
+            "14047": 2
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16202": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14343": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18638": {
@@ -14187,6 +14659,21 @@
                 "7080": 6,
                 "7910": 4,
                 "12800": 2
+            }
+        },
+        "materials": {
+            "11371": 4,
+            "18631": 3,
+            "7080": 6,
+            "7910": 4,
+            "12800": 2
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -14231,6 +14718,22 @@
                 "12800": 2,
                 "12799": 2
             }
+        },
+        "materials": {
+            "11371": 8,
+            "18631": 4,
+            "12803": 6,
+            "12808": 4,
+            "12800": 2,
+            "12799": 2
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18640": {
@@ -14251,6 +14754,22 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "dropped": {
+            "14351": 3.0,
+            "11501": 2.0,
+            "14321": 2.0,
+            "14324": 2.0,
+            "14325": 2.0,
+            "14326": 2.0,
+            "14322": 2.0,
+            "14323": 2.0,
+            "11443": 2.0,
+            "11448": 1.89,
+            "11441": 1.842,
+            "11444": 1.783,
+            "11450": 1.333,
+            "11445": 0.741
         }
     },
     "18641": {
@@ -14299,7 +14818,8 @@
         "description": "Be strong Randis, and aspire to be the hero you were meant to be. -- Lady Jaina Proudmoor",
         "created_by": {
             "materials": {}
-        }
+        },
+        "objective": 558
     },
     "18643": {
         "i": 18643,
@@ -14312,7 +14832,8 @@
         "description": "Heed the spirits, young Grunth. It is there that true heroes hear their calling. -- Cairne Bloodhoo",
         "created_by": {
             "materials": {}
-        }
+        },
+        "objective": 925
     },
     "18645": {
         "i": 18645,
@@ -14366,7 +14887,15 @@
             "level": 60
         },
         "description": "You can see movement when you peer into the Eye",
-        "click_to_read": true
+        "click_to_read": true,
+        "contained": {
+            "objects": {
+                "179703": 50.0
+            }
+        },
+        "creates": {
+            "23151": 18608
+        }
     },
     "18647": {
         "i": 18647,
@@ -14408,6 +14937,24 @@
         "use": {
             "s": 23085,
             "t": "Teaches you how to make a Green Firework."
+        },
+        "sold": {
+            "2838": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 18,
+                    "gold": 0
+                }
+            },
+            "3495": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 18,
+                    "gold": 0
+                }
+            }
         }
     },
     "18649": {
@@ -14429,6 +14976,22 @@
         "use": {
             "s": 23084,
             "t": "Teaches you how to make a Blue Firework."
+        },
+        "sold": {
+            "1304": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 18,
+                    "gold": 0
+                }
+            },
+            "5175": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 18,
+                    "gold": 0
+                }
+            }
         }
     },
     "18650": {
@@ -14450,6 +15013,16 @@
         "use": {
             "s": 23086,
             "t": "Teaches you how to make EZ-Thro Dynamite II."
+        },
+        "sold": {
+            "8131": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 0
+                }
+            }
         }
     },
     "18651": {
@@ -14471,6 +15044,16 @@
         "use": {
             "s": 23088,
             "t": "Teaches you how to make a Truesilver Transformer."
+        },
+        "sold": {
+            "2685": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "18652": {
@@ -14492,6 +15075,16 @@
         "use": {
             "s": 23089,
             "t": "Teaches you how to make a Gyrofreeze Ice Reflector."
+        },
+        "sold": {
+            "11185": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 1
+                }
+            }
         }
     },
     "18653": {
@@ -14514,6 +15107,9 @@
         "use": {
             "s": 23090,
             "t": "Teaches you how to make a Goblin Jumper Cable XL."
+        },
+        "dropped": {
+            "9499": 18.0
         }
     },
     "18654": {
@@ -14536,6 +15132,9 @@
         "use": {
             "s": 23098,
             "t": "Teaches you how to make an Alarm-O-Bot."
+        },
+        "dropped": {
+            "8920": 1.89
         }
     },
     "18655": {
@@ -14557,6 +15156,11 @@
         "use": {
             "s": 23091,
             "t": "Teaches you how to make a Major Recombobulator."
+        },
+        "contained": {
+            "objects": {
+                "179564": 9.0
+            }
         }
     },
     "18656": {
@@ -14578,6 +15182,16 @@
         "use": {
             "s": 23092,
             "t": "Teaches you how to make a Powerful Seaforium Charge."
+        },
+        "sold": {
+            "11185": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 60,
+                    "gold": 1
+                }
+            }
         }
     },
     "18657": {
@@ -14599,6 +15213,9 @@
         "use": {
             "s": 23093,
             "t": "Teaches you how to make a Hyper-Radiant Flame Reflector."
+        },
+        "dropped": {
+            "10264": 6.0
         }
     },
     "18658": {
@@ -14620,6 +15237,9 @@
         "use": {
             "s": 23094,
             "t": "Teaches you how to make a Ultra-Flash Shadow Reflector."
+        },
+        "dropped": {
+            "10426": 4.0
         }
     },
     "18659": {
@@ -14637,7 +15257,13 @@
             "s": 23151,
             "t": "Forms Benediction when combined with the Eye of Shadow and the Eye of Divinity."
         },
-        "description": "A tiny fragment of the World Tre"
+        "description": "A tiny fragment of the World Tre",
+        "reward_from": {
+            "7622": 1
+        },
+        "creates": {
+            "23151": 18608
+        }
     },
     "18660": {
         "i": 18660,
@@ -14697,6 +15323,9 @@
         "use": {
             "s": 23130,
             "t": "Teaches you how to make a World Enlarger."
+        },
+        "dropped": {
+            "8920": 2.0
         }
     },
     "18662": {
@@ -14717,6 +15346,15 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "sold": {
+            "14860": {
+                "cost": {
+                    "copper": 20,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "18663": {
@@ -14735,6 +15373,15 @@
         "use": {
             "s": 23136,
             "t": "Release the imp J'eevee in the center of the Pedestal of Immol'thar in Dire Maul."
+        },
+        "sold": {
+            "14437": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 150
+                }
+            }
         }
     },
     "18664": {
@@ -14762,7 +15409,19 @@
         "requirements": {
             "level": 60
         },
-        "description": "Seething darkness engulfs the eye"
+        "description": "Seething darkness engulfs the eye",
+        "dropped": {
+            "12397": 100.0,
+            "8716": 3.0,
+            "8717": 2.0,
+            "12396": 1.22,
+            "7463": 1.063,
+            "8718": 0.92,
+            "7461": 0.846
+        },
+        "creates": {
+            "23151": 18608
+        }
     },
     "18670": {
         "i": 18670,
@@ -14780,6 +15439,15 @@
         "use": {
             "s": 23152,
             "t": "Summon a Xorothian Dreadsteed within an empowered Circle of Dark Summoning."
+        },
+        "sold": {
+            "14437": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 50
+                }
+            }
         }
     },
     "18671": {
@@ -14817,6 +15485,17 @@
                     "t": "Blasts a target for 35 Fire damage."
                 }
             ]
+        },
+        "dropped": {
+            "14461": 21.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18672": {
@@ -14845,6 +15524,31 @@
                     "t": "Increases damage done by Fire spells and effects by up to 13."
                 }
             ]
+        },
+        "dropped": {
+            "14461": 50.0
+        },
+        "disenchant": {
+            "16203": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16204": {
+                "chance": 22.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 3.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18673": {
@@ -14877,6 +15581,17 @@
                     "t": "Increases the block value of your shield by 10."
                 }
             ]
+        },
+        "dropped": {
+            "14464": 30.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18674": {
@@ -14906,6 +15621,31 @@
                     "t": "Increased Defense +3."
                 }
             ]
+        },
+        "dropped": {
+            "14464": 50.0
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18675": {
@@ -14952,6 +15692,17 @@
                     "t": "Increases damage done by Nature spells and effects by up to 29."
                 }
             ]
+        },
+        "dropped": {
+            "14454": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18677": {
@@ -14976,6 +15727,31 @@
         },
         "requirements": {
             "level": 56
+        },
+        "dropped": {
+            "14454": 58.0
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18678": {
@@ -15000,6 +15776,17 @@
         },
         "requirements": {
             "level": 56
+        },
+        "dropped": {
+            "14457": 30.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18679": {
@@ -15028,6 +15815,31 @@
                     "t": "Increases damage done by Frost spells and effects by up to 14."
                 }
             ]
+        },
+        "dropped": {
+            "14457": 50.0
+        },
+        "disenchant": {
+            "16204": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16203": {
+                "chance": 20.0,
+                "v": [
+                    "2",
+                    "3"
+                ]
+            },
+            "14344": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18680": {
@@ -15057,6 +15869,22 @@
         },
         "requirements": {
             "level": 56
+        },
+        "dropped": {
+            "10504": 4.0,
+            "11261": 1.111,
+            "10505": 1.111,
+            "10502": 1.111,
+            "10507": 1.111,
+            "10901": 1.111
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18681": {
@@ -15088,6 +15916,22 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "10504": 4.0,
+            "11261": 1.111,
+            "10505": 1.111,
+            "10502": 1.111,
+            "10507": 1.111,
+            "10901": 1.111
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18682": {
@@ -15121,6 +15965,22 @@
                     "t": "Increases healing done by spells and effects by up to 44."
                 }
             ]
+        },
+        "dropped": {
+            "10504": 4.0,
+            "11261": 1.111,
+            "10505": 1.111,
+            "10502": 1.111,
+            "10507": 1.111,
+            "10901": 1.111
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18683": {
@@ -15151,6 +16011,27 @@
         },
         "requirements": {
             "level": 56
+        },
+        "dropped": {
+            "10504": 4.0,
+            "11261": 1.111,
+            "10505": 1.111,
+            "10502": 1.111,
+            "10507": 1.111,
+            "10901": 1.111
+        },
+        "contained": {
+            "items": {
+                "6352": 1.2
+            }
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18684": {
@@ -15173,6 +16054,22 @@
         },
         "requirements": {
             "level": 56
+        },
+        "dropped": {
+            "10504": 4.0,
+            "11261": 1.111,
+            "10505": 1.111,
+            "10502": 1.111,
+            "10507": 1.111,
+            "10901": 1.111
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18686": {
@@ -15198,6 +16095,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "11622": 14.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18687": {
@@ -15212,7 +16120,18 @@
             "copper": 0
         },
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "sold": {
+            "14522": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 150
+                }
+            }
+        },
+        "objective": 7625
     },
     "18688": {
         "i": 18688,
@@ -15224,7 +16143,9 @@
         "use": {
             "s": 23180,
             "t": "Release the imp near the Scholomance's alchemy lab."
-        }
+        },
+        "provided_for": 7629,
+        "objective": 7629
     },
     "18689": {
         "i": 18689,
@@ -15247,6 +16168,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "10503": 14.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18690": {
@@ -15278,6 +16210,17 @@
                     "t": "Increases your chance to parry an attack by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "10503": 14.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18691": {
@@ -15307,6 +16250,17 @@
                     "t": "Increases damage done by Shadow spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "10432": 7.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18692": {
@@ -15333,6 +16287,17 @@
         },
         "requirements": {
             "level": 54
+        },
+        "dropped": {
+            "10433": 7.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18693": {
@@ -15366,6 +16331,17 @@
                     "t": "Increases damage done by Frost spells and effects by up to 17."
                 }
             ]
+        },
+        "dropped": {
+            "10508": 16.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18694": {
@@ -15392,6 +16368,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "10508": 16.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18695": {
@@ -15414,6 +16401,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "10508": 16.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18696": {
@@ -15446,6 +16444,17 @@
                     "t": "Increases the block value of your shield by 24."
                 }
             ]
+        },
+        "dropped": {
+            "10508": 16.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18697": {
@@ -15478,6 +16487,22 @@
                     "t": "Restores 4 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "10497": 0.26
+        },
+        "contained": {
+            "objects": {
+                "176944": 0.4
+            }
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18698": {
@@ -15510,6 +16535,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "14520": 0.28,
+            "14519": 0.28
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18699": {
@@ -15538,6 +16575,34 @@
         },
         "requirements": {
             "level": 52
+        },
+        "dropped": {
+            "11257": 0.053,
+            "10470": 0.04,
+            "10488": 0.04,
+            "11551": 0.04,
+            "11582": 0.026,
+            "10469": 0.02,
+            "10476": 0.02,
+            "10477": 0.02,
+            "10478": 0.02,
+            "10486": 0.02,
+            "10489": 0.02,
+            "10491": 0.02,
+            "10498": 0.02,
+            "11284": 0.02,
+            "10471": 0.015,
+            "10487": 0.015,
+            "10499": 0.014,
+            "10495": 0.013
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18700": {
@@ -15562,6 +16627,22 @@
         },
         "requirements": {
             "level": 53
+        },
+        "dropped": {
+            "10497": 0.5
+        },
+        "contained": {
+            "objects": {
+                "176944": 0.4
+            }
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18701": {
@@ -15584,6 +16665,36 @@
         },
         "requirements": {
             "level": 54
+        },
+        "dropped": {
+            "11257": 0.06,
+            "11284": 0.06,
+            "10477": 0.04,
+            "10478": 0.04,
+            "11551": 0.04,
+            "11582": 0.026,
+            "10491": 0.022,
+            "10470": 0.02,
+            "10471": 0.02,
+            "10476": 0.02,
+            "10481": 0.02,
+            "10486": 0.02,
+            "10487": 0.02,
+            "10488": 0.02,
+            "10489": 0.02,
+            "10495": 0.02,
+            "10498": 0.02,
+            "10499": 0.02,
+            "10500": 0.02,
+            "10469": 0.016
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18702": {
@@ -15616,6 +16727,35 @@
                     "t": "Increases healing done by spells and effects by up to 42."
                 }
             ]
+        },
+        "dropped": {
+            "10469": 0.02,
+            "10470": 0.02,
+            "10471": 0.02,
+            "10477": 0.02,
+            "10478": 0.02,
+            "10486": 0.02,
+            "10487": 0.02,
+            "10488": 0.02,
+            "10489": 0.02,
+            "10491": 0.02,
+            "10495": 0.02,
+            "10498": 0.02,
+            "10499": 0.02,
+            "10500": 0.02,
+            "11551": 0.02,
+            "11582": 0.02,
+            "11284": 0.02,
+            "11257": 0.018,
+            "10476": 0.011
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18703": {
@@ -15633,7 +16773,14 @@
             ]
         },
         "starts": 7632,
-        "description": "A very large petrified leaf"
+        "description": "A very large petrified leaf",
+        "contained": {
+            "objects": {
+                "179703": 50.0
+            }
+        },
+        "provided_for": 7632,
+        "objective": 7632
     },
     "18704": {
         "i": 18704,
@@ -15644,7 +16791,14 @@
         "unique": true,
         "requirements": {
             "level": 60
-        }
+        },
+        "dropped": {
+            "6109": 100.0,
+            "7435": 0.5,
+            "7436": 0.5,
+            "7437": 0.5
+        },
+        "objective": 7634
     },
     "18705": {
         "i": 18705,
@@ -15659,7 +16813,11 @@
                 "Hunter"
             ],
             "level": 60
-        }
+        },
+        "dropped": {
+            "10184": 40.0
+        },
+        "objective": 7635
     },
     "18706": {
         "i": 18706,
@@ -15679,7 +16837,14 @@
         "starts": 7810,
         "stats": {
             "stamina": 5
-        }
+        },
+        "contained": {
+            "objects": {
+                "179697": 100.0
+            }
+        },
+        "provided_for": 7810,
+        "objective": 7838
     },
     "18707": {
         "i": 18707,
@@ -15696,7 +16861,13 @@
             "s": 23192,
             "t": "Forms Rhok'delar, Longbow of the Ancient Keepers, when combined with Enchanted Black Dragon Sinew."
         },
-        "description": "A Gift from the Ancients"
+        "description": "A Gift from the Ancients",
+        "reward_from": {
+            "7636": 1
+        },
+        "creates": {
+            "23192": 18713
+        }
     },
     "18708": {
         "i": 18708,
@@ -15712,7 +16883,8 @@
             ],
             "level": 60
         },
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 7636
     },
     "18709": {
         "i": 18709,
@@ -15743,6 +16915,19 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "contained": {
+            "objects": {
+                "179697": 5.0
+            }
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18710": {
@@ -15767,6 +16952,19 @@
         },
         "requirements": {
             "level": 45
+        },
+        "contained": {
+            "objects": {
+                "179697": 6.0
+            }
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18711": {
@@ -15798,6 +16996,19 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "contained": {
+            "objects": {
+                "179697": 7.0
+            }
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18712": {
@@ -15821,6 +17032,19 @@
         },
         "requirements": {
             "level": 45
+        },
+        "contained": {
+            "objects": {
+                "179697": 7.0
+            }
+        },
+        "disenchant": {
+            "11178": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18713": {
@@ -15863,6 +17087,13 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "materials": {
+            "18707": 1,
+            "18724": 1
+        },
+        "creates": {
+            "23193": 20487
         }
     },
     "18714": {
@@ -15888,6 +17119,9 @@
                     "t": "Increases ranged attack speed by 15%."
                 }
             ]
+        },
+        "reward_from": {
+            "7634": 1
         }
     },
     "18715": {
@@ -15935,6 +17169,9 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "creates": {
+            "23194": 20488
         }
     },
     "18716": {
@@ -15967,6 +17204,17 @@
                     "t": "Increases your chance to dodge an attack by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "10811": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18717": {
@@ -16006,6 +17254,17 @@
                     "t": "Increases healing done by spells and effects by up to 22."
                 }
             ]
+        },
+        "dropped": {
+            "10813": 19.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18718": {
@@ -16034,6 +17293,17 @@
         },
         "requirements": {
             "level": 58
+        },
+        "dropped": {
+            "10813": 19.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18719": {
@@ -16042,7 +17312,11 @@
         "n": "The Traitor's Heart",
         "image_name": "inv_misc_organ_01",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14523": 100.0
+        },
+        "objective": 7624
     },
     "18720": {
         "i": 18720,
@@ -16074,6 +17348,17 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "10813": 19.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18721": {
@@ -16107,6 +17392,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 23."
                 }
             ]
+        },
+        "dropped": {
+            "10997": 10.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18722": {
@@ -16138,6 +17434,17 @@
                     "t": "Immune to Disarm."
                 }
             ]
+        },
+        "dropped": {
+            "10435": 17.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18723": {
@@ -16167,6 +17474,17 @@
                     "t": "Increases healing done by spells and effects by up to 33."
                 }
             ]
+        },
+        "dropped": {
+            "10439": 14.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18724": {
@@ -16183,7 +17501,13 @@
             ],
             "level": 60
         },
-        "description": "An almost indestructible string. Perfect for a mighty bow stave"
+        "description": "An almost indestructible string. Perfect for a mighty bow stave",
+        "reward_from": {
+            "7635": 1
+        },
+        "creates": {
+            "23192": 18713
+        }
     },
     "18725": {
         "i": 18725,
@@ -16223,6 +17547,17 @@
                     "t": "+56 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "10435": 17.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18726": {
@@ -16254,6 +17589,17 @@
                     "t": "Restores 4 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "10435": 17.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18727": {
@@ -16287,6 +17633,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 30."
                 }
             ]
+        },
+        "dropped": {
+            "10435": 17.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18728": {
@@ -16315,6 +17672,17 @@
                     "t": "Increases damage done by Shadow spells and effects by up to 13."
                 }
             ]
+        },
+        "dropped": {
+            "10436": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18729": {
@@ -16347,6 +17715,17 @@
         },
         "requirements": {
             "level": 55
+        },
+        "dropped": {
+            "10436": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18730": {
@@ -16381,6 +17760,17 @@
                     "t": "Restores 5 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "10436": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18731": {
@@ -16402,6 +17792,23 @@
         "use": {
             "s": 23191,
             "t": "Teaches you how to craft a Heavy Leather Ball."
+        },
+        "sold": {
+            "5128": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3366": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "18734": {
@@ -16428,6 +17835,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "10438": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18735": {
@@ -16460,6 +17878,17 @@
                     "t": "Increases damage done by Shadow spells and effects by up to 27."
                 }
             ]
+        },
+        "dropped": {
+            "10438": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18736": {
@@ -16492,6 +17921,31 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "10407": 0.046,
+            "10399": 0.032,
+            "10398": 0.02,
+            "10406": 0.02,
+            "10409": 0.02,
+            "10413": 0.02,
+            "10416": 0.02,
+            "10423": 0.02,
+            "10424": 0.02,
+            "10425": 0.02,
+            "10426": 0.02,
+            "10464": 0.02,
+            "11043": 0.02,
+            "10412": 0.013,
+            "10400": 0.011
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18737": {
@@ -16522,6 +17976,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "10438": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18738": {
@@ -16552,6 +18017,17 @@
         },
         "requirements": {
             "level": 56
+        },
+        "dropped": {
+            "10437": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18739": {
@@ -16584,6 +18060,17 @@
                     "t": "Restores 5 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "10437": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18740": {
@@ -16617,6 +18104,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 11."
                 }
             ]
+        },
+        "dropped": {
+            "10437": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18741": {
@@ -16642,6 +18140,36 @@
         },
         "requirements": {
             "level": 56
+        },
+        "dropped": {
+            "10421": 0.04,
+            "10400": 0.04,
+            "10398": 0.02,
+            "10399": 0.02,
+            "10405": 0.02,
+            "10406": 0.02,
+            "10407": 0.02,
+            "10408": 0.02,
+            "10409": 0.02,
+            "10412": 0.02,
+            "10413": 0.02,
+            "10414": 0.02,
+            "10416": 0.02,
+            "10417": 0.02,
+            "10418": 0.02,
+            "10419": 0.02,
+            "10420": 0.02,
+            "10424": 0.02,
+            "10425": 0.02,
+            "10426": 0.02
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18742": {
@@ -16666,6 +18194,36 @@
         },
         "requirements": {
             "level": 55
+        },
+        "dropped": {
+            "10422": 0.04,
+            "10423": 0.04,
+            "10464": 0.04,
+            "10409": 0.025,
+            "10381": 0.02,
+            "10398": 0.02,
+            "10399": 0.02,
+            "10405": 0.02,
+            "10407": 0.02,
+            "10408": 0.02,
+            "10412": 0.02,
+            "10414": 0.02,
+            "10416": 0.02,
+            "10417": 0.02,
+            "10418": 0.02,
+            "10419": 0.02,
+            "10421": 0.02,
+            "10425": 0.02,
+            "10426": 0.02,
+            "10463": 0.02
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18743": {
@@ -16696,6 +18254,36 @@
                     "t": "Restores 6 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "10385": 0.093,
+            "10408": 0.077,
+            "10423": 0.06,
+            "10425": 0.06,
+            "10413": 0.04,
+            "10400": 0.04,
+            "10463": 0.032,
+            "10406": 0.031,
+            "10424": 0.027,
+            "10426": 0.022,
+            "10381": 0.022,
+            "10394": 0.021,
+            "10382": 0.02,
+            "10390": 0.02,
+            "10398": 0.02,
+            "10399": 0.02,
+            "10405": 0.02,
+            "10407": 0.02,
+            "10409": 0.02,
+            "10414": 0.02
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18744": {
@@ -16723,6 +18311,36 @@
         },
         "requirements": {
             "level": 53
+        },
+        "dropped": {
+            "10381": 0.04,
+            "10405": 0.04,
+            "10406": 0.04,
+            "10407": 0.04,
+            "10408": 0.04,
+            "10412": 0.04,
+            "10418": 0.04,
+            "10420": 0.04,
+            "10394": 0.04,
+            "10391": 0.025,
+            "10382": 0.02,
+            "10384": 0.02,
+            "10385": 0.02,
+            "10398": 0.02,
+            "10399": 0.02,
+            "10400": 0.02,
+            "10409": 0.02,
+            "10413": 0.02,
+            "10414": 0.02,
+            "10416": 0.02
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18745": {
@@ -16756,6 +18374,36 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 14."
                 }
             ]
+        },
+        "dropped": {
+            "10419": 0.08,
+            "10423": 0.08,
+            "10418": 0.06,
+            "10394": 0.06,
+            "10399": 0.04,
+            "10408": 0.04,
+            "10414": 0.04,
+            "10422": 0.04,
+            "10426": 0.04,
+            "10463": 0.04,
+            "10400": 0.035,
+            "10464": 0.031,
+            "10420": 0.028,
+            "10398": 0.023,
+            "10382": 0.02,
+            "10385": 0.02,
+            "10406": 0.02,
+            "10407": 0.02,
+            "10409": 0.02,
+            "10412": 0.02
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18746": {
@@ -16774,6 +18422,19 @@
         "use": {
             "s": 23204,
             "t": "Plant the Divination Scryer in the heart of the Great Ossuary's basement."
+        },
+        "dropped": {
+            "10488": 100.0,
+            "11458": 100.0
+        },
+        "contained": {
+            "items": {
+                "18804": 100.0
+            }
+        },
+        "provided_for": 7668,
+        "reward_from": {
+            "7666": 1
         }
     },
     "18749": {
@@ -16797,6 +18458,9 @@
         "use": {
             "s": 23254,
             "t": "Reclaim the lost soul of death knight's charger, judging it redeemed."
+        },
+        "dropped": {
+            "14516": 100.0
         }
     },
     "18752": {
@@ -16815,7 +18479,9 @@
         "use": {
             "s": 23208,
             "t": "Reveal the spirits that haunt the ruins of Terrordale. (cooldown 30 sec)"
-        }
+        },
+        "provided_for": 7640,
+        "objective": 7640
     },
     "18753": {
         "i": 18753,
@@ -16824,7 +18490,9 @@
         "image_name": "inv_shoulder_30",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 7648,
+        "objective": 7648
     },
     "18754": {
         "i": 18754,
@@ -16856,6 +18524,17 @@
                     "t": "Increased Defense +3."
                 }
             ]
+        },
+        "dropped": {
+            "14506": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18755": {
@@ -16889,6 +18568,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "14506": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18756": {
@@ -16914,6 +18604,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "14506": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18757": {
@@ -16945,6 +18646,17 @@
                     "t": "Restores 8 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "14506": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18758": {
@@ -16981,6 +18693,17 @@
                     "t": "+45 Attack Power when fighting Undead."
                 }
             ]
+        },
+        "dropped": {
+            "14516": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18759": {
@@ -17018,6 +18741,17 @@
                     "t": "+26 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "14516": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18760": {
@@ -17044,6 +18778,17 @@
                     "t": "Restores 8 health per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "14516": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18761": {
@@ -17073,6 +18818,17 @@
         },
         "requirements": {
             "level": 57
+        },
+        "dropped": {
+            "14516": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18762": {
@@ -17098,6 +18854,17 @@
                     "t": "Increases damage done by Fire spells and effects by up to 16."
                 }
             ]
+        },
+        "reward_from": {
+            "7603": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18766": {
@@ -17121,6 +18888,18 @@
         "use": {
             "s": 23221,
             "t": "Summons and dismisses a rideable Swift Frostsaber. This is a very fast mount."
+        },
+        "sold": {
+            "4730": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7672": 1
         }
     },
     "18767": {
@@ -17144,6 +18923,18 @@
         "use": {
             "s": 23219,
             "t": "Summons and dismisses a rideable Swift Mistsaber. This is a very fast mount."
+        },
+        "sold": {
+            "4730": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7672": 1
         }
     },
     "18769": {
@@ -17166,6 +18957,12 @@
                 "18779": 1,
                 "18780": 1
             }
+        },
+        "provided_for": 7649,
+        "objective": 7649,
+        "materials": {
+            "18779": 1,
+            "18780": 1
         }
     },
     "18770": {
@@ -17188,6 +18985,12 @@
                 "18781": 1,
                 "18782": 1
             }
+        },
+        "provided_for": 7650,
+        "objective": 7650,
+        "materials": {
+            "18781": 1,
+            "18782": 1
         }
     },
     "18771": {
@@ -17207,6 +19010,12 @@
                 "18783": 1,
                 "18784": 1
             }
+        },
+        "provided_for": 7651,
+        "objective": 7651,
+        "materials": {
+            "18783": 1,
+            "18784": 1
         }
     },
     "18772": {
@@ -17230,6 +19039,18 @@
         "use": {
             "s": 23225,
             "t": "Summons and dismisses a Swift Green Mechanostrider. This is a very fast mount."
+        },
+        "sold": {
+            "7955": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7676": 1
         }
     },
     "18773": {
@@ -17253,6 +19074,18 @@
         "use": {
             "s": 23223,
             "t": "Summons and dismisses a Swift White Mechanostrider. This is a very fast mount."
+        },
+        "sold": {
+            "7955": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7676": 1
         }
     },
     "18774": {
@@ -17276,6 +19109,18 @@
         "use": {
             "s": 23222,
             "t": "Summons and dismisses a Swift Yellow Mechanostrider. This is a very fast mount."
+        },
+        "sold": {
+            "7955": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7676": 1
         }
     },
     "18775": {
@@ -17289,6 +19134,10 @@
         "description": "Oats and grains specially mixed with the Argent Dawn's enriched manna biscuits",
         "created_by": {
             "materials": {}
+        },
+        "objective": 7643,
+        "reward_from": {
+            "7645": 1
         }
     },
     "18776": {
@@ -17312,6 +19161,39 @@
         "use": {
             "s": 23227,
             "t": "Summons and dismisses a rideable Swift Palomino. This is a very fast mount."
+        },
+        "sold": {
+            "4885": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "384": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "2357": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "1460": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7677": 1
         }
     },
     "18777": {
@@ -17335,6 +19217,39 @@
         "use": {
             "s": 23229,
             "t": "Summons and dismisses a rideable Swift Brown Steed. This is a very fast mount."
+        },
+        "sold": {
+            "4885": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "384": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "2357": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "1460": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7677": 1
         }
     },
     "18778": {
@@ -17358,6 +19273,39 @@
         "use": {
             "s": 23228,
             "t": "Summons and dismisses a rideable Swift White Steed. This is a very fast mount."
+        },
+        "sold": {
+            "4885": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "384": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "2357": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            },
+            "1460": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7677": 1
         }
     },
     "18779": {
@@ -17373,6 +19321,12 @@
         "use": {
             "s": 23231,
             "t": "Combines the Top and Bottom Half of Advanced Armorsmithing: Volume I."
+        },
+        "dropped": {
+            "10899": 15.0
+        },
+        "creates": {
+            "23231": 18769
         }
     },
     "18780": {
@@ -17388,6 +19342,12 @@
         "use": {
             "s": 23231,
             "t": "Combines the Top and Bottom Half of Advanced Armorsmithing: Volume I."
+        },
+        "dropped": {
+            "11501": 9.0
+        },
+        "creates": {
+            "23231": 18769
         }
     },
     "18781": {
@@ -17403,6 +19363,12 @@
         "use": {
             "s": 23232,
             "t": "Combines the Top and Bottom Half of Advanced Armorsmithing: Volume II."
+        },
+        "dropped": {
+            "11120": 40.0
+        },
+        "creates": {
+            "23232": 18770
         }
     },
     "18782": {
@@ -17418,6 +19384,12 @@
         "use": {
             "s": 23232,
             "t": "Combines the Top and Bottom Half of Advanced Armorsmithing: Volume II."
+        },
+        "dropped": {
+            "11622": 40.0
+        },
+        "creates": {
+            "23232": 18770
         }
     },
     "18783": {
@@ -17433,6 +19405,12 @@
         "use": {
             "s": 23233,
             "t": "Combines the Top and Bottom Half of Advanced Armorsmithing: Volume III."
+        },
+        "dropped": {
+            "11121": 40.0
+        },
+        "creates": {
+            "23233": 18771
         }
     },
     "18784": {
@@ -17448,6 +19426,12 @@
         "use": {
             "s": 23233,
             "t": "Combines the Top and Bottom Half of Advanced Armorsmithing: Volume III."
+        },
+        "dropped": {
+            "10584": 16.0
+        },
+        "creates": {
+            "23233": 18771
         }
     },
     "18785": {
@@ -17471,6 +19455,18 @@
         "use": {
             "s": 23240,
             "t": "Summons and dismisses a rideable swift white ram. This is a very fast mount."
+        },
+        "sold": {
+            "1261": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7673": 1
         }
     },
     "18786": {
@@ -17494,6 +19490,18 @@
         "use": {
             "s": 23238,
             "t": "Summons and dismisses a rideable swift brown ram. This is a very fast mount."
+        },
+        "sold": {
+            "1261": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7673": 1
         }
     },
     "18787": {
@@ -17517,6 +19525,18 @@
         "use": {
             "s": 23239,
             "t": "Summons and dismisses a rideable swift gray ram. This is a very fast mount."
+        },
+        "sold": {
+            "1261": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7673": 1
         }
     },
     "18788": {
@@ -17540,6 +19560,18 @@
         "use": {
             "s": 23241,
             "t": "Summons and dismisses a rideable Raptor. This is a very fast mount."
+        },
+        "sold": {
+            "7952": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7665": 1
         }
     },
     "18789": {
@@ -17563,6 +19595,18 @@
         "use": {
             "s": 23242,
             "t": "Summons and dismisses a rideable Raptor. This is a very fast mount."
+        },
+        "sold": {
+            "7952": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7665": 1
         }
     },
     "18790": {
@@ -17586,6 +19630,18 @@
         "use": {
             "s": 23243,
             "t": "Summons and dismisses a rideable Raptor. This is a very fast mount."
+        },
+        "sold": {
+            "7952": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7665": 1
         }
     },
     "18791": {
@@ -17609,6 +19665,15 @@
         "use": {
             "s": 23246,
             "t": "Summons and dismisses a rideable skeletal warhorse. This is a very fast mount."
+        },
+        "sold": {
+            "4731": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
         }
     },
     "18792": {
@@ -17618,7 +19683,18 @@
         "image_name": "inv_shoulder_31",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "10488": 100.0,
+            "11458": 100.0
+        },
+        "contained": {
+            "items": {
+                "18804": 100.0
+            }
+        },
+        "provided_for": 7644,
+        "objective": 7647
     },
     "18793": {
         "i": 18793,
@@ -17641,6 +19717,18 @@
         "use": {
             "s": 23247,
             "t": "Summons and dismisses a rideable kodo. This is a very fast mount."
+        },
+        "sold": {
+            "3685": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7662": 1
         }
     },
     "18794": {
@@ -17664,6 +19752,18 @@
         "use": {
             "s": 23249,
             "t": "Summons and dismisses a rideable kodo. This is a very fast mount."
+        },
+        "sold": {
+            "3685": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7662": 1
         }
     },
     "18795": {
@@ -17687,6 +19787,18 @@
         "use": {
             "s": 23248,
             "t": "Summons and dismisses a rideable kodo. This is a very fast mount."
+        },
+        "sold": {
+            "3685": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7662": 1
         }
     },
     "18796": {
@@ -17710,6 +19822,18 @@
         "use": {
             "s": 23250,
             "t": "Summons and dismisses a rideable wolf. This is a very fast mount."
+        },
+        "sold": {
+            "3362": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7661": 1
         }
     },
     "18797": {
@@ -17733,6 +19857,18 @@
         "use": {
             "s": 23251,
             "t": "Summons and dismisses a rideable wolf. This is a very fast mount."
+        },
+        "sold": {
+            "3362": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7661": 1
         }
     },
     "18798": {
@@ -17756,6 +19892,18 @@
         "use": {
             "s": 23252,
             "t": "Summons and dismisses a rideable wolf. This is a very fast mount."
+        },
+        "sold": {
+            "3362": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7661": 1
         }
     },
     "18799": {
@@ -17768,7 +19916,8 @@
         "unique": true,
         "created_by": {
             "materials": {}
-        }
+        },
+        "objective": 7647
     },
     "18802": {
         "i": 18802,
@@ -17786,6 +19935,15 @@
         "use": {
             "s": 23179,
             "t": "Infuses imbiber with a taint of shadow, making him friendly to the denizens of Jaedenar. Lasts 20 minutes."
+        },
+        "sold": {
+            "14437": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 6
+                }
+            }
         }
     },
     "18803": {
@@ -17828,7 +19986,16 @@
                 }
             ]
         },
-        "description": "Property of Finkle Einhorn, Grandmaster Adventure"
+        "description": "Property of Finkle Einhorn, Grandmaster Adventure",
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
+        }
     },
     "18804": {
         "i": 18804,
@@ -17838,7 +20005,8 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Your finished Divination Scryer and Blessed Arcanite Barding are inside the satchel"
+        "description": "Your finished Divination Scryer and Blessed Arcanite Barding are inside the satchel",
+        "provided_for": 7647
     },
     "18805": {
         "i": 18805,
@@ -17880,6 +20048,15 @@
                     "t": "+20 Attack Power."
                 }
             ]
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18806": {
@@ -17915,6 +20092,20 @@
                     "t": "Increased Defense +4."
                 }
             ]
+        },
+        "contained": {
+            "objects": {
+                "179703": 36.0
+            }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18807": {
@@ -17949,6 +20140,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 14."
                 }
             ]
+        },
+        "reward_from": {
+            "7668": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18808": {
@@ -17986,6 +20188,15 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 9."
                 }
             ]
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18809": {
@@ -18021,6 +20232,20 @@
                     "t": "Restores 6 health per 5 sec."
                 }
             ]
+        },
+        "contained": {
+            "objects": {
+                "179703": 36.0
+            }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18810": {
@@ -18054,6 +20279,20 @@
                     "t": "Increases healing done by spells and effects by up to 62."
                 }
             ]
+        },
+        "contained": {
+            "objects": {
+                "179703": 36.0
+            }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18811": {
@@ -18081,6 +20320,15 @@
         },
         "requirements": {
             "level": 60
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18812": {
@@ -18114,6 +20362,20 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "contained": {
+            "objects": {
+                "179703": 36.0
+            }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18813": {
@@ -18150,6 +20412,18 @@
                     "t": "Increased Defense +4."
                 }
             ]
+        },
+        "dropped": {
+            "10184": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18814": {
@@ -18179,6 +20453,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 34."
                 }
             ]
+        },
+        "dropped": {
+            "11502": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18815": {
@@ -18205,6 +20491,18 @@
                     "t": "When struck in combat inflicts 13 Fire damage to the attacker."
                 }
             ]
+        },
+        "dropped": {
+            "11502": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18816": {
@@ -18242,6 +20540,18 @@
                     "t": "Blasts a target for 40 to 57 Fire damage."
                 }
             ]
+        },
+        "dropped": {
+            "11502": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18817": {
@@ -18282,6 +20592,18 @@
                     "t": "+44 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "11502": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18818": {
@@ -18292,7 +20614,8 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "click_to_read": true
+        "click_to_read": true,
+        "provided_for": 7631
     },
     "18819": {
         "i": 18819,
@@ -18301,7 +20624,9 @@
         "image_name": "spell_holy_holyprotection",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 7639,
+        "objective": 7639
     },
     "18820": {
         "i": 18820,
@@ -18323,6 +20648,21 @@
         "use": {
             "s": 23271,
             "t": "Increases damage and healing done by magical spells and effects by up to 175 for 15 sec. (cooldown 1.5 min)"
+        },
+        "dropped": {
+            "12056": 8.0,
+            "11982": 5.0,
+            "12057": 5.0,
+            "11988": 2.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18821": {
@@ -18357,6 +20697,21 @@
                     "t": "+30 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "12056": 8.0,
+            "11982": 5.0,
+            "12057": 5.0,
+            "11988": 2.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18822": {
@@ -18394,6 +20749,21 @@
                     "t": "Increased Two-handed Swords +8."
                 }
             ]
+        },
+        "dropped": {
+            "12056": 8.0,
+            "11982": 5.0,
+            "12057": 5.0,
+            "11988": 2.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18823": {
@@ -18434,6 +20804,21 @@
                     "t": "Increased Daggers +5."
                 }
             ]
+        },
+        "dropped": {
+            "12056": 8.0,
+            "11982": 5.0,
+            "12057": 5.0,
+            "11988": 2.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18824": {
@@ -18470,6 +20855,21 @@
                     "t": "Increases healing done by spells and effects by up to 18."
                 }
             ]
+        },
+        "dropped": {
+            "11982": 5.0,
+            "12057": 5.0,
+            "12056": 4.0,
+            "11988": 2.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18825": {
@@ -18505,6 +20905,15 @@
                     "t": "When struck in combat has a 5% chance of inflicting 35 to 66 Nature damage to the attacker."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 36,
+                    "silver": 90,
+                    "gold": 15
+                }
+            }
         }
     },
     "18826": {
@@ -18540,6 +20949,15 @@
                     "t": "When struck in combat has a 5% chance of inflicting 35 to 66 Nature damage to the attacker."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 87,
+                    "silver": 95,
+                    "gold": 15
+                }
+            }
         }
     },
     "18827": {
@@ -18583,6 +21001,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 41,
+                    "silver": 2,
+                    "gold": 25
+                }
+            }
         }
     },
     "18828": {
@@ -18626,6 +21053,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 27,
+                    "silver": 11,
+                    "gold": 25
+                }
+            }
         }
     },
     "18829": {
@@ -18659,6 +21095,21 @@
                     "t": "Increases damage done by Nature spells and effects by up to 40."
                 }
             ]
+        },
+        "dropped": {
+            "11982": 5.0,
+            "12057": 5.0,
+            "12056": 4.0,
+            "11988": 2.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18830": {
@@ -18699,6 +21150,15 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 37,
+                    "silver": 61,
+                    "gold": 28
+                }
+            }
         }
     },
     "18831": {
@@ -18739,6 +21199,15 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 44,
+                    "silver": 72,
+                    "gold": 28
+                }
+            }
         }
     },
     "18832": {
@@ -18778,6 +21247,18 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "12057": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18833": {
@@ -18817,6 +21298,15 @@
                     "t": "+36 ranged Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 57,
+                    "silver": 36,
+                    "gold": 17
+                }
+            }
         }
     },
     "18834": {
@@ -18843,6 +21333,15 @@
         "use": {
             "s": 5579,
             "t": "Dispels all Immobilizing, Slowing and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18835": {
@@ -18882,6 +21381,15 @@
                     "t": "+36 ranged Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 86,
+                    "silver": 49,
+                    "gold": 17
+                }
+            }
         }
     },
     "18836": {
@@ -18921,6 +21429,15 @@
                     "t": "+36 ranged Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 50,
+                    "silver": 56,
+                    "gold": 17
+                }
+            }
         }
     },
     "18837": {
@@ -18960,6 +21477,15 @@
                     "t": "+36 ranged Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 97,
+                    "silver": 62,
+                    "gold": 17
+                }
+            }
         }
     },
     "18838": {
@@ -19003,6 +21529,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 93,
+                    "silver": 22,
+                    "gold": 24
+                }
+            }
         }
     },
     "18839": {
@@ -19023,6 +21558,22 @@
         "use": {
             "s": 4042,
             "t": "Restores 700 to 901 health. (cooldown 2 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            },
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 10,
+                    "gold": 0
+                }
+            }
         }
     },
     "18840": {
@@ -19066,6 +21617,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 64,
+                    "silver": 40,
+                    "gold": 24
+                }
+            }
         }
     },
     "18841": {
@@ -19086,6 +21646,22 @@
         "use": {
             "s": 17530,
             "t": "Restores 900 to 1501 mana. (cooldown 2 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 11,
+                    "gold": 0
+                }
+            },
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 11,
+                    "gold": 0
+                }
+            }
         }
     },
     "18842": {
@@ -19129,6 +21705,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 40."
                 }
             ]
+        },
+        "dropped": {
+            "11988": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18843": {
@@ -19172,6 +21760,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 98,
+                    "silver": 66,
+                    "gold": 24
+                }
+            }
         }
     },
     "18844": {
@@ -19215,6 +21812,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 84,
+                    "silver": 75,
+                    "gold": 24
+                }
+            }
         }
     },
     "18845": {
@@ -19241,6 +21847,15 @@
         "use": {
             "s": 5579,
             "t": "Dispels all Immobilizing, Slowing and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18846": {
@@ -19267,6 +21882,15 @@
         "use": {
             "s": 5579,
             "t": "Dispels all Immobilizing, Slowing and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18847": {
@@ -19310,6 +21934,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 18,
+                    "silver": 2,
+                    "gold": 25
+                }
+            }
         }
     },
     "18848": {
@@ -19353,6 +21986,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 79,
+                    "silver": 10,
+                    "gold": 25
+                }
+            }
         }
     },
     "18849": {
@@ -19379,6 +22021,15 @@
         "use": {
             "s": 23273,
             "t": "Dispels all Charm, Fear and Polymorph effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18850": {
@@ -19405,6 +22056,15 @@
         "use": {
             "s": 23274,
             "t": "Dispels all Fear, Polymorph and Slowing effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18851": {
@@ -19431,6 +22091,15 @@
         "use": {
             "s": 23276,
             "t": "Dispels all Fear, Polymorph and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18852": {
@@ -19457,6 +22126,15 @@
         "use": {
             "s": 23273,
             "t": "Dispels all Charm, Fear and Polymorph effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18853": {
@@ -19483,6 +22161,15 @@
         "use": {
             "s": 23277,
             "t": "Dispels all Charm, Fear and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12793": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18854": {
@@ -19509,6 +22196,15 @@
         "use": {
             "s": 5579,
             "t": "Dispels all Immobilizing, Slowing and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18855": {
@@ -19548,6 +22244,15 @@
                     "t": "+36 ranged Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 26,
+                    "silver": 97,
+                    "gold": 17
+                }
+            }
         }
     },
     "18856": {
@@ -19574,6 +22279,15 @@
         "use": {
             "s": 5579,
             "t": "Dispels all Immobilizing, Slowing and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18857": {
@@ -19600,6 +22314,15 @@
         "use": {
             "s": 23273,
             "t": "Dispels all Charm, Fear and Polymorph effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18858": {
@@ -19626,6 +22349,15 @@
         "use": {
             "s": 23273,
             "t": "Dispels all Charm, Fear and Polymorph effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18859": {
@@ -19652,6 +22384,15 @@
         "use": {
             "s": 23274,
             "t": "Dispels all Fear, Polymorph and Slowing effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18860": {
@@ -19691,6 +22432,15 @@
                     "t": "+36 ranged Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 12,
+                    "silver": 30,
+                    "gold": 18
+                }
+            }
         }
     },
     "18861": {
@@ -19727,6 +22477,25 @@
                     "t": "Increases your chance to dodge an attack by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "12056": 8.0,
+            "11982": 5.0,
+            "12057": 5.0,
+            "12259": 5.0,
+            "12098": 4.0,
+            "12118": 4.0,
+            "12264": 3.0,
+            "11988": 2.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18862": {
@@ -19753,6 +22522,15 @@
         "use": {
             "s": 23276,
             "t": "Dispels all Fear, Polymorph and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18863": {
@@ -19779,6 +22557,15 @@
         "use": {
             "s": 23277,
             "t": "Dispels all Charm, Fear and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18864": {
@@ -19805,6 +22592,15 @@
         "use": {
             "s": 23276,
             "t": "Dispels all Fear, Polymorph and Stun effects. (cooldown 5 min)"
+        },
+        "sold": {
+            "12781": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 50,
+                    "gold": 1
+                }
+            }
         }
     },
     "18865": {
@@ -19848,6 +22644,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 22,
+                    "silver": 84,
+                    "gold": 24
+                }
+            }
         }
     },
     "18866": {
@@ -19891,6 +22696,15 @@
                     "t": "+28 Attack Power."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 8,
+                    "silver": 93,
+                    "gold": 24
+                }
+            }
         }
     },
     "18867": {
@@ -19931,6 +22745,15 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 12,
+                    "silver": 27,
+                    "gold": 31
+                }
+            }
         }
     },
     "18868": {
@@ -19971,6 +22794,15 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 19,
+                    "silver": 38,
+                    "gold": 31
+                }
+            }
         }
     },
     "18869": {
@@ -20011,6 +22843,15 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 69,
+                    "silver": 49,
+                    "gold": 28
+                }
+            }
         }
     },
     "18870": {
@@ -20044,6 +22885,21 @@
                     "t": "Increases healing done by spells and effects by up to 42."
                 }
             ]
+        },
+        "dropped": {
+            "12259": 5.0,
+            "12098": 4.0,
+            "12118": 4.0,
+            "12264": 3.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18871": {
@@ -20084,6 +22940,15 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 85,
+                    "silver": 50,
+                    "gold": 29
+                }
+            }
         }
     },
     "18872": {
@@ -20116,6 +22981,21 @@
                     "t": "Restores 14 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "12259": 5.0,
+            "12098": 4.0,
+            "12118": 4.0,
+            "12264": 3.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18873": {
@@ -20157,6 +23037,15 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 71."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 72,
+                    "gold": 29
+                }
+            }
         }
     },
     "18874": {
@@ -20198,6 +23087,15 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 71."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 7,
+                    "silver": 84,
+                    "gold": 29
+                }
+            }
         }
     },
     "18875": {
@@ -20237,6 +23135,21 @@
                     "t": "Restores 9 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "12259": 5.0,
+            "12098": 4.0,
+            "12118": 4.0,
+            "12264": 3.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18876": {
@@ -20277,6 +23190,15 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "sold": {
+            "12784": {
+                "cost": {
+                    "copper": 92,
+                    "silver": 5,
+                    "gold": 30
+                }
+            }
         }
     },
     "18877": {
@@ -20317,6 +23239,15 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "sold": {
+            "12794": {
+                "cost": {
+                    "copper": 99,
+                    "silver": 16,
+                    "gold": 30
+                }
+            }
         }
     },
     "18878": {
@@ -20356,6 +23287,21 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "12259": 5.0,
+            "12098": 4.0,
+            "12118": 4.0,
+            "12264": 3.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18879": {
@@ -20386,6 +23332,21 @@
                     "t": "Increased Defense +5."
                 }
             ]
+        },
+        "dropped": {
+            "12259": 5.0,
+            "12098": 4.0,
+            "12118": 4.0,
+            "12264": 3.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18880": {
@@ -20395,7 +23356,11 @@
         "image_name": "inv_misc_head_undead_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14516": 100.0
+        },
+        "objective": 7668
     },
     "18902": {
         "i": 18902,
@@ -20418,6 +23383,18 @@
         "use": {
             "s": 23338,
             "t": "Summons and dismisses a rideable Swift Stormsaber. This is a very fast mount."
+        },
+        "sold": {
+            "4730": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 100
+                }
+            }
+        },
+        "reward_from": {
+            "7672": 1
         }
     },
     "18904": {
@@ -20431,7 +23408,8 @@
         "use": {
             "s": 23359,
             "t": "Zap a Feralas giant into a more manageable form. (cooldown 30 sec)"
-        }
+        },
+        "provided_for": 7003
     },
     "18922": {
         "i": 18922,
@@ -20441,7 +23419,13 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Keep away from Thorium Brotherhood"
+        "description": "Keep away from Thorium Brotherhood",
+        "contained": {
+            "objects": {
+                "179826": 100.0
+            }
+        },
+        "objective": 7722
     },
     "18943": {
         "i": 18943,
@@ -20450,7 +23434,12 @@
         "image_name": "inv_misc_armorkit_17",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "179828": 100.0
+            }
+        }
     },
     "18944": {
         "i": 18944,
@@ -20463,7 +23452,11 @@
             "gold": 0,
             "silver": 1,
             "copper": 23
-        }
+        },
+        "dropped": {
+            "9318": 100.0
+        },
+        "objective": 7736
     },
     "18945": {
         "i": 18945,
@@ -20476,7 +23469,30 @@
             "gold": 0,
             "silver": 1,
             "copper": 0
-        }
+        },
+        "dropped": {
+            "8928": 30.0,
+            "8932": 25.0,
+            "8927": 25.0,
+            "9398": 22.0,
+            "8933": 22.0,
+            "8904": 21.0,
+            "8925": 21.0,
+            "9545": 21.0,
+            "9680": 21.0,
+            "8902": 21.0,
+            "8913": 21.0,
+            "9441": 21.0,
+            "9681": 21.0,
+            "9437": 21.0,
+            "9438": 21.0,
+            "8909": 20.0,
+            "9547": 20.0,
+            "8900": 20.0,
+            "9678": 20.0,
+            "8910": 20.0
+        },
+        "objective": 7737
     },
     "18946": {
         "i": 18946,
@@ -20485,7 +23501,11 @@
         "image_name": "inv_misc_head_dwarf_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14621": 100.0
+        },
+        "objective": 7701
     },
     "18947": {
         "i": 18947,
@@ -20494,7 +23514,19 @@
         "image_name": "inv_misc_pelt_bear_ruin_04",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "7848": 100.0,
+            "5296": 80.0,
+            "5297": 80.0,
+            "5299": 80.0
+        },
+        "skinned": {
+            "5296": 80.0,
+            "5297": 80.0,
+            "5299": 80.0
+        },
+        "objective": 7734
     },
     "18948": {
         "i": 18948,
@@ -20534,6 +23566,14 @@
                 "4461": 1,
                 "5637": 4
             }
+        },
+        "disenchant": {
+            "11138": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18949": {
@@ -20555,6 +23595,24 @@
         "use": {
             "s": 23400,
             "t": "Teaches you how to craft Barbaric Bracers."
+        },
+        "sold": {
+            "4589": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4225": {
+                "stock": 1,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "18952": {
@@ -20564,7 +23622,11 @@
         "image_name": "spell_shadow_summonsuccubus",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14533": 100.0
+        },
+        "objective": 7636
     },
     "18953": {
         "i": 18953,
@@ -20573,7 +23635,11 @@
         "image_name": "spell_shadow_summonvoidwalker",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14534": 100.0
+        },
+        "objective": 7636
     },
     "18954": {
         "i": 18954,
@@ -20582,7 +23648,11 @@
         "image_name": "spell_shadow_summonvoidwalker",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14530": 100.0
+        },
+        "objective": 7636
     },
     "18955": {
         "i": 18955,
@@ -20591,7 +23661,11 @@
         "image_name": "spell_shadow_summonvoidwalker",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14535": 100.0
+        },
+        "objective": 7636
     },
     "18956": {
         "i": 18956,
@@ -20600,7 +23674,15 @@
         "image_name": "inv_enchant_dustsoul",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14640": 100.0,
+            "14604": 100.0,
+            "14639": 100.0,
+            "14638": 100.0,
+            "14603": 100.0
+        },
+        "objective": 7003
     },
     "18957": {
         "i": 18957,
@@ -20626,6 +23708,25 @@
         "stats": {
             "stamina": 1,
             "durability": 40
+        },
+        "reward_from": {
+            "2561": 1
+        },
+        "disenchant": {
+            "10938": {
+                "chance": 80.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "10940": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "18958": {
@@ -20635,7 +23736,12 @@
         "image_name": "inv_stone_02",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "5461": 50.0,
+            "5462": 50.0
+        },
+        "objective": 7726
     },
     "18959": {
         "i": 18959,
@@ -20644,7 +23750,11 @@
         "image_name": "inv_musket_04",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "5840": 25.0
+        },
+        "objective": 7728
     },
     "18960": {
         "i": 18960,
@@ -20653,7 +23763,11 @@
         "image_name": "inv_misc_spyglass_01",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "8566": 25.0
+        },
+        "objective": 7728
     },
     "18961": {
         "i": 18961,
@@ -20662,7 +23776,15 @@
         "image_name": "inv_shield_21",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "5244": 100.0,
+            "5245": 100.0,
+            "5246": 100.0,
+            "5247": 100.0,
+            "14661": 100.0
+        },
+        "objective": 7730
     },
     "18962": {
         "i": 18962,
@@ -20671,7 +23793,11 @@
         "image_name": "inv_misc_organ_06",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14661": 100.0
+        },
+        "objective": 7731
     },
     "18969": {
         "i": 18969,
@@ -20684,7 +23810,15 @@
         "requirements": {
             "level": 40
         },
-        "starts": 7735
+        "starts": 7735,
+        "dropped": {
+            "5296": 3.0,
+            "5297": 3.0,
+            "5299": 3.0,
+            "7848": 3.0
+        },
+        "provided_for": 7735,
+        "objective": 7735
     },
     "18970": {
         "i": 18970,
@@ -20706,6 +23840,14 @@
                     "t": "Improves your chance to get a critical strike with spells by 50%."
                 }
             ]
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18972": {
@@ -20720,7 +23862,15 @@
             "level": 40,
             "faction": "H"
         },
-        "starts": 7738
+        "starts": 7738,
+        "dropped": {
+            "5296": 3.0,
+            "5297": 3.0,
+            "5299": 3.0,
+            "7848": 3.0
+        },
+        "provided_for": 7738,
+        "objective": 7738
     },
     "18984": {
         "i": 18984,
@@ -20758,6 +23908,35 @@
                 "7077": 4,
                 "7910": 2,
                 "10586": 1
+            }
+        },
+        "materials": {
+            "3860": 10,
+            "18631": 1,
+            "7077": 4,
+            "7910": 2,
+            "10586": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16202": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14343": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
             }
         }
     },
@@ -20799,6 +23978,36 @@
                 "7909": 4,
                 "9060": 1
             }
+        },
+        "materials": {
+            "3860": 12,
+            "18631": 2,
+            "7075": 4,
+            "7079": 2,
+            "7909": 4,
+            "9060": 1
+        },
+        "disenchant": {
+            "11176": {
+                "chance": 75.0,
+                "v": [
+                    "2",
+                    "5"
+                ]
+            },
+            "16202": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "14343": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "18987": {
@@ -20813,6 +24022,11 @@
             "level": 55
         },
         "starts": 7761,
-        "description": "A letter of command from Rend Blackhand"
+        "description": "A letter of command from Rend Blackhand",
+        "dropped": {
+            "9046": 100.0
+        },
+        "provided_for": 7761,
+        "objective": 7761
     }
 }

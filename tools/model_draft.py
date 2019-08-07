@@ -9,42 +9,42 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 from .managers import UserManager
 
-	class User(AbstractUser):
-		username = None
-		email = models.EmailField(_('email address'), unique=True)
-		date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
-		is_active = models.BooleanField(_('active'), default=True)
-		avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+class User(AbstractUser):
+	username = None
+	email = models.EmailField(_('email address'), unique=True)
+	date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
+	is_active = models.BooleanField(_('active'), default=True)
+	avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
-		objects = UserManager()
+	objects = UserManager()
 
-		USERNAME_FIELD = 'email'
-		REQUIRED_FIELDS = []
+	USERNAME_FIELD = 'email'
+	REQUIRED_FIELDS = []
 
 
-		def email_user(self, subject, message, from_email=None, **kwargs):
-				'''Sends an email to this User.'''
-				send_mail(subject, message, from_email, [self.email], **kwargs)
+	def email_user(self, subject, message, from_email=None, **kwargs):
+			'''Sends an email to this User.'''
+			send_mail(subject, message, from_email, [self.email], **kwargs)
 
-		@property
-		def discord(self):
-			return UserSocialAuth.objects.get(user=self) if self.social_auth.exists() else False
+	@property
+	def discord(self):
+		return UserSocialAuth.objects.get(user=self) if self.social_auth.exists() else False
 
-		@property
-		def tag(self):
-			return self.discord.extra_data['tag'] if self.discord else False
+	@property
+	def tag(self):
+		return self.discord.extra_data['tag'] if self.discord else False
 
-		@property
-		def avatar(self):
-			return self.discord.extra_data['avatar'] if self.discord else False
+	@property
+	def avatar(self):
+		return self.discord.extra_data['avatar'] if self.discord else False
 
-		@property
-		def uid(self):
-			return self.discord.uid if self.discord else False
+	@property
+	def uid(self):
+		return self.discord.uid if self.discord else False
 
-		@property
-		def disc_username(self):
-			return self.discord.extra_data['disc_username'] if self.discord else False
+	@property
+	def disc_username(self):
+		return self.discord.extra_data['disc_username'] if self.discord else False
 
 ### NOTE: NEW
 # the baseline; everything is an item
@@ -72,7 +72,6 @@ class Item(models.Model):
 		(THROWN, 'Thrown'), (OH_FRILL, 'Held In Off-Hand'), (RELIC, 'Relic'), (AMMO, 'Projectile'),
 	)
 
-
 	i = models.PositiveIntegerField(primary_key=True)
 	n = models.CharField(max_length=100, unique=True, help_text='Name')
 	quality = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(6)])
@@ -96,8 +95,10 @@ class Item(models.Model):
 	val = postgres.JSONField(default=self.get_monetary_value())
 	stats = postgres.JSONField()
 
-	effects = models.ManyToManyField('Effect')
 	disenchant = postgres.JSONField()
+
+	equips = models.ManyToManyField('Spell')
+	procs = models.ManyToManyField('Spell')
 
 	consume = models.BooleanField(default=False)
 	itemset = models.ForeignKey('ItemSet', blank=True, null=True, on_delete=models.SET_NULL)
@@ -259,13 +260,11 @@ class TalentTree(models.Model):
 
 class Talent(models.Model):
 
-	img = models.CharField(max_length=30)
+	img = models.CharField(max_length=40)
+	n = models.CharField(max_length=40)
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 	tree = models.ForeignKey('TalentTree', on_delete=models.CASCADE)
-
-	n = models.CharField(max_length=40)
 	max_rank = models.PositiveSmallIntegerField(default=5, validators=[MaxValueValidator(5)])
-
 	_description = models.CharField(max_length=400, blank=False)
 	formula = models.CharField(max_length=150, default="[x]")
 
@@ -331,31 +330,6 @@ class Spell(models.Model):
 	def __str__(self):
 		return self.t
 
-
-class Effect(models.Model):
-	PROC,EQUIP,USE = range(1,4)
-	EFFECT_TYPES = (
-		(PROC, 'Chance on hit'),
-		(EQUIP, 'Equip'),
-		(USE, 'Use'),
-	)
-
-	effect_type = models.PositiveSmallIntegerField(default=EQUIP, choices=EFFECT_TYPES)
-	spell = models.ForeignKey('Spell', on_delete=models.CASCADE)
-
-	@property
-	def n(self):
-		return self.EFFECT_TYPES[self.effect_type+1][1]
-
-	@property
-	def t(self):
-		return "{}:{}".format(self.n, self.s.t)
-
-	def __str__(self):
-		return self.t
-
-	class Meta:
-		unique_together = ['effect_type', 's']
 
 class School(models.Model):
 
@@ -515,6 +489,16 @@ class Consume(models.Model):
 	def mats(self):
 		return(self.item.materials)
 
+class Zone(models.Model):
+	i = models.PositiveSmallIntegerField(primary_key=True, unique=True)
+	n = models.CharField(max_length=100)
+	reaction = models.ForeignKey('Faction', on_delete=models.SET_NULL, null=True, blank=True)
+	# continent = models.ForeignKey('Continent', on_delete=models.CASCADE)
+
+	def __str__(self):
+		return "{}".format(self.n)
+
+
 from home.signals import savedspec_limit, consumelist_limit
 
 # class Quest(models.Model):
@@ -581,16 +565,7 @@ from home.signals import savedspec_limit, consumelist_limit
 # 	def __str__(self):
 # 		return "{}, {}".format(self.name, self.faction)
 #
-# class Zone(models.Model):
-#
-# 	name = models.CharField(max_length=100)
-# 	reaction = models.ForeignKey('Faction', on_delete=models.CASCADE)
-# 	continent = models.ForeignKey('Continent', on_delete=models.CASCADE)
-#
-# 	def __str__(self):
-# 		return "{},{}".format(titleCase(self.name), self.continent)
-#
-#
+
 # class Continent(models.Model):
 # 	name = models.CharField(max_length=100)
 #
