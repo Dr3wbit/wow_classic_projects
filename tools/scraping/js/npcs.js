@@ -20306,6 +20306,22 @@
             47
         ]
     },
+    "14738": {
+        "i": 14738,
+        "n": "Otho Moji'ko",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            40
+        ],
+        "class": "",
+        "zone": [
+            47
+        ]
+    },
     "1474": {
         "i": 1474,
         "n": "Rann Flamespinner",
@@ -22972,6 +22988,19 @@
             85
         ]
     },
+    "15385": {
+        "i": 15385,
+        "n": "Colonel Zerran",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Mechanical",
+        "level": [
+            63
+        ],
+        "class": "Elite"
+    },
     "15386": {
         "i": 15386,
         "n": "Major Yeggeth",
@@ -22999,6 +23028,19 @@
             -1
         ],
         "type": "undefined"
+    },
+    "15388": {
+        "i": 15388,
+        "n": "Major Pakkon",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Mechanical",
+        "level": [
+            63
+        ],
+        "class": "Elite"
     },
     "15389": {
         "i": 15389,
@@ -23029,6 +23071,19 @@
         "zone": [
             85
         ]
+    },
+    "15390": {
+        "i": 15390,
+        "n": "Captain Xurrem",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "undefined",
+        "level": [
+            63
+        ],
+        "class": "Elite"
     },
     "15391": {
         "i": 15391,
@@ -23533,6 +23588,22 @@
             85
         ]
     },
+    "15552": {
+        "i": 15552,
+        "n": "Doctor Weavil",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            63
+        ],
+        "class": "",
+        "zone": [
+            17
+        ]
+    },
     "15554": {
         "i": 15554,
         "n": "Number Two",
@@ -23562,6 +23633,19 @@
         "zone": [
             33
         ]
+    },
+    "15571": {
+        "i": 15571,
+        "n": "Maws",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Beast",
+        "level": [
+            0
+        ],
+        "class": "Boss"
     },
     "1558": {
         "i": 1558,
@@ -23659,6 +23743,32 @@
             60
         ],
         "class": "Elite"
+    },
+    "15623": {
+        "i": 15623,
+        "n": "Xandivious",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Demon",
+        "level": [
+            62
+        ],
+        "class": "Elite"
+    },
+    "15625": {
+        "i": 15625,
+        "n": "Twilight Corrupter",
+        "react": [
+            1,
+            1
+        ],
+        "type": "Demon",
+        "level": [
+            0
+        ],
+        "class": "Boss"
     },
     "1563": {
         "i": 1563,
@@ -24115,6 +24225,24 @@
             0
         ]
     },
+    "15898": {
+        "i": 15898,
+        "n": "Lunar Festival Vendor",
+        "react": [
+            1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            55
+        ],
+        "class": "",
+        "zone": [
+            618,
+            1497,
+            1519
+        ]
+    },
     "15974": {
         "class": "Elite",
         "i": 15974,
@@ -24301,6 +24429,23 @@
         ],
         "class": "Boss"
     },
+    "16043": {
+        "i": 16043,
+        "n": "Magma Lord Bokk",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Elemental",
+        "level": [
+            58,
+            60
+        ],
+        "class": "",
+        "zone": [
+            46
+        ]
+    },
     "16067": {
         "i": 16067,
         "n": "Deathcharger Steed",
@@ -24333,6 +24478,20 @@
             17
         ]
     },
+    "16080": {
+        "i": 16080,
+        "n": "Mor Grayhoof",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            58,
+            60
+        ],
+        "class": "Elite"
+    },
     "16095": {
         "i": 16095,
         "n": "Gnashjaw",
@@ -24345,6 +24504,56 @@
             60
         ],
         "class": ""
+    },
+    "16097": {
+        "i": 16097,
+        "n": "Isalien",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            59,
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2557
+        ]
+    },
+    "16101": {
+        "i": 16101,
+        "n": "Jarien",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            59,
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2017
+        ]
+    },
+    "16102": {
+        "i": 16102,
+        "n": "Sothos",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2017
+        ]
     },
     "16117": {
         "i": 16117,
@@ -24360,6 +24569,23 @@
         "class": "",
         "zone": [
             139
+        ]
+    },
+    "16118": {
+        "i": 16118,
+        "n": "Kormok",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            58,
+            60
+        ],
+        "class": "Elite",
+        "zone": [
+            2057
         ]
     },
     "16145": {
@@ -41553,6 +41779,22 @@
         "class": "",
         "zone": [
             1519
+        ]
+    },
+    "3400": {
+        "i": 3400,
+        "n": "Xen'to",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            30
+        ],
+        "class": "",
+        "zone": [
+            1637
         ]
     },
     "3409": {
@@ -71734,6 +71976,23 @@
             8
         ]
     },
+    "7523": {
+        "i": 7523,
+        "n": "Suffering Highborne",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            54,
+            55
+        ],
+        "class": "",
+        "zone": [
+            618
+        ]
+    },
     "7524": {
         "i": 7524,
         "n": "Anguished Highborne",
@@ -74953,6 +75212,22 @@
             11
         ]
     },
+    "8307": {
+        "i": 8307,
+        "n": "Tarban Hearthgrain",
+        "react": [
+            -1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            22
+        ],
+        "class": "",
+        "zone": [
+            215
+        ]
+    },
     "831": {
         "i": 831,
         "n": "Sea Crawler",
@@ -75925,6 +76200,23 @@
             139
         ]
     },
+    "8539": {
+        "i": 8539,
+        "n": "Eyeless Watcher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57,
+            58
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
     "854": {
         "i": 854,
         "n": "Young Jungle Stalker",
@@ -75970,6 +76262,23 @@
         "level": [
             55,
             57
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
+    "8542": {
+        "i": 8542,
+        "n": "Death Singer",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57,
+            59
         ],
         "class": "",
         "zone": [
@@ -80032,6 +80341,22 @@
         ],
         "class": "Elite"
     },
+    "9462": {
+        "i": 9462,
+        "n": "Chieftain Bloodmaw",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            56
+        ],
+        "class": "",
+        "zone": [
+            618
+        ]
+    },
     "9464": {
         "i": 9464,
         "n": "Overlord Ror",
@@ -81501,162 +81826,33 @@
             1584
         ]
     },
-    "14738": {
-        "i": 14738,
-        "n": "Otho Moji'ko",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            40
-        ],
-        "class": "",
-        "zone": [
-            47
-        ]
-    },
-    "8307": {
-        "i": 8307,
-        "n": "Tarban Hearthgrain",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            22
-        ],
-        "class": "",
-        "zone": [
-            215
-        ]
-    },
-    "3400": {
-        "i": 3400,
-        "n": "Xen'to",
-        "react": [
-            -1,
-            1
-        ],
-        "type": "Humanoid",
-        "level": [
-            30
-        ],
-        "class": "",
-        "zone": [
-            1637
-        ]
-    },
-    "15552": {
-        "i": 15552,
-        "n": "Doctor Weavil",
+    "16059": {
+        "i": 16059,
+        "n": "Theldren",
         "react": [
             -1,
             -1
         ],
         "type": "Humanoid",
         "level": [
-            63
+            60
         ],
-        "class": "",
-        "zone": [
-            17
-        ]
+        "class": "Elite"
     },
-    "15571": {
-        "i": 15571,
-        "n": "Maws",
+    "15176": {
+        "i": 15176,
+        "n": "Vargus",
         "react": [
-            -1,
-            -1
-        ],
-        "type": "Beast",
-        "level": [
+            0,
             0
         ],
-        "class": "Boss"
-    },
-    "15623": {
-        "i": 15623,
-        "n": "Xandivious",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Demon",
-        "level": [
-            62
-        ],
-        "class": "Elite"
-    },
-    "15625": {
-        "i": 15625,
-        "n": "Twilight Corrupter",
-        "react": [
-            1,
-            1
-        ],
-        "type": "Demon",
-        "level": [
-            0
-        ],
-        "class": "Boss"
-    },
-    "15388": {
-        "i": 15388,
-        "n": "Major Pakkon",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Mechanical",
-        "level": [
-            63
-        ],
-        "class": "Elite"
-    },
-    "15390": {
-        "i": 15390,
-        "n": "Captain Xurrem",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "undefined",
-        "level": [
-            63
-        ],
-        "class": "Elite"
-    },
-    "15385": {
-        "i": 15385,
-        "n": "Colonel Zerran",
-        "react": [
-            -1,
-            -1
-        ],
-        "type": "Mechanical",
-        "level": [
-            63
-        ],
-        "class": "Elite"
-    },
-    "9462": {
-        "i": 9462,
-        "n": "Chieftain Bloodmaw",
-        "react": [
-            -1,
-            -1
-        ],
         "type": "Humanoid",
         "level": [
-            56
+            57
         ],
         "class": "",
         "zone": [
-            618
+            1377
         ]
     }
 }

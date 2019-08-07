@@ -10325,6 +10325,10 @@
         "i": 25823,
         "t": "Summon a ring of light on a specific location that lasts for 3 min. (cooldown 1 min)"
     },
+    "25850": {
+        "i": 25850,
+        "n": "Drain Festive Mug"
+    },
     "25851": {
         "i": 25851,
         "t": "Drink me. I'm delicious! (cooldown 5 sec)"
@@ -15690,8 +15694,16 @@
         "i": 9997,
         "n": "Wicked Mithril Blade"
     },
-    "25850": {
-        "i": 25850,
-        "n": "Drain Festive Mug"
+    "27707": {
+        "i": 27707,
+        "n": "Copy of Create Ironforge Case of Homebrew"
+    },
+    "27717": {
+        "i": 27717,
+        "n": "Create Undercity Book of Romantic Poetry"
+    },
+    "27705": {
+        "i": 27705,
+        "n": "Copy of Create Stormwind Sack of Homemade Bread"
     }
 }

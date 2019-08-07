@@ -431,7 +431,8 @@
             "s": 18887,
             "t": "Attach 20 Witherbark Skulls to create Nimboya's Laden Pike."
         },
-        "provided_for": 2932
+        "provided_for": 2932,
+        "consume": true
     },
     "15003": {
         "i": 15003,
@@ -10216,7 +10217,8 @@
             "s": 18974,
             "t": "Apply near a Moonkin Stone to bring forth the stone's defender, Lunaclaw."
         },
-        "provided_for": 6001
+        "provided_for": 6001,
+        "consume": true
     },
     "15209": {
         "i": 15209,
@@ -10238,7 +10240,8 @@
         "created_by": {
             "materials": {}
         },
-        "provided_for": 5721
+        "provided_for": 5721,
+        "consume": true
     },
     "15210": {
         "i": 15210,
@@ -24754,7 +24757,8 @@
             "s": 19029,
             "t": "Combine 7 pieces of Living Rot inside the mortar and grind away with the pestle. Leave standing to allow coagulation."
         },
-        "provided_for": 6022
+        "provided_for": 6022,
+        "consume": true
     },
     "15455": {
         "i": 15455,
@@ -30570,7 +30574,8 @@
                 "15699": 9.0
             }
         },
-        "objective": 7941
+        "objective": 7941,
+        "consume": true
     },
     "15565": {
         "i": 15565,
@@ -38602,7 +38607,8 @@
             "s": 19138,
             "t": "Apply near a Moonkin Stone to bring forth the stone's defender, Lunaclaw."
         },
-        "provided_for": 6002
+        "provided_for": 6002,
+        "consume": true
     },
     "15722": {
         "i": 15722,
@@ -38636,7 +38642,8 @@
         },
         "reward_from": {
             "5721": 1
-        }
+        },
+        "consume": true
     },
     "15724": {
         "i": 15724,
@@ -39026,7 +39033,8 @@
             "s": 19250,
             "t": "Plants Smokey's Special Compound at a Mark of Detonation. KABOOM!\n10 charges\n\"Keep Away From Fire.\""
         },
-        "provided_for": 6041
+        "provided_for": 6041,
+        "consume": true
     },
     "15737": {
         "i": 15737,
@@ -40272,7 +40280,8 @@
         },
         "reward_from": {
             "5163": 1
-        }
+        },
+        "consume": true
     },
     "15779": {
         "i": 15779,
@@ -41916,7 +41925,8 @@
             "s": 19512,
             "t": "Cure a sickly animal afflicted by the taint of poisoning. (cooldown 15 sec)\n10 charges"
         },
-        "provided_for": 6129
+        "provided_for": 6129,
+        "consume": true
     },
     "15827": {
         "i": 15827,
@@ -41981,7 +41991,8 @@
             "s": 19565,
             "t": "Draw a sample of water from the pool of water at the top of Dreadmist Peak."
         },
-        "provided_for": 6127
+        "provided_for": 6127,
+        "consume": true
     },
     "15843": {
         "i": 15843,
@@ -41999,7 +42010,8 @@
         "created_by": {
             "materials": {}
         },
-        "objective": 6127
+        "objective": 6127,
+        "consume": true
     },
     "15844": {
         "i": 15844,
@@ -42018,7 +42030,8 @@
             "s": 19564,
             "t": "Draw a sample of water from the waterfall at the mouth of the Cliffspring Falls cave ."
         },
-        "provided_for": 6122
+        "provided_for": 6122,
+        "consume": true
     },
     "15845": {
         "i": 15845,
@@ -42862,8 +42875,10 @@
             "materials": {
                 "2842": 1,
                 "3470": 1
-            }
-        }
+            },
+            "step": 2
+        },
+        "consume": true
     },
     "15870": {
         "i": 15870,
@@ -42896,8 +42911,10 @@
             "materials": {
                 "3577": 1,
                 "3486": 1
-            }
-        }
+            },
+            "step": 2
+        },
+        "consume": true
     },
     "15871": {
         "i": 15871,
@@ -42930,8 +42947,10 @@
             "materials": {
                 "6037": 1,
                 "7966": 1
-            }
-        }
+            },
+            "step": 2
+        },
+        "consume": true
     },
     "15872": {
         "i": 15872,
@@ -42964,8 +42983,10 @@
             "materials": {
                 "12360": 1,
                 "12644": 1
-            }
-        }
+            },
+            "step": 2
+        },
+        "consume": true
     },
     "15873": {
         "i": 15873,
@@ -43037,7 +43058,8 @@
                 "15876": 100.0,
                 "16884": 0.05
             }
-        }
+        },
+        "consume": true
     },
     "15876": {
         "i": 15876,
@@ -43070,7 +43092,8 @@
             "objects": {
                 "177785": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "15878": {
         "i": 15878,
@@ -43171,7 +43194,8 @@
                 "177792": 100.0,
                 "177794": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "15884": {
         "i": 15884,
@@ -47516,9 +47540,10 @@
                 "15992": 3,
                 "14047": 3
             },
-            "step": 3,
+            "step": 3
         },
-        "objective": 9196
+        "objective": 9196,
+        "consume": true
     },
     "15994": {
         "i": 15994,
@@ -47714,7 +47739,8 @@
             "materials": {
                 "12359": 2,
                 "15992": 1
-            }
+            },
+            "step": 200
         },
         "materials": {
             "12359": 2,

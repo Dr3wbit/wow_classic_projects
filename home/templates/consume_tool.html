@@ -97,7 +97,6 @@ if (performance.navigation.type == 1) {
 
 
 <script>
-// $( window ).on('beforeunload')
 
 $(document).ready(function() {
     if (performance.navigation.type == 1) {
@@ -107,11 +106,11 @@ $(document).ready(function() {
         $("#total_materials").empty()
         update_url('', '?')
     }
-    load_handlers()
+    consume_tool_handlers()
  });
 
 
-function load_handlers() {
+function consume_tool_handlers() {
     $(".prof-filter").on({
         click: e => {
             e.preventDefault()

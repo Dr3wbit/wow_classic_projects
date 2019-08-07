@@ -31,6 +31,23 @@
         "itemset": {
             "n": "Battlegear of Heroism",
             "i": 511
+        },
+        "reward_from": {
+            "9022": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22001": {
@@ -57,6 +74,17 @@
         "itemset": {
             "n": "Battlegear of Heroism",
             "i": 511
+        },
+        "reward_from": {
+            "9022": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22002": {
@@ -83,6 +111,17 @@
         "itemset": {
             "n": "Darkmantle Armor",
             "i": 512
+        },
+        "reward_from": {
+            "8941": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22003": {
@@ -116,6 +155,17 @@
         "itemset": {
             "n": "Darkmantle Armor",
             "i": 512
+        },
+        "reward_from": {
+            "9020": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22004": {
@@ -142,6 +192,17 @@
         "itemset": {
             "n": "Darkmantle Armor",
             "i": 512
+        },
+        "reward_from": {
+            "8917": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22005": {
@@ -176,6 +237,17 @@
         "itemset": {
             "n": "Darkmantle Armor",
             "i": 512
+        },
+        "reward_from": {
+            "9010": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22006": {
@@ -202,6 +274,18 @@
         "itemset": {
             "n": "Darkmantle Armor",
             "i": 512
+        },
+        "reward_from": {
+            "8941": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "22007": {
@@ -228,6 +312,23 @@
         "itemset": {
             "n": "Darkmantle Armor",
             "i": 512
+        },
+        "reward_from": {
+            "9020": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22008": {
@@ -253,6 +354,17 @@
         "itemset": {
             "n": "Darkmantle Armor",
             "i": 512
+        },
+        "reward_from": {
+            "9020": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22009": {
@@ -286,6 +398,17 @@
         "itemset": {
             "n": "Darkmantle Armor",
             "i": 512
+        },
+        "reward_from": {
+            "9010": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22010": {
@@ -312,6 +435,17 @@
         "itemset": {
             "n": "Beastmaster Armor",
             "i": 515
+        },
+        "reward_from": {
+            "8938": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22011": {
@@ -338,6 +472,17 @@
         "itemset": {
             "n": "Beastmaster Armor",
             "i": 515
+        },
+        "reward_from": {
+            "8914": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22013": {
@@ -376,6 +521,17 @@
         "itemset": {
             "n": "Beastmaster Armor",
             "i": 515
+        },
+        "reward_from": {
+            "9008": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22014": {
@@ -397,7 +553,31 @@
                 "i": "529",
                 "v": "Honored"
             }
-        }
+        },
+        "sold": {
+            "10856": {
+                "cost": {
+                    "copper": 33,
+                    "silver": 33,
+                    "gold": 133
+                }
+            },
+            "10857": {
+                "cost": {
+                    "copper": 33,
+                    "silver": 33,
+                    "gold": 133
+                }
+            },
+            "11536": {
+                "cost": {
+                    "copper": 33,
+                    "silver": 33,
+                    "gold": 133
+                }
+            }
+        },
+        "objective": 8961
     },
     "22015": {
         "i": 22015,
@@ -431,6 +611,18 @@
         "itemset": {
             "n": "Beastmaster Armor",
             "i": 515
+        },
+        "reward_from": {
+            "8938": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "22016": {
@@ -457,6 +649,17 @@
         "itemset": {
             "n": "Beastmaster Armor",
             "i": 515
+        },
+        "reward_from": {
+            "9017": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22017": {
@@ -483,6 +686,23 @@
         "itemset": {
             "n": "Beastmaster Armor",
             "i": 515
+        },
+        "reward_from": {
+            "9017": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22046": {
@@ -505,6 +725,17 @@
         "description": "This section of the amulet vibrates with a palpable fervor to be rejoined with its sibling pieces",
         "created_by": {
             "materials": {}
+        },
+        "dropped": {
+            "16097": 100.0,
+            "16101": 100.0,
+            "16118": 100.0,
+            "16102": 100.0,
+            "16080": 100.0
+        },
+        "creates": {
+            "27146": 22048,
+            "27739": 22048
         }
     },
     "22047": {
@@ -527,6 +758,15 @@
         "description": "This object feels wrong to the touch, as if an evil within is trying to escape",
         "created_by": {
             "materials": {}
+        },
+        "dropped": {
+            "16059": 100.0
+        },
+        "provided_for": 9022,
+        "objective": 9015,
+        "creates": {
+            "27146": 22048,
+            "27738": 22048
         }
     },
     "22048": {
@@ -544,7 +784,13 @@
         "description": "Reunited into its whole form, the amulet pulses strongly with the evil spirit of Lord Valthalak",
         "created_by": {
             "materials": {}
-        }
+        },
+        "materials": {
+            "22047": 1,
+            "22046": 1
+        },
+        "provided_for": 8994,
+        "objective": 8992
     },
     "22049": {
         "i": 22049,
@@ -560,7 +806,9 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 8989,
+        "objective": 8989
     },
     "22050": {
         "i": 22050,
@@ -576,7 +824,9 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 8990,
+        "objective": 8990
     },
     "22051": {
         "i": 22051,
@@ -592,7 +842,9 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 8991,
+        "objective": 8991
     },
     "22052": {
         "i": 22052,
@@ -608,7 +860,9 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 8992,
+        "objective": 8992
     },
     "22056": {
         "i": 22056,
@@ -624,7 +878,9 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "provided_for": 8995,
+        "objective": 8996
     },
     "22057": {
         "i": 22057,
@@ -637,6 +893,9 @@
         "use": {
             "s": 27203,
             "t": "Summon the spirits of the dead at haunted locations. (cooldown 10 min)"
+        },
+        "reward_from": {
+            "8996": 1
         }
     },
     "22058": {
@@ -689,6 +948,17 @@
         "itemset": {
             "n": "Beastmaster Armor",
             "i": 515
+        },
+        "reward_from": {
+            "9008": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22061": {
@@ -722,6 +992,17 @@
         "itemset": {
             "n": "Beastmaster Armor",
             "i": 515
+        },
+        "reward_from": {
+            "9017": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22062": {
@@ -756,6 +1037,17 @@
         "itemset": {
             "n": "Sorcerer's Regalia",
             "i": 517
+        },
+        "reward_from": {
+            "8939": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22063": {
@@ -790,6 +1082,17 @@
         "itemset": {
             "n": "Sorcerer's Regalia",
             "i": 517
+        },
+        "reward_from": {
+            "8915": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22064": {
@@ -824,6 +1127,17 @@
         "itemset": {
             "n": "Sorcerer's Regalia",
             "i": 517
+        },
+        "reward_from": {
+            "9018": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22065": {
@@ -862,6 +1176,17 @@
         "itemset": {
             "n": "Sorcerer's Regalia",
             "i": 517
+        },
+        "reward_from": {
+            "9014": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22066": {
@@ -900,6 +1225,18 @@
         "itemset": {
             "n": "Sorcerer's Regalia",
             "i": 517
+        },
+        "reward_from": {
+            "8939": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "22067": {
@@ -934,6 +1271,23 @@
         "itemset": {
             "n": "Sorcerer's Regalia",
             "i": 517
+        },
+        "reward_from": {
+            "9018": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22068": {
@@ -968,6 +1322,17 @@
         "itemset": {
             "n": "Sorcerer's Regalia",
             "i": 517
+        },
+        "reward_from": {
+            "9018": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22069": {
@@ -1006,6 +1371,17 @@
         "itemset": {
             "n": "Sorcerer's Regalia",
             "i": 517
+        },
+        "reward_from": {
+            "9014": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22070": {
@@ -1039,6 +1415,17 @@
         "itemset": {
             "n": "Deathmist Raiment",
             "i": 518
+        },
+        "reward_from": {
+            "8943": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22071": {
@@ -1072,6 +1459,17 @@
         "itemset": {
             "n": "Deathmist Raiment",
             "i": 518
+        },
+        "reward_from": {
+            "8919": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22072": {
@@ -1105,6 +1503,23 @@
         "itemset": {
             "n": "Deathmist Raiment",
             "i": 518
+        },
+        "reward_from": {
+            "9021": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22073": {
@@ -1138,6 +1553,17 @@
         "itemset": {
             "n": "Deathmist Raiment",
             "i": 518
+        },
+        "reward_from": {
+            "9021": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22074": {
@@ -1175,6 +1601,17 @@
         "itemset": {
             "n": "Deathmist Raiment",
             "i": 518
+        },
+        "reward_from": {
+            "9012": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22075": {
@@ -1212,6 +1649,17 @@
         "itemset": {
             "n": "Deathmist Raiment",
             "i": 518
+        },
+        "reward_from": {
+            "9012": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22076": {
@@ -1245,6 +1693,17 @@
         "itemset": {
             "n": "Deathmist Raiment",
             "i": 518
+        },
+        "reward_from": {
+            "9021": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22077": {
@@ -1282,6 +1741,18 @@
         "itemset": {
             "n": "Deathmist Raiment",
             "i": 518
+        },
+        "reward_from": {
+            "8943": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "22078": {
@@ -1316,6 +1787,17 @@
         "itemset": {
             "n": "Vestments of the Virtuous",
             "i": 514
+        },
+        "reward_from": {
+            "8940": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22079": {
@@ -1354,6 +1836,17 @@
         "itemset": {
             "n": "Vestments of the Virtuous",
             "i": 514
+        },
+        "reward_from": {
+            "8916": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22080": {
@@ -1396,6 +1889,17 @@
         "itemset": {
             "n": "Vestments of the Virtuous",
             "i": 514
+        },
+        "reward_from": {
+            "9009": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22081": {
@@ -1430,6 +1934,18 @@
         "itemset": {
             "n": "Vestments of the Virtuous",
             "i": 514
+        },
+        "reward_from": {
+            "8940": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "22082": {
@@ -1464,6 +1980,17 @@
         "itemset": {
             "n": "Vestments of the Virtuous",
             "i": 514
+        },
+        "reward_from": {
+            "9019": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22083": {
@@ -1502,6 +2029,17 @@
         "itemset": {
             "n": "Vestments of the Virtuous",
             "i": 514
+        },
+        "reward_from": {
+            "9009": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22084": {
@@ -1540,6 +2078,17 @@
         "itemset": {
             "n": "Vestments of the Virtuous",
             "i": 514
+        },
+        "reward_from": {
+            "9019": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22085": {
@@ -1578,6 +2127,23 @@
         "itemset": {
             "n": "Vestments of the Virtuous",
             "i": 514
+        },
+        "reward_from": {
+            "9019": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22086": {
@@ -1616,6 +2182,17 @@
         "itemset": {
             "n": "Soulforge Armor",
             "i": 516
+        },
+        "reward_from": {
+            "8933": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22087": {
@@ -1655,6 +2232,17 @@
         "itemset": {
             "n": "Soulforge Armor",
             "i": 516
+        },
+        "reward_from": {
+            "8954": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22088": {
@@ -1689,6 +2277,17 @@
         "itemset": {
             "n": "Soulforge Armor",
             "i": 516
+        },
+        "reward_from": {
+            "8908": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22089": {
@@ -1728,6 +2327,17 @@
         "itemset": {
             "n": "Soulforge Armor",
             "i": 516
+        },
+        "reward_from": {
+            "9002": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22090": {
@@ -1766,6 +2376,18 @@
         "itemset": {
             "n": "Soulforge Armor",
             "i": 516
+        },
+        "reward_from": {
+            "8933": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "22091": {
@@ -1805,6 +2427,17 @@
         "itemset": {
             "n": "Soulforge Armor",
             "i": 516
+        },
+        "reward_from": {
+            "9002": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22092": {
@@ -1840,6 +2473,23 @@
         "itemset": {
             "n": "Soulforge Armor",
             "i": 516
+        },
+        "reward_from": {
+            "8954": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22093": {
@@ -1878,6 +2528,17 @@
         "itemset": {
             "n": "Soulforge Armor",
             "i": 516
+        },
+        "reward_from": {
+            "8954": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22094": {
@@ -1888,7 +2549,19 @@
         "stack": 25,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Its red juice can leave an indelible stain on your clothing, so be careful"
+        "description": "Its red juice can leave an indelible stain on your clothing, so be careful",
+        "dropped": {
+            "4364": 20.0,
+            "4366": 20.0,
+            "4370": 20.0,
+            "4371": 15.0
+        },
+        "contained": {
+            "objects": {
+                "181053": 100.0
+            }
+        },
+        "objective": 8970
     },
     "22095": {
         "i": 22095,
@@ -1922,6 +2595,17 @@
         "itemset": {
             "n": "The Five Thunders",
             "i": 519
+        },
+        "reward_from": {
+            "8918": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22096": {
@@ -1961,6 +2645,17 @@
         "itemset": {
             "n": "The Five Thunders",
             "i": 519
+        },
+        "reward_from": {
+            "8957": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22097": {
@@ -1999,6 +2694,17 @@
         "itemset": {
             "n": "The Five Thunders",
             "i": 519
+        },
+        "reward_from": {
+            "9011": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22098": {
@@ -2037,6 +2743,17 @@
         "itemset": {
             "n": "The Five Thunders",
             "i": 519
+        },
+        "reward_from": {
+            "8942": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22099": {
@@ -2075,6 +2792,18 @@
         "itemset": {
             "n": "The Five Thunders",
             "i": 519
+        },
+        "reward_from": {
+            "8942": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "22100": {
@@ -2110,6 +2839,23 @@
         "itemset": {
             "n": "The Five Thunders",
             "i": 519
+        },
+        "reward_from": {
+            "8957": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22101": {
@@ -2145,6 +2891,17 @@
         "itemset": {
             "n": "The Five Thunders",
             "i": 519
+        },
+        "reward_from": {
+            "8957": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22102": {
@@ -2184,6 +2941,17 @@
         "itemset": {
             "n": "The Five Thunders",
             "i": 519
+        },
+        "reward_from": {
+            "9011": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22106": {
@@ -2220,6 +2988,17 @@
         "itemset": {
             "n": "Feralheart Raiment",
             "i": 513
+        },
+        "reward_from": {
+            "8927": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22107": {
@@ -2260,6 +3039,17 @@
         "itemset": {
             "n": "Feralheart Raiment",
             "i": 513
+        },
+        "reward_from": {
+            "9016": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22108": {
@@ -2296,6 +3086,17 @@
         "itemset": {
             "n": "Feralheart Raiment",
             "i": 513
+        },
+        "reward_from": {
+            "8913": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22109": {
@@ -2332,6 +3133,17 @@
         "itemset": {
             "n": "Feralheart Raiment",
             "i": 513
+        },
+        "reward_from": {
+            "9007": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22110": {
@@ -2368,6 +3180,18 @@
         "itemset": {
             "n": "Feralheart Raiment",
             "i": 513
+        },
+        "reward_from": {
+            "8927": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "22111": {
@@ -2404,6 +3228,23 @@
         "itemset": {
             "n": "Feralheart Raiment",
             "i": 513
+        },
+        "reward_from": {
+            "9016": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22112": {
@@ -2444,6 +3285,17 @@
         "itemset": {
             "n": "Feralheart Raiment",
             "i": 513
+        },
+        "reward_from": {
+            "9016": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22113": {
@@ -2484,6 +3336,17 @@
         "itemset": {
             "n": "Feralheart Raiment",
             "i": 513
+        },
+        "reward_from": {
+            "9007": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22115": {
@@ -2502,7 +3365,9 @@
             "materials": {
                 "9282": 1
             }
-        }
+        },
+        "provided_for": 8978,
+        "objective": 8978
     },
     "22117": {
         "i": 22117,
@@ -2519,6 +3384,15 @@
         "use": {
             "s": 27702,
             "t": "Right Click to combine 5 Pledges of Loyalty: Stormwind into a Stormwind Pledge Collection."
+        },
+        "contained": {
+            "items": {
+                "22178": 50.0,
+                "21975": 47.0
+            }
+        },
+        "creates": {
+            "27702": 22285
         }
     },
     "22119": {
@@ -2536,6 +3410,15 @@
         "use": {
             "s": 27704,
             "t": "Combines 5 Pledges of Loyalty: Ironforge into an Ironforge Pledge Collection."
+        },
+        "contained": {
+            "items": {
+                "22160": 50.0,
+                "22154": 44.0
+            }
+        },
+        "creates": {
+            "27704": 22286
         }
     },
     "22120": {
@@ -2553,6 +3436,15 @@
         "use": {
             "s": 27710,
             "t": "Combines 5 Pledges of Loyalty: Darnassus into a Darnassus Pledge Collection."
+        },
+        "contained": {
+            "items": {
+                "22159": 49.0,
+                "22155": 49.0
+            }
+        },
+        "creates": {
+            "27710": 22290
         }
     },
     "22121": {
@@ -2570,6 +3462,15 @@
         "use": {
             "s": 27719,
             "t": "Combines 5 Pledges of Loyalty: Undercity into an Undercity Pledge Collection."
+        },
+        "contained": {
+            "items": {
+                "22163": 49.0,
+                "22157": 43.0
+            }
+        },
+        "creates": {
+            "27719": 22300
         }
     },
     "22122": {
@@ -2587,6 +3488,15 @@
         "use": {
             "s": 27716,
             "t": "Combines 5 Pledges of Loyalty: Thunder Bluff into an Thunder Bluff Pledge Collection."
+        },
+        "contained": {
+            "items": {
+                "22162": 53.0,
+                "22158": 45.0
+            }
+        },
+        "creates": {
+            "27716": 22297
         }
     },
     "22123": {
@@ -2604,6 +3514,18 @@
         "use": {
             "s": 27713,
             "t": "Combines 5 Pledges of Loyalty: Orgrimmar into an Orgrimmar Pledge Collection."
+        },
+        "dropped": {
+            "5314": 0.08
+        },
+        "contained": {
+            "items": {
+                "22161": 50.0,
+                "22156": 50.0
+            }
+        },
+        "creates": {
+            "27713": 22294
         }
     },
     "22131": {
@@ -2622,6 +3544,9 @@
                 "22283": 1,
                 "22285": 1
             }
+        },
+        "creates": {
+            "27667": 22262
         }
     },
     "22132": {
@@ -2640,6 +3565,9 @@
                 "22286": 1,
                 "22287": 1
             }
+        },
+        "creates": {
+            "27667": 22262
         }
     },
     "22133": {
@@ -2658,6 +3586,9 @@
                 "22290": 1,
                 "22289": 1
             }
+        },
+        "creates": {
+            "27667": 22262
         }
     },
     "22134": {
@@ -2676,6 +3607,9 @@
                 "22299": 1,
                 "22300": 1
             }
+        },
+        "creates": {
+            "27668": 22263
         }
     },
     "22135": {
@@ -2694,6 +3628,9 @@
                 "22295": 1,
                 "22297": 1
             }
+        },
+        "creates": {
+            "27668": 22263
         }
     },
     "22136": {
@@ -2712,6 +3649,9 @@
                 "22294": 1,
                 "22293": 1
             }
+        },
+        "creates": {
+            "27668": 22263
         }
     },
     "22137": {
@@ -2725,7 +3665,10 @@
             "silver": 0,
             "copper": 12
         },
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8945": 1
+        }
     },
     "22138": {
         "i": 22138,
@@ -2735,7 +3678,30 @@
         "stack": 50,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Crudely crafted, mostly from dark iron, these bracers exhibit trace amounts of a shiny metal"
+        "description": "Crudely crafted, mostly from dark iron, these bracers exhibit trace amounts of a shiny metal",
+        "dropped": {
+            "9044": 80.0,
+            "9045": 80.0,
+            "9097": 80.0,
+            "9098": 80.0,
+            "9257": 80.0,
+            "9258": 80.0,
+            "9259": 80.0,
+            "9260": 80.0,
+            "9261": 80.0,
+            "9262": 80.0,
+            "9263": 80.0,
+            "9264": 80.0,
+            "9583": 80.0,
+            "9596": 80.0,
+            "9692": 80.0,
+            "9693": 80.0,
+            "9716": 80.0,
+            "9717": 80.0,
+            "9817": 80.0,
+            "9818": 80.0
+        },
+        "objective": 8994
     },
     "22139": {
         "i": 22139,
@@ -2744,7 +3710,9 @@
         "image_name": "inv_jewelry_necklace_21",
         "ilvl": 1,
         "bop": true,
-        "unique": true
+        "unique": true,
+        "provided_for": 8946,
+        "objective": 8946
     },
     "22140": {
         "i": 22140,
@@ -2761,6 +3729,9 @@
         "use": {
             "s": 27709,
             "t": "Combines 5 Sentinel's Cards into a Stack of Cards."
+        },
+        "creates": {
+            "27709": 22289
         }
     },
     "22141": {
@@ -2778,6 +3749,9 @@
         "use": {
             "s": 27703,
             "t": "Combines 5 Ironforge Guard's Cards into a Parcel of Cards."
+        },
+        "creates": {
+            "27703": 22287
         }
     },
     "22142": {
@@ -2795,6 +3769,9 @@
         "use": {
             "s": 27711,
             "t": "Combines 5 Grunt's Cards into a Package of Cards."
+        },
+        "creates": {
+            "27711": 22293
         }
     },
     "22143": {
@@ -2812,6 +3789,10 @@
         "use": {
             "s": 27701,
             "t": "Combines 5 Stormwind Guard's Cards into a Bundle of Cards."
+        },
+        "objective": 8903,
+        "creates": {
+            "27701": 22284
         }
     },
     "22144": {
@@ -2829,6 +3810,9 @@
         "use": {
             "s": 27715,
             "t": "Combines 5 Bluffwatcher's Cards into a Satchel of Cards."
+        },
+        "creates": {
+            "27715": 22295
         }
     },
     "22145": {
@@ -2846,6 +3830,10 @@
         "use": {
             "s": 27718,
             "t": "Combines 5 Guardian's Moldy Cards into a Sheaf of Cards."
+        },
+        "objective": 8904,
+        "creates": {
+            "27718": 22299
         }
     },
     "22149": {
@@ -2872,6 +3860,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 13."
                 }
             ]
+        },
+        "reward_from": {
+            "8949": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22150": {
@@ -2901,6 +3900,17 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "reward_from": {
+            "8949": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22154": {
@@ -3108,6 +4118,16 @@
         "use": {
             "s": 27706,
             "t": "Combines 5 Dwarven Homebrews into a Case of Homebrew."
+        },
+        "contained": {
+            "items": {
+                "22168": 100.0,
+                "21980": 88.0
+            }
+        },
+        "creates": {
+            "27707": 22288,
+            "27706": 22288
         }
     },
     "22174": {
@@ -3125,6 +4145,15 @@
         "use": {
             "s": 27706,
             "t": "Combines 5 Dwarven Homebrews into a Case of Homebrew."
+        },
+        "contained": {
+            "items": {
+                "22172": 100.0,
+                "22166": 95.0
+            }
+        },
+        "creates": {
+            "27717": 22298
         }
     },
     "22175": {
@@ -3142,6 +4171,15 @@
         "use": {
             "s": 27712,
             "t": "Combines 5 Freshly Baked Pies into a Box of Fresh Pies."
+        },
+        "contained": {
+            "items": {
+                "22169": 100.0,
+                "22164": 94.0
+            }
+        },
+        "creates": {
+            "27712": 22292
         }
     },
     "22176": {
@@ -3159,6 +4197,19 @@
         "use": {
             "s": 27700,
             "t": "Combines 5 loaves of Homemade Bread into a Sack of Homemade Bread."
+        },
+        "dropped": {
+            "471": 0.02
+        },
+        "contained": {
+            "items": {
+                "22170": 100.0,
+                "21981": 96.0
+            }
+        },
+        "creates": {
+            "27705": 22283,
+            "27700": 22283
         }
     },
     "22177": {
@@ -3176,6 +4227,15 @@
         "use": {
             "s": 27714,
             "t": "Combines 5 Freshly Picked Flowers into a Basket of Flowers."
+        },
+        "contained": {
+            "items": {
+                "22171": 100.0,
+                "22165": 96.0
+            }
+        },
+        "creates": {
+            "27714": 22296
         }
     },
     "22178": {
@@ -3239,6 +4299,22 @@
                 "12809": 10,
                 "12800": 4
             }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
+        },
+        "materials": {
+            "22203": 15,
+            "22202": 36,
+            "12810": 12,
+            "12809": 10,
+            "12800": 4
         }
     },
     "22192": {
@@ -3257,6 +4333,9 @@
         "use": {
             "s": 27653,
             "t": "Increases chance to dodge by 3% for 30 min."
+        },
+        "reward_from": {
+            "8988": 3
         }
     },
     "22193": {
@@ -3275,6 +4354,9 @@
         "use": {
             "s": 27652,
             "t": "Increases all magical resistances by 15 for 30 min."
+        },
+        "reward_from": {
+            "8988": 3
         }
     },
     "22194": {
@@ -3327,6 +4409,21 @@
                 "12810": 8,
                 "13512": 1
             }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
+        },
+        "materials": {
+            "22203": 8,
+            "22202": 24,
+            "12810": 8,
+            "13512": 1
         }
     },
     "22195": {
@@ -3377,6 +4474,24 @@
                 "22202": 14,
                 "12810": 4
             }
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
+        },
+        "materials": {
+            "22202": 14,
+            "12810": 4
         }
     },
     "22196": {
@@ -3424,6 +4539,22 @@
                 "7076": 10,
                 "12364": 4
             }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
+        },
+        "materials": {
+            "22203": 18,
+            "22202": 40,
+            "12655": 12,
+            "7076": 10,
+            "12364": 4
         }
     },
     "22197": {
@@ -3468,6 +4599,25 @@
                 "12655": 4,
                 "7076": 2
             }
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
+        },
+        "materials": {
+            "22202": 14,
+            "12655": 4,
+            "7076": 2
         }
     },
     "22198": {
@@ -3521,6 +4671,21 @@
                 "12655": 8,
                 "7076": 4
             }
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
+        },
+        "materials": {
+            "22203": 8,
+            "22202": 24,
+            "12655": 8,
+            "7076": 4
         }
     },
     "22200": {
@@ -3534,6 +4699,9 @@
         "use": {
             "s": 27662,
             "t": "Shoot a player, and Kwee Q. Peddlefeet will find them! (Only works on players with no current critter pets.)"
+        },
+        "reward_from": {
+            "8993": 1
         }
     },
     "22201": {
@@ -3543,7 +4711,13 @@
         "image_name": "inv_box_02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "contained": {
+            "objects": {
+                "179565": 100.0
+            }
+        },
+        "objective": 5527
     },
     "22202": {
         "i": 22202,
@@ -3556,6 +4730,29 @@
             "gold": 0,
             "silver": 25,
             "copper": 0
+        },
+        "dropped": {
+            "15355": 3.0,
+            "15264": 2.0,
+            "15338": 1.6,
+            "15262": 0.81,
+            "15277": 0.51,
+            "15311": 0.41,
+            "15335": 0.15
+        },
+        "mined": {
+            "objects": {
+                "181068": 90.0,
+                "181069": 51.0
+            }
+        },
+        "creates": {
+            "27589": 22194,
+            "27586": 22198,
+            "27590": 22191,
+            "27587": 22196,
+            "27585": 22197,
+            "27588": 22195
         }
     },
     "22203": {
@@ -3569,6 +4766,25 @@
             "gold": 0,
             "silver": 50,
             "copper": 0
+        },
+        "dropped": {
+            "15355": 0.415,
+            "15311": 0.41,
+            "15277": 0.229,
+            "15264": 0.11,
+            "15338": 0.105
+        },
+        "mined": {
+            "objects": {
+                "181069": 38.0,
+                "181068": 4.0
+            }
+        },
+        "creates": {
+            "27589": 22194,
+            "27586": 22198,
+            "27590": 22191,
+            "27587": 22196
         }
     },
     "22204": {
@@ -3594,6 +4810,17 @@
         },
         "requirements": {
             "level": 55
+        },
+        "dropped": {
+            "9019": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22205": {
@@ -3619,6 +4846,22 @@
         },
         "requirements": {
             "level": 52
+        },
+        "dropped": {
+            "9476": 1.83
+        },
+        "contained": {
+            "objects": {
+                "161495": 23.0
+            }
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22206": {
@@ -3633,6 +4876,12 @@
         "use": {
             "s": 27571,
             "t": "Shower a nearby target with a cascade of rose petals! (cooldown 5 min)"
+        },
+        "dropped": {
+            "10811": 100.0,
+            "11488": 100.0,
+            "10901": 100.0,
+            "8929": 100.0
         }
     },
     "22207": {
@@ -3674,6 +4923,17 @@
                     "t": "Increased Crossbows +2."
                 }
             ]
+        },
+        "dropped": {
+            "9019": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22208": {
@@ -3713,6 +4973,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "9938": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22209": {
@@ -3740,6 +5011,15 @@
         "use": {
             "s": 27591,
             "t": "Teaches you how to make a Heavy Obsidian Belt."
+        },
+        "sold": {
+            "15176": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 5
+                }
+            }
         }
     },
     "22212": {
@@ -3764,6 +5044,17 @@
         },
         "requirements": {
             "level": 51
+        },
+        "dropped": {
+            "9502": 33.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22214": {
@@ -3791,6 +5082,15 @@
         "use": {
             "s": 27594,
             "t": "Teaches you how to make a Light Obsidian Belt."
+        },
+        "sold": {
+            "15176": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 5
+                }
+            }
         }
     },
     "22216": {
@@ -3799,7 +5099,11 @@
         "n": "Venoxis's Venom Sac",
         "image_name": "inv_misc_organ_04",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14507": 100.0
+        },
+        "objective": 9023
     },
     "22217": {
         "i": 22217,
@@ -3807,7 +5111,11 @@
         "n": "Kurinnaxx's Venom Sac",
         "image_name": "inv_misc_organ_04",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "15348": 100.0
+        },
+        "objective": 9023
     },
     "22218": {
         "i": 22218,
@@ -3824,6 +5132,25 @@
         "use": {
             "s": 27571,
             "t": "Shower a nearby target with a cascade of rose petals! (cooldown 30 sec)"
+        },
+        "contained": {
+            "items": {
+                "21979": 38.0,
+                "21981": 22.0,
+                "21975": 21.0,
+                "22164": 21.0,
+                "22157": 20.0,
+                "22166": 20.0,
+                "22156": 20.0,
+                "22158": 19.0,
+                "22155": 18.0,
+                "22154": 17.0,
+                "21980": 17.0,
+                "22165": 11.0
+            }
+        },
+        "reward_from": {
+            "8980": 1
         }
     },
     "22219": {
@@ -3872,6 +5199,9 @@
         "use": {
             "s": 27595,
             "t": "Teaches you how to make the Black Grasp of the Destroyer."
+        },
+        "dropped": {
+            "15340": 15.0
         }
     },
     "22221": {
@@ -3920,6 +5250,9 @@
         "use": {
             "s": 27593,
             "t": "Teaches you how to make a Thick Obsidian Breastplate."
+        },
+        "dropped": {
+            "15263": 15.0
         }
     },
     "22223": {
@@ -3953,6 +5286,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 13."
                 }
             ]
+        },
+        "dropped": {
+            "9056": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22224": {
@@ -3961,7 +5305,15 @@
         "n": "Jeering Spectre's Essence",
         "image_name": "inv_poison_mindnumbing",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "11470": 20.0,
+            "11471": 20.0,
+            "11472": 20.0,
+            "11473": 20.0,
+            "11475": 20.0
+        },
+        "objective": 8950
     },
     "22225": {
         "i": 22225,
@@ -3994,6 +5346,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 18."
                 }
             ]
+        },
+        "dropped": {
+            "10339": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22226": {
@@ -4003,7 +5366,15 @@
         "image_name": "inv_misc_bone_02",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The silithid have left little to the corpse of this champion of the Cenarion Circle"
+        "description": "The silithid have left little to the corpse of this champion of the Cenarion Circle",
+        "dropped": {
+            "11730": 15.0,
+            "11731": 15.0,
+            "11732": 15.0,
+            "11733": 15.0,
+            "11734": 15.0
+        },
+        "objective": 8986
     },
     "22227": {
         "i": 22227,
@@ -4012,7 +5383,12 @@
         "image_name": "trade_engraving",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This night elvic antiquity has been frozen solid by the Frostmaul giants. Handle with care"
+        "description": "This night elvic antiquity has been frozen solid by the Frostmaul giants. Handle with care",
+        "dropped": {
+            "7428": 100.0,
+            "7429": 100.0
+        },
+        "objective": 8985
     },
     "22228": {
         "i": 22228,
@@ -4021,7 +5397,11 @@
         "image_name": "inv_sword_01",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The keenest of edges, meant to indiscriminately cleave through any foe, living or dead"
+        "description": "The keenest of edges, meant to indiscriminately cleave through any foe, living or dead",
+        "dropped": {
+            "9448": 100.0
+        },
+        "objective": 8987
     },
     "22229": {
         "i": 22229,
@@ -4030,7 +5410,13 @@
         "image_name": "inv_misc_dust_03",
         "ilvl": 1,
         "quest_item": true,
-        "description": "These ashen remains of an exiled soul pulse faintly with the echo of a once-promising life"
+        "description": "These ashen remains of an exiled soul pulse faintly with the echo of a once-promising life",
+        "dropped": {
+            "7071": 100.0,
+            "7072": 100.0,
+            "7075": 100.0
+        },
+        "objective": 8988
     },
     "22231": {
         "i": 22231,
@@ -4062,6 +5448,17 @@
                     "t": "Improves your chance to hit with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "9237": 17.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22232": {
@@ -4093,6 +5490,17 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "10584": 20.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22234": {
@@ -4129,6 +5537,17 @@
                     "t": "Restores 3 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "9025": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22235": {
@@ -4141,6 +5560,19 @@
         "use": {
             "s": 27570,
             "t": "Right Click to summon and dismiss Kwee Q. Peddlefeet."
+        },
+        "contained": {
+            "items": {
+                "22157": 2.0,
+                "21981": 1.9,
+                "21975": 1.8,
+                "22165": 1.8,
+                "22166": 1.5,
+                "21980": 1.2,
+                "22154": 1.2,
+                "22164": 0.6,
+                "22156": 0.2
+            }
         }
     },
     "22236": {
@@ -4159,6 +5591,11 @@
         "use": {
             "s": 27720,
             "t": "Increases Defense by 13 for 1 hr."
+        },
+        "contained": {
+            "items": {
+                "21812": 76.0
+            }
         }
     },
     "22237": {
@@ -4177,6 +5614,11 @@
         "use": {
             "s": 27723,
             "t": "Improves your chance to hit by 2% for 1 hr."
+        },
+        "contained": {
+            "items": {
+                "21812": 79.0
+            }
         }
     },
     "22238": {
@@ -4195,6 +5637,11 @@
         "use": {
             "s": 27721,
             "t": "Increases damage done from spells by up to 23 for 1 hr."
+        },
+        "contained": {
+            "items": {
+                "21812": 76.0
+            }
         }
     },
     "22239": {
@@ -4213,6 +5660,11 @@
         "use": {
             "s": 27722,
             "t": "Increases healing done by magical spells by up to 44 for 1 hr."
+        },
+        "contained": {
+            "items": {
+                "21812": 61.0
+            }
         }
     },
     "22240": {
@@ -4249,6 +5701,17 @@
                     "t": "Improves your chance to hit with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "9018": 25.0
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22241": {
@@ -4274,6 +5737,17 @@
         },
         "requirements": {
             "level": 52
+        },
+        "dropped": {
+            "9041": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22242": {
@@ -4309,6 +5783,17 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 11."
                 }
             ]
+        },
+        "dropped": {
+            "9042": 13.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22243": {
@@ -4329,6 +5814,9 @@
             "class": [
                 "Warlock"
             ]
+        },
+        "reward_from": {
+            "1739": 1
         }
     },
     "22244": {
@@ -4349,6 +5837,9 @@
             "class": [
                 "Warlock"
             ]
+        },
+        "reward_from": {
+            "1795": 1
         }
     },
     "22245": {
@@ -4382,6 +5873,17 @@
                     "t": "Increases healing done by spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "8923": 25.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22246": {
@@ -4443,6 +5945,17 @@
                     "t": "Increases healing done by spells and effects by up to 26."
                 }
             ]
+        },
+        "dropped": {
+            "10429": 21.0
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "22248": {
@@ -4789,6 +6302,11 @@
                 "22132": 1,
                 "22131": 1
             }
+        },
+        "materials": {
+            "22133": 1,
+            "22132": 1,
+            "22131": 1
         }
     },
     "22263": {
@@ -4804,6 +6322,11 @@
                 "22135": 1,
                 "22134": 1
             }
+        },
+        "materials": {
+            "22136": 1,
+            "22135": 1,
+            "22134": 1
         }
     },
     "22264": {
@@ -5210,6 +6733,9 @@
             "materials": {
                 "22176": 9
             }
+        },
+        "materials": {
+            "22176": 9
         }
     },
     "22284": {
@@ -5231,6 +6757,9 @@
             "materials": {
                 "22143": 4
             }
+        },
+        "materials": {
+            "22143": 4
         }
     },
     "22285": {
@@ -5252,6 +6781,9 @@
             "materials": {
                 "22117": 4
             }
+        },
+        "materials": {
+            "22117": 4
         }
     },
     "22286": {
@@ -5273,6 +6805,9 @@
             "materials": {
                 "22119": 4
             }
+        },
+        "materials": {
+            "22119": 4
         }
     },
     "22287": {
@@ -5294,6 +6829,9 @@
             "materials": {
                 "22141": 4
             }
+        },
+        "materials": {
+            "22141": 4
         }
     },
     "22288": {
@@ -5315,6 +6853,9 @@
             "materials": {
                 "22173": 9
             }
+        },
+        "materials": {
+            "22173": 9
         }
     },
     "22289": {
@@ -5336,6 +6877,9 @@
             "materials": {
                 "22140": 4
             }
+        },
+        "materials": {
+            "22140": 4
         }
     },
     "22290": {
@@ -5357,6 +6901,9 @@
             "materials": {
                 "22120": 4
             }
+        },
+        "materials": {
+            "22120": 4
         }
     },
     "22291": {
@@ -5399,6 +6946,9 @@
             "materials": {
                 "22175": 4
             }
+        },
+        "materials": {
+            "22175": 4
         }
     },
     "22293": {
@@ -5420,6 +6970,9 @@
             "materials": {
                 "22142": 4
             }
+        },
+        "materials": {
+            "22142": 4
         }
     },
     "22294": {
@@ -5441,6 +6994,9 @@
             "materials": {
                 "22123": 4
             }
+        },
+        "materials": {
+            "22123": 4
         }
     },
     "22295": {
@@ -5462,6 +7018,9 @@
             "materials": {
                 "22144": 4
             }
+        },
+        "materials": {
+            "22144": 4
         }
     },
     "22296": {
@@ -5483,6 +7042,9 @@
             "materials": {
                 "22177": 4
             }
+        },
+        "materials": {
+            "22177": 4
         }
     },
     "22297": {
@@ -5504,6 +7066,9 @@
             "materials": {
                 "22122": 4
             }
+        },
+        "materials": {
+            "22122": 4
         }
     },
     "22298": {
@@ -5525,6 +7090,9 @@
             "materials": {
                 "22174": 4
             }
+        },
+        "materials": {
+            "22174": 4
         }
     },
     "22299": {
@@ -5546,6 +7114,9 @@
             "materials": {
                 "22145": 4
             }
+        },
+        "materials": {
+            "22145": 4
         }
     },
     "22300": {
@@ -5567,6 +7138,9 @@
             "materials": {
                 "22121": 4
             }
+        },
+        "materials": {
+            "22121": 4
         }
     },
     "22301": {

@@ -12677,6 +12677,17 @@
                     "t": "Restores 4 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15348": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21501": {
@@ -12702,6 +12713,17 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15348": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21502": {
@@ -12727,6 +12749,17 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15348": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21503": {
@@ -12759,6 +12792,17 @@
                     "t": "Increased Defense +5."
                 }
             ]
+        },
+        "dropped": {
+            "15348": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21504": {
@@ -12788,6 +12832,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 25."
                 }
             ]
+        },
+        "reward_from": {
+            "8791": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21505": {
@@ -12816,6 +12872,18 @@
                     "t": "+42 Attack Power."
                 }
             ]
+        },
+        "reward_from": {
+            "8791": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21506": {
@@ -12845,6 +12913,18 @@
                     "t": "Increased Defense +4."
                 }
             ]
+        },
+        "reward_from": {
+            "8791": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21507": {
@@ -12874,6 +12954,18 @@
                     "t": "Restores 6 mana per 5 sec."
                 }
             ]
+        },
+        "reward_from": {
+            "8791": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21508": {
@@ -12883,7 +12975,11 @@
         "image_name": "inv_jewelry_necklace_12",
         "stack": 20,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "objective": 8573,
+        "reward_from": {
+            "8538": 1
+        }
     },
     "21509": {
         "i": 21509,
@@ -12891,7 +12987,10 @@
         "n": "Ahn'Qiraj War Effort Supplies",
         "image_name": "inv_box_01",
         "ilvl": 10,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8549": 1
+        }
     },
     "21510": {
         "i": 21510,
@@ -12899,7 +12998,10 @@
         "n": "Ahn'Qiraj War Effort Supplies",
         "image_name": "inv_box_01",
         "ilvl": 20,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8604": 1
+        }
     },
     "21511": {
         "i": 21511,
@@ -12907,7 +13009,10 @@
         "n": "Ahn'Qiraj War Effort Supplies",
         "image_name": "inv_box_01",
         "ilvl": 30,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8589": 1
+        }
     },
     "21512": {
         "i": 21512,
@@ -12915,7 +13020,10 @@
         "n": "Ahn'Qiraj War Effort Supplies",
         "image_name": "inv_box_01",
         "ilvl": 40,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8854": 1
+        }
     },
     "21513": {
         "i": 21513,
@@ -12923,7 +13031,10 @@
         "n": "Ahn'Qiraj War Effort Supplies",
         "image_name": "inv_box_01",
         "ilvl": 50,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8855": 1
+        }
     },
     "21514": {
         "i": 21514,
@@ -12936,7 +13047,15 @@
         "requirements": {
             "level": 60
         },
-        "starts": 8829
+        "starts": 8829,
+        "contained": {
+            "items": {
+                "20805": 14.0,
+                "21386": 10.0
+            }
+        },
+        "provided_for": 8829,
+        "objective": 8829
     },
     "21515": {
         "i": 21515,
@@ -12945,7 +13064,11 @@
         "image_name": "inv_jewelry_necklace_14",
         "stack": 20,
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "objective": 8574,
+        "reward_from": {
+            "8829": 1
+        }
     },
     "21517": {
         "i": 21517,
@@ -12981,6 +13104,18 @@
                     "t": "Increases your resistance to silence effects by 10%."
                 }
             ]
+        },
+        "reward_from": {
+            "8620": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21519": {
@@ -13034,6 +13169,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "reward_from": {
+            "8745": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21521": {
@@ -13074,6 +13221,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 64."
                 }
             ]
+        },
+        "reward_from": {
+            "8745": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21522": {
@@ -13106,6 +13265,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "reward_from": {
+            "8745": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21523": {
@@ -13146,6 +13317,18 @@
                     "t": "Increases healing done by spells and effects by up to 121."
                 }
             ]
+        },
+        "reward_from": {
+            "8745": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21524": {
@@ -13160,7 +13343,12 @@
             "copper": 1
         },
         "bop": true,
-        "slot": "Head"
+        "slot": "Head",
+        "dropped": {
+            "9237": 100.0,
+            "9019": 100.0,
+            "10997": 100.0
+        }
     },
     "21525": {
         "i": 21525,
@@ -13174,7 +13362,17 @@
             "copper": 1
         },
         "bop": true,
-        "slot": "Head"
+        "slot": "Head",
+        "dropped": {
+            "10899": 100.0,
+            "11486": 100.0,
+            "1853": 100.0
+        },
+        "contained": {
+            "objects": {
+                "2717": 0.02
+            }
+        }
     },
     "21526": {
         "i": 21526,
@@ -13206,6 +13404,18 @@
                     "t": "Allows underwater breathing."
                 }
             ]
+        },
+        "reward_from": {
+            "8729": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21527": {
@@ -13241,6 +13451,18 @@
                     "t": "Increases damage done by Frost spells and effects by up to 39."
                 }
             ]
+        },
+        "reward_from": {
+            "8729": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21528": {
@@ -13249,7 +13471,10 @@
         "n": "Colossal Bag of Loot",
         "image_name": "inv_misc_bag_17",
         "ilvl": 60,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8859": 1
+        }
     },
     "21529": {
         "i": 21529,
@@ -13273,6 +13498,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "reward_from": {
+            "8730": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21530": {
@@ -13301,6 +13538,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "reward_from": {
+            "8730": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21531": {
@@ -13333,6 +13582,18 @@
                     "t": "Increases healing done by spells and effects by up to 26."
                 }
             ]
+        },
+        "reward_from": {
+            "8736": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21532": {
@@ -13361,6 +13622,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "reward_from": {
+            "8736": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21533": {
@@ -13371,7 +13644,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A tiny fragment of a very large insect"
+        "description": "A tiny fragment of a very large insect",
+        "provided_for": 8859,
+        "objective": 8859
     },
     "21534": {
         "i": 21534,
@@ -13381,7 +13656,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A tiny fragment of a very large insect"
+        "description": "A tiny fragment of a very large insect",
+        "provided_for": 8857,
+        "objective": 8857
     },
     "21535": {
         "i": 21535,
@@ -13391,7 +13668,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A tiny fragment of a very large insect"
+        "description": "A tiny fragment of a very large insect",
+        "provided_for": 8858,
+        "objective": 8858
     },
     "21536": {
         "i": 21536,
@@ -13431,6 +13710,9 @@
         "use": {
             "s": 26263,
             "t": "Restores 4% of your health and mana per second for 25 sec. Must remain seated while eating."
+        },
+        "reward_from": {
+            "8863": 8
         }
     },
     "21538": {
@@ -13445,7 +13727,10 @@
             "copper": 1
         },
         "bop": true,
-        "slot": "Chest"
+        "slot": "Chest",
+        "reward_from": {
+            "8864": 1
+        }
     },
     "21539": {
         "i": 21539,
@@ -13459,7 +13744,10 @@
             "copper": 1
         },
         "bop": true,
-        "slot": "Chest"
+        "slot": "Chest",
+        "reward_from": {
+            "8864": 1
+        }
     },
     "21540": {
         "i": 21540,
@@ -13476,7 +13764,10 @@
             "s": 26265,
             "t": "Create an Elune Stone. Requires a Solid Stone. (cooldown 1 day)"
         },
-        "description": "A device said to capture the light shed by Elune herself"
+        "description": "A device said to capture the light shed by Elune herself",
+        "reward_from": {
+            "8868": 1
+        }
     },
     "21541": {
         "i": 21541,
@@ -13490,7 +13781,10 @@
             "copper": 1
         },
         "bop": true,
-        "slot": "Chest"
+        "slot": "Chest",
+        "reward_from": {
+            "8865": 1
+        }
     },
     "21542": {
         "i": 21542,
@@ -13531,7 +13825,10 @@
             "copper": 1
         },
         "bop": true,
-        "slot": "Chest"
+        "slot": "Chest",
+        "reward_from": {
+            "8865": 1
+        }
     },
     "21544": {
         "i": 21544,
@@ -13545,7 +13842,10 @@
             "copper": 1
         },
         "bop": true,
-        "slot": "Chest"
+        "slot": "Chest",
+        "reward_from": {
+            "8865": 1
+        }
     },
     "21545": {
         "i": 21545,
@@ -13555,7 +13855,9 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Use before 201"
+        "description": "Use before 201",
+        "provided_for": 8861,
+        "objective": 8861
     },
     "21546": {
         "i": 21546,
@@ -13609,6 +13911,11 @@
         "use": {
             "s": 26278,
             "t": "Teaches you how to make an Elixir of Greater Firepower."
+        },
+        "dropped": {
+            "8637": 1.2,
+            "5844": 1.1,
+            "5846": 1.0
         }
     },
     "21548": {
@@ -13631,6 +13938,10 @@
         "use": {
             "s": 26280,
             "t": "Teaches you how to craft Stormshroud Gloves."
+        },
+        "dropped": {
+            "14454": 31.0,
+            "14457": 20.0
         }
     },
     "21552": {
@@ -13651,6 +13962,160 @@
         "use": {
             "s": 1129,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
+        },
+        "sold": {
+            "4255": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "8137": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3086": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3540": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "7943": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4307": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "11187": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6727": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "8931": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6738": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6807": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "5814": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "6791": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "1684": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3497": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4305": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "4200": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "14731": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "10367": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            },
+            "3178": {
+                "stock": 5,
+                "cost": {
+                    "copper": 0,
+                    "silver": 20,
+                    "gold": 0
+                }
+            }
         }
     },
     "21557": {
@@ -13679,6 +14144,26 @@
             "materials": {
                 "4364": 1,
                 "2319": 1
+            }
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "sold": {
+            "15898": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 85.0
             }
         }
     },
@@ -13709,6 +14194,26 @@
                 "4364": 1,
                 "2319": 1
             }
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "sold": {
+            "15898": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 82.0
+            }
         }
     },
     "21559": {
@@ -13738,6 +14243,26 @@
                 "4364": 1,
                 "2319": 1
             }
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "sold": {
+            "15898": {
+                "cost": {
+                    "copper": 25,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 85.0
+            }
         }
     },
     "21561": {
@@ -13755,6 +14280,17 @@
         "use": {
             "s": 26294,
             "t": "Throw into a firework launcher!"
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 88.0
+            }
         }
     },
     "21562": {
@@ -13772,6 +14308,17 @@
         "use": {
             "s": 26295,
             "t": "Throw into a firework launcher!"
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 90.0
+            }
         }
     },
     "21563": {
@@ -13810,6 +14357,36 @@
                     "t": "Decreases the magical resistances of your spell targets by 20."
                 }
             ]
+        },
+        "sold": {
+            "13216": {
+                "cost": {
+                    "copper": 55,
+                    "silver": 55,
+                    "gold": 75
+                }
+            },
+            "13218": {
+                "cost": {
+                    "copper": 55,
+                    "silver": 55,
+                    "gold": 75
+                }
+            },
+            "13219": {
+                "cost": {
+                    "copper": 55,
+                    "silver": 55,
+                    "gold": 75
+                }
+            },
+            "13217": {
+                "cost": {
+                    "copper": 55,
+                    "silver": 55,
+                    "gold": 75
+                }
+            }
         }
     },
     "21565": {
@@ -13846,6 +14423,15 @@
                     "t": "Decreases the magical resistances of your spell targets by 20."
                 }
             ]
+        },
+        "sold": {
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 4
+                }
+            }
         }
     },
     "21566": {
@@ -13882,6 +14468,15 @@
                     "t": "Decreases the magical resistances of your spell targets by 10."
                 }
             ]
+        },
+        "sold": {
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "21567": {
@@ -13917,6 +14512,22 @@
                     "t": "Restores 6 health per 5 sec."
                 }
             ]
+        },
+        "sold": {
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 4
+                }
+            },
+            "14754": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 4
+                }
+            }
         }
     },
     "21568": {
@@ -13952,6 +14563,22 @@
                     "t": "Restores 3 health per 5 sec."
                 }
             ]
+        },
+        "sold": {
+            "14753": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            },
+            "14754": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 2
+                }
+            }
         }
     },
     "21569": {
@@ -14041,6 +14668,15 @@
                 "10505": 1,
                 "4304": 1
             }
+        },
+        "sold": {
+            "15898": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "21574": {
@@ -14069,6 +14705,15 @@
             "materials": {
                 "10505": 1,
                 "4304": 1
+            }
+        },
+        "sold": {
+            "15898": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
             }
         }
     },
@@ -14099,6 +14744,15 @@
                 "10505": 1,
                 "4304": 1
             }
+        },
+        "sold": {
+            "15898": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
         }
     },
     "21579": {
@@ -14121,6 +14775,18 @@
         "use": {
             "s": 26391,
             "t": "Summons a Vanquished Tentacle to your aid for 30 sec. (cooldown 3 min)"
+        },
+        "dropped": {
+            "15727": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21581": {
@@ -14157,6 +14823,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15727": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21582": {
@@ -14193,6 +14871,18 @@
                     "t": "Restores 7 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15727": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21583": {
@@ -14229,6 +14919,18 @@
                     "t": "Restores 8 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15727": 21.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21585": {
@@ -14265,6 +14967,18 @@
                     "t": "Improves your chance to hit with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15727": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21586": {
@@ -14304,6 +15018,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15727": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21587": {
@@ -14341,6 +15067,15 @@
                     "t": "Restores 4 mana per 5 sec."
                 }
             ]
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21589": {
@@ -14369,6 +15104,17 @@
             "materials": {
                 "4377": 1,
                 "4234": 1
+            }
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 90.0
             }
         }
     },
@@ -14399,6 +15145,17 @@
                 "4377": 1,
                 "4234": 1
             }
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 92.0
+            }
         }
     },
     "21592": {
@@ -14428,6 +15185,17 @@
                 "4377": 1,
                 "4234": 1
             }
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 95.0
+            }
         }
     },
     "21593": {
@@ -14445,6 +15213,17 @@
         "use": {
             "s": 26337,
             "t": "Throw into a firework launcher!"
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 96.0
+            }
         }
     },
     "21595": {
@@ -14462,6 +15241,17 @@
         "use": {
             "s": 26338,
             "t": "Throw into a firework launcher!"
+        },
+        "dropped": {
+            "15449": 0.89
+        },
+        "contained": {
+            "objects": {
+                "186750": 10.0
+            },
+            "items": {
+                "21640": 95.0
+            }
         }
     },
     "21596": {
@@ -14484,6 +15274,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15727": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21597": {
@@ -14521,6 +15323,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "15276": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21598": {
@@ -14558,6 +15372,18 @@
                     "t": "Increased Defense +8."
                 }
             ]
+        },
+        "dropped": {
+            "15276": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21599": {
@@ -14591,6 +15417,18 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15276": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21600": {
@@ -14623,6 +15461,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 34."
                 }
             ]
+        },
+        "dropped": {
+            "15276": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21601": {
@@ -14654,6 +15504,18 @@
                     "t": "Increased Defense +9."
                 }
             ]
+        },
+        "dropped": {
+            "15276": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21602": {
@@ -14687,6 +15549,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15276": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21603": {
@@ -14724,6 +15598,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 19."
                 }
             ]
+        },
+        "dropped": {
+            "15511": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21604": {
@@ -14757,6 +15643,18 @@
                     "t": "Increases healing done by spells and effects by up to 53."
                 }
             ]
+        },
+        "dropped": {
+            "15275": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21605": {
@@ -14785,6 +15683,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15275": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21606": {
@@ -14819,6 +15729,18 @@
                     "t": "Increases healing done by spells and effects by up to 35."
                 }
             ]
+        },
+        "dropped": {
+            "15275": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21607": {
@@ -14857,6 +15779,18 @@
                     "t": "Restores 5 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15275": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21608": {
@@ -14890,6 +15824,18 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15275": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21609": {
@@ -14923,6 +15869,18 @@
                     "t": "Increases healing done by spells and effects by up to 55."
                 }
             ]
+        },
+        "dropped": {
+            "15275": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21610": {
@@ -14960,6 +15918,18 @@
                     "t": "Restores 6 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15517": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21611": {
@@ -14992,6 +15962,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 28."
                 }
             ]
+        },
+        "dropped": {
+            "15517": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21615": {
@@ -15028,6 +16010,18 @@
                     "t": "Restores 11 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15517": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21616": {
@@ -15057,6 +16051,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15509": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21617": {
@@ -15090,6 +16096,18 @@
                     "t": "Increases healing done by spells and effects by up to 53."
                 }
             ]
+        },
+        "dropped": {
+            "15509": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21618": {
@@ -15114,6 +16132,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15509": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21619": {
@@ -15150,6 +16180,18 @@
                     "t": "Restores 10 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15509": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21620": {
@@ -15183,6 +16225,18 @@
                     "t": "Restores 5 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15509": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21621": {
@@ -15215,6 +16269,18 @@
                     "t": "Increased Defense +6."
                 }
             ]
+        },
+        "dropped": {
+            "15509": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21622": {
@@ -15259,7 +16325,19 @@
                 }
             ]
         },
-        "description": "Recently devoure"
+        "description": "Recently devoure",
+        "dropped": {
+            "15299": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
+        }
     },
     "21623": {
         "i": 21623,
@@ -15296,6 +16374,18 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15299": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21624": {
@@ -15334,6 +16424,18 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15299": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21625": {
@@ -15356,6 +16458,18 @@
         "use": {
             "s": 26467,
             "t": "Your magical heals provide the target with a shield that absorbs damage equal to 15% of the amount healed for 30 sec. (cooldown 3 min)"
+        },
+        "dropped": {
+            "15299": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21626": {
@@ -15395,6 +16509,18 @@
                     "t": "+40 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "15299": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21627": {
@@ -15420,6 +16546,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15510": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21635": {
@@ -15450,6 +16588,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15510": 10.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21639": {
@@ -15486,6 +16636,18 @@
                     "t": "Increases your chance to dodge an attack by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15510": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21640": {
@@ -15495,7 +16657,10 @@
         "image_name": "inv_box_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Filled with fireworks to celebrate the Lunar Festival in style"
+        "description": "Filled with fireworks to celebrate the Lunar Festival in style",
+        "reward_from": {
+            "8876": 1
+        }
     },
     "21645": {
         "i": 21645,
@@ -15520,6 +16685,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15510": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21647": {
@@ -15542,6 +16719,18 @@
         "use": {
             "s": 26400,
             "t": "Reduces the threat you generate by 70% for 20 sec. (cooldown 3 min)"
+        },
+        "dropped": {
+            "15510": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21648": {
@@ -15577,6 +16766,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21650": {
@@ -15618,6 +16819,18 @@
                     "t": "+20 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "15510": 10.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21651": {
@@ -15654,6 +16867,18 @@
                     "t": "Improves your chance to get a critical strike by 2%."
                 }
             ]
+        },
+        "dropped": {
+            "15510": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21652": {
@@ -15682,6 +16907,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15510": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21663": {
@@ -15718,6 +16955,18 @@
                     "t": "Restores 7 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15510": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21664": {
@@ -15750,6 +16999,18 @@
                     "t": "+44 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "15510": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21665": {
@@ -15775,6 +17036,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15510": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21666": {
@@ -15808,6 +17081,18 @@
                     "t": "Restores 5 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 10.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21667": {
@@ -15845,6 +17130,18 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21668": {
@@ -15881,6 +17178,18 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21669": {
@@ -15914,6 +17223,18 @@
                     "t": "Increases healing done by spells and effects by up to 59."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21670": {
@@ -15936,6 +17257,18 @@
         "use": {
             "s": 26480,
             "t": "Gives a chance on melee or ranged attack to apply an armor penetration effect on you for 30 sec, lowering the target's physical armor by 200 to your own attacks. The armor penetration effect can be applied up to 6 times. (cooldown 3 min)"
+        },
+        "dropped": {
+            "15516": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21671": {
@@ -15973,6 +17306,18 @@
                     "t": "Decreases the magical resistances of your spell targets by 20."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21672": {
@@ -16006,6 +17351,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21673": {
@@ -16046,6 +17403,18 @@
                     "t": "+30 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 10.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21674": {
@@ -16079,6 +17448,18 @@
                     "t": "Increased Defense +9."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21675": {
@@ -16112,6 +17493,18 @@
                     "t": "Increases your chance to parry an attack by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21676": {
@@ -16144,6 +17537,18 @@
                     "t": "Increases damage done by Fire spells and effects by up to 57."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21677": {
@@ -16177,6 +17582,18 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15299": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21678": {
@@ -16209,6 +17626,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 8."
                 }
             ]
+        },
+        "dropped": {
+            "15516": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21679": {
@@ -16247,6 +17676,18 @@
                     "t": "Instantly lightning shocks the target for 239 to 278 Nature damage."
                 }
             ]
+        },
+        "dropped": {
+            "15275": 14.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21680": {
@@ -16272,6 +17713,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15511": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21681": {
@@ -16306,6 +17759,18 @@
                     "t": "Increases healing done by spells and effects by up to 15."
                 }
             ]
+        },
+        "dropped": {
+            "15511": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21682": {
@@ -16334,6 +17799,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15543": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21683": {
@@ -16368,6 +17845,18 @@
                     "t": "Increases healing done by spells and effects by up to 44."
                 }
             ]
+        },
+        "dropped": {
+            "15543": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21684": {
@@ -16401,6 +17890,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 28."
                 }
             ]
+        },
+        "dropped": {
+            "15543": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21685": {
@@ -16423,6 +17924,18 @@
         "use": {
             "s": 26463,
             "t": "Increases your spell resistances by 100 for 1 min. Every time a hostile spell lands on you, this bonus is reduced by 10 resistance. (cooldown 3 min)"
+        },
+        "dropped": {
+            "15511": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21686": {
@@ -16455,6 +17968,18 @@
                     "t": "Increases damage done by Fire spells and effects by up to 33."
                 }
             ]
+        },
+        "dropped": {
+            "15543": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21687": {
@@ -16487,6 +18012,18 @@
                     "t": "Restores 5 health per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15543": 20.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21688": {
@@ -16520,6 +18057,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15544": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21689": {
@@ -16556,6 +18105,18 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15544": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21690": {
@@ -16589,6 +18150,18 @@
                     "t": "Restores 6 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15544": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21691": {
@@ -16616,6 +18189,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15544": 25.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21692": {
@@ -16641,6 +18226,20 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15511": 17.0,
+            "15543": 17.0,
+            "15544": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21693": {
@@ -16674,6 +18273,20 @@
                     "t": "Increases your chance to dodge an attack by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15511": 17.0,
+            "15543": 17.0,
+            "15544": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21694": {
@@ -16707,6 +18320,20 @@
                     "t": "Increases healing done by spells and effects by up to 44."
                 }
             ]
+        },
+        "dropped": {
+            "15511": 17.0,
+            "15543": 17.0,
+            "15544": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21695": {
@@ -16741,6 +18368,20 @@
                     "t": "Increased Defense +6."
                 }
             ]
+        },
+        "dropped": {
+            "15511": 17.0,
+            "15543": 17.0,
+            "15544": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21696": {
@@ -16776,6 +18417,20 @@
                     "t": "Restores 7 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15511": 17.0,
+            "15543": 17.0,
+            "15544": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21697": {
@@ -16807,6 +18462,20 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 21."
                 }
             ]
+        },
+        "dropped": {
+            "15511": 17.0,
+            "15543": 17.0,
+            "15544": 17.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21698": {
@@ -16843,6 +18512,18 @@
                     "t": "Restores 6 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21699": {
@@ -16867,6 +18548,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15263": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21700": {
@@ -16897,6 +18590,18 @@
                     "t": "Increased Defense +6."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21701": {
@@ -16929,6 +18634,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21702": {
@@ -16960,6 +18677,18 @@
                     "t": "+24 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 18.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21703": {
@@ -16999,6 +18728,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 30."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 10.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21704": {
@@ -17033,6 +18774,18 @@
                     "t": "Increases healing done by spells and effects by up to 33."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21705": {
@@ -17067,6 +18820,18 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21706": {
@@ -17100,6 +18865,18 @@
                     "t": "Increased Defense +5."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21707": {
@@ -17130,6 +18907,18 @@
                     "t": "Decreases the magical resistances of your spell targets by 20."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21708": {
@@ -17165,6 +18954,18 @@
                     "t": "+18 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21709": {
@@ -17199,6 +19000,18 @@
                     "t": "Improves your chance to hit with spells by 1%."
                 }
             ]
+        },
+        "reward_from": {
+            "8802": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21710": {
@@ -17223,6 +19036,18 @@
         },
         "requirements": {
             "level": 60
+        },
+        "reward_from": {
+            "8802": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21711": {
@@ -17244,6 +19069,9 @@
         },
         "created_by": {
             "materials": {}
+        },
+        "reward_from": {
+            "8867": 1
         }
     },
     "21712": {
@@ -17276,6 +19104,18 @@
                     "t": "Restores 6 mana per 5 sec."
                 }
             ]
+        },
+        "reward_from": {
+            "8802": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21713": {
@@ -17295,6 +19135,9 @@
         "use": {
             "s": 26374,
             "t": "Shoots a firework at target."
+        },
+        "reward_from": {
+            "8862": 1
         }
     },
     "21714": {
@@ -17366,6 +19209,18 @@
                     "t": "+20 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "15339": 10.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21716": {
@@ -17441,6 +19296,15 @@
         "use": {
             "s": 26389,
             "t": "A strangely glowing alcoholic beverage."
+        },
+        "sold": {
+            "15898": {
+                "cost": {
+                    "copper": 15,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
         }
     },
     "21722": {
@@ -17462,6 +19326,9 @@
         "use": {
             "s": 26411,
             "t": "Teaches you how to sew a Festive Red Dress."
+        },
+        "reward_from": {
+            "8878": 1
         }
     },
     "21723": {
@@ -17483,6 +19350,9 @@
         "use": {
             "s": 26413,
             "t": "Teaches you how to sew a Festival Suit."
+        },
+        "reward_from": {
+            "8878": 1
         }
     },
     "21724": {
@@ -17768,6 +19638,9 @@
         "use": {
             "s": 26445,
             "t": "Teaches you how to make a Firework Cluster Launcher."
+        },
+        "reward_from": {
+            "8882": 1
         }
     },
     "21738": {
@@ -17789,6 +19662,9 @@
         "use": {
             "s": 26444,
             "t": "Teaches you how to make a Firework Launcher."
+        },
+        "reward_from": {
+            "8877": 1
         }
     },
     "21740": {
@@ -17797,7 +19673,10 @@
         "n": "Small Rocket Recipes",
         "image_name": "inv_scroll_03",
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8876": 1
+        }
     },
     "21741": {
         "i": 21741,
@@ -17805,7 +19684,10 @@
         "n": "Cluster Rocket Recipes",
         "image_name": "inv_scroll_05",
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8880": 1
+        }
     },
     "21742": {
         "i": 21742,
@@ -17813,7 +19695,10 @@
         "n": "Large Rocket Recipes",
         "image_name": "inv_scroll_04",
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8879": 1
+        }
     },
     "21743": {
         "i": 21743,
@@ -17821,7 +19706,10 @@
         "n": "Large Cluster Rocket Recipes",
         "image_name": "inv_scroll_06",
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "reward_from": {
+            "8881": 1
+        }
     },
     "21744": {
         "i": 21744,
@@ -17839,6 +19727,14 @@
         "use": {
             "s": 26521,
             "t": "You're in luck! Throw into a cluster launcher!"
+        },
+        "dropped": {
+            "2817": 0.4
+        },
+        "contained": {
+            "items": {
+                "21746": 50.0
+            }
         }
     },
     "21745": {
@@ -17857,6 +19753,15 @@
         "use": {
             "s": 25823,
             "t": "Summon a ring of light on a specific location that lasts for 3 min. (cooldown 1 min)"
+        },
+        "dropped": {
+            "4979": 42.0,
+            "3464": 0.3
+        },
+        "contained": {
+            "items": {
+                "21746": 50.0
+            }
         }
     },
     "21746": {
@@ -17882,6 +19787,15 @@
         "use": {
             "s": 25822,
             "t": "Throw on the ground!"
+        },
+        "sold": {
+            "15898": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 3,
+                    "gold": 0
+                }
+            }
         }
     },
     "21749": {
@@ -17895,7 +19809,17 @@
         "requirements": {
             "level": 60
         },
-        "starts": 8770
+        "starts": 8770,
+        "dropped": {
+            "15449": 2.0
+        },
+        "contained": {
+            "items": {
+                "22648": 100.0
+            }
+        },
+        "provided_for": 8770,
+        "objective": 8770
     },
     "21750": {
         "i": 21750,
@@ -17908,7 +19832,14 @@
         "requirements": {
             "level": 60
         },
-        "starts": 8771
+        "starts": 8771,
+        "contained": {
+            "items": {
+                "22648": 100.0
+            }
+        },
+        "provided_for": 8771,
+        "objective": 8771
     },
     "21751": {
         "i": 21751,
@@ -17921,7 +19852,14 @@
         "requirements": {
             "level": 60
         },
-        "starts": 8536
+        "starts": 8536,
+        "contained": {
+            "items": {
+                "20809": 20.0
+            }
+        },
+        "provided_for": 8536,
+        "objective": 8536
     },
     "21761": {
         "i": 21761,
@@ -17938,6 +19876,19 @@
         "use": {
             "s": 26587,
             "t": "Opens a Scarab Coffer."
+        },
+        "dropped": {
+            "15355": 10.0,
+            "15324": 9.0,
+            "15343": 9.0,
+            "15338": 8.0,
+            "15389": 8.0,
+            "15390": 7.0,
+            "15391": 7.0,
+            "15392": 7.0,
+            "15386": 6.0,
+            "15385": 6.0,
+            "15388": 4.0
         }
     },
     "21762": {
@@ -17955,6 +19906,18 @@
         "use": {
             "s": 26588,
             "t": "Opens a Greater Scarab Coffer."
+        },
+        "dropped": {
+            "15252": 11.0,
+            "15311": 11.0,
+            "15277": 8.0,
+            "15250": 8.0,
+            "15262": 7.0,
+            "15264": 7.0,
+            "15249": 7.0,
+            "15247": 6.0,
+            "15246": 6.0,
+            "15312": 6.0
         }
     },
     "21800": {
@@ -17985,6 +19948,24 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15387": 0.22,
+            "15336": 0.11
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21801": {
@@ -18026,6 +20007,27 @@
                     "t": "Increases healing done by spells and effects by up to 13."
                 }
             ]
+        },
+        "dropped": {
+            "15324": 0.4,
+            "15462": 0.28,
+            "15355": 0.17,
+            "15336": 0.16,
+            "15385": 0.16
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21802": {
@@ -18067,6 +20069,29 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 14."
                 }
             ]
+        },
+        "dropped": {
+            "15461": 0.4,
+            "15387": 0.33,
+            "15318": 0.3,
+            "15333": 0.16,
+            "15386": 0.14,
+            "15388": 0.13,
+            "15319": 0.11
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21803": {
@@ -18103,6 +20128,27 @@
                     "t": "Improves your chance to get a critical strike by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15335": 0.444,
+            "15324": 0.296,
+            "15318": 0.15,
+            "15462": 0.149,
+            "15387": 0.13
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21804": {
@@ -18139,6 +20185,24 @@
                     "t": "Increases damage and healing done by magical spells and effects by up to 20."
                 }
             ]
+        },
+        "dropped": {
+            "15333": 0.562,
+            "15323": 0.414
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21805": {
@@ -18171,6 +20235,30 @@
                     "t": "Increased Defense +7."
                 }
             ]
+        },
+        "dropped": {
+            "15461": 0.33,
+            "15391": 0.325,
+            "15462": 0.298,
+            "15336": 0.26,
+            "15319": 0.17,
+            "15325": 0.152,
+            "15388": 0.13,
+            "15333": 0.11
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            },
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21806": {
@@ -18214,6 +20302,23 @@
                     "t": "Restores 6 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15385": 7.0,
+            "15389": 4.0,
+            "15388": 3.0,
+            "15390": 3.0,
+            "15386": 2.0,
+            "15391": 2.0,
+            "15392": 2.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21809": {
@@ -18246,6 +20351,23 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15385": 13.0,
+            "15392": 5.0,
+            "15390": 4.0,
+            "15389": 4.0,
+            "15386": 3.0,
+            "15391": 3.0,
+            "15388": 1.942
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21810": {
@@ -18278,6 +20400,23 @@
                     "t": "Increases healing done by spells and effects by up to 37."
                 }
             ]
+        },
+        "dropped": {
+            "15385": 13.0,
+            "15389": 11.0,
+            "15392": 7.0,
+            "15386": 4.0,
+            "15391": 4.0,
+            "15388": 4.0,
+            "15390": 1.186
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 0.5,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21812": {
@@ -18286,7 +20425,26 @@
         "n": "Box of Chocolates",
         "image_name": "inv_box_02",
         "ilvl": 1,
-        "bop": true
+        "bop": true,
+        "contained": {
+            "items": {
+                "22155": 26.0,
+                "22165": 25.0,
+                "22156": 24.0,
+                "21980": 23.0,
+                "22157": 21.0,
+                "22166": 21.0,
+                "22158": 20.0,
+                "21981": 19.0,
+                "21979": 19.0,
+                "22154": 19.0,
+                "22164": 19.0,
+                "21975": 17.0
+            }
+        },
+        "reward_from": {
+            "8980": 1
+        }
     },
     "21813": {
         "i": 21813,
@@ -18303,6 +20461,22 @@
         "use": {
             "s": 26678,
             "t": "Pick a piece of candy from the bag. (cooldown 1 min)\n10 charges"
+        },
+        "contained": {
+            "items": {
+                "22158": 21.0,
+                "22165": 16.0,
+                "22164": 15.0,
+                "22154": 14.0,
+                "21980": 13.0,
+                "21975": 11.0,
+                "22156": 10.0,
+                "22166": 10.0,
+                "21981": 10.0,
+                "22157": 10.0,
+                "22155": 7.0,
+                "21979": 4.0
+            }
         }
     },
     "21814": {
@@ -18339,6 +20513,18 @@
                     "t": "Improves your chance to hit by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15263": 15.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21815": {
@@ -18354,7 +20540,146 @@
             "copper": 10
         },
         "bop": true,
-        "description": "A small message of affection.."
+        "description": "A small message of affection..",
+        "sold": {
+            "2352": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "1247": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6727": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "16458": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "295": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "5111": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6734": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "8931": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "1464": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6272": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6930": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6738": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "11103": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6737": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "7736": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "7744": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            },
+            "6790": {
+                "stock": 10,
+                "cost": {
+                    "copper": 10,
+                    "silver": 0,
+                    "gold": 0
+                }
+            }
+        },
+        "creates": {}
     },
     "21816": {
         "i": 21816,
@@ -18458,7 +20783,129 @@
         "use": {
             "s": 26682,
             "t": "Give yourself an alluring scent. (cooldown 2 min)"
-        }
+        },
+        "sold": {
+            "2352": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "1247": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6727": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "16458": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "295": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5111": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6734": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "8931": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "1464": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6272": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6930": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6738": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "11103": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6737": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "7736": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "7744": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6790": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
+        },
+        "objective": 8979
     },
     "21830": {
         "i": 21830,
@@ -18467,7 +20914,12 @@
         "image_name": "inv_misc_giftwrap_02",
         "stack": 10,
         "ilvl": 1,
-        "description": "This one is missing.."
+        "description": "This one is missing..",
+        "contained": {
+            "items": {
+                "21812": 31.0
+            }
+        }
     },
     "21831": {
         "i": 21831,
@@ -18490,7 +20942,129 @@
         "use": {
             "s": 26681,
             "t": "Give yourself a pleasing scent. (cooldown 2 min)\n10 charges"
-        }
+        },
+        "sold": {
+            "2352": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "1247": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6727": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "16458": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "295": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "5111": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6734": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "8931": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "1464": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6272": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6930": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6738": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "11103": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6737": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "7736": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "7744": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            },
+            "6790": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 1,
+                    "gold": 0
+                }
+            }
+        },
+        "objective": 8979
     },
     "21836": {
         "i": 21836,
@@ -18523,6 +21097,25 @@
                     "t": "Improves your chance to get a critical strike with spells by 1%."
                 }
             ]
+        },
+        "dropped": {
+            "15235": 0.34,
+            "15249": 0.31,
+            "15230": 0.29,
+            "15247": 0.24,
+            "15236": 0.2,
+            "15229": 0.19,
+            "15233": 0.17,
+            "15264": 0.16
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21837": {
@@ -18564,6 +21157,27 @@
                     "t": "+32 Attack Power."
                 }
             ]
+        },
+        "dropped": {
+            "15230": 0.32,
+            "15233": 0.27,
+            "15229": 0.21,
+            "15235": 0.2,
+            "15236": 0.2,
+            "15249": 0.2,
+            "15264": 0.2,
+            "15250": 0.19,
+            "15247": 0.15,
+            "15262": 0.12
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21838": {
@@ -18602,6 +21216,26 @@
                     "t": "Improves your chance to hit with spells by 2%."
                 }
             ]
+        },
+        "dropped": {
+            "15236": 0.571,
+            "15249": 0.24,
+            "15229": 0.23,
+            "15247": 0.23,
+            "15262": 0.218,
+            "15233": 0.201,
+            "15235": 0.18,
+            "15230": 0.13,
+            "15264": 0.124
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21839": {
@@ -18644,6 +21278,18 @@
                     "t": "Restores 3 mana per 5 sec."
                 }
             ]
+        },
+        "dropped": {
+            "15727": 8.0
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21856": {
@@ -18682,6 +21328,22 @@
                     "t": "Steals 141 to 164 life from target enemy."
                 }
             ]
+        },
+        "dropped": {
+            "15230": 0.28,
+            "15236": 0.26,
+            "15233": 0.25,
+            "15249": 0.2,
+            "15229": 0.18
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21888": {
@@ -18706,6 +21368,22 @@
         },
         "requirements": {
             "level": 60
+        },
+        "dropped": {
+            "15235": 0.31,
+            "15233": 0.2,
+            "15230": 0.19,
+            "15247": 0.17,
+            "15264": 0.13
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21889": {
@@ -18742,6 +21420,23 @@
                     "t": "Increases healing done by spells and effects by up to 37."
                 }
             ]
+        },
+        "dropped": {
+            "15311": 1.758,
+            "15240": 0.762,
+            "15252": 0.363,
+            "15312": 0.328,
+            "15246": 0.311,
+            "15277": 0.115
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21891": {
@@ -18763,6 +21458,23 @@
         "use": {
             "s": 26789,
             "t": "Calls down a meteor, burning all enemies within the area for 400 to 443 total Fire damage. (cooldown 3 min)"
+        },
+        "dropped": {
+            "15312": 0.82,
+            "15246": 0.7,
+            "15240": 0.508,
+            "15252": 0.363,
+            "15311": 0.25,
+            "15277": 0.115
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            }
         }
     },
     "21920": {
@@ -18772,7 +21484,9 @@
         "image_name": "inv_valentinescard02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 8898,
+        "objective": 8898
     },
     "21921": {
         "i": 21921,
@@ -18781,7 +21495,9 @@
         "image_name": "inv_valentinescard02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 8897,
+        "objective": 8897
     },
     "21925": {
         "i": 21925,
@@ -18790,7 +21506,9 @@
         "image_name": "inv_valentinescard02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 8899,
+        "objective": 8899
     },
     "21926": {
         "i": 21926,
@@ -18799,7 +21517,9 @@
         "image_name": "inv_valentinescard02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 8900,
+        "objective": 8900
     },
     "21928": {
         "i": 21928,
@@ -18808,7 +21528,19 @@
         "image_name": "spell_shadow_lifedrain",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "7430": 80.0,
+            "7431": 80.0,
+            "7432": 80.0,
+            "7433": 80.0,
+            "7434": 80.0,
+            "7443": 80.0,
+            "7444": 80.0,
+            "7445": 80.0,
+            "7446": 80.0
+        },
+        "objective": 8912
     },
     "21935": {
         "i": 21935,
@@ -18817,7 +21549,15 @@
         "image_name": "inv_potion_29",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "8542": 100.0,
+            "8541": 100.0,
+            "8540": 100.0,
+            "8539": 100.0,
+            "8538": 100.0
+        },
+        "objective": 8924
     },
     "21936": {
         "i": 21936,
@@ -18826,7 +21566,12 @@
         "image_name": "inv_potion_20",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "7524": 100.0,
+            "7523": 100.0
+        },
+        "objective": 8924
     },
     "21937": {
         "i": 21937,
@@ -18835,7 +21580,12 @@
         "image_name": "inv_potion_33",
         "stack": 20,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "12179": 100.0,
+            "12178": 100.0
+        },
+        "objective": 8924
     },
     "21938": {
         "i": 21938,
@@ -18843,7 +21593,11 @@
         "n": "Magma Core",
         "image_name": "inv_misc_gem_bloodstone_02",
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "16043": 100.0
+        },
+        "objective": 8925
     },
     "21939": {
         "i": 21939,
@@ -18857,7 +21611,17 @@
             "copper": 0
         },
         "unique": true,
-        "description": "Fel and Elemental, two great tastes.."
+        "description": "Fel and Elemental, two great tastes..",
+        "sold": {
+            "16015": {
+                "cost": {
+                    "copper": 0,
+                    "silver": 0,
+                    "gold": 40
+                }
+            }
+        },
+        "objective": 8928
     },
     "21946": {
         "i": 21946,
@@ -18875,7 +21639,9 @@
             "materials": {
                 "9282": 1
             }
-        }
+        },
+        "provided_for": 8924,
+        "objective": 8924
     },
     "21960": {
         "i": 21960,
@@ -18892,6 +21658,15 @@
         "use": {
             "s": 27708,
             "t": "Combines 5 Handmade Woodcrafts into a Box of Woodcrafts."
+        },
+        "contained": {
+            "items": {
+                "22167": 100.0,
+                "21979": 72.0
+            }
+        },
+        "creates": {
+            "27708": 22291
         }
     },
     "21975": {
@@ -18941,7 +21716,30 @@
         "image_name": "inv_jewelry_necklace_19",
         "stack": 25,
         "ilvl": 1,
-        "quest_item": true
+        "quest_item": true,
+        "dropped": {
+            "14326": 50.0,
+            "14322": 50.0,
+            "14323": 50.0,
+            "14324": 50.0,
+            "9196": 50.0,
+            "9217": 50.0,
+            "10584": 50.0,
+            "11501": 50.0,
+            "9197": 14.0,
+            "9198": 14.0,
+            "9199": 14.0,
+            "9200": 14.0,
+            "9201": 14.0,
+            "9216": 14.0,
+            "9219": 14.0,
+            "9218": 14.0,
+            "11441": 10.0,
+            "11444": 10.0,
+            "11445": 10.0,
+            "11448": 10.0
+        },
+        "objective": 8949
     },
     "21983": {
         "i": 21983,
@@ -18955,7 +21753,9 @@
             "materials": {
                 "9282": 1
             }
-        }
+        },
+        "provided_for": 8948,
+        "objective": 8948
     },
     "21984": {
         "i": 21984,
@@ -18977,6 +21777,19 @@
         "description": "The evil trapped within this fragment seems to be growing stronger..",
         "created_by": {
             "materials": {}
+        },
+        "dropped": {
+            "16097": 100.0,
+            "16118": 100.0,
+            "16102": 100.0,
+            "16101": 100.0,
+            "16080": 100.0
+        },
+        "provided_for": 8970,
+        "objective": 8969,
+        "creates": {
+            "27738": 22048,
+            "27739": 22048
         }
     },
     "21985": {
@@ -18986,7 +21799,9 @@
         "image_name": "inv_box_02",
         "ilvl": 1,
         "unique": true,
-        "quest_item": true
+        "quest_item": true,
+        "provided_for": 8922,
+        "objective": 8922
     },
     "21986": {
         "i": 21986,
@@ -19004,7 +21819,8 @@
             "materials": {
                 "9282": 1
             }
-        }
+        },
+        "provided_for": 9015
     },
     "21987": {
         "i": 21987,
@@ -19013,7 +21829,11 @@
         "image_name": "inv_ore_thorium_01",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This still-smoldering chunk of Lord Incendius will make for an excellent coal"
+        "description": "This still-smoldering chunk of Lord Incendius will make for an excellent coal",
+        "dropped": {
+            "9017": 100.0
+        },
+        "objective": 8961
     },
     "21988": {
         "i": 21988,
@@ -19022,7 +21842,11 @@
         "image_name": "inv_ammo_firetar",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This one's far too hot to touch... better wrap it in something nonflammable"
+        "description": "This one's far too hot to touch... better wrap it in something nonflammable",
+        "dropped": {
+            "9816": 100.0
+        },
+        "objective": 8961
     },
     "21989": {
         "i": 21989,
@@ -19031,7 +21855,11 @@
         "image_name": "spell_fire_fire",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This visceral chunk of the Duke burns on, fueled by his hatred for you"
+        "description": "This visceral chunk of the Duke burns on, fueled by his hatred for you",
+        "dropped": {
+            "15206": 100.0
+        },
+        "objective": 8961
     },
     "21994": {
         "i": 21994,
@@ -19065,6 +21893,17 @@
         "itemset": {
             "n": "Battlegear of Heroism",
             "i": 511
+        },
+        "reward_from": {
+            "8944": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21995": {
@@ -19098,6 +21937,17 @@
         "itemset": {
             "n": "Battlegear of Heroism",
             "i": 511
+        },
+        "reward_from": {
+            "9022": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21996": {
@@ -19132,6 +21982,17 @@
         "itemset": {
             "n": "Battlegear of Heroism",
             "i": 511
+        },
+        "reward_from": {
+            "8920": 1
+        },
+        "disenchant": {
+            "14344": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21997": {
@@ -19166,6 +22027,17 @@
         "itemset": {
             "n": "Battlegear of Heroism",
             "i": 511
+        },
+        "reward_from": {
+            "9013": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "21998": {
@@ -19199,6 +22071,18 @@
         "itemset": {
             "n": "Battlegear of Heroism",
             "i": 511
+        },
+        "reward_from": {
+            "8944": 1
+        },
+        "disenchant": {
+            "14343": {
+                "chance": 100.0,
+                "v": [
+                    "2",
+                    "4"
+                ]
+            }
         }
     },
     "21999": {
@@ -19232,6 +22116,17 @@
         "itemset": {
             "n": "Battlegear of Heroism",
             "i": 511
+        },
+        "reward_from": {
+            "9013": 1
+        },
+        "disenchant": {
+            "20725": {
+                "chance": 100.0,
+                "v": [
+                    1
+                ]
+            }
         }
     }
 }
