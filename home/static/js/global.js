@@ -372,7 +372,6 @@ function get_tooltip_pos(e, static) {
 }
 
 function bigdaddytooltip(e, name, ...args) {
-    // var name = $(e.target).attr("name")
     var tooltip_container = $("#tooltip_container")
     var elems = args[0]
 
