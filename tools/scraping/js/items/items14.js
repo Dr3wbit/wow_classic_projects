@@ -15248,7 +15248,8 @@
             "s": 18397,
             "t": "Fill with water from the Auberdine moonwell."
         },
-        "provided_for": 4812
+        "provided_for": 4812,
+        "consume": true
     },
     "14339": {
         "i": 14339,
@@ -23217,7 +23218,8 @@
         "materials": {
             "14047": 1
         },
-        "objective": 8609
+        "objective": 8609,
+        "consume": true
     },
     "14530": {
         "i": 14530,
@@ -23254,7 +23256,8 @@
         "materials": {
             "14047": 2
         },
-        "objective": 8810
+        "objective": 8810,
+        "consume": true
     },
     "14531": {
         "i": 14531,
@@ -28174,7 +28177,8 @@
             "s": 18711,
             "t": "Fill with lava from the top of Fire Plume RIdge in Un'Goro and two Thorium Bars to create an Unfinished Skeleton Key."
         },
-        "provided_for": 5802
+        "provided_for": 5802,
+        "consume": true
     },
     "14645": {
         "i": 14645,
@@ -38103,7 +38107,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "14895": {
         "i": 14895,

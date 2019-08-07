@@ -84,7 +84,6 @@ function event_handlers() {
 
     $(".trashcan").on({
         click: e => {
-
             e.stopPropagation()
             var $data = {}
             if ($(e.target).attr("data-wowclass")) {

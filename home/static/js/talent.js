@@ -2,20 +2,14 @@
 var talentPointsSpent = {}
 var classData = {}
 
-function TalentSpec(url, className, name, points) {
-	this.url = url
-	this.className = className
-	this.name = name
-	this.points = points
-}
-
 $(document).ready(initializeApp)
 
 function initializeApp() {
+	$("#talentLock").unbind("click")
+	$("#resetTalents").unbind("click")
 
 	applyClickHandlers()
 	var refresh = (performance.navigation.type == 1) ? true : false
-
 	buildClassData(refresh)
 
 }
@@ -87,25 +81,23 @@ function resetTree() {
 	})
 }
 
-function sideNav(){
-	sideNav = $('.savedSpecs')
-	navTrigger = $('.side-nav-trigger')
-	icon = $('.trigger-icon')
-	navTrigger.on({
-		click: e => {
-			if(sideNav.hasClass('minimized')){
-				sideNav.removeClass('minimized')
-				icon.removeClass('iconSwitch')
-			}else{
-				sideNav.addClass('minimized')
-				icon.addClass('iconSwitch')
-			}
-		},
-	})
-}
+// function sideNav(){
+// 	sideNav = $('.savedSpecs')
+// 	navTrigger = $('.side-nav-trigger')
+// 	icon = $('.trigger-icon')
+// 	navTrigger.on({
+// 		click: e => {
+// 			if(sideNav.hasClass('minimized')){
+// 				sideNav.removeClass('minimized')
+// 				icon.removeClass('iconSwitch')
+// 			}else{
+// 				sideNav.addClass('minimized')
+// 				icon.addClass('iconSwitch')
+// 			}
+// 		},
+// 	})
+// }
 
-
-// most likely needed
 function lockSpec() {
 	$('#talentLock').on({
 		click: e => {
@@ -131,7 +123,7 @@ function lockSpec() {
 
 				lockButton.removeClass("unlock").addClass("lock")
 				lockButton.attr('title', 'Locked')
-				lockButton.css({"color": "rgba(231, 186, 0, 1)"})
+				lockButton.css({"color": "rgba(231, 186, 0, 1);"})
 			}
 
 		},
@@ -359,7 +351,6 @@ function talentHandler() {
 			clearTooltip()
 			tooltip_v2(e, true, 1)
 		},
-
 	})
 }
 
@@ -368,8 +359,6 @@ function mouseDownHandler(e = null, talent, tree) {
 	if (e) {
 		manuallyClicked = true
 		var targetTalent = $(e.target)
-
-		// clearTooltip()
 
 		// var treeName = targetTalent.closest('div.talentTable')[0].id
 		var treeName = utilities.titleCase(targetTalent.closest('div.talentTable')[0].id)
@@ -429,10 +418,7 @@ function updateTalentHeader() {
 function updateTooltip(e) {
 	const targetTalent = $(e.target)
 	const name = utilities.titleCase(targetTalent.attr('name'))
-
-
 	const tree = utilities.titleCase(targetTalent.closest('div.talentTable')[0].id)
-
 	const found = classData.trees.find(function (x) {
 		return x.name == tree
 	})

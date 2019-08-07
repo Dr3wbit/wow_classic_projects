@@ -121,7 +121,9 @@ $(".saved-list-form").on({
 })
 
 function savedListSuccess(data, textStatus, jqXHR){
-    append_list_item(data)
+    if (data.created) {
+        append_list_item(data)
+    }
     let message = data['message']
     notifyUser(message) // <-- NOTE: do something with message
     console.log(data)
@@ -180,10 +182,25 @@ function append_list_item(data) {
         type: "button",
         title: "Delete"
     })).on({
-       click: e=> {
-           $( e.target ).triggerHandler("click");
-       }
-    })
+        click: e => {
+            e.stopPropagation()
+            var $data = {}
+            if ($(e.target).attr("data-wowclass")) {
+                $data['wow_class'] = $(e.target).attr("data-wowclass")
+            }
+            var $name = $(e.target).val();
+            $data['name'] = $name
+            var $thisURL = '/ajax/delete_list/'
+
+            $.ajax({
+                method: "POST",
+                url: $thisURL,
+                data: $data,
+                success: trashCanSuccess,
+                error: trashCanError,
+            })
+        }
+    });
 
     trashcan.append($("<span/>", {
         class: "glyphicon glyphicon-trash glyphicon-custom"
@@ -203,7 +220,7 @@ function append_list_item(data) {
         $(".progress-bar-striped, .progress-bar-animated").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
         $(".selected").click()
     }, 5000)
-    
+
 }
 
 </script>
