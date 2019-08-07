@@ -9021,6 +9021,10 @@
         "i": 23786,
         "t": "Target is cured of poisons up to level 60. (cooldown 1 min)"
     },
+    "23787": {
+        "i": 23787,
+        "n": "Powerful Anti-Venom"
+    },
     "23788": {
         "i": 23788,
         "t": "Teaches you how to make Powerful Anti-Venom."
@@ -15681,9 +15685,5 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
-    },
-    "23787": {
-        "i": 23787,
-        "n": "Powerful Anti-Venom"
     }
 }

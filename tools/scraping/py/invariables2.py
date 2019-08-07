@@ -139,7 +139,8 @@ def create_image_list(dir):
 	return file_list
 
 ALL_IMAGES = create_image_list(os.path.abspath('../../../home/static/images/icons/large'))
-ALL_ERRORS = get_item_list(os.path.abspath('../js/ERRORS_p2.js'))
+ERRORS2 = get_item_list(os.path.abspath('../js/ERRORS_p2.js'))
+ERRORS1 = get_item_list(os.path.abspath('../js/ERRORS.js'))
 ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))
 QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
 

@@ -1391,6 +1391,22 @@
         "i": 179828,
         "n": "Dark Iron Pillow"
     },
+    "179908": {
+        "i": 179908,
+        "n": "Slagtree's Lost Tools"
+    },
+    "179914": {
+        "i": 179914,
+        "n": "Pile of Bones"
+    },
+    "179915": {
+        "i": 179915,
+        "n": "Pile of Skulls"
+    },
+    "179922": {
+        "i": 179922,
+        "n": "Vessel of Tainted Blood"
+    },
     "180164": {
         "i": 180164,
         "n": "Sungrass"
@@ -1434,6 +1450,10 @@
     "18036": {
         "i": 18036,
         "n": "Bottle of Disease"
+    },
+    "180392": {
+        "i": 180392,
+        "n": "Full Jug"
     },
     "180582": {
         "i": 180582,
@@ -2347,24 +2367,36 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "179908": {
-        "i": 179908,
-        "n": "Slagtree's Lost Tools"
+    "180216": {
+        "i": 180216,
+        "n": "Whipweed"
     },
-    "179915": {
-        "i": 179915,
-        "n": "Pile of Skulls"
+    "180346": {
+        "i": 180346,
+        "n": "Mudskunk Lure"
     },
-    "179914": {
-        "i": 179914,
-        "n": "Pile of Bones"
+    "180369": {
+        "i": 180369,
+        "n": "Muddy Churning Waters"
     },
-    "179922": {
-        "i": 179922,
-        "n": "Vessel of Tainted Blood"
+    "180370": {
+        "i": 180370,
+        "n": "Harvest Fruit"
     },
-    "180392": {
-        "i": 180392,
-        "n": "Full Jug"
+    "180372": {
+        "i": 180372,
+        "n": "Harvest Boar"
+    },
+    "180371": {
+        "i": 180371,
+        "n": "Harvest Fish"
+    },
+    "180373": {
+        "i": 180373,
+        "n": "Harvest Nectar"
+    },
+    "180374": {
+        "i": 180374,
+        "n": "Harvest Nectar"
     }
 }
