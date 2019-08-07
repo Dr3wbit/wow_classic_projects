@@ -9785,6 +9785,10 @@
         "i": 24800,
         "t": "Restores 2148 health over 30 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 20 Strength for 15 min."
     },
+    "24801": {
+        "i": 24801,
+        "n": "Smoked Desert Dumplings"
+    },
     "24815": {
         "i": 24815,
         "t": "Required to draw ancient glyphs into the sand at the Bones of Grakkarond."
@@ -15685,5 +15689,9 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
+    },
+    "25850": {
+        "i": 25850,
+        "n": "Drain Festive Mug"
     }
 }

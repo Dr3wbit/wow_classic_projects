@@ -27,7 +27,7 @@ DEBUG = True
 DEV = False
 
 #SECURE_SSL_REDIRECT = True
-ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', '13.59.19.192']
+ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', '13.59.19.192', '172.31.29.120']
 
 LOCAL = bool(int(os.environ['DJANGO_LOCAL']))
 
@@ -117,7 +117,7 @@ else:
 			'NAME': 'devonybuff', #os.environ['DB_NAME'],
 			'USER': 'devdjango', #os.environ['DB_USER'],
 			'PASSWORD': 'n1g3riAn-pr1nz3334444', #os.environ['DB_PASS'],
-			'HOST': 'dev.onybuff.com', #os.environ['DB_HOST'],
+			'HOST': '13.59.19.192', #os.environ['DB_HOST'],
 			'PORT': 5432, #os.environ['DB_PORT'],
 		}
 	}

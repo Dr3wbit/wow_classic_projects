@@ -153,32 +153,44 @@ class TalentCalcTemplate(TemplateView):
 		if form.is_valid():
 
 			# response = self.save_list(request)
-			print('dir: ', dir(form))
 			if request.is_ajax():
-				print('cleaned_data: ', form.cleaned_data)
-				form_data = self.save_list(request, form.cleaned_data)
-				name = form_data['name']
-				spent = form_data['spent']
-				wow_class = form_data['wow_class']
+				try:
+					form_data = self.save_list(request, form.cleaned_data)
+					name = form_data['name']
+					spent = form_data['spent']
+					wow_class = form_data['wow_class']
+					created = form_data['created']
+					saved_or_updated = 'created' if created else 'updated'
+					message = "Successfully {} spec!".format(saved_or_updated)
+					hash = form_data['hash']
+					data = {
+						'name': name,
+						'created': created,
+						'wow_class': wow_class,
+						'spent': spent,
+						'message': message,
+						'hash': hash
+					}
+					response = JsonResponse(data)
+				except IntegrityError as e:
+					print('e: ', e)
+					name = request.POST.get('name', None)
+					message = "User {} already has consume list with name: {}".format(request.user.email, name)
+					data = {
+						'name': name,
+						'message': message
+					}
+					response = JsonResponse(data)
+					response.status_code = 400
 
-				data = {
-					'name': name,
-					'wow_class': wow_class,
-					'spent': spent,
-					'message': "Successfully saved spec!"
-				}
-				response = JsonResponse(data)
 			else:
-				data = {
-					'error': IntegrityError,
-				}
-				response = response
-			# return HttpResponseRedirect('success')
+				response = HttpResponseRedirect('talent_calc')
 		else:
 			print('save failed, redirecting to previous page...')
 			response = HttpResponseRedirect('talent_calc')
 
 		return response
+
 
 	def save_list(self, request, cleaned_data):
 		url = request.POST.get('hash', None)
@@ -191,7 +203,7 @@ class TalentCalcTemplate(TemplateView):
 		data = dict(request.POST)
 		data['wow_class'] = wow_class
 		spent = {}
-
+		data['hash'] = url
 		for x in spnt:
 			y = x.split(',')
 			data['spent'].append(y[1])
@@ -201,17 +213,21 @@ class TalentCalcTemplate(TemplateView):
 			user = request.user
 			if url and wow_class and name:
 				wow_class = WoWClass.objects.get(name=wow_class)
-				spec,_ = Spec.objects.update_or_create(
+				spec,spec_created = Spec.objects.update_or_create(
 					name=name, user=user, wow_class=wow_class, private=private,
 					hash=url, description=description,
 					defaults={'name': name, 'user':user,
 						'wow_class':wow_class, 'hash': url, 'description':description, 'private':private
 					}
 				)
+				data['created'] = True if spec_created else False
+
 				for tag in tags:
-					t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
-					spec.tags.add(t)
-					spec.save()
+					t,tag_created = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
+
+					if tag_created or t not in spec.tags.all():
+						spec.tags.add(t)
+						spec.save()
 
 				for k,v in spent.items():
 					tree_name = k
@@ -349,16 +365,33 @@ class ConsumeToolTemplate(TemplateView):
 		context['form'] = form
 		if form.is_valid():
 			if request.is_ajax():
-				form_data = self.save_list(request, form.cleaned_data)
-				name = form_data['name']
-				spent = form_data['spent']
+				try:
+					form_data = self.save_list(request, form.cleaned_data)
+					name = form_data['name']
+					spent = form_data['spent']
+					hash = form_data['hash']
+					created = form_data['created']
+					update_or_create = 'created' if created else 'updated'
+					message = "Successfully {} list: {}".format(update_or_create, name)
+					data = {
+						'name': name,
+						'spent': spent,
+						'hash': hash,
+						'created': created,
+						'message': message
+					}
+					response = JsonResponse(data)
+				except IntegrityError as e:
+					print('e: ', e)
+					name = request.POST.get('name', None)
+					message = "User {} already has consume list with name: {}".format(request.user.email, name)
+					data = {
+						'name': name,
+						'message': message
+					}
+					response = JsonResponse(data)
+					response.status_code = 400
 
-				data = {
-					'name': name,
-					'spent': spent,
-					'message': "Successfully submitted form data."
-				}
-				response = JsonResponse(data)
 			else:
 				response = HttpResponseRedirect('consume_tool')
 		else:
@@ -409,6 +442,7 @@ class ConsumeToolTemplate(TemplateView):
 
 		return my_consumes
 
+
 	def save_list(self, request, cleaned_data):
 
 		private = cleaned_data['private']
@@ -441,7 +475,8 @@ class ConsumeToolTemplate(TemplateView):
 		data['hash'] = hash
 
 		user = request.user
-		c_list,_ = ConsumeList.objects.update_or_create(
+
+		c_list,cl_created = ConsumeList.objects.update_or_create(
 			name=name, user=user, private=private,
 			hash=hash, description=description,
 			defaults={'name': name, 'user':user, 'hash': hash,
@@ -449,10 +484,14 @@ class ConsumeToolTemplate(TemplateView):
 			}
 		)
 
+
+		data['created'] = True if cl_created else False
+		
 		for tag in tags:
-			t,_ = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
-			c_list.tags.add(t)
-			c_list.save()
+			t,tag_created = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
+			if tag_created or t not in c_list.tags.all():
+				c_list.tags.add(t)
+				c_list.save()
 
 		for p,v in spent.items():
 			v = {a:b for a,b in v.items() if b}
@@ -465,12 +504,14 @@ class ConsumeToolTemplate(TemplateView):
 			for x,y in v.items():
 
 				# item = Item.objects.get(name=x)
-				cr = Crafted.objects.get(item__name=x)
-				c,_ = Consume.objects.update_or_create(
-					amount=y, consume_list=c_list, item=cr,
-					defaults={'amount':y, 'consume_list':c_list, 'item':cr}
+				crafted = Crafted.objects.get(item__name=x)
+				c,cons_created = Consume.objects.update_or_create(
+					amount=y, consume_list=c_list, item=crafted,
+					defaults={'amount':y, 'consume_list':c_list, 'item':crafted}
 				)
-				c_list.consumes.add(c)
+				if cons_created:
+					c_list.consumes.add(c)
+
 				c_list.save()
 
 		return data

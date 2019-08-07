@@ -24808,7 +24808,8 @@
             "materials": {
                 "3860": 1,
                 "10505": 1
-            }
+            },
+            "step": 200
         },
         "materials": {
             "3860": 1,
@@ -24842,7 +24843,8 @@
             "materials": {
                 "3860": 2,
                 "10505": 2
-            }
+            },
+            "step": 200
         },
         "materials": {
             "3860": 2,
@@ -24881,7 +24883,8 @@
                 "10561": 1,
                 "10560": 1,
                 "10505": 1
-            }
+            },
+            "step": 3
         },
         "materials": {
             "10561": 1,
@@ -25619,7 +25622,8 @@
             },
             "materials": {
                 "3577": 1
-            }
+            },
+            "step": 3
         },
         "creates": {
             "19830": 16022,
@@ -25830,7 +25834,8 @@
                 "10561": 2,
                 "10560": 1,
                 "10505": 2
-            }
+            },
+            "step": 4
         },
         "materials": {
             "10561": 2,
@@ -26599,7 +26604,8 @@
                 "9061": 1,
                 "10507": 6,
                 "10560": 1
-            }
+            },
+            "step": 2
         },
         "materials": {
             "10561": 1,
@@ -34045,7 +34051,8 @@
             "materials": {
                 "3821": 1,
                 "159": 1
-            }
+            },
+            "step": 4
         },
         "consume": true
     },
@@ -34577,7 +34584,8 @@
             "t": "Turn three lesser magic essences into a greater one."
         },
         "created_by": {
-            "materials": {}
+            "materials": {},
+            "step": 3
         },
         "sold": {
             "1318": {
@@ -36207,7 +36215,8 @@
             "t": "Turn three lesser astral essences into a greater one."
         },
         "created_by": {
-            "materials": {}
+            "materials": {},
+            "step": 3
         },
         "creates": {
             "13497": 11082

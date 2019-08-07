@@ -23,7 +23,6 @@ iStart = datetime.datetime.now()
 
 ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items{}.js'.format(prefix)))
 
-
 def main():
 	start = prefix*1000
 	end = (prefix+1)*1000
@@ -166,7 +165,7 @@ def main():
 				ALL_ITEMS[I]['consume'] = True
 				NEW['CONSUME'] += 1
 
-			if check_element_exists_by_id("tab-created-by") and 'created_by' not in ALL_ITEMS[I].keys():
+			if check_element_exists_by_id("tab-created-by"):
 				driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
 				tab = driver.find_element(By.ID, "tab-created-by")
 				created_by(tab, I)
@@ -843,9 +842,10 @@ def created_by(tab, I):
 			ALL_ITEMS[I]['created_by']['step'] = int(link.get_attribute("rel"))
 
 		if int(I) in const.ERRORS1["missing_tabs"]["tab-created-by"]["i"]:
-			const.ERRORS1["missing_tabs"]["tab-created-by"]["i"].pop(int(I))
+			inx = const.ERRORS1["missing_tabs"]["tab-created-by"]["i"].index(int(I))
+			zz = const.ERRORS1["missing_tabs"]["tab-created-by"]["i"].pop(inx)
 			const.ERRORS1["missing_tabs"]["tab-created-by"]["count"] = len(const.ERRORS1["missing_tabs"]["tab-created-by"]["i"])
-			print('Removed ({}) from missing tabs'.format(I))
+			print('Removed ({}) from missing tabs'.format(zz))
 
 
 	TOTAL_CALLS[fn] += 1
