@@ -27,7 +27,7 @@ def main():
 	BASE_URL = "https://classicdb.ch/?item="
 
 	# item_numbers = range(int(start), int(end))
-	item_numbers = range(18566, 19000)
+	item_numbers = range(19000, 19500)
 
 	iStart = datetime.datetime.now()
 

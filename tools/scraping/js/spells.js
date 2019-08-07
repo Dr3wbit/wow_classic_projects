@@ -7746,6 +7746,10 @@
         "i": 22760,
         "t": "Teaches you how to sew Flarecore Wraps."
     },
+    "22761": {
+        "i": 22761,
+        "n": "Runn Tum Tuber Surprise"
+    },
     "22762": {
         "i": 22762,
         "t": "Teaches you how to cook Runn Tum Tuber Surprise."
@@ -7983,6 +7987,10 @@
     "22990": {
         "i": 22990,
         "t": "Connects the twin warglaives of Azzinoth, forming the Twin Blades of Azzinoth."
+    },
+    "22991": {
+        "i": 22991,
+        "n": "The Breaking Left Blade DND"
     },
     "22999": {
         "i": 22999,
@@ -8260,6 +8268,14 @@
     "23192": {
         "i": 23192,
         "t": "Forms Rhok'delar, Longbow of the Ancient Keepers, when combined with Enchanted Black Dragon Sinew."
+    },
+    "23193": {
+        "i": 23193,
+        "n": "Forming Lok'delar"
+    },
+    "23194": {
+        "i": 23194,
+        "n": "Forming Rhok'delar"
     },
     "23203": {
         "i": 23203,
@@ -9784,6 +9800,10 @@
     "24848": {
         "i": 24848,
         "n": "Spitfire Breastplate"
+    },
+    "24849": {
+        "i": 24849,
+        "n": "Sandstalker Bracers"
     },
     "24850": {
         "i": 24850,
@@ -15662,12 +15682,8 @@
         "i": 9997,
         "n": "Wicked Mithril Blade"
     },
-    "22761": {
-        "i": 22761,
-        "n": "Runn Tum Tuber Surprise"
-    },
-    "24849": {
-        "i": 24849,
-        "n": "Sandstalker Bracers"
+    "23787": {
+        "i": 23787,
+        "n": "Powerful Anti-Venom"
     }
 }

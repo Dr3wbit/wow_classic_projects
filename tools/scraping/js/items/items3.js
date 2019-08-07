@@ -1,4 +1,27 @@
 {
+    "3000": {
+        "i": 3000,
+        "quality": 2,
+        "n": "Brood Mother Carapace",
+        "image_name": "inv_chest_leather_09",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 19
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 55,
+            "stamina": 1,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 5
+        }
+    },
     "3008": {
         "dropped": {
             "1137": 70.0
@@ -7722,6 +7745,15 @@
         },
         "unique": true
     },
+    "3250": {
+        "i": 3250,
+        "quality": 1,
+        "n": "Bethor's Scroll",
+        "image_name": "inv_scroll_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
     "3251": {
         "bop": true,
         "i": 3251,
@@ -9815,61 +9847,6 @@
             "strength": 2
         }
     },
-    "3317": {
-        "bop": true,
-        "description": "Its lips are moving",
-        "dropped": {
-            "1939": 2.0,
-            "1940": 2.0,
-            "1942": 2.0,
-            "1943": 2.0,
-            "1944": 2.0
-        },
-        "i": 3317,
-        "ilvl": 12,
-        "image_name": "inv_misc_head_scourge_01",
-        "n": "A Talking Head",
-        "objective": 460,
-        "provided_for": 460,
-        "quality": 1,
-        "requirements": {
-            "level": 12
-        },
-        "starts": 460,
-        "unique": true
-    },
-    "3000": {
-        "i": 3000,
-        "quality": 2,
-        "n": "Brood Mother Carapace",
-        "image_name": "inv_chest_leather_09",
-        "ilvl": 10,
-        "sells_for": {
-            "gold": 0,
-            "silver": 1,
-            "copper": 19
-        },
-        "boe": true,
-        "slot": "Chest",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 55,
-            "stamina": 1,
-            "durability": 55
-        },
-        "requirements": {
-            "level": 5
-        }
-    },
-    "3250": {
-        "i": 3250,
-        "quality": 1,
-        "n": "Bethor's Scroll",
-        "image_name": "inv_scroll_03",
-        "ilvl": 1,
-        "unique": true,
-        "quest_item": true
-    },
     "3315": {
         "i": 3315,
         "quality": 2,
@@ -9893,6 +9870,29 @@
         "requirements": {
             "level": 12
         }
+    },
+    "3317": {
+        "bop": true,
+        "description": "Its lips are moving",
+        "dropped": {
+            "1939": 2.0,
+            "1940": 2.0,
+            "1942": 2.0,
+            "1943": 2.0,
+            "1944": 2.0
+        },
+        "i": 3317,
+        "ilvl": 12,
+        "image_name": "inv_misc_head_scourge_01",
+        "n": "A Talking Head",
+        "objective": 460,
+        "provided_for": 460,
+        "quality": 1,
+        "requirements": {
+            "level": 12
+        },
+        "starts": 460,
+        "unique": true
     },
     "3318": {
         "i": 3318,

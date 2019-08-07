@@ -831,6 +831,13 @@ def created_by(tab, I):
 
 			ALL_ITEMS[I]['created_by']['materials'] = get_mats(row, I)
 
+
+		link = row.find_element(By.XPATH, "./td[1]/div[1]/a")
+
+		if link.get_attribute("rel"):
+			ALL_ITEMS[I]['created_by']['step'] = int(link.get_attribute("rel"))
+
+
 	TOTAL_CALLS[fn] += 1
 
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)

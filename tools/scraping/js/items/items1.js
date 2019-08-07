@@ -4532,6 +4532,25 @@
             "durability": 25
         }
     },
+    "1200": {
+        "i": 1200,
+        "quality": 1,
+        "n": "Large Wooden Shield",
+        "image_name": "inv_shield_09",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 16
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 55,
+            "block": 1,
+            "durability": 35
+        }
+    },
     "1201": {
         "i": 1201,
         "ilvl": 10,
@@ -7168,6 +7187,25 @@
         },
         "slot": "Shirt"
     },
+    "1270": {
+        "i": 1270,
+        "quality": 2,
+        "n": "Finely Woven Cloak",
+        "image_name": "inv_misc_cape_15",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 13
+        },
+        "bop": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 14,
+            "spirit": 2
+        }
+    },
     "1273": {
         "bop": true,
         "disenchant": {
@@ -7348,6 +7386,30 @@
         "stats": {
             "armor": 2,
             "durability": 25
+        }
+    },
+    "1280": {
+        "i": 1280,
+        "quality": 2,
+        "n": "Cloaked Hood",
+        "image_name": "inv_helmet_30",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 36,
+            "copper": 96
+        },
+        "boe": true,
+        "slot": "Head",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 86,
+            "stamina": 10,
+            "agility": 10,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 33
         }
     },
     "1282": {
@@ -8453,6 +8515,558 @@
         "quest_item": true,
         "unique": true
     },
+    "1351": {
+        "i": 1351,
+        "quality": 2,
+        "n": "Fingerbone Bracers",
+        "image_name": "inv_bracer_16",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 68
+        },
+        "boe": true,
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 18,
+            "stamina": 2,
+            "intellect": 5,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 23
+        }
+    },
+    "1353": {
+        "i": 1353,
+        "quality": 1,
+        "n": "Shaw's Report",
+        "image_name": "inv_letter_05",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "Shaw's report on the Stonemason Guild for Gryan Stoutmantle",
+        "click_to_read": true
+    },
+    "1355": {
+        "i": 1355,
+        "quality": 2,
+        "n": "Buckskin Cape",
+        "image_name": "inv_misc_pelt_bear_02",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 51
+        },
+        "boe": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 14,
+            "agility": 2
+        },
+        "requirements": {
+            "level": 10
+        }
+    },
+    "1357": {
+        "i": 1357,
+        "quality": 1,
+        "n": "Captain Sander's Treasure Map",
+        "image_name": "inv_misc_map_01",
+        "ilvl": 16,
+        "unique": true,
+        "requirements": {
+            "level": 10
+        },
+        "starts": 136,
+        "description": "The waterlogged parchment is about to disintegrate"
+    },
+    "1358": {
+        "i": 1358,
+        "quality": 1,
+        "n": "A Clue to Sander's Treasure",
+        "image_name": "inv_misc_leatherscrap_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This torn piece of parchment contains scribbled writing",
+        "click_to_read": true
+    },
+    "1359": {
+        "i": 1359,
+        "quality": 1,
+        "n": "Lion-stamped Gloves",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 19
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 28,
+            "durability": 18
+        }
+    },
+    "1360": {
+        "i": 1360,
+        "quality": 1,
+        "n": "Stormwind Chain Gloves",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 42
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 64,
+            "durability": 20
+        }
+    },
+    "1361": {
+        "i": 1361,
+        "quality": 1,
+        "n": "Another Clue to Sander's Treasure",
+        "image_name": "inv_misc_leatherscrap_08",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This torn piece of parchment contains scribbled writing",
+        "click_to_read": true
+    },
+    "1362": {
+        "i": 1362,
+        "quality": 1,
+        "n": "Final Clue to Sander's Treasure",
+        "image_name": "inv_misc_leatherscrap_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This torn piece of parchment contains scribbled writing",
+        "click_to_read": true
+    },
+    "1364": {
+        "i": 1364,
+        "quality": 0,
+        "n": "Ragged Leather Vest",
+        "image_name": "inv_shirt_05",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 8
+        },
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 31,
+            "durability": 45
+        }
+    },
+    "1366": {
+        "i": 1366,
+        "quality": 0,
+        "n": "Ragged Leather Pants",
+        "image_name": "inv_pants_06",
+        "ilvl": 2,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Legs",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 17,
+            "durability": 30
+        }
+    },
+    "1367": {
+        "i": 1367,
+        "quality": 0,
+        "n": "Ragged Leather Boots",
+        "image_name": "inv_boots_06",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 16,
+            "durability": 20
+        }
+    },
+    "1368": {
+        "i": 1368,
+        "quality": 0,
+        "n": "Ragged Leather Gloves",
+        "image_name": "inv_gauntlets_18",
+        "ilvl": 4,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 17,
+            "durability": 16
+        }
+    },
+    "1369": {
+        "i": 1369,
+        "quality": 0,
+        "n": "Ragged Leather Belt",
+        "image_name": "inv_belt_24",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 18,
+            "durability": 16
+        }
+    },
+    "1370": {
+        "i": 1370,
+        "quality": 0,
+        "n": "Ragged Leather Bracers",
+        "image_name": "inv_bracer_10",
+        "ilvl": 4,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Wrist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 12,
+            "durability": 16
+        }
+    },
+    "1372": {
+        "i": 1372,
+        "quality": 0,
+        "n": "Ragged Cloak",
+        "image_name": "inv_misc_cape_10",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 3
+        }
+    },
+    "1374": {
+        "i": 1374,
+        "quality": 0,
+        "n": "Frayed Shoes",
+        "image_name": "inv_boots_09",
+        "ilvl": 4,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 3
+        },
+        "slot": "Feet",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 5,
+            "durability": 18
+        }
+    },
+    "1376": {
+        "i": 1376,
+        "quality": 0,
+        "n": "Frayed Cloak",
+        "image_name": "inv_misc_cape_10",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 5
+        }
+    },
+    "1377": {
+        "i": 1377,
+        "quality": 0,
+        "n": "Frayed Gloves",
+        "image_name": "inv_gauntlets_18",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 4,
+            "durability": 12
+        }
+    },
+    "1378": {
+        "i": 1378,
+        "quality": 0,
+        "n": "Frayed Pants",
+        "image_name": "inv_pants_09",
+        "ilvl": 2,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 4,
+            "durability": 25
+        }
+    },
+    "1380": {
+        "i": 1380,
+        "quality": 0,
+        "n": "Frayed Robe",
+        "image_name": "inv_chest_cloth_21",
+        "ilvl": 4,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 8,
+            "durability": 35
+        }
+    },
+    "1381": {
+        "i": 1381,
+        "quality": 1,
+        "n": "A Mysterious Message",
+        "image_name": "inv_letter_12",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This soot-covered note contains some cryptic text",
+        "click_to_read": true
+    },
+    "1382": {
+        "i": 1382,
+        "quality": 1,
+        "n": "Rock Mace",
+        "image_name": "inv_mace_07",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 24
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                2,
+                5
+            ]
+        },
+        "stats": {
+            "durability": 30
+        }
+    },
+    "1383": {
+        "i": 1383,
+        "quality": 1,
+        "n": "Stone Tomahawk",
+        "image_name": "inv_throwingaxe_03",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 25
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Axe",
+        "speed": 2.1,
+        "damage": {
+            "normal": [
+                3,
+                6
+            ]
+        },
+        "stats": {
+            "durability": 30
+        }
+    },
+    "1384": {
+        "i": 1384,
+        "quality": 1,
+        "n": "Dull Blade",
+        "image_name": "inv_sword_04",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 11
+        },
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                1,
+                3
+            ]
+        },
+        "stats": {
+            "durability": 20
+        }
+    },
+    "1386": {
+        "i": 1386,
+        "quality": 1,
+        "n": "Thistlewood Axe",
+        "image_name": "inv_axe_01",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 32
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 3.5,
+        "damage": {
+            "normal": [
+                7,
+                11
+            ]
+        },
+        "stats": {
+            "durability": 35
+        }
+    },
+    "1387": {
+        "i": 1387,
+        "quality": 2,
+        "n": "Ghoulfang",
+        "image_name": "inv_sword_07",
+        "ilvl": 19,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 78
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 3.6,
+        "damage": {
+            "normal": [
+                36,
+                54
+            ]
+        },
+        "stats": {
+            "durability": 65
+        },
+        "requirements": {
+            "level": 14
+        },
+        "effects": {
+            "proc": [
+                {
+                    "s": "16409",
+                    "t": "Sends a shadowy bolt at the enemy causing 35 Shadow damage."
+                }
+            ]
+        }
+    },
+    "1388": {
+        "i": 1388,
+        "quality": 1,
+        "n": "Crooked Staff",
+        "image_name": "inv_staff_22",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 14
+        },
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 3.3,
+        "damage": {
+            "normal": [
+                4,
+                7
+            ]
+        },
+        "stats": {
+            "durability": 25
+        }
+    },
+    "1389": {
+        "i": 1389,
+        "quality": 1,
+        "n": "Kobold Mining Mallet",
+        "image_name": "inv_hammer_09",
+        "ilvl": 7,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 58
+        },
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 2.3,
+        "damage": {
+            "normal": [
+                4,
+                9
+            ]
+        },
+        "stats": {
+            "durability": 30
+        },
+        "requirements": {
+            "level": 2
+        }
+    },
     "139": {
         "i": 139,
         "ilvl": 1,
@@ -8470,6 +9084,119 @@
             "armor": 2,
             "durability": 25
         }
+    },
+    "1391": {
+        "i": 1391,
+        "quality": 2,
+        "n": "Riverpaw Mystic Staff",
+        "image_name": "inv_wand_11",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 13,
+            "copper": 92
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 3.0,
+        "damage": {
+            "normal": [
+                28,
+                43
+            ]
+        },
+        "stats": {
+            "intellect": 2,
+            "spirit": 4,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 13
+        }
+    },
+    "1394": {
+        "i": 1394,
+        "quality": 2,
+        "n": "Driftwood Club",
+        "image_name": "inv_mace_10",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 40
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 1.7,
+        "damage": {
+            "normal": [
+                9,
+                17
+            ]
+        },
+        "stats": {
+            "stamina": 1,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 10
+        }
+    },
+    "1395": {
+        "i": 1395,
+        "quality": 0,
+        "n": "Apprentice's Pants",
+        "image_name": "inv_pants_01",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 2,
+            "durability": 25
+        }
+    },
+    "1396": {
+        "i": 1396,
+        "quality": 0,
+        "n": "Acolyte's Pants",
+        "image_name": "inv_pants_01",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 2,
+            "durability": 25
+        }
+    },
+    "1399": {
+        "i": 1399,
+        "quality": 1,
+        "n": "Magic Candle",
+        "image_name": "inv_misc_candle_02",
+        "stack": 20,
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 12
+        },
+        "use": {
+            "s": 133,
+            "t": "Hurls a fiery ball that causes 14 to 23 Fire damage and an additional 2 Fire damage over 4 sec. (cooldown 1 min)"
+        },
+        "consume": true
     },
     "140": {
         "i": 140,
@@ -29594,6 +30321,40 @@
             "durability": 60
         }
     },
+    "2000": {
+        "i": 2000,
+        "quality": 2,
+        "n": "Archeus",
+        "image_name": "inv_sword_08",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 88,
+            "copper": 27
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 3.3,
+        "damage": {
+            "normal": [
+                63,
+                95
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "effects": {
+            "proc": [
+                {
+                    "s": "18091",
+                    "t": "Blasts a target for 85 Arcane damage."
+                }
+            ]
+        },
+        "description": "Morgan Ladimore's sword"
+    },
     "2004": {
         "dropped": {
             "808": 100.0
@@ -39958,6 +40719,15 @@
             "block": 3,
             "durability": 45
         }
+    },
+    "2250": {
+        "i": 2250,
+        "quality": 1,
+        "n": "Dusky Crab Cakes",
+        "image_name": "inv_misc_food_08",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
     },
     "2251": {
         "creates": {
@@ -63120,6 +63890,20 @@
             "silver": 3
         },
         "stack": 10
+    },
+    "2750": {
+        "i": 2750,
+        "quality": 1,
+        "n": "Green Hills of Stranglethorn - Page 26",
+        "image_name": "inv_misc_note_06",
+        "stack": 10,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 75
+        },
+        "click_to_read": true
     },
     "2751": {
         "dropped": {
@@ -88786,789 +89570,5 @@
         "stats": {
             "durability": 20
         }
-    },
-    "1200": {
-        "i": 1200,
-        "quality": 1,
-        "n": "Large Wooden Shield",
-        "image_name": "inv_shield_09",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 16
-        },
-        "slot": "Off Hand",
-        "proficiency": "Shield",
-        "stats": {
-            "armor": 55,
-            "block": 1,
-            "durability": 35
-        }
-    },
-    "1270": {
-        "i": 1270,
-        "quality": 2,
-        "n": "Finely Woven Cloak",
-        "image_name": "inv_misc_cape_15",
-        "ilvl": 15,
-        "sells_for": {
-            "gold": 0,
-            "silver": 2,
-            "copper": 13
-        },
-        "bop": true,
-        "slot": "Back",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 14,
-            "spirit": 2
-        }
-    },
-    "1280": {
-        "i": 1280,
-        "quality": 2,
-        "n": "Cloaked Hood",
-        "image_name": "inv_helmet_30",
-        "ilvl": 38,
-        "sells_for": {
-            "gold": 0,
-            "silver": 36,
-            "copper": 96
-        },
-        "boe": true,
-        "slot": "Head",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 86,
-            "stamina": 10,
-            "agility": 10,
-            "durability": 50
-        },
-        "requirements": {
-            "level": 33
-        }
-    },
-    "1351": {
-        "i": 1351,
-        "quality": 2,
-        "n": "Fingerbone Bracers",
-        "image_name": "inv_bracer_16",
-        "ilvl": 28,
-        "sells_for": {
-            "gold": 0,
-            "silver": 7,
-            "copper": 68
-        },
-        "boe": true,
-        "slot": "Wrist",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 18,
-            "stamina": 2,
-            "intellect": 5,
-            "durability": 25
-        },
-        "requirements": {
-            "level": 23
-        }
-    },
-    "1353": {
-        "i": 1353,
-        "quality": 1,
-        "n": "Shaw's Report",
-        "image_name": "inv_letter_05",
-        "ilvl": 1,
-        "unique": true,
-        "quest_item": true,
-        "description": "Shaw's report on the Stonemason Guild for Gryan Stoutmantle",
-        "click_to_read": true
-    },
-    "1355": {
-        "i": 1355,
-        "quality": 2,
-        "n": "Buckskin Cape",
-        "image_name": "inv_misc_pelt_bear_02",
-        "ilvl": 15,
-        "sells_for": {
-            "gold": 0,
-            "silver": 2,
-            "copper": 51
-        },
-        "boe": true,
-        "slot": "Back",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 14,
-            "agility": 2
-        },
-        "requirements": {
-            "level": 10
-        }
-    },
-    "1357": {
-        "i": 1357,
-        "quality": 1,
-        "n": "Captain Sander's Treasure Map",
-        "image_name": "inv_misc_map_01",
-        "ilvl": 16,
-        "unique": true,
-        "requirements": {
-            "level": 10
-        },
-        "starts": 136,
-        "description": "The waterlogged parchment is about to disintegrate"
-    },
-    "1358": {
-        "i": 1358,
-        "quality": 1,
-        "n": "A Clue to Sander's Treasure",
-        "image_name": "inv_misc_leatherscrap_02",
-        "ilvl": 1,
-        "unique": true,
-        "quest_item": true,
-        "description": "This torn piece of parchment contains scribbled writing",
-        "click_to_read": true
-    },
-    "1359": {
-        "i": 1359,
-        "quality": 1,
-        "n": "Lion-stamped Gloves",
-        "image_name": "inv_gauntlets_05",
-        "ilvl": 8,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 19
-        },
-        "bop": true,
-        "slot": "Hands",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 28,
-            "durability": 18
-        }
-    },
-    "1360": {
-        "i": 1360,
-        "quality": 1,
-        "n": "Stormwind Chain Gloves",
-        "image_name": "inv_gauntlets_05",
-        "ilvl": 10,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 42
-        },
-        "bop": true,
-        "slot": "Hands",
-        "proficiency": "Mail",
-        "stats": {
-            "armor": 64,
-            "durability": 20
-        }
-    },
-    "1361": {
-        "i": 1361,
-        "quality": 1,
-        "n": "Another Clue to Sander's Treasure",
-        "image_name": "inv_misc_leatherscrap_08",
-        "ilvl": 1,
-        "unique": true,
-        "quest_item": true,
-        "description": "This torn piece of parchment contains scribbled writing",
-        "click_to_read": true
-    },
-    "1362": {
-        "i": 1362,
-        "quality": 1,
-        "n": "Final Clue to Sander's Treasure",
-        "image_name": "inv_misc_leatherscrap_03",
-        "ilvl": 1,
-        "unique": true,
-        "quest_item": true,
-        "description": "This torn piece of parchment contains scribbled writing",
-        "click_to_read": true
-    },
-    "1364": {
-        "i": 1364,
-        "quality": 0,
-        "n": "Ragged Leather Vest",
-        "image_name": "inv_shirt_05",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 8
-        },
-        "slot": "Chest",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 31,
-            "durability": 45
-        }
-    },
-    "1366": {
-        "i": 1366,
-        "quality": 0,
-        "n": "Ragged Leather Pants",
-        "image_name": "inv_pants_06",
-        "ilvl": 2,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 2
-        },
-        "slot": "Legs",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 17,
-            "durability": 30
-        }
-    },
-    "1367": {
-        "i": 1367,
-        "quality": 0,
-        "n": "Ragged Leather Boots",
-        "image_name": "inv_boots_06",
-        "ilvl": 3,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 2
-        },
-        "slot": "Feet",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 16,
-            "durability": 20
-        }
-    },
-    "1368": {
-        "i": 1368,
-        "quality": 0,
-        "n": "Ragged Leather Gloves",
-        "image_name": "inv_gauntlets_18",
-        "ilvl": 4,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 2
-        },
-        "slot": "Hands",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 17,
-            "durability": 16
-        }
-    },
-    "1369": {
-        "i": 1369,
-        "quality": 0,
-        "n": "Ragged Leather Belt",
-        "image_name": "inv_belt_24",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 4
-        },
-        "slot": "Waist",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 18,
-            "durability": 16
-        }
-    },
-    "1370": {
-        "i": 1370,
-        "quality": 0,
-        "n": "Ragged Leather Bracers",
-        "image_name": "inv_bracer_10",
-        "ilvl": 4,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 2
-        },
-        "slot": "Wrist",
-        "proficiency": "Leather",
-        "stats": {
-            "armor": 12,
-            "durability": 16
-        }
-    },
-    "1372": {
-        "i": 1372,
-        "quality": 0,
-        "n": "Ragged Cloak",
-        "image_name": "inv_misc_cape_10",
-        "ilvl": 3,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 2
-        },
-        "slot": "Back",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 3
-        }
-    },
-    "1374": {
-        "i": 1374,
-        "quality": 0,
-        "n": "Frayed Shoes",
-        "image_name": "inv_boots_09",
-        "ilvl": 4,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 3
-        },
-        "slot": "Feet",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 5,
-            "durability": 18
-        }
-    },
-    "1376": {
-        "i": 1376,
-        "quality": 0,
-        "n": "Frayed Cloak",
-        "image_name": "inv_misc_cape_10",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 4
-        },
-        "slot": "Back",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 5
-        }
-    },
-    "1377": {
-        "i": 1377,
-        "quality": 0,
-        "n": "Frayed Gloves",
-        "image_name": "inv_gauntlets_18",
-        "ilvl": 3,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Hands",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 4,
-            "durability": 12
-        }
-    },
-    "1378": {
-        "i": 1378,
-        "quality": 0,
-        "n": "Frayed Pants",
-        "image_name": "inv_pants_09",
-        "ilvl": 2,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 4,
-            "durability": 25
-        }
-    },
-    "1380": {
-        "i": 1380,
-        "quality": 0,
-        "n": "Frayed Robe",
-        "image_name": "inv_chest_cloth_21",
-        "ilvl": 4,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 4
-        },
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 8,
-            "durability": 35
-        }
-    },
-    "1381": {
-        "i": 1381,
-        "quality": 1,
-        "n": "A Mysterious Message",
-        "image_name": "inv_letter_12",
-        "ilvl": 1,
-        "unique": true,
-        "quest_item": true,
-        "description": "This soot-covered note contains some cryptic text",
-        "click_to_read": true
-    },
-    "1382": {
-        "i": 1382,
-        "quality": 1,
-        "n": "Rock Mace",
-        "image_name": "inv_mace_07",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 24
-        },
-        "bop": true,
-        "slot": "Main Hand",
-        "proficiency": "Mace",
-        "speed": 1.9,
-        "damage": {
-            "normal": [
-                2,
-                5
-            ]
-        },
-        "stats": {
-            "durability": 30
-        }
-    },
-    "1383": {
-        "i": 1383,
-        "quality": 1,
-        "n": "Stone Tomahawk",
-        "image_name": "inv_throwingaxe_03",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 25
-        },
-        "bop": true,
-        "slot": "Main Hand",
-        "proficiency": "Axe",
-        "speed": 2.1,
-        "damage": {
-            "normal": [
-                3,
-                6
-            ]
-        },
-        "stats": {
-            "durability": 30
-        }
-    },
-    "1384": {
-        "i": 1384,
-        "quality": 1,
-        "n": "Dull Blade",
-        "image_name": "inv_sword_04",
-        "ilvl": 3,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 11
-        },
-        "slot": "Main Hand",
-        "proficiency": "Sword",
-        "speed": 1.9,
-        "damage": {
-            "normal": [
-                1,
-                3
-            ]
-        },
-        "stats": {
-            "durability": 20
-        }
-    },
-    "1386": {
-        "i": 1386,
-        "quality": 1,
-        "n": "Thistlewood Axe",
-        "image_name": "inv_axe_01",
-        "ilvl": 5,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 32
-        },
-        "bop": true,
-        "slot": "Two-hand",
-        "proficiency": "Axe",
-        "speed": 3.5,
-        "damage": {
-            "normal": [
-                7,
-                11
-            ]
-        },
-        "stats": {
-            "durability": 35
-        }
-    },
-    "1387": {
-        "i": 1387,
-        "quality": 2,
-        "n": "Ghoulfang",
-        "image_name": "inv_sword_07",
-        "ilvl": 19,
-        "sells_for": {
-            "gold": 0,
-            "silver": 15,
-            "copper": 78
-        },
-        "boe": true,
-        "slot": "Two-hand",
-        "proficiency": "Sword",
-        "speed": 3.6,
-        "damage": {
-            "normal": [
-                36,
-                54
-            ]
-        },
-        "stats": {
-            "durability": 65
-        },
-        "requirements": {
-            "level": 14
-        },
-        "effects": {
-            "proc": [
-                {
-                    "s": "16409",
-                    "t": "Sends a shadowy bolt at the enemy causing 35 Shadow damage."
-                }
-            ]
-        }
-    },
-    "1388": {
-        "i": 1388,
-        "quality": 1,
-        "n": "Crooked Staff",
-        "image_name": "inv_staff_22",
-        "ilvl": 3,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 14
-        },
-        "slot": "Two-hand",
-        "proficiency": "Staff",
-        "speed": 3.3,
-        "damage": {
-            "normal": [
-                4,
-                7
-            ]
-        },
-        "stats": {
-            "durability": 25
-        }
-    },
-    "1389": {
-        "i": 1389,
-        "quality": 1,
-        "n": "Kobold Mining Mallet",
-        "image_name": "inv_hammer_09",
-        "ilvl": 7,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 58
-        },
-        "slot": "Main Hand",
-        "proficiency": "Mace",
-        "speed": 2.3,
-        "damage": {
-            "normal": [
-                4,
-                9
-            ]
-        },
-        "stats": {
-            "durability": 30
-        },
-        "requirements": {
-            "level": 2
-        }
-    },
-    "1391": {
-        "i": 1391,
-        "quality": 2,
-        "n": "Riverpaw Mystic Staff",
-        "image_name": "inv_wand_11",
-        "ilvl": 18,
-        "sells_for": {
-            "gold": 0,
-            "silver": 13,
-            "copper": 92
-        },
-        "boe": true,
-        "slot": "Two-hand",
-        "proficiency": "Staff",
-        "speed": 3.0,
-        "damage": {
-            "normal": [
-                28,
-                43
-            ]
-        },
-        "stats": {
-            "intellect": 2,
-            "spirit": 4,
-            "durability": 60
-        },
-        "requirements": {
-            "level": 13
-        }
-    },
-    "1394": {
-        "i": 1394,
-        "quality": 2,
-        "n": "Driftwood Club",
-        "image_name": "inv_mace_10",
-        "ilvl": 15,
-        "sells_for": {
-            "gold": 0,
-            "silver": 7,
-            "copper": 40
-        },
-        "boe": true,
-        "slot": "Main Hand",
-        "proficiency": "Mace",
-        "speed": 1.7,
-        "damage": {
-            "normal": [
-                9,
-                17
-            ]
-        },
-        "stats": {
-            "stamina": 1,
-            "durability": 50
-        },
-        "requirements": {
-            "level": 10
-        }
-    },
-    "1395": {
-        "i": 1395,
-        "quality": 0,
-        "n": "Apprentice's Pants",
-        "image_name": "inv_pants_01",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 2,
-            "durability": 25
-        }
-    },
-    "1396": {
-        "i": 1396,
-        "quality": 0,
-        "n": "Acolyte's Pants",
-        "image_name": "inv_pants_01",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 2,
-            "durability": 25
-        }
-    },
-    "1399": {
-        "i": 1399,
-        "quality": 1,
-        "n": "Magic Candle",
-        "image_name": "inv_misc_candle_02",
-        "stack": 20,
-        "ilvl": 8,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 12
-        },
-        "use": {
-            "s": 133,
-            "t": "Hurls a fiery ball that causes 14 to 23 Fire damage and an additional 2 Fire damage over 4 sec. (cooldown 1 min)"
-        },
-        "consume": true
-    },
-    "2000": {
-        "i": 2000,
-        "quality": 2,
-        "n": "Archeus",
-        "image_name": "inv_sword_08",
-        "ilvl": 35,
-        "sells_for": {
-            "gold": 0,
-            "silver": 88,
-            "copper": 27
-        },
-        "bop": true,
-        "slot": "Two-hand",
-        "proficiency": "Sword",
-        "speed": 3.3,
-        "damage": {
-            "normal": [
-                63,
-                95
-            ]
-        },
-        "stats": {
-            "durability": 85
-        },
-        "effects": {
-            "proc": [
-                {
-                    "s": "18091",
-                    "t": "Blasts a target for 85 Arcane damage."
-                }
-            ]
-        },
-        "description": "Morgan Ladimore's sword"
-    },
-    "2250": {
-        "i": 2250,
-        "quality": 1,
-        "n": "Dusky Crab Cakes",
-        "image_name": "inv_misc_food_08",
-        "ilvl": 1,
-        "unique": true,
-        "quest_item": true
-    },
-    "2750": {
-        "i": 2750,
-        "quality": 1,
-        "n": "Green Hills of Stranglethorn - Page 26",
-        "image_name": "inv_misc_note_06",
-        "stack": 10,
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 3,
-            "copper": 75
-        },
-        "click_to_read": true
     }
 }

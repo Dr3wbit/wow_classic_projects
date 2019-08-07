@@ -58,7 +58,7 @@
 		{% endfor %} {# ends bp loop #}
 		</div>
 		<div class="talentFooter">
-			<span class="treeName" style="background-image: url('{% static 'images/talent_spells/'|add:selected|add:'/small_'|add:tree|add:'_icon.jpg' %}');">{{tree|titlecase}}</span>
+			<span class="treeName" style="background-image: url('{% static 'images/talent_spells/'|add:selected|add:'/small_'|add:tree|sanitize|add:'_icon.jpg' %}');">{{tree|titlecase}}</span>
 
 			<span class="talentFooter-spentPoints">(0)</span>
 			<button type="button" class="resetTree" title="Clear" id="clear{{tree}}"></button>

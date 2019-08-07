@@ -277,10 +277,12 @@
             "9680": 8.0,
             "9541": 7.0,
             "9439": 6.0
-        }
+        },
+        "consume": true
     },
     "11079": {
-        "provided_for": 3825
+        "provided_for": 3825,
+        "consume": true
     },
     "11080": {
         "dropped": {
@@ -682,6 +684,12 @@
                     "1",
                     "2"
                 ]
+            }
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {
+                "10998": 2
             }
         }
     },
@@ -1365,7 +1373,8 @@
                     1
                 ]
             }
-        }
+        },
+        "consume": true
     },
     "11098": {
         "dropped": {
@@ -1492,7 +1501,8 @@
                 }
             }
         },
-        "objective": 3861
+        "objective": 3861,
+        "consume": true
     },
     "11110": {
         "dropped": {
@@ -1740,7 +1750,8 @@
         "objective": 3883
     },
     "11132": {
-        "provided_for": 3883
+        "provided_for": 3883,
+        "consume": true
     },
     "11133": {
         "provided_for": 3908,
@@ -2102,6 +2113,11 @@
                     "2"
                 ]
             }
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {},
+            "step": 3
         }
     },
     "11135": {
@@ -2459,6 +2475,12 @@
                     "1",
                     "2"
                 ]
+            }
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {
+                "11134": 2
             }
         }
     },
@@ -3450,7 +3472,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "11142": {
         "provided_for": 3921,
@@ -3484,7 +3507,8 @@
         },
         "creates": {
             "14199": 11149
-        }
+        },
+        "consume": true
     },
     "11148": {
         "dropped": {
@@ -3494,7 +3518,8 @@
         "creates": {
             "13714": 11149,
             "14199": 11149
-        }
+        },
+        "consume": true
     },
     "11149": {
         "objective": 3924
@@ -4086,6 +4111,11 @@
                     "2"
                 ]
             }
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {},
+            "step": 3
         }
     },
     "11175": {
@@ -4440,6 +4470,12 @@
                     "1",
                     "2"
                 ]
+            }
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {
+                "11174": 2
             }
         }
     },
@@ -5667,7 +5703,8 @@
             "9439": 100.0,
             "9438": 100.0,
             "9437": 100.0
-        }
+        },
+        "consume": true
     },
     "11202": {
         "dropped": {
@@ -5936,7 +5973,8 @@
         "objective": 4024
     },
     "11231": {
-        "provided_for": 4024
+        "provided_for": 4024,
+        "consume": true
     },
     "11242": {
         "contained": {
@@ -5950,7 +5988,8 @@
         "objective": 3909,
         "reward_from": {
             "4041": 3
-        }
+        },
+        "consume": true
     },
     "11262": {
         "reward_from": {
@@ -6970,7 +7009,8 @@
                 "165739": 4.0
             }
         },
-        "objective": 7946
+        "objective": 7946,
+        "consume": true
     },
     "11362": {
         "sold": {
@@ -7473,7 +7513,8 @@
         }
     },
     "11412": {
-        "provided_for": 4201
+        "provided_for": 4201,
+        "consume": true
     },
     "11413": {
         "objective": 4201
@@ -7486,7 +7527,8 @@
     "11415": {
         "dropped": {
             "14308": 27.0
-        }
+        },
+        "consume": true
     },
     "11416": {
         "dropped": {
@@ -7615,7 +7657,8 @@
                 "165739": 100.0,
                 "165738": 0.2
             }
-        }
+        },
+        "consume": true
     },
     "11445": {
         "reward_from": {
@@ -7968,35 +8011,41 @@
         "objective": 5247,
         "reward_from": {
             "4381": 6
-        }
+        },
+        "consume": true
     },
     "11563": {
         "objective": 4484,
         "reward_from": {
             "4382": 6
-        }
+        },
+        "consume": true
     },
     "11564": {
         "objective": 4482,
         "reward_from": {
             "4383": 6
-        }
+        },
+        "consume": true
     },
     "11565": {
         "reward_from": {
             "4384": 6
-        }
+        },
+        "consume": true
     },
     "11566": {
         "reward_from": {
             "4385": 6
-        }
+        },
+        "consume": true
     },
     "11567": {
         "objective": 4483,
         "reward_from": {
             "4386": 6
-        }
+        },
+        "consume": true
     },
     "11568": {
         "provided_for": 4292
@@ -8008,7 +8057,8 @@
                 "10569": 1.7,
                 "11107": 0.7
             }
-        }
+        },
+        "consume": true
     },
     "11570": {
         "contained": {
@@ -8017,9 +8067,15 @@
                 "10569": 1.7,
                 "11107": 0.7
             }
+        },
+        "consume": true
+    },
+    "11582": {
+        "consume": true,
+        "created_by": {
+            "materials": {}
         }
     },
-    "11582": {},
     "11583": {
         "contained": {
             "objects": {
@@ -8031,15 +8087,31 @@
     "11584": {
         "reward_from": {
             "4402": 10
-        }
+        },
+        "consume": true
     },
     "11590": {
-        "objective": 7897
+        "objective": 7897,
+        "consume": true,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 200,
+                "green": 220,
+                "grey": 240
+            },
+            "materials": {
+                "3860": 1,
+                "4338": 1,
+                "10505": 1
+            }
+        }
     },
     "11602": {
         "pickpocketed": {
             "9499": 100.0
-        }
+        },
+        "consume": true
     },
     "11603": {
         "dropped": {
@@ -8181,7 +8253,8 @@
     "11622": {
         "reward_from": {
             "4463": 1
-        }
+        },
+        "consume": true
     },
     "11623": {
         "dropped": {
@@ -8347,42 +8420,50 @@
     "11642": {
         "reward_from": {
             "4481": 1
-        }
+        },
+        "consume": true
     },
     "11643": {
         "reward_from": {
             "4482": 1
-        }
+        },
+        "consume": true
     },
     "11644": {
         "reward_from": {
             "4483": 1
-        }
+        },
+        "consume": true
     },
     "11645": {
         "reward_from": {
             "4484": 1
-        }
+        },
+        "consume": true
     },
     "11646": {
         "reward_from": {
             "4484": 1
-        }
+        },
+        "consume": true
     },
     "11647": {
         "reward_from": {
             "4484": 1
-        }
+        },
+        "consume": true
     },
     "11648": {
         "reward_from": {
             "4484": 1
-        }
+        },
+        "consume": true
     },
     "11649": {
         "reward_from": {
             "4484": 1
-        }
+        },
+        "consume": true
     },
     "11662": {
         "dropped": {
@@ -8495,7 +8576,8 @@
         }
     },
     "11682": {
-        "provided_for": 4441
+        "provided_for": 4441,
+        "consume": true
     },
     "11684": {
         "dropped": {
@@ -9476,7 +9558,8 @@
         }
     },
     "11833": {
-        "provided_for": 4507
+        "provided_for": 4507,
+        "consume": true
     },
     "11834": {
         "dropped": {
@@ -9564,7 +9647,8 @@
     "11846": {
         "reward_from": {
             "1003": 5
-        }
+        },
+        "consume": true
     },
     "11847": {
         "reward_from": {
@@ -10292,7 +10376,8 @@
     "11885": {
         "dropped": {
             "9956": 80.0
-        }
+        },
+        "consume": true
     },
     "11886": {
         "provided_for": 4542,
@@ -10639,7 +10724,8 @@
                 "11912": 100.0,
                 "5758": 0.4
             }
-        }
+        },
+        "consume": true
     },
     "11915": {
         "reward_from": {
@@ -11136,7 +11222,8 @@
                 "11912": 100.0,
                 "5758": 0.4
             }
-        }
+        },
+        "consume": true
     },
     "11949": {
         "objective": 4512
@@ -11144,18 +11231,33 @@
     "11950": {
         "reward_from": {
             "4467": 5
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {},
+            "step": 8
         }
     },
     "11951": {
         "objective": 4484,
         "reward_from": {
             "4461": 5
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {},
+            "step": 3
         }
     },
     "11952": {
         "objective": 4481,
         "reward_from": {
             "4462": 5
+        },
+        "consume": true,
+        "created_by": {
+            "materials": {},
+            "step": 3
         }
     },
     "11953": {
@@ -11166,7 +11268,8 @@
             "items": {
                 "11955": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "11954": {
         "objective": 4513
