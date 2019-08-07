@@ -339,31 +339,11 @@ function update_tooltip(e) {
 	var x = e.pageX - 30
 	var y = e.pageY - tooltip.outerHeight(true)
 
-	if (x + 20 + tooltip.outerWidth(true) > window.innerWidth) {
-		x = (x - tooltip.outerWidth(true) + 15)
+	if (x + 10 + tooltip.outerWidth(true) > window.innerWidth) {
+		x = (x - tooltip.outerWidth(true) + 10)
 	}
+    if (y)
     tooltip.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
-}
-
-function combatText(e, text){
-    let color = null
-    if (text >= 0)
-    {text = "+" + text
-    color = "rgba(30,255,0,0.95)"
-}else{
-    color = "red"
-}
-    let timeStamp = $.now();
-    let uniqueID = `${e.pageX}${e.pageY}${timeStamp}`
-    let notificationContainer = ($("<div/>", {
-        class: "floating-container",
-        id: uniqueID,
-        text: text,
-        style: `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`
-    }))
-    $(document.body).append(notificationContainer)
-    setTimeout(() => { $(`#${uniqueID}`).remove() }, 2900);
-
 }
 
 function get_tooltip_pos(e, static) {
@@ -395,11 +375,14 @@ function bigdaddytooltip(e, name, ...args) {
     // var name = $(e.target).attr("name")
     var tooltip_container = $("#tooltip_container")
     var elems = args[0]
+
+    var image_name = static_url+`images/icons/consumes/${name}.jpg`
+    var border_image = static_url+"images/icon_border_2.png"
     var static = elems.pop()
     var image = (!static) ? $('<img/>', {
         class: 'icon-medium',
-        src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
-        style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/images/icons/consumes/${name}.jpg)`
+        src: `${border_image}`,
+        style: `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
     }) : null
 
     var tooltip = $('<div/>', {
@@ -418,6 +401,27 @@ function bigdaddytooltip(e, name, ...args) {
     tooltip_container.append(image, tooltip)
     let coords = get_tooltip_pos(e, static)
     tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; visibility: visible;`)
+}
+
+function combatText(e, text){
+    let color = null
+    if (text >= 0)
+    {text = "+" + text
+    color = "rgba(30,255,0,0.95)"
+}else{
+    color = "red"
+}
+    let timeStamp = $.now();
+    let uniqueID = `${e.pageX}${e.pageY}${timeStamp}`
+    let notificationContainer = ($("<div/>", {
+        class: "floating-container",
+        id: uniqueID,
+        text: text,
+        style: `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`
+    }))
+    $(document.body).append(notificationContainer)
+    setTimeout(() => { $(`#${uniqueID}`).remove() }, 2900);
+
 }
 
 function sanitize(str) {
