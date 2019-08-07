@@ -19,7 +19,7 @@ driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriv
 iStart = datetime.datetime.now()
 
 prefix = int(input("Enter starting number from 1-23: "))
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items{}.js'.format(1)))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items{}.js'.format(prefix)))
 
 
 def main():
@@ -164,10 +164,10 @@ def main():
 				ALL_ITEMS[I]['consume'] = True
 				NEW['CONSUME'] += 1
 
-				if check_element_exists_by_id("tab-created-by") and 'created_by' not in ALL_ITEMS[I].keys():
-					driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
-					tab = driver.find_element(By.ID, "tab-created-by")
-					created_by(tab, I)
+			if check_element_exists_by_id("tab-created-by") and 'created_by' not in ALL_ITEMS[I].keys():
+				driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
+				tab = driver.find_element(By.ID, "tab-created-by")
+				created_by(tab, I)
 
 
 		else:
@@ -178,7 +178,7 @@ def main():
 
 def save_and_close():
 
-	with open(os.path.abspath('../js/items/items{}.js'.format(1)), 'w+') as f:
+	with open(os.path.abspath('../js/items/items{}.js'.format(prefix)), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4)
 
 	with open(os.path.abspath('image_list.txt'), 'w+') as f:
@@ -820,10 +820,6 @@ def created_by(tab, I):
 					if skill_lvl:
 						ALL_ITEMS[I]['created_by']['skill'][k] = int(skill_lvl)
 
-				if I in const.ERRORS1["missing_tabs"]["tab-created-by"]["i"]:
-					const.ERRORS1["missing_tabs"]["tab-created-by"]["i"].pop(int(I))
-					const.ERRORS1["missing_tabs"]["tab-created-by"]["count"] = len(const.ERRORS1["missing_tabs"]["tab-created-by"]["i"])
-
 			else:
 				print("UNABLE TO FIND PROFESSION TEXT AND/OR SKILL LEVEL FOR ({})".format(I))
 				if 'created_by' not in const.ERRORS2.keys():
@@ -843,6 +839,11 @@ def created_by(tab, I):
 
 		if link.get_attribute("rel"):
 			ALL_ITEMS[I]['created_by']['step'] = int(link.get_attribute("rel"))
+
+		if int(I) in const.ERRORS1["missing_tabs"]["tab-created-by"]["i"]:
+			const.ERRORS1["missing_tabs"]["tab-created-by"]["i"].pop(int(I))
+			const.ERRORS1["missing_tabs"]["tab-created-by"]["count"] = len(const.ERRORS1["missing_tabs"]["tab-created-by"]["i"])
+			print('Removed ({}) from missing tabs'.format(I))
 
 
 	TOTAL_CALLS[fn] += 1

@@ -8291,6 +8291,19 @@
             "durability": 30,
             "spirit": 4,
             "stamina": 4
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 145,
+                "green": 157,
+                "grey": 170
+            },
+            "materials": {
+                "2319": 8,
+                "3383": 1,
+                "2321": 2
+            }
         }
     },
     "4251": {
@@ -8342,6 +8355,19 @@
             "durability": 50,
             "spirit": 4,
             "stamina": 5
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 155,
+                "green": 167,
+                "grey": 180
+            },
+            "materials": {
+                "4233": 1,
+                "2319": 4,
+                "2321": 1
+            }
         }
     },
     "4252": {
@@ -8393,6 +8419,20 @@
             "agility": 7,
             "armor": 68,
             "durability": 50
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 165,
+                "green": 177,
+                "grey": 190
+            },
+            "materials": {
+                "2319": 12,
+                "3390": 1,
+                "4340": 1,
+                "2321": 2
+            }
         }
     },
     "4253": {
@@ -8433,6 +8473,21 @@
             "durability": 35,
             "spirit": 6,
             "stamina": 3
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 160,
+                "green": 172,
+                "grey": 185
+            },
+            "materials": {
+                "2319": 4,
+                "4233": 2,
+                "3389": 2,
+                "3182": 2,
+                "2321": 2
+            }
         }
     },
     "4254": {
@@ -8485,6 +8540,19 @@
             "durability": 30,
             "spirit": 4,
             "stamina": 5
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 170,
+                "green": 180,
+                "grey": 190
+            },
+            "materials": {
+                "4234": 6,
+                "5637": 2,
+                "2321": 1
+            }
         }
     },
     "4255": {
@@ -8539,6 +8607,19 @@
             "armor": 95,
             "durability": 85,
             "spirit": 8
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 175,
+                "green": 185,
+                "grey": 195
+            },
+            "materials": {
+                "4234": 9,
+                "2605": 2,
+                "2321": 4
+            }
         }
     },
     "4256": {
@@ -8591,6 +8672,20 @@
             "durability": 85,
             "intellect": 10,
             "spirit": 9
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 195,
+                "green": 205,
+                "grey": 215
+            },
+            "materials": {
+                "4236": 2,
+                "4234": 12,
+                "3824": 1,
+                "2321": 2
+            }
         }
     },
     "4257": {
@@ -8644,6 +8739,21 @@
             "armor": 54,
             "durability": 30,
             "spirit": 6
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 180,
+                "green": 190,
+                "grey": 200
+            },
+            "materials": {
+                "4236": 1,
+                "4234": 5,
+                "2321": 1,
+                "2605": 1,
+                "7071": 1
+            }
         }
     },
     "4258": {
@@ -8696,6 +8806,20 @@
             "durability": 30,
             "intellect": 7,
             "spirit": 6
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 190,
+                "green": 200,
+                "grey": 210
+            },
+            "materials": {
+                "4236": 2,
+                "4234": 4,
+                "2321": 1,
+                "7071": 1
+            }
         }
     },
     "4259": {
@@ -8748,6 +8872,20 @@
             "armor": 45,
             "durability": 30,
             "spirit": 5
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 200,
+                "green": 210,
+                "grey": 220
+            },
+            "materials": {
+                "4236": 2,
+                "4234": 6,
+                "2605": 1,
+                "2321": 1
+            }
         }
     },
     "4260": {
@@ -8799,6 +8937,19 @@
             "durability": 30,
             "intellect": 6,
             "spirit": 6
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 215,
+                "green": 225,
+                "grey": 235
+            },
+            "materials": {
+                "4234": 6,
+                "4236": 2,
+                "4291": 1
+            }
         }
     },
     "4261": {
@@ -8866,6 +9017,21 @@
         "use": {
             "s": 9163,
             "t": "Heal yourself for 225 to 376. (cooldown 1 hr)"
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 205,
+                "green": 215,
+                "grey": 225
+            },
+            "materials": {
+                "4236": 4,
+                "5500": 2,
+                "1529": 2,
+                "3864": 1,
+                "2321": 1
+            }
         }
     },
     "4263": {
@@ -8948,6 +9114,22 @@
         "use": {
             "s": 9174,
             "t": "Increase Rage by 30. (cooldown 1 hr)"
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 220,
+                "green": 230,
+                "grey": 240
+            },
+            "materials": {
+                "4234": 6,
+                "4236": 2,
+                "4096": 2,
+                "5633": 1,
+                "4291": 1,
+                "7071": 1
+            }
         }
     },
     "4265": {
@@ -10157,7 +10339,18 @@
                 "stock": 4
             }
         },
-        "stack": 20
+        "stack": 20,
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 200,
+                "green": 202,
+                "grey": 205
+            },
+            "materials": {
+                "4234": 6
+            }
+        }
     },
     "4305": {
         "contained": {
@@ -10269,7 +10462,18 @@
             "gold": 0,
             "silver": 6
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 135,
+                "green": 140,
+                "grey": 145
+            },
+            "materials": {
+                "4306": 4
+            }
+        }
     },
     "4306": {
         "contained": {
@@ -10399,6 +10603,18 @@
         "stats": {
             "armor": 11,
             "durability": 16
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 60,
+                "green": 77,
+                "grey": 95
+            },
+            "materials": {
+                "2996": 2,
+                "2320": 1
+            }
         }
     },
     "4308": {
@@ -10420,6 +10636,19 @@
         "stats": {
             "armor": 9,
             "durability": 16
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 85,
+                "green": 102,
+                "grey": 120
+            },
+            "materials": {
+                "2996": 3,
+                "2320": 2,
+                "2605": 1
+            }
         }
     },
     "4309": {
@@ -10460,6 +10689,18 @@
             "durability": 40,
             "intellect": 2,
             "spirit": 2
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 95,
+                "green": 112,
+                "grey": 130
+            },
+            "materials": {
+                "2996": 4,
+                "2321": 2
+            }
         }
     },
     "4310": {
@@ -10506,6 +10747,18 @@
             "durability": 20,
             "intellect": 2,
             "spirit": 2
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 110,
+                "green": 127,
+                "grey": 145
+            },
+            "materials": {
+                "2997": 3,
+                "2321": 1
+            }
         }
     },
     "4311": {
@@ -10550,6 +10803,19 @@
         "stats": {
             "armor": 17,
             "spirit": 4
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 125,
+                "green": 142,
+                "grey": 160
+            },
+            "materials": {
+                "2997": 3,
+                "2321": 2,
+                "5498": 2
+            }
         }
     },
     "4312": {
@@ -10596,6 +10862,19 @@
             "durability": 25,
             "intellect": 2,
             "stamina": 2
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 105,
+                "green": 122,
+                "grey": 140
+            },
+            "materials": {
+                "2996": 5,
+                "2318": 2,
+                "2321": 1
+            }
         }
     },
     "4313": {
@@ -10641,6 +10920,20 @@
             "armor": 23,
             "durability": 30,
             "spirit": 5
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 120,
+                "green": 137,
+                "grey": 155
+            },
+            "materials": {
+                "2997": 4,
+                "2318": 2,
+                "2321": 1,
+                "2604": 2
+            }
         }
     },
     "4314": {
@@ -10662,6 +10955,18 @@
         "stats": {
             "armor": 26,
             "durability": 35
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 135,
+                "green": 152,
+                "grey": 170
+            },
+            "materials": {
+                "2997": 3,
+                "2321": 2
+            }
         }
     },
     "4315": {
@@ -10683,6 +10988,19 @@
         "stats": {
             "armor": 27,
             "durability": 40
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 145,
+                "green": 162,
+                "grey": 180
+            },
+            "materials": {
+                "2997": 6,
+                "2319": 2,
+                "2321": 2
+            }
         }
     },
     "4316": {
@@ -10729,6 +11047,18 @@
             "durability": 45,
             "intellect": 3,
             "spirit": 6
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 135,
+                "green": 152,
+                "grey": 170
+            },
+            "materials": {
+                "2997": 5,
+                "2321": 4
+            }
         }
     },
     "4317": {
@@ -10782,6 +11112,19 @@
             "armor": 34,
             "durability": 50,
             "intellect": 4
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 150,
+                "green": 167,
+                "grey": 185
+            },
+            "materials": {
+                "2997": 6,
+                "5500": 1,
+                "2321": 3
+            }
         }
     },
     "4318": {
@@ -10827,6 +11170,19 @@
             "armor": 25,
             "durability": 25,
             "spirit": 7
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 150,
+                "green": 165,
+                "grey": 180
+            },
+            "materials": {
+                "2997": 4,
+                "2321": 3,
+                "3383": 1
+            }
         }
     },
     "4319": {
@@ -10886,6 +11242,20 @@
             "armor": 26,
             "durability": 25,
             "spirit": 3
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 165,
+                "green": 180,
+                "grey": 195
+            },
+            "materials": {
+                "4305": 3,
+                "4234": 2,
+                "6260": 2,
+                "2321": 2
+            }
         }
     },
     "4320": {
@@ -10925,6 +11295,20 @@
             "intellect": 4,
             "spirit": 7,
             "stamina": 4
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 150,
+                "green": 167,
+                "grey": 185
+            },
+            "materials": {
+                "4305": 2,
+                "2319": 4,
+                "3182": 4,
+                "5500": 2
+            }
         }
     },
     "4321": {
@@ -10976,6 +11360,19 @@
             "armor": 29,
             "durability": 35,
             "spirit": 7
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 160,
+                "green": 175,
+                "grey": 190
+            },
+            "materials": {
+                "4305": 3,
+                "3182": 1,
+                "2321": 2
+            }
         }
     },
     "4322": {
@@ -11027,6 +11424,19 @@
             "durability": 45,
             "intellect": 10,
             "spirit": 6
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 185,
+                "green": 200,
+                "grey": 215
+            },
+            "materials": {
+                "4305": 3,
+                "2321": 2,
+                "4337": 2
+            }
         }
     },
     "4323": {
@@ -11085,6 +11495,19 @@
             "armor": 37,
             "durability": 45,
             "intellect": 11
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 190,
+                "green": 205,
+                "grey": 220
+            },
+            "materials": {
+                "4305": 4,
+                "4291": 1,
+                "3824": 1
+            }
         }
     },
     "4324": {
@@ -11142,6 +11565,18 @@
             "armor": 43,
             "durability": 70,
             "intellect": 9
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 170,
+                "green": 185,
+                "grey": 200
+            },
+            "materials": {
+                "4305": 5,
+                "6260": 4
+            }
         }
     },
     "4325": {
@@ -11193,6 +11628,19 @@
             "durability": 35,
             "intellect": 5,
             "spirit": 8
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 195,
+                "green": 210,
+                "grey": 225
+            },
+            "materials": {
+                "4305": 4,
+                "4291": 1,
+                "4337": 2
+            }
         }
     },
     "4326": {
@@ -11243,6 +11691,19 @@
             "armor": 24,
             "intellect": 5,
             "spirit": 6
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 205,
+                "green": 220,
+                "grey": 235
+            },
+            "materials": {
+                "4305": 4,
+                "3827": 1,
+                "4291": 1
+            }
         }
     },
     "4327": {
@@ -11282,6 +11743,20 @@
         "stats": {
             "armor": 29,
             "spirit": 6
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 220,
+                "green": 235,
+                "grey": 250
+            },
+            "materials": {
+                "4339": 3,
+                "4291": 2,
+                "3829": 1,
+                "4337": 2
+            }
         }
     },
     "4328": {
@@ -11336,6 +11811,19 @@
         "use": {
             "s": 9774,
             "t": "Removes existing Immobilizing effects and makes you immune to Immobilizing effects for 5 sec. (cooldown 30 min)"
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 200,
+                "green": 215,
+                "grey": 230
+            },
+            "materials": {
+                "4305": 4,
+                "4337": 2,
+                "7071": 1
+            }
         }
     },
     "4329": {
@@ -11396,6 +11884,21 @@
             "armor": 30,
             "durability": 25,
             "spirit": 4
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 220,
+                "green": 235,
+                "grey": 250
+            },
+            "materials": {
+                "4339": 4,
+                "4234": 4,
+                "3864": 1,
+                "7071": 1,
+                "4291": 1
+            }
         }
     },
     "4330": {
@@ -11409,7 +11912,20 @@
             "gold": 0,
             "silver": 2
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 135,
+                "green": 152,
+                "grey": 170
+            },
+            "materials": {
+                "2997": 3,
+                "2604": 2,
+                "2321": 1
+            }
+        }
     },
     "4331": {
         "boe": true,
@@ -11461,6 +11977,20 @@
         "stats": {
             "armor": 24,
             "durability": 25
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 150,
+                "green": 167,
+                "grey": 185
+            },
+            "materials": {
+                "2997": 4,
+                "5500": 1,
+                "2321": 4,
+                "2324": 2
+            }
         }
     },
     "4332": {
@@ -11479,7 +12009,20 @@
             "gold": 0,
             "silver": 5
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 145,
+                "green": 150,
+                "grey": 155
+            },
+            "materials": {
+                "4305": 1,
+                "4341": 1,
+                "2321": 1
+            }
+        }
     },
     "4333": {
         "i": 4333,
@@ -11497,7 +12040,20 @@
             "gold": 0,
             "silver": 12
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 165,
+                "green": 170,
+                "grey": 175
+            },
+            "materials": {
+                "4305": 2,
+                "4340": 2,
+                "2321": 1
+            }
+        }
     },
     "4334": {
         "i": 4334,
@@ -11515,7 +12071,20 @@
             "gold": 0,
             "silver": 5
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 180,
+                "green": 185,
+                "grey": 190
+            },
+            "materials": {
+                "4305": 3,
+                "2324": 2,
+                "2321": 1
+            }
+        }
     },
     "4335": {
         "i": 4335,
@@ -11533,7 +12102,20 @@
             "gold": 0,
             "silver": 15
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 195,
+                "green": 200,
+                "grey": 205
+            },
+            "materials": {
+                "4305": 4,
+                "4342": 1,
+                "4291": 1
+            }
+        }
     },
     "4336": {
         "i": 4336,
@@ -11551,7 +12133,20 @@
             "gold": 0,
             "silver": 15
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 210,
+                "green": 215,
+                "grey": 220
+            },
+            "materials": {
+                "4305": 5,
+                "2325": 1,
+                "4291": 1
+            }
+        }
     },
     "4337": {
         "creates": {
@@ -11785,7 +12380,18 @@
             "gold": 0,
             "silver": 12
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 180,
+                "green": 182,
+                "grey": 185
+            },
+            "materials": {
+                "4338": 5
+            }
+        }
     },
     "4340": {
         "creates": {
@@ -12293,6 +12899,18 @@
         "stats": {
             "armor": 16,
             "durability": 35
+        },
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 55,
+                "green": 72,
+                "grey": 90
+            },
+            "materials": {
+                "2996": 2,
+                "2320": 1
+            }
         }
     },
     "4344": {
@@ -12306,7 +12924,19 @@
             "gold": 0,
             "silver": 0
         },
-        "slot": "Shirt"
+        "slot": "Shirt",
+        "created_by": {
+            "profession": "Tailoring",
+            "skill": {
+                "yellow": 35,
+                "green": 47,
+                "grey": 60
+            },
+            "materials": {
+                "2996": 1,
+                "2320": 1
+            }
+        }
     },
     "4345": {
         "contained": {
@@ -13120,7 +13750,18 @@
                 "stock": 4
             }
         },
-        "stack": 20
+        "stack": 20,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 20,
+                "green": 30,
+                "grey": 40
+            },
+            "materials": {
+                "2835": 1
+            }
+        }
     },
     "4358": {
         "i": 4358,
@@ -13210,7 +13851,18 @@
             "gold": 0,
             "silver": 0
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 45,
+                "green": 52,
+                "grey": 60
+            },
+            "materials": {
+                "2840": 1
+            }
+        }
     },
     "4360": {
         "i": 4360,
@@ -13378,7 +14030,19 @@
                 "stock": 2
             }
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 80,
+                "green": 95,
+                "grey": 110
+            },
+            "materials": {
+                "2840": 2,
+                "2880": 1
+            }
+        }
     },
     "4362": {
         "boe": true,
@@ -13427,6 +14091,19 @@
         "speed": 2.3,
         "stats": {
             "durability": 35
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 80,
+                "green": 95,
+                "grey": 110
+            },
+            "materials": {
+                "4361": 1,
+                "4359": 1,
+                "4399": 1
+            }
         }
     },
     "4363": {
@@ -13575,7 +14252,20 @@
                 "stock": 2
             }
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 95,
+                "green": 110,
+                "grey": 125
+            },
+            "materials": {
+                "4359": 2,
+                "2840": 1,
+                "2589": 2
+            }
+        }
     },
     "4364": {
         "contained": {
@@ -13795,7 +14485,18 @@
                 "stock": 4
             }
         },
-        "stack": 20
+        "stack": 20,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 85,
+                "green": 90,
+                "grey": 95
+            },
+            "materials": {
+                "2836": 1
+            }
+        }
     },
     "4365": {
         "i": 4365,
@@ -13971,6 +14672,18 @@
             "durability": 35,
             "spirit": 4,
             "stamina": 4
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 130,
+                "green": 145,
+                "grey": 160
+            },
+            "materials": {
+                "2318": 6,
+                "818": 2
+            }
         }
     },
     "4369": {
@@ -14028,6 +14741,20 @@
         "speed": 2.6,
         "stats": {
             "durability": 50
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 130,
+                "green": 142,
+                "grey": 155
+            },
+            "materials": {
+                "4361": 2,
+                "4359": 4,
+                "4399": 1,
+                "2319": 2
+            }
         }
     },
     "4370": {
@@ -14224,7 +14951,19 @@
                 "stock": 2
             }
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 105,
+                "green": 130,
+                "grey": 155
+            },
+            "materials": {
+                "2841": 2,
+                "2880": 1
+            }
+        }
     },
     "4372": {
         "boe": true,
@@ -14280,6 +15019,20 @@
         "speed": 1.8,
         "stats": {
             "durability": 55
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 145,
+                "green": 157,
+                "grey": 170
+            },
+            "materials": {
+                "4371": 2,
+                "4359": 2,
+                "4400": 1,
+                "1206": 3
+            }
         }
     },
     "4373": {
@@ -14328,6 +15081,18 @@
             "durability": 40,
             "intellect": 5,
             "spirit": 6
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 145,
+                "green": 157,
+                "grey": 170
+            },
+            "materials": {
+                "2319": 4,
+                "1210": 2
+            }
         }
     },
     "4374": {
@@ -14400,7 +15165,19 @@
             "gold": 0,
             "silver": 1
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 125,
+                "green": 150,
+                "grey": 175
+            },
+            "materials": {
+                "2841": 2,
+                "2592": 1
+            }
+        }
     },
     "4376": {
         "i": 4376,
@@ -14498,7 +15275,18 @@
             "gold": 0,
             "silver": 1
         },
-        "stack": 20
+        "stack": 20,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 125,
+                "green": 135,
+                "grey": 145
+            },
+            "materials": {
+                "2838": 1
+            }
+        }
     },
     "4378": {
         "i": 4378,
@@ -14603,6 +15391,20 @@
         "speed": 2.7,
         "stats": {
             "durability": 60
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 155,
+                "green": 167,
+                "grey": 180
+            },
+            "materials": {
+                "4371": 2,
+                "4375": 2,
+                "4400": 1,
+                "2842": 3
+            }
         }
     },
     "4380": {
@@ -14850,7 +15652,20 @@
                 "stock": 1
             }
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 145,
+                "green": 170,
+                "grey": 195
+            },
+            "materials": {
+                "2841": 2,
+                "2319": 1,
+                "2592": 1
+            }
+        }
     },
     "4383": {
         "boe": true,
@@ -14906,6 +15721,20 @@
         "speed": 1.7,
         "stats": {
             "durability": 65
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 170,
+                "green": 182,
+                "grey": 195
+            },
+            "materials": {
+                "4371": 3,
+                "4375": 3,
+                "4400": 1,
+                "1705": 2
+            }
         }
     },
     "4384": {
@@ -15015,6 +15844,19 @@
             "durability": 45,
             "spirit": 7,
             "stamina": 8
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 175,
+                "green": 187,
+                "grey": 200
+            },
+            "materials": {
+                "2319": 4,
+                "1206": 2,
+                "4368": 1
+            }
         }
     },
     "4386": {
@@ -15081,7 +15923,18 @@
             "gold": 0,
             "silver": 4
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 160,
+                "green": 170,
+                "grey": 180
+            },
+            "materials": {
+                "3575": 2
+            }
+        }
     },
     "4388": {
         "contained": {
@@ -15229,7 +16082,19 @@
                 }
             }
         },
-        "stack": 10
+        "stack": 10,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 170,
+                "green": 190,
+                "grey": 210
+            },
+            "materials": {
+                "3575": 1,
+                "10558": 1
+            }
+        }
     },
     "4390": {
         "i": 4390,
@@ -15406,6 +16271,18 @@
             "armor": 40,
             "durability": 45,
             "intellect": 15
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 205,
+                "green": 215,
+                "grey": 225
+            },
+            "materials": {
+                "4234": 6,
+                "3864": 2
+            }
         }
     },
     "4394": {
@@ -15520,6 +16397,21 @@
         "use": {
             "s": 23076,
             "t": "Activates your Mechanical Dragonling to fight for you for 1 min. It requires an hour to cool down before it can be used again. (cooldown 1 hr)"
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 220,
+                "green": 230,
+                "grey": 240
+            },
+            "materials": {
+                "4382": 1,
+                "4387": 4,
+                "4389": 4,
+                "3864": 2,
+                "7191": 1
+            }
         }
     },
     "4397": {
@@ -15550,6 +16442,21 @@
         "use": {
             "s": 4079,
             "t": "Gives invisibility for 10 sec. It can only be used every 60 minutes. (cooldown 1 hr)"
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 220,
+                "green": 230,
+                "grey": 240
+            },
+            "materials": {
+                "4389": 4,
+                "1529": 2,
+                "1705": 2,
+                "3864": 2,
+                "7191": 1
+            }
         }
     },
     "4398": {
@@ -15936,6 +16843,20 @@
         "use": {
             "s": 4055,
             "t": "Creates a Mechanical Squirrel that follows you around. Right Click to summon and dismiss your Squirrel."
+        },
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 105,
+                "green": 120,
+                "grey": 135
+            },
+            "materials": {
+                "4363": 1,
+                "4359": 1,
+                "2840": 1,
+                "774": 2
+            }
         }
     },
     "4402": {
@@ -16130,7 +17051,19 @@
                 "stock": 3
             }
         },
-        "stack": 20
+        "stack": 20,
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 110,
+                "green": 125,
+                "grey": 140
+            },
+            "materials": {
+                "2842": 1
+            },
+            "step": 5
+        }
     },
     "4405": {
         "contained": {
@@ -18039,6 +18972,19 @@
             "armor": 98,
             "durability": 85,
             "stamina": 13
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 185,
+                "green": 195,
+                "grey": 205
+            },
+            "materials": {
+                "4461": 6,
+                "4234": 4,
+                "2321": 2
+            }
         }
     },
     "4456": {
@@ -18090,6 +19036,19 @@
             "durability": 30,
             "stamina": 6,
             "strength": 6
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 185,
+                "green": 195,
+                "grey": 205
+            },
+            "materials": {
+                "4461": 4,
+                "4234": 4,
+                "2321": 2
+            }
         }
     },
     "4457": {
@@ -30064,7 +31023,10 @@
         "quality": 1,
         "quest_item": true,
         "stack": 20,
-        "objective": 746
+        "objective": 746,
+        "created_by": {
+            "materials": {}
+        }
     },
     "4705": {
         "boe": true,
