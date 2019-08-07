@@ -43194,10 +43194,6 @@
         "i": 2313,
         "ilvl": 15,
         "image_name": "inv_misc_armorkit_15",
-        "materials": {
-            "2319": 4,
-            "2320": 1
-        },
         "n": "Medium Armor Kit",
         "quality": 1,
         "requirements": {
