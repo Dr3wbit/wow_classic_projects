@@ -396,6 +396,15 @@
         },
         "ilvl": 18
     },
+    "136": {
+        "i": 136,
+        "n": "Captain Sander's Hidden Treasure",
+        "zone": "Westfall",
+        "requirements": {
+            "level": 10
+        },
+        "ilvl": 16
+    },
     "1370": {
         "i": 1370,
         "n": "Stealing Supplies",
@@ -816,13 +825,13 @@
     },
     "178": {
         "i": 178,
-        "ilvl": 23,
         "n": "Theocritus' Retrieval",
+        "zone": "Redridge Mountains",
         "requirements": {
-            "faction": "A",
-            "level": 15
+            "level": 15,
+            "faction": "A"
         },
-        "zone": "Redridge Mountains"
+        "ilvl": 23
     },
     "179": {
         "i": 179,
@@ -886,13 +895,13 @@
     },
     "184": {
         "i": 184,
-        "ilvl": 9,
         "n": "Furlbrow's Deed",
+        "zone": "Westfall",
         "requirements": {
-            "faction": "A",
-            "level": 8
+            "level": 8,
+            "faction": "A"
         },
-        "zone": "Westfall"
+        "ilvl": 9
     },
     "188": {
         "i": 188,
@@ -3303,6 +3312,16 @@
         },
         "ilvl": 55
     },
+    "522": {
+        "i": 522,
+        "n": "Assassin's Contract",
+        "zone": "Alterac Mountains",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 38
+    },
     "524": {
         "i": 524,
         "n": "Elixir of Agony",
@@ -3391,6 +3410,16 @@
             "level": 20
         },
         "zone": "Duskwood"
+    },
+    "551": {
+        "i": 551,
+        "n": "The Ensorcelled Parchment",
+        "zone": "Alterac Mountains",
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "ilvl": 40
     },
     "5541": {
         "i": 5541,
@@ -4978,6 +5007,16 @@
             "level": 1
         },
         "ilvl": 60
+    },
+    "8552": {
+        "i": 8552,
+        "n": "The Monogrammed Sash",
+        "group": true,
+        "zone": "Stranglethorn Vale",
+        "requirements": {
+            "level": 35
+        },
+        "ilvl": 50
     },
     "8554": {
         "i": 8554,

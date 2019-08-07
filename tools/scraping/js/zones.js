@@ -63,6 +63,10 @@
         "i": 1537,
         "n": "Ironforge"
     },
+    "1581": {
+        "i": 1581,
+        "n": "The Deadmines"
+    },
     "1582": {
         "i": 1582,
         "n": "undefined"

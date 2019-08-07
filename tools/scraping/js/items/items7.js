@@ -3091,7 +3091,8 @@
             "1996": 7.0,
             "2969": 7.0,
             "199": 7.0
-        }
+        },
+        "consume": true
     },
     "7098": {
         "i": 7098,
@@ -4179,7 +4180,8 @@
             "1038": 33.0,
             "1057": 33.0,
             "2108": 33.0
-        }
+        },
+        "consume": true
     },
     "7132": {
         "i": 7132,
@@ -4538,7 +4540,8 @@
             "s": 8919,
             "t": "Use at the base of the Mirror Lake waterfall."
         },
-        "provided_for": 1861
+        "provided_for": 1861,
+        "consume": true
     },
     "7208": {
         "i": 7208,
@@ -4559,7 +4562,8 @@
         },
         "pickpocketed": {
             "6466": 100.0
-        }
+        },
+        "consume": true
     },
     "7209": {
         "i": 7209,
@@ -4652,7 +4656,8 @@
                 }
             }
         },
-        "objective": 4822
+        "objective": 4822,
+        "consume": true
     },
     "7229": {
         "i": 7229,
@@ -4843,7 +4848,8 @@
             "s": 9052,
             "t": "Use at the base of the Xavian waterfall."
         },
-        "provided_for": 1944
+        "provided_for": 1944,
+        "consume": true
     },
     "7270": {
         "i": 7270,
@@ -4907,7 +4913,8 @@
             "2557": 80.0,
             "2558": 80.0
         },
-        "creates": {}
+        "creates": {},
+        "consume": true
     },
     "7274": {
         "i": 7274,
@@ -5778,7 +5785,8 @@
         },
         "dropped": {
             "948": 19.0
-        }
+        },
+        "consume": true
     },
     "7308": {
         "i": 7308,
@@ -18767,7 +18775,8 @@
         "created_by": {
             "materials": {}
         },
-        "provided_for": 2118
+        "provided_for": 2118,
+        "consume": true
     },
     "7587": {
         "i": 7587,
@@ -19304,7 +19313,8 @@
         "provided_for": 2200,
         "reward_from": {
             "3375": 1
-        }
+        },
+        "consume": true
     },
     "7668": {
         "i": 7668,
@@ -19459,7 +19469,8 @@
         },
         "reward_from": {
             "2381": 10
-        }
+        },
+        "consume": true
     },
     "7678": {
         "i": 7678,
@@ -20845,7 +20856,8 @@
         },
         "materials": {
             "7740": 1
-        }
+        },
+        "consume": true
     },
     "7734": {
         "i": 7734,
@@ -21087,7 +21099,8 @@
         },
         "creates": {
             "9595": 7733
-        }
+        },
+        "consume": true
     },
     "7741": {
         "i": 7741,
@@ -21109,7 +21122,8 @@
         },
         "creates": {
             "9594": 7733
-        }
+        },
+        "consume": true
     },
     "7742": {
         "i": 7742,
@@ -22002,7 +22016,8 @@
             "s": 9586,
             "t": "This container needs to be filled with water from the watering hole near Brine's hut in the Barrens."
         },
-        "provided_for": 1535
+        "provided_for": 1535,
+        "consume": true
     },
     "7767": {
         "i": 7767,
@@ -22016,7 +22031,8 @@
             "s": 9584,
             "t": "This container should be filled with water from the Ruins of Stardust well."
         },
-        "provided_for": 1534
+        "provided_for": 1534,
+        "consume": true
     },
     "7768": {
         "i": 7768,
@@ -22030,7 +22046,8 @@
             "s": 9583,
             "t": "This container needs to be filled with water from the well in Tarren Mill."
         },
-        "provided_for": 1536
+        "provided_for": 1536,
+        "consume": true
     },
     "7769": {
         "i": 7769,
@@ -22217,7 +22234,8 @@
                 "113768": 33.0,
                 "113772": 33.0
             }
-        }
+        },
+        "consume": true
     },
     "7807": {
         "i": 7807,
@@ -22243,7 +22261,8 @@
                 "113768": 33.0,
                 "113772": 33.0
             }
-        }
+        },
+        "consume": true
     },
     "7808": {
         "i": 7808,
@@ -22269,7 +22288,8 @@
                 "113768": 33.0,
                 "113772": 33.0
             }
-        }
+        },
+        "consume": true
     },
     "7809": {
         "i": 7809,
@@ -25601,7 +25621,8 @@
         },
         "materials": {
             "7912": 1
-        }
+        },
+        "consume": true
     },
     "7965": {
         "i": 7965,
@@ -25637,7 +25658,8 @@
         "materials": {
             "7912": 1,
             "4306": 1
-        }
+        },
+        "consume": true
     },
     "7966": {
         "i": 7966,
@@ -25729,7 +25751,8 @@
             "3860": 4,
             "6037": 2,
             "7966": 4
-        }
+        },
+        "consume": true
     },
     "7968": {
         "i": 7968,
@@ -25779,7 +25802,8 @@
         "materials": {
             "3860": 4,
             "7966": 3
-        }
+        },
+        "consume": true
     },
     "7970": {
         "i": 7970,
@@ -25802,7 +25826,8 @@
         "created_by": {
             "materials": {}
         },
-        "creates": {}
+        "creates": {},
+        "consume": true
     },
     "7971": {
         "i": 7971,

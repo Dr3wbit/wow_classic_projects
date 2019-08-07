@@ -251,7 +251,8 @@
         "use": {
             "s": 5006,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "1019": {
         "dropped": {
@@ -608,7 +609,8 @@
         "use": {
             "s": 5006,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "1083": {
         "i": 1083,
@@ -644,7 +646,8 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "1114": {
         "created_by": {
@@ -669,7 +672,8 @@
         "use": {
             "s": 435,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "1116": {
         "bop": true,
@@ -885,7 +889,8 @@
         "use": {
             "s": 2120,
             "t": "Calls down a pillar of fire, burning all enemies within the area for 52 to 69 Fire damage and an additional 48 Fire damage over 8 sec. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "1129": {
         "dropped": {
@@ -2122,7 +2127,8 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "1171": {
         "bop": true,
@@ -2247,7 +2253,8 @@
         "use": {
             "s": 673,
             "t": "Increases armor by 50 for 1 hr."
-        }
+        },
+        "consume": true
     },
     "1178": {
         "i": 1178,
@@ -2267,7 +2274,8 @@
         "use": {
             "s": 1940,
             "t": "Inflicts 28 to 33 Fire damage in a 3 yard radius. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "1179": {
         "contained": {
@@ -3122,7 +3130,8 @@
         "use": {
             "s": 431,
             "t": "Restores 436.8 mana over 21 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "118": {
         "contained": {
@@ -3368,7 +3377,8 @@
         "use": {
             "s": 439,
             "t": "Restores 70 to 91 health. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "1180": {
         "contained": {
@@ -3530,7 +3540,8 @@
         "use": {
             "s": 8099,
             "t": "Increases the target's Stamina by 4 for 30 min."
-        }
+        },
+        "consume": true
     },
     "1181": {
         "contained": {
@@ -3690,7 +3701,8 @@
         "use": {
             "s": 8112,
             "t": "Increases the target's Spirit by 3 for 30 min."
-        }
+        },
+        "consume": true
     },
     "1182": {
         "bop": true,
@@ -3758,7 +3770,8 @@
         "use": {
             "s": 8176,
             "t": "Summons a guardian felhunter that will protect you for 1 hr."
-        }
+        },
+        "consume": true
     },
     "1189": {
         "boe": true,
@@ -3849,7 +3862,8 @@
         "use": {
             "s": 5917,
             "t": "Decreases target's chance to hit by 25% for 10 sec. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "1193": {
         "i": 1193,
@@ -4516,6 +4530,25 @@
         "stats": {
             "armor": 2,
             "durability": 25
+        }
+    },
+    "1200": {
+        "i": 1200,
+        "quality": 1,
+        "n": "Large Wooden Shield",
+        "image_name": "inv_shield_09",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 16
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 55,
+            "block": 1,
+            "durability": 35
         }
     },
     "1201": {
@@ -5651,7 +5684,8 @@
         "use": {
             "s": 432,
             "t": "Restores 835.2 mana over 24 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "1206": {
         "contained": {
@@ -6682,7 +6716,8 @@
         "use": {
             "s": 746,
             "t": "Heals 66 damage over 6 sec."
-        }
+        },
+        "consume": true
     },
     "1252": {
         "i": 1252,
@@ -6812,7 +6847,8 @@
         "use": {
             "s": 5257,
             "t": "Increases Stamina by 3 and gets you pretty drunk.\n5 charges"
-        }
+        },
+        "consume": true
     },
     "1263": {
         "boe": true,
@@ -7151,6 +7187,25 @@
         },
         "slot": "Shirt"
     },
+    "1270": {
+        "i": 1270,
+        "quality": 2,
+        "n": "Finely Woven Cloak",
+        "image_name": "inv_misc_cape_15",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 13
+        },
+        "bop": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 14,
+            "spirit": 2
+        }
+    },
     "1273": {
         "bop": true,
         "disenchant": {
@@ -7331,6 +7386,30 @@
         "stats": {
             "armor": 2,
             "durability": 25
+        }
+    },
+    "1280": {
+        "i": 1280,
+        "quality": 2,
+        "n": "Cloaked Hood",
+        "image_name": "inv_helmet_30",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 36,
+            "copper": 96
+        },
+        "boe": true,
+        "slot": "Head",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 86,
+            "stamina": 10,
+            "agility": 10,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 33
         }
     },
     "1282": {
@@ -8372,7 +8451,8 @@
         "use": {
             "s": 7396,
             "t": "Increases your attack speed by 10% for 30 sec. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "1325": {
         "i": 1325,
@@ -8403,7 +8483,8 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "1327": {
         "description": "A hastily written note written by Wiley the Black for Gryan Stoutmantle",
@@ -8434,6 +8515,558 @@
         "quest_item": true,
         "unique": true
     },
+    "1351": {
+        "i": 1351,
+        "quality": 2,
+        "n": "Fingerbone Bracers",
+        "image_name": "inv_bracer_16",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 68
+        },
+        "boe": true,
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 18,
+            "stamina": 2,
+            "intellect": 5,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 23
+        }
+    },
+    "1353": {
+        "i": 1353,
+        "quality": 1,
+        "n": "Shaw's Report",
+        "image_name": "inv_letter_05",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "Shaw's report on the Stonemason Guild for Gryan Stoutmantle",
+        "click_to_read": true
+    },
+    "1355": {
+        "i": 1355,
+        "quality": 2,
+        "n": "Buckskin Cape",
+        "image_name": "inv_misc_pelt_bear_02",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 51
+        },
+        "boe": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 14,
+            "agility": 2
+        },
+        "requirements": {
+            "level": 10
+        }
+    },
+    "1357": {
+        "i": 1357,
+        "quality": 1,
+        "n": "Captain Sander's Treasure Map",
+        "image_name": "inv_misc_map_01",
+        "ilvl": 16,
+        "unique": true,
+        "requirements": {
+            "level": 10
+        },
+        "starts": 136,
+        "description": "The waterlogged parchment is about to disintegrate"
+    },
+    "1358": {
+        "i": 1358,
+        "quality": 1,
+        "n": "A Clue to Sander's Treasure",
+        "image_name": "inv_misc_leatherscrap_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This torn piece of parchment contains scribbled writing",
+        "click_to_read": true
+    },
+    "1359": {
+        "i": 1359,
+        "quality": 1,
+        "n": "Lion-stamped Gloves",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 19
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 28,
+            "durability": 18
+        }
+    },
+    "1360": {
+        "i": 1360,
+        "quality": 1,
+        "n": "Stormwind Chain Gloves",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 42
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 64,
+            "durability": 20
+        }
+    },
+    "1361": {
+        "i": 1361,
+        "quality": 1,
+        "n": "Another Clue to Sander's Treasure",
+        "image_name": "inv_misc_leatherscrap_08",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This torn piece of parchment contains scribbled writing",
+        "click_to_read": true
+    },
+    "1362": {
+        "i": 1362,
+        "quality": 1,
+        "n": "Final Clue to Sander's Treasure",
+        "image_name": "inv_misc_leatherscrap_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This torn piece of parchment contains scribbled writing",
+        "click_to_read": true
+    },
+    "1364": {
+        "i": 1364,
+        "quality": 0,
+        "n": "Ragged Leather Vest",
+        "image_name": "inv_shirt_05",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 8
+        },
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 31,
+            "durability": 45
+        }
+    },
+    "1366": {
+        "i": 1366,
+        "quality": 0,
+        "n": "Ragged Leather Pants",
+        "image_name": "inv_pants_06",
+        "ilvl": 2,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Legs",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 17,
+            "durability": 30
+        }
+    },
+    "1367": {
+        "i": 1367,
+        "quality": 0,
+        "n": "Ragged Leather Boots",
+        "image_name": "inv_boots_06",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 16,
+            "durability": 20
+        }
+    },
+    "1368": {
+        "i": 1368,
+        "quality": 0,
+        "n": "Ragged Leather Gloves",
+        "image_name": "inv_gauntlets_18",
+        "ilvl": 4,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 17,
+            "durability": 16
+        }
+    },
+    "1369": {
+        "i": 1369,
+        "quality": 0,
+        "n": "Ragged Leather Belt",
+        "image_name": "inv_belt_24",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 18,
+            "durability": 16
+        }
+    },
+    "1370": {
+        "i": 1370,
+        "quality": 0,
+        "n": "Ragged Leather Bracers",
+        "image_name": "inv_bracer_10",
+        "ilvl": 4,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Wrist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 12,
+            "durability": 16
+        }
+    },
+    "1372": {
+        "i": 1372,
+        "quality": 0,
+        "n": "Ragged Cloak",
+        "image_name": "inv_misc_cape_10",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 2
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 3
+        }
+    },
+    "1374": {
+        "i": 1374,
+        "quality": 0,
+        "n": "Frayed Shoes",
+        "image_name": "inv_boots_09",
+        "ilvl": 4,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 3
+        },
+        "slot": "Feet",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 5,
+            "durability": 18
+        }
+    },
+    "1376": {
+        "i": 1376,
+        "quality": 0,
+        "n": "Frayed Cloak",
+        "image_name": "inv_misc_cape_10",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 5
+        }
+    },
+    "1377": {
+        "i": 1377,
+        "quality": 0,
+        "n": "Frayed Gloves",
+        "image_name": "inv_gauntlets_18",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 4,
+            "durability": 12
+        }
+    },
+    "1378": {
+        "i": 1378,
+        "quality": 0,
+        "n": "Frayed Pants",
+        "image_name": "inv_pants_09",
+        "ilvl": 2,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 4,
+            "durability": 25
+        }
+    },
+    "1380": {
+        "i": 1380,
+        "quality": 0,
+        "n": "Frayed Robe",
+        "image_name": "inv_chest_cloth_21",
+        "ilvl": 4,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 8,
+            "durability": 35
+        }
+    },
+    "1381": {
+        "i": 1381,
+        "quality": 1,
+        "n": "A Mysterious Message",
+        "image_name": "inv_letter_12",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This soot-covered note contains some cryptic text",
+        "click_to_read": true
+    },
+    "1382": {
+        "i": 1382,
+        "quality": 1,
+        "n": "Rock Mace",
+        "image_name": "inv_mace_07",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 24
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                2,
+                5
+            ]
+        },
+        "stats": {
+            "durability": 30
+        }
+    },
+    "1383": {
+        "i": 1383,
+        "quality": 1,
+        "n": "Stone Tomahawk",
+        "image_name": "inv_throwingaxe_03",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 25
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Axe",
+        "speed": 2.1,
+        "damage": {
+            "normal": [
+                3,
+                6
+            ]
+        },
+        "stats": {
+            "durability": 30
+        }
+    },
+    "1384": {
+        "i": 1384,
+        "quality": 1,
+        "n": "Dull Blade",
+        "image_name": "inv_sword_04",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 11
+        },
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                1,
+                3
+            ]
+        },
+        "stats": {
+            "durability": 20
+        }
+    },
+    "1386": {
+        "i": 1386,
+        "quality": 1,
+        "n": "Thistlewood Axe",
+        "image_name": "inv_axe_01",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 32
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 3.5,
+        "damage": {
+            "normal": [
+                7,
+                11
+            ]
+        },
+        "stats": {
+            "durability": 35
+        }
+    },
+    "1387": {
+        "i": 1387,
+        "quality": 2,
+        "n": "Ghoulfang",
+        "image_name": "inv_sword_07",
+        "ilvl": 19,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 78
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 3.6,
+        "damage": {
+            "normal": [
+                36,
+                54
+            ]
+        },
+        "stats": {
+            "durability": 65
+        },
+        "requirements": {
+            "level": 14
+        },
+        "effects": {
+            "proc": [
+                {
+                    "s": "16409",
+                    "t": "Sends a shadowy bolt at the enemy causing 35 Shadow damage."
+                }
+            ]
+        }
+    },
+    "1388": {
+        "i": 1388,
+        "quality": 1,
+        "n": "Crooked Staff",
+        "image_name": "inv_staff_22",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 14
+        },
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 3.3,
+        "damage": {
+            "normal": [
+                4,
+                7
+            ]
+        },
+        "stats": {
+            "durability": 25
+        }
+    },
+    "1389": {
+        "i": 1389,
+        "quality": 1,
+        "n": "Kobold Mining Mallet",
+        "image_name": "inv_hammer_09",
+        "ilvl": 7,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 58
+        },
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 2.3,
+        "damage": {
+            "normal": [
+                4,
+                9
+            ]
+        },
+        "stats": {
+            "durability": 30
+        },
+        "requirements": {
+            "level": 2
+        }
+    },
     "139": {
         "i": 139,
         "ilvl": 1,
@@ -8451,6 +9084,119 @@
             "armor": 2,
             "durability": 25
         }
+    },
+    "1391": {
+        "i": 1391,
+        "quality": 2,
+        "n": "Riverpaw Mystic Staff",
+        "image_name": "inv_wand_11",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 13,
+            "copper": 92
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 3.0,
+        "damage": {
+            "normal": [
+                28,
+                43
+            ]
+        },
+        "stats": {
+            "intellect": 2,
+            "spirit": 4,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 13
+        }
+    },
+    "1394": {
+        "i": 1394,
+        "quality": 2,
+        "n": "Driftwood Club",
+        "image_name": "inv_mace_10",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 40
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 1.7,
+        "damage": {
+            "normal": [
+                9,
+                17
+            ]
+        },
+        "stats": {
+            "stamina": 1,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 10
+        }
+    },
+    "1395": {
+        "i": 1395,
+        "quality": 0,
+        "n": "Apprentice's Pants",
+        "image_name": "inv_pants_01",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 2,
+            "durability": 25
+        }
+    },
+    "1396": {
+        "i": 1396,
+        "quality": 0,
+        "n": "Acolyte's Pants",
+        "image_name": "inv_pants_01",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 2,
+            "durability": 25
+        }
+    },
+    "1399": {
+        "i": 1399,
+        "quality": 1,
+        "n": "Magic Candle",
+        "image_name": "inv_misc_candle_02",
+        "stack": 20,
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 12
+        },
+        "use": {
+            "s": 133,
+            "t": "Hurls a fiery ball that causes 14 to 23 Fire damage and an additional 2 Fire damage over 4 sec. (cooldown 1 min)"
+        },
+        "consume": true
     },
     "140": {
         "i": 140,
@@ -8486,7 +9232,8 @@
         "use": {
             "s": 833,
             "t": "Instantly heals 30 damage. Also restores 60 mana over 10 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "1404": {
         "bop": true,
@@ -9435,7 +10182,8 @@
         "use": {
             "s": 13424,
             "t": "Decrease the armor of the target by 50 for 30 sec. While affected, the target cannot stealth or turn invisible. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "1436": {
         "bop": true,
@@ -10926,7 +11674,8 @@
         "use": {
             "s": 8116,
             "t": "Increases the target's Agility by 9 for 30 min."
-        }
+        },
+        "consume": true
     },
     "1478": {
         "contained": {
@@ -11008,7 +11757,8 @@
         "use": {
             "s": 8094,
             "t": "Increases the target's Armor by 120 for 30 min."
-        }
+        },
+        "consume": true
     },
     "1479": {
         "bop": true,
@@ -11427,7 +12177,8 @@
         "use": {
             "s": 1127,
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "1488": {
         "boe": true,
@@ -14544,7 +15295,8 @@
         "use": {
             "s": 430,
             "t": "Restores 151.2 mana over 18 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "1596": {
         "i": 1596,
@@ -15512,7 +16264,8 @@
         "use": {
             "s": 1135,
             "t": "Restores 1992 mana over 30 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "1652": {
         "dropped": {
@@ -16140,7 +16893,8 @@
         "use": {
             "s": 1138,
             "t": "Increases Frost and Shadow resistance by 10 for 1 min. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "1705": {
         "contained": {
@@ -16564,7 +17318,8 @@
         "use": {
             "s": 1127,
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "1708": {
         "contained": {
@@ -16827,7 +17582,8 @@
         "use": {
             "s": 1133,
             "t": "Restores 1344.6 mana over 27 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "1710": {
         "contained": {
@@ -17010,7 +17766,8 @@
         "use": {
             "s": 2024,
             "t": "Restores 455 to 586 health. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "1711": {
         "contained": {
@@ -17115,7 +17872,8 @@
         "use": {
             "s": 8100,
             "t": "Increases the target's Stamina by 8 for 30 min."
-        }
+        },
+        "consume": true
     },
     "1712": {
         "contained": {
@@ -17206,7 +17964,8 @@
         "use": {
             "s": 8113,
             "t": "Increases the target's Spirit by 7 for 30 min."
-        }
+        },
+        "consume": true
     },
     "1713": {
         "boe": true,
@@ -28083,7 +28842,8 @@
         "use": {
             "s": 8070,
             "t": "Heals the target for 180 damage over 12 sec. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "1971": {
         "i": 1971,
@@ -29560,6 +30320,40 @@
             "armor": 34,
             "durability": 60
         }
+    },
+    "2000": {
+        "i": 2000,
+        "quality": 2,
+        "n": "Archeus",
+        "image_name": "inv_sword_08",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 88,
+            "copper": 27
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 3.3,
+        "damage": {
+            "normal": [
+                63,
+                95
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "effects": {
+            "proc": [
+                {
+                    "s": "18091",
+                    "t": "Blasts a target for 85 Arcane damage."
+                }
+            ]
+        },
+        "description": "Morgan Ladimore's sword"
     },
     "2004": {
         "dropped": {
@@ -32651,7 +33445,8 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "2072": {
         "boe": true,
@@ -33540,7 +34335,8 @@
         "use": {
             "s": 1090,
             "t": "Puts the enemy target to sleep for up to 30 sec. Any damage caused will awaken the target. Only one target can be asleep at a time. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "2092": {
         "damage": {
@@ -35117,7 +35913,8 @@
         "use": {
             "s": 432,
             "t": "Restores 835.2 mana over 24 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "2137": {
         "bop": true,
@@ -39923,6 +40720,15 @@
             "durability": 45
         }
     },
+    "2250": {
+        "i": 2250,
+        "quality": 1,
+        "n": "Dusky Crab Cakes",
+        "image_name": "inv_misc_food_08",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
     "2251": {
         "creates": {
             "3377": 3666
@@ -41442,7 +42248,8 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "2288": {
         "created_by": {
@@ -41467,7 +42274,8 @@
         "use": {
             "s": 431,
             "t": "Restores 436.8 mana over 21 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "2289": {
         "contained": {
@@ -41542,7 +42350,8 @@
         "use": {
             "s": 8119,
             "t": "Increases the target's Strength by 9 for 30 min."
-        }
+        },
+        "consume": true
     },
     "2290": {
         "contained": {
@@ -41655,7 +42464,8 @@
         "use": {
             "s": 8097,
             "t": "Increases the target's Intellect by 8 for 30 min."
-        }
+        },
+        "consume": true
     },
     "2291": {
         "boe": true,
@@ -42077,7 +42887,8 @@
         "use": {
             "s": 2831,
             "t": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 8."
-        }
+        },
+        "consume": true
     },
     "2307": {
         "created_by": {
@@ -42404,7 +43215,8 @@
         "use": {
             "s": 2832,
             "t": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 16."
-        }
+        },
+        "consume": true
     },
     "2314": {
         "created_by": {
@@ -50018,7 +50830,8 @@
         "use": {
             "s": 2367,
             "t": "Increases Strength by 4 for 1 hr."
-        }
+        },
+        "consume": true
     },
     "2455": {
         "contained": {
@@ -50115,7 +50928,8 @@
         "use": {
             "s": 437,
             "t": "Restores 140 to 181 mana. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "2456": {
         "created_by": {
@@ -50151,7 +50965,8 @@
         "use": {
             "s": 2370,
             "t": "Restores 90 to 151 mana and 90 to 151 health. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "2457": {
         "created_by": {
@@ -50190,7 +51005,8 @@
         "use": {
             "s": 2374,
             "t": "Increases Agility by 4 for 1 hr."
-        }
+        },
+        "consume": true
     },
     "2458": {
         "created_by": {
@@ -50227,7 +51043,8 @@
         "use": {
             "s": 2378,
             "t": "Increases the player's maximum health by 27 for 1 hr."
-        }
+        },
+        "consume": true
     },
     "2459": {
         "created_by": {
@@ -50270,7 +51087,8 @@
         "use": {
             "s": 2379,
             "t": "Increases run speed by 50% for 15 sec. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "2463": {
         "i": 2463,
@@ -57686,7 +58504,8 @@
         "use": {
             "s": 1159,
             "t": "Heals 114 damage over 6 sec."
-        }
+        },
+        "consume": true
     },
     "2582": {
         "created_by": {
@@ -58261,7 +59080,8 @@
         "use": {
             "s": 11008,
             "t": "A typical alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "2594": {
         "dropped": {
@@ -58410,7 +59230,8 @@
         "use": {
             "s": 11009,
             "t": "A strong alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "2595": {
         "dropped": {
@@ -58537,7 +59358,8 @@
         "use": {
             "s": 11009,
             "t": "A strong alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "2596": {
         "creates": {
@@ -58667,7 +59489,8 @@
         "use": {
             "s": 11008,
             "t": "A typical alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "2598": {
         "contained": {
@@ -60243,7 +61066,8 @@
         "use": {
             "s": 3592,
             "t": "Cures diseases and neutralizes poisons. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "2634": {
         "contained": {
@@ -61406,7 +62230,8 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "2680": {
         "created_by": {
@@ -61438,7 +62263,8 @@
         "use": {
             "s": 5004,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 2 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "2681": {
         "created_by": {
@@ -61466,7 +62292,8 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "2682": {
         "created_by": {
@@ -61498,7 +62325,8 @@
         "use": {
             "s": 2639,
             "t": "Restores 294 health and 294 mana over 21 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "2683": {
         "created_by": {
@@ -61530,7 +62358,8 @@
         "use": {
             "s": 5005,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 4 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "2684": {
         "created_by": {
@@ -61561,7 +62390,8 @@
         "use": {
             "s": 5005,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 4 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "2685": {
         "created_by": {
@@ -61597,7 +62427,8 @@
         "use": {
             "s": 435,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "2686": {
         "i": 2686,
@@ -61638,7 +62469,8 @@
         "use": {
             "s": 11007,
             "t": "A fairly weak alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "2687": {
         "created_by": {
@@ -61670,7 +62502,8 @@
         "use": {
             "s": 5005,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 4 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "2690": {
         "bop": true,
@@ -62511,7 +63344,8 @@
         "use": {
             "s": 11007,
             "t": "A fairly weak alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "2724": {
         "i": 2724,
@@ -63056,6 +63890,20 @@
             "silver": 3
         },
         "stack": 10
+    },
+    "2750": {
+        "i": 2750,
+        "quality": 1,
+        "n": "Green Hills of Stranglethorn - Page 26",
+        "image_name": "inv_misc_note_06",
+        "stack": 10,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 75
+        },
+        "click_to_read": true
     },
     "2751": {
         "dropped": {
@@ -66932,7 +67780,8 @@
         "use": {
             "s": 2828,
             "t": "Increase sharp weapon damage by 2 for 30 minutes."
-        }
+        },
+        "consume": true
     },
     "2863": {
         "created_by": {
@@ -66966,7 +67815,8 @@
         "use": {
             "s": 2829,
             "t": "Increase sharp weapon damage by 3 for 30 minutes."
-        }
+        },
+        "consume": true
     },
     "2864": {
         "boe": true,
@@ -67418,7 +68268,8 @@
         "use": {
             "s": 2830,
             "t": "Increase sharp weapon damage by 4 for 30 minutes."
-        }
+        },
+        "consume": true
     },
     "2872": {
         "dropped": {
@@ -68171,7 +69022,8 @@
         "use": {
             "s": 5004,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 2 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "2889": {
         "i": 2889,
@@ -68246,7 +69098,8 @@
         "use": {
             "s": 2823,
             "t": "Coats a weapon with poison that lasts for 30 minutes.\nEach strike has a 30% chance of poisoning the enemy for 0 Nature damage over 12 sec. Stacks up to 5 times on a single target. 60 charges."
-        }
+        },
+        "consume": true
     },
     "2893": {
         "created_by": {
@@ -68288,7 +69141,8 @@
         "use": {
             "s": 2824,
             "t": "Coats a weapon with poison that lasts for 30 minutes.\nEach strike has a 30% chance of poisoning the enemy for 0 Nature damage over 12 sec. Stacks up to 5 times on a single target. 75 charges."
-        }
+        },
+        "consume": true
     },
     "2894": {
         "creates": {
@@ -68332,7 +69186,8 @@
         "use": {
             "s": 11007,
             "t": "A fairly weak alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "2898": {
         "dropped": {
@@ -74417,7 +75272,8 @@
         "use": {
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "422": {
         "contained": {
@@ -74795,7 +75651,8 @@
         "use": {
             "s": 435,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "43": {
         "i": 43,
@@ -75721,7 +76578,8 @@
         "use": {
             "s": 5005,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 4 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "725": {
         "dropped": {
@@ -76119,7 +76977,8 @@
         "use": {
             "s": 435,
             "t": "Restores 552 health over 24 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "735": {
         "i": 735,
@@ -76154,7 +77013,8 @@
         "use": {
             "s": 3591,
             "t": "Blessing from the Holy Spring of Stranglethorn Vale. (cooldown 5 min)"
-        }
+        },
+        "consume": true
     },
     "738": {
         "contained": {
@@ -78237,7 +79097,8 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "789": {
         "boe": true,
@@ -81003,7 +81864,8 @@
         "use": {
             "s": 8312,
             "t": "Renders a target unable to move for 10 sec. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "837": {
         "i": 837,
@@ -83956,7 +84818,8 @@
         "use": {
             "s": 440,
             "t": "Restores 140 to 181 health. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "859": {
         "bop": true,
@@ -87215,7 +88078,8 @@
         "use": {
             "s": 441,
             "t": "Restores 280 to 361 health. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "932": {
         "dropped": {
@@ -88425,7 +89289,8 @@
         "use": {
             "s": 8118,
             "t": "Increases the target's Strength by 5 for 30 min."
-        }
+        },
+        "consume": true
     },
     "955": {
         "contained": {
@@ -88587,7 +89452,8 @@
         "use": {
             "s": 8096,
             "t": "Increases the target's Intellect by 4 for 30 min."
-        }
+        },
+        "consume": true
     },
     "957": {
         "description": "There is a note attached",
@@ -88619,7 +89485,8 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "962": {
         "i": 962,

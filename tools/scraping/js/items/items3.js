@@ -1,4 +1,27 @@
 {
+    "3000": {
+        "i": 3000,
+        "quality": 2,
+        "n": "Brood Mother Carapace",
+        "image_name": "inv_chest_leather_09",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 19
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 55,
+            "stamina": 1,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 5
+        }
+    },
     "3008": {
         "dropped": {
             "1137": 70.0
@@ -214,7 +237,8 @@
         "use": {
             "s": 8115,
             "t": "Increases the target's Agility by 5 for 30 min."
-        }
+        },
+        "consume": true
     },
     "3013": {
         "contained": {
@@ -295,7 +319,8 @@
         "use": {
             "s": 8091,
             "t": "Increases the target's Armor by 60 for 30 min."
-        }
+        },
+        "consume": true
     },
     "3014": {
         "dropped": {
@@ -3712,7 +3737,8 @@
         "use": {
             "s": 29236,
             "t": "Restores 140 to 181 mana. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "3103": {
         "bop": true,
@@ -7153,7 +7179,8 @@
         "use": {
             "s": 5005,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 4 Stamina and Spirit for 15 min."
-        }
+        },
+        "consume": true
     },
     "3223": {
         "boe": true,
@@ -7633,7 +7660,8 @@
         "use": {
             "s": 3112,
             "t": "Increase the damage of a blunt weapon by 2 for 30 minutes."
-        }
+        },
+        "consume": true
     },
     "3240": {
         "created_by": {
@@ -7669,7 +7697,8 @@
         "use": {
             "s": 3113,
             "t": "Increase the damage of a blunt weapon by 3 for 30 minutes."
-        }
+        },
+        "consume": true
     },
     "3241": {
         "created_by": {
@@ -7701,7 +7730,8 @@
         "use": {
             "s": 3114,
             "t": "Increase the damage of a blunt weapon by 4 for 30 minutes."
-        }
+        },
+        "consume": true
     },
     "3248": {
         "i": 3248,
@@ -7714,6 +7744,15 @@
             "252": 1
         },
         "unique": true
+    },
+    "3250": {
+        "i": 3250,
+        "quality": 1,
+        "n": "Bethor's Scroll",
+        "image_name": "inv_scroll_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
     },
     "3251": {
         "bop": true,
@@ -7733,7 +7772,8 @@
         "use": {
             "s": 7669,
             "t": "Removes the Hex of Ravenclaw. (cooldown 30 sec)\n10 charges"
-        }
+        },
+        "consume": true
     },
     "3252": {
         "i": 3252,
@@ -9807,6 +9847,30 @@
             "strength": 2
         }
     },
+    "3315": {
+        "i": 3315,
+        "quality": 2,
+        "n": "Ceremonial Leather Loincloth",
+        "image_name": "inv_pants_wolf",
+        "ilvl": 17,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 54
+        },
+        "boe": true,
+        "slot": "Legs",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 64,
+            "strength": 3,
+            "spirit": 3,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 12
+        }
+    },
     "3317": {
         "bop": true,
         "description": "Its lips are moving",
@@ -9829,5 +9893,11018 @@
         },
         "starts": 460,
         "unique": true
+    },
+    "3318": {
+        "i": 3318,
+        "quality": 1,
+        "n": "Alaric's Remains",
+        "image_name": "inv_misc_bag_10_black",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3319": {
+        "i": 3319,
+        "quality": 1,
+        "n": "Short Sabre",
+        "image_name": "inv_sword_24",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 10
+        },
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                5,
+                10
+            ]
+        },
+        "stats": {
+            "durability": 35
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3321": {
+        "i": 3321,
+        "quality": 1,
+        "n": "Gray Fur Booties",
+        "image_name": "inv_boots_05",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 41
+        },
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 34,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3322": {
+        "i": 3322,
+        "quality": 1,
+        "n": "Wispy Cloak",
+        "image_name": "inv_misc_cape_11",
+        "ilvl": 6,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 11
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 6
+        }
+    },
+    "3323": {
+        "i": 3323,
+        "quality": 1,
+        "n": "Ghostly Bracers",
+        "image_name": "inv_bracer_07",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 15
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 7,
+            "durability": 14
+        },
+        "requirements": {
+            "level": 3
+        }
+    },
+    "3324": {
+        "i": 3324,
+        "quality": 2,
+        "n": "Ghostly Mantle",
+        "image_name": "inv_shoulder_09",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 11,
+            "copper": 19
+        },
+        "bop": true,
+        "slot": "Shoulder",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 31,
+            "intellect": 5,
+            "spirit": 5,
+            "durability": 40
+        }
+    },
+    "3325": {
+        "i": 3325,
+        "quality": 1,
+        "n": "Vile Fin Battle Axe",
+        "image_name": "inv_axe_21",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 40
+        },
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 3.1,
+        "damage": {
+            "normal": [
+                12,
+                19
+            ]
+        },
+        "stats": {
+            "durability": 40
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3327": {
+        "i": 3327,
+        "quality": 1,
+        "n": "Vile Fin Oracle Staff",
+        "image_name": "inv_staff_21",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 41
+        },
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 2.9,
+        "damage": {
+            "normal": [
+                11,
+                18
+            ]
+        },
+        "stats": {
+            "durability": 40
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3328": {
+        "i": 3328,
+        "quality": 1,
+        "n": "Spider Web Robe",
+        "image_name": "inv_chest_cloth_34",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 46
+        },
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 17,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3329": {
+        "i": 3329,
+        "quality": 1,
+        "n": "Spiked Wooden Plank",
+        "image_name": "inv_mace_10",
+        "ilvl": 11,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 79
+        },
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                6,
+                12
+            ]
+        },
+        "stats": {
+            "durability": 40
+        },
+        "requirements": {
+            "level": 6
+        }
+    },
+    "3330": {
+        "i": 3330,
+        "quality": 2,
+        "n": "Dargol's Hauberk",
+        "image_name": "inv_chest_chain",
+        "ilvl": 13,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 81
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 129,
+            "strength": 2,
+            "stamina": 1,
+            "durability": 70
+        },
+        "requirements": {
+            "level": 8
+        }
+    },
+    "3331": {
+        "i": 3331,
+        "quality": 1,
+        "n": "Melrache's Cape",
+        "image_name": "inv_misc_cape_18",
+        "ilvl": 12,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 1
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 11
+        },
+        "requirements": {
+            "level": 7
+        }
+    },
+    "3332": {
+        "i": 3332,
+        "quality": 1,
+        "n": "Perrine's Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 48
+        },
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 65,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3334": {
+        "i": 3334,
+        "quality": 1,
+        "n": "Farmer's Shovel",
+        "image_name": "inv_misc_shovel_01",
+        "ilvl": 7,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 68
+        },
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 3.7,
+        "damage": {
+            "normal": [
+                11,
+                17
+            ]
+        },
+        "stats": {
+            "durability": 35
+        },
+        "requirements": {
+            "level": 2
+        }
+    },
+    "3335": {
+        "i": 3335,
+        "quality": 1,
+        "n": "Farmer's Broom",
+        "image_name": "inv_staff_08",
+        "ilvl": 6,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 46
+        },
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 3.5,
+        "damage": {
+            "normal": [
+                9,
+                14
+            ]
+        },
+        "stats": {
+            "durability": 35
+        },
+        "requirements": {
+            "level": 3
+        }
+    },
+    "3336": {
+        "i": 3336,
+        "quality": 2,
+        "n": "Flesh Piercer",
+        "image_name": "inv_weapon_shortblade_10",
+        "ilvl": 29,
+        "sells_for": {
+            "gold": 0,
+            "silver": 39,
+            "copper": 86
+        },
+        "boe": true,
+        "slot": "One-hand",
+        "proficiency": "Dagger",
+        "speed": 2.0,
+        "damage": {
+            "normal": [
+                21,
+                40
+            ]
+        },
+        "stats": {
+            "durability": 55
+        },
+        "requirements": {
+            "level": 24
+        },
+        "effects": {
+            "proc": [
+                {
+                    "s": "18078",
+                    "t": "Wounds the target causing them to bleed for 30 damage over 30 sec."
+                }
+            ]
+        }
+    },
+    "3337": {
+        "i": 3337,
+        "quality": 1,
+        "n": "Dragonmaw War Banner",
+        "image_name": "inv_banner_03",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3339": {
+        "i": 3339,
+        "quality": 1,
+        "n": "Dwarven Tinder",
+        "image_name": "inv_misc_dust_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3340": {
+        "i": 3340,
+        "quality": 1,
+        "n": "Incendicite Ore",
+        "image_name": "inv_ore_thorium_01",
+        "stack": 10,
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 31
+        }
+    },
+    "3341": {
+        "i": 3341,
+        "quality": 2,
+        "n": "Gauntlets of Ogre Strength",
+        "image_name": "inv_gauntlets_04",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 16,
+            "copper": 21
+        },
+        "boe": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 128,
+            "strength": 3,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 27
+        },
+        "effects": {
+            "equip": [
+                {
+                    "s": 9329,
+                    "t": "+16 Attack Power."
+                }
+            ]
+        }
+    },
+    "3342": {
+        "i": 3342,
+        "quality": 1,
+        "n": "Captain Sander's Shirt",
+        "image_name": "inv_shirt_14",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 37
+        },
+        "bop": true,
+        "slot": "Shirt"
+    },
+    "3343": {
+        "i": 3343,
+        "quality": 1,
+        "n": "Captain Sander's Booty Bag",
+        "image_name": "inv_misc_bag_10",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 50
+        },
+        "bop": true,
+        "unique": true,
+        "slot": "Bag",
+        "slots": 8
+    },
+    "3344": {
+        "i": 3344,
+        "quality": 2,
+        "n": "Captain Sander's Sash",
+        "image_name": "inv_misc_bandana_03",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 45
+        },
+        "bop": true,
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 16,
+            "spirit": 2,
+            "stamina": 2,
+            "durability": 18
+        }
+    },
+    "3345": {
+        "i": 3345,
+        "quality": 2,
+        "n": "Silk Wizard Hat",
+        "image_name": "inv_helmet_15",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 27,
+            "copper": 20
+        },
+        "boe": true,
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 40,
+            "intellect": 10,
+            "spirit": 9,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3347": {
+        "i": 3347,
+        "quality": 1,
+        "n": "Bundle of Crocolisk Skins",
+        "image_name": "inv_misc_monsterscales_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3348": {
+        "i": 3348,
+        "quality": 1,
+        "n": "Giant Crocolisk Skin",
+        "image_name": "inv_misc_monsterscales_03",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3349": {
+        "i": 3349,
+        "quality": 1,
+        "n": "Sida's Bag",
+        "image_name": "inv_misc_bag_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "It's dripping"
+    },
+    "3352": {
+        "i": 3352,
+        "quality": 1,
+        "n": "Ooze-covered Bag",
+        "image_name": "inv_misc_bag_10_green",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 50
+        },
+        "bop": true,
+        "unique": true,
+        "slot": "Bag",
+        "slots": 10
+    },
+    "3353": {
+        "i": 3353,
+        "quality": 1,
+        "n": "Rune-inscribed Pendant",
+        "image_name": "inv_jewelry_talisman_05",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3354": {
+        "i": 3354,
+        "quality": 1,
+        "n": "Dalaran Pendant",
+        "image_name": "inv_jewelry_talisman_05",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3355": {
+        "i": 3355,
+        "quality": 1,
+        "n": "Wild Steelbloom",
+        "image_name": "inv_misc_flower_01",
+        "stack": 20,
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 50
+        }
+    },
+    "3356": {
+        "i": 3356,
+        "quality": 1,
+        "n": "Kingsblood",
+        "image_name": "inv_misc_herb_03",
+        "stack": 20,
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 30
+        }
+    },
+    "3357": {
+        "i": 3357,
+        "quality": 1,
+        "n": "Liferoot",
+        "image_name": "inv_misc_root_02",
+        "stack": 20,
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 75
+        }
+    },
+    "3358": {
+        "i": 3358,
+        "quality": 1,
+        "n": "Khadgar's Whisker",
+        "image_name": "inv_misc_herb_08",
+        "stack": 20,
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 75
+        }
+    },
+    "3360": {
+        "i": 3360,
+        "quality": 1,
+        "n": "Stitches' Femur",
+        "image_name": "inv_misc_bone_01",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 6,
+            "copper": 25
+        },
+        "bop": true,
+        "unique": true,
+        "slot": "Held In Off-Hand",
+        "stats": {
+            "armor": 50
+        },
+        "requirements": {
+            "level": 25
+        }
+    },
+    "3363": {
+        "i": 3363,
+        "quality": 0,
+        "n": "Frayed Belt",
+        "image_name": "inv_belt_04",
+        "ilvl": 3,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 3,
+            "durability": 12
+        }
+    },
+    "3365": {
+        "i": 3365,
+        "quality": 0,
+        "n": "Frayed Bracers",
+        "image_name": "inv_bracer_10",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 3
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 4,
+            "durability": 14
+        }
+    },
+    "3369": {
+        "i": 3369,
+        "quality": 1,
+        "n": "Grave Moss",
+        "image_name": "inv_misc_dust_02",
+        "stack": 20,
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 25
+        }
+    },
+    "3370": {
+        "i": 3370,
+        "quality": 0,
+        "n": "Patchwork Belt",
+        "image_name": "inv_belt_03",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 10
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 8,
+            "durability": 14
+        },
+        "requirements": {
+            "level": 3
+        }
+    },
+    "3371": {
+        "i": 3371,
+        "quality": 1,
+        "n": "Empty Vial",
+        "image_name": "inv_drink_06",
+        "stack": 20,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 1
+        }
+    },
+    "3372": {
+        "i": 3372,
+        "quality": 1,
+        "n": "Leaded Vial",
+        "image_name": "inv_drink_06",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 10
+        }
+    },
+    "3373": {
+        "i": 3373,
+        "quality": 0,
+        "n": "Patchwork Bracers",
+        "image_name": "inv_bracer_07",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 14
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 7,
+            "durability": 16
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3374": {
+        "i": 3374,
+        "quality": 0,
+        "n": "Calico Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 14,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 45
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 13,
+            "durability": 18
+        },
+        "requirements": {
+            "level": 9
+        }
+    },
+    "3375": {
+        "i": 3375,
+        "quality": 0,
+        "n": "Calico Bracers",
+        "image_name": "inv_bracer_13",
+        "ilvl": 12,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 30
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 9,
+            "durability": 16
+        },
+        "requirements": {
+            "level": 7
+        }
+    },
+    "3376": {
+        "i": 3376,
+        "quality": 0,
+        "n": "Canvas Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 86
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 16,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 13
+        }
+    },
+    "3377": {
+        "i": 3377,
+        "quality": 0,
+        "n": "Canvas Bracers",
+        "image_name": "inv_bracer_13",
+        "ilvl": 19,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 99
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 13,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 14
+        }
+    },
+    "3378": {
+        "i": 3378,
+        "quality": 0,
+        "n": "Brocade Belt",
+        "image_name": "inv_belt_03",
+        "ilvl": 21,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 32
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 18,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 16
+        }
+    },
+    "3379": {
+        "i": 3379,
+        "quality": 0,
+        "n": "Brocade Bracers",
+        "image_name": "inv_bracer_03",
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 52
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 14,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 17
+        }
+    },
+    "3380": {
+        "i": 3380,
+        "quality": 0,
+        "n": "Cross-stitched Belt",
+        "image_name": "inv_belt_26",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 65
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 22,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 25
+        }
+    },
+    "3381": {
+        "i": 3381,
+        "quality": 0,
+        "n": "Cross-stitched Bracers",
+        "image_name": "inv_bracer_13",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 3
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 16,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 23
+        }
+    },
+    "3382": {
+        "i": 3382,
+        "quality": 1,
+        "n": "Weak Troll's Blood Potion",
+        "image_name": "inv_potion_77",
+        "stack": 5,
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 10
+        },
+        "use": {
+            "s": 3219,
+            "t": "Regenerate 2 health every 5 sec for 1 hr."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 60,
+                "green": 80,
+                "grey": 100
+            },
+            "materials": {
+                "2447": 1,
+                "2449": 2,
+                "3371": 1
+            }
+        },
+        "consume": true
+    },
+    "3383": {
+        "i": 3383,
+        "quality": 1,
+        "n": "Elixir of Wisdom",
+        "image_name": "inv_potion_06",
+        "stack": 5,
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        },
+        "requirements": {
+            "level": 10
+        },
+        "use": {
+            "s": 3166,
+            "t": "Increases Intellect by 6 for 1 hr."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 120,
+                "green": 140,
+                "grey": 160
+            },
+            "materials": {
+                "785": 1,
+                "2450": 2,
+                "3371": 1
+            }
+        },
+        "consume": true
+    },
+    "3384": {
+        "i": 3384,
+        "quality": 1,
+        "n": "Minor Magic Resistance Potion",
+        "image_name": "inv_potion_08",
+        "stack": 5,
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 20
+        },
+        "requirements": {
+            "level": 12
+        },
+        "use": {
+            "s": 2380,
+            "t": "Increases your resistance to all schools of magic by 25 for 3 min. (cooldown 2 min)"
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 135,
+                "green": 155,
+                "grey": 175
+            },
+            "materials": {
+                "785": 3,
+                "3355": 1,
+                "3371": 1
+            }
+        },
+        "consume": true
+    },
+    "3385": {
+        "i": 3385,
+        "quality": 1,
+        "n": "Lesser Mana Potion",
+        "image_name": "inv_potion_71",
+        "stack": 5,
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 30
+        },
+        "requirements": {
+            "level": 14
+        },
+        "use": {
+            "s": 438,
+            "t": "Restores 280 to 361 mana. (cooldown 2 min)"
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 145,
+                "green": 165,
+                "grey": 185
+            },
+            "materials": {
+                "785": 1,
+                "3820": 1,
+                "3371": 1
+            }
+        },
+        "consume": true
+    },
+    "3386": {
+        "i": 3386,
+        "quality": 1,
+        "n": "Elixir of Poison Resistance",
+        "image_name": "inv_potion_12",
+        "stack": 5,
+        "ilvl": 55,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 35
+        },
+        "requirements": {
+            "level": 14
+        },
+        "use": {
+            "s": 26677,
+            "t": "Imbiber is cured of up to four poisons up to level 60."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 145,
+                "green": 165,
+                "grey": 185
+            },
+            "materials": {
+                "1288": 1,
+                "2453": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3387": {
+        "i": 3387,
+        "quality": 1,
+        "n": "Limited Invulnerability Potion",
+        "image_name": "inv_potion_62",
+        "stack": 5,
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 30
+        },
+        "requirements": {
+            "level": 45
+        },
+        "use": {
+            "s": 3169,
+            "t": "Imbiber is immune to physical attacks for the next 6 sec. (cooldown 2 min)"
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 275,
+                "green": 295,
+                "grey": 315
+            },
+            "materials": {
+                "8839": 2,
+                "8845": 1,
+                "8925": 1
+            }
+        },
+        "consume": true
+    },
+    "3388": {
+        "i": 3388,
+        "quality": 1,
+        "n": "Strong Troll's Blood Potion",
+        "image_name": "inv_potion_78",
+        "stack": 5,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 40
+        },
+        "requirements": {
+            "level": 15
+        },
+        "use": {
+            "s": 3222,
+            "t": "Regenerate 6 health every 5 sec for 1 hr."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 150,
+                "green": 170,
+                "grey": 190
+            },
+            "materials": {
+                "2453": 2,
+                "2450": 2,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3389": {
+        "i": 3389,
+        "quality": 1,
+        "n": "Elixir of Defense",
+        "image_name": "inv_potion_64",
+        "stack": 5,
+        "ilvl": 26,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 40
+        },
+        "requirements": {
+            "level": 16
+        },
+        "use": {
+            "s": 3220,
+            "t": "Increases armor by 150 for 1 hr."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 155,
+                "green": 175,
+                "grey": 195
+            },
+            "materials": {
+                "3355": 1,
+                "3820": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3390": {
+        "i": 3390,
+        "quality": 1,
+        "n": "Elixir of Lesser Agility",
+        "image_name": "inv_potion_92",
+        "stack": 5,
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 35
+        },
+        "requirements": {
+            "level": 18
+        },
+        "use": {
+            "s": 3160,
+            "t": "Increases Agility by 8 for 1 hr."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 165,
+                "green": 185,
+                "grey": 205
+            },
+            "materials": {
+                "3355": 1,
+                "2452": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3391": {
+        "i": 3391,
+        "quality": 1,
+        "n": "Elixir of Ogre's Strength",
+        "image_name": "inv_potion_57",
+        "stack": 5,
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 20
+        },
+        "requirements": {
+            "level": 20
+        },
+        "use": {
+            "s": 3164,
+            "t": "Increases Strength by 8 for 1 hr."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 175,
+                "green": 195,
+                "grey": 215
+            },
+            "materials": {
+                "2449": 1,
+                "3356": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3392": {
+        "i": 3392,
+        "quality": 2,
+        "n": "Ringed Helm",
+        "image_name": "inv_helmet_09",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 16,
+            "copper": 63
+        },
+        "boe": true,
+        "slot": "Head",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 76,
+            "stamina": 8,
+            "spirit": 7,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 25
+        }
+    },
+    "3393": {
+        "i": 3393,
+        "quality": 1,
+        "n": "Recipe: Minor Magic Resistance Potion",
+        "image_name": "inv_scroll_03",
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "alchemy": 110
+            }
+        },
+        "use": {
+            "s": 3180,
+            "t": "Teaches you how to make a Minor Magic Resistance Potion."
+        }
+    },
+    "3394": {
+        "i": 3394,
+        "quality": 1,
+        "n": "Recipe: Elixir of Poison Resistance",
+        "image_name": "inv_scroll_03",
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "alchemy": 120
+            }
+        },
+        "use": {
+            "s": 3182,
+            "t": "Teaches you how to make an Elixir of Poison Resistance."
+        }
+    },
+    "3395": {
+        "i": 3395,
+        "quality": 2,
+        "n": "Recipe: Limited Invulnerability Potion",
+        "image_name": "inv_scroll_03",
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "alchemy": 250
+            }
+        },
+        "use": {
+            "s": 3183,
+            "t": "Teaches you how to make a Limited Invulnerability Potion."
+        }
+    },
+    "3396": {
+        "i": 3396,
+        "quality": 1,
+        "n": "Recipe: Elixir of Lesser Agility",
+        "image_name": "inv_scroll_03",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "alchemy": 140
+            }
+        },
+        "use": {
+            "s": 3187,
+            "t": "Teaches you how to make an Elixir of Lesser Agility."
+        }
+    },
+    "3397": {
+        "i": 3397,
+        "quality": 1,
+        "n": "Young Crocolisk Skin",
+        "image_name": "inv_misc_monsterscales_02",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3399": {
+        "i": 3399,
+        "quality": 0,
+        "n": "Vulture Talon",
+        "image_name": "inv_misc_monsterclaw_01",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 81
+        }
+    },
+    "3400": {
+        "i": 3400,
+        "quality": 2,
+        "n": "Lucine Longsword",
+        "image_name": "inv_sword_20",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 27,
+            "copper": 61
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 2.5,
+        "damage": {
+            "normal": [
+                22,
+                42
+            ]
+        },
+        "stats": {
+            "stamina": 4,
+            "durability": 65
+        }
+    },
+    "3401": {
+        "i": 3401,
+        "quality": 0,
+        "n": "Rough Crocolisk Scale",
+        "image_name": "inv_misc_monsterscales_02",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 81
+        }
+    },
+    "3402": {
+        "i": 3402,
+        "quality": 0,
+        "n": "Soft Patch of Fur",
+        "image_name": "inv_misc_pelt_bear_ruin_05",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 6,
+            "copper": 2
+        }
+    },
+    "3403": {
+        "i": 3403,
+        "quality": 0,
+        "n": "Ivory Boar Tusk",
+        "image_name": "inv_misc_bone_04",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 21
+        }
+    },
+    "3404": {
+        "i": 3404,
+        "quality": 1,
+        "n": "Buzzard Wing",
+        "image_name": "inv_misc_monsterscales_02",
+        "stack": 10,
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 81
+        }
+    },
+    "3405": {
+        "i": 3405,
+        "quality": 1,
+        "n": "Raven Claw Talisman",
+        "image_name": "inv_misc_orb_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3406": {
+        "i": 3406,
+        "quality": 1,
+        "n": "Black Feather Quill",
+        "image_name": "inv_feather_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3407": {
+        "i": 3407,
+        "quality": 1,
+        "n": "Sapphire of Sky",
+        "image_name": "inv_misc_gem_sapphire_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3408": {
+        "i": 3408,
+        "quality": 1,
+        "n": "Rune of Nesting",
+        "image_name": "inv_misc_rune_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3409": {
+        "i": 3409,
+        "quality": 1,
+        "n": "Nightsaber Fang",
+        "image_name": "inv_misc_bone_08",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3411": {
+        "i": 3411,
+        "quality": 1,
+        "n": "Strigid Owl Feather",
+        "image_name": "inv_feather_13",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3412": {
+        "i": 3412,
+        "quality": 1,
+        "n": "Webwood Spider Silk",
+        "image_name": "spell_nature_web",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3413": {
+        "i": 3413,
+        "quality": 3,
+        "n": "Doomspike",
+        "image_name": "inv_sword_29",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 32,
+            "copper": 29
+        },
+        "boe": true,
+        "slot": "One-hand",
+        "proficiency": "Dagger",
+        "speed": 1.5,
+        "damage": {
+            "normal": [
+                17,
+                32
+            ]
+        },
+        "stats": {
+            "strength": 3,
+            "stamina": 3,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 20
+        }
+    },
+    "3414": {
+        "i": 3414,
+        "quality": 3,
+        "n": "Crested Scepter",
+        "image_name": "inv_mace_08",
+        "ilvl": 27,
+        "sells_for": {
+            "gold": 0,
+            "silver": 40,
+            "copper": 28
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 2.6,
+        "damage": {
+            "normal": [
+                31,
+                58
+            ]
+        },
+        "stats": {
+            "stamina": 5,
+            "intellect": 2,
+            "durability": 80
+        },
+        "requirements": {
+            "level": 22
+        }
+    },
+    "3415": {
+        "i": 3415,
+        "quality": 3,
+        "n": "Staff of the Friar",
+        "image_name": "inv_staff_32",
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 35,
+            "copper": 98
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 2.6,
+        "damage": {
+            "normal": [
+                42,
+                64
+            ]
+        },
+        "stats": {
+            "spirit": 11,
+            "stamina": 4,
+            "intellect": 3,
+            "durability": 90
+        },
+        "requirements": {
+            "level": 19
+        }
+    },
+    "3416": {
+        "i": 3416,
+        "quality": 3,
+        "n": "Martyr's Chain",
+        "image_name": "inv_chest_chain",
+        "ilvl": 26,
+        "sells_for": {
+            "gold": 0,
+            "silver": 22,
+            "copper": 13
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 204,
+            "spirit": 5,
+            "stamina": 8,
+            "strength": 8,
+            "durability": 110
+        },
+        "requirements": {
+            "level": 21
+        }
+    },
+    "3417": {
+        "i": 3417,
+        "quality": 3,
+        "n": "Onyx Claymore",
+        "image_name": "inv_sword_13",
+        "ilvl": 26,
+        "sells_for": {
+            "gold": 0,
+            "silver": 46,
+            "copper": 29
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 2.8,
+        "damage": {
+            "normal": [
+                48,
+                73
+            ]
+        },
+        "stats": {
+            "spirit": 6,
+            "stamina": 5,
+            "strength": 9,
+            "durability": 95
+        },
+        "requirements": {
+            "level": 21
+        }
+    },
+    "3418": {
+        "i": 3418,
+        "quality": 1,
+        "n": "Fel Cone",
+        "image_name": "inv_misc_food_02",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3419": {
+        "i": 3419,
+        "quality": 1,
+        "n": "Red Rose",
+        "image_name": "inv_jewelry_talisman_03",
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 25
+        },
+        "slot": "Held In Off-Hand"
+    },
+    "3420": {
+        "i": 3420,
+        "quality": 1,
+        "n": "Black Rose",
+        "image_name": "inv_jewelry_talisman_03",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 50
+        },
+        "slot": "Held In Off-Hand"
+    },
+    "3421": {
+        "i": 3421,
+        "quality": 1,
+        "n": "Simple Wildflowers",
+        "image_name": "inv_misc_flower_02",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 50
+        },
+        "slot": "Held In Off-Hand"
+    },
+    "3422": {
+        "i": 3422,
+        "quality": 1,
+        "n": "Beautiful Wildflowers",
+        "image_name": "inv_misc_flower_02",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "slot": "Held In Off-Hand"
+    },
+    "3423": {
+        "i": 3423,
+        "quality": 1,
+        "n": "Bouquet of White Roses",
+        "image_name": "inv_misc_flower_02",
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 50,
+            "copper": 0
+        },
+        "slot": "Held In Off-Hand"
+    },
+    "3424": {
+        "i": 3424,
+        "quality": 1,
+        "n": "Bouquet of Black Roses",
+        "image_name": "inv_jewelry_talisman_03",
+        "ilvl": 60,
+        "sells_for": {
+            "gold": 12,
+            "silver": 50,
+            "copper": 0
+        },
+        "slot": "Held In Off-Hand"
+    },
+    "3425": {
+        "i": 3425,
+        "quality": 1,
+        "n": "Woven Wand",
+        "image_name": "inv_wand_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3426": {
+        "i": 3426,
+        "quality": 1,
+        "n": "Bold Yellow Shirt",
+        "image_name": "inv_shirt_yellow_01",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 0
+        },
+        "slot": "Shirt"
+    },
+    "3427": {
+        "i": 3427,
+        "quality": 1,
+        "n": "Stylish Black Shirt",
+        "image_name": "inv_shirt_black_01",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 0
+        },
+        "slot": "Shirt"
+    },
+    "3428": {
+        "i": 3428,
+        "quality": 1,
+        "n": "Common Gray Shirt",
+        "image_name": "inv_shirt_grey_01",
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        },
+        "slot": "Shirt"
+    },
+    "3429": {
+        "i": 3429,
+        "quality": 2,
+        "n": "Guardsman Belt",
+        "image_name": "inv_belt_04",
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 86
+        },
+        "boe": true,
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 47,
+            "stamina": 4,
+            "agility": 4,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 19
+        }
+    },
+    "3430": {
+        "i": 3430,
+        "quality": 2,
+        "n": "Sniper Rifle",
+        "image_name": "inv_weapon_rifle_05",
+        "ilvl": 44,
+        "sells_for": {
+            "gold": 1,
+            "silver": 10,
+            "copper": 26
+        },
+        "boe": true,
+        "slot": "Ranged",
+        "proficiency": "Gun",
+        "speed": 3.0,
+        "damage": {
+            "normal": [
+                56,
+                65
+            ]
+        },
+        "stats": {
+            "durability": 65,
+            "random": true
+        },
+        "requirements": {
+            "level": 39
+        }
+    },
+    "3431": {
+        "i": 3431,
+        "quality": 2,
+        "n": "Bone-studded Leather",
+        "image_name": "inv_chest_leather_02",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 13,
+            "copper": 35
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 86,
+            "strength": 6,
+            "stamina": 5,
+            "agility": 1,
+            "durability": 80
+        }
+    },
+    "3434": {
+        "i": 3434,
+        "quality": 1,
+        "n": "Slumber Sand",
+        "image_name": "inv_misc_dust_02",
+        "stack": 10,
+        "ilvl": 7,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 3
+        },
+        "bop": true,
+        "use": {
+            "s": 700,
+            "t": "Puts the enemy target to sleep for up to 20 sec. Any damage caused will awaken the target. Only one target can be asleep at a time. (cooldown 1 min)"
+        },
+        "consume": true
+    },
+    "3435": {
+        "i": 3435,
+        "quality": 1,
+        "n": "Zombie Skin Bracers",
+        "image_name": "inv_bracer_08",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 19
+        },
+        "bop": true,
+        "slot": "Wrist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 20,
+            "durability": 18
+        }
+    },
+    "3437": {
+        "i": 3437,
+        "quality": 1,
+        "n": "Clasped Belt",
+        "image_name": "inv_belt_03",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 23
+        },
+        "bop": true,
+        "slot": "Waist",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 50,
+            "durability": 20
+        }
+    },
+    "3439": {
+        "i": 3439,
+        "quality": 1,
+        "n": "Zombie Skin Boots",
+        "image_name": "inv_boots_05",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 30
+        },
+        "bop": true,
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 31,
+            "durability": 25
+        }
+    },
+    "3440": {
+        "i": 3440,
+        "quality": 2,
+        "n": "Bonecracker",
+        "image_name": "inv_mace_04",
+        "ilvl": 13,
+        "sells_for": {
+            "gold": 0,
+            "silver": 6,
+            "copper": 40
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 3.2,
+        "damage": {
+            "normal": [
+                23,
+                35
+            ]
+        },
+        "stats": {
+            "strength": 3,
+            "durability": 50
+        }
+    },
+    "3442": {
+        "i": 3442,
+        "quality": 1,
+        "n": "Apprentice Sash",
+        "image_name": "inv_misc_bandana_01",
+        "ilvl": 12,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 44
+        },
+        "bop": true,
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 12,
+            "durability": 16
+        }
+    },
+    "3443": {
+        "i": 3443,
+        "quality": 1,
+        "n": "Ceremonial Tomahawk",
+        "image_name": "inv_throwingaxe_03",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 38
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Axe",
+        "speed": 1.7,
+        "damage": {
+            "normal": [
+                5,
+                10
+            ]
+        },
+        "stats": {
+            "durability": 40
+        }
+    },
+    "3444": {
+        "i": 3444,
+        "quality": 1,
+        "n": "Tiller's Vest",
+        "image_name": "inv_shirt_05",
+        "ilvl": 11,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 90
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 55,
+            "durability": 55
+        }
+    },
+    "3445": {
+        "i": 3445,
+        "quality": 1,
+        "n": "Ceremonial Knife",
+        "image_name": "inv_weapon_shortblade_10",
+        "ilvl": 12,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 26
+        },
+        "bop": true,
+        "slot": "One-hand",
+        "proficiency": "Dagger",
+        "speed": 1.4,
+        "damage": {
+            "normal": [
+                5,
+                10
+            ]
+        },
+        "stats": {
+            "durability": 30
+        }
+    },
+    "3446": {
+        "i": 3446,
+        "quality": 2,
+        "n": "Darkwood Staff",
+        "image_name": "inv_staff_16",
+        "ilvl": 13,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 92
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 3.2,
+        "damage": {
+            "normal": [
+                23,
+                35
+            ]
+        },
+        "stats": {
+            "stamina": 3,
+            "durability": 50
+        }
+    },
+    "3447": {
+        "i": 3447,
+        "quality": 1,
+        "n": "Cryptwalker Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 34
+        },
+        "bop": true,
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 61,
+            "durability": 30
+        }
+    },
+    "3448": {
+        "i": 3448,
+        "quality": 1,
+        "n": "Senggin Root",
+        "image_name": "inv_misc_herb_07",
+        "stack": 20,
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 6
+        },
+        "use": {
+            "s": 2639,
+            "t": "Restores 294 health and 294 mana over 21 sec. Must remain seated while eating."
+        },
+        "consume": true
+    },
+    "3449": {
+        "i": 3449,
+        "quality": 2,
+        "n": "Mystic Shawl",
+        "image_name": "inv_misc_cape_13",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 7
+        },
+        "bop": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 14,
+            "intellect": 2
+        }
+    },
+    "3450": {
+        "i": 3450,
+        "quality": 2,
+        "n": "Faerleia's Shield",
+        "image_name": "inv_shield_04",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 43
+        },
+        "bop": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 328,
+            "block": 5,
+            "strength": 2,
+            "durability": 55
+        }
+    },
+    "3451": {
+        "i": 3451,
+        "quality": 2,
+        "n": "Nightglow Concoction",
+        "image_name": "inv_potion_19",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 6,
+            "copper": 7
+        },
+        "bop": true,
+        "slot": "Held In Off-Hand",
+        "stats": {
+            "spirit": 3
+        }
+    },
+    "3452": {
+        "i": 3452,
+        "quality": 2,
+        "n": "Ceranium Rod",
+        "image_name": "inv_staff_07",
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 23,
+            "copper": 22
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 2.7,
+        "damage": {
+            "normal": [
+                31,
+                47
+            ]
+        },
+        "stats": {
+            "stamina": 7,
+            "durability": 70
+        }
+    },
+    "3453": {
+        "i": 3453,
+        "quality": 1,
+        "n": "Quilted Bracers",
+        "image_name": "inv_bracer_11",
+        "ilvl": 12,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 46
+        },
+        "bop": true,
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 9,
+            "durability": 16
+        }
+    },
+    "3454": {
+        "i": 3454,
+        "quality": 1,
+        "n": "Reconnaissance Boots",
+        "image_name": "inv_boots_05",
+        "ilvl": 14,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 5
+        },
+        "bop": true,
+        "slot": "Feet",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 17,
+            "durability": 25
+        }
+    },
+    "3455": {
+        "i": 3455,
+        "quality": 1,
+        "n": "Deathstalker Shortsword",
+        "image_name": "inv_sword_15",
+        "ilvl": 11,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 88
+        },
+        "bop": true,
+        "slot": "One-hand",
+        "proficiency": "Sword",
+        "speed": 2.1,
+        "damage": {
+            "normal": [
+                7,
+                14
+            ]
+        },
+        "stats": {
+            "durability": 40
+        }
+    },
+    "3456": {
+        "i": 3456,
+        "quality": 2,
+        "n": "Dog Whistle",
+        "image_name": "ability_hunter_beastcall",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 63,
+            "copper": 75
+        },
+        "bop": true,
+        "unique": true,
+        "requirements": {
+            "level": 25
+        },
+        "use": {
+            "s": 9515,
+            "t": "Summons a tracking hound that will protect you for 10 min. (cooldown 10 min)\n3 charges"
+        },
+        "consume": true
+    },
+    "3457": {
+        "i": 3457,
+        "quality": 2,
+        "n": "Stamped Trousers",
+        "image_name": "inv_pants_14",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 44
+        },
+        "bop": true,
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 28,
+            "intellect": 3,
+            "spirit": 3,
+            "durability": 40
+        }
+    },
+    "3458": {
+        "i": 3458,
+        "quality": 2,
+        "n": "Rugged Mail Gloves",
+        "image_name": "inv_gauntlets_04",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 34
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 101,
+            "strength": 3,
+            "stamina": 1,
+            "durability": 25
+        }
+    },
+    "3460": {
+        "i": 3460,
+        "quality": 1,
+        "n": "Johaan's Special Drink",
+        "image_name": "inv_drink_05",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3461": {
+        "i": 3461,
+        "quality": 2,
+        "n": "High Robe of the Adjudicator",
+        "image_name": "inv_chest_cloth_18",
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 5
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 38,
+            "intellect": 2,
+            "spirit": 7,
+            "durability": 65
+        }
+    },
+    "3462": {
+        "i": 3462,
+        "quality": 2,
+        "n": "Talonstrike",
+        "image_name": "inv_sword_12",
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 22,
+            "copper": 83
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 1.6,
+        "damage": {
+            "normal": [
+                13,
+                26
+            ]
+        },
+        "stats": {
+            "agility": 3,
+            "durability": 65
+        }
+    },
+    "3463": {
+        "i": 3463,
+        "quality": 2,
+        "n": "Silver Star",
+        "image_name": "ability_upgrademoonglaive",
+        "stack": 200,
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 9
+        },
+        "bop": true,
+        "slot": "Thrown",
+        "proficiency": "Thrown",
+        "speed": 2.3,
+        "damage": {
+            "normal": [
+                28,
+                53
+            ]
+        }
+    },
+    "3464": {
+        "i": 3464,
+        "quality": 2,
+        "n": "Feathered Arrow",
+        "image_name": "inv_ammo_arrow_02",
+        "stack": 200,
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 8
+        },
+        "slot": "Projectile",
+        "proficiency": "Arrow"
+    },
+    "3465": {
+        "i": 3465,
+        "quality": 2,
+        "n": "Exploding Shot",
+        "image_name": "inv_ammo_bullet_02",
+        "stack": 200,
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 9
+        },
+        "slot": "Projectile",
+        "proficiency": "Bullet"
+    },
+    "3466": {
+        "i": 3466,
+        "quality": 1,
+        "n": "Strong Flux",
+        "image_name": "inv_misc_ammo_gunpowder_01",
+        "stack": 10,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "description": "Used by blacksmiths to remove impurities"
+    },
+    "3467": {
+        "i": 3467,
+        "quality": 1,
+        "n": "Dull Iron Key",
+        "image_name": "inv_misc_key_03",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 0
+        },
+        "unique": true,
+        "quest_item": true,
+        "consume": true
+    },
+    "3468": {
+        "i": 3468,
+        "quality": 1,
+        "n": "Renferrel's Findings",
+        "image_name": "inv_letter_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "The sealed findings of Apothecary Renferrel"
+    },
+    "3469": {
+        "i": 3469,
+        "quality": 1,
+        "n": "Copper Chain Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 49
+        },
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 65,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 4
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 60,
+                "green": 80,
+                "grey": 100
+            },
+            "materials": {
+                "2840": 8
+            }
+        }
+    },
+    "3470": {
+        "i": 3470,
+        "quality": 1,
+        "n": "Rough Grinding Stone",
+        "image_name": "inv_stone_grindingstone_01",
+        "stack": 20,
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 5
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 45,
+                "green": 65,
+                "grey": 85
+            },
+            "materials": {
+                "2835": 2
+            }
+        }
+    },
+    "3471": {
+        "i": 3471,
+        "quality": 2,
+        "n": "Copper Chain Vest",
+        "image_name": "inv_chest_chain",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 42
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 108,
+            "strength": 1,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 5
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 75,
+                "green": 95,
+                "grey": 115
+            },
+            "materials": {
+                "2840": 8,
+                "774": 1,
+                "3470": 2
+            }
+        }
+    },
+    "3472": {
+        "i": 3472,
+        "quality": 1,
+        "n": "Runed Copper Gauntlets",
+        "image_name": "inv_gauntlets_04",
+        "ilvl": 12,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 71
+        },
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 73,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 7
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 80,
+                "green": 100,
+                "grey": 120
+            },
+            "materials": {
+                "2840": 8,
+                "3470": 2
+            }
+        }
+    },
+    "3473": {
+        "i": 3473,
+        "quality": 2,
+        "n": "Runed Copper Pants",
+        "image_name": "inv_pants_03",
+        "ilvl": 13,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 99
+        },
+        "boe": true,
+        "slot": "Legs",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 113,
+            "strength": 2,
+            "stamina": 2,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 8
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 85,
+                "green": 105,
+                "grey": 125
+            },
+            "materials": {
+                "2840": 8,
+                "2321": 2,
+                "3470": 3
+            }
+        }
+    },
+    "3474": {
+        "i": 3474,
+        "quality": 2,
+        "n": "Gemmed Copper Gauntlets",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 16
+        },
+        "boe": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 90,
+            "durability": 25,
+            "random": true
+        },
+        "requirements": {
+            "level": 10
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 100,
+                "green": 120,
+                "grey": 140
+            },
+            "materials": {
+                "2840": 8,
+                "818": 1,
+                "774": 1
+            }
+        }
+    },
+    "3475": {
+        "i": 3475,
+        "quality": 4,
+        "n": "Cloak of Flames",
+        "image_name": "inv_misc_cape_08",
+        "ilvl": 65,
+        "sells_for": {
+            "gold": 2,
+            "silver": 60,
+            "copper": 18
+        },
+        "boe": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 50
+        },
+        "resist": {
+            "Fire": 15
+        },
+        "requirements": {
+            "level": 60
+        },
+        "effects": {
+            "equip": [
+                {
+                    "s": 21142,
+                    "t": "Deals 5 Fire damage to anyone who strikes you with a melee attack."
+                }
+            ]
+        }
+    },
+    "3476": {
+        "i": 3476,
+        "quality": 1,
+        "n": "Gray Bear Tongue",
+        "image_name": "ability_druid_demoralizingroar",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3477": {
+        "i": 3477,
+        "quality": 1,
+        "n": "Creeper Ichor",
+        "image_name": "inv_misc_slime_01",
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3478": {
+        "i": 3478,
+        "quality": 1,
+        "n": "Coarse Grinding Stone",
+        "image_name": "inv_stone_grindingstone_02",
+        "stack": 20,
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 10
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 75,
+                "green": 87,
+                "grey": 100
+            },
+            "materials": {
+                "2836": 2
+            }
+        }
+    },
+    "3480": {
+        "i": 3480,
+        "quality": 1,
+        "n": "Rough Bronze Shoulders",
+        "image_name": "inv_shoulder_05",
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 32
+        },
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 124,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 17
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 140,
+                "green": 155,
+                "grey": 170
+            },
+            "materials": {
+                "2841": 5,
+                "1210": 1,
+                "3478": 1
+            }
+        }
+    },
+    "3481": {
+        "i": 3481,
+        "quality": 2,
+        "n": "Silvered Bronze Shoulders",
+        "image_name": "inv_shoulder_09",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 84
+        },
+        "boe": true,
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 137,
+            "strength": 3,
+            "stamina": 3,
+            "spirit": 3,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 20
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 155,
+                "green": 170,
+                "grey": 185
+            },
+            "materials": {
+                "2841": 8,
+                "2842": 2,
+                "3478": 2
+            }
+        }
+    },
+    "3482": {
+        "i": 3482,
+        "quality": 2,
+        "n": "Silvered Bronze Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 26,
+        "sells_for": {
+            "gold": 0,
+            "silver": 13,
+            "copper": 17
+        },
+        "boe": true,
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 128,
+            "strength": 4,
+            "stamina": 4,
+            "spirit": 3,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 21
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 160,
+                "green": 175,
+                "grey": 190
+            },
+            "materials": {
+                "2841": 6,
+                "2842": 1,
+                "3478": 2
+            }
+        }
+    },
+    "3483": {
+        "i": 3483,
+        "quality": 2,
+        "n": "Silvered Bronze Gauntlets",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 27,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 65
+        },
+        "boe": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 118,
+            "strength": 4,
+            "stamina": 4,
+            "spirit": 3,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 22
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 165,
+                "green": 180,
+                "grey": 195
+            },
+            "materials": {
+                "2841": 8,
+                "2842": 1,
+                "3478": 2
+            }
+        }
+    },
+    "3484": {
+        "i": 3484,
+        "quality": 2,
+        "n": "Green Iron Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 29,
+        "sells_for": {
+            "gold": 0,
+            "silver": 17,
+            "copper": 67
+        },
+        "boe": true,
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 134,
+            "stamina": 7,
+            "strength": 3,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 24
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 175,
+                "green": 190,
+                "grey": 205
+            },
+            "materials": {
+                "3575": 4,
+                "1705": 2,
+                "3478": 2,
+                "2605": 1
+            }
+        }
+    },
+    "3485": {
+        "i": 3485,
+        "quality": 2,
+        "n": "Green Iron Gauntlets",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 95
+        },
+        "boe": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 124,
+            "stamina": 6,
+            "strength": 5,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 25
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 180,
+                "green": 195,
+                "grey": 210
+            },
+            "materials": {
+                "3575": 4,
+                "5498": 2,
+                "3478": 2,
+                "2605": 1
+            }
+        }
+    },
+    "3486": {
+        "i": 3486,
+        "quality": 1,
+        "n": "Heavy Grinding Stone",
+        "image_name": "inv_stone_grindingstone_03",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 125,
+                "green": 137,
+                "grey": 150
+            },
+            "materials": {
+                "2838": 3
+            }
+        }
+    },
+    "3487": {
+        "i": 3487,
+        "quality": 2,
+        "n": "Heavy Copper Broadsword",
+        "image_name": "inv_sword_14",
+        "ilvl": 19,
+        "sells_for": {
+            "gold": 0,
+            "silver": 14,
+            "copper": 98
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 2.7,
+        "damage": {
+            "normal": [
+                27,
+                41
+            ]
+        },
+        "stats": {
+            "stamina": 6,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 14
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 135,
+                "green": 155,
+                "grey": 175
+            },
+            "materials": {
+                "2840": 14,
+                "2880": 2,
+                "818": 2,
+                "2319": 2
+            }
+        }
+    },
+    "3488": {
+        "i": 3488,
+        "quality": 2,
+        "n": "Copper Battle Axe",
+        "image_name": "inv_throwingaxe_02",
+        "ilvl": 13,
+        "sells_for": {
+            "gold": 0,
+            "silver": 6,
+            "copper": 13
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 3.2,
+        "damage": {
+            "normal": [
+                23,
+                35
+            ]
+        },
+        "stats": {
+            "stamina": 3,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 8
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 75,
+                "green": 95,
+                "grey": 115
+            },
+            "materials": {
+                "2840": 12,
+                "2880": 2,
+                "774": 2,
+                "3470": 2,
+                "2318": 2
+            }
+        }
+    },
+    "3489": {
+        "i": 3489,
+        "quality": 2,
+        "n": "Thick War Axe",
+        "image_name": "inv_throwingaxe_01",
+        "ilvl": 17,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 37
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Axe",
+        "speed": 2.5,
+        "damage": {
+            "normal": [
+                15,
+                28
+            ]
+        },
+        "stats": {
+            "stamina": 1,
+            "strength": 1,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 12
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 110,
+                "green": 130,
+                "grey": 150
+            },
+            "materials": {
+                "2840": 10,
+                "2880": 2,
+                "2842": 2,
+                "3470": 2,
+                "2318": 2
+            }
+        }
+    },
+    "3490": {
+        "i": 3490,
+        "quality": 2,
+        "n": "Deadly Bronze Poniard",
+        "image_name": "inv_weapon_shortblade_05",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 27,
+            "copper": 31
+        },
+        "boe": true,
+        "slot": "One-hand",
+        "proficiency": "Dagger",
+        "speed": 1.8,
+        "damage": {
+            "normal": [
+                16,
+                30
+            ]
+        },
+        "stats": {
+            "agility": 4,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 20
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 155,
+                "green": 170,
+                "grey": 185
+            },
+            "materials": {
+                "2841": 4,
+                "3466": 1,
+                "2459": 1,
+                "1210": 2,
+                "3478": 2,
+                "2319": 2
+            }
+        }
+    },
+    "3491": {
+        "i": 3491,
+        "quality": 2,
+        "n": "Heavy Bronze Mace",
+        "image_name": "inv_mace_08",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 27,
+            "copper": 41
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 2.8,
+        "damage": {
+            "normal": [
+                25,
+                47
+            ]
+        },
+        "stats": {
+            "strength": 4,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 20
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 160,
+                "green": 175,
+                "grey": 190
+            },
+            "materials": {
+                "2841": 8,
+                "3466": 1,
+                "1206": 1,
+                "1210": 1,
+                "3478": 2,
+                "2319": 2
+            }
+        }
+    },
+    "3492": {
+        "i": 3492,
+        "quality": 2,
+        "n": "Mighty Iron Hammer",
+        "image_name": "inv_hammer_04",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 45,
+            "copper": 52
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 2.8,
+        "damage": {
+            "normal": [
+                30,
+                57
+            ]
+        },
+        "stats": {
+            "strength": 5,
+            "durability": 75
+        },
+        "requirements": {
+            "level": 25
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 175,
+                "green": 190,
+                "grey": 205
+            },
+            "materials": {
+                "3575": 6,
+                "3466": 2,
+                "3391": 1,
+                "1705": 2,
+                "3478": 2,
+                "2319": 2
+            }
+        }
+    },
+    "3493": {
+        "i": 3493,
+        "quality": 2,
+        "n": "Raptor's End",
+        "image_name": "inv_weapon_bow_03",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 34,
+            "copper": 26
+        },
+        "bop": true,
+        "slot": "Ranged",
+        "proficiency": "Bow",
+        "speed": 2.9,
+        "damage": {
+            "normal": [
+                24,
+                46
+            ]
+        },
+        "stats": {
+            "durability": 65
+        }
+    },
+    "3495": {
+        "i": 3495,
+        "quality": 1,
+        "n": "Elixir of Suffering",
+        "image_name": "inv_potion_19",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3496": {
+        "i": 3496,
+        "quality": 1,
+        "n": "Mountain Lion Blood",
+        "image_name": "spell_shadow_lifedrain",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3497": {
+        "i": 3497,
+        "quality": 1,
+        "n": "Elixir of Pain",
+        "image_name": "inv_potion_19",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3498": {
+        "i": 3498,
+        "quality": 1,
+        "n": "Taretha's Necklace",
+        "image_name": "inv_jewelry_necklace_11",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "A crescent moon dangling from a silver chain"
+    },
+    "3499": {
+        "i": 3499,
+        "quality": 1,
+        "n": "Burnished Gold Key",
+        "image_name": "inv_misc_key_04",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 0
+        },
+        "unique": true,
+        "quest_item": true,
+        "consume": true
+    },
+    "3502": {
+        "i": 3502,
+        "quality": 1,
+        "n": "Mudsnout Blossoms",
+        "image_name": "inv_mushroom_10",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3505": {
+        "i": 3505,
+        "quality": 1,
+        "n": "Alterac Signet Ring",
+        "image_name": "inv_jewelry_ring_02",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3506": {
+        "i": 3506,
+        "quality": 1,
+        "n": "Mudsnout Composite",
+        "image_name": "inv_misc_dust_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3508": {
+        "i": 3508,
+        "quality": 1,
+        "n": "Mudsnout Mixture",
+        "image_name": "inv_potion_06",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3509": {
+        "i": 3509,
+        "quality": 1,
+        "n": "Daggerspine Scale",
+        "image_name": "inv_misc_monsterscales_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3510": {
+        "i": 3510,
+        "quality": 1,
+        "n": "Torn Fin Eye",
+        "image_name": "inv_misc_eye_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3511": {
+        "i": 3511,
+        "quality": 2,
+        "n": "Cloak of the People's Militia",
+        "image_name": "inv_misc_cape_14",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 67
+        },
+        "bop": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 14,
+            "agility": 2
+        }
+    },
+    "3514": {
+        "i": 3514,
+        "quality": 1,
+        "n": "Mor'Ladim's Skull",
+        "image_name": "inv_misc_bone_humanskull_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3515": {
+        "i": 3515,
+        "quality": 1,
+        "n": "Ataeric's Staff",
+        "image_name": "inv_staff_07",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3516": {
+        "i": 3516,
+        "quality": 1,
+        "n": "Lescovar's Head",
+        "image_name": "inv_misc_head_human_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3517": {
+        "i": 3517,
+        "quality": 1,
+        "n": "Keg of Shindigger Stout",
+        "image_name": "inv_cask_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3518": {
+        "i": 3518,
+        "quality": 1,
+        "n": "Decrypted Letter",
+        "image_name": "inv_scroll_04",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "click_to_read": true
+    },
+    "3520": {
+        "i": 3520,
+        "quality": 1,
+        "n": "Tainted Keg",
+        "image_name": "inv_cask_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3521": {
+        "i": 3521,
+        "quality": 1,
+        "n": "Cleverly Encrypted Letter",
+        "image_name": "inv_scroll_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "This letter is encrypted and indecipherable"
+    },
+    "3530": {
+        "i": 3530,
+        "quality": 1,
+        "n": "Wool Bandage",
+        "image_name": "inv_misc_bandage_14",
+        "stack": 20,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 28
+        },
+        "requirements": {
+            "profession": {
+                "first aid": 50
+            }
+        },
+        "use": {
+            "s": 3267,
+            "t": "Heals 161 damage over 7 sec."
+        },
+        "created_by": {
+            "profession": "First Aid",
+            "skill": {
+                "yellow": 80,
+                "green": 115,
+                "grey": 150
+            },
+            "materials": {
+                "2592": 1
+            }
+        },
+        "consume": true
+    },
+    "3531": {
+        "i": 3531,
+        "quality": 1,
+        "n": "Heavy Wool Bandage",
+        "image_name": "inv_misc_bandage_17",
+        "stack": 20,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 57
+        },
+        "requirements": {
+            "profession": {
+                "first aid": 75
+            }
+        },
+        "use": {
+            "s": 3268,
+            "t": "Heals 301 damage over 7 sec."
+        },
+        "created_by": {
+            "profession": "First Aid",
+            "skill": {
+                "yellow": 115,
+                "green": 150,
+                "grey": 185
+            },
+            "materials": {
+                "2592": 2
+            }
+        },
+        "consume": true
+    },
+    "3550": {
+        "i": 3550,
+        "quality": 1,
+        "n": "Targ's Head",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3551": {
+        "i": 3551,
+        "quality": 1,
+        "n": "Muckrake's Head",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3552": {
+        "i": 3552,
+        "quality": 1,
+        "n": "Glommus's Head",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3553": {
+        "i": 3553,
+        "quality": 1,
+        "n": "Mug'thol's Head",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3554": {
+        "i": 3554,
+        "quality": 1,
+        "n": "Crown of Will",
+        "image_name": "inv_crown_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3555": {
+        "i": 3555,
+        "quality": 2,
+        "n": "Robe of Solomon",
+        "image_name": "inv_chest_cloth_40",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 32
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 39,
+            "stamina": 7,
+            "spirit": 3,
+            "durability": 65
+        }
+    },
+    "3556": {
+        "i": 3556,
+        "quality": 2,
+        "n": "Dread Mage Hat",
+        "image_name": "inv_helmet_14",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 85
+        },
+        "bop": true,
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 35,
+            "intellect": 7,
+            "spirit": 7,
+            "durability": 45
+        },
+        "requirements": {
+            "class": [
+                "Warlock"
+            ]
+        }
+    },
+    "3558": {
+        "i": 3558,
+        "quality": 2,
+        "n": "Fen Keeper Robe",
+        "image_name": "inv_chest_cloth_14",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 44
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 39,
+            "spirit": 9,
+            "durability": 65
+        }
+    },
+    "3559": {
+        "i": 3559,
+        "quality": 2,
+        "n": "Night Watch Gauntlets",
+        "image_name": "inv_gauntlets_04",
+        "ilvl": 21,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 73
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 107,
+            "strength": 4,
+            "agility": 1,
+            "durability": 30
+        }
+    },
+    "3560": {
+        "i": 3560,
+        "quality": 2,
+        "n": "Mantle of Honor",
+        "image_name": "inv_shoulder_05",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 21,
+            "copper": 2
+        },
+        "bop": true,
+        "slot": "Shoulder",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 35,
+            "intellect": 7,
+            "spirit": 7,
+            "durability": 45
+        }
+    },
+    "3561": {
+        "i": 3561,
+        "quality": 2,
+        "n": "Resilient Poncho",
+        "image_name": "inv_misc_cape_04",
+        "ilvl": 26,
+        "sells_for": {
+            "gold": 0,
+            "silver": 8,
+            "copper": 95
+        },
+        "bop": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 20,
+            "stamina": 5
+        }
+    },
+    "3562": {
+        "i": 3562,
+        "quality": 2,
+        "n": "Belt of Vindication",
+        "image_name": "inv_belt_05",
+        "ilvl": 27,
+        "sells_for": {
+            "gold": 0,
+            "silver": 8,
+            "copper": 23
+        },
+        "bop": true,
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 50,
+            "stamina": 2,
+            "agility": 4,
+            "durability": 30
+        }
+    },
+    "3563": {
+        "i": 3563,
+        "quality": 2,
+        "n": "Seafarer's Pantaloons",
+        "image_name": "inv_pants_02",
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 57
+        },
+        "boe": true,
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 29,
+            "stamina": 4,
+            "spirit": 4,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 15
+        }
+    },
+    "3564": {
+        "i": 3564,
+        "quality": 1,
+        "n": "Shipment of Iron",
+        "image_name": "inv_crate_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3565": {
+        "i": 3565,
+        "quality": 2,
+        "n": "Beerstained Gloves",
+        "image_name": "inv_gauntlets_05",
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 80
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 21,
+            "strength": 3,
+            "stamina": 3,
+            "durability": 20
+        }
+    },
+    "3566": {
+        "i": 3566,
+        "quality": 2,
+        "n": "Raptorbane Armor",
+        "image_name": "inv_chest_leather_01",
+        "ilvl": 29,
+        "sells_for": {
+            "gold": 0,
+            "silver": 20,
+            "copper": 23
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 92,
+            "stamina": 3,
+            "durability": 85
+        },
+        "effects": {
+            "equip": [
+                {
+                    "s": 14565,
+                    "t": "+30 Attack Power when fighting Beasts."
+                }
+            ]
+        }
+    },
+    "3567": {
+        "i": 3567,
+        "quality": 2,
+        "n": "Dwarven Fishing Pole",
+        "image_name": "inv_weapon_rifle_01",
+        "ilvl": 19,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 22
+        },
+        "bop": true,
+        "slot": "Ranged",
+        "proficiency": "Gun",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                9,
+                19
+            ]
+        },
+        "stats": {
+            "durability": 45
+        },
+        "description": "Dwarves aren't known for their subtlety"
+    },
+    "3569": {
+        "i": 3569,
+        "quality": 2,
+        "n": "Vicar's Robe",
+        "image_name": "inv_chest_cloth_42",
+        "ilvl": 26,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 62
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 40,
+            "stamina": 4,
+            "spirit": 7,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 21
+        }
+    },
+    "3570": {
+        "i": 3570,
+        "quality": 2,
+        "n": "Bonegrinding Pestle",
+        "image_name": "inv_mace_06",
+        "ilvl": 16,
+        "sells_for": {
+            "gold": 0,
+            "silver": 8,
+            "copper": 39
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 2.4,
+        "damage": {
+            "normal": [
+                13,
+                26
+            ]
+        },
+        "stats": {
+            "strength": 2,
+            "durability": 50
+        }
+    },
+    "3571": {
+        "i": 3571,
+        "quality": 2,
+        "n": "Trogg Beater",
+        "image_name": "inv_hammer_15",
+        "ilvl": 21,
+        "sells_for": {
+            "gold": 0,
+            "silver": 21,
+            "copper": 18
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 3.6,
+        "damage": {
+            "normal": [
+                39,
+                60
+            ]
+        },
+        "stats": {
+            "stamina": 7,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 16
+        }
+    },
+    "3572": {
+        "i": 3572,
+        "quality": 2,
+        "n": "Daryl's Shortsword",
+        "image_name": "inv_sword_04",
+        "ilvl": 17,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 72
+        },
+        "bop": true,
+        "slot": "One-hand",
+        "proficiency": "Sword",
+        "speed": 2.3,
+        "damage": {
+            "normal": [
+                14,
+                26
+            ]
+        },
+        "stats": {
+            "agility": 2,
+            "durability": 50
+        }
+    },
+    "3573": {
+        "i": 3573,
+        "quality": 1,
+        "n": "Hunting Quiver",
+        "image_name": "inv_misc_quiver_03",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 12
+        },
+        "bop": true,
+        "unique": true,
+        "slot": "Bag",
+        "slots": 10,
+        "effects": {
+            "equip": [
+                {
+                    "s": 14824,
+                    "t": "Increases ranged attack speed by 10%."
+                }
+            ]
+        }
+    },
+    "3574": {
+        "i": 3574,
+        "quality": 1,
+        "n": "Hunting Ammo Sack",
+        "image_name": "inv_misc_ammo_bullet_01",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 12
+        },
+        "bop": true,
+        "slot": "Bag",
+        "slots": 10,
+        "effects": {
+            "equip": [
+                {
+                    "s": 14824,
+                    "t": "Increases ranged attack speed by 10%."
+                }
+            ]
+        }
+    },
+    "3575": {
+        "i": 3575,
+        "quality": 1,
+        "n": "Iron Bar",
+        "image_name": "inv_ingot_iron",
+        "stack": 20,
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 0
+        },
+        "created_by": {
+            "profession": "Mining",
+            "skill": {
+                "yellow": 130,
+                "green": 145,
+                "grey": 160
+            },
+            "materials": {
+                "2772": 1
+            }
+        }
+    },
+    "3576": {
+        "i": 3576,
+        "quality": 1,
+        "n": "Tin Bar",
+        "image_name": "inv_ingot_05",
+        "stack": 20,
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 35
+        },
+        "created_by": {
+            "profession": "Mining",
+            "skill": {
+                "yellow": 65,
+                "green": 70,
+                "grey": 75
+            },
+            "materials": {
+                "2771": 1
+            }
+        }
+    },
+    "3577": {
+        "i": 3577,
+        "quality": 2,
+        "n": "Gold Bar",
+        "image_name": "inv_ingot_03",
+        "stack": 20,
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 6,
+            "copper": 0
+        },
+        "created_by": {
+            "profession": "Mining",
+            "skill": {
+                "yellow": 170,
+                "green": 177,
+                "grey": 185
+            },
+            "materials": {
+                "2776": 1
+            }
+        }
+    },
+    "3578": {
+        "i": 3578,
+        "quality": 2,
+        "n": "Harvester's Pants",
+        "image_name": "inv_pants_05",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 39
+        },
+        "bop": true,
+        "slot": "Legs",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 61,
+            "spirit": 3,
+            "agility": 2,
+            "durability": 45
+        }
+    },
+    "3581": {
+        "i": 3581,
+        "quality": 2,
+        "n": "Serrated Knife",
+        "image_name": "inv_weapon_shortblade_01",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 46
+        },
+        "bop": true,
+        "slot": "One-hand",
+        "proficiency": "Dagger",
+        "speed": 1.6,
+        "damage": {
+            "normal": [
+                10,
+                19
+            ]
+        },
+        "stats": {
+            "stamina": 1,
+            "agility": 1,
+            "durability": 40
+        }
+    },
+    "3582": {
+        "i": 3582,
+        "quality": 2,
+        "n": "Acidproof Cloak",
+        "image_name": "inv_misc_cape_01",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 74
+        },
+        "bop": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 16,
+            "stamina": 3
+        }
+    },
+    "3583": {
+        "i": 3583,
+        "quality": 1,
+        "n": "Weathered Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 12,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 57
+        },
+        "bop": true,
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 33,
+            "durability": 20
+        }
+    },
+    "3585": {
+        "i": 3585,
+        "quality": 2,
+        "n": "Camouflaged Tunic",
+        "image_name": "inv_chest_leather_08",
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 53
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 81,
+            "stamina": 6,
+            "agility": 2,
+            "durability": 75
+        }
+    },
+    "3586": {
+        "i": 3586,
+        "quality": 2,
+        "n": "Logsplitter",
+        "image_name": "inv_axe_11",
+        "ilvl": 16,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 34
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 3.6,
+        "damage": {
+            "normal": [
+                31,
+                47
+            ]
+        },
+        "stats": {
+            "strength": 3,
+            "stamina": 2,
+            "durability": 55
+        }
+    },
+    "3587": {
+        "i": 3587,
+        "quality": 1,
+        "n": "Embroidered Belt",
+        "image_name": "inv_belt_08",
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 28,
+            "copper": 62
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 35,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 45
+        }
+    },
+    "3588": {
+        "i": 3588,
+        "quality": 1,
+        "n": "Embroidered Bracers",
+        "image_name": "inv_bracer_13",
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 28,
+            "copper": 73
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 27,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 45
+        }
+    },
+    "3589": {
+        "i": 3589,
+        "quality": 1,
+        "n": "Heavy Weave Belt",
+        "image_name": "inv_belt_25",
+        "ilvl": 17,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 15
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 16,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 12
+        }
+    },
+    "3590": {
+        "i": 3590,
+        "quality": 1,
+        "n": "Heavy Weave Bracers",
+        "image_name": "inv_bracer_06",
+        "ilvl": 17,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 15
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 13,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 12
+        }
+    },
+    "3591": {
+        "i": 3591,
+        "quality": 1,
+        "n": "Padded Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 27,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 19
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 22,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 22
+        }
+    },
+    "3592": {
+        "i": 3592,
+        "quality": 1,
+        "n": "Padded Bracers",
+        "image_name": "inv_bracer_11",
+        "ilvl": 27,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 20
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 17,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 22
+        }
+    },
+    "3593": {
+        "i": 3593,
+        "quality": 1,
+        "n": "Russet Belt",
+        "image_name": "inv_belt_26",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 95
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 26,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3594": {
+        "i": 3594,
+        "quality": 1,
+        "n": "Russet Bracers",
+        "image_name": "inv_bracer_07",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 99
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 20,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3595": {
+        "i": 3595,
+        "quality": 1,
+        "n": "Tattered Cloth Belt",
+        "image_name": "inv_belt_24",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 6,
+            "durability": 14
+        }
+    },
+    "3596": {
+        "i": 3596,
+        "quality": 1,
+        "n": "Tattered Cloth Bracers",
+        "image_name": "inv_bracer_07",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 4,
+            "durability": 14
+        }
+    },
+    "3597": {
+        "i": 3597,
+        "quality": 1,
+        "n": "Thick Cloth Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 16
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 19,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 17
+        }
+    },
+    "3598": {
+        "i": 3598,
+        "quality": 1,
+        "n": "Thick Cloth Bracers",
+        "image_name": "inv_bracer_11",
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 17
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 15,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 17
+        }
+    },
+    "3599": {
+        "i": 3599,
+        "quality": 1,
+        "n": "Thin Cloth Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 6,
+            "durability": 14
+        }
+    },
+    "3600": {
+        "i": 3600,
+        "quality": 1,
+        "n": "Thin Cloth Bracers",
+        "image_name": "inv_bracer_03",
+        "ilvl": 5,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 4
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 4,
+            "durability": 14
+        }
+    },
+    "3601": {
+        "i": 3601,
+        "quality": 1,
+        "n": "Syndicate Missive",
+        "image_name": "inv_letter_16",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "click_to_read": true
+    },
+    "3602": {
+        "i": 3602,
+        "quality": 1,
+        "n": "Knitted Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 29
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 10,
+            "durability": 16
+        },
+        "requirements": {
+            "level": 5
+        }
+    },
+    "3603": {
+        "i": 3603,
+        "quality": 1,
+        "n": "Knitted Bracers",
+        "image_name": "inv_bracer_03",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 29
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 8,
+            "durability": 16
+        },
+        "requirements": {
+            "level": 5
+        }
+    },
+    "3604": {
+        "i": 3604,
+        "quality": 2,
+        "n": "Bandolier of the Night Watch",
+        "image_name": "inv_misc_bag_09_blue",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "bop": true,
+        "unique": true,
+        "slot": "Bag",
+        "slots": 12,
+        "effects": {
+            "equip": [
+                {
+                    "s": 14825,
+                    "t": "Increases ranged attack speed by 11%."
+                }
+            ]
+        }
+    },
+    "3605": {
+        "i": 3605,
+        "quality": 2,
+        "n": "Quiver of the Night Watch",
+        "image_name": "inv_misc_quiver_04",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "bop": true,
+        "unique": true,
+        "slot": "Bag",
+        "slots": 12,
+        "effects": {
+            "equip": [
+                {
+                    "s": 14825,
+                    "t": "Increases ranged attack speed by 11%."
+                }
+            ]
+        }
+    },
+    "3606": {
+        "i": 3606,
+        "quality": 1,
+        "n": "Woven Belt",
+        "image_name": "inv_belt_24",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 29
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 10,
+            "durability": 16
+        },
+        "requirements": {
+            "level": 5
+        }
+    },
+    "3607": {
+        "i": 3607,
+        "quality": 1,
+        "n": "Woven Bracers",
+        "image_name": "inv_bracer_10",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 29
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 8,
+            "durability": 16
+        },
+        "requirements": {
+            "level": 5
+        }
+    },
+    "3608": {
+        "i": 3608,
+        "quality": 2,
+        "n": "Plans: Mighty Iron Hammer",
+        "image_name": "inv_scroll_06",
+        "ilvl": 29,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 145
+            }
+        },
+        "use": {
+            "s": 3303,
+            "t": "Teaches you how to make a Mighty Iron Hammer."
+        }
+    },
+    "3609": {
+        "i": 3609,
+        "quality": 2,
+        "n": "Plans: Copper Chain Vest",
+        "image_name": "inv_scroll_06",
+        "ilvl": 10,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 25
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 35
+            }
+        },
+        "use": {
+            "s": 3349,
+            "t": "Teaches you how to make a Copper Chain Vest."
+        }
+    },
+    "3610": {
+        "i": 3610,
+        "quality": 2,
+        "n": "Plans: Gemmed Copper Gauntlets",
+        "image_name": "inv_scroll_06",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 60
+            }
+        },
+        "use": {
+            "s": 3350,
+            "t": "Teaches you how to make Gemmed Copper Gauntlets."
+        }
+    },
+    "3611": {
+        "i": 3611,
+        "quality": 2,
+        "n": "Plans: Green Iron Boots",
+        "image_name": "inv_scroll_06",
+        "ilvl": 29,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 145
+            }
+        },
+        "use": {
+            "s": 3352,
+            "t": "Teaches you how to make Green Iron Boots."
+        }
+    },
+    "3612": {
+        "i": 3612,
+        "quality": 2,
+        "n": "Plans: Green Iron Gauntlets",
+        "image_name": "inv_scroll_06",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 150
+            }
+        },
+        "use": {
+            "s": 3353,
+            "t": "Teaches you how to make Green Iron Gauntlets."
+        }
+    },
+    "3613": {
+        "i": 3613,
+        "quality": 1,
+        "n": "Valdred's Hands",
+        "image_name": "inv_gauntlets_09",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3614": {
+        "i": 3614,
+        "quality": 1,
+        "n": "Yowler's Paw",
+        "image_name": "inv_misc_monsterclaw_04",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3615": {
+        "i": 3615,
+        "quality": 1,
+        "n": "Kurzen's Head",
+        "image_name": "inv_misc_head_human_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3616": {
+        "i": 3616,
+        "quality": 1,
+        "n": "Mind's Eye",
+        "image_name": "inv_misc_gem_diamond_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3617": {
+        "i": 3617,
+        "quality": 1,
+        "n": "Pendant of Shadow",
+        "image_name": "inv_jewelry_amulet_06",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3618": {
+        "i": 3618,
+        "quality": 1,
+        "n": "Gobbler's Head",
+        "image_name": "inv_misc_monsterhead_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3619": {
+        "i": 3619,
+        "quality": 1,
+        "n": "Snellig's Snuffbox",
+        "image_name": "inv_misc_ornatebox",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3621": {
+        "i": 3621,
+        "quality": 1,
+        "n": "Ivar's Head",
+        "image_name": "inv_misc_bone_orcskull_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3622": {
+        "i": 3622,
+        "quality": 1,
+        "n": "Essence of Nightlash",
+        "image_name": "inv_misc_dust_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3623": {
+        "i": 3623,
+        "quality": 1,
+        "n": "Thule's Head",
+        "image_name": "inv_misc_head_human_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3625": {
+        "i": 3625,
+        "quality": 1,
+        "n": "Nek'rosh's Head",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3626": {
+        "i": 3626,
+        "quality": 1,
+        "n": "Head of Baron Vardus",
+        "image_name": "inv_misc_head_human_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3627": {
+        "i": 3627,
+        "quality": 1,
+        "n": "Fang of Vagash",
+        "image_name": "inv_misc_bone_06",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3628": {
+        "i": 3628,
+        "quality": 1,
+        "n": "Hand of Dextren Ward",
+        "image_name": "inv_gauntlets_09",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3629": {
+        "i": 3629,
+        "quality": 1,
+        "n": "Mistmantle Family Ring",
+        "image_name": "inv_jewelry_ring_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3630": {
+        "i": 3630,
+        "quality": 1,
+        "n": "Head of Targorr",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3631": {
+        "i": 3631,
+        "quality": 1,
+        "n": "Bellygrub's Tusk",
+        "image_name": "inv_misc_bone_04",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3632": {
+        "i": 3632,
+        "quality": 1,
+        "n": "Fangore's Paw",
+        "image_name": "inv_misc_monsterclaw_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3633": {
+        "i": 3633,
+        "quality": 1,
+        "n": "Head of Gath'Ilzogg",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3634": {
+        "i": 3634,
+        "quality": 1,
+        "n": "Head of Grimson",
+        "image_name": "inv_misc_bone_humanskull_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3635": {
+        "i": 3635,
+        "quality": 1,
+        "n": "Maggot Eye's Paw",
+        "image_name": "inv_misc_monsterclaw_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3636": {
+        "i": 3636,
+        "quality": 1,
+        "n": "Scale of Old Murk-Eye",
+        "image_name": "inv_misc_monsterscales_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3637": {
+        "i": 3637,
+        "quality": 1,
+        "n": "Head of VanCleef",
+        "image_name": "inv_misc_head_human_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3638": {
+        "i": 3638,
+        "quality": 1,
+        "n": "Sarltooth's Talon",
+        "image_name": "inv_misc_bone_06",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3639": {
+        "i": 3639,
+        "quality": 1,
+        "n": "Ear of Balgaras",
+        "image_name": "inv_misc_ear_human_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3640": {
+        "i": 3640,
+        "quality": 1,
+        "n": "Head of Deepfury",
+        "image_name": "inv_misc_head_dwarf_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3641": {
+        "i": 3641,
+        "quality": 1,
+        "n": "Journeyman's Bracers",
+        "image_name": "inv_bracer_03",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 15
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 7,
+            "durability": 14
+        },
+        "requirements": {
+            "level": 3
+        }
+    },
+    "3642": {
+        "i": 3642,
+        "quality": 1,
+        "n": "Ancestral Bracers",
+        "image_name": "inv_bracer_08",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 22
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 7,
+            "durability": 16
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3643": {
+        "i": 3643,
+        "quality": 1,
+        "n": "Spellbinder Bracers",
+        "image_name": "inv_bracer_06",
+        "ilvl": 14,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 71
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 11,
+            "durability": 18
+        },
+        "requirements": {
+            "level": 9
+        }
+    },
+    "3644": {
+        "i": 3644,
+        "quality": 1,
+        "n": "Barbaric Cloth Bracers",
+        "image_name": "inv_bracer_08",
+        "ilvl": 12,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 47
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 9,
+            "durability": 16
+        },
+        "requirements": {
+            "level": 7
+        }
+    },
+    "3645": {
+        "i": 3645,
+        "quality": 2,
+        "n": "Seer's Cuffs",
+        "image_name": "inv_bracer_07",
+        "ilvl": 17,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 89
+        },
+        "boe": true,
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 13,
+            "spirit": 2,
+            "intellect": 1,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 12
+        }
+    },
+    "3647": {
+        "i": 3647,
+        "quality": 2,
+        "n": "Bright Bracers",
+        "image_name": "inv_bracer_02",
+        "ilvl": 23,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 33
+        },
+        "boe": true,
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 16,
+            "intellect": 4,
+            "durability": 20
+        },
+        "requirements": {
+            "level": 18
+        }
+    },
+    "3649": {
+        "i": 3649,
+        "quality": 1,
+        "n": "Tribal Buckler",
+        "image_name": "inv_shield_09",
+        "ilvl": 11,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 15
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 189,
+            "block": 3,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 6
+        }
+    },
+    "3650": {
+        "i": 3650,
+        "quality": 1,
+        "n": "Battle Shield",
+        "image_name": "inv_shield_09",
+        "ilvl": 9,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 68
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 135,
+            "block": 3,
+            "durability": 40
+        },
+        "requirements": {
+            "level": 4
+        }
+    },
+    "3651": {
+        "i": 3651,
+        "quality": 2,
+        "n": "Veteran Shield",
+        "image_name": "inv_shield_09",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 35
+        },
+        "boe": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 328,
+            "block": 5,
+            "strength": 2,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 10
+        }
+    },
+    "3652": {
+        "i": 3652,
+        "quality": 2,
+        "n": "Hunting Buckler",
+        "image_name": "inv_shield_09",
+        "ilvl": 14,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 64
+        },
+        "boe": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 311,
+            "block": 5,
+            "stamina": 1,
+            "intellect": 1,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 9
+        }
+    },
+    "3653": {
+        "i": 3653,
+        "quality": 2,
+        "n": "Ceremonial Buckler",
+        "image_name": "inv_shield_09",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 38
+        },
+        "boe": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 328,
+            "block": 5,
+            "spirit": 2,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 10
+        }
+    },
+    "3654": {
+        "i": 3654,
+        "quality": 2,
+        "n": "Brackwater Shield",
+        "image_name": "inv_shield_09",
+        "ilvl": 14,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 66
+        },
+        "boe": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 311,
+            "block": 5,
+            "agility": 1,
+            "stamina": 1,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 9
+        }
+    },
+    "3655": {
+        "i": 3655,
+        "quality": 2,
+        "n": "Burnished Shield",
+        "image_name": "inv_shield_03",
+        "ilvl": 21,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 22
+        },
+        "boe": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 428,
+            "block": 7,
+            "stamina": 3,
+            "strength": 2,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 16
+        }
+    },
+    "3656": {
+        "i": 3656,
+        "quality": 2,
+        "n": "Lambent Scale Shield",
+        "image_name": "inv_shield_03",
+        "ilvl": 27,
+        "sells_for": {
+            "gold": 0,
+            "silver": 21,
+            "copper": 16
+        },
+        "boe": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 528,
+            "block": 10,
+            "strength": 4,
+            "stamina": 2,
+            "durability": 80
+        },
+        "requirements": {
+            "level": 22
+        }
+    },
+    "3657": {
+        "i": 3657,
+        "quality": 1,
+        "n": "Hillsbrad Town Registry",
+        "image_name": "inv_misc_book_08",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "click_to_read": true
+    },
+    "3658": {
+        "i": 3658,
+        "quality": 1,
+        "n": "Recovered Tome",
+        "image_name": "inv_misc_book_11",
+        "stack": 10,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3659": {
+        "i": 3659,
+        "quality": 1,
+        "n": "Worn Leather Book",
+        "image_name": "inv_misc_book_07",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "Arm of Gri'le"
+    },
+    "3660": {
+        "i": 3660,
+        "quality": 1,
+        "n": "Tomes of Alterac",
+        "image_name": "inv_crate_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3661": {
+        "i": 3661,
+        "quality": 1,
+        "n": "Handcrafted Staff",
+        "image_name": "inv_staff_21",
+        "ilvl": 2,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 9
+        },
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 2.9,
+        "damage": {
+            "normal": [
+                3,
+                5
+            ]
+        },
+        "stats": {
+            "durability": 25
+        }
+    },
+    "3662": {
+        "i": 3662,
+        "quality": 1,
+        "n": "Crocolisk Steak",
+        "image_name": "inv_misc_food_47",
+        "stack": 20,
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 25
+        },
+        "requirements": {
+            "level": 5
+        },
+        "use": {
+            "s": 5005,
+            "t": "Restores 243.6 health over 21 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 4 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 120,
+                "green": 140,
+                "grey": 160
+            },
+            "materials": {
+                "2924": 1,
+                "2678": 1
+            }
+        },
+        "consume": true
+    },
+    "3663": {
+        "i": 3663,
+        "quality": 1,
+        "n": "Murloc Fin Soup",
+        "image_name": "inv_misc_bowl_01",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 25
+        },
+        "requirements": {
+            "level": 15
+        },
+        "use": {
+            "s": 5006,
+            "t": "Restores 552 health over 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 130,
+                "green": 150,
+                "grey": 170
+            },
+            "materials": {
+                "1468": 2,
+                "2692": 1
+            }
+        },
+        "consume": true
+    },
+    "3664": {
+        "i": 3664,
+        "quality": 1,
+        "n": "Crocolisk Gumbo",
+        "image_name": "inv_misc_bowl_01",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        },
+        "requirements": {
+            "level": 15
+        },
+        "use": {
+            "s": 5006,
+            "t": "Restores 552 health over 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 160,
+                "green": 180,
+                "grey": 200
+            },
+            "materials": {
+                "3667": 1,
+                "2692": 1
+            }
+        },
+        "consume": true
+    },
+    "3665": {
+        "i": 3665,
+        "quality": 1,
+        "n": "Curiously Tasty Omelet",
+        "image_name": "inv_egg_04",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 50
+        },
+        "requirements": {
+            "level": 15
+        },
+        "use": {
+            "s": 5006,
+            "t": "Restores 552 health over 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 170,
+                "green": 190,
+                "grey": 210
+            },
+            "materials": {
+                "3685": 1,
+                "2692": 1
+            }
+        },
+        "consume": true
+    },
+    "3666": {
+        "i": 3666,
+        "quality": 1,
+        "n": "Gooey Spider Cake",
+        "image_name": "inv_misc_food_10",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        },
+        "requirements": {
+            "level": 15
+        },
+        "use": {
+            "s": 5006,
+            "t": "Restores 552 health over 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 150,
+                "green": 170,
+                "grey": 190
+            },
+            "materials": {
+                "2251": 2,
+                "2692": 1
+            }
+        },
+        "consume": true
+    },
+    "3667": {
+        "i": 3667,
+        "quality": 1,
+        "n": "Tender Crocolisk Meat",
+        "image_name": "inv_misc_food_14",
+        "stack": 10,
+        "ilvl": 23,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 25
+        }
+    },
+    "3668": {
+        "i": 3668,
+        "quality": 1,
+        "n": "Assassin's Contract",
+        "image_name": "inv_scroll_03",
+        "ilvl": 38,
+        "bop": true,
+        "unique": true,
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "starts": 522
+    },
+    "3669": {
+        "i": 3669,
+        "quality": 0,
+        "n": "Gelatinous Goo",
+        "image_name": "inv_misc_slime_01",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 95
+        }
+    },
+    "3670": {
+        "i": 3670,
+        "quality": 0,
+        "n": "Large Slimy Bone",
+        "image_name": "inv_misc_bone_01",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 70
+        }
+    },
+    "3671": {
+        "i": 3671,
+        "quality": 0,
+        "n": "Lifeless Skull",
+        "image_name": "inv_misc_bone_humanskull_01",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 1
+        }
+    },
+    "3672": {
+        "i": 3672,
+        "quality": 1,
+        "n": "Head of Nagaz",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3673": {
+        "i": 3673,
+        "quality": 0,
+        "n": "Broken Arrow",
+        "image_name": "inv_ammo_arrow_01",
+        "stack": 100,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 45
+        }
+    },
+    "3674": {
+        "i": 3674,
+        "quality": 0,
+        "n": "Decomposed Boot",
+        "image_name": "inv_boots_01",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 95
+        }
+    },
+    "3676": {
+        "i": 3676,
+        "quality": 0,
+        "n": "Slimy Ichor",
+        "image_name": "inv_misc_slime_01",
+        "stack": 10,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 6
+        }
+    },
+    "3678": {
+        "i": 3678,
+        "quality": 1,
+        "n": "Recipe: Crocolisk Steak",
+        "image_name": "inv_scroll_03",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 80
+            }
+        },
+        "use": {
+            "s": 6534,
+            "t": "Teaches you how to cook a Crocolisk Steak."
+        }
+    },
+    "3679": {
+        "i": 3679,
+        "quality": 1,
+        "n": "Recipe: Blood Sausage",
+        "image_name": "inv_scroll_03",
+        "ilvl": 15,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 60
+            }
+        },
+        "use": {
+            "s": 3382,
+            "t": "Teaches you how to cook a Blood Sausage."
+        }
+    },
+    "3680": {
+        "i": 3680,
+        "quality": 1,
+        "n": "Recipe: Murloc Fin Soup",
+        "image_name": "inv_scroll_03",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 90
+            }
+        },
+        "use": {
+            "s": 3381,
+            "t": "Teaches you how to cook a Murloc Fin Soup."
+        }
+    },
+    "3681": {
+        "i": 3681,
+        "quality": 1,
+        "n": "Recipe: Crocolisk Gumbo",
+        "image_name": "inv_scroll_03",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 120
+            }
+        },
+        "use": {
+            "s": 3380,
+            "t": "Teaches you how to cook a Crocolisk Gumbo."
+        }
+    },
+    "3682": {
+        "i": 3682,
+        "quality": 1,
+        "n": "Recipe: Curiously Tasty Omelet",
+        "image_name": "inv_scroll_03",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 130
+            }
+        },
+        "use": {
+            "s": 3379,
+            "t": "Teaches you how to cook a Curiously Tasty Omelet. Don't ask, you don't want to know."
+        }
+    },
+    "3683": {
+        "i": 3683,
+        "quality": 1,
+        "n": "Recipe: Gooey Spider Cake",
+        "image_name": "inv_scroll_03",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 110
+            }
+        },
+        "use": {
+            "s": 3378,
+            "t": "Teaches you how to cook a Gooey Spider Cake."
+        }
+    },
+    "3684": {
+        "i": 3684,
+        "quality": 1,
+        "n": "Perenolde Tiara",
+        "image_name": "inv_crown_01",
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3685": {
+        "i": 3685,
+        "quality": 1,
+        "n": "Raptor Egg",
+        "image_name": "inv_egg_03",
+        "stack": 10,
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 71
+        }
+    },
+    "3688": {
+        "i": 3688,
+        "quality": 1,
+        "n": "Bloodstone Oval",
+        "image_name": "inv_misc_gem_bloodstone_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3689": {
+        "i": 3689,
+        "quality": 1,
+        "n": "Bloodstone Marble",
+        "image_name": "inv_misc_gem_bloodstone_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3690": {
+        "i": 3690,
+        "quality": 1,
+        "n": "Bloodstone Shard",
+        "image_name": "inv_misc_gem_bloodstone_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3691": {
+        "i": 3691,
+        "quality": 1,
+        "n": "Bloodstone Wedge",
+        "image_name": "inv_misc_gem_ruby_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3692": {
+        "i": 3692,
+        "quality": 1,
+        "n": "Hillsbrad Human Skull",
+        "image_name": "inv_misc_bone_humanskull_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3693": {
+        "i": 3693,
+        "quality": 1,
+        "n": "Humbert's Sword",
+        "image_name": "inv_sword_06",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3701": {
+        "i": 3701,
+        "quality": 1,
+        "n": "Darthalia's Sealed Commendation",
+        "image_name": "inv_letter_16",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "To be opened by Lord Varimathras"
+    },
+    "3702": {
+        "i": 3702,
+        "quality": 0,
+        "n": "Bear Gall Bladder",
+        "image_name": "inv_misc_organ_02",
+        "stack": 10,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 98
+        }
+    },
+    "3703": {
+        "i": 3703,
+        "quality": 1,
+        "n": "Southshore Stout",
+        "image_name": "inv_drink_08",
+        "stack": 10,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 36
+        },
+        "use": {
+            "s": 11008,
+            "t": "A typical alcoholic beverage."
+        },
+        "consume": true
+    },
+    "3704": {
+        "i": 3704,
+        "quality": 1,
+        "n": "Rusted Iron Key",
+        "image_name": "inv_misc_key_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3706": {
+        "i": 3706,
+        "quality": 1,
+        "n": "Ensorcelled Parchment",
+        "image_name": "inv_scroll_02",
+        "ilvl": 40,
+        "bop": true,
+        "unique": true,
+        "requirements": {
+            "level": 30,
+            "faction": "A"
+        },
+        "starts": 551,
+        "description": "Its letters are enshrouded in magic"
+    },
+    "3708": {
+        "i": 3708,
+        "quality": 1,
+        "n": "Helcular's Rod",
+        "image_name": "inv_wand_09",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3710": {
+        "i": 3710,
+        "quality": 1,
+        "n": "Rod of Helcular",
+        "image_name": "inv_wand_09",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "use": {
+            "s": 1538,
+            "t": "Charges the Rod of Helcular when used at the three ceremonial pyres."
+        }
+    },
+    "3711": {
+        "i": 3711,
+        "quality": 1,
+        "n": "Belamoore's Research Journal",
+        "image_name": "inv_misc_book_04",
+        "ilvl": 1,
+        "unique": true,
+        "click_to_read": true
+    },
+    "3712": {
+        "i": 3712,
+        "quality": 1,
+        "n": "Turtle Meat",
+        "image_name": "inv_misc_food_70",
+        "stack": 10,
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 87
+        }
+    },
+    "3713": {
+        "i": 3713,
+        "quality": 1,
+        "n": "Soothing Spices",
+        "image_name": "inv_misc_food_wheat_02",
+        "stack": 20,
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 40
+        }
+    },
+    "3714": {
+        "i": 3714,
+        "quality": 1,
+        "n": "Worn Stone Token",
+        "image_name": "inv_misc_rune_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true,
+        "description": "Its magic has faded"
+    },
+    "3715": {
+        "i": 3715,
+        "quality": 1,
+        "n": "Bracers of Earth Binding",
+        "image_name": "inv_bracer_13",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3716": {
+        "i": 3716,
+        "quality": 1,
+        "n": "Murloc Head",
+        "image_name": "inv_misc_head_murloc_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3717": {
+        "i": 3717,
+        "quality": 1,
+        "n": "Sack of Murloc Heads",
+        "image_name": "inv_misc_bag_10",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3718": {
+        "i": 3718,
+        "quality": 1,
+        "n": "Foreboding Plans",
+        "image_name": "inv_scroll_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "click_to_read": true
+    },
+    "3719": {
+        "i": 3719,
+        "quality": 1,
+        "n": "Hillman's Cloak",
+        "image_name": "inv_misc_cape_07",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 27
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 20
+        },
+        "requirements": {
+            "level": 25
+        },
+        "created_by": {
+            "profession": "Leatherworking",
+            "skill": {
+                "yellow": 170,
+                "green": 180,
+                "grey": 190
+            },
+            "materials": {
+                "4234": 5,
+                "2321": 2
+            }
+        }
+    },
+    "3720": {
+        "i": 3720,
+        "quality": 1,
+        "n": "Yeti Fur",
+        "image_name": "inv_misc_pelt_wolf_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3721": {
+        "i": 3721,
+        "quality": 1,
+        "n": "Farren's Report",
+        "image_name": "inv_letter_05",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3722": {
+        "i": 3722,
+        "quality": 0,
+        "n": "Familiar Hide",
+        "image_name": "inv_misc_pelt_wolf_02",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 13
+        }
+    },
+    "3723": {
+        "i": 3723,
+        "quality": 0,
+        "n": "Familiar Fang",
+        "image_name": "inv_misc_bone_08",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 68
+        }
+    },
+    "3724": {
+        "i": 3724,
+        "quality": 0,
+        "n": "Familiar Claw",
+        "image_name": "inv_misc_bone_06",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 81
+        }
+    },
+    "3725": {
+        "i": 3725,
+        "quality": 0,
+        "n": "Familiar Horn",
+        "image_name": "inv_misc_bone_05",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 66
+        }
+    },
+    "3726": {
+        "i": 3726,
+        "quality": 1,
+        "n": "Big Bear Steak",
+        "image_name": "inv_misc_food_47",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 25
+        },
+        "requirements": {
+            "level": 15
+        },
+        "use": {
+            "s": 5006,
+            "t": "Restores 552 health over 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 150,
+                "green": 170,
+                "grey": 190
+            },
+            "materials": {
+                "3730": 1,
+                "2692": 1
+            }
+        },
+        "consume": true
+    },
+    "3727": {
+        "i": 3727,
+        "quality": 1,
+        "n": "Hot Lion Chops",
+        "image_name": "inv_misc_food_18",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 25
+        },
+        "requirements": {
+            "level": 15
+        },
+        "use": {
+            "s": 5006,
+            "t": "Restores 552 health over 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 6 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 175,
+                "green": 195,
+                "grey": 215
+            },
+            "materials": {
+                "3731": 1,
+                "2692": 1
+            }
+        },
+        "consume": true
+    },
+    "3728": {
+        "i": 3728,
+        "quality": 1,
+        "n": "Tasty Lion Steak",
+        "image_name": "inv_misc_food_14",
+        "stack": 20,
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 0
+        },
+        "requirements": {
+            "level": 20
+        },
+        "use": {
+            "s": 5007,
+            "t": "Restores 874.8 health over 27 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 8 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 190,
+                "green": 210,
+                "grey": 230
+            },
+            "materials": {
+                "3731": 2,
+                "3713": 1
+            }
+        },
+        "consume": true
+    },
+    "3729": {
+        "i": 3729,
+        "quality": 1,
+        "n": "Soothing Turtle Bisque",
+        "image_name": "inv_misc_bowl_01",
+        "stack": 20,
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 3,
+            "copper": 0
+        },
+        "requirements": {
+            "level": 25
+        },
+        "use": {
+            "s": 5007,
+            "t": "Restores 874.8 health over 27 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 8 Stamina and Spirit for 15 min."
+        },
+        "created_by": {
+            "profession": "Cooking",
+            "skill": {
+                "yellow": 215,
+                "green": 235,
+                "grey": 255
+            },
+            "materials": {
+                "3712": 1,
+                "3713": 1
+            }
+        },
+        "consume": true
+    },
+    "3730": {
+        "i": 3730,
+        "quality": 1,
+        "n": "Big Bear Meat",
+        "image_name": "inv_misc_food_14",
+        "stack": 10,
+        "ilvl": 21,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 45
+        }
+    },
+    "3731": {
+        "i": 3731,
+        "quality": 1,
+        "n": "Lion Meat",
+        "image_name": "inv_misc_food_71",
+        "stack": 10,
+        "ilvl": 23,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 55
+        }
+    },
+    "3732": {
+        "i": 3732,
+        "quality": 1,
+        "n": "Hooded Cowl",
+        "image_name": "inv_helmet_34",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 8,
+            "copper": 1
+        },
+        "bop": true,
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 33,
+            "durability": 45
+        }
+    },
+    "3733": {
+        "i": 3733,
+        "quality": 2,
+        "n": "Orcish War Chain",
+        "image_name": "inv_chest_chain",
+        "ilvl": 23,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 69
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 177,
+            "strength": 6,
+            "stamina": 3,
+            "durability": 90
+        }
+    },
+    "3734": {
+        "i": 3734,
+        "quality": 1,
+        "n": "Recipe: Big Bear Steak",
+        "image_name": "inv_scroll_03",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 110
+            }
+        },
+        "use": {
+            "s": 3401,
+            "t": "Teaches you how to cook a Big Bear Steak."
+        }
+    },
+    "3735": {
+        "i": 3735,
+        "quality": 1,
+        "n": "Recipe: Hot Lion Chops",
+        "image_name": "inv_scroll_03",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 125
+            }
+        },
+        "use": {
+            "s": 3402,
+            "t": "Teaches you how to cook up some Hot Lion Chops."
+        }
+    },
+    "3736": {
+        "i": 3736,
+        "quality": 1,
+        "n": "Recipe: Tasty Lion Steak",
+        "image_name": "inv_scroll_03",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 150
+            }
+        },
+        "use": {
+            "s": 3403,
+            "t": "Teaches you how to cook a Tasty Lion Steak."
+        }
+    },
+    "3737": {
+        "i": 3737,
+        "quality": 1,
+        "n": "Recipe: Soothing Turtle Bisque",
+        "image_name": "inv_scroll_03",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "cooking": 175
+            }
+        },
+        "use": {
+            "s": 3404,
+            "t": "Teaches you how to cook a Soothing Turtle Bisque."
+        }
+    },
+    "3739": {
+        "i": 3739,
+        "quality": 2,
+        "n": "Skull Ring",
+        "image_name": "inv_belt_12",
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 50
+        },
+        "bop": true,
+        "slot": "Finger",
+        "stats": {
+            "stamina": 3,
+            "intellect": 3
+        }
+    },
+    "3740": {
+        "i": 3740,
+        "quality": 2,
+        "n": "Decapitating Sword",
+        "image_name": "inv_weapon_shortblade_26",
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 24,
+            "copper": 52
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 2.6,
+        "damage": {
+            "normal": [
+                22,
+                42
+            ]
+        },
+        "stats": {
+            "durability": 65,
+            "random": true
+        },
+        "requirements": {
+            "level": 19
+        }
+    },
+    "3741": {
+        "i": 3741,
+        "quality": 2,
+        "n": "Stomping Boots",
+        "image_name": "inv_boots_08",
+        "ilvl": 24,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 22
+        },
+        "bop": true,
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 58,
+            "strength": 4,
+            "agility": 4,
+            "durability": 40
+        }
+    },
+    "3742": {
+        "i": 3742,
+        "quality": 2,
+        "n": "Bow of Plunder",
+        "image_name": "inv_weapon_bow_02",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 28,
+            "copper": 62
+        },
+        "bop": true,
+        "slot": "Ranged",
+        "proficiency": "Bow",
+        "speed": 2.6,
+        "damage": {
+            "normal": [
+                20,
+                39
+            ]
+        },
+        "stats": {
+            "durability": 60
+        }
+    },
+    "3743": {
+        "i": 3743,
+        "quality": 2,
+        "n": "Sentry Buckler",
+        "image_name": "inv_shield_09",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 24,
+            "copper": 51
+        },
+        "bop": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 545,
+            "block": 10,
+            "intellect": 1,
+            "spirit": 5,
+            "durability": 80
+        }
+    },
+    "3745": {
+        "i": 3745,
+        "quality": 1,
+        "n": "Rune of Opening",
+        "image_name": "inv_jewelry_talisman_01",
+        "stack": 20,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 0
+        },
+        "use": {
+            "s": 3407,
+            "t": "Opens certain Dalaran-sealed containers."
+        },
+        "consume": true
+    },
+    "3747": {
+        "i": 3747,
+        "quality": 2,
+        "n": "Meditative Sash",
+        "image_name": "inv_belt_10",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 92
+        },
+        "bop": true,
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 53,
+            "stamina": 6,
+            "spirit": 5,
+            "durability": 30
+        }
+    },
+    "3748": {
+        "i": 3748,
+        "quality": 3,
+        "n": "Feline Mantle",
+        "image_name": "inv_shoulder_05",
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 13,
+            "copper": 4
+        },
+        "bop": true,
+        "slot": "Shoulder",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 34,
+            "intellect": 10,
+            "spirit": 3,
+            "agility": 2,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 23
+        }
+    },
+    "3749": {
+        "i": 3749,
+        "quality": 2,
+        "n": "High Apothecary Cloak",
+        "image_name": "inv_misc_cape_13",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 13,
+            "copper": 20
+        },
+        "bop": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 21,
+            "stamina": 2,
+            "spirit": 5
+        }
+    },
+    "3750": {
+        "i": 3750,
+        "quality": 2,
+        "n": "Ribbed Breastplate",
+        "image_name": "inv_chest_leather_09",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 22,
+            "copper": 9
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 94,
+            "strength": 5,
+            "stamina": 5,
+            "spirit": 5,
+            "durability": 85
+        }
+    },
+    "3751": {
+        "i": 3751,
+        "quality": 2,
+        "n": "Mercenary Leggings",
+        "image_name": "inv_pants_03",
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 26,
+            "copper": 61
+        },
+        "bop": true,
+        "slot": "Legs",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 173,
+            "strength": 7,
+            "agility": 7,
+            "durability": 75
+        }
+    },
+    "3752": {
+        "i": 3752,
+        "quality": 2,
+        "n": "Grunt Vest",
+        "image_name": "inv_shirt_07",
+        "ilvl": 22,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 45
+        },
+        "bop": true,
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 36,
+            "strength": 5,
+            "spirit": 4,
+            "durability": 60
+        }
+    },
+    "3753": {
+        "i": 3753,
+        "quality": 2,
+        "n": "Shepherd's Girdle",
+        "image_name": "inv_belt_17",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 16,
+            "copper": 35
+        },
+        "bop": true,
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 56,
+            "stamina": 7,
+            "intellect": 6,
+            "durability": 30
+        }
+    },
+    "3754": {
+        "i": 3754,
+        "quality": 2,
+        "n": "Shepherd's Gloves",
+        "image_name": "inv_gauntlets_21",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 14,
+            "copper": 92
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 61,
+            "strength": 7,
+            "agility": 6,
+            "durability": 30
+        }
+    },
+    "3755": {
+        "i": 3755,
+        "quality": 2,
+        "n": "Fish Gutter",
+        "image_name": "inv_axe_22",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 54,
+            "copper": 47
+        },
+        "bop": true,
+        "slot": "Main Hand",
+        "proficiency": "Axe",
+        "speed": 2.1,
+        "damage": {
+            "normal": [
+                24,
+                46
+            ]
+        },
+        "stats": {
+            "spirit": 5,
+            "durability": 75
+        }
+    },
+    "3758": {
+        "i": 3758,
+        "quality": 2,
+        "n": "Crusader Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 18,
+            "copper": 17
+        },
+        "bop": true,
+        "slot": "Waist",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 117,
+            "strength": 7,
+            "stamina": 6,
+            "durability": 35
+        }
+    },
+    "3759": {
+        "i": 3759,
+        "quality": 2,
+        "n": "Insulated Sage Gloves",
+        "image_name": "inv_gauntlets_06",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 16
+        },
+        "bop": true,
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 28,
+            "stamina": 7,
+            "intellect": 6,
+            "durability": 25
+        }
+    },
+    "3760": {
+        "i": 3760,
+        "quality": 2,
+        "n": "Band of the Undercity",
+        "image_name": "inv_jewelry_ring_03",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 0
+        },
+        "bop": true,
+        "slot": "Finger",
+        "stats": {
+            "stamina": 3,
+            "spirit": 5
+        }
+    },
+    "3761": {
+        "i": 3761,
+        "quality": 2,
+        "n": "Deadskull Shield",
+        "image_name": "inv_shield_01",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 33,
+            "copper": 6
+        },
+        "bop": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 611,
+            "block": 12,
+            "strength": 1,
+            "stamina": 7,
+            "durability": 85
+        }
+    },
+    "3763": {
+        "i": 3763,
+        "quality": 2,
+        "n": "Lunar Buckler",
+        "image_name": "inv_shield_10",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 67,
+            "copper": 61
+        },
+        "bop": true,
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 963,
+            "block": 17,
+            "strength": 3,
+            "spirit": 8,
+            "durability": 85
+        }
+    },
+    "3764": {
+        "i": 3764,
+        "quality": 2,
+        "n": "Mantis Boots",
+        "image_name": "inv_boots_05",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 31,
+            "copper": 81
+        },
+        "bop": true,
+        "slot": "Feet",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 36,
+            "strength": 3,
+            "spirit": 7,
+            "agility": 2,
+            "durability": 35
+        }
+    },
+    "3765": {
+        "i": 3765,
+        "quality": 2,
+        "n": "Brigand's Pauldrons",
+        "image_name": "inv_shoulder_03",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 48,
+            "copper": 11
+        },
+        "bop": true,
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 173,
+            "strength": 8,
+            "stamina": 8,
+            "durability": 60
+        }
+    },
+    "3766": {
+        "i": 3766,
+        "quality": 0,
+        "n": "Gryphon Feather Quill",
+        "image_name": "inv_feather_08",
+        "stack": 10,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 30
+        }
+    },
+    "3767": {
+        "i": 3767,
+        "quality": 0,
+        "n": "Fine Parchment",
+        "image_name": "inv_scroll_08",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 23
+        }
+    },
+    "3769": {
+        "i": 3769,
+        "quality": 0,
+        "n": "Broken Wand",
+        "image_name": "inv_wand_02",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 13
+        }
+    },
+    "3770": {
+        "i": 3770,
+        "quality": 1,
+        "n": "Mutton Chop",
+        "image_name": "inv_misc_food_14",
+        "stack": 20,
+        "ilvl": 25,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 25
+        },
+        "requirements": {
+            "level": 15
+        },
+        "use": {
+            "s": 435,
+            "t": "Restores 552 health over 24 sec. Must remain seated while eating."
+        },
+        "consume": true
+    },
+    "3771": {
+        "i": 3771,
+        "quality": 1,
+        "n": "Wild Hog Shank",
+        "image_name": "inv_misc_food_13",
+        "stack": 20,
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 50
+        },
+        "requirements": {
+            "level": 25
+        },
+        "use": {
+            "s": 1127,
+            "t": "Restores 874.8 health over 27 sec. Must remain seated while eating."
+        },
+        "consume": true
+    },
+    "3772": {
+        "i": 3772,
+        "quality": 1,
+        "n": "Conjured Spring Water",
+        "image_name": "inv_drink_10",
+        "stack": 20,
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 0
+        },
+        "requirements": {
+            "level": 25
+        },
+        "use": {
+            "s": 1133,
+            "t": "Restores 1344.6 mana over 27 sec. Must remain seated while drinking."
+        },
+        "created_by": {
+            "profession": "Arcane",
+            "skill": {},
+            "materials": {}
+        },
+        "consume": true
+    },
+    "3775": {
+        "i": 3775,
+        "quality": 1,
+        "n": "Crippling Poison",
+        "image_name": "ability_poisonsting",
+        "stack": 20,
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 13
+        },
+        "requirements": {
+            "class": [
+                "Rogue"
+            ],
+            "level": 20
+        },
+        "use": {
+            "s": 3408,
+            "t": "Coats a weapon with poison that lasts for 30 minutes.\nEach strike has a 30% chance of poisoning the enemy, slowing their movement speed by 50% for 12 sec."
+        },
+        "created_by": {
+            "materials": {}
+        },
+        "consume": true
+    },
+    "3776": {
+        "i": 3776,
+        "quality": 1,
+        "n": "Crippling Poison II",
+        "image_name": "inv_potion_19",
+        "stack": 20,
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 75
+        },
+        "requirements": {
+            "class": [
+                "Rogue"
+            ],
+            "level": 50
+        },
+        "use": {
+            "s": 11202,
+            "t": "Coats a weapon with poison that lasts for 30 minutes.\nEach strike has a 30% chance of poisoning the enemy, slowing their movement speed by 70% for 12 sec."
+        },
+        "created_by": {
+            "materials": {}
+        },
+        "consume": true
+    },
+    "3777": {
+        "i": 3777,
+        "quality": 1,
+        "n": "Lethargy Root",
+        "image_name": "inv_misc_dust_02",
+        "stack": 20,
+        "ilvl": 28,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 10
+        },
+        "requirements": {
+            "class": [
+                "Rogue"
+            ]
+        },
+        "description": "Used by rogues to brew poison"
+    },
+    "3778": {
+        "i": 3778,
+        "quality": 0,
+        "n": "Taut Compound Bow",
+        "image_name": "inv_weapon_bow_02",
+        "ilvl": 31,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 41
+        },
+        "slot": "Ranged",
+        "proficiency": "Bow",
+        "speed": 2.5,
+        "damage": {
+            "normal": [
+                13,
+                25
+            ]
+        },
+        "stats": {
+            "durability": 65
+        },
+        "requirements": {
+            "level": 26
+        }
+    },
+    "3779": {
+        "i": 3779,
+        "quality": 0,
+        "n": "Hefty War Axe",
+        "image_name": "inv_axe_11",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 28,
+            "copper": 35
+        },
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 2.8,
+        "damage": {
+            "normal": [
+                29,
+                44
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "requirements": {
+            "level": 27
+        }
+    },
+    "3780": {
+        "i": 3780,
+        "quality": 0,
+        "n": "Long-barreled Musket",
+        "image_name": "inv_weapon_rifle_01",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 18,
+            "copper": 77
+        },
+        "slot": "Ranged",
+        "proficiency": "Gun",
+        "speed": 2.6,
+        "damage": {
+            "normal": [
+                14,
+                27
+            ]
+        },
+        "stats": {
+            "durability": 65
+        },
+        "requirements": {
+            "level": 28
+        }
+    },
+    "3781": {
+        "i": 3781,
+        "quality": 0,
+        "n": "Broad Claymore",
+        "image_name": "inv_sword_23",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 31,
+            "copper": 25
+        },
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 3.3,
+        "damage": {
+            "normal": [
+                36,
+                55
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "requirements": {
+            "level": 29
+        }
+    },
+    "3782": {
+        "i": 3782,
+        "quality": 0,
+        "n": "Large War Club",
+        "image_name": "inv_mace_01",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 34,
+            "copper": 51
+        },
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 3.1,
+        "damage": {
+            "normal": [
+                35,
+                53
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "requirements": {
+            "level": 30
+        }
+    },
+    "3783": {
+        "i": 3783,
+        "quality": 0,
+        "n": "Light Scimitar",
+        "image_name": "inv_sword_24",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 30,
+            "copper": 48
+        },
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                15,
+                28
+            ]
+        },
+        "stats": {
+            "durability": 75
+        },
+        "requirements": {
+            "level": 31
+        }
+    },
+    "3784": {
+        "i": 3784,
+        "quality": 0,
+        "n": "Metal Stave",
+        "image_name": "inv_staff_10",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 42,
+            "copper": 8
+        },
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 3.1,
+        "damage": {
+            "normal": [
+                38,
+                57
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3785": {
+        "i": 3785,
+        "quality": 0,
+        "n": "Keen Axe",
+        "image_name": "inv_axe_23",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 36,
+            "copper": 50
+        },
+        "slot": "Main Hand",
+        "proficiency": "Axe",
+        "speed": 2.2,
+        "damage": {
+            "normal": [
+                19,
+                35
+            ]
+        },
+        "stats": {
+            "durability": 75
+        },
+        "requirements": {
+            "level": 33
+        }
+    },
+    "3786": {
+        "i": 3786,
+        "quality": 0,
+        "n": "Shiny Dirk",
+        "image_name": "inv_weapon_shortblade_01",
+        "ilvl": 39,
+        "sells_for": {
+            "gold": 0,
+            "silver": 39,
+            "copper": 57
+        },
+        "slot": "One-hand",
+        "proficiency": "Dagger",
+        "speed": 1.6,
+        "damage": {
+            "normal": [
+                14,
+                27
+            ]
+        },
+        "stats": {
+            "durability": 55
+        },
+        "requirements": {
+            "level": 34
+        }
+    },
+    "3787": {
+        "i": 3787,
+        "quality": 0,
+        "n": "Stone Club",
+        "image_name": "inv_mace_11",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 42,
+            "copper": 89
+        },
+        "slot": "Main Hand",
+        "proficiency": "Mace",
+        "speed": 2.2,
+        "damage": {
+            "normal": [
+                20,
+                38
+            ]
+        },
+        "stats": {
+            "durability": 75
+        },
+        "requirements": {
+            "level": 35
+        }
+    },
+    "3792": {
+        "i": 3792,
+        "quality": 0,
+        "n": "Interlaced Belt",
+        "image_name": "inv_belt_04",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 21
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 23,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 29
+        }
+    },
+    "3793": {
+        "i": 3793,
+        "quality": 0,
+        "n": "Interlaced Boots",
+        "image_name": "inv_boots_09",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 6,
+            "copper": 48
+        },
+        "slot": "Feet",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 27,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 27
+        }
+    },
+    "3794": {
+        "i": 3794,
+        "quality": 0,
+        "n": "Interlaced Bracers",
+        "image_name": "inv_bracer_02",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 74
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 20,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 33
+        }
+    },
+    "3795": {
+        "i": 3795,
+        "quality": 0,
+        "n": "Interlaced Cloak",
+        "image_name": "inv_misc_cape_11",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 81
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 21
+        },
+        "requirements": {
+            "level": 31
+        }
+    },
+    "3796": {
+        "i": 3796,
+        "quality": 0,
+        "n": "Interlaced Gloves",
+        "image_name": "inv_gauntlets_23",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 93
+        },
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 25,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 28
+        }
+    },
+    "3797": {
+        "i": 3797,
+        "quality": 0,
+        "n": "Interlaced Pants",
+        "image_name": "inv_pants_06",
+        "ilvl": 39,
+        "sells_for": {
+            "gold": 0,
+            "silver": 16,
+            "copper": 92
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 41,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 34
+        }
+    },
+    "3798": {
+        "i": 3798,
+        "quality": 0,
+        "n": "Interlaced Shoulderpads",
+        "image_name": "inv_shoulder_09",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 2
+        },
+        "slot": "Shoulder",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 31,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 30
+        }
+    },
+    "3799": {
+        "i": 3799,
+        "quality": 0,
+        "n": "Interlaced Vest",
+        "image_name": "inv_chest_cloth_40",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 14,
+            "copper": 60
+        },
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 44,
+            "durability": 70
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3800": {
+        "i": 3800,
+        "quality": 0,
+        "n": "Hardened Leather Belt",
+        "image_name": "inv_belt_26",
+        "ilvl": 39,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 68
+        },
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 55,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 34
+        }
+    },
+    "3801": {
+        "i": 3801,
+        "quality": 0,
+        "n": "Hardened Leather Boots",
+        "image_name": "inv_boots_05",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 31
+        },
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 63,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 30
+        }
+    },
+    "3802": {
+        "i": 3802,
+        "quality": 0,
+        "n": "Hardened Leather Bracers",
+        "image_name": "inv_bracer_07",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 6,
+            "copper": 27
+        },
+        "slot": "Wrist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 39,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 29
+        }
+    },
+    "3803": {
+        "i": 3803,
+        "quality": 0,
+        "n": "Hardened Cloak",
+        "image_name": "inv_helmet_48",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 86
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 23
+        },
+        "requirements": {
+            "level": 33
+        }
+    },
+    "3804": {
+        "i": 3804,
+        "quality": 0,
+        "n": "Hardened Leather Gloves",
+        "image_name": "inv_gauntlets_18",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 65
+        },
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 58,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 31
+        }
+    },
+    "3805": {
+        "i": 3805,
+        "quality": 0,
+        "n": "Hardened Leather Pants",
+        "image_name": "inv_pants_06",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 49
+        },
+        "slot": "Legs",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 76,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 27
+        }
+    },
+    "3806": {
+        "i": 3806,
+        "quality": 0,
+        "n": "Hardened Leather Shoulderpads",
+        "image_name": "inv_shoulder_08",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 71
+        },
+        "slot": "Shoulder",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 71,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3807": {
+        "i": 3807,
+        "quality": 0,
+        "n": "Hardened Leather Tunic",
+        "image_name": "inv_chest_leather_09",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 11,
+            "copper": 62
+        },
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 89,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 28
+        }
+    },
+    "3808": {
+        "i": 3808,
+        "quality": 0,
+        "n": "Double Mail Belt",
+        "image_name": "inv_belt_06",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 70
+        },
+        "slot": "Waist",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 106,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 29
+        }
+    },
+    "3809": {
+        "i": 3809,
+        "quality": 0,
+        "n": "Double Mail Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 62
+        },
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 126,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 27
+        }
+    },
+    "3810": {
+        "i": 3810,
+        "quality": 0,
+        "n": "Double Mail Bracers",
+        "image_name": "inv_bracer_03",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 11,
+            "copper": 45
+        },
+        "slot": "Wrist",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 88,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 33
+        }
+    },
+    "3811": {
+        "i": 3811,
+        "quality": 0,
+        "n": "Double-stitched Cloak",
+        "image_name": "inv_misc_cape_02",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 64
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 22
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3812": {
+        "i": 3812,
+        "quality": 0,
+        "n": "Double Mail Gloves",
+        "image_name": "inv_gauntlets_04",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 71
+        },
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 122,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 31
+        }
+    },
+    "3813": {
+        "i": 3813,
+        "quality": 0,
+        "n": "Double Mail Pants",
+        "image_name": "inv_pants_03",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 17,
+            "copper": 72
+        },
+        "slot": "Legs",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 168,
+            "durability": 75
+        },
+        "requirements": {
+            "level": 30
+        }
+    },
+    "3814": {
+        "i": 3814,
+        "quality": 0,
+        "n": "Double Mail Shoulderpads",
+        "image_name": "inv_shoulder_07",
+        "ilvl": 39,
+        "sells_for": {
+            "gold": 0,
+            "silver": 18,
+            "copper": 91
+        },
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 153,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 34
+        }
+    },
+    "3815": {
+        "i": 3815,
+        "quality": 0,
+        "n": "Double Mail Vest",
+        "image_name": "inv_chest_chain",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 14,
+            "copper": 75
+        },
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 186,
+            "durability": 100
+        },
+        "requirements": {
+            "level": 28
+        }
+    },
+    "3816": {
+        "i": 3816,
+        "quality": 0,
+        "n": "Reflective Heater",
+        "image_name": "inv_shield_04",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 21,
+            "copper": 2
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 583,
+            "block": 11,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 31
+        }
+    },
+    "3817": {
+        "i": 3817,
+        "quality": 0,
+        "n": "Reinforced Buckler",
+        "image_name": "inv_shield_09",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 85
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 540,
+            "block": 9,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 28
+        }
+    },
+    "3818": {
+        "i": 3818,
+        "quality": 1,
+        "n": "Fadeleaf",
+        "image_name": "inv_misc_herb_12",
+        "stack": 20,
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 25
+        }
+    },
+    "3819": {
+        "i": 3819,
+        "quality": 1,
+        "n": "Wintersbite",
+        "image_name": "inv_misc_flower_03",
+        "stack": 20,
+        "ilvl": 39,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        }
+    },
+    "3820": {
+        "i": 3820,
+        "quality": 1,
+        "n": "Stranglekelp",
+        "image_name": "inv_misc_herb_11",
+        "stack": 20,
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        }
+    },
+    "3821": {
+        "i": 3821,
+        "quality": 1,
+        "n": "Goldthorn",
+        "image_name": "inv_misc_herb_15",
+        "stack": 20,
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 50
+        }
+    },
+    "3822": {
+        "i": 3822,
+        "quality": 2,
+        "n": "Runic Darkblade",
+        "image_name": "inv_sword_02",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 64,
+            "copper": 81
+        },
+        "bop": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 3.3,
+        "damage": {
+            "normal": [
+                57,
+                86
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "effects": {
+            "proc": [
+                {
+                    "s": "16409",
+                    "t": "Sends a shadowy bolt at the enemy causing 35 Shadow damage."
+                }
+            ]
+        }
+    },
+    "3823": {
+        "i": 3823,
+        "quality": 1,
+        "n": "Lesser Invisibility Potion",
+        "image_name": "inv_potion_18",
+        "stack": 5,
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 0
+        },
+        "requirements": {
+            "level": 23
+        },
+        "use": {
+            "s": 3680,
+            "t": "Gives the imbiber lesser invisibility for 15 sec. (cooldown 10 min)"
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 185,
+                "green": 205,
+                "grey": 225
+            },
+            "materials": {
+                "3818": 1,
+                "3355": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3824": {
+        "i": 3824,
+        "quality": 1,
+        "n": "Shadow Oil",
+        "image_name": "inv_potion_23",
+        "stack": 5,
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 50
+        },
+        "requirements": {
+            "level": 24
+        },
+        "use": {
+            "s": 3594,
+            "t": "When applied to a melee weapon it gives a 15% chance of casting Shadowbolt III at the opponent when it hits. Lasts 30 minutes."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 190,
+                "green": 210,
+                "grey": 230
+            },
+            "materials": {
+                "3818": 4,
+                "3369": 4,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3825": {
+        "i": 3825,
+        "quality": 1,
+        "n": "Elixir of Fortitude",
+        "image_name": "inv_potion_43",
+        "stack": 5,
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 10
+        },
+        "requirements": {
+            "level": 25
+        },
+        "use": {
+            "s": 3593,
+            "t": "Increases the player's maximum health by 120 for 1 hr."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 195,
+                "green": 215,
+                "grey": 235
+            },
+            "materials": {
+                "3355": 1,
+                "3821": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3826": {
+        "i": 3826,
+        "quality": 1,
+        "n": "Mighty Troll's Blood Potion",
+        "image_name": "inv_potion_79",
+        "stack": 5,
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 5
+        },
+        "requirements": {
+            "level": 26
+        },
+        "use": {
+            "s": 3223,
+            "t": "Regenerate 12 health every 5 sec for 1 hr."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 200,
+                "green": 220,
+                "grey": 240
+            },
+            "materials": {
+                "3357": 1,
+                "2453": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3827": {
+        "i": 3827,
+        "quality": 1,
+        "n": "Mana Potion",
+        "image_name": "inv_potion_72",
+        "stack": 5,
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 20
+        },
+        "requirements": {
+            "level": 22
+        },
+        "use": {
+            "s": 2023,
+            "t": "Restores 455 to 586 mana. (cooldown 2 min)"
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 180,
+                "green": 200,
+                "grey": 220
+            },
+            "materials": {
+                "3820": 1,
+                "3356": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3828": {
+        "i": 3828,
+        "quality": 1,
+        "n": "Elixir of Detect Lesser Invisibility",
+        "image_name": "inv_potion_01",
+        "stack": 5,
+        "ilvl": 39,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 50
+        },
+        "requirements": {
+            "level": 29
+        },
+        "use": {
+            "s": 6512,
+            "t": "Grants detect lesser invisibility for 10 min."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 215,
+                "green": 235,
+                "grey": 255
+            },
+            "materials": {
+                "3358": 1,
+                "3818": 1,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3829": {
+        "i": 3829,
+        "quality": 1,
+        "n": "Frost Oil",
+        "image_name": "inv_potion_20",
+        "stack": 5,
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 50
+        },
+        "requirements": {
+            "level": 30
+        },
+        "use": {
+            "s": 3595,
+            "t": "When applied to a melee weapon it gives a 10% chance of casting Frostbolt at the opponent when it hits. Lasts 30 minutes."
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 220,
+                "green": 240,
+                "grey": 260
+            },
+            "materials": {
+                "3358": 4,
+                "3819": 2,
+                "3372": 1
+            }
+        },
+        "consume": true
+    },
+    "3830": {
+        "i": 3830,
+        "quality": 1,
+        "n": "Recipe: Elixir of Fortitude",
+        "image_name": "inv_scroll_03",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "alchemy": 175
+            }
+        },
+        "use": {
+            "s": 3455,
+            "t": "Teaches you how to make an Elixir of Fortitude."
+        }
+    },
+    "3831": {
+        "i": 3831,
+        "quality": 1,
+        "n": "Recipe: Mighty Troll's Blood Potion",
+        "image_name": "inv_scroll_03",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "alchemy": 180
+            }
+        },
+        "use": {
+            "s": 3456,
+            "t": "Teaches you how to make a Mighty Troll's Blood Potion."
+        }
+    },
+    "3832": {
+        "i": 3832,
+        "quality": 2,
+        "n": "Recipe: Elixir of Detect Lesser Invisibility",
+        "image_name": "inv_scroll_06",
+        "ilvl": 39,
+        "sells_for": {
+            "gold": 0,
+            "silver": 5,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "alchemy": 195
+            }
+        },
+        "use": {
+            "s": 3457,
+            "t": "Teaches you how to make an Elixir of Detect Lesser Invisibility."
+        }
+    },
+    "3833": {
+        "i": 3833,
+        "quality": 1,
+        "n": "Adept's Cloak",
+        "image_name": "inv_misc_cape_11",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 24
+        },
+        "bop": true,
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 7
+        }
+    },
+    "3834": {
+        "i": 3834,
+        "quality": 1,
+        "n": "Sturdy Cloth Trousers",
+        "image_name": "inv_pants_07",
+        "ilvl": 8,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 32
+        },
+        "bop": true,
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 13,
+            "durability": 30
+        }
+    },
+    "3835": {
+        "i": 3835,
+        "quality": 1,
+        "n": "Green Iron Bracers",
+        "image_name": "inv_bracer_06",
+        "ilvl": 33,
+        "sells_for": {
+            "gold": 0,
+            "silver": 11,
+            "copper": 6
+        },
+        "slot": "Wrist",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 86,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 28
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 190,
+                "green": 202,
+                "grey": 215
+            },
+            "materials": {
+                "3575": 6,
+                "2605": 1
+            }
+        }
+    },
+    "3836": {
+        "i": 3836,
+        "quality": 2,
+        "n": "Green Iron Helm",
+        "image_name": "inv_helmet_03",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 30,
+            "copper": 53
+        },
+        "boe": true,
+        "slot": "Head",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 171,
+            "stamina": 11,
+            "strength": 5,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 29
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 195,
+                "green": 207,
+                "grey": 220
+            },
+            "materials": {
+                "3575": 12,
+                "3864": 1,
+                "2605": 1
+            }
+        }
+    },
+    "3837": {
+        "i": 3837,
+        "quality": 2,
+        "n": "Golden Scale Coif",
+        "image_name": "inv_helmet_36",
+        "ilvl": 38,
+        "sells_for": {
+            "gold": 0,
+            "silver": 44,
+            "copper": 5
+        },
+        "boe": true,
+        "slot": "Head",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 181,
+            "strength": 10,
+            "spirit": 10,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 33
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 215,
+                "green": 227,
+                "grey": 240
+            },
+            "materials": {
+                "3859": 8,
+                "3577": 2,
+                "3486": 2
+            }
+        }
+    },
+    "3838": {
+        "i": 3838,
+        "quality": 1,
+        "n": "Shadowmaw Claw",
+        "image_name": "inv_misc_bone_06",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3839": {
+        "i": 3839,
+        "quality": 1,
+        "n": "Pristine Tigress Fang",
+        "image_name": "inv_misc_bone_08",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3840": {
+        "i": 3840,
+        "quality": 2,
+        "n": "Green Iron Shoulders",
+        "image_name": "inv_shoulder_09",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 25,
+            "copper": 71
+        },
+        "boe": true,
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 153,
+            "stamina": 7,
+            "strength": 4,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 27
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 185,
+                "green": 197,
+                "grey": 210
+            },
+            "materials": {
+                "3575": 7,
+                "3486": 1,
+                "2605": 1
+            }
+        }
+    },
+    "3841": {
+        "i": 3841,
+        "quality": 2,
+        "n": "Golden Scale Shoulders",
+        "image_name": "inv_shoulder_09",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 31,
+            "copper": 6
+        },
+        "boe": true,
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 160,
+            "strength": 7,
+            "spirit": 6,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 30
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 200,
+                "green": 212,
+                "grey": 225
+            },
+            "materials": {
+                "3859": 6,
+                "3577": 2,
+                "3486": 1
+            }
+        }
+    },
+    "3842": {
+        "i": 3842,
+        "quality": 2,
+        "n": "Green Iron Leggings",
+        "image_name": "inv_pants_05",
+        "ilvl": 31,
+        "sells_for": {
+            "gold": 0,
+            "silver": 29,
+            "copper": 6
+        },
+        "boe": true,
+        "slot": "Legs",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 176,
+            "stamina": 8,
+            "strength": 8,
+            "durability": 75
+        },
+        "requirements": {
+            "level": 26
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 180,
+                "green": 192,
+                "grey": 205
+            },
+            "materials": {
+                "3575": 8,
+                "3486": 1,
+                "2605": 1
+            }
+        }
+    },
+    "3843": {
+        "i": 3843,
+        "quality": 2,
+        "n": "Golden Scale Leggings",
+        "image_name": "inv_pants_04",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 38,
+            "copper": 82
+        },
+        "boe": true,
+        "slot": "Legs",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 184,
+            "strength": 11,
+            "spirit": 5,
+            "durability": 75
+        },
+        "requirements": {
+            "level": 29
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 195,
+                "green": 207,
+                "grey": 220
+            },
+            "materials": {
+                "3575": 10,
+                "3577": 2,
+                "3486": 1
+            }
+        }
+    },
+    "3844": {
+        "i": 3844,
+        "quality": 3,
+        "n": "Green Iron Hauberk",
+        "image_name": "inv_chest_chain",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 0,
+            "silver": 56,
+            "copper": 58
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 358,
+            "stamina": 11,
+            "strength": 7,
+            "durability": 120
+        },
+        "requirements": {
+            "level": 31
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 205,
+                "green": 217,
+                "grey": 230
+            },
+            "materials": {
+                "3575": 20,
+                "3486": 4,
+                "1529": 2,
+                "1206": 2,
+                "4255": 1
+            }
+        }
+    },
+    "3845": {
+        "i": 3845,
+        "quality": 2,
+        "n": "Golden Scale Cuirass",
+        "image_name": "inv_chest_chain_06",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 65,
+            "copper": 58
+        },
+        "boe": true,
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 231,
+            "strength": 14,
+            "spirit": 6,
+            "durability": 100
+        },
+        "requirements": {
+            "level": 35
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 220,
+                "green": 232,
+                "grey": 245
+            },
+            "materials": {
+                "3859": 12,
+                "3577": 2,
+                "3486": 4,
+                "1529": 2
+            }
+        }
+    },
+    "3846": {
+        "i": 3846,
+        "quality": 2,
+        "n": "Polished Steel Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 39,
+            "copper": 37
+        },
+        "boe": true,
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 151,
+            "stamina": 11,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 32
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 210,
+                "green": 222,
+                "grey": 235
+            },
+            "materials": {
+                "3859": 8,
+                "3864": 1,
+                "1705": 1,
+                "3486": 2
+            }
+        }
+    },
+    "3847": {
+        "i": 3847,
+        "quality": 2,
+        "n": "Golden Scale Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 49,
+            "copper": 77
+        },
+        "boe": true,
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 159,
+            "strength": 8,
+            "spirit": 8,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 35
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 225,
+                "green": 237,
+                "grey": 250
+            },
+            "materials": {
+                "3859": 10,
+                "3577": 4,
+                "3486": 4,
+                "3864": 1
+            }
+        }
+    },
+    "3848": {
+        "i": 3848,
+        "quality": 2,
+        "n": "Big Bronze Knife",
+        "image_name": "inv_weapon_shortblade_04",
+        "ilvl": 20,
+        "sells_for": {
+            "gold": 0,
+            "silver": 14,
+            "copper": 26
+        },
+        "boe": true,
+        "slot": "One-hand",
+        "proficiency": "Dagger",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                13,
+                25
+            ]
+        },
+        "stats": {
+            "stamina": 3,
+            "durability": 40
+        },
+        "requirements": {
+            "level": 15
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 135,
+                "green": 150,
+                "grey": 165
+            },
+            "materials": {
+                "2841": 6,
+                "2880": 4,
+                "3470": 2,
+                "818": 1,
+                "2319": 1
+            }
+        }
+    },
+    "3849": {
+        "i": 3849,
+        "quality": 2,
+        "n": "Hardened Iron Shortsword",
+        "image_name": "inv_sword_20",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 54,
+            "copper": 68
+        },
+        "boe": true,
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 1.8,
+        "damage": {
+            "normal": [
+                21,
+                39
+            ]
+        },
+        "stats": {
+            "stamina": 5,
+            "durability": 75
+        },
+        "requirements": {
+            "level": 27
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 185,
+                "green": 197,
+                "grey": 210
+            },
+            "materials": {
+                "3575": 6,
+                "3466": 2,
+                "3486": 1,
+                "1705": 2,
+                "4234": 3
+            }
+        }
+    },
+    "3850": {
+        "i": 3850,
+        "quality": 2,
+        "n": "Jade Serpentblade",
+        "image_name": "inv_sword_36",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 73,
+            "copper": 4
+        },
+        "boe": true,
+        "slot": "One-hand",
+        "proficiency": "Sword",
+        "speed": 2.6,
+        "damage": {
+            "normal": [
+                33,
+                62
+            ]
+        },
+        "stats": {
+            "strength": 4,
+            "agility": 4,
+            "durability": 75
+        },
+        "requirements": {
+            "level": 30
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 200,
+                "green": 212,
+                "grey": 225
+            },
+            "materials": {
+                "3575": 8,
+                "3466": 2,
+                "3486": 2,
+                "1529": 2,
+                "4234": 3
+            }
+        }
+    },
+    "3851": {
+        "i": 3851,
+        "quality": 2,
+        "n": "Solid Iron Maul",
+        "image_name": "inv_hammer_07",
+        "ilvl": 31,
+        "sells_for": {
+            "gold": 0,
+            "silver": 62,
+            "copper": 58
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 3.5,
+        "damage": {
+            "normal": [
+                59,
+                89
+            ]
+        },
+        "stats": {
+            "stamina": 12,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 26
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 180,
+                "green": 192,
+                "grey": 205
+            },
+            "materials": {
+                "3575": 8,
+                "3466": 2,
+                "3486": 1,
+                "2842": 4,
+                "4234": 2
+            }
+        }
+    },
+    "3852": {
+        "i": 3852,
+        "quality": 2,
+        "n": "Golden Iron Destroyer",
+        "image_name": "inv_hammer_04",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 83,
+            "copper": 60
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": 2.75,
+        "damage": {
+            "normal": [
+                50,
+                76
+            ]
+        },
+        "stats": {
+            "strength": 11,
+            "stamina": 4,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 29
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 195,
+                "green": 207,
+                "grey": 220
+            },
+            "materials": {
+                "3575": 10,
+                "3577": 4,
+                "1705": 2,
+                "3466": 2,
+                "4234": 2,
+                "3486": 2
+            }
+        }
+    },
+    "3853": {
+        "i": 3853,
+        "quality": 2,
+        "n": "Moonsteel Broadsword",
+        "image_name": "inv_sword_25",
+        "ilvl": 36,
+        "sells_for": {
+            "gold": 1,
+            "silver": 1,
+            "copper": 53
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 2.8,
+        "damage": {
+            "normal": [
+                55,
+                83
+            ]
+        },
+        "stats": {
+            "stamina": 4,
+            "spirit": 12,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 31
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 205,
+                "green": 217,
+                "grey": 230
+            },
+            "materials": {
+                "3859": 8,
+                "3466": 2,
+                "3486": 2,
+                "1705": 3,
+                "4234": 3
+            }
+        }
+    },
+    "3854": {
+        "i": 3854,
+        "quality": 2,
+        "n": "Frost Tiger Blade",
+        "image_name": "inv_sword_05",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 1,
+            "silver": 41,
+            "copper": 20
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Sword",
+        "speed": 3.4,
+        "damage": {
+            "normal": [
+                78,
+                118
+            ]
+        },
+        "stats": {
+            "durability": 85
+        },
+        "requirements": {
+            "level": 35
+        },
+        "effects": {
+            "equip": [
+                {
+                    "s": 7597,
+                    "t": "Improves your chance to get a critical strike by 1%."
+                }
+            ],
+            "proc": [
+                {
+                    "s": "13439",
+                    "t": "Launches a bolt of frost at the enemy causing 20 to 31 Frost damage and slowing movement speed by 50% for 5 sec."
+                }
+            ]
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 225,
+                "green": 237,
+                "grey": 250
+            },
+            "materials": {
+                "3859": 8,
+                "3466": 2,
+                "3486": 2,
+                "1529": 2,
+                "3829": 1,
+                "4234": 4
+            }
+        }
+    },
+    "3855": {
+        "i": 3855,
+        "quality": 2,
+        "n": "Massive Iron Axe",
+        "image_name": "inv_throwingaxe_05",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 1,
+            "silver": 12,
+            "copper": 48
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 3.5,
+        "damage": {
+            "normal": [
+                71,
+                108
+            ]
+        },
+        "stats": {
+            "strength": 11,
+            "stamina": 7,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 32
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 210,
+                "green": 222,
+                "grey": 235
+            },
+            "materials": {
+                "3575": 14,
+                "3466": 2,
+                "3486": 2,
+                "3577": 4,
+                "4234": 2
+            }
+        }
+    },
+    "3856": {
+        "i": 3856,
+        "quality": 2,
+        "n": "Shadow Crescent Axe",
+        "image_name": "inv_axe_17",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 1,
+            "silver": 42,
+            "copper": 21
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Axe",
+        "speed": 2.5,
+        "damage": {
+            "normal": [
+                58,
+                87
+            ]
+        },
+        "stats": {
+            "strength": 11,
+            "stamina": 10,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 35
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 225,
+                "green": 237,
+                "grey": 250
+            },
+            "materials": {
+                "3859": 10,
+                "3466": 2,
+                "3486": 3,
+                "3864": 2,
+                "3824": 1,
+                "4234": 3
+            }
+        }
+    },
+    "3857": {
+        "i": 3857,
+        "quality": 1,
+        "n": "Coal",
+        "image_name": "inv_ore_tin_01",
+        "stack": 10,
+        "ilvl": 30,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 25
+        }
+    },
+    "3858": {
+        "i": 3858,
+        "quality": 1,
+        "n": "Mithril Ore",
+        "image_name": "inv_ore_mithril_02",
+        "stack": 10,
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 50
+        }
+    },
+    "3859": {
+        "i": 3859,
+        "quality": 1,
+        "n": "Steel Bar",
+        "image_name": "inv_ingot_steel",
+        "stack": 20,
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 60
+        },
+        "created_by": {
+            "profession": "Mining",
+            "skill": {
+                "yellow": 165,
+                "green": 165,
+                "grey": 165
+            },
+            "materials": {
+                "3575": 1,
+                "3857": 1
+            }
+        }
+    },
+    "3860": {
+        "i": 3860,
+        "quality": 1,
+        "n": "Mithril Bar",
+        "image_name": "inv_ingot_06",
+        "stack": 20,
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 4,
+            "copper": 0
+        },
+        "created_by": {
+            "profession": "Mining",
+            "skill": {
+                "yellow": 175,
+                "green": 202,
+                "grey": 230
+            },
+            "materials": {
+                "3858": 1
+            }
+        }
+    },
+    "3862": {
+        "i": 3862,
+        "quality": 1,
+        "n": "Aged Gorilla Sinew",
+        "image_name": "inv_misc_leatherscrap_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3863": {
+        "i": 3863,
+        "quality": 1,
+        "n": "Jungle Stalker Feather",
+        "image_name": "spell_magic_featherfall",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3864": {
+        "i": 3864,
+        "quality": 2,
+        "n": "Citrine",
+        "image_name": "inv_misc_gem_opal_02",
+        "stack": 20,
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 8,
+            "copper": 0
+        }
+    },
+    "3866": {
+        "i": 3866,
+        "quality": 2,
+        "n": "Plans: Jade Serpentblade",
+        "image_name": "inv_scroll_06",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 10,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 175
+            }
+        },
+        "use": {
+            "s": 3526,
+            "t": "Teaches you how to make a Jade Serpentblade."
+        }
+    },
+    "3867": {
+        "i": 3867,
+        "quality": 2,
+        "n": "Plans: Golden Iron Destroyer",
+        "image_name": "inv_scroll_06",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 170
+            }
+        },
+        "use": {
+            "s": 3528,
+            "t": "Teaches you how to make a Golden Iron Destroyer."
+        }
+    },
+    "3868": {
+        "i": 3868,
+        "quality": 2,
+        "n": "Plans: Frost Tiger Blade",
+        "image_name": "inv_scroll_06",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 200
+            }
+        },
+        "use": {
+            "s": 3529,
+            "t": "Teaches you how to make a Frost Tiger Blade."
+        }
+    },
+    "3869": {
+        "i": 3869,
+        "quality": 2,
+        "n": "Plans: Shadow Crescent Axe",
+        "image_name": "inv_scroll_06",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 200
+            }
+        },
+        "use": {
+            "s": 3530,
+            "t": "Teaches you how to make a Shadow Crescent Axe."
+        }
+    },
+    "3870": {
+        "i": 3870,
+        "quality": 2,
+        "n": "Plans: Green Iron Shoulders",
+        "image_name": "inv_scroll_06",
+        "ilvl": 32,
+        "sells_for": {
+            "gold": 0,
+            "silver": 7,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 160
+            }
+        },
+        "use": {
+            "s": 3531,
+            "t": "Teaches you how to make Green Iron Shoulders."
+        }
+    },
+    "3871": {
+        "i": 3871,
+        "quality": 3,
+        "n": "Plans: Golden Scale Shoulders",
+        "image_name": "inv_scroll_03",
+        "ilvl": 35,
+        "sells_for": {
+            "gold": 0,
+            "silver": 8,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 175
+            }
+        },
+        "use": {
+            "s": 3532,
+            "t": "Teaches you how to make Golden Scale Shoulders."
+        }
+    },
+    "3872": {
+        "i": 3872,
+        "quality": 2,
+        "n": "Plans: Golden Scale Leggings",
+        "image_name": "inv_scroll_06",
+        "ilvl": 34,
+        "sells_for": {
+            "gold": 0,
+            "silver": 8,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 170
+            }
+        },
+        "use": {
+            "s": 3533,
+            "t": "Teaches you how to make Golden Scale Leggings."
+        }
+    },
+    "3873": {
+        "i": 3873,
+        "quality": 2,
+        "n": "Plans: Golden Scale Cuirass",
+        "image_name": "inv_scroll_06",
+        "ilvl": 39,
+        "sells_for": {
+            "gold": 0,
+            "silver": 11,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 195
+            }
+        },
+        "use": {
+            "s": 3534,
+            "t": "Teaches you how to make a Golden Scale Cuirass."
+        }
+    },
+    "3874": {
+        "i": 3874,
+        "quality": 2,
+        "n": "Plans: Polished Steel Boots",
+        "image_name": "inv_scroll_06",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 11,
+            "copper": 0
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 185
+            }
+        },
+        "use": {
+            "s": 3535,
+            "t": "Teaches you how to make Polished Steel Boots."
+        }
+    },
+    "3875": {
+        "i": 3875,
+        "quality": 3,
+        "n": "Plans: Golden Scale Boots",
+        "image_name": "inv_scroll_03",
+        "ilvl": 40,
+        "sells_for": {
+            "gold": 0,
+            "silver": 12,
+            "copper": 50
+        },
+        "requirements": {
+            "profession": {
+                "blacksmithing": 200
+            }
+        },
+        "use": {
+            "s": 3536,
+            "t": "Teaches you how to make Golden Scale Boots."
+        }
+    },
+    "3876": {
+        "i": 3876,
+        "quality": 1,
+        "n": "Fang of Bhag'thera",
+        "image_name": "inv_misc_monsterfang_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3877": {
+        "i": 3877,
+        "quality": 1,
+        "n": "Talon of Tethis",
+        "image_name": "spell_nature_natureswrath",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3879": {
+        "i": 3879,
+        "quality": 1,
+        "n": "Paw of Sin'Dall",
+        "image_name": "ability_hunter_mendpet",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3880": {
+        "i": 3880,
+        "quality": 1,
+        "n": "Head of Bangalash",
+        "image_name": "inv_misc_head_tiger_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3882": {
+        "i": 3882,
+        "quality": 0,
+        "n": "Buzzard Feather",
+        "image_name": "inv_feather_02",
+        "stack": 10,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 13
+        }
+    },
+    "3889": {
+        "i": 3889,
+        "quality": 1,
+        "n": "Russet Hat",
+        "image_name": "inv_helmet_33",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 84
+        },
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 38,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3890": {
+        "i": 3890,
+        "quality": 1,
+        "n": "Studded Hat",
+        "image_name": "inv_helmet_20",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 20,
+            "copper": 40
+        },
+        "slot": "Head",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 81,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3891": {
+        "i": 3891,
+        "quality": 1,
+        "n": "Augmented Chain Helm",
+        "image_name": "inv_helmet_03",
+        "ilvl": 37,
+        "sells_for": {
+            "gold": 0,
+            "silver": 24,
+            "copper": 56
+        },
+        "slot": "Head",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 169,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 32
+        }
+    },
+    "3892": {
+        "i": 3892,
+        "quality": 1,
+        "n": "Embroidered Hat",
+        "image_name": "inv_helmet_33",
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 43,
+            "copper": 88
+        },
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 50,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 45
+        }
+    },
+    "3893": {
+        "i": 3893,
+        "quality": 1,
+        "n": "Reinforced Leather Cap",
+        "image_name": "inv_helmet_15",
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 55,
+            "copper": 4
+        },
+        "slot": "Head",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 102,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 45
+        }
+    },
+    "3894": {
+        "i": 3894,
+        "quality": 1,
+        "n": "Brigandine Helm",
+        "image_name": "inv_helmet_03",
+        "ilvl": 50,
+        "sells_for": {
+            "gold": 0,
+            "silver": 59,
+            "copper": 97
+        },
+        "slot": "Head",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 211,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 45
+        }
+    },
+    "3897": {
+        "i": 3897,
+        "quality": 1,
+        "n": "Dizzy's Eye",
+        "image_name": "inv_misc_eye_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3898": {
+        "i": 3898,
+        "quality": 1,
+        "n": "Library Scrip",
+        "image_name": "inv_scroll_03",
+        "ilvl": 1,
+        "bop": true,
+        "unique": true
+    },
+    "3899": {
+        "i": 3899,
+        "quality": 0,
+        "n": "Legends of the Gurubashi, Volume 3",
+        "image_name": "inv_misc_book_04",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 25
+        },
+        "description": "Stone of the Tide",
+        "click_to_read": true
+    },
+    "3900": {
+        "i": 3900,
+        "quality": 1,
+        "n": "Pupellyverbos Port",
+        "image_name": "inv_drink_09",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3901": {
+        "i": 3901,
+        "quality": 1,
+        "n": "Bloodscalp Tusk",
+        "image_name": "inv_misc_bone_06",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3902": {
+        "i": 3902,
+        "quality": 2,
+        "n": "Staff of Nobles",
+        "image_name": "inv_wand_04",
+        "ilvl": 18,
+        "sells_for": {
+            "gold": 0,
+            "silver": 13,
+            "copper": 17
+        },
+        "boe": true,
+        "slot": "Two-hand",
+        "proficiency": "Staff",
+        "speed": 3.2,
+        "damage": {
+            "normal": [
+                30,
+                46
+            ]
+        },
+        "stats": {
+            "stamina": 2,
+            "spirit": 4,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 13
+        }
+    },
+    "3904": {
+        "i": 3904,
+        "quality": 1,
+        "n": "Gan'zulah's Head",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3905": {
+        "i": 3905,
+        "quality": 1,
+        "n": "Nezzliok's Head",
+        "image_name": "inv_misc_head_orc_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3906": {
+        "i": 3906,
+        "quality": 1,
+        "n": "Balia'mah Trophy",
+        "image_name": "inv_misc_bone_humanskull_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3907": {
+        "i": 3907,
+        "quality": 1,
+        "n": "Ziata'jai Trophy",
+        "image_name": "inv_misc_bone_humanskull_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3908": {
+        "i": 3908,
+        "quality": 1,
+        "n": "Zul'Mamwe Trophy",
+        "image_name": "inv_misc_bone_humanskull_01",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3909": {
+        "i": 3909,
+        "quality": 1,
+        "n": "Broken Armor of Ana'thek",
+        "image_name": "inv_shoulder_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3910": {
+        "i": 3910,
+        "quality": 1,
+        "n": "Snuff",
+        "image_name": "inv_misc_dust_02",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3911": {
+        "i": 3911,
+        "quality": 1,
+        "n": "Pulsing Blue Shard",
+        "image_name": "inv_misc_gem_sapphire_02",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3912": {
+        "i": 3912,
+        "quality": 1,
+        "n": "Soul Gem",
+        "image_name": "inv_misc_orb_04",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "use": {
+            "s": 3607,
+            "t": "Will release Yenniku from his imprisonment (cooldown 2 min)"
+        }
+    },
+    "3913": {
+        "i": 3913,
+        "quality": 1,
+        "n": "Filled Soul Gem",
+        "image_name": "inv_misc_orb_03",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "A glowing gem filled with the soul of Yenniku"
+    },
+    "3914": {
+        "i": 3914,
+        "quality": 1,
+        "n": "Journeyman's Backpack",
+        "image_name": "inv_misc_bag_07_black",
+        "ilvl": 45,
+        "sells_for": {
+            "gold": 0,
+            "silver": 62,
+            "copper": 50
+        },
+        "slot": "Bag",
+        "slots": 14
+    },
+    "3915": {
+        "i": 3915,
+        "quality": 1,
+        "n": "Bloody Bone Necklace",
+        "image_name": "inv_misc_bone_07",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3916": {
+        "i": 3916,
+        "quality": 1,
+        "n": "Split Bone Necklace",
+        "image_name": "inv_misc_bone_10",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3917": {
+        "i": 3917,
+        "quality": 1,
+        "n": "Singing Blue Crystal",
+        "image_name": "inv_misc_gem_sapphire_02",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3918": {
+        "i": 3918,
+        "quality": 1,
+        "n": "Singing Crystal Shard",
+        "image_name": "inv_misc_gem_sapphire_03",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3919": {
+        "i": 3919,
+        "quality": 1,
+        "n": "Mistvale Giblets",
+        "image_name": "inv_misc_organ_04",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3920": {
+        "i": 3920,
+        "quality": 1,
+        "n": "Bloodsail Charts",
+        "image_name": "inv_misc_map_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3921": {
+        "i": 3921,
+        "quality": 1,
+        "n": "Bloodsail Orders",
+        "image_name": "inv_letter_15",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "click_to_read": true
+    },
+    "3922": {
+        "i": 3922,
+        "quality": 1,
+        "n": "Shaky's Payment",
+        "image_name": "inv_misc_coin_06",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3923": {
+        "i": 3923,
+        "quality": 1,
+        "n": "Water Elemental Bracers",
+        "image_name": "inv_bracer_09",
+        "stack": 20,
+        "ilvl": 1,
+        "quest_item": true
+    },
+    "3924": {
+        "i": 3924,
+        "quality": 1,
+        "n": "Maury's Clubbed Foot",
+        "image_name": "inv_mace_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true,
+        "description": "It jingles when shaken"
+    },
+    "3925": {
+        "i": 3925,
+        "quality": 1,
+        "n": "Jon-Jon's Golden Spyglass",
+        "image_name": "inv_misc_spyglass_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3926": {
+        "i": 3926,
+        "quality": 1,
+        "n": "Chucky's Huge Ring",
+        "image_name": "inv_jewelry_ring_02",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3927": {
+        "i": 3927,
+        "quality": 1,
+        "n": "Fine Aged Cheddar",
+        "image_name": "inv_misc_food_03",
+        "stack": 20,
+        "ilvl": 45,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 50
+        },
+        "requirements": {
+            "level": 35
+        },
+        "use": {
+            "s": 1129,
+            "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
+        },
+        "consume": true
+    },
+    "3928": {
+        "i": 3928,
+        "quality": 1,
+        "n": "Superior Healing Potion",
+        "image_name": "inv_potion_53",
+        "stack": 5,
+        "ilvl": 45,
+        "sells_for": {
+            "gold": 0,
+            "silver": 2,
+            "copper": 50
+        },
+        "requirements": {
+            "level": 35
+        },
+        "use": {
+            "s": 4042,
+            "t": "Restores 700 to 901 health. (cooldown 2 min)"
+        },
+        "created_by": {
+            "profession": "Alchemy",
+            "skill": {
+                "yellow": 230,
+                "green": 250,
+                "grey": 270
+            },
+            "materials": {
+                "8838": 1,
+                "3358": 1,
+                "8925": 1
+            }
+        },
+        "consume": true
+    },
+    "3930": {
+        "i": 3930,
+        "quality": 1,
+        "n": "Maury's Key",
+        "image_name": "inv_misc_key_03",
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 0,
+            "copper": 0
+        },
+        "unique": true,
+        "quest_item": true,
+        "consume": true
+    },
+    "3931": {
+        "i": 3931,
+        "quality": 0,
+        "n": "Poisoned Spider Fang",
+        "image_name": "inv_misc_monsterfang_01",
+        "stack": 5,
+        "ilvl": 1,
+        "sells_for": {
+            "gold": 0,
+            "silver": 1,
+            "copper": 85
+        }
+    },
+    "3932": {
+        "i": 3932,
+        "quality": 1,
+        "n": "Smotts' Chest",
+        "image_name": "inv_box_01",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3935": {
+        "i": 3935,
+        "quality": 1,
+        "n": "Smotts' Cutlass",
+        "image_name": "inv_sword_24",
+        "ilvl": 25,
+        "unique": true,
+        "quest_item": true,
+        "slot": "Main Hand",
+        "proficiency": "Sword",
+        "speed": 1.9,
+        "damage": {
+            "normal": [
+                15,
+                29
+            ]
+        },
+        "stats": {
+            "durability": 65
+        },
+        "requirements": {
+            "level": 20
+        }
+    },
+    "3936": {
+        "i": 3936,
+        "quality": 0,
+        "n": "Crochet Belt",
+        "image_name": "inv_belt_02",
+        "ilvl": 42,
+        "sells_for": {
+            "gold": 0,
+            "silver": 9,
+            "copper": 85
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 28,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 37
+        }
+    },
+    "3937": {
+        "i": 3937,
+        "quality": 0,
+        "n": "Crochet Boots",
+        "image_name": "inv_boots_07",
+        "ilvl": 46,
+        "sells_for": {
+            "gold": 0,
+            "silver": 20,
+            "copper": 18
+        },
+        "slot": "Feet",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 37,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 41
+        }
+    },
+    "3938": {
+        "i": 3938,
+        "quality": 0,
+        "n": "Crochet Bracers",
+        "image_name": "inv_bracer_05",
+        "ilvl": 44,
+        "sells_for": {
+            "gold": 0,
+            "silver": 11,
+            "copper": 89
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 23,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 39
+        }
+    },
+    "3939": {
+        "i": 3939,
+        "quality": 0,
+        "n": "Crochet Cloak",
+        "image_name": "inv_misc_cape_10",
+        "ilvl": 47,
+        "sells_for": {
+            "gold": 0,
+            "silver": 22,
+            "copper": 56
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 28
+        },
+        "requirements": {
+            "level": 42
+        }
+    },
+    "3940": {
+        "i": 3940,
+        "quality": 0,
+        "n": "Crochet Gloves",
+        "image_name": "inv_gauntlets_23",
+        "ilvl": 48,
+        "sells_for": {
+            "gold": 0,
+            "silver": 16,
+            "copper": 30
+        },
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 35,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 43
+        }
+    },
+    "3941": {
+        "i": 3941,
+        "quality": 0,
+        "n": "Crochet Pants",
+        "image_name": "inv_pants_12",
+        "ilvl": 45,
+        "sells_for": {
+            "gold": 0,
+            "silver": 25,
+            "copper": 98
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 46,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 40
+        }
+    },
+    "3942": {
+        "i": 3942,
+        "quality": 0,
+        "n": "Crochet Shoulderpads",
+        "image_name": "inv_shoulder_09",
+        "ilvl": 49,
+        "sells_for": {
+            "gold": 0,
+            "silver": 26,
+            "copper": 36
+        },
+        "slot": "Shoulder",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 43,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 44
+        }
+    },
+    "3943": {
+        "i": 3943,
+        "quality": 0,
+        "n": "Crochet Vest",
+        "image_name": "inv_shirt_05",
+        "ilvl": 43,
+        "sells_for": {
+            "gold": 0,
+            "silver": 22,
+            "copper": 44
+        },
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 51,
+            "durability": 70
+        },
+        "requirements": {
+            "level": 38
+        }
+    },
+    "3944": {
+        "i": 3944,
+        "quality": 0,
+        "n": "Twill Belt",
+        "image_name": "inv_belt_02",
+        "ilvl": 53,
+        "sells_for": {
+            "gold": 0,
+            "silver": 22,
+            "copper": 77
+        },
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 35,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 48
+        }
+    },
+    "3945": {
+        "i": 3945,
+        "quality": 0,
+        "n": "Twill Boots",
+        "image_name": "inv_boots_09",
+        "ilvl": 55,
+        "sells_for": {
+            "gold": 0,
+            "silver": 38,
+            "copper": 52
+        },
+        "slot": "Feet",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 44,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 50
+        }
+    },
+    "3946": {
+        "i": 3946,
+        "quality": 0,
+        "n": "Twill Bracers",
+        "image_name": "inv_bracer_10",
+        "ilvl": 54,
+        "sells_for": {
+            "gold": 0,
+            "silver": 24,
+            "copper": 31
+        },
+        "slot": "Wrist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 28,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 49
+        }
+    },
+    "3947": {
+        "i": 3947,
+        "quality": 0,
+        "n": "Twill Cloak",
+        "image_name": "inv_misc_cape_14",
+        "ilvl": 52,
+        "sells_for": {
+            "gold": 0,
+            "silver": 32,
+            "copper": 58
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 30
+        },
+        "requirements": {
+            "level": 47
+        }
+    },
+    "3948": {
+        "i": 3948,
+        "quality": 0,
+        "n": "Twill Gloves",
+        "image_name": "inv_gauntlets_23",
+        "ilvl": 58,
+        "sells_for": {
+            "gold": 0,
+            "silver": 30,
+            "copper": 92
+        },
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 42,
+            "durability": 25
+        },
+        "requirements": {
+            "level": 53
+        }
+    },
+    "3949": {
+        "i": 3949,
+        "quality": 0,
+        "n": "Twill Pants",
+        "image_name": "inv_pants_06",
+        "ilvl": 59,
+        "sells_for": {
+            "gold": 0,
+            "silver": 65,
+            "copper": 17
+        },
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 60,
+            "durability": 55
+        },
+        "requirements": {
+            "level": 54
+        }
+    },
+    "3950": {
+        "i": 3950,
+        "quality": 0,
+        "n": "Twill Shoulderpads",
+        "image_name": "inv_shoulder_09",
+        "ilvl": 56,
+        "sells_for": {
+            "gold": 0,
+            "silver": 41,
+            "copper": 57
+        },
+        "slot": "Shoulder",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 49,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 51
+        }
+    },
+    "3951": {
+        "i": 3951,
+        "quality": 0,
+        "n": "Twill Vest",
+        "image_name": "inv_shirt_04",
+        "ilvl": 57,
+        "sells_for": {
+            "gold": 0,
+            "silver": 58,
+            "copper": 97
+        },
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 66,
+            "durability": 70
+        },
+        "requirements": {
+            "level": 52
+        }
+    },
+    "3960": {
+        "i": 3960,
+        "quality": 1,
+        "n": "Bag of Water Elemental Bracers",
+        "image_name": "inv_misc_bag_08",
+        "ilvl": 1,
+        "unique": true,
+        "quest_item": true
+    },
+    "3961": {
+        "i": 3961,
+        "quality": 0,
+        "n": "Thick Leather Belt",
+        "image_name": "inv_belt_23",
+        "ilvl": 44,
+        "sells_for": {
+            "gold": 0,
+            "silver": 15,
+            "copper": 3
+        },
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 61,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 39
+        }
+    },
+    "3962": {
+        "i": 3962,
+        "quality": 0,
+        "n": "Thick Leather Boots",
+        "image_name": "inv_boots_03",
+        "ilvl": 48,
+        "sells_for": {
+            "gold": 0,
+            "silver": 30,
+            "copper": 79
+        },
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 80,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 43
+        }
+    },
+    "3963": {
+        "i": 3963,
+        "quality": 0,
+        "n": "Thick Leather Bracers",
+        "image_name": "inv_bracer_01",
+        "ilvl": 43,
+        "sells_for": {
+            "gold": 0,
+            "silver": 14,
+            "copper": 2
+        },
+        "slot": "Wrist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 46,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 38
+        }
+    },
+    "3964": {
+        "i": 3964,
+        "quality": 0,
+        "n": "Thick Cloak",
+        "image_name": "inv_misc_cape_10",
+        "ilvl": 46,
+        "sells_for": {
+            "gold": 0,
+            "silver": 21,
+            "copper": 27
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 27
+        },
+        "requirements": {
+            "level": 41
+        }
+    },
+    "3965": {
+        "i": 3965,
+        "quality": 0,
+        "n": "Thick Leather Gloves",
+        "image_name": "inv_gauntlets_24",
+        "ilvl": 49,
+        "sells_for": {
+            "gold": 0,
+            "silver": 22,
+            "copper": 21
+        },
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 74,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 44
+        }
+    },
+    "3966": {
+        "i": 3966,
+        "quality": 0,
+        "n": "Thick Leather Pants",
+        "image_name": "inv_pants_13",
+        "ilvl": 42,
+        "sells_for": {
+            "gold": 0,
+            "silver": 26,
+            "copper": 25
+        },
+        "slot": "Legs",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 91,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 37
+        }
+    },
+    "3967": {
+        "i": 3967,
+        "quality": 0,
+        "n": "Thick Leather Shoulderpads",
+        "image_name": "inv_shoulder_08",
+        "ilvl": 47,
+        "sells_for": {
+            "gold": 0,
+            "silver": 29,
+            "copper": 3
+        },
+        "slot": "Shoulder",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 85,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 42
+        }
+    },
+    "3968": {
+        "i": 3968,
+        "quality": 0,
+        "n": "Thick Leather Tunic",
+        "image_name": "inv_shirt_13",
+        "ilvl": 45,
+        "sells_for": {
+            "gold": 0,
+            "silver": 33,
+            "copper": 31
+        },
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 109,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 40
+        }
+    },
+    "3969": {
+        "i": 3969,
+        "quality": 0,
+        "n": "Smooth Leather Belt",
+        "image_name": "inv_belt_22",
+        "ilvl": 55,
+        "sells_for": {
+            "gold": 0,
+            "silver": 32,
+            "copper": 56
+        },
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 73,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 50
+        }
+    },
+    "3970": {
+        "i": 3970,
+        "quality": 0,
+        "n": "Smooth Leather Boots",
+        "image_name": "inv_boots_05",
+        "ilvl": 54,
+        "sells_for": {
+            "gold": 0,
+            "silver": 42,
+            "copper": 96
+        },
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 88,
+            "durability": 45
+        },
+        "requirements": {
+            "level": 49
+        }
+    },
+    "3971": {
+        "i": 3971,
+        "quality": 0,
+        "n": "Smooth Leather Bracers",
+        "image_name": "inv_bracer_10",
+        "ilvl": 59,
+        "sells_for": {
+            "gold": 0,
+            "silver": 38,
+            "copper": 11
+        },
+        "slot": "Wrist",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 60,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 54
+        }
+    },
+    "3972": {
+        "i": 3972,
+        "quality": 0,
+        "n": "Smooth Cloak",
+        "image_name": "inv_misc_cape_12",
+        "ilvl": 56,
+        "sells_for": {
+            "gold": 0,
+            "silver": 38,
+            "copper": 91
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 33
+        },
+        "requirements": {
+            "level": 51
+        }
+    },
+    "3973": {
+        "i": 3973,
+        "quality": 0,
+        "n": "Smooth Leather Gloves",
+        "image_name": "inv_gauntlets_18",
+        "ilvl": 58,
+        "sells_for": {
+            "gold": 0,
+            "silver": 36,
+            "copper": 57
+        },
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 84,
+            "durability": 30
+        },
+        "requirements": {
+            "level": 53
+        }
+    },
+    "3974": {
+        "i": 3974,
+        "quality": 0,
+        "n": "Smooth Leather Pants",
+        "image_name": "inv_pants_12",
+        "ilvl": 53,
+        "sells_for": {
+            "gold": 0,
+            "silver": 54,
+            "copper": 86
+        },
+        "slot": "Legs",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 110,
+            "durability": 65
+        },
+        "requirements": {
+            "level": 48
+        }
+    },
+    "3975": {
+        "i": 3975,
+        "quality": 0,
+        "n": "Smooth Leather Shoulderpads",
+        "image_name": "inv_shoulder_08",
+        "ilvl": 52,
+        "sells_for": {
+            "gold": 0,
+            "silver": 38,
+            "copper": 96
+        },
+        "slot": "Shoulder",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 92,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 47
+        }
+    },
+    "3976": {
+        "i": 3976,
+        "quality": 0,
+        "n": "Smooth Leather Armor",
+        "image_name": "inv_chest_leather_09",
+        "ilvl": 57,
+        "sells_for": {
+            "gold": 0,
+            "silver": 69,
+            "copper": 78
+        },
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "stats": {
+            "armor": 133,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 52
+        }
+    },
+    "3985": {
+        "i": 3985,
+        "quality": 2,
+        "n": "Monogrammed Sash",
+        "image_name": "inv_misc_bandana_03",
+        "ilvl": 50,
+        "bop": true,
+        "unique": true,
+        "requirements": {
+            "level": 35
+        },
+        "starts": 8552,
+        "slot": "Waist",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 30,
+            "stamina": 5,
+            "intellect": 10,
+            "durability": 25
+        }
+    },
+    "3986": {
+        "i": 3986,
+        "quality": 0,
+        "n": "Protective Pavise",
+        "image_name": "inv_shield_06",
+        "ilvl": 48,
+        "sells_for": {
+            "gold": 0,
+            "silver": 53,
+            "copper": 32
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 1317,
+            "block": 17,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 43
+        }
+    },
+    "3987": {
+        "i": 3987,
+        "quality": 0,
+        "n": "Deflecting Tower",
+        "image_name": "inv_shield_11",
+        "ilvl": 53,
+        "sells_for": {
+            "gold": 0,
+            "silver": 68,
+            "copper": 37
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 1442,
+            "block": 21,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 48
+        }
+    },
+    "3989": {
+        "i": 3989,
+        "quality": 0,
+        "n": "Blocking Targe",
+        "image_name": "inv_shield_09",
+        "ilvl": 42,
+        "sells_for": {
+            "gold": 0,
+            "silver": 31,
+            "copper": 54
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 1015,
+            "block": 14,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 37
+        }
+    },
+    "3990": {
+        "i": 3990,
+        "quality": 0,
+        "n": "Crested Buckler",
+        "image_name": "inv_shield_10",
+        "ilvl": 56,
+        "sells_for": {
+            "gold": 0,
+            "silver": 82,
+            "copper": 37
+        },
+        "slot": "Off Hand",
+        "proficiency": "Shield",
+        "stats": {
+            "armor": 1517,
+            "block": 23,
+            "durability": 85
+        },
+        "requirements": {
+            "level": 51
+        }
+    },
+    "3992": {
+        "i": 3992,
+        "quality": 0,
+        "n": "Laminated Scale Belt",
+        "image_name": "inv_belt_09",
+        "ilvl": 52,
+        "sells_for": {
+            "gold": 0,
+            "silver": 30,
+            "copper": 82
+        },
+        "slot": "Waist",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 143,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 47
+        }
+    },
+    "3993": {
+        "i": 3993,
+        "quality": 0,
+        "n": "Laminated Scale Boots",
+        "image_name": "inv_boots_01",
+        "ilvl": 53,
+        "sells_for": {
+            "gold": 0,
+            "silver": 49,
+            "copper": 40
+        },
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 178,
+            "durability": 50
+        },
+        "requirements": {
+            "level": 48
+        }
+    },
+    "3994": {
+        "i": 3994,
+        "quality": 0,
+        "n": "Laminated Scale Bracers",
+        "image_name": "inv_bracer_03",
+        "ilvl": 58,
+        "sells_for": {
+            "gold": 0,
+            "silver": 44,
+            "copper": 4
+        },
+        "slot": "Wrist",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 123,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 53
+        }
+    },
+    "3995": {
+        "i": 3995,
+        "quality": 0,
+        "n": "Laminated Scale Cloak",
+        "image_name": "inv_misc_cape_04",
+        "ilvl": 57,
+        "sells_for": {
+            "gold": 0,
+            "silver": 62,
+            "copper": 84
+        },
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "stats": {
+            "armor": 33
+        },
+        "requirements": {
+            "level": 52
+        }
+    },
+    "3996": {
+        "i": 3996,
+        "quality": 0,
+        "n": "Laminated Scale Gloves",
+        "image_name": "inv_gauntlets_04",
+        "ilvl": 59,
+        "sells_for": {
+            "gold": 0,
+            "silver": 46,
+            "copper": 59
+        },
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 179,
+            "durability": 35
+        },
+        "requirements": {
+            "level": 54
+        }
+    },
+    "3997": {
+        "i": 3997,
+        "quality": 0,
+        "n": "Laminated Scale Pants",
+        "image_name": "inv_pants_03",
+        "ilvl": 56,
+        "sells_for": {
+            "gold": 0,
+            "silver": 79,
+            "copper": 29
+        },
+        "slot": "Legs",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 238,
+            "durability": 75
+        },
+        "requirements": {
+            "level": 51
+        }
+    },
+    "3998": {
+        "i": 3998,
+        "quality": 0,
+        "n": "Laminated Scale Shoulderpads",
+        "image_name": "inv_shoulder_07",
+        "ilvl": 55,
+        "sells_for": {
+            "gold": 0,
+            "silver": 56,
+            "copper": 56
+        },
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 201,
+            "durability": 60
+        },
+        "requirements": {
+            "level": 50
+        }
+    },
+    "3999": {
+        "i": 3999,
+        "quality": 0,
+        "n": "Laminated Scale Armor",
+        "image_name": "inv_chest_chain_05",
+        "ilvl": 54,
+        "sells_for": {
+            "gold": 0,
+            "silver": 71,
+            "copper": 9
+        },
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "stats": {
+            "armor": 264,
+            "durability": 100
+        },
+        "requirements": {
+            "level": 49
+        }
     }
 }
