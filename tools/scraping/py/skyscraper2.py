@@ -10,7 +10,7 @@ from statistics import mean
 
 START_TIME = datetime.datetime.now()
 
-NEW = {'MISSING':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
+NEW = {'CONSUME':0, 'MISSING':0, 'SKIPPED':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':0, 'NPCS':0, 'ZONES':0, 'ITEMS':0, 'ITEMSETS':0, 'NPCS': 0, 'QUESTS':0, 'ERRORS':0}
 
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
@@ -19,7 +19,7 @@ driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriv
 iStart = datetime.datetime.now()
 
 prefix = int(input("Enter starting number from 1-23: "))
-ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items24-30.js'.format(prefix)))
+ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items{}.js'.format(prefix)))
 
 
 def main():
@@ -43,9 +43,6 @@ def main():
 		error_box = check_element_exists_by_id('inputbox-error')
 		if not error_box:
 			I = str(ix)
-
-			ALL_ITEMS[I] = {}
-			ALL_ITEMS[I]['i'] = int(ix)
 			tooltip = driver.find_elements(By.CSS_SELECTOR, 'div.tooltip')[-1]
 			tables = tooltip.find_elements(By.XPATH, "./table/tbody/tr/td/table")
 
@@ -53,106 +50,124 @@ def main():
 			upper_items = upper_table.text.split("\n")
 
 			css_class_name = upper_table.find_element(By.TAG_NAME, 'b').get_attribute("class")
-			ALL_ITEMS[I]['quality'] = const.RARITY_CHOICES[css_class_name]
-
-			ALL_ITEMS[I]['n'] = upper_items.pop(0)
-
-			image_name, STACK = image_handler()
-			ALL_ITEMS[I]['image_name'] = image_name
-
-			if STACK:
-				ALL_ITEMS[I]['stack'] = STACK
-
-			if image_name not in const.ALL_IMAGES:
-				const.ALL_IMAGES.append(ALL_ITEMS[I]['image_name'])
-
 			infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[1].find_element(By.TAG_NAME, 'ul')
-			ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
 
-			moneybox = infobox.find_elements(By.TAG_NAME, 'li')
-			if len(moneybox) > 1:
-				ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
+			if I not in ALL_ITEMS.keys():
 
-			if any(x for x in upper_items if x in const.BOP):
-				ALL_ITEMS[I]['bop'] = True
-				i = [x for x,y in enumerate(upper_items) if y in const.BOP][0]
-				upper_items.pop(i)
+				ALL_ITEMS[I] = {}
+				ALL_ITEMS[I]['i'] = int(ix)
 
-			if any(x for x in upper_items if 'damage' and 'second' in x):
-				i = [x for x,y in enumerate(upper_items) if 'damage' and 'second' in y][0] #removes dps
-				upper_items.pop(i)
+				ALL_ITEMS[I]['quality'] = const.RARITY_CHOICES[css_class_name]
+				ALL_ITEMS[I]['n'] = upper_items.pop(0)
 
-			if const.BOE in upper_items:
-				ALL_ITEMS[I]['boe'] = True
-				i = upper_items.index(const.BOE)
-				upper_items.pop(i)
+				image_name, STACK = image_handler()
+				ALL_ITEMS[I]['image_name'] = image_name
 
-			if const.UNIQUE in upper_items:
-				ALL_ITEMS[I]['unique'] = True
-				i = upper_items.index(const.UNIQUE)
-				upper_items.pop(i)
+				if STACK:
+					ALL_ITEMS[I]['stack'] = STACK
 
-			if const.QUEST_ITEM in upper_items:
-				ALL_ITEMS[I]['quest_item'] = True
-				i = upper_items.index(const.QUEST_ITEM)
-				upper_items.pop(i)
+				if image_name not in const.ALL_IMAGES:
+					const.ALL_IMAGES.append(ALL_ITEMS[I]['image_name'])
 
-			if "This Item Begins a Quest" in upper_items:
-				i = upper_items.index("This Item Begins a Quest")
-				upper_items.pop(i)
+				ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
 
-				if check_element_exists_by_id("tab-starts"):
-					ALL_ITEMS[I]['starts'] = starts_quest(I)
+				moneybox = infobox.find_elements(By.TAG_NAME, 'li')
+				if len(moneybox) > 1:
+					ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
 
-			if any(x for x in upper_items if 'Slot Bag' in x):
-				ALL_ITEMS[I]['slot'] = 'Bag'
-				i = [x for x,y in enumerate(upper_items) if 'Bag' in y][0]
-				bag = upper_items.pop(i)
-				num_slots = re.search(r"([\d]+)", bag).group(1)
-				ALL_ITEMS[I]['slots'] = int(num_slots)
+				if any(x for x in upper_items if x in const.BOP):
+					ALL_ITEMS[I]['bop'] = True
+					i = [x for x,y in enumerate(upper_items) if y in const.BOP][0]
+					upper_items.pop(i)
 
-			if check_element_exists_by_css(upper_table, 'table'):
+				if any(x for x in upper_items if 'damage' and 'second' in x):
+					i = [x for x,y in enumerate(upper_items) if 'damage' and 'second' in y][0] #removes dps
+					upper_items.pop(i)
 
-				tab = upper_table.find_element(By.TAG_NAME, 'table')
-				text = tab.text
-				if text:
-					slot = tab.find_element(By.TAG_NAME, 'td').text
-					ALL_ITEMS[I]['slot'] = slot
-					i = [x for x,y in enumerate(upper_items) if slot in y][0]
-					upper_items[i] = upper_items[i].replace(slot, '', 1).strip()
+				if const.BOE in upper_items:
+					ALL_ITEMS[I]['boe'] = True
+					i = upper_items.index(const.BOE)
+					upper_items.pop(i)
 
-					if check_element_exists_by_css(tab, "th") and slot not in const.ARMORLESS_SLOTS:
-						th = tab.find_element(By.TAG_NAME, 'th')
-						if th.text:
-							proficiency = th.text
-							ALL_ITEMS[I]['proficiency'] = proficiency
-							id = upper_items.index(proficiency)
-							upper_items.pop(id)
+				if const.UNIQUE in upper_items:
+					ALL_ITEMS[I]['unique'] = True
+					i = upper_items.index(const.UNIQUE)
+					upper_items.pop(i)
 
-			# wep speed is normally coupled with dmg, so extract speed
-			if any(x for x in upper_items if 'Speed' in x):
-				i = [x for x,y in enumerate(upper_items) if 'Speed' in y][0]
-				regex = r"Speed ([\d\.]+)"
-				match = re.search(regex, upper_items[i])
-				if match:
-					upper_items[i] = re.sub(match.group(0), '', upper_items[i]).strip()
-					ALL_ITEMS[I]['speed'] = float(match.group(1))
+				if const.QUEST_ITEM in upper_items:
+					ALL_ITEMS[I]['quest_item'] = True
+					i = upper_items.index(const.QUEST_ITEM)
+					upper_items.pop(i)
 
-			ALL_ITEMS[I] = extract_stats(upper_items, ALL_ITEMS[I], I)
+				if "This Item Begins a Quest" in upper_items:
+					i = upper_items.index("This Item Begins a Quest")
+					upper_items.pop(i)
 
-			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
-			ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table, I)
+					if check_element_exists_by_id("tab-starts"):
+						ALL_ITEMS[I]['starts'] = starts_quest(I)
 
-			if check_element_exists_by_id("tab-created-by"):
-				driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
-				tab = driver.find_element(By.ID, "tab-created-by")
-				created_by(tab, I)
+				if any(x for x in upper_items if 'Slot Bag' in x):
+					ALL_ITEMS[I]['slot'] = 'Bag'
+					i = [x for x,y in enumerate(upper_items) if 'Bag' in y][0]
+					bag = upper_items.pop(i)
+					num_slots = re.search(r"([\d]+)", bag).group(1)
+					ALL_ITEMS[I]['slots'] = int(num_slots)
 
-			iStop = datetime.datetime.now()
-			NEW['ITEMS']+=1
-			iii = "({})".format(ALL_ITEMS[I]['i'])
-			nnn = "\n{} (NEW) ".format(ALL_ITEMS[I]['n'])
-			print('{:<33} {:<8} {:>4}s'.format(nnn, iii, round((iStop - iStart).total_seconds(), 2)))
+				if check_element_exists_by_css(upper_table, 'table'):
+
+					tab = upper_table.find_element(By.TAG_NAME, 'table')
+					text = tab.text
+					if text:
+						slot = tab.find_element(By.TAG_NAME, 'td').text
+						ALL_ITEMS[I]['slot'] = slot
+						i = [x for x,y in enumerate(upper_items) if slot in y][0]
+						upper_items[i] = upper_items[i].replace(slot, '', 1).strip()
+
+						if check_element_exists_by_css(tab, "th") and slot not in const.ARMORLESS_SLOTS:
+							th = tab.find_element(By.TAG_NAME, 'th')
+							if th.text:
+								proficiency = th.text
+								ALL_ITEMS[I]['proficiency'] = proficiency
+								id = upper_items.index(proficiency)
+								upper_items.pop(id)
+
+				# wep speed is normally coupled with dmg, so extract speed
+				if any(x for x in upper_items if 'Speed' in x):
+					i = [x for x,y in enumerate(upper_items) if 'Speed' in y][0]
+					regex = r"Speed ([\d\.]+)"
+					match = re.search(regex, upper_items[i])
+					if match:
+						upper_items[i] = re.sub(match.group(0), '', upper_items[i]).strip()
+						ALL_ITEMS[I]['speed'] = float(match.group(1))
+
+				ALL_ITEMS[I] = extract_stats(upper_items, ALL_ITEMS[I], I)
+
+				lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
+				ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table, I)
+
+				if check_element_exists_by_id("tab-created-by"):
+					driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
+					tab = driver.find_element(By.ID, "tab-created-by")
+					created_by(tab, I)
+
+				iStop = datetime.datetime.now()
+
+				NEW['ITEMS']+=1
+				iii = "({})".format(ALL_ITEMS[I]['i'])
+				nnn = "\n{} (NEW) ".format(ALL_ITEMS[I]['n'])
+				print('{:<33} {:<8} {:>4}s'.format(nnn, iii, round((iStop - iStart).total_seconds(), 2)))
+
+			else:
+				NEW['SKIPPED'] += 1
+
+			if 'Consumable' in infobox.text:
+				ALL_ITEMS[I]['consume'] = True
+				NEW['CONSUME'] += 1
+
+				if check_element_exists_by_id("tab-created-by") and 'created_by' not in ALL_ITEMS[I].keys():
+					driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
+					tab = driver.find_element(By.ID, "tab-created-by")
+					created_by(tab, I)
 
 
 		else:
@@ -163,7 +178,7 @@ def main():
 
 def save_and_close():
 
-	with open(os.path.abspath('../js/items/items24-30.js'.format(prefix)), 'w+') as f:
+	with open(os.path.abspath('../js/items/items{}.js'.format(prefix)), 'w+') as f:
 		json.dump(ALL_ITEMS, f, indent=4)
 
 	with open(os.path.abspath('image_list.txt'), 'w+') as f:
@@ -815,6 +830,13 @@ def created_by(tab, I):
 				const.ALL_ERRORS['created_by']['profession_info']['i'].append(int(I))
 
 			ALL_ITEMS[I]['created_by']['materials'] = get_mats(row, I)
+
+
+		link = row.find_element(By.XPATH, "./td[1]/div[1]/a")
+
+		if link.get_attribute("rel"):
+			ALL_ITEMS[I]['created_by']['step'] = int(link.get_attribute("rel"))
+
 
 	TOTAL_CALLS[fn] += 1
 
