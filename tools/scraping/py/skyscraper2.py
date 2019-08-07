@@ -164,10 +164,10 @@ def main():
 				ALL_ITEMS[I]['consume'] = True
 				NEW['CONSUME'] += 1
 
-				if check_element_exists_by_id("tab-created-by") and 'created_by' not in ALL_ITEMS[I].keys():
-					driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
-					tab = driver.find_element(By.ID, "tab-created-by")
-					created_by(tab, I)
+			if check_element_exists_by_id("tab-created-by") and 'created_by' not in ALL_ITEMS[I].keys():
+				driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
+				tab = driver.find_element(By.ID, "tab-created-by")
+				created_by(tab, I)
 
 
 		else:
@@ -186,7 +186,10 @@ def save_and_close():
 			f.write(name+"\n")
 
 	with open(os.path.abspath('../js/ERRORS_p2.js'), 'w+') as f:
-		json.dump(const.ALL_ERRORS, f, indent=4)
+		json.dump(const.ERRORS2, f, indent=4)
+
+	with open(os.path.abspath('../js/ERRORS.js'), 'w+') as f:
+		json.dump(const.ERRORS1, f, indent=4)
 
 	with open(os.path.abspath('../js/quests.js'), 'w+') as f:
 		json.dump(const.QUESTS, f, indent=4)
@@ -271,14 +274,14 @@ def starts_quest(I):
 			ALL_ITEMS[I]['requirements'][k] = v
 	else:
 		print("NO MATCH FOR QUEST FOUND in starts_quest({})".format(I))
-		if "missing_quests" not in const.ALL_ERRORS.keys():
+		if "missing_quests" not in const.ERRORS2.keys():
 
-			const.ALL_ERRORS["missing_quests"] = {}
-			const.ALL_ERRORS["missing_quests"]['count'] = 0
-			const.ALL_ERRORS["missing_quests"]['i'] = []
+			const.ERRORS2["missing_quests"] = {}
+			const.ERRORS2["missing_quests"]['count'] = 0
+			const.ERRORS2["missing_quests"]['i'] = []
 
-		const.ALL_ERRORS["missing_quests"]['count'] += 1
-		const.ALL_ERRORS["missing_quests"]['i'].append(I)
+		const.ERRORS2["missing_quests"]['count'] += 1
+		const.ERRORS2["missing_quests"]['i'].append(I)
 
 	return qid
 
@@ -302,13 +305,13 @@ def get_mats(row, ix):
 
 	except:
 		print("UNABLE TO FIND MATERIALS FOR ({})".format())
-		if 'materials' not in const.ALL_ERRORS.keys():
-			const.ALL_ERRORS['materials'] = {}
-			const.ALL_ERRORS['materials']['count'] = 0
-			const.ALL_ERRORS['materials']['i'] = []
+		if 'materials' not in const.ERRORS2.keys():
+			const.ERRORS2['materials'] = {}
+			const.ERRORS2['materials']['count'] = 0
+			const.ERRORS2['materials']['i'] = []
 
-		const.ALL_ERRORS['materials']['count'] += 0
-		const.ALL_ERRORS['materials']['i'].append(int(ix))
+		const.ERRORS2['materials']['count'] += 0
+		const.ERRORS2['materials']['i'].append(int(ix))
 
 	return materials
 
@@ -408,16 +411,16 @@ def get_lowboys(item_dict, table, ix):
 
 		else:
 			print("NO MATCH FOUND FOR {} in LOWBOYS".format(text))
-			if 'lowboys' not in const.ALL_ERRORS.keys():
-				const.ALL_ERRORS['lowboys'] = {}
+			if 'lowboys' not in const.ERRORS2.keys():
+				const.ERRORS2['lowboys'] = {}
 
-			if text not in const.ALL_ERRORS['lowboys'].keys():
-				const.ALL_ERRORS['lowboys'][text] = {}
-				const.ALL_ERRORS['lowboys'][text]['count'] = 0
-				const.ALL_ERRORS['lowboys'][text]['i'] = []
+			if text not in const.ERRORS2['lowboys'].keys():
+				const.ERRORS2['lowboys'][text] = {}
+				const.ERRORS2['lowboys'][text]['count'] = 0
+				const.ERRORS2['lowboys'][text]['i'] = []
 
-			const.ALL_ERRORS['lowboys'][text]['count'] += 1
-			const.ALL_ERRORS['lowboys'][text]['i'].append(ix)
+			const.ERRORS2['lowboys'][text]['count'] += 1
+			const.ERRORS2['lowboys'][text]['i'].append(ix)
 
 
 	TOTAL_TIMES[fn] += (datetime.datetime.now() - start)
@@ -755,14 +758,14 @@ def extract_stats(items, item_dict, I):
 
 		else:
 			print('NO MATCHES FOUND FOR: {}'.format(item))
-			if 'extract_stats' not in const.ALL_ERRORS.keys():
-				const.ALL_ERRORS['extract_stats'] = {}
+			if 'extract_stats' not in const.ERRORS2.keys():
+				const.ERRORS2['extract_stats'] = {}
 
-			if item not in const.ALL_ERRORS['extract_stats'].keys():
-				const.ALL_ERRORS['extract_stats'][item] = {}
-				const.ALL_ERRORS['extract_stats'][item]['i'] = []
+			if item not in const.ERRORS2['extract_stats'].keys():
+				const.ERRORS2['extract_stats'][item] = {}
+				const.ERRORS2['extract_stats'][item]['i'] = []
 
-			const.ALL_ERRORS['extract_stats'][item]['i'].append(int(I))
+			const.ERRORS2['extract_stats'][item]['i'].append(int(I))
 			continue
 
 
@@ -778,14 +781,14 @@ def created_by(tab, I):
 
 	if len(trs) > 1:
 		print("MULTIPLE ROWS FOUND IN CREATED_BY for ({})".format(I))
-		if 'created_by' not in const.ALL_ERRORS.keys():
-			const.ALL_ERRORS['created_by'] = {}
+		if 'created_by' not in const.ERRORS2.keys():
+			const.ERRORS2['created_by'] = {}
 
-		if 'multiple_choices' not in const.ALL_ERRORS['created_by'].keys():
-			const.ALL_ERRORS['created_by']['multiple_choices'] = {}
-			const.ALL_ERRORS['created_by']['multiple_choices']['i'] = []
+		if 'multiple_choices' not in const.ERRORS2['created_by'].keys():
+			const.ERRORS2['created_by']['multiple_choices'] = {}
+			const.ERRORS2['created_by']['multiple_choices']['i'] = []
 
-		const.ALL_ERRORS['created_by']['multiple_choices']['i'].append(int(I))
+		const.ERRORS2['created_by']['multiple_choices']['i'].append(int(I))
 
 
 	for row in trs:
@@ -819,15 +822,15 @@ def created_by(tab, I):
 
 			else:
 				print("UNABLE TO FIND PROFESSION TEXT AND/OR SKILL LEVEL FOR ({})".format(I))
-				if 'created_by' not in const.ALL_ERRORS.keys():
-					const.ALL_ERRORS['created_by'] = {}
+				if 'created_by' not in const.ERRORS2.keys():
+					const.ERRORS2['created_by'] = {}
 
-				if 'profession_info' not in const.ALL_ERRORS['created_by'].keys():
+				if 'profession_info' not in const.ERRORS2['created_by'].keys():
 
-					const.ALL_ERRORS['created_by']['profession_info'] = {}
-					const.ALL_ERRORS['created_by']['profession_info']['i'] = []
+					const.ERRORS2['created_by']['profession_info'] = {}
+					const.ERRORS2['created_by']['profession_info']['i'] = []
 
-				const.ALL_ERRORS['created_by']['profession_info']['i'].append(int(I))
+				const.ERRORS2['created_by']['profession_info']['i'].append(int(I))
 
 			ALL_ITEMS[I]['created_by']['materials'] = get_mats(row, I)
 
@@ -836,6 +839,11 @@ def created_by(tab, I):
 
 		if link.get_attribute("rel"):
 			ALL_ITEMS[I]['created_by']['step'] = int(link.get_attribute("rel"))
+
+		if int(I) in const.ERRORS1["missing_tabs"]["tab-created-by"]["i"]:
+			const.ERRORS1["missing_tabs"]["tab-created-by"]["i"].pop(int(I))
+			const.ERRORS1["missing_tabs"]["tab-created-by"]["count"] = len(const.ERRORS1["missing_tabs"]["tab-created-by"]["i"])
+			print('Removed ({}) from missing tabs'.format(I))
 
 
 	TOTAL_CALLS[fn] += 1
@@ -848,17 +856,17 @@ def created_by(tab, I):
 
 def log_error(I, fn):
 
-	if I not in const.ALL_ERRORS.keys():
-		const.ALL_ERRORS[I] = {}
+	if I not in const.ERRORS2.keys():
+		const.ERRORS2[I] = {}
 
-	if fn not in const.ALL_ERRORS[I].keys():
-		const.ALL_ERRORS[I][fn] = {}
-		const.ALL_ERRORS[I][fn]['count'] = 0
-	const.ALL_ERRORS[I][fn]['count'] += 1
+	if fn not in const.ERRORS2[I].keys():
+		const.ERRORS2[I][fn] = {}
+		const.ERRORS2[I][fn]['count'] = 0
+	const.ERRORS2[I][fn]['count'] += 1
 
 	NEW['ERRORS'] += 1
 	with open(os.path.abspath('../js/ERRORS.js'), 'w+') as f:
-		json.dump(const.ALL_ERRORS, f, indent=4)
+		json.dump(const.ERRORS2, f, indent=4)
 
 def get_ilvl(infobox):
 	start = datetime.datetime.now()
