@@ -1435,6 +1435,10 @@
         "i": 180215,
         "n": "Hakkari Thorium Vein"
     },
+    "180216": {
+        "i": 180216,
+        "n": "Whipweed"
+    },
     "180228": {
         "i": 180228,
         "n": "Jinxed Hoodoo Pile"
@@ -1447,17 +1451,73 @@
         "i": 180248,
         "n": "School of Tastyfish"
     },
+    "180346": {
+        "i": 180346,
+        "n": "Mudskunk Lure"
+    },
     "18036": {
         "i": 18036,
         "n": "Bottle of Disease"
+    },
+    "180369": {
+        "i": 180369,
+        "n": "Muddy Churning Waters"
+    },
+    "180370": {
+        "i": 180370,
+        "n": "Harvest Fruit"
+    },
+    "180371": {
+        "i": 180371,
+        "n": "Harvest Fish"
+    },
+    "180372": {
+        "i": 180372,
+        "n": "Harvest Boar"
+    },
+    "180373": {
+        "i": 180373,
+        "n": "Harvest Nectar"
+    },
+    "180374": {
+        "i": 180374,
+        "n": "Harvest Nectar"
     },
     "180392": {
         "i": 180392,
         "n": "Full Jug"
     },
+    "180435": {
+        "i": 180435,
+        "n": "Noggle's Satchel"
+    },
+    "180436": {
+        "i": 180436,
+        "n": "Twilight Tablet Fragment"
+    },
+    "180501": {
+        "i": 180501,
+        "n": "Twilight Tablet Fragment"
+    },
+    "180511": {
+        "i": 180511,
+        "n": "Scroll of Scourge Magic"
+    },
+    "180523": {
+        "i": 180523,
+        "n": "Apple Bob"
+    },
     "180582": {
         "i": 180582,
         "n": "Oily Blackmouth School"
+    },
+    "180655": {
+        "i": 180655,
+        "n": "Floating Debris"
+    },
+    "180656": {
+        "i": 180656,
+        "n": "Sagefish School"
     },
     "180657": {
         "i": 180657,
@@ -1482,6 +1542,14 @@
     "180683": {
         "i": 180683,
         "n": "Firefin Snapper School"
+    },
+    "180690": {
+        "i": 180690,
+        "n": "Large Scarab Coffer"
+    },
+    "180691": {
+        "i": 180691,
+        "n": "Scarab Coffer"
     },
     "180712": {
         "i": 180712,
@@ -2367,36 +2435,40 @@
         "i": 9630,
         "n": "Flagongut's Fossil"
     },
-    "180216": {
-        "i": 180216,
-        "n": "Whipweed"
+    "180663": {
+        "i": 180663,
+        "n": "Sagefish School"
     },
-    "180346": {
-        "i": 180346,
-        "n": "Mudskunk Lure"
+    "180662": {
+        "i": 180662,
+        "n": "Floating Wreckage"
     },
-    "180369": {
-        "i": 180369,
-        "n": "Muddy Churning Waters"
+    "180685": {
+        "i": 180685,
+        "n": "Floating Wreckage"
     },
-    "180370": {
-        "i": 180370,
-        "n": "Harvest Fruit"
+    "180684": {
+        "i": 180684,
+        "n": "Greater Sagefish School"
     },
-    "180372": {
-        "i": 180372,
-        "n": "Harvest Boar"
+    "184956": {
+        "i": 184956,
+        "n": "Strange Pool"
     },
-    "180371": {
-        "i": 180371,
-        "n": "Harvest Fish"
+    "180751": {
+        "i": 180751,
+        "n": "Floating Wreckage"
     },
-    "180373": {
-        "i": 180373,
-        "n": "Harvest Nectar"
+    "180901": {
+        "i": 180901,
+        "n": "Floating Wreckage"
     },
-    "180374": {
-        "i": 180374,
-        "n": "Harvest Nectar"
+    "180905": {
+        "i": 180905,
+        "n": "Festive Mug"
+    },
+    "180754": {
+        "i": 180754,
+        "n": "Toasting Goblet"
     }
 }

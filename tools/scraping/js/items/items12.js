@@ -218,7 +218,8 @@
         },
         "reward_from": {
             "4126": 10
-        }
+        },
+        "consume": true
     },
     "12004": {
         "i": 12004,
@@ -5080,7 +5081,8 @@
                 "8831": 3,
                 "8925": 1
             }
-        }
+        },
+        "consume": true
     },
     "12191": {
         "i": 12191,
@@ -5375,7 +5377,8 @@
                 "2678": 1
             }
         },
-        "objective": 8612
+        "objective": 8612,
+        "consume": true
     },
     "12210": {
         "i": 12210,
@@ -5412,7 +5415,8 @@
             "12184": 1,
             "2692": 1
         },
-        "objective": 8526
+        "objective": 8526,
+        "consume": true
     },
     "12212": {
         "i": 12212,
@@ -5444,13 +5448,15 @@
                 "12202": 1,
                 "159": 1,
                 "4536": 2
-            }
+            },
+            "step": 2
         },
         "materials": {
             "12202": 1,
             "159": 1,
             "4536": 2
-        }
+        },
+        "consume": true
     },
     "12213": {
         "i": 12213,
@@ -5486,7 +5492,8 @@
         "materials": {
             "12037": 1,
             "2692": 1
-        }
+        },
+        "consume": true
     },
     "12214": {
         "i": 12214,
@@ -5522,7 +5529,8 @@
         "materials": {
             "12037": 1,
             "2596": 1
-        }
+        },
+        "consume": true
     },
     "12215": {
         "i": 12215,
@@ -5554,13 +5562,15 @@
                 "12204": 2,
                 "3713": 1,
                 "159": 1
-            }
+            },
+            "step": 2
         },
         "materials": {
             "12204": 2,
             "3713": 1,
             "159": 1
-        }
+        },
+        "consume": true
     },
     "12216": {
         "i": 12216,
@@ -5596,7 +5606,8 @@
         "materials": {
             "12206": 1,
             "2692": 2
-        }
+        },
+        "consume": true
     },
     "12217": {
         "i": 12217,
@@ -5634,7 +5645,8 @@
             "12037": 1,
             "4402": 1,
             "2692": 1
-        }
+        },
+        "consume": true
     },
     "12218": {
         "i": 12218,
@@ -5670,7 +5682,8 @@
         "materials": {
             "12207": 1,
             "3713": 2
-        }
+        },
+        "consume": true
     },
     "12219": {
         "i": 12219,
@@ -5774,7 +5787,8 @@
         "materials": {
             "12223": 1,
             "2678": 1
-        }
+        },
+        "consume": true
     },
     "12225": {
         "i": 12225,
@@ -6228,7 +6242,8 @@
             "s": 434,
             "t": "Restores 243.6 health over 21 sec. Must remain seated while eating."
         },
-        "objective": 1141
+        "objective": 1141,
+        "consume": true
     },
     "12239": {
         "i": 12239,
@@ -6339,7 +6354,10 @@
             "s": 15911,
             "t": "Teaches you how to cook Heavy Kodo Stew."
         },
-        "objective": 4735
+        "objective": 4735,
+        "created_by": {
+            "materials": {}
+        }
     },
     "12242": {
         "i": 12242,
@@ -7401,7 +7419,8 @@
             "s": 15998,
             "t": "Use when near a Bloodaxe Worg Pup. Don't worry, it is G.E.T.A. approved."
         },
-        "provided_for": 4729
+        "provided_for": 4729,
+        "consume": true
     },
     "12263": {
         "i": 12263,
@@ -7536,7 +7555,8 @@
             "s": 16031,
             "t": "Releases a captured Felwood ooze so it can interact with a primal ooze in Un'Goro Crater. (cooldown 3 min)"
         },
-        "provided_for": 4642
+        "provided_for": 4642,
+        "consume": true
     },
     "12289": {
         "i": 12289,
@@ -7717,7 +7737,8 @@
         "use": {
             "s": 16053,
             "t": "Controls Emberstrife's mind when his will falters.\n5 charges"
-        }
+        },
+        "consume": true
     },
     "12301": {
         "i": 12301,
@@ -7732,7 +7753,8 @@
         },
         "unique": true,
         "quest_item": true,
-        "provided_for": 2969
+        "provided_for": 2969,
+        "consume": true
     },
     "12302": {
         "i": 12302,
@@ -7803,7 +7825,8 @@
             "items": {
                 "12339": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "12324": {
         "i": 12324,
@@ -8009,7 +8032,8 @@
             "s": 16073,
             "t": "Fill with moonwell water to prepare the bowl to cleanse food placed in it."
         },
-        "provided_for": 4763
+        "provided_for": 4763,
+        "consume": true
     },
     "12347": {
         "i": 12347,
@@ -8030,7 +8054,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "12349": {
         "i": 12349,
@@ -8057,7 +8082,8 @@
         },
         "unique": true,
         "quest_item": true,
-        "provided_for": 4762
+        "provided_for": 4762,
+        "consume": true
     },
     "12351": {
         "i": 12351,
@@ -8614,7 +8640,8 @@
         "created_by": {
             "materials": {}
         },
-        "provided_for": 4771
+        "provided_for": 4771,
+        "consume": true
     },
     "12382": {
         "i": 12382,
@@ -8746,7 +8773,8 @@
             "items": {
                 "20602": 44.0
             }
-        }
+        },
+        "consume": true
     },
     "12405": {
         "i": 12405,
@@ -10297,7 +10325,8 @@
         },
         "reward_from": {
             "4801": 3
-        }
+        },
+        "consume": true
     },
     "12451": {
         "i": 12451,
@@ -10318,7 +10347,8 @@
         },
         "reward_from": {
             "4802": 3
-        }
+        },
+        "consume": true
     },
     "12455": {
         "i": 12455,
@@ -10339,7 +10369,8 @@
         },
         "reward_from": {
             "4803": 3
-        }
+        },
+        "consume": true
     },
     "12457": {
         "i": 12457,
@@ -10360,7 +10391,8 @@
         },
         "reward_from": {
             "4804": 3
-        }
+        },
+        "consume": true
     },
     "12458": {
         "i": 12458,
@@ -10381,7 +10413,8 @@
         },
         "reward_from": {
             "4807": 3
-        }
+        },
+        "consume": true
     },
     "12459": {
         "i": 12459,
@@ -10402,7 +10435,8 @@
         },
         "reward_from": {
             "4805": 3
-        }
+        },
+        "consume": true
     },
     "12460": {
         "i": 12460,
@@ -10423,7 +10457,8 @@
         },
         "reward_from": {
             "4806": 3
-        }
+        },
+        "consume": true
     },
     "12462": {
         "i": 12462,
@@ -11102,7 +11137,8 @@
         },
         "dropped": {
             "9196": 100.0
-        }
+        },
+        "consume": true
     },
     "12535": {
         "i": 12535,
@@ -11880,7 +11916,8 @@
             "s": 15647,
             "t": "Release the kitten near the Jadefire Satyrs' corrupted moonwell."
         },
-        "provided_for": 4506
+        "provided_for": 4506,
+        "consume": true
     },
     "12566": {
         "i": 12566,
@@ -11899,7 +11936,8 @@
             "s": 15649,
             "t": "Fill at the Jadefire Satyrs' corrupted moonwell."
         },
-        "provided_for": 4505
+        "provided_for": 4505,
+        "consume": true
     },
     "12567": {
         "i": 12567,
@@ -12080,7 +12118,8 @@
         "dropped": {
             "10375": 96.0,
             "10374": 71.0
-        }
+        },
+        "consume": true
     },
     "12587": {
         "i": 12587,
@@ -14073,7 +14112,8 @@
             "12365": 1,
             "14047": 1
         },
-        "objective": 9178
+        "objective": 9178,
+        "consume": true
     },
     "12644": {
         "i": 12644,
@@ -14161,7 +14201,8 @@
             "12359": 4,
             "12644": 4,
             "7076": 2
-        }
+        },
+        "consume": true
     },
     "12646": {
         "i": 12646,
@@ -14238,7 +14279,8 @@
         "description": "This object has been attuned to work against a specific being",
         "reward_from": {
             "4973": 1
-        }
+        },
+        "consume": true
     },
     "12651": {
         "i": 12651,
@@ -14470,7 +14512,8 @@
             "18451": 14106,
             "18453": 14112,
             "16986": 12795
-        }
+        },
+        "consume": true
     },
     "12663": {
         "i": 12663,
@@ -15877,7 +15920,8 @@
         },
         "dropped": {
             "10801": 100.0
-        }
+        },
+        "consume": true
     },
     "12723": {
         "i": 12723,
@@ -16075,7 +16119,8 @@
             "7430": 5.0,
             "7431": 5.0,
             "7432": 5.0
-        }
+        },
+        "consume": true
     },
     "12734": {
         "i": 12734,
@@ -17942,7 +17987,8 @@
             "s": 16989,
             "t": "Plant the Scourge banner at the Scarlet Crusade's forward base camp in the Western Plaguelands."
         },
-        "provided_for": 5096
+        "provided_for": 5096,
+        "consume": true
     },
     "12808": {
         "i": 12808,
@@ -18197,7 +18243,8 @@
             "objects": {
                 "176092": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "12815": {
         "i": 12815,
@@ -18216,7 +18263,8 @@
             "s": 17016,
             "t": "Place in the doorway at one of Andorhal's ruined towers as a magical marker for future troop movement. (cooldown 2 min)\n5 charges"
         },
-        "provided_for": 5098
+        "provided_for": 5098,
+        "consume": true
     },
     "12819": {
         "i": 12819,
@@ -18268,7 +18316,8 @@
             "10916": 5.0,
             "7438": 4.0,
             "10199": 4.0
-        }
+        },
+        "consume": true
     },
     "12821": {
         "i": 12821,
@@ -18796,7 +18845,8 @@
         "objective": 9141,
         "reward_from": {
             "5510": 1
-        }
+        },
+        "consume": true
     },
     "12845": {
         "i": 12845,
@@ -18859,7 +18909,8 @@
             "t": "Claim the promised soul."
         },
         "description": "Fel energies pulse across the pike",
-        "provided_for": 5127
+        "provided_for": 5127,
+        "consume": true
     },
     "12849": {
         "i": 12849,
@@ -19218,7 +19269,8 @@
             "t": "Douses the flames off the braziers found within Jaedenar and dispels their protective magic.\n4 charges"
         },
         "provided_for": 5165,
-        "objective": 5159
+        "objective": 5159,
+        "consume": true
     },
     "12907": {
         "i": 12907,
@@ -19251,7 +19303,8 @@
             "s": 17161,
             "t": "This container should be filled with water from the corrupt moon well in Jaedenar."
         },
-        "provided_for": 5157
+        "provided_for": 5157,
+        "consume": true
     },
     "12923": {
         "i": 12923,
@@ -20299,7 +20352,8 @@
             "objects": {
                 "176215": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "12974": {
         "i": 12974,

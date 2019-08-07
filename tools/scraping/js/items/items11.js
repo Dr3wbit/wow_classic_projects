@@ -108,7 +108,14 @@
             }
         }
     },
-    "11024": {},
+    "11024": {
+        "created_by": {
+            "materials": {
+                "11018": 2,
+                "11022": 1
+            }
+        }
+    },
     "11026": {
         "sold": {
             "14860": {
@@ -1726,6 +1733,18 @@
         "objective": 6026,
         "creates": {
             "13628": 11130
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 155,
+                "green": 157,
+                "grey": 160
+            },
+            "materials": {
+                "3577": 1,
+                "3478": 2
+            }
         }
     },
     "11129": {
@@ -1745,9 +1764,27 @@
         },
         "objective": 7201
     },
-    "11130": {},
+    "11130": {
+        "created_by": {
+            "profession": "Enchanting",
+            "skill": {
+                "yellow": 175,
+                "green": 195,
+                "grey": 215
+            },
+            "materials": {
+                "11128": 1,
+                "5500": 1,
+                "11082": 2,
+                "11083": 2
+            }
+        }
+    },
     "11131": {
-        "objective": 3883
+        "objective": 3883,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11132": {
         "provided_for": 3883,
@@ -3494,9 +3531,36 @@
             "24895": 20447,
             "24898": 20450,
             "13702": 11145
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 205,
+                "green": 207,
+                "grey": 210
+            },
+            "materials": {
+                "6037": 1,
+                "3486": 1
+            }
         }
     },
-    "11145": {},
+    "11145": {
+        "created_by": {
+            "profession": "Enchanting",
+            "skill": {
+                "yellow": 220,
+                "green": 240,
+                "grey": 260
+            },
+            "materials": {
+                "11144": 1,
+                "7971": 1,
+                "11135": 2,
+                "11137": 2
+            }
+        }
+    },
     "11146": {
         "provided_for": 3923,
         "objective": 3923
@@ -3522,7 +3586,12 @@
         "consume": true
     },
     "11149": {
-        "objective": 3924
+        "objective": 3924,
+        "created_by": {
+            "materials": {
+                "11148": 5
+            }
+        }
     },
     "11150": {
         "dropped": {
@@ -5970,7 +6039,10 @@
         }
     },
     "11230": {
-        "objective": 4024
+        "objective": 4024,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11231": {
         "provided_for": 4024,
@@ -6072,13 +6144,22 @@
         "objective": 4063
     },
     "11270": {
-        "objective": 3638
+        "objective": 3638,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11282": {
-        "objective": 3642
+        "objective": 3642,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11283": {
-        "objective": 3640
+        "objective": 3640,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11284": {
         "sold": {
@@ -6370,15 +6451,57 @@
     },
     "11286": {
         "provided_for": 4122,
-        "objective": 4121
+        "objective": 4121,
+        "created_by": {
+            "materials": {}
+        }
     },
-    "11287": {},
-    "11288": {},
+    "11287": {
+        "created_by": {
+            "profession": "Enchanting",
+            "skill": {
+                "yellow": 75,
+                "green": 95,
+                "grey": 115
+            },
+            "materials": {
+                "4470": 1,
+                "10938": 1
+            }
+        }
+    },
+    "11288": {
+        "created_by": {
+            "profession": "Enchanting",
+            "skill": {
+                "yellow": 110,
+                "green": 130,
+                "grey": 150
+            },
+            "materials": {
+                "4470": 1,
+                "10939": 1
+            }
+        }
+    },
     "11289": {
         "materials": {
             "11291": 1,
             "11134": 1,
             "11083": 1
+        },
+        "created_by": {
+            "profession": "Enchanting",
+            "skill": {
+                "yellow": 175,
+                "green": 195,
+                "grey": 215
+            },
+            "materials": {
+                "11291": 1,
+                "11134": 1,
+                "11083": 1
+            }
         }
     },
     "11290": {
@@ -6386,6 +6509,19 @@
             "11291": 1,
             "11135": 1,
             "11137": 1
+        },
+        "created_by": {
+            "profession": "Enchanting",
+            "skill": {
+                "yellow": 195,
+                "green": 215,
+                "grey": 235
+            },
+            "materials": {
+                "11291": 1,
+                "11135": 1,
+                "11137": 1
+            }
         }
     },
     "11291": {
@@ -6980,6 +7116,9 @@
     "11320": {
         "reward_from": {
             "4148": 1
+        },
+        "created_by": {
+            "materials": {}
         }
     },
     "11324": {
@@ -7218,6 +7357,17 @@
             "15293": 11606,
             "15295": 11605,
             "19799": 16005
+        },
+        "created_by": {
+            "profession": "Mining",
+            "skill": {
+                "yellow": 300,
+                "green": 305,
+                "grey": 310
+            },
+            "materials": {
+                "11370": 8
+            }
         }
     },
     "11382": {
@@ -7517,7 +7667,10 @@
         "consume": true
     },
     "11413": {
-        "objective": 4201
+        "objective": 4201,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11414": {
         "dropped": {
@@ -7783,7 +7936,10 @@
         }
     },
     "11470": {
-        "objective": 4296
+        "objective": 4296,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11471": {
         "provided_for": 3843,
@@ -7844,6 +8000,9 @@
     "11482": {
         "reward_from": {
             "4321": 1
+        },
+        "created_by": {
+            "materials": {}
         }
     },
     "11502": {
@@ -7903,7 +8062,11 @@
         },
         "objective": 4292
     },
-    "11511": {},
+    "11511": {
+        "created_by": {
+            "materials": {}
+        }
+    },
     "11512": {
         "skinned": {
             "7125": 50.0,
@@ -8005,7 +8168,10 @@
     },
     "11522": {
         "provided_for": 3961,
-        "objective": 3961
+        "objective": 3961,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11562": {
         "objective": 5247,
@@ -8134,6 +8300,18 @@
                     1
                 ]
             }
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 305,
+                "green": 315,
+                "grey": 325
+            },
+            "materials": {
+                "11371": 20,
+                "7077": 8
+            }
         }
     },
     "11605": {
@@ -8157,6 +8335,18 @@
                 "v": [
                     1
                 ]
+            }
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 300,
+                "green": 310,
+                "grey": 320
+            },
+            "materials": {
+                "11371": 6,
+                "7077": 1
             }
         }
     },
@@ -8182,6 +8372,18 @@
                     1
                 ]
             }
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 290,
+                "green": 300,
+                "grey": 310
+            },
+            "materials": {
+                "11371": 10,
+                "7077": 2
+            }
         }
     },
     "11607": {
@@ -8192,6 +8394,18 @@
                     1
                 ]
             }
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 295,
+                "green": 305,
+                "grey": 315
+            },
+            "materials": {
+                "11371": 26,
+                "7077": 4
+            }
         }
     },
     "11608": {
@@ -8201,6 +8415,18 @@
                 "v": [
                     1
                 ]
+            }
+        },
+        "created_by": {
+            "profession": "Blacksmithing",
+            "skill": {
+                "yellow": 285,
+                "green": 295,
+                "grey": 305
+            },
+            "materials": {
+                "11371": 18,
+                "7077": 4
             }
         }
     },
@@ -9340,6 +9566,19 @@
                     1
                 ]
             }
+        },
+        "created_by": {
+            "profession": "Enchanting",
+            "skill": {
+                "yellow": 285,
+                "green": 305,
+                "grey": 325
+            },
+            "materials": {
+                "11382": 1,
+                "7078": 1,
+                "14343": 3
+            }
         }
     },
     "11812": {
@@ -9502,8 +9741,39 @@
             }
         }
     },
-    "11825": {},
-    "11826": {},
+    "11825": {
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 205,
+                "green": 205,
+                "grey": 205
+            },
+            "materials": {
+                "4394": 1,
+                "7077": 1,
+                "7191": 1,
+                "3860": 6
+            }
+        }
+    },
+    "11826": {
+        "created_by": {
+            "profession": "Engineering",
+            "skill": {
+                "yellow": 205,
+                "green": 205,
+                "grey": 205
+            },
+            "materials": {
+                "7075": 1,
+                "4389": 2,
+                "7191": 1,
+                "3860": 2,
+                "6037": 1
+            }
+        }
+    },
     "11827": {
         "contained": {
             "items": {
@@ -11211,7 +11481,10 @@
         }
     },
     "11947": {
-        "objective": 4512
+        "objective": 4512,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11948": {
         "contained": {
@@ -11226,7 +11499,10 @@
         "consume": true
     },
     "11949": {
-        "objective": 4512
+        "objective": 4512,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11950": {
         "reward_from": {
@@ -11272,7 +11548,10 @@
         "consume": true
     },
     "11954": {
-        "objective": 4513
+        "objective": 4513,
+        "created_by": {
+            "materials": {}
+        }
     },
     "11955": {
         "provided_for": 4513

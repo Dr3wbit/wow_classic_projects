@@ -297,7 +297,8 @@
             "materials": {
                 "4357": 1,
                 "2840": 1
-            }
+            },
+            "step": 200
         }
     },
     "8068": {
@@ -327,7 +328,8 @@
             "materials": {
                 "4364": 1,
                 "2840": 1
-            }
+            },
+            "step": 200
         }
     },
     "8069": {
@@ -357,7 +359,8 @@
             "materials": {
                 "4377": 1,
                 "2841": 1
-            }
+            },
+            "step": 200
         }
     },
     "8070": {
@@ -443,7 +446,8 @@
         "created_by": {
             "profession": "Arcane",
             "skill": {},
-            "materials": {}
+            "materials": {},
+            "step": 2
         },
         "consume": true
     },
@@ -469,7 +473,8 @@
         "created_by": {
             "profession": "Arcane",
             "skill": {},
-            "materials": {}
+            "materials": {},
+            "step": 2
         },
         "consume": true
     },
@@ -495,7 +500,8 @@
         "created_by": {
             "profession": "Arcane",
             "skill": {},
-            "materials": {}
+            "materials": {},
+            "step": 2
         },
         "consume": true
     },
@@ -521,7 +527,8 @@
         "created_by": {
             "profession": "Arcane",
             "skill": {},
-            "materials": {}
+            "materials": {},
+            "step": 2
         },
         "consume": true
     },
@@ -547,7 +554,8 @@
         "created_by": {
             "profession": "Arcane",
             "skill": {},
-            "materials": {}
+            "materials": {},
+            "step": 10
         },
         "consume": true
     },
