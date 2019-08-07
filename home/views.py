@@ -112,12 +112,6 @@ class TalentCalcTemplate(TemplateView):
 				for inner_i, inner_v in enumerate(outer_v):
 					if inner_v:
 						next_tal = next(all_talents)
-						print("Talent: {} [{},{}]".format(next_tal.name, inner_i, outer_i))
-						print("Talent: {} [{},{}]".format(next_tal.name, next_tal.x, next_tal.y))
-						next_tal.x = inner_i
-						next_tal.y = outer_i
-						next_tal.save()
-
 						val = [inner_v] if type(inner_v) is not list else inner_v
 						val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
 						blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':str(next_tal.sanitized), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)

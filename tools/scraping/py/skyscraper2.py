@@ -15,10 +15,12 @@ NEW = {'CONSUME':0, 'MISSING':0, 'SKIPPED':0, 'IMAGES':0, 'SPELLS':0, 'OBJECTS':
 TOTAL_TIMES = dict.fromkeys(const.FN_NAMES, datetime.timedelta())
 TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 # if permissions error: chmod 755 path/to/chromedriver
+
+prefix = int(input("Enter starting number from 1-23: "))
+
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 iStart = datetime.datetime.now()
 
-prefix = int(input("Enter starting number from 1-23: "))
 ALL_ITEMS = const.get_item_list(os.path.abspath('../js/items/items{}.js'.format(prefix)))
 
 
