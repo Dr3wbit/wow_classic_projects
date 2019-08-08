@@ -64,19 +64,19 @@ class Item(models.Model):
 	)
 
 	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS = range(1,11)
-	FINGER,TRINKET,BACK,MAINHAND,OFFHAND,RANGED,TABBARD,BAG, = 11,13,15,16,17,18,19,20
+	FINGER,TRINKET,BACK,MAINHAND,OFFHAND,RANGED,TABARD,BAG, = 11,13,15,16,17,18,19,20
 	TWO_HAND,ONE_HAND,THROWN,RELIC,OH_FRILL,AMMO = range(24, 30)
 
 	SLOT_CHOICES = (
 		(HEAD, 'Head'), (NECK, 'Neck'), (SHOULDER, 'Shoulder'), (SHIRT, 'Shirt'),
-		(CHEST, 'Chest'), (BELT, 'Belt'), (LEGS, 'Legs'), (FEET, 'Feet'), (WRIST, 'Wrist'),
-		(HANDS, 'Hands'), (BACK, 'Back'), (MAINHAND, 'Main Hand'), (OFFHAND, 'Off Hand'),
-		(RANGED, 'Ranged'), (BAG, 'Bag'), (ONE_HAND, 'One-hand'), (TWO_HAND, 'Two-hand'),
+		(CHEST, 'Chest'), (BELT, 'Waist'), (LEGS, 'Legs'), (FEET, 'Feet'), (WRIST, 'Wrist'),
+		(HANDS, 'Hands'), (FINGER,'Finger'), (TRINKET,'Trinket'), (BACK, 'Back'), (MAINHAND, 'Main Hand'), (OFFHAND, 'Off Hand'),
+		(RANGED, 'Ranged'), (TABARD,'Tabard'), (BAG, 'Bag'), (ONE_HAND, 'One-hand'), (TWO_HAND, 'Two-hand'),
 		(THROWN, 'Thrown'), (OH_FRILL, 'Held In Off-Hand'), (RELIC, 'Relic'), (AMMO, 'Projectile'),
 	)
 
 	ix = models.PositiveIntegerField(primary_key=True)
-	name = models.CharField(max_length=100, unique=True, help_text='Name')
+	name = models.CharField(max_length=100)
 	quality = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(6)])
 	img = models.CharField(max_length=50)
 
@@ -94,11 +94,11 @@ class Item(models.Model):
 	use = models.ForeignKey('Spell', blank=True, null=True, on_delete=models.SET_NULL)
 	description = models.CharField(max_length=250, blank=True)
 
-	requirements = postgres.JSONField(encoder=JSON.DjangoJSONEncoder)
-	val = postgres.JSONField(encoder=JSON.DjangoJSONEncoder)
-	stats = postgres.JSONField(encoder=JSON.DjangoJSONEncoder)
+	requirements = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
+	val = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
+	stats = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
 
-	disenchant = postgres.JSONField(encoder=JSON.DjangoJSONEncoder)
+	disenchant = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
 
 	equips = models.ManyToManyField('Spell', related_name='equips')
 	procs = models.ManyToManyField('Spell', related_name='procs')
@@ -114,8 +114,8 @@ class Item(models.Model):
 	MELEE_SLOTS = [MAINHAND, OFFHAND, ONE_HAND, TWO_HAND]
 
 	MELEE_CHOICES = {
-		1:'Axe', 2:'Dagger', 3:'Fishing Pole', 4:'Fist Weapon', 5:'Miscellaneous',
-		6:'Polearm', 7:'Shield', 8:'Staff', 9:'Sword'
+		1:'Axe', 2:'Dagger', 3:'Fishing Pole', 4:'Fist Weapon', 5:'Mace', 6:'Miscellaneous',
+		7:'Polearm', 8:'Shield', 9:'Staff', 10:'Sword'
 	}
 	ARMOR_CHOICES = {1:'Cloth', 2:'Leather', 3:'Mail', 4:'Plate'}
 	AMMO_CHOICES = {1:'Bullet', 2:'Arrow'}
@@ -158,6 +158,9 @@ class Item(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		unique_together = ['ix', 'name']
+
 class ItemSet(models.Model):
 	ix = models.PositiveIntegerField(primary_key=True)
 	name = models.CharField(max_length=100, unique=True)
@@ -175,6 +178,7 @@ class SetBonus(models.Model):
 
 	class Meta:
 		ordering = ['pieces']
+		unique_together = ['pieces', 'spell']
 
 class Crafted(models.Model):
 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
@@ -412,7 +416,7 @@ class Tag(models.Model):
 		('alliance', 'Alliance'),
 	)
 
-	name = models.CharField(max_length=5, choices=TAG_NAME_CHOICES, unique=True)
+	name = models.CharField(max_length=15, choices=TAG_NAME_CHOICES, unique=True)
 
 	def __str__(self):
 		return(self.name)

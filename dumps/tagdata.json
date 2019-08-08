@@ -1,0 +1,107 @@
+[
+{
+    "model": "home.tag",
+    "pk": 1,
+    "fields": {
+        "name": "pvp"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 2,
+    "fields": {
+        "name": "wpvp"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 3,
+    "fields": {
+        "name": "bgs"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 4,
+    "fields": {
+        "name": "pve"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 5,
+    "fields": {
+        "name": "mc"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 6,
+    "fields": {
+        "name": "bwl"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 7,
+    "fields": {
+        "name": "5man"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 8,
+    "fields": {
+        "name": "meme"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 9,
+    "fields": {
+        "name": "melee"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 10,
+    "fields": {
+        "name": "caster"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 11,
+    "fields": {
+        "name": "tank"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 12,
+    "fields": {
+        "name": "healer"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 13,
+    "fields": {
+        "name": "dps"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 14,
+    "fields": {
+        "name": "alliance"
+    }
+},
+{
+    "model": "home.tag",
+    "pk": 15,
+    "fields": {
+        "name": "horde"
+    }
+}
+]

@@ -5972,5 +5972,54 @@
             "level": 9
         },
         "ilvl": 15
+    },
+    "3884": {
+        "i": 3884,
+        "n": "Williden's Journal",
+        "zone": "Un'Goro Crater",
+        "requirements": {
+            "level": 48
+        },
+        "ilvl": 50
+    },
+    "4264": {
+        "i": 4264,
+        "n": "A Crumpled Up Note",
+        "dungeon": true,
+        "zone": "Blackrock Depths",
+        "requirements": {
+            "level": 50,
+            "faction": "A"
+        },
+        "ilvl": 58
+    },
+    "4281": {
+        "i": 4281,
+        "n": "Thalanaar Delivery",
+        "zone": "Feralas",
+        "requirements": {
+            "level": 40,
+            "faction": "A"
+        },
+        "ilvl": 44
+    },
+    "939": {
+        "i": 939,
+        "n": "Flute of Xavaric",
+        "zone": "Felwood",
+        "requirements": {
+            "level": 49,
+            "faction": "A"
+        },
+        "ilvl": 54
+    },
+    "4451": {
+        "i": 4451,
+        "n": "The Key to Freedom",
+        "zone": "Searing Gorge",
+        "requirements": {
+            "level": 43
+        },
+        "ilvl": 47
     }
 }

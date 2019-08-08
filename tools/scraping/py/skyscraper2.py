@@ -53,113 +53,109 @@ def main():
 			css_class_name = upper_table.find_element(By.TAG_NAME, 'b').get_attribute("class")
 			infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[1].find_element(By.TAG_NAME, 'ul')
 
-			if I not in ALL_ITEMS.keys():
+			ALL_ITEMS[I] = {}
+			ALL_ITEMS[I]['i'] = int(ix)
 
-				ALL_ITEMS[I] = {}
-				ALL_ITEMS[I]['i'] = int(ix)
+			ALL_ITEMS[I]['quality'] = const.RARITY_CHOICES[css_class_name]
+			ALL_ITEMS[I]['n'] = upper_items.pop(0)
 
-				ALL_ITEMS[I]['quality'] = const.RARITY_CHOICES[css_class_name]
-				ALL_ITEMS[I]['n'] = upper_items.pop(0)
+			image_name, STACK = image_handler()
+			ALL_ITEMS[I]['image_name'] = image_name
 
-				image_name, STACK = image_handler()
-				ALL_ITEMS[I]['image_name'] = image_name
+			if STACK:
+				ALL_ITEMS[I]['stack'] = STACK
 
-				if STACK:
-					ALL_ITEMS[I]['stack'] = STACK
+			if image_name not in const.ALL_IMAGES:
+				const.ALL_IMAGES.append(ALL_ITEMS[I]['image_name'])
 
-				if image_name not in const.ALL_IMAGES:
-					const.ALL_IMAGES.append(ALL_ITEMS[I]['image_name'])
+			ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
 
-				ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
+			moneybox = infobox.find_elements(By.TAG_NAME, 'li')
+			if len(moneybox) > 1:
+				ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
 
-				moneybox = infobox.find_elements(By.TAG_NAME, 'li')
-				if len(moneybox) > 1:
-					ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
+			if any(x for x in upper_items if x in const.BOP):
+				ALL_ITEMS[I]['bop'] = True
+				i = [x for x,y in enumerate(upper_items) if y in const.BOP][0]
+				upper_items.pop(i)
 
-				if any(x for x in upper_items if x in const.BOP):
-					ALL_ITEMS[I]['bop'] = True
-					i = [x for x,y in enumerate(upper_items) if y in const.BOP][0]
-					upper_items.pop(i)
+			if any(x for x in upper_items if 'damage' and 'second' in x):
+				i = [x for x,y in enumerate(upper_items) if 'damage' and 'second' in y][0] #removes dps
+				upper_items.pop(i)
 
-				if any(x for x in upper_items if 'damage' and 'second' in x):
-					i = [x for x,y in enumerate(upper_items) if 'damage' and 'second' in y][0] #removes dps
-					upper_items.pop(i)
+			if const.BOE in upper_items:
+				ALL_ITEMS[I]['boe'] = True
+				i = upper_items.index(const.BOE)
+				upper_items.pop(i)
 
-				if const.BOE in upper_items:
-					ALL_ITEMS[I]['boe'] = True
-					i = upper_items.index(const.BOE)
-					upper_items.pop(i)
+			if const.UNIQUE in upper_items:
+				ALL_ITEMS[I]['unique'] = True
+				i = upper_items.index(const.UNIQUE)
+				upper_items.pop(i)
 
-				if const.UNIQUE in upper_items:
-					ALL_ITEMS[I]['unique'] = True
-					i = upper_items.index(const.UNIQUE)
-					upper_items.pop(i)
+			if const.QUEST_ITEM in upper_items:
+				ALL_ITEMS[I]['quest_item'] = True
+				i = upper_items.index(const.QUEST_ITEM)
+				upper_items.pop(i)
 
-				if const.QUEST_ITEM in upper_items:
-					ALL_ITEMS[I]['quest_item'] = True
-					i = upper_items.index(const.QUEST_ITEM)
-					upper_items.pop(i)
+			if "This Item Begins a Quest" in upper_items:
+				i = upper_items.index("This Item Begins a Quest")
+				upper_items.pop(i)
 
-				if "This Item Begins a Quest" in upper_items:
-					i = upper_items.index("This Item Begins a Quest")
-					upper_items.pop(i)
+				if check_element_exists_by_id("tab-starts"):
+					ALL_ITEMS[I]['starts'] = starts_quest(I)
 
-					if check_element_exists_by_id("tab-starts"):
-						ALL_ITEMS[I]['starts'] = starts_quest(I)
+			if any(x for x in upper_items if 'Slot Bag' in x):
+				ALL_ITEMS[I]['slot'] = 'Bag'
+				i = [x for x,y in enumerate(upper_items) if 'Bag' in y][0]
+				bag = upper_items.pop(i)
+				num_slots = re.search(r"([\d]+)", bag).group(1)
+				ALL_ITEMS[I]['slots'] = int(num_slots)
 
-				if any(x for x in upper_items if 'Slot Bag' in x):
-					ALL_ITEMS[I]['slot'] = 'Bag'
-					i = [x for x,y in enumerate(upper_items) if 'Bag' in y][0]
-					bag = upper_items.pop(i)
-					num_slots = re.search(r"([\d]+)", bag).group(1)
-					ALL_ITEMS[I]['slots'] = int(num_slots)
+			if check_element_exists_by_css(upper_table, 'table'):
 
-				if check_element_exists_by_css(upper_table, 'table'):
+				tab = upper_table.find_element(By.TAG_NAME, 'table')
+				text = tab.text
+				if text:
+					slot = tab.find_element(By.TAG_NAME, 'td').text
+					ALL_ITEMS[I]['slot'] = slot
+					i = [x for x,y in enumerate(upper_items) if slot in y][0]
+					upper_items[i] = upper_items[i].replace(slot, '', 1).strip()
 
-					tab = upper_table.find_element(By.TAG_NAME, 'table')
-					text = tab.text
-					if text:
-						slot = tab.find_element(By.TAG_NAME, 'td').text
-						ALL_ITEMS[I]['slot'] = slot
-						i = [x for x,y in enumerate(upper_items) if slot in y][0]
-						upper_items[i] = upper_items[i].replace(slot, '', 1).strip()
+					if check_element_exists_by_css(tab, "th") and slot not in const.ARMORLESS_SLOTS:
+						th = tab.find_element(By.TAG_NAME, 'th')
+						if th.text:
+							proficiency = th.text
+							ALL_ITEMS[I]['proficiency'] = proficiency
+							id = upper_items.index(proficiency)
+							upper_items.pop(id)
 
-						if check_element_exists_by_css(tab, "th") and slot not in const.ARMORLESS_SLOTS:
-							th = tab.find_element(By.TAG_NAME, 'th')
-							if th.text:
-								proficiency = th.text
-								ALL_ITEMS[I]['proficiency'] = proficiency
-								id = upper_items.index(proficiency)
-								upper_items.pop(id)
+			# wep speed is normally coupled with dmg, so extract speed
+			if any(x for x in upper_items if 'Speed' in x):
+				i = [x for x,y in enumerate(upper_items) if 'Speed' in y][0]
+				regex = r"Speed ([\d\.]+)"
+				match = re.search(regex, upper_items[i])
+				if match:
+					upper_items[i] = re.sub(match.group(0), '', upper_items[i]).strip()
+					ALL_ITEMS[I]['speed'] = float(match.group(1))
 
-				# wep speed is normally coupled with dmg, so extract speed
-				if any(x for x in upper_items if 'Speed' in x):
-					i = [x for x,y in enumerate(upper_items) if 'Speed' in y][0]
-					regex = r"Speed ([\d\.]+)"
-					match = re.search(regex, upper_items[i])
-					if match:
-						upper_items[i] = re.sub(match.group(0), '', upper_items[i]).strip()
-						ALL_ITEMS[I]['speed'] = float(match.group(1))
+			ALL_ITEMS[I] = extract_stats(upper_items, ALL_ITEMS[I], I)
 
-				ALL_ITEMS[I] = extract_stats(upper_items, ALL_ITEMS[I], I)
+			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
+			ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table, I)
 
-				lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
-				ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table, I)
+			if check_element_exists_by_id("tab-created-by"):
+				driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
+				tab = driver.find_element(By.ID, "tab-created-by")
+				created_by(tab, I)
 
-				if check_element_exists_by_id("tab-created-by"):
-					driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
-					tab = driver.find_element(By.ID, "tab-created-by")
-					created_by(tab, I)
+			iStop = datetime.datetime.now()
 
-				iStop = datetime.datetime.now()
+			NEW['ITEMS']+=1
+			iii = "({})".format(ALL_ITEMS[I]['i'])
+			nnn = "\n{} (NEW) ".format(ALL_ITEMS[I]['n'])
+			print('{:<33} {:<8} {:>4}s'.format(nnn, iii, round((iStop - iStart).total_seconds(), 2)))
 
-				NEW['ITEMS']+=1
-				iii = "({})".format(ALL_ITEMS[I]['i'])
-				nnn = "\n{} (NEW) ".format(ALL_ITEMS[I]['n'])
-				print('{:<33} {:<8} {:>4}s'.format(nnn, iii, round((iStop - iStart).total_seconds(), 2)))
-
-			else:
-				NEW['SKIPPED'] += 1
 
 			if 'Consumable' in infobox.text:
 				ALL_ITEMS[I]['consume'] = True

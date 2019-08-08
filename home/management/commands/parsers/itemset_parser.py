@@ -7,23 +7,23 @@ import invariables as const
 def main():
 
 	ALL_ITEMSETS = const.get_item_list(os.path.abspath('../../js/itemsets.js'))
-	for ix, val in ALL_ITEMSETS.items():
+	for ix, valu in ALL_ITEMSETS.items():
 
 		I = int(ix)
-		n = val['n']
-		itemset,_ = ItemSet.objects.update_or_create(
-			i=I, n=n, defaults={'i':I, 'n':n}
+		name = valu['n']
+		itemset,_ = ItemSet.objects.get_or_create(
+			ix=I, name=name, defaults={'ix':I, 'name':name}
 		)
 
-		for amount,bonus in val['bonuses'].items():
-			s = int(val['s'])
-			t = val['t']
+		for amount,bonus in valu['bonuses'].items():
+			s = int(valu['s'])
+			t = valu['t']
 
-			spell,_ = Spell.objects.update_or_create(
-				i=s, t=t, defaults={'i':i, 't':t}
+			spell,_ = Spell.objects.get_or_create(
+				ix=s, t=t, defaults={'ix':s, 't':t}
 			)
 
-			setbonus,_ = SetBonus.objects.update_or_create(
+			setbonus,_ = SetBonus.objects.get_or_create(
 				pieces=int(amount), spell=spell,
 				defaults={'pieces':int(amount), 'spell':spell}
 			)
@@ -32,8 +32,8 @@ def main():
 			itemset.save()
 
 
-		for inx in val['items']:
-			item = Item.objects.get(i=inx)
+		for inx in valu['items']:
+			item = Item.objects.get(ix=inx)
 			item.itemset = itemset
 			item.save()
 

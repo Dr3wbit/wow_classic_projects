@@ -112,3 +112,33 @@ memcached -d -p <port> // running memcache as a daemon and listening to custom p
 brew services start memcached // on macos with brew
 
 environment variables should be stored in the gunicorn service above the ExecStart and below the WorkingDirectory
+
+#### RE-provisioning:
+create local database `postgres psql` then follow above steps for setting up local database
+
+step1: dumpdata (https://docs.djangoproject.com/en/2.2/ref/django-admin/#dumpdata)
+```
+python manage.py dumpdata home.Talent -o talentdata.json --indent 4
+python manage.py dumpdata home.TalentTree -o treedata.json --indent 4
+python manage.py dumpdata home.Tag -o tagdata.json --indent 4
+python manage.py dumpdata home.User social_django.UserSocialAuth -o userdata.json --indent 4
+```
+
+step2: create necessary models (WoWClass)
+```
+python manage.py shell
+from home.models import WoWClass
+
+wowclasses = ['Druid', 'Hunter', 'Mage', 'Paladin', 'Priest', 'Rogue', 'Shaman', 'Warlock', 'Warrior']
+for x in wowclasses:
+    cl = WoWClass.objects.create(name=x, img=x.lower())
+    cl.save()
+```
+
+step3: loaddata (order is important) (https://docs.djangoproject.com/en/2.2/ref/django-admin/#django-admin-loaddata)
+```
+python manage.py loaddata dumps/treedata.json --app home.TalentTree
+python manage.py loaddata dumps/talentdata.json --app home.Talent
+python manage.py loaddata dumps/userdata.json --app home.User
+python manage.py loaddata dumps/userdata.json --app social_django.UserSocialAuth
+```

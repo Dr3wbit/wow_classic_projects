@@ -3,7 +3,6 @@ import json, os
 from home.models import Spell
 
 class Command(BaseCommand):
-	help = 'Closes the specified poll for voting'
 
 	def handle(self, *args, **options):
 		ALL_SPELLS = self.get_item_list(os.path.abspath('home/management/commands/data/spells.js'))

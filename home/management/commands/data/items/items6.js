@@ -1755,23 +1755,6 @@
             "durability": 35
         }
     },
-    "6116": {
-        "i": 6116,
-        "quality": 0,
-        "n": "Apprentice's Robe",
-        "image_name": "inv_chest_cloth_21",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 3
-        }
-    },
     "6117": {
         "i": 6117,
         "quality": 1,
@@ -2072,29 +2055,6 @@
         "stats": {
             "armor": 3,
             "durability": 35
-        }
-    },
-    "6144": {
-        "i": 6144,
-        "quality": 0,
-        "n": "Neophyte's Robe",
-        "image_name": "inv_chest_cloth_13",
-        "ilvl": 1,
-        "sells_for": {
-            "gold": 0,
-            "silver": 0,
-            "copper": 1
-        },
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "stats": {
-            "armor": 3,
-            "durability": 35
-        },
-        "created_by": {
-            "profession": "Feral Combat",
-            "skill": {},
-            "materials": {}
         }
     },
     "6145": {

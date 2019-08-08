@@ -1613,58 +1613,6 @@
         },
         "stack": 200
     },
-    "3034": {
-        "boe": true,
-        "created_by": {
-            "materials": {
-                "3575": 1,
-                "4377": 2
-            }
-        },
-        "disenchant": {
-            "11137": {
-                "chance": 20.0,
-                "v": [
-                    "2",
-                    "5"
-                ]
-            },
-            "11174": {
-                "chance": 75.0,
-                "v": [
-                    "1",
-                    "2"
-                ]
-            },
-            "11177": {
-                "chance": 5.0,
-                "v": [
-                    1
-                ]
-            }
-        },
-        "i": 3034,
-        "ilvl": 41,
-        "image_name": "inv_ammo_bullet_02",
-        "n": "Glyphed Breastplate",
-        "proficiency": "Leather",
-        "quality": 2,
-        "requirements": {
-            "level": 36
-        },
-        "sells_for": {
-            "copper": 56,
-            "gold": 0,
-            "silver": 60
-        },
-        "slot": "Projectile",
-        "stats": {
-            "armor": 113,
-            "durability": 85,
-            "spirit": 15,
-            "stamina": 4
-        }
-    },
     "3035": {
         "i": 3035,
         "ilvl": 1,
@@ -9268,54 +9216,6 @@
         "slot": "Wrist",
         "stats": {
             "armor": 51,
-            "durability": 20
-        }
-    },
-    "3304": {
-        "contained": {
-            "objects": {
-                "2039": 0.08
-            }
-        },
-        "dropped": {
-            "11318": 0.174,
-            "11319": 0.204,
-            "11320": 0.302,
-            "11321": 0.273,
-            "11322": 0.197,
-            "11323": 0.228,
-            "12321": 0.41,
-            "2014": 0.2,
-            "2039": 0.173,
-            "2069": 0.178,
-            "2173": 0.66,
-            "2191": 0.16,
-            "2204": 0.2,
-            "2232": 0.233,
-            "2322": 0.216,
-            "3204": 0.205,
-            "3270": 0.28,
-            "3384": 0.16,
-            "5785": 0.3,
-            "7017": 0.28
-        },
-        "i": 3304,
-        "ilvl": 14,
-        "image_name": "inv_gauntlets_25",
-        "n": "Brackwater Gauntlets",
-        "proficiency": "Mail",
-        "quality": 1,
-        "requirements": {
-            "level": 9
-        },
-        "sells_for": {
-            "copper": 6,
-            "gold": 0,
-            "silver": 1
-        },
-        "slot": "Hands",
-        "stats": {
-            "armor": 81,
             "durability": 20
         }
     },

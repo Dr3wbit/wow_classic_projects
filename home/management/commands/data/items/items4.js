@@ -40807,6 +40807,22 @@
         }
     },
     "4999": {
+        "image_name": "inv_belt_29",
+        "boe": true,
+        "n": "Azora's Will",
+        "quality": 2,
+        "stats": {
+            "intellect": 5
+        },
+        "requirements": {
+            "level": 22
+        },
+        "slot": "Finger",
+        "sells_for": {
+            "copper": 52,
+            "gold": 0,
+            "silver": 10
+        },
         "dropped": {
             "3773": 1.25,
             "5859": 1.25,
@@ -40846,6 +40862,7 @@
                 "16882": 0.05
             }
         },
+        "ilvl": 27,
         "disenchant": {
             "11083": {
                 "chance": 75.0,
