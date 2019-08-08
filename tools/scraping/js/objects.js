@@ -1703,6 +1703,10 @@
         "i": 184980,
         "n": "Felhound Poo"
     },
+    "186750": {
+        "i": 186750,
+        "n": "Fudgerick's Fireworks"
+    },
     "19015": {
         "i": 19015,
         "n": "Elune's Tear"
@@ -2494,5 +2498,13 @@
     "9630": {
         "i": 9630,
         "n": "Flagongut's Fossil"
+    },
+    "181053": {
+        "i": 181053,
+        "n": "Basket of Bloodkelp"
+    },
+    "179565": {
+        "i": 179565,
+        "n": "Dusty Reliquary"
     }
 }

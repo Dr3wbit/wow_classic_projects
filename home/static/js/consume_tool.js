@@ -14,6 +14,7 @@ function addCraftedItem(name, numAdded=1) {
 
 	let materialsListContainer
 
+
 	if (craftedContainerJr.length) {
 		let currentAmount = parseInt(craftedContainerJr.find($('span.amount')).text())
 		updatedAmount = currentAmount + (step * numAdded)
@@ -23,11 +24,11 @@ function addCraftedItem(name, numAdded=1) {
 		if (craftedItemObj.materials) {
 			updateOrCreate(materialsListContainer, name, numAdded)
 		}
+
 		if (updatedAmount <= 0) {
 			let craftedParent = craftedContainerJr.parent()
-			console.log(craftedParent)
 			craftedParent.empty().remove()
-			return false
+			// return false
 		}
 
 	} else {

@@ -15705,5 +15705,17 @@
     "9997": {
         "i": 9997,
         "n": "Wicked Mithril Blade"
+    },
+    "27707": {
+        "i": 27707,
+        "n": "Copy of Create Ironforge Case of Homebrew"
+    },
+    "27717": {
+        "i": 27717,
+        "n": "Create Undercity Book of Romantic Poetry"
+    },
+    "27705": {
+        "i": 27705,
+        "n": "Copy of Create Stormwind Sack of Homemade Bread"
     }
 }

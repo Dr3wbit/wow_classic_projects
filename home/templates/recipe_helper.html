@@ -92,6 +92,7 @@
             e.stopImmediatePropagation()
             var amount = 1
             let name = $(e.target).closest(".recipe-container").attr('name')
+            var currentAmount = parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())
 
             if (e.shiftKey) {
                 amount = 5

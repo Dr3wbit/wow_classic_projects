@@ -24325,6 +24325,24 @@
             0
         ]
     },
+    "15898": {
+        "i": 15898,
+        "n": "Lunar Festival Vendor",
+        "react": [
+            1,
+            1
+        ],
+        "type": "Humanoid",
+        "level": [
+            55
+        ],
+        "class": "",
+        "zone": [
+            618,
+            1497,
+            1519
+        ]
+    },
     "15928": {
         "i": 15928,
         "n": "Thaddius",
@@ -24750,6 +24768,23 @@
             0
         ],
         "class": "Boss"
+    },
+    "16043": {
+        "i": 16043,
+        "n": "Magma Lord Bokk",
+        "type": "Elemental",
+        "level": [
+            58,
+            60
+        ],
+        "class": "",
+        "zone": [
+            46
+        ],
+        "react": [
+            -1,
+            -1
+        ]
     },
     "16059": {
         "i": 16059,
@@ -72575,6 +72610,23 @@
             8
         ]
     },
+    "7523": {
+        "i": 7523,
+        "n": "Suffering Highborne",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            54,
+            55
+        ],
+        "class": "",
+        "zone": [
+            618
+        ]
+    },
     "7524": {
         "i": 7524,
         "n": "Anguished Highborne",
@@ -76799,6 +76851,23 @@
             139
         ]
     },
+    "8539": {
+        "i": 8539,
+        "n": "Eyeless Watcher",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57,
+            58
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
     "854": {
         "i": 854,
         "n": "Young Jungle Stalker",
@@ -76844,6 +76913,23 @@
         "level": [
             55,
             57
+        ],
+        "class": "",
+        "zone": [
+            139
+        ]
+    },
+    "8542": {
+        "i": 8542,
+        "n": "Death Singer",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Undead",
+        "level": [
+            57,
+            59
         ],
         "class": "",
         "zone": [
@@ -82389,6 +82475,35 @@
         "class": "",
         "zone": [
             1584
+        ]
+    },
+    "16059": {
+        "i": 16059,
+        "n": "Theldren",
+        "react": [
+            -1,
+            -1
+        ],
+        "type": "Humanoid",
+        "level": [
+            60
+        ],
+        "class": "Elite"
+    },
+    "15176": {
+        "i": 15176,
+        "n": "Vargus",
+        "react": [
+            0,
+            0
+        ],
+        "type": "Humanoid",
+        "level": [
+            57
+        ],
+        "class": "",
+        "zone": [
+            1377
         ]
     }
 }

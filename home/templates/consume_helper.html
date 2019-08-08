@@ -56,7 +56,7 @@
 <script>
 
 $(document).ready(function() {
-    load_event_handlers()
+    consume_helper_handlers()
 })
 
 var my_consume_list = JSON.parse(document.getElementById('hello-data').textContent)
@@ -64,7 +64,7 @@ if (!my_consume_list) {
     my_consume_list = {}
 }
 
-function load_event_handlers() {
+function consume_helper_handlers() {
     $(".material-container").on({
         mouseenter: e => {
             clearTooltip()
