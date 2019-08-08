@@ -22,7 +22,8 @@
             "materials": {
                 "12207": 1,
                 "3713": 2
-            }
+            },
+            "step": 5
         },
         "reward_from": {
             "8586": 20
@@ -32,7 +33,8 @@
             "9061": 1,
             "8150": 1,
             "21024": 1
-        }
+        },
+        "consume": true
     },
     "21024": {
         "i": 21024,
@@ -212,7 +214,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "21031": {
         "i": 21031,
@@ -316,7 +319,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "21032": {
         "i": 21032,
@@ -430,7 +434,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "21037": {
         "i": 21037,
@@ -476,7 +481,8 @@
             "items": {
                 "21042": 97.0
             }
-        }
+        },
+        "consume": true
     },
     "21040": {
         "i": 21040,
@@ -522,7 +528,8 @@
             "items": {
                 "21042": 96.0
             }
-        }
+        },
+        "consume": true
     },
     "21042": {
         "i": 21042,
@@ -563,7 +570,8 @@
         },
         "creates": {
             "25704": 21072
-        }
+        },
+        "consume": true
     },
     "21072": {
         "i": 21072,
@@ -599,7 +607,8 @@
         "materials": {
             "21071": 1,
             "2678": 1
-        }
+        },
+        "consume": true
     },
     "21099": {
         "i": 21099,
@@ -915,7 +924,8 @@
             "s": 25719,
             "t": "Combine with Draconic For Dummies Chapters 1 - 8 to create Draconic for Dummies: Volume II."
         },
-        "provided_for": 8620
+        "provided_for": 8620,
+        "consume": true
     },
     "21113": {
         "i": 21113,
@@ -963,7 +973,8 @@
                 "180658": 5.0,
                 "180664": 5.0
             }
-        }
+        },
+        "consume": true
     },
     "21115": {
         "i": 21115,
@@ -1429,7 +1440,8 @@
         "created_by": {
             "materials": {}
         },
-        "provided_for": 8729
+        "provided_for": 8729,
+        "consume": true
     },
     "21137": {
         "i": 21137,
@@ -1508,7 +1520,8 @@
             "t": "Fills out the recruit's field duty information. (cooldown 3 min)"
         },
         "provided_for": 8731,
-        "objective": 8732
+        "objective": 8732,
+        "consume": true
     },
     "21144": {
         "i": 21144,
@@ -1670,7 +1683,8 @@
             "objects": {
                 "184956": 5.0
             }
-        }
+        },
+        "consume": true
     },
     "21153": {
         "i": 21153,
@@ -1703,7 +1717,8 @@
         },
         "creates": {
             "25954": 21217
-        }
+        },
+        "consume": true
     },
     "21154": {
         "i": 21154,
@@ -3322,8 +3337,10 @@
             "t": "Transforms your mount into something more festive. (cooldown 1 min)"
         },
         "created_by": {
-            "materials": {}
-        }
+            "materials": {},
+            "step": 5
+        },
+        "consume": true
     },
     "21213": {
         "i": 21213,
@@ -3351,7 +3368,8 @@
         },
         "reward_from": {
             "8763": 5
-        }
+        },
+        "consume": true
     },
     "21214": {
         "i": 21214,
@@ -3409,7 +3427,8 @@
                 "21216": 100.0,
                 "17685": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "21216": {
         "i": 21216,
@@ -3454,7 +3473,8 @@
         "materials": {
             "21153": 1,
             "2692": 1
-        }
+        },
+        "consume": true
     },
     "21218": {
         "i": 21218,
@@ -3916,7 +3936,8 @@
             "items": {
                 "21270": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "21237": {
         "i": 21237,
@@ -3959,7 +3980,8 @@
         "use": {
             "s": 24355,
             "t": "Restores 2% of your mana per second for 30 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "21242": {
         "i": 21242,
@@ -4249,7 +4271,8 @@
             "items": {
                 "21191": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "21255": {
         "i": 21255,
@@ -4514,7 +4537,8 @@
             "objects": {
                 "180754": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "21268": {
         "i": 21268,
@@ -6320,7 +6344,8 @@
             "items": {
                 "21327": 99.0
             }
-        }
+        },
+        "consume": true
     },
     "21326": {
         "i": 21326,
@@ -13001,8 +13026,10 @@
             "t": "Wish a friend some Season's Greetings!"
         },
         "created_by": {
-            "materials": {}
-        }
+            "materials": {},
+            "step": 5
+        },
+        "consume": true
     },
     "21520": {
         "i": 21520,
@@ -13413,7 +13440,8 @@
             "materials": {
                 "7912": 1
             }
-        }
+        },
+        "consume": true
     },
     "21537": {
         "i": 21537,
@@ -13431,7 +13459,8 @@
         "use": {
             "s": 26263,
             "t": "Restores 4% of your health and mana per second for 25 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "21538": {
         "i": 21538,
@@ -13588,7 +13617,8 @@
                 "4625": 3,
                 "8925": 1
             }
-        }
+        },
+        "consume": true
     },
     "21547": {
         "i": 21547,
@@ -13651,7 +13681,8 @@
         "use": {
             "s": 1129,
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "21557": {
         "i": 21557,
@@ -13679,8 +13710,10 @@
             "materials": {
                 "4364": 1,
                 "2319": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21558": {
         "i": 21558,
@@ -13708,8 +13741,10 @@
             "materials": {
                 "4364": 1,
                 "2319": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21559": {
         "i": 21559,
@@ -13737,8 +13772,10 @@
             "materials": {
                 "4364": 1,
                 "2319": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21561": {
         "i": 21561,
@@ -13755,7 +13792,8 @@
         "use": {
             "s": 26294,
             "t": "Throw into a firework launcher!"
-        }
+        },
+        "consume": true
     },
     "21562": {
         "i": 21562,
@@ -13772,7 +13810,8 @@
         "use": {
             "s": 26295,
             "t": "Throw into a firework launcher!"
-        }
+        },
+        "consume": true
     },
     "21563": {
         "i": 21563,
@@ -13982,7 +14021,8 @@
                 "10560": 1,
                 "10561": 1
             }
-        }
+        },
+        "consume": true
     },
     "21570": {
         "i": 21570,
@@ -14012,7 +14052,8 @@
                 "18631": 2,
                 "10561": 1
             }
-        }
+        },
+        "consume": true
     },
     "21571": {
         "i": 21571,
@@ -14040,8 +14081,10 @@
             "materials": {
                 "10505": 1,
                 "4304": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21574": {
         "i": 21574,
@@ -14069,8 +14112,10 @@
             "materials": {
                 "10505": 1,
                 "4304": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21576": {
         "i": 21576,
@@ -14098,8 +14143,10 @@
             "materials": {
                 "10505": 1,
                 "4304": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21579": {
         "i": 21579,
@@ -14369,8 +14416,10 @@
             "materials": {
                 "4377": 1,
                 "4234": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21590": {
         "i": 21590,
@@ -14398,8 +14447,10 @@
             "materials": {
                 "4377": 1,
                 "4234": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21592": {
         "i": 21592,
@@ -14427,8 +14478,10 @@
             "materials": {
                 "4377": 1,
                 "4234": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21593": {
         "i": 21593,
@@ -14445,7 +14498,8 @@
         "use": {
             "s": 26337,
             "t": "Throw into a firework launcher!"
-        }
+        },
+        "consume": true
     },
     "21595": {
         "i": 21595,
@@ -14462,7 +14516,8 @@
         "use": {
             "s": 26338,
             "t": "Throw into a firework launcher!"
-        }
+        },
+        "consume": true
     },
     "21596": {
         "i": 21596,
@@ -17244,7 +17299,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "21712": {
         "i": 21712,
@@ -17323,8 +17379,10 @@
             "materials": {
                 "15992": 1,
                 "8170": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21715": {
         "i": 21715,
@@ -17394,8 +17452,10 @@
             "materials": {
                 "15992": 1,
                 "8170": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21718": {
         "i": 21718,
@@ -17423,8 +17483,10 @@
             "materials": {
                 "15992": 1,
                 "8170": 1
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "21721": {
         "i": 21721,
@@ -17441,7 +17503,8 @@
         "use": {
             "s": 26389,
             "t": "A strangely glowing alcoholic beverage."
-        }
+        },
+        "consume": true
     },
     "21722": {
         "i": 21722,
@@ -17839,7 +17902,8 @@
         "use": {
             "s": 26521,
             "t": "You're in luck! Throw into a cluster launcher!"
-        }
+        },
+        "consume": true
     },
     "21745": {
         "i": 21745,
@@ -17857,7 +17921,8 @@
         "use": {
             "s": 25823,
             "t": "Summon a ring of light on a specific location that lasts for 3 min. (cooldown 1 min)"
-        }
+        },
+        "consume": true
     },
     "21746": {
         "i": 21746,
@@ -17882,7 +17947,8 @@
         "use": {
             "s": 25822,
             "t": "Throw on the ground!"
-        }
+        },
+        "consume": true
     },
     "21749": {
         "i": 21749,
@@ -17938,7 +18004,8 @@
         "use": {
             "s": 26587,
             "t": "Opens a Scarab Coffer."
-        }
+        },
+        "consume": true
     },
     "21762": {
         "i": 21762,
@@ -17955,7 +18022,8 @@
         "use": {
             "s": 26588,
             "t": "Opens a Greater Scarab Coffer."
-        }
+        },
+        "consume": true
     },
     "21800": {
         "i": 21800,
@@ -18303,7 +18371,8 @@
         "use": {
             "s": 26678,
             "t": "Pick a piece of candy from the bag. (cooldown 1 min)\n10 charges"
-        }
+        },
+        "consume": true
     },
     "21814": {
         "i": 21814,
@@ -18458,7 +18527,8 @@
         "use": {
             "s": 26682,
             "t": "Give yourself an alluring scent. (cooldown 2 min)"
-        }
+        },
+        "consume": true
     },
     "21830": {
         "i": 21830,
@@ -18490,7 +18560,8 @@
         "use": {
             "s": 26681,
             "t": "Give yourself a pleasing scent. (cooldown 2 min)\n10 charges"
-        }
+        },
+        "consume": true
     },
     "21836": {
         "i": 21836,
@@ -18892,7 +18963,8 @@
         "use": {
             "s": 27708,
             "t": "Combines 5 Handmade Woodcrafts into a Box of Woodcrafts."
-        }
+        },
+        "consume": true
     },
     "21975": {
         "i": 21975,
@@ -18977,7 +19049,8 @@
         "description": "The evil trapped within this fragment seems to be growing stronger..",
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "21985": {
         "i": 21985,

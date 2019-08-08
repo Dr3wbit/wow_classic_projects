@@ -101,11 +101,14 @@
                 amount = amount*(-1)
             }
 
-            if (((parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())) >= 100) && (e.which != 3)) {
+            var current_amount = parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())
+
+            if ((current_amount >= 100) && (e.which != 3)) {
                 // NOTE: visual indicator for
                 alert('100 is the limit, fix me')
                 return false
             }
+
             combatText(e, amount)
             update_consume_list(name, amount)
             addCraftedItem(name, amount)

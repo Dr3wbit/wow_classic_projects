@@ -24,7 +24,7 @@ function addCraftedItem(name, numAdded=1) {
 			updateOrCreate(materialsListContainer, name, numAdded)
 		}
 		if (updatedAmount <= 0) {
-			let craftedParent = $(`.crafted-list-item[name="${name}"]`)
+			let craftedParent = craftedContainerJr.parent()
 			console.log(craftedParent)
 			craftedParent.empty().remove()
 			return false
@@ -57,43 +57,42 @@ function addCraftedItem(name, numAdded=1) {
 		}))
 
 		let crafted_image = $('<img/>', {
-				name: `${name}`,
-				class: 'icon-small crafted-image',
-				src: "/static/images/icons/small/icon_border.png",
-				style: `background-image: url(/static/images/icons/consumes/${name}.jpg);`,
+			name: `${name}`,
+			class: 'icon-small crafted-image',
+			src: "/static/images/icons/small/icon_border.png",
+			style: `background-image: url(/static/images/icons/consumes/${name}.jpg);`,
 		})
 
 		crafted_image.on({
-					mouseenter: e => {
-						clearTooltip()
-						console.log('test 222222')
-						tooltip_v2(e, false, 2)
-					},
-					mouseleave: e => {
-						clearTooltip()
-					},
-					mousemove: e => {
-						update_tooltip(e)
-					}
+			mouseenter: e => {
+				clearTooltip()
+				tooltip_v2(e, false, 2)
+			},
+			mouseleave: e => {
+				clearTooltip()
+			},
+			mousemove: e => {
+				update_tooltip(e)
+			}
 		})
 
 		let crafted_span = $('<span/>', {
-				class: `crafted-name ${craftedItemObj.rarity}`,
-				text: `${utilities.titleCase(name)}`,
-				name: `${name}`
+			class: `crafted-name ${craftedItemObj.rarity}`,
+			text: `${utilities.titleCase(name)}`,
+			name: `${name}`
 		})
 
 		crafted_span.on({
-				mouseenter: e => {
-					clearTooltip()
-					tooltip_v2(e, false, 2)
-				},
-				mouseleave: e => {
-					clearTooltip()
-				},
-				mousemove: e => {
-					update_tooltip(e)
-				}
+			mouseenter: e => {
+				clearTooltip()
+				tooltip_v2(e, false, 2)
+			},
+			mouseleave: e => {
+				clearTooltip()
+			},
+			mousemove: e => {
+				update_tooltip(e)
+			}
 		})
 
 		craftedContainerJr.append(expandButton, crafted_image, crafted_span, " ", $('<span/>', {

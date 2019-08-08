@@ -3505,7 +3505,8 @@
         },
         "reward_from": {
             "580": 5
-        }
+        },
+        "consume": true
     },
     "17049": {
         "i": 17049,
@@ -5509,7 +5510,8 @@
         },
         "reward_from": {
             "6662": 10
-        }
+        },
+        "consume": true
     },
     "17124": {
         "i": 17124,
@@ -6560,7 +6562,8 @@
         },
         "creates": {
             "21144": 17198
-        }
+        },
+        "consume": true
     },
     "17197": {
         "i": 17197,
@@ -6594,7 +6597,8 @@
             "6889": 1,
             "17194": 1
         },
-        "objective": 7025
+        "objective": 7025,
+        "consume": true
     },
     "17198": {
         "i": 17198,
@@ -6631,7 +6635,8 @@
             "1179": 1,
             "17196": 1,
             "17194": 1
-        }
+        },
+        "consume": true
     },
     "17200": {
         "i": 17200,
@@ -6798,7 +6803,8 @@
         },
         "creates": {
             "21940": 17716
-        }
+        },
+        "consume": true
     },
     "17203": {
         "i": 17203,
@@ -6841,7 +6847,8 @@
         },
         "creates": {
             "21160": 17182
-        }
+        },
+        "consume": true
     },
     "17222": {
         "i": 17222,
@@ -6872,7 +6879,8 @@
             "materials": {
                 "12205": 2
             }
-        }
+        },
+        "consume": true
     },
     "17223": {
         "i": 17223,
@@ -6953,7 +6961,8 @@
             "silver": 0,
             "copper": 0
         },
-        "description": "Opens Dark Cleric Salem's Ches"
+        "description": "Opens Dark Cleric Salem's Ches",
+        "consume": true
     },
     "17262": {
         "i": 17262,
@@ -6966,7 +6975,8 @@
             "silver": 0,
             "copper": 0
         },
-        "description": "Opens the stolen chest from the Cathedral of Ligh"
+        "description": "Opens the stolen chest from the Cathedral of Ligh",
+        "consume": true
     },
     "17302": {
         "i": 17302,
@@ -7209,7 +7219,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "17324": {
         "i": 17324,
@@ -7230,7 +7241,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "17325": {
         "i": 17325,
@@ -7251,7 +7263,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "17326": {
         "i": 17326,
@@ -7362,7 +7375,8 @@
             "materials": {
                 "9282": 1
             }
-        }
+        },
+        "consume": true
     },
     "17344": {
         "i": 17344,
@@ -7414,7 +7428,8 @@
             "items": {
                 "17685": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "17345": {
         "i": 17345,
@@ -7507,7 +7522,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "17349": {
         "i": 17349,
@@ -7585,7 +7601,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "17351": {
         "i": 17351,
@@ -7649,7 +7666,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "17352": {
         "i": 17352,
@@ -7727,7 +7745,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "17353": {
         "i": 17353,
@@ -7775,7 +7794,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "17363": {
         "i": 17363,
@@ -7796,7 +7816,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "17364": {
         "i": 17364,
@@ -7875,7 +7896,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "17403": {
         "i": 17403,
@@ -7922,7 +7944,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "17404": {
         "i": 17404,
@@ -7977,7 +8000,8 @@
             "items": {
                 "17685": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "17405": {
         "i": 17405,
@@ -8027,7 +8051,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "17406": {
         "i": 17406,
@@ -8082,7 +8107,8 @@
             "items": {
                 "17685": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "17407": {
         "i": 17407,
@@ -8137,7 +8163,8 @@
             "items": {
                 "17685": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "17408": {
         "i": 17408,
@@ -8187,7 +8214,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "17410": {
         "i": 17410,
@@ -8450,7 +8478,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "17506": {
         "i": 17506,
@@ -8471,7 +8500,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "17507": {
         "i": 17507,
@@ -8492,7 +8522,8 @@
         },
         "created_by": {
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "17508": {
         "i": 17508,
@@ -10928,7 +10959,8 @@
             "s": 21794,
             "t": "Use to muzzle a Frostwolf. Return the muzzled animal to the Frostwolf Stable Master."
         },
-        "provided_for": 7001
+        "provided_for": 7001,
+        "consume": true
     },
     "17642": {
         "i": 17642,
@@ -11265,7 +11297,8 @@
             "s": 21866,
             "t": "Use to train an Alterac Ram. Return the tamed animal to the Stormpike Stable Master."
         },
-        "provided_for": 7027
+        "provided_for": 7027,
+        "consume": true
     },
     "17690": {
         "i": 17690,
@@ -11375,7 +11408,8 @@
             "s": 21884,
             "t": "Fill at the orange crystal pool in Maraudon."
         },
-        "provided_for": 7041
+        "provided_for": 7041,
+        "consume": true
     },
     "17694": {
         "i": 17694,
@@ -11721,7 +11755,8 @@
                 "3358": 1,
                 "3372": 1
             }
-        }
+        },
+        "consume": true
     },
     "17709": {
         "i": 17709,
@@ -13064,7 +13099,8 @@
         },
         "dropped": {
             "12258": 6.0
-        }
+        },
+        "consume": true
     },
     "17748": {
         "i": 17748,

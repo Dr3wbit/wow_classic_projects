@@ -1371,6 +1371,10 @@
         "i": 179564,
         "n": "Gordok Tribute"
     },
+    "179565": {
+        "i": 179565,
+        "n": "Dusty Reliquary"
+    },
     "179644": {
         "i": 179644,
         "n": "Imprisoned Doomguard"
@@ -1531,6 +1535,14 @@
         "i": 180661,
         "n": "Oil Spill"
     },
+    "180662": {
+        "i": 180662,
+        "n": "Floating Wreckage"
+    },
+    "180663": {
+        "i": 180663,
+        "n": "Sagefish School"
+    },
     "180664": {
         "i": 180664,
         "n": "Oily Blackmouth School"
@@ -1542,6 +1554,14 @@
     "180683": {
         "i": 180683,
         "n": "Firefin Snapper School"
+    },
+    "180684": {
+        "i": 180684,
+        "n": "Greater Sagefish School"
+    },
+    "180685": {
+        "i": 180685,
+        "n": "Floating Wreckage"
     },
     "180690": {
         "i": 180690,
@@ -1559,6 +1579,10 @@
         "i": 180750,
         "n": "Oily Blackmouth School"
     },
+    "180751": {
+        "i": 180751,
+        "n": "Floating Wreckage"
+    },
     "180752": {
         "i": 180752,
         "n": "Firefin Snapper School"
@@ -1567,13 +1591,29 @@
         "i": 180753,
         "n": "Patch of Elemental Water"
     },
+    "180754": {
+        "i": 180754,
+        "n": "Toasting Goblet"
+    },
     "180900": {
         "i": 180900,
         "n": "Oily Blackmouth School"
     },
+    "180901": {
+        "i": 180901,
+        "n": "Floating Wreckage"
+    },
     "180902": {
         "i": 180902,
         "n": "Firefin Snapper School"
+    },
+    "180905": {
+        "i": 180905,
+        "n": "Festive Mug"
+    },
+    "181053": {
+        "i": 181053,
+        "n": "Basket of Bloodkelp"
     },
     "181068": {
         "i": 181068,
@@ -1583,9 +1623,17 @@
         "i": 181069,
         "n": "Large Obsidian Chunk"
     },
+    "181083": {
+        "i": 181083,
+        "n": "Sothos and Jarien's Heirlooms"
+    },
     "181085": {
         "i": 181085,
         "n": "Stratholme Supply Crate"
+    },
+    "181098": {
+        "i": 181098,
+        "n": "Volcanic Ash"
     },
     "181108": {
         "i": 181108,
@@ -1602,6 +1650,14 @@
     "181249": {
         "i": 181249,
         "n": "Tin Vein"
+    },
+    "181287": {
+        "i": 181287,
+        "n": "Frozen Rune"
+    },
+    "181366": {
+        "i": 181366,
+        "n": "Four Horsemen Chest"
     },
     "181665": {
         "i": 181665,
@@ -1638,6 +1694,10 @@
     "184935": {
         "i": 184935,
         "n": "Solid Fel Iron Chest"
+    },
+    "184956": {
+        "i": 184956,
+        "n": "Strange Pool"
     },
     "184980": {
         "i": 184980,
@@ -2434,41 +2494,5 @@
     "9630": {
         "i": 9630,
         "n": "Flagongut's Fossil"
-    },
-    "180663": {
-        "i": 180663,
-        "n": "Sagefish School"
-    },
-    "180662": {
-        "i": 180662,
-        "n": "Floating Wreckage"
-    },
-    "180685": {
-        "i": 180685,
-        "n": "Floating Wreckage"
-    },
-    "180684": {
-        "i": 180684,
-        "n": "Greater Sagefish School"
-    },
-    "184956": {
-        "i": 184956,
-        "n": "Strange Pool"
-    },
-    "180751": {
-        "i": 180751,
-        "n": "Floating Wreckage"
-    },
-    "180901": {
-        "i": 180901,
-        "n": "Floating Wreckage"
-    },
-    "180905": {
-        "i": 180905,
-        "n": "Festive Mug"
-    },
-    "180754": {
-        "i": 180754,
-        "n": "Toasting Goblet"
     }
 }

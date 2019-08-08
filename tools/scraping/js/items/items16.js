@@ -174,8 +174,10 @@
                 "11371": 1,
                 "15992": 3,
                 "14047": 3
-            }
-        }
+            },
+            "step": 3
+        },
+        "consume": true
     },
     "16006": {
         "i": 16006,
@@ -511,7 +513,8 @@
             "6037": 1,
             "8170": 2,
             "14047": 4
-        }
+        },
+        "consume": true
     },
     "16039": {
         "i": 16039,
@@ -590,7 +593,8 @@
                 "14047": 1
             },
             "step": 3
-        }
+        },
+        "consume": true
     },
     "16041": {
         "i": 16041,
@@ -1761,7 +1765,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "16167": {
         "i": 16167,
@@ -1867,7 +1872,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "16168": {
         "i": 16168,
@@ -1973,7 +1979,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "16169": {
         "i": 16169,
@@ -2079,7 +2086,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "16170": {
         "i": 16170,
@@ -2185,7 +2193,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "16171": {
         "i": 16171,
@@ -2249,7 +2258,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "16189": {
         "i": 16189,
@@ -2303,7 +2313,8 @@
             "t": "Turn three lesser eternal essences into a greater one."
         },
         "created_by": {
-            "materials": {}
+            "materials": {},
+            "step": 3
         },
         "creates": {
             "20039": 16203,
@@ -2660,7 +2671,8 @@
                     "2"
                 ]
             }
-        }
+        },
+        "consume": true
     },
     "16203": {
         "i": 16203,
@@ -3043,7 +3055,8 @@
                     "2"
                 ]
             }
-        }
+        },
+        "consume": true
     },
     "16204": {
         "i": 16204,
@@ -6549,7 +6562,8 @@
         },
         "dropped": {
             "1919": 100.0
-        }
+        },
+        "consume": true
     },
     "16335": {
         "i": 16335,
@@ -21866,8 +21880,10 @@
                 "7974": 2,
                 "2692": 1,
                 "1179": 1
-            }
-        }
+            },
+            "step": 2
+        },
+        "consume": true
     },
     "16767": {
         "i": 16767,
@@ -27258,7 +27274,8 @@
             "profession": "Demonology",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "16893": {
         "i": 16893,
@@ -27281,7 +27298,8 @@
             "profession": "Demonology",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "16894": {
         "i": 16894,
@@ -27356,7 +27374,8 @@
             "profession": "Demonology",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "16896": {
         "i": 16896,
@@ -27379,7 +27398,8 @@
             "profession": "Demonology",
             "skill": {},
             "materials": {}
-        }
+        },
+        "consume": true
     },
     "16897": {
         "i": 16897,
@@ -31440,7 +31460,8 @@
         },
         "reward_from": {
             "6610": 20
-        }
+        },
+        "consume": true
     },
     "16972": {
         "i": 16972,
@@ -31459,7 +31480,8 @@
             "s": 20737,
             "t": "Place at the Foulweald Totem Mound."
         },
-        "provided_for": 6621
+        "provided_for": 6621,
+        "consume": true
     },
     "16973": {
         "i": 16973,
@@ -31491,7 +31513,8 @@
             "s": 20814,
             "t": "Fill at the Dire Pool."
         },
-        "provided_for": 5247
+        "provided_for": 5247,
+        "consume": true
     },
     "16975": {
         "i": 16975,

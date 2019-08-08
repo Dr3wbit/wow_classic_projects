@@ -14,7 +14,8 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "18001": {
         "i": 18001,
@@ -31,7 +32,8 @@
         "use": {
             "s": 433,
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
-        }
+        },
+        "consume": true
     },
     "18005": {
         "i": 18005,
@@ -48,7 +50,8 @@
         "use": {
             "s": 430,
             "t": "Restores 151.2 mana over 18 sec. Must remain seated while drinking."
-        }
+        },
+        "consume": true
     },
     "18022": {
         "i": 18022,
@@ -213,7 +216,8 @@
         },
         "dropped": {
             "2870": 0.02
-        }
+        },
+        "consume": true
     },
     "18046": {
         "i": 18046,
@@ -662,7 +666,8 @@
         },
         "reward_from": {
             "7381": 1
-        }
+        },
+        "consume": true
     },
     "18150": {
         "i": 18150,
@@ -682,7 +687,8 @@
         },
         "reward_from": {
             "7382": 1
-        }
+        },
+        "consume": true
     },
     "18151": {
         "i": 18151,
@@ -714,7 +720,8 @@
             "s": 22562,
             "t": "Fill the Amethyst Phial at the Oracle Glade moonwell."
         },
-        "provided_for": 7383
+        "provided_for": 7383,
+        "consume": true
     },
     "18154": {
         "i": 18154,
@@ -847,7 +854,8 @@
                     "gold": 10
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18170": {
         "i": 18170,
@@ -880,7 +888,8 @@
                     "gold": 10
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18171": {
         "i": 18171,
@@ -913,7 +922,8 @@
                     "gold": 10
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18172": {
         "i": 18172,
@@ -946,7 +956,8 @@
                     "gold": 10
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18173": {
         "i": 18173,
@@ -979,7 +990,8 @@
                     "gold": 10
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18182": {
         "i": 18182,
@@ -1015,7 +1027,8 @@
         },
         "reward_from": {
             "5524": 1
-        }
+        },
+        "consume": true
     },
     "18202": {
         "i": 18202,
@@ -1546,7 +1559,8 @@
                 "7067": 2,
                 "7068": 1
             }
-        }
+        },
+        "consume": true
     },
     "18233": {
         "i": 18233,
@@ -2090,7 +2104,8 @@
                 "17012": 3,
                 "14341": 2
             }
-        }
+        },
+        "consume": true
     },
     "18252": {
         "i": 18252,
@@ -2164,7 +2179,8 @@
             "13464": 4,
             "13463": 4,
             "18256": 1
-        }
+        },
+        "consume": true
     },
     "18254": {
         "i": 18254,
@@ -2200,7 +2216,8 @@
         "materials": {
             "18255": 1,
             "3713": 1
-        }
+        },
+        "consume": true
     },
     "18255": {
         "i": 18255,
@@ -2241,7 +2258,8 @@
         },
         "creates": {
             "22761": 18254
-        }
+        },
+        "consume": true
     },
     "18256": {
         "i": 18256,
@@ -2480,7 +2498,8 @@
         },
         "reward_from": {
             "5519": 1
-        }
+        },
+        "consume": true
     },
     "18259": {
         "i": 18259,
@@ -2586,7 +2605,8 @@
                 "7067": 2,
                 "12365": 3
             }
-        }
+        },
+        "consume": true
     },
     "18263": {
         "i": 18263,
@@ -2728,7 +2748,8 @@
             "objects": {
                 "179516": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "18267": {
         "i": 18267,
@@ -2770,7 +2791,8 @@
         "unique": true,
         "dropped": {
             "14326": 100.0
-        }
+        },
+        "consume": true
     },
     "18269": {
         "i": 18269,
@@ -2791,7 +2813,8 @@
         },
         "reward_from": {
             "5528": 5
-        }
+        },
+        "consume": true
     },
     "18282": {
         "i": 18282,
@@ -2890,7 +2913,8 @@
                 "11371": 6,
                 "16000": 1
             }
-        }
+        },
+        "consume": true
     },
     "18284": {
         "i": 18284,
@@ -2911,7 +2935,8 @@
         },
         "reward_from": {
             "5528": 5
-        }
+        },
+        "consume": true
     },
     "18285": {
         "i": 18285,
@@ -2969,7 +2994,8 @@
             "s": 11008,
             "t": "A typical alcoholic beverage."
         },
-        "description": "Tastes better going down than coming up"
+        "description": "Tastes better going down than coming up",
+        "consume": true
     },
     "18288": {
         "i": 18288,
@@ -2987,7 +3013,8 @@
             "s": 11009,
             "t": "A strong alcoholic beverage."
         },
-        "description": "Do not consume near open flames"
+        "description": "Do not consume near open flames",
+        "consume": true
     },
     "18289": {
         "i": 18289,
@@ -3157,7 +3184,8 @@
                 "8831": 2,
                 "8925": 1
             }
-        }
+        },
+        "consume": true
     },
     "18295": {
         "i": 18295,
@@ -3291,7 +3319,8 @@
             "objects": {
                 "179528": 99.0
             }
-        }
+        },
+        "consume": true
     },
     "18298": {
         "i": 18298,
@@ -3378,7 +3407,8 @@
                 "181802": 20.0,
                 "181804": 5.0
             }
-        }
+        },
+        "consume": true
     },
     "18301": {
         "i": 18301,
@@ -4514,7 +4544,8 @@
         "objective": 9209,
         "reward_from": {
             "7478": 1
-        }
+        },
+        "consume": true
     },
     "18330": {
         "i": 18330,
@@ -4535,7 +4566,8 @@
         "objective": 8188,
         "reward_from": {
             "7479": 1
-        }
+        },
+        "consume": true
     },
     "18331": {
         "i": 18331,
@@ -4556,7 +4588,8 @@
         "objective": 9208,
         "reward_from": {
             "7480": 1
-        }
+        },
+        "consume": true
     },
     "18332": {
         "i": 18332,
@@ -10732,7 +10765,8 @@
             "objects": {
                 "179562": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "18489": {
         "i": 18489,
@@ -10751,7 +10785,8 @@
             "s": 22905,
             "t": "Place under the flaming breath of Onyxia."
         },
-        "provided_for": 7509
+        "provided_for": 7509,
+        "consume": true
     },
     "18490": {
         "i": 18490,
@@ -12766,7 +12801,8 @@
             "s": 22949,
             "t": "Seal a Felvine Shard inside the Reliquary of Purity."
         },
-        "provided_for": 5526
+        "provided_for": 5526,
+        "consume": true
     },
     "18540": {
         "i": 18540,
@@ -13676,7 +13712,8 @@
             "items": {
                 "22320": 100.0
             }
-        }
+        },
+        "consume": true
     },
     "18590": {
         "i": 18590,
@@ -13764,7 +13801,8 @@
                 "8170": 2,
                 "159": 1
             }
-        }
+        },
+        "consume": true
     },
     "18597": {
         "i": 18597,
@@ -13975,7 +14013,8 @@
                     "gold": 5
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18607": {
         "i": 18607,
@@ -14005,7 +14044,8 @@
                     "gold": 5
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18608": {
         "i": 18608,
@@ -14264,7 +14304,8 @@
             "s": 23054,
             "t": "Ignites Kroshius, reanimating the fallen infernal."
         },
-        "provided_for": 7603
+        "provided_for": 7603,
+        "consume": true
     },
     "18628": {
         "i": 18628,
@@ -14399,7 +14440,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18633": {
         "i": 18633,
@@ -14442,7 +14484,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18634": {
         "i": 18634,
@@ -14544,7 +14587,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18636": {
         "i": 18636,
@@ -14618,7 +14662,8 @@
                     1
                 ]
             }
-        }
+        },
+        "consume": true
     },
     "18638": {
         "i": 18638,
@@ -14770,7 +14815,8 @@
             "11444": 1.783,
             "11450": 1.333,
             "11445": 0.741
-        }
+        },
+        "consume": true
     },
     "18641": {
         "i": 18641,
@@ -14805,7 +14851,8 @@
                 "14047": 3
             },
             "step": 2
-        }
+        },
+        "consume": true
     },
     "18642": {
         "i": 18642,
@@ -14869,7 +14916,8 @@
                 "7910": 1,
                 "7191": 1
             }
-        }
+        },
+        "consume": true
     },
     "18646": {
         "i": 18646,
@@ -15355,7 +15403,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18663": {
         "i": 18663,
@@ -18435,7 +18484,8 @@
         "provided_for": 7668,
         "reward_from": {
             "7666": 1
-        }
+        },
+        "consume": true
     },
     "18749": {
         "i": 18749,
@@ -18461,7 +18511,8 @@
         },
         "dropped": {
             "14516": 100.0
-        }
+        },
+        "consume": true
     },
     "18752": {
         "i": 18752,
@@ -19944,7 +19995,8 @@
                     "gold": 6
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18803": {
         "i": 18803,
@@ -21574,7 +21626,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18840": {
         "i": 18840,
@@ -21662,7 +21715,8 @@
                     "gold": 0
                 }
             }
-        }
+        },
+        "consume": true
     },
     "18842": {
         "i": 18842,
