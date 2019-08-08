@@ -12,7 +12,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from itertools import chain
 from operator import attrgetter
-import re
+import re, datetime
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
@@ -97,6 +97,7 @@ class TalentCalcTemplate(TemplateView):
 		return dispatch
 
 	def talent_architect(self, context):
+		START = datetime.datetime.now()
 		class_name = context["selected"]
 		wow_class = WoWClass.objects.get(name=class_name)
 		talent_trees = wow_class.talenttree_set.all()
@@ -111,12 +112,37 @@ class TalentCalcTemplate(TemplateView):
 			for outer_i, outer_v in enumerate(blueprints[tree_name]):
 				for inner_i, inner_v in enumerate(outer_v):
 					if inner_v:
+						# tal = Talent.objects.get(x=x, y=y)
 						next_tal = next(all_talents)
+						# print(outer_i, inner_i)
+						# print(next_tal.y, next_tal.x)
 						val = [inner_v] if type(inner_v) is not list else inner_v
 						val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
 						blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':str(next_tal.sanitized), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
+		#
+		# for tree in talent_trees:
+		# 	tree_name = tree.name
+		#
+		# 	context["talent_trees"].append({'name':tree_name})
+		# 	tals = Talent.objects.filter(wow_class=wow_class, tree=tree)
+		#
+		# 	blueprints[tree_name] = tree.architect
+		# 	for y, outer_v in enumerate(blueprints[tree_name]):
+		# 		for x, inner_v in enumerate(outer_v):
+		# 			if inner_v:
+		# 				# tal = Talent.objects.get(x=x, y=y)
+		# 				tal = tals.get(x=x, y=y)
+		# 				# print(outer_i, inner_i)
+		# 				# print(next_tal.y, next_tal.x)
+		# 				val = [inner_v] if type(inner_v) is not list else inner_v
+		# 				val = zip(val, tal.unlocks) if tal.unlocks else val
+		# 				blueprints[tree_name][y][x] = (val, {'name':tal.name, 'sanitized':str(tal.sanitized), 'locked':tal.locked, 'unlocks':tal.unlocks}, 0)
 
 		context["blueprints"] = blueprints
+		FINISH = datetime.datetime.now() - START
+
+		print('talent architect took: {}'.format(str(FINISH)))
+
 		return(context)
 
 	def get(self, request, *args, **kwargs):
@@ -486,7 +512,7 @@ class ConsumeToolTemplate(TemplateView):
 
 
 		data['created'] = True if cl_created else False
-		
+
 		for tag in tags:
 			t,tag_created = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
 			if tag_created or t not in c_list.tags.all():

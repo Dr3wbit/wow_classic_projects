@@ -345,13 +345,15 @@ class Talent(models.Model):
 	x = models.PositiveSmallIntegerField(validators=[MaxValueValidator(5)], default=0)
 	y = models.PositiveSmallIntegerField(validators=[MaxValueValidator(7)], default=0)
 
-	locked = models.ForeignKey("self", blank=True, null=True, on_delete=models.CASCADE)
+	locked = models.ForeignKey("self", blank=True, null=True, on_delete=models.SET_NULL)
+	img = models.CharField(max_length=50, default='')
+
 	class Meta:
 		unique_together = ['wow_class', 'name', 'tree']
 		ordering = ['id']
 
 	def __str__(self):
-		return(self.name)
+		return self.name
 
 	@property # returns list of descriptions
 	def description(self):
