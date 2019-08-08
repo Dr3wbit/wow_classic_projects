@@ -15,11 +15,11 @@ function initializeApp() {
 }
 
 function applyClickHandlers() {
-	talentHandler() // mostly needed
-	exportSpec() //not sure about this one
-	resetHandler() // likely needed
-	lockSpec() // likely needed
-	resetTree() // likely needed
+	talentHandler()
+	exportSpec()
+	resetHandler()
+	lockSpec()
+	resetTree()
 }
 
 

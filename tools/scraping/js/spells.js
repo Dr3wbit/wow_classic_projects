@@ -11298,9 +11298,17 @@
         "i": 27704,
         "t": "Combines 5 Pledges of Loyalty: Ironforge into an Ironforge Pledge Collection."
     },
+    "27705": {
+        "i": 27705,
+        "n": "Copy of Create Stormwind Sack of Homemade Bread"
+    },
     "27706": {
         "i": 27706,
         "t": "Combines 5 Dwarven Homebrews into a Case of Homebrew."
+    },
+    "27707": {
+        "i": 27707,
+        "n": "Copy of Create Ironforge Case of Homebrew"
     },
     "27708": {
         "i": 27708,
@@ -11337,6 +11345,10 @@
     "27716": {
         "i": 27716,
         "t": "Combines 5 Pledges of Loyalty: Thunder Bluff into an Thunder Bluff Pledge Collection."
+    },
+    "27717": {
+        "i": 27717,
+        "n": "Create Undercity Book of Romantic Poetry"
     },
     "27718": {
         "i": 27718,

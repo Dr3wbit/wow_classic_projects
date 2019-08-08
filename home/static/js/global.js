@@ -59,12 +59,11 @@ function event_handlers() {
     });
 
     // prevent right context menu on main content
-    // no dont
-    // $('.mainContent').on({
-    //     contextmenu: e => {
-    //         e.preventDefault()
-    //     },
-    // })
+    $('.mainContent').on({
+        contextmenu: e => {
+            e.preventDefault()
+        },
+    })
 
     $(".spec-list-item").on({
         click: e => {
@@ -139,7 +138,6 @@ function getCookie(name) {
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
             var cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
@@ -152,7 +150,6 @@ function getCookie(name) {
 var csrftoken = getCookie('csrftoken');
 
 function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 

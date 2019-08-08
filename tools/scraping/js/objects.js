@@ -1371,6 +1371,10 @@
         "i": 179564,
         "n": "Gordok Tribute"
     },
+    "179565": {
+        "i": 179565,
+        "n": "Dusty Reliquary"
+    },
     "179644": {
         "i": 179644,
         "n": "Imprisoned Doomguard"
@@ -1607,6 +1611,10 @@
         "i": 180905,
         "n": "Festive Mug"
     },
+    "181053": {
+        "i": 181053,
+        "n": "Basket of Bloodkelp"
+    },
     "181068": {
         "i": 181068,
         "n": "Small Obsidian Chunk"
@@ -1615,9 +1623,17 @@
         "i": 181069,
         "n": "Large Obsidian Chunk"
     },
+    "181083": {
+        "i": 181083,
+        "n": "Sothos and Jarien's Heirlooms"
+    },
     "181085": {
         "i": 181085,
         "n": "Stratholme Supply Crate"
+    },
+    "181098": {
+        "i": 181098,
+        "n": "Volcanic Ash"
     },
     "181108": {
         "i": 181108,
@@ -1634,6 +1650,14 @@
     "181249": {
         "i": 181249,
         "n": "Tin Vein"
+    },
+    "181287": {
+        "i": 181287,
+        "n": "Frozen Rune"
+    },
+    "181366": {
+        "i": 181366,
+        "n": "Four Horsemen Chest"
     },
     "181665": {
         "i": 181665,
