@@ -26,8 +26,6 @@ class Command(BaseCommand):
 			except Spell.DoesNotExist:
 				raise CommandError('Spell "%s" does not exist' % ix)
 
-			self.stdout.write(self.style.SUCCESS('Successfully added spell "%s"' % ix))
-
 	def get_item_list(self, path):
 		all_items = ''
 		mode = "w+" if not os.path.exists(path) else "r"

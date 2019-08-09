@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.db.models import Avg
+from django.db.models import Avg, Sum
 import datetime, math, re, time
 from social_django.models import UserSocialAuth
 from django.contrib.postgres import fields as postgres
@@ -11,6 +11,7 @@ from .managers import UserManager
 from django.core.serializers import json as JSON
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
+from decimal import *
 
 class User(AbstractUser):
 	username = None
@@ -64,15 +65,18 @@ class Item(models.Model):
 	)
 
 	HEAD,NECK,SHOULDER,SHIRT,CHEST,BELT,LEGS,FEET,WRIST,HANDS = range(1,11)
-	FINGER,TRINKET,BACK,MAINHAND,OFFHAND,RANGED,TABARD,BAG, = 11,13,15,16,17,18,19,20
+	FINGER,FINGER2,TRINKET,TRINKET2,BACK,MAINHAND,OFFHAND,RANGED,TABARD = range(11,20)
+	BAG,BAG2,BAG3,BAG4 = range(20,24)
 	TWO_HAND,ONE_HAND,THROWN,RELIC,OH_FRILL,AMMO = range(24, 30)
 
 	SLOT_CHOICES = (
 		(HEAD, 'Head'), (NECK, 'Neck'), (SHOULDER, 'Shoulder'), (SHIRT, 'Shirt'),
 		(CHEST, 'Chest'), (BELT, 'Waist'), (LEGS, 'Legs'), (FEET, 'Feet'), (WRIST, 'Wrist'),
-		(HANDS, 'Hands'), (FINGER,'Finger'), (TRINKET,'Trinket'), (BACK, 'Back'), (MAINHAND, 'Main Hand'), (OFFHAND, 'Off Hand'),
-		(RANGED, 'Ranged'), (TABARD,'Tabard'), (BAG, 'Bag'), (ONE_HAND, 'One-hand'), (TWO_HAND, 'Two-hand'),
-		(THROWN, 'Thrown'), (OH_FRILL, 'Held In Off-Hand'), (RELIC, 'Relic'), (AMMO, 'Projectile'),
+		(HANDS, 'Hands'), (FINGER,'Finger'), (FINGER2,'Finger2'),(TRINKET,'Trinket'),
+		(TRINKET2, 'Trinket2'),(BACK, 'Back'), (MAINHAND, 'Main Hand'), (OFFHAND, 'Off Hand'),
+		(RANGED, 'Ranged'), (TABARD,'Tabard'), (BAG, 'Bag'), (BAG2, 'Bag2'), (BAG3, 'Bag3'), (BAG4, 'Bag4'),
+		(TWO_HAND, 'Two-hand'), (ONE_HAND, 'One-hand'),(THROWN, 'Thrown'), (RELIC, 'Relic'),
+		(OH_FRILL, 'Held In Off-Hand'), (AMMO, 'Projectile'),
 	)
 
 	ix = models.PositiveIntegerField(primary_key=True)
@@ -83,29 +87,32 @@ class Item(models.Model):
 	ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
 	_slot = models.PositiveSmallIntegerField(default=0, choices=SLOT_CHOICES, validators=[MinValueValidator(0), MaxValueValidator(20)])
 	_proficiency = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
+	slot = models.CharField(max_length=20, default='')
+	proficiency = models.CharField(max_length=20, default='')
 
 	armor = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(20000)])
 	speed = models.DecimalField(default=0.0, max_digits=4, decimal_places=2, validators=[MinValueValidator(0.0), MaxValueValidator(4.0)])
+
+	damage = models.ManyToManyField('Damage')
 
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
 	quest_item = models.BooleanField(default=False)
 
-	use = models.ForeignKey('Spell', blank=True, null=True, on_delete=models.SET_NULL)
-	description = models.CharField(max_length=250, blank=True)
-
-	requirements = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
-	val = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
 	stats = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
-
-	disenchant = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
-
+	resists = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
+	requirements = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
+	durability = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(400)])
+	use = models.ForeignKey('Spell', blank=True, null=True, on_delete=models.SET_NULL)
 	equips = models.ManyToManyField('Spell', related_name='equips')
 	procs = models.ManyToManyField('Spell', related_name='procs')
-
-	consume = models.BooleanField(default=False)
+	description = models.CharField(max_length=250, blank=True)
 	itemset = models.ForeignKey('ItemSet', blank=True, null=True, on_delete=models.SET_NULL)
 
+	val = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True, help_text='Monetary Value')
+	disenchant = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
+
+	consume = models.BooleanField(default=False)
 	#https://docs.djangoproject.com/en/2.2/ref/contrib/postgres/fields/#hstorefield
 	# price = postgres.HStoreField(validators=KeysValidator(REQUIREMENT_KEYS, strict=True))
 
@@ -126,37 +133,13 @@ class Item(models.Model):
 	# def get_monetary_value(self):
 	# 	return {'copper':0, 'silver':0, 'gold':0}
 
-	@property
-	def slot(self):
-		if not self._slot:
-			return ''
-		else:
-			return self.SLOT_NAME_CHOICES[self._slot]
-
-	@property
-	def proficiency(self):
-		if not self._proficiency:
-			return ''
-		else:
-			if self._slot in self.ARMOR_SLOTS:
-				return self.ARMOR_CHOICES[self._proficiency]
-
-			elif self._slot in self.RANGED_SLOTS:
-				return self.RANGED_CHOICES[self._proficiency]
-
-			elif self._slot == self.RELIC:
-				return self.RELIC_CHOICES[self._proficiency]
-
-			elif self._slot == self.AMMO:
-				return self.AMMO_CHOICES[self._proficiency]
-
-			elif self._slot in self.MELEE_SLOTS:
-				return self.MELEE_CHOICES[self._proficiency]
-			else:
-				return ''
-
 	def __str__(self):
 		return self.name
+
+	@property
+	def dps(self):
+		if self.speed and self.damage.count() > 0:
+			return (Decimal((self.damage.aggregate(Sum('low'))['low__sum']+self.damage.aggregate(Sum('high'))['high__sum'])/2)/self.speed).quantize(Decimal('1.0'))
 
 	class Meta:
 		unique_together = ['ix', 'name']
@@ -188,12 +171,12 @@ class Crafted(models.Model):
 	help_text = "Describes an item as a craftable or consumable"
 	end_game = models.BooleanField(default=False)
 
-	skillup = postgres.JSONField(encoder=JSON.DjangoJSONEncoder)
+	skillup = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
 
-	profession_level = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
+	profession_level = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(300)])
 
 	@property
-	def n(self):
+	def name(self):
 		return self.item.name
 
 	@property
@@ -203,6 +186,21 @@ class Crafted(models.Model):
 	def __str__(self):
 		return self.item.__str__()
 
+class Damage(models.Model):
+	i = models.ForeignKey('Item', on_delete=models.CASCADE, related_name='+')
+	school = models.ForeignKey('School', on_delete=models.CASCADE)
+	high = models.PositiveSmallIntegerField(default=2)
+	low = models.PositiveSmallIntegerField(default=1)
+
+	def __str__(self):
+		added = "+" if self.i.proficiency != "Wand" else ""
+		if self.school.ix <= 1:
+			return "{} - {} Damage".format(self.low, self.high)
+		else:
+			return "{}{} - {} {} Damage".format(added, self.low, self.high, self.school.name)
+
+	class Meta:
+		unique_together = ['i', 'school']
 
 class Material(models.Model):
 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
@@ -235,7 +233,7 @@ class WoWClass(models.Model):
 			('Rogue', 'Rogue'),
 			('Shaman', 'Shaman'),
 			('Warlock', 'Warlock'),
-			('Warrior', 'Warrior')
+			('Warrior', 'Warrior'),
 	)
 	name = models.CharField(max_length=10, choices=CLASS_CHOICES, unique=True)
 	img = models.CharField(max_length=30)
@@ -350,10 +348,7 @@ class School(models.Model):
 	)
 
 	ix = models.PositiveIntegerField(primary_key=True, unique=True, validators=[MaxValueValidator(7)])
-
-	@property
-	def name(self):
-		return self.SCHOOLS_OF_MAGIC[self.ix-1][1]
+	name = models.CharField(max_length=30, default='')
 
 	def __str__(self):
 		return self.name
@@ -378,11 +373,8 @@ class Profession(models.Model):
 		(RIDING, 'Riding'),
 	)
 	ix = models.PositiveIntegerField(primary_key=True, unique=True, choices=PROFESSION_CHOICES)
-	img = models.CharField(max_length=30)
-
-	@property
-	def name(self):
-		return self.PROFESSION_CHOICES[self.ix-1][1]
+	img = models.CharField(max_length=40)
+	name = models.CharField(max_length=30, default='')
 
 	@property
 	def primary(self):
@@ -526,6 +518,9 @@ class Zone(models.Model):
 	def __str__(self):
 		return self.name
 
+
+from home.signals import savedspec_limit, consumelist_limit, set_profession_name, set_school_name, set_slot, set_proficiency
+
 # class Faction(models.Model):
 # 	ALLY,HORDE,NEUTRAL = 1,2,3
 # 	FACTION_CHOICES = (
@@ -543,9 +538,6 @@ class Zone(models.Model):
 #
 # 	def __str__(self):
 # 		return self.name
-
-
-from home.signals import savedspec_limit, consumelist_limit
 
 
 # class Quest(models.Model):
