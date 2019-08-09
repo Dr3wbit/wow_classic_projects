@@ -116,12 +116,13 @@ environment variables should be stored in the gunicorn service above the ExecSta
 #### RE-provisioning:
 create local database `postgres psql` then follow above steps for setting up local database
 
-step1: dumpdata (https://docs.djangoproject.com/en/2.2/ref/django-admin/#dumpdata)
+step1: [dumpdata](https://docs.djangoproject.com/en/2.2/ref/django-admin/#dumpdata)
 ```
 python manage.py dumpdata home.Talent -o talentdata.json --indent 4
 python manage.py dumpdata home.TalentTree -o treedata.json --indent 4
 python manage.py dumpdata home.Tag -o tagdata.json --indent 4
 python manage.py dumpdata home.User social_django.UserSocialAuth -o userdata.json --indent 4
+
 ```
 
 step2: create necessary models (WoWClass)
@@ -158,7 +159,7 @@ for (x,y) in PROFESSION_CHOICES:
 
 ```
 
-step3: loaddata (order is important) (https://docs.djangoproject.com/en/2.2/ref/django-admin/#django-admin-loaddata)
+step3: [loaddata](https://docs.djangoproject.com/en/2.2/ref/django-admin/#django-admin-loaddata) (order is important)
 ```
 python manage.py loaddata dumps/treedata.json --app home.TalentTree
 python manage.py loaddata dumps/talentdata.json --app home.Talent
@@ -167,7 +168,18 @@ python manage.py loaddata dumps/userdata.json --app social_django.UserSocialAuth
 ```
 
 step4: running management commands
+
+adding spell data
 ```
 python manage.py spell_parser
-python manage.py item_parser_basic
+```
+adding (-b --basic, -a --advanced, -c --crafted, -n --noprof) item info, where `-n` is just non-crafted consumes
+```
+python manage.py item_parser -b
+```
+
+###### BIG dumps:
+
+```
+python manage.py dumpdata -o dumps/dookie.json --exclude=contenttypes --exclude=auth --indent 4
 ```

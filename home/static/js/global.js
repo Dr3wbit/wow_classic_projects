@@ -58,7 +58,7 @@ function event_handlers() {
         }
     });
 
-    // prevent right context menu on main content
+    prevent right context menu on main content
     $('.mainContent').on({
         contextmenu: e => {
             e.preventDefault()
@@ -170,187 +170,365 @@ function notifyUser(message) {
     setTimeout(() => { $(".notification-container").remove() }, 5000);
 }
 
-function future_tooltip(e, which=0) {
-    var data;
-    switch (which) {
-		case 0:
-			// ajax_tooltip
-            // do stuff
-		case 1:
-			// which = talent_calc
-		    // ajax_tooltip
-            // do stuff
-		case 2:
-			// which = consume_tool
-            // ajax_tooltip
-            // do stuff
-        case 3:
-            // which = enchant_tool
-            // ajax_tooltip
-            // do stuff
-
-	}
-}
 
 function clearTooltip() {
 	$("#tooltip_container").empty()
 	$("#tooltip_container").hide()
 }
 
-function tooltip_v2(e, static=false, which=0) {
-	const targetElement = $(e.target);
+
+
+function future_tooltip(e, which=0) {
+    const targetElement = $(e.target);
 	const name = (targetElement.attr('name')) ? targetElement.attr('name') : targetElement.parent().attr('name');
-    var tooltipElems = [];
 
-    switch (which) {
+    var $name = name
+    var $which = which
+    var $data = {}
+    $data['name'] = $name
+    $data['which'] = $which
+    $.ajax({
+        method: "GET",
+        url: `/ajax/tooltip`,
+        data: $data,
+        dataType: 'json',
+        success: create_tooltip
+    })
+}
 
-        // reserved, index?
-        case 0:
-            //
+function create_tooltip(data) {
 
-        // for talents
-        case 1:
-            const tree = titleCase(targetElement.closest('div.talentTable')[0].id)
-            const found = classData.trees.find(function (x) {
-                return x.name == tree
-            })
+    var t0 = performance.now();
 
-            const j = targetElement.attr('data-j')
-            const k = targetElement.attr('data-k')
+    const tooltip_container = $("#tooltip_container")
+    const img = data.img
 
-            const talentObj = found.data[j][k]
-            const talentCopy = Object.assign({}, talentObj)
-            const requiredTalentPoints = talentObj.requiredTalentPoints
+    // delete data.img
 
-            var description;
-            var next_rank = true
-            var req_text = ''
-            var tooltipFooter = {}
+    const tooltip = $('<div/>', {
+        class: 'tooltip-container',
+        id: "tooltip",
+        style: "float: right; white-space: pre-wrap;"
+    })
 
-            const locked = $(e.target).hasClass('locked')
+    var image_name = static_url+`images/icons/large/${img}.jpg`
 
-            if (talentObj.invested == 0) {
-                next_rank = false
-                talentCopy.invested++
-                tooltipFooter.text = 'Click to learn'
-                tooltipFooter.color = 'learn'
-                description = talentCopy.description()
-            }
+    const image = (img) ? $('<img/>', {
+        class: 'icon-medium',
+        src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
+        style: `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
+    }) : null
 
-            if (talentObj.maxRank == 1) {
-                next_rank = false
-                talentCopy.invested = talentCopy.maxRank
-                description = talentCopy.description()
-            }
+    tooltip.append($('<div/>', {
+        class: `title q${data.quality}`,
+        text: `${data.name}`,
+        style: 'clear: both; margin-right: 5px; width: 100%;'
+    }))
 
-            if (talentObj.invested == talentObj.maxRank) {
-                tooltipFooter.text = 'Right-click to unlearn'
-                tooltipFooter.color = 'unlearn'
+    const bop_text = (data.bop) ? "Binds when picked up" : "Binds when equipped"
+    const bop = ((!data.slot) && !(data.bop)) ? null : $('<div/>', {
+        class: 'bop',
+        text: `${bop_text}`
+    })
 
-                next_rank = false
-                description = talentCopy.description()
-            }
+    const unique = (data.unique) ? $('<div/>', {
+        class: 'unique',
+        text: "Unique"
+    }) : null
 
-            if (talentObj.maxRank > 1 && talentObj.invested > 0 && next_rank) {
-                talentCopy.invested++
-                // description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
-                description = talentObj.description()
+    const slot = (data.slot) ? $('<div/>', {
+        class: 'slot',
+        text: `${data.slot}\n`,
+        style: 'float:left;'
+    }) : null
 
-            }
-            if (talentPointsSpent[tree].total() < requiredTalentPoints) {
-                req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
-            }
+    const proficiency = (data.proficiency) ? $('<div/>', {
+        class: 'proficiency',
+        text: `${data.proficiency}`,
+        style: 'float: right; clear: right;'
+    }) : null
 
-            if (locked) {
-                const testName = talentCopy.locked
-                var testEle = $(`img.talent[name="${testName}"]`)
-                let j = testEle.attr('data-j')
-                let k = testEle.attr('data-k')
-                const prereq = Object.assign({}, found.data[j][k])
+    var damage_text = ""
+    data.damage.forEach(function(x) {
+        damage_text += `${x}\n`
+    })
 
-                const points_remaining = prereq.maxRank - prereq.invested
-                const plural = (points_remaining > 1) ? 's' : ''
-                req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text
-            }
+    const damage = (data.damage) ? $('<div/>', {
+        class: 'damage',
+        text: `${damage_text}`,
+        style: 'float: left; clear:left; margin-right: 10px; padding-right: 5px'
+    }) : null
 
-            tooltipElems = [
-                {class: 'title', text: name},
-                {class: 'rank', text: "Rank " + talentObj.invested + "/" + talentObj.maxRank},
-                {class: 'req', text: req_text},
-                {class: 'description', text: description} ]
+    const speed = (data.speed) ? $('<div/>', {
+        class: 'speed',
+        text: `Speed ${data.speed}`,
+        style: 'float: right; clear: right; margin-left: 10px; padding-left: 5px'
+    }) : null
 
-            if (next_rank) {
-                tooltipElems.push({class: 'next', text: "\nNext Rank:\n"})
-                tooltipElems.push({class: 'description', text: talentCopy.description()})
+    const dps = (data.dps) ? $('<div/>', {
+        class: 'dps',
+        text: `(${data.dps} damage per second)`,
+        style: 'clear: both;'
+    }) : null
 
-            } else if (!(req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn'))) {
-                tooltipElems.push({class: tooltipFooter.color, text: tooltipFooter.text})
-            }
-            break
-        // for displaying items (consumes, materials, etc.)
-        case 2:
-            var thisObj = (allConsumes[name]) ? allConsumes[name] : allMaterials[name]
-            const properName = (thisObj.name) ? thisObj.name : titleCase(name)
-            const rarity = thisObj.rarity
-            tooltipElems = [{class: `title ${rarity}`, text: properName}]
-            if (thisObj.bop) {
-                tooltipElems.push({class: 'bop', text: "Binds when picked up"})
-            }
-            if (thisObj.unique) {
-                tooltipElems.push({class: 'unique', text: "Unique"})
-            }
-            var requirementText = ''
-            if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-                requirementText = thisObj.req
-            } else {
-                requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
-            }
+    const armor = (data.armor) ? $('<div/>', {
+        class: 'armor',
+        text: `${data.armor} Armor`,
+        style: 'clear: both;'
 
-            if (thisObj.req || thisObj.stats) {
-                tooltipElems.push({class: 'requiredLevel', text: requirementText})
-            }
-            if (thisObj.use) {
-                tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
-            }
-            if (thisObj.description) {
-                tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
-            }
-            break
+        // style: 'float: left; clear: right;'
+    }) : null
 
-        // enchant recipes
-        case 3:
-            const slot = $("div.itemslot.enchantable.focus").attr("id")
-            const enchant = allEnchants[slot][name]
-            tooltipElems.push({class: "title spell", text: `Enchant ${titleCase(slot)} - ${titleCase(name)}`})
-            tooltipElems.push({class: "description", text: enchant.description})
-            break
+    var stat_text = ""
+    if (data.stats) {
+        for (let [key, val] of Object.entries(data.stats)) {
+            stat_text += `+${val} ${key}\n`
+        }
     }
-	tooltipElems.push(static)
-	bigdaddytooltip(e, name, tooltipElems)
+    const stats = (data.stats) ? $('<div/>', {
+        class: 'armor',
+        text: `${stat_text}`,
+        style: "float: left; clear: both"
+    }) : null
+
+    const durability = (data.durability) ? $('<div/>', {
+        class: 'durability',
+        text: `Durability ${data.durability} / ${data.durability}`,
+        style: 'clear: both;'
+    }) : null
+
+    const requirements = (data.requirements) ? $('<div/>', {
+        class: 'requirements',
+        style: 'clear: both;'
+    }) : null
+
+    if (data.requirements) {
+        for (let [key, val] of Object.entries(data.requirements)) {
+            if (key == "level") {
+                requirements.append($('<div/>', {
+                    class: 'required_level',
+                    text: `Required Level: ${val}`
+                }))
+            } else if (key == "classes") {
+                if (val.length > 1) {
+                    val.forEach(function(class_name) {
+                        requirements.append($('<div/>', {
+                            class: `${class_name}`,
+                            text: `Classes: ${val}`
+                        }), ",")
+                    })
+                } else {
+                    requirements.append($('<div/>', {
+                        class: `${class_name}`,
+                        text: `Classes: ${val[0]}`
+                    }), ",")
+                }
+
+            } else if (key == "rank") {
+                requirements.append($('<div/>', {
+                    class: 'required_rank',
+                    text: `Requires ${val}`,
+                }))
+            }
+
+        }
+        requirements.append($('<div/>', {
+            style: `clear: both;`
+        }))
+
+    }
+
+    const equips = (data.equips) ? $('<div/>', {
+        class: 'use q2',
+        style: 'clear: both;'
+    }) : null
+
+    if (data.equips) {
+        data.equips.forEach(function(x) {
+            equips.append($('<div/>', {
+                class: 'use q2',
+                text: `Equip: ${x}`,
+                style: 'clear: both;'
+            }))
+        })
+    }
+
+    const procs = (data.procs) ? $('<div/>', {
+        class: 'use q2',
+        style: 'clear: both;'
+    }) : null
+
+    if (data.procs) {
+        data.procs.forEach(function(x) {
+            procs.append($('<div/>', {
+                class: 'use q2',
+                text: `Chance on Hit: ${x}`,
+                style: 'clear: both;'
+            }))
+        })
+    }
+
+    const use = (data.use) ? $('<div/>', {
+        class: 'use q2',
+        text: `Use: ${data.use}`,
+        style: 'clear: both;'
+    }) : null
+
+    const description = (data.description) ? $('<div/>', {
+        class: 'description',
+        text: `"${data.description}"`,
+        style: 'clear: both;'
+    }) : null
+
+    tooltip.append(bop, unique, slot, proficiency, armor, damage, speed, dps, stats, durability, requirements,equips, procs, use, description)
+
+    tooltip_container.append(image, tooltip)
+
+    // tooltip_container.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
+    var t1 = performance.now();
+
+    console.log("Call to create_tooltip took " + (t1 - t0) + " milliseconds.")
 }
 
-function update_tooltip(e) {
+// function tooltip_v2(e, staticK=false, which=0) {
+// 	const targetElement = $(e.target);
+// 	const name = (targetElement.attr('name')) ? targetElement.attr('name') : targetElement.parent().attr('name');
+//     var tooltipElems = [];
+//
+//     switch (which) {
+//
+//         // reserved, index?
+//         case 0:
+//             //
+//
+//         // for talents
+//         case 1:
+//             const tree = titleCase(targetElement.closest('div.talentTable')[0].id)
+//             const found = classData.trees.find(function (x) {
+//                 return x.name == tree
+//             })
+//
+//             const j = targetElement.attr('data-j')
+//             const k = targetElement.attr('data-k')
+//
+//             const talentObj = found.data[j][k]
+//             const talentCopy = Object.assign({}, talentObj)
+//             const requiredTalentPoints = talentObj.requiredTalentPoints
+//
+//             var description;
+//             var next_rank = true
+//             var req_text = ''
+//             var tooltipFooter = {}
+//
+//             const locked = $(e.target).hasClass('locked')
+//
+//             if (talentObj.invested == 0) {
+//                 next_rank = false
+//                 talentCopy.invested++
+//                 tooltipFooter.text = 'Click to learn'
+//                 tooltipFooter.color = 'learn'
+//                 description = talentCopy.description()
+//             }
+//
+//             if (talentObj.maxRank == 1) {
+//                 next_rank = false
+//                 talentCopy.invested = talentCopy.maxRank
+//                 description = talentCopy.description()
+//             }
+//
+//             if (talentObj.invested == talentObj.maxRank) {
+//                 tooltipFooter.text = 'Right-click to unlearn'
+//                 tooltipFooter.color = 'unlearn'
+//
+//                 next_rank = false
+//                 description = talentCopy.description()
+//             }
+//
+//             if (talentObj.maxRank > 1 && talentObj.invested > 0 && next_rank) {
+//                 talentCopy.invested++
+//                 // description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
+//                 description = talentObj.description()
+//
+//             }
+//             if (talentPointsSpent[tree].total() < requiredTalentPoints) {
+//                 req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
+//             }
+//
+//             if (locked) {
+//                 const testName = talentCopy.locked
+//                 var testEle = $(`img.talent[name="${testName}"]`)
+//                 let j = testEle.attr('data-j')
+//                 let k = testEle.attr('data-k')
+//                 const prereq = Object.assign({}, found.data[j][k])
+//
+//                 const points_remaining = prereq.maxRank - prereq.invested
+//                 const plural = (points_remaining > 1) ? 's' : ''
+//                 req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text
+//             }
+//
+//             tooltipElems = [
+//                 {class: 'title', text: name},
+//                 {class: 'rank', text: "Rank " + talentObj.invested + "/" + talentObj.maxRank},
+//                 {class: 'req', text: req_text},
+//                 {class: 'description', text: description} ]
+//
+//             if (next_rank) {
+//                 tooltipElems.push({class: 'next', text: "\nNext Rank:\n"})
+//                 tooltipElems.push({class: 'description', text: talentCopy.description()})
+//
+//             } else if (!(req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn'))) {
+//                 tooltipElems.push({class: tooltipFooter.color, text: tooltipFooter.text})
+//             }
+//             break
+//         // for displaying items (consumes, materials, etc.)
+//         case 2:
+//             var thisObj = (allConsumes[name]) ? allConsumes[name] : allMaterials[name]
+//             const properName = (thisObj.name) ? thisObj.name : titleCase(name)
+//             const rarity = thisObj.rarity
+//             tooltipElems = [{class: `title ${rarity}`, text: properName}]
+//             if (thisObj.bop) {
+//                 tooltipElems.push({class: 'bop', text: "Binds when picked up"})
+//             }
+//             if (thisObj.unique) {
+//                 tooltipElems.push({class: 'unique', text: "Unique"})
+//             }
+//             var requirementText = ''
+//             if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
+//                 requirementText = thisObj.req
+//             } else {
+//                 requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
+//             }
+//
+//             if (thisObj.req || thisObj.stats) {
+//                 tooltipElems.push({class: 'requiredLevel', text: requirementText})
+//             }
+//             if (thisObj.use) {
+//                 tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
+//             }
+//             if (thisObj.description) {
+//                 tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
+//             }
+//             break
+//
+//         // enchant recipes
+//         case 3:
+//             const slot = $("div.itemslot.enchantable.focus").attr("id")
+//             const enchant = allEnchants[slot][name]
+//             tooltipElems.push({class: "title spell", text: `Enchant ${titleCase(slot)} - ${titleCase(name)}`})
+//             tooltipElems.push({class: "description", text: enchant.description})
+//             break
+//     }
+// 	tooltipElems.push(staticK)
+// 	bigdaddytooltip(e, name, tooltipElems)
+// }
 
-	const tooltip = $("#tooltip_container")
-	var x = e.pageX - 30
-	var y = e.pageY - tooltip.outerHeight(true)
-
-	if (x + 10 + tooltip.outerWidth(true) > window.innerWidth) {
-		x = (x - tooltip.outerWidth(true) + 10)
-	}
-    if (y)
-    tooltip.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
-}
-
-function get_tooltip_pos(e, static) {
+function update_tooltip(e, staticK=false) {
     var tooltip = $("#tooltip_container")
-
     this.coords = {}
-    let offset = $(e.target).offset()
 
     var x = 0
     var y = 0
-    if (static) {
+    if (staticK) {
         x = $(e.target).offset().left + 35
         y = $(e.target).offset().top - Math.max(tooltip.outerHeight(true), 35)
     } else {
@@ -361,42 +539,45 @@ function get_tooltip_pos(e, static) {
     if (x + 10 + tooltip.outerWidth(true) > window.innerWidth) {
         x = (x - tooltip.outerWidth(true) + 10)
     }
-
+    if (y) {
+        //
+    }
     this.coords.x = x
     this.coords.y = y
+    tooltip.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible; white-space: pre-wrap`)
     return this.coords
 }
-
-function bigdaddytooltip(e, name, ...args) {
-    var tooltip_container = $("#tooltip_container")
-    var elems = args[0]
-
-    var image_name = static_url+`images/icons/consumes/${name}.jpg`
-    var border_image = static_url+"images/icon_border_2.png"
-    var static = elems.pop()
-    var image = (!static) ? $('<img/>', {
-        class: 'icon-medium',
-        src: `${border_image}`,
-        style: `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
-    }) : null
-
-    var tooltip = $('<div/>', {
-        class: 'tooltip-container',
-        id: "tooltip",
-        style: "float: right;"
-    })
-
-    elems.forEach(function(item) {
-        tooltip.append($('<div/>', {
-            class: item.class,
-            text: item.text,
-        }))
-    })
-
-    tooltip_container.append(image, tooltip)
-    let coords = get_tooltip_pos(e, static)
-    tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; visibility: visible;`)
-}
+//
+// function bigdaddytooltip(e, name, ...args) {
+//     var tooltip_container = $("#tooltip_container")
+//     var elems = args[0]
+//
+//     var image_name = static_url+`images/icons/consumes/${name}.jpg`
+//     var border_image = static_url+"images/icon_border_2.png"
+//     var staticK = elems.pop()
+//     var image = (!staticK) ? $('<img/>', {
+//         class: 'icon-medium',
+//         src: `${border_image}`,
+//         style: `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
+//     }) : null
+//
+//     var tooltip = $('<div/>', {
+//         class: 'tooltip-container',
+//         id: "tooltip",
+//         style: "float: right;"
+//     })
+//
+//     elems.forEach(function(item) {
+//         tooltip.append($('<div/>', {
+//             class: item.class,
+//             text: item.text,
+//         }))
+//     })
+//
+//     tooltip_container.append(image, tooltip)
+//     // let coords = get_tooltip_pos(e, staticK)
+//     // tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px;`)
+// }
 
 function combatText(e, text){
     let color = null
@@ -432,3 +613,50 @@ function titleCase(str) {
     })
     return strArr.join(' ')
 }
+
+
+// function bigdaddytooltip(e, name, ...args) {
+//     var tooltip_container = $("#tooltip_container")
+//     var elems = args[0]
+//
+//     var image_name = static_url+`images/icons/consumes/${name}.jpg`
+//     var border_image = static_url+"images/icon_border_2.png"
+//     var staticK = elems.pop()
+//     var image = (!staticK) ? $('<img/>', {
+//         class: 'icon-medium',
+//         src: `${border_image}`,
+//         style: `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
+//     }) : null
+//
+//     var tooltip = $('<div/>', {
+//         class: 'tooltip-container',
+//         id: "tooltip",
+//         style: "float: right;"
+//     })
+//
+//     elems.forEach(function(item) {
+//         tooltip.append($('<div/>', {
+//             class: item.class,
+//             text: item.text,
+//         }))
+//     })
+//
+//     tooltip_container.append(image, tooltip)
+//     let coords = get_tooltip_pos(e, staticK)
+//     tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px;`)
+// }
+
+// function update_tooltip(e) {
+//
+// 	const tooltip = $("#tooltip_container")
+// 	var x = e.pageX - 30
+// 	var y = e.pageY - tooltip.outerHeight(true)
+//
+// 	if (x + 10 + tooltip.outerWidth(true) > window.innerWidth) {
+// 		x = (x - tooltip.outerWidth(true) + 10)
+// 	}
+//     if (y) {
+//         //
+//     }
+//     tooltip.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
+// }

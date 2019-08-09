@@ -12,7 +12,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from itertools import chain
 from operator import attrgetter
-import re
+import re, datetime
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
@@ -306,26 +306,28 @@ class ConsumeToolTemplate(TemplateView):
 		context["selected"] = prof
 
 		if prof=='other':
-			recipes = Crafted.objects.filter(prof=None)
+			recipes = Crafted.objects.filter(profession=None)
 			# context["recipes"] = Crafted.objects.filter(prof=None)
 		elif prof:
-			recipes = Crafted.objects.filter(prof__name=self.kwargs["prof"])
+			recipes = Crafted.objects.filter(profession__name=titlecase(prof))
 
 		else:
 			recipes = []
 
-		for recipe in recipes:
-			nombre = recipe.name
-			context["recipes"][nombre] = {}
-			context["recipes"][nombre]['quality'] = recipe.quality
-			context["recipes"][nombre]['name'] = str(recipe)
-			context["recipes"][nombre]['materials'] = {}
-			for mat in recipe.materials.all():
-				m_nombre = mat.name
-				context["recipes"][nombre]['materials'][m_nombre] = {}
-				context["recipes"][nombre]['materials'][m_nombre]['quality'] = mat.quality
-				context["recipes"][nombre]['materials'][m_nombre]['amount'] = int(recipe.step*mat.amount)
-				context["recipes"][nombre]['materials'][m_nombre]['name'] = str(mat)
+		context["recipes"] = recipes
+
+		# for recipe in recipes:
+		# 	nombre = recipe.name
+		# 	context["recipes"][nombre] = {}
+		# 	context["recipes"][nombre]['quality'] = recipe.quality
+		# 	context["recipes"][nombre]['name'] = str(recipe)
+		# 	context["recipes"][nombre]['materials'] = {}
+		# 	for mat in recipe.materials.all():
+		# 		m_nombre = mat.name
+		# 		context["recipes"][nombre]['materials'][m_nombre] = {}
+		# 		context["recipes"][nombre]['materials'][m_nombre]['quality'] = mat.quality
+		# 		context["recipes"][nombre]['materials'][m_nombre]['amount'] = int(recipe.step*mat.amount)
+		# 		context["recipes"][nombre]['materials'][m_nombre]['name'] = str(mat)
 
 		PROF_ABBR = ['AL', 'BS', 'CK', 'EN', 'EC', 'FA', 'FI', 'LW', 'OT', 'TL', 'SK']
 		if data.keys() & PROF_ABBR:
@@ -486,7 +488,7 @@ class ConsumeToolTemplate(TemplateView):
 
 
 		data['created'] = True if cl_created else False
-		
+
 		for tag in tags:
 			t,tag_created = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
 			if tag_created or t not in c_list.tags.all():
@@ -733,38 +735,88 @@ def save_consume_list(request):
 	pass
 
 def ajax_tooltip(request):
+
+	START = datetime.datetime.now()
+
 	data = {}
 
-	tal_name = request.GET.get('static', None)
-
-	if tal_name:
-		talent = Talent.objects.get(name=tal_name)
-
-
+	# static = request.GET.get('static', None)
+	which = request.GET.get('which', 0)
+	print('which: ', which)
 	name = request.GET.get('name', None)
-	item = Item.objects.get(name=name)
+	print('name: ', name)
 
 	data['name'] = name
-	data['quality'] = item.quality
-	data['image_name'] = item.image_name
-
-	if item.description:
-		data['description'] = item.description
-
-	if item.unique:
-		data['unique'] = item.unique
-
-	if item.use:
-		data['use'] = item.use
-
-	if item.bop:
-		data['bop'] = item.bop
-
-	if item.required_level:
-		data['required_level'] = item.required_level
 
 
+	if int(which) == 0:
+		items = Item.objects.filter(name=name)
+		if items:
+			item = items.first()
+		else:
+			item = Item.objects.get(name='samwise', ix=69420)
+
+		print('item: ', item)
+
+		data['quality'] = item.quality
+		data['image_name'] = item.img
+
+		if item.bop:
+			data['bop'] = item.bop
+
+		if item.unique:
+			data['unique'] = item.unique
+
+		if item.slot:
+			data['slot'] = item.slot
+
+		if item.proficiency:
+			data['proficiency'] = item.proficiency
+
+		if item.damage:
+			data['damage'] = []
+			for dmg in item.damage.all():
+				data['damage'].append(str(dmg))
+
+		if item.speed:
+			data['speed'] = item.speed
+
+		if item.damage and item.speed:
+			data['dps'] = item.dps
+
+		if item.stats:
+			data['stats'] = item.stats
+
+		if item.durability:
+			data['durability'] = item.durability
+
+		if item.requirements:
+			data['requirements'] = item.requirements
+
+		if item.equips:
+			data['equips'] = []
+			for equip in item.equips.all():
+				data['equips'].append(equip.t)
+
+		if item.procs:
+			data['procs'] = []
+			for proc in item.procs.all():
+				data['procs'].append(proc.t)
+
+		if item.use:
+			data['use'] = item.use.t
+
+		if item.description:
+			data['description'] = item.description
+
+	elif which == 1:
+		talents = Talent.objects.filter(name=name)
+		pass
+
+	print('data: ', data)
 	response = JsonResponse(data)
+	FINISH = datetime.datetime.now() - START
+	print('time taken:', str(FINISH))
 	return response
 
 def apply_filters(request):
@@ -820,3 +872,16 @@ def apply_filters(request):
 
 	response = render(request, "index_helper.html", context=context)
 	return response
+
+
+def titlecase(s):
+	word_exceptions = ['of', 'the']
+	a = s.replace('_', ' ')
+	word_list = a.split()
+
+	for i,word in enumerate(word_list):
+		if word not in word_exceptions:
+			word_list[i] = word.title()
+
+	c = ' '.join(word_list)
+	return(c)

@@ -23570,9 +23570,7 @@
             "t": "Allows the shaman to see elemental spirits."
         },
         "provided_for": 1520,
-        "reward_from": {
-            "1462": 1
-        },
+        "reward_from": {},
         "consume": true
     },
     "6636": {
@@ -23592,9 +23590,7 @@
             "s": 8898,
             "t": "Allows the shaman to see elemental spirits."
         },
-        "reward_from": {
-            "1464": 1
-        },
+        "reward_from": {},
         "consume": true
     },
     "6637": {
@@ -23615,9 +23611,7 @@
             "t": "Allows the shaman to see elemental spirits."
         },
         "objective": 1103,
-        "reward_from": {
-            "972": 1
-        },
+        "reward_from": {},
         "consume": true
     },
     "6640": {
@@ -28142,7 +28136,11 @@
             "t": "Restores 874.8 health over 27 sec. Must remain seated while eating."
         },
         "reward_from": {
-            "1218": 20
+            "quest": 1218,
+            "step": 20,
+            "materials": {
+                "3713": 3
+            }
         },
         "consume": true
     },
@@ -28203,7 +28201,11 @@
             "t": "When applied to your fishing pole, increases Fishing by 50 for 10 minutes."
         },
         "reward_from": {
-            "1580": 20
+            "quest": 1580,
+            "step": 20,
+            "materials": {
+                "6718": 12
+            }
         },
         "consume": true
     },
@@ -28754,9 +28756,7 @@
             "t": "The Symbol of Life will bring the person attuned to it back to life."
         },
         "provided_for": 1781,
-        "reward_from": {
-            "1790": 1
-        },
+        "reward_from": {},
         "consume": true
     },
     "6887": {

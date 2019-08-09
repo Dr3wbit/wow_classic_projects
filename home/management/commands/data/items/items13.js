@@ -14864,7 +14864,11 @@
         },
         "objective": 9200,
         "reward_from": {
-            "8471": 3
+            "quest": 8471,
+            "step": 3,
+            "materials": {
+                "20742": 1
+            }
         },
         "materials": {
             "13463": 3,
@@ -14995,7 +14999,11 @@
         },
         "objective": 9202,
         "reward_from": {
-            "8471": 3
+            "quest": 8471,
+            "step": 3,
+            "materials": {
+                "20742": 1
+            }
         },
         "materials": {
             "13464": 2,
@@ -15042,7 +15050,11 @@
             }
         },
         "reward_from": {
-            "8282": 2
+            "quest": 8282,
+            "step": 2,
+            "materials": {
+                "20379": 1
+            }
         },
         "materials": {
             "13463": 1,
@@ -15137,7 +15149,11 @@
             }
         },
         "reward_from": {
-            "8282": 2
+            "quest": 8282,
+            "step": 2,
+            "materials": {
+                "20379": 1
+            }
         },
         "materials": {
             "13465": 2,
@@ -18290,7 +18306,11 @@
         },
         "objective": 5386,
         "reward_from": {
-            "5421": 1
+            "quest": 5421,
+            "step": 1,
+            "materials": {
+                "13545": 5
+            }
         },
         "consume": true
     },

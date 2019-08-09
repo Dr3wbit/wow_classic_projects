@@ -217,7 +217,11 @@
             "t": "An extremely potent alcoholic beverage."
         },
         "reward_from": {
-            "4126": 10
+            "quest": 4126,
+            "step": 10,
+            "materials": {
+                "11312": 1
+            }
         },
         "consume": true
     },
@@ -10324,7 +10328,11 @@
             "t": "Increases the target's attack speed by 3% for 20 sec. (cooldown 1 min)"
         },
         "reward_from": {
-            "4801": 3
+            "quest": 4801,
+            "step": 3,
+            "materials": {
+                "12430": 3
+            }
         },
         "consume": true
     },
@@ -10346,7 +10354,11 @@
             "t": "Increases the target's Strength by 30 for 30 min. (cooldown 1 min)"
         },
         "reward_from": {
-            "4802": 3
+            "quest": 4802,
+            "step": 3,
+            "materials": {
+                "12431": 3
+            }
         },
         "consume": true
     },
@@ -10368,7 +10380,11 @@
             "t": "Increases Fire resistance by 15 for 10 min. (cooldown 1 min)"
         },
         "reward_from": {
-            "4803": 3
+            "quest": 4803,
+            "step": 3,
+            "materials": {
+                "12432": 3
+            }
         },
         "consume": true
     },
@@ -10390,7 +10406,11 @@
             "t": "Increase Frost resistance by 15 for 10 min. (cooldown 1 min)"
         },
         "reward_from": {
-            "4804": 3
+            "quest": 4804,
+            "step": 3,
+            "materials": {
+                "12434": 3
+            }
         },
         "consume": true
     },
@@ -10412,7 +10432,11 @@
             "t": "Increases the target's Intellect by 30 for 30 min. (cooldown 1 min)"
         },
         "reward_from": {
-            "4807": 3
+            "quest": 4807,
+            "step": 3,
+            "materials": {
+                "12433": 3
+            }
         },
         "consume": true
     },
@@ -10434,7 +10458,11 @@
             "t": "Increases your chance to dodge by 5% for 10 sec. (cooldown 1 min)"
         },
         "reward_from": {
-            "4805": 3
+            "quest": 4805,
+            "step": 3,
+            "materials": {
+                "12435": 3
+            }
         },
         "consume": true
     },
@@ -10456,7 +10484,11 @@
             "t": "Increases attack power by 40 for 10 min. (cooldown 1 min)"
         },
         "reward_from": {
-            "4806": 3
+            "quest": 4806,
+            "step": 3,
+            "materials": {
+                "12436": 3
+            }
         },
         "consume": true
     },
@@ -14278,7 +14310,11 @@
         },
         "description": "This object has been attuned to work against a specific being",
         "reward_from": {
-            "4973": 1
+            "quest": 4973,
+            "step": 1,
+            "materials": {
+                "12638": 5
+            }
         },
         "consume": true
     },
@@ -18844,7 +18880,11 @@
         },
         "objective": 9141,
         "reward_from": {
-            "5510": 1
+            "quest": 5510,
+            "step": 1,
+            "materials": {
+                "12840": 20
+            }
         },
         "consume": true
     },

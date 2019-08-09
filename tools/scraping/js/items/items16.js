@@ -31459,7 +31459,13 @@
             "t": "Restores 1392 health over 30 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain 12 Stamina and Spirit for 15 min."
         },
         "reward_from": {
-            "6610": 20
+            "quest": 6610,
+            "step": 20,
+            "materials": {
+                "12207": 12,
+                "7974": 10,
+                "8932": 20
+            }
         },
         "consume": true
     },

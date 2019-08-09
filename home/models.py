@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Avg, Sum
@@ -165,11 +166,13 @@ class SetBonus(models.Model):
 
 class Crafted(models.Model):
 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
-	profession = models.ForeignKey('Profession', on_delete=models.CASCADE)
+	profession = models.ForeignKey('Profession', on_delete=models.CASCADE, blank=True, null=True)
 	step = models.PositiveSmallIntegerField(default=1)
 	materials = models.ManyToManyField('Material')
 	help_text = "Describes an item as a craftable or consumable"
 	end_game = models.BooleanField(default=False)
+
+	# quest = models.ForeignKey('Quest', blank=True, null=True, on_delete=models.SET_NULL, help_text='Which quest rewards the item')
 
 	skillup = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
 
@@ -182,6 +185,10 @@ class Crafted(models.Model):
 	@property
 	def quality(self):
 		return self.item.quality
+
+	@property
+	def img(self):
+		return self.item.img
 
 	def __str__(self):
 		return self.item.__str__()
@@ -197,7 +204,7 @@ class Damage(models.Model):
 		if self.school.ix <= 1:
 			return "{} - {} Damage".format(self.low, self.high)
 		else:
-			return "{}{} - {} {} Damage".format(added, self.low, self.high, self.school.name)
+			return "{}{} — {} {} Damage".format(added, self.low, self.high, self.school.name)
 
 	class Meta:
 		unique_together = ['i', 'school']
@@ -215,6 +222,10 @@ class Material(models.Model):
 	@property
 	def quality(self):
 		return self.item.quality
+
+	@property
+	def img(self):
+		return self.item.img
 
 	def __str__(self):
 		return self.item.__str__()

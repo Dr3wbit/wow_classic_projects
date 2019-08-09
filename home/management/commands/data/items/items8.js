@@ -6647,7 +6647,16 @@
             "t": "Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
         "description": "Robust Operational Imbue Derived From Snickerfan",
-        "consume": true
+        "consume": true,
+        "reward_from": {
+            "quest": 2581,
+            "step": 1,
+            "materials": {
+                "8391": 3,
+                "8392": 2,
+                "8393": 1
+            }
+        }
     },
     "8411": {
         "i": 8411,
@@ -6667,7 +6676,17 @@
             "t": "Increases Stamina by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
         "description": "100% Grade A Lung Juice - Freshly Squeeze",
-        "consume": true
+        "consume": true,
+        "objective": 4481,
+        "reward_from": {
+            "quest": 2584,
+            "step": 1,
+            "materials": {
+                "8392": 3,
+                "8393": 2,
+                "8394": 1
+            }
+        }
     },
     "8412": {
         "i": 8412,
@@ -6686,7 +6705,16 @@
             "s": 10669,
             "t": "Increases Agility by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "consume": true
+        "consume": true,
+        "reward_from": {
+            "quest": 2585,
+            "step": 1,
+            "materials": {
+                "8393": 3,
+                "8396": 2,
+                "8392": 1
+            }
+        }
     },
     "8423": {
         "i": 8423,
@@ -6706,7 +6734,15 @@
             "t": "Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
         "description": "Best Served Chille",
-        "consume": true
+        "consume": true,
+        "reward_from": {
+            "quest": 2601,
+            "step": 1,
+            "materials": {
+                "8394": 10,
+                "8396": 2
+            }
+        }
     },
     "8424": {
         "i": 8424,
@@ -6726,7 +6762,16 @@
             "t": "Increases Spirit by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
         "description": "Strawberry Flavo",
-        "consume": true
+        "consume": true,
+        "objective": 4463,
+        "reward_from": {
+            "quest": 2603,
+            "step": 1,
+            "materials": {
+                "8396": 10,
+                "8391": 2
+            }
+        }
     },
     "8425": {
         "i": 8425,

@@ -17,6 +17,67 @@
         "slot": "Finger",
         "stats": {
             "intellect": 5
+        },
+        "dropped": {
+            "3773": 1.25,
+            "5859": 1.25,
+            "5916": 1.25,
+            "10640": 1.25,
+            "14280": 1.25,
+            "14426": 1.25
+        },
+        "contained": {
+            "objects": {
+                "74447": 0.502,
+                "74448": 0.502,
+                "75295": 0.502,
+                "75298": 0.502,
+                "75297": 0.307,
+                "75300": 0.307,
+                "75296": 0.307,
+                "75299": 0.307,
+                "2850": 0.301,
+                "3714": 0.301,
+                "3715": 0.301,
+                "2849": 0.301,
+                "111095": 0.301,
+                "2852": 0.291,
+                "4095": 0.291,
+                "4096": 0.291,
+                "2855": 0.159,
+                "105570": 0.159,
+                "105578": 0.159,
+                "105579": 0.159,
+                "153462": 0.035,
+                "3743": 0.02
+            },
+            "items": {
+                "4633": 0.5,
+                "6647": 0.136,
+                "16882": 0.05
+            }
+        },
+        "disenchant": {
+            "11083": {
+                "chance": 75.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11082": {
+                "chance": 20.0,
+                "v": [
+                    "1",
+                    "2"
+                ]
+            },
+            "11084": {
+                "chance": 5.0,
+                "v": [
+                    1
+                ]
+            }
         }
     },
     "5001": {
@@ -1298,7 +1359,11 @@
             "t": "Restores 61.2 health over 18 sec. Must remain seated while eating."
         },
         "reward_from": {
-            "184": 5
+            "quest": 184,
+            "step": 5,
+            "materials": {
+                "1971": 1
+            }
         },
         "consume": true
     },
@@ -4516,9 +4581,7 @@
             "s": 2052,
             "t": "Heal your target for 71 to 86. (cooldown 3 min)"
         },
-        "reward_from": {
-            "2399": 5
-        },
+        "reward_from": {},
         "consume": true
     },
     "5206": {
@@ -5287,7 +5350,11 @@
             "t": "Summons a Timberling to protect you for 20 min."
         },
         "reward_from": {
-            "941": 1
+            "quest": 941,
+            "step": 1,
+            "materials": {
+                "5217": 1
+            }
         },
         "consume": true
     },
@@ -6170,9 +6237,7 @@
             "t": "Creates a bowl of scrying. (cooldown 2 min)\n5 charges"
         },
         "provided_for": 944,
-        "reward_from": {
-            "961": 1
-        },
+        "reward_from": {},
         "consume": true
     },
     "5252": {
@@ -8079,7 +8144,11 @@
             "t": "Increases your Intellect by 4 and decreases your Stamina by 5 for 5 min."
         },
         "reward_from": {
-            "865": 5
+            "quest": 865,
+            "step": 5,
+            "materials": {
+                "5055": 5
+            }
         },
         "consume": true
     },
@@ -9726,7 +9795,11 @@
             "t": "Enchants a weapon to have a 15% chance to inflict 9 to 14 Fire damage to all enemies within 3 yards."
         },
         "reward_from": {
-            "706": 1
+            "quest": 706,
+            "step": 1,
+            "materials": {
+                "4612": 1
+            }
         },
         "consume": true
     },
@@ -10826,7 +10899,13 @@
             "t": "Physical damage caused by the target is reduced by 5 for 2 min. (cooldown 1 min)"
         },
         "reward_from": {
-            "488": 5
+            "quest": 488,
+            "step": 5,
+            "materials": {
+                "3409": 3,
+                "3411": 3,
+                "3412": 3
+            }
         },
         "consume": true
     },
@@ -11192,7 +11271,11 @@
             "5465": 1
         },
         "reward_from": {
-            "4161": 3
+            "quest": 4161,
+            "step": 3,
+            "materials": {
+                "5465": 7
+            }
         },
         "consume": true
     },
@@ -11357,7 +11440,11 @@
             "4536": 1
         },
         "reward_from": {
-            "2178": 5
+            "quest": 2178,
+            "step": 5,
+            "materials": {
+                "5469": 5
+            }
         },
         "consume": true
     },
@@ -11395,7 +11482,11 @@
             "5051": 1
         },
         "reward_from": {
-            "862": 5
+            "quest": 862,
+            "step": 5,
+            "materials": {
+                "5051": 8
+            }
         },
         "consume": true
     },
@@ -18766,7 +18857,11 @@
             "t": "Grants immunity from all damage and spells for 10 sec. (cooldown 2 min)"
         },
         "reward_from": {
-            "1017": 1
+            "quest": 1017,
+            "step": 1,
+            "materials": {
+                "5537": 1
+            }
         },
         "consume": true
     },
@@ -20180,7 +20275,8 @@
             "t": "Removes 1 negative spell effect from user. Cleans with the power of lemon."
         },
         "reward_from": {
-            "6041": 10
+            "quest": 6041,
+            "step": 10
         },
         "consume": true
     },
@@ -21310,7 +21406,8 @@
             }
         },
         "reward_from": {
-            "2078": 5
+            "quest": 2078,
+            "step": 5
         },
         "consume": true
     },

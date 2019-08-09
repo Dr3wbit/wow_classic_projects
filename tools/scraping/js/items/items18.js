@@ -665,7 +665,11 @@
             "t": "Returns you to the sanctuary of Frostwolf Keep.\n20 charges"
         },
         "reward_from": {
-            "7381": 1
+            "quest": 7381,
+            "step": 1,
+            "materials": {
+                "18148": 1
+            }
         },
         "consume": true
     },
@@ -686,7 +690,11 @@
             "t": "Returns you to the sanctuary of Dun Baldar.\n20 charges"
         },
         "reward_from": {
-            "7382": 1
+            "quest": 7382,
+            "step": 1,
+            "materials": {
+                "18148": 1
+            }
         },
         "consume": true
     },
@@ -2172,7 +2180,11 @@
             }
         },
         "reward_from": {
-            "8578": 3
+            "quest": 8578,
+            "step": 3,
+            "materials": {
+                "20951": 1
+            }
         },
         "materials": {
             "10286": 1,
@@ -2497,7 +2509,14 @@
             "14341": 1
         },
         "reward_from": {
-            "5519": 1
+            "quest": 5519,
+            "step": 1,
+            "materials": {
+                "14048": 4,
+                "8170": 8,
+                "14341": 2,
+                "18240": 1
+            }
         },
         "consume": true
     },
@@ -2811,9 +2830,7 @@
             "s": 22789,
             "t": "Increases Stamina by 10 for 15 min and gets you drunk to boot. Green means it's good!"
         },
-        "reward_from": {
-            "5528": 5
-        },
+        "reward_from": {},
         "consume": true
     },
     "18282": {
@@ -2933,9 +2950,7 @@
             "s": 22790,
             "t": "Increases Spirit by 25, but decreases Intelligence by 5 for 15 min. Smoooooth."
         },
-        "reward_from": {
-            "5528": 5
-        },
+        "reward_from": {},
         "consume": true
     },
     "18285": {
@@ -4543,7 +4558,14 @@
         },
         "objective": 9209,
         "reward_from": {
-            "7478": 1
+            "quest": 7478,
+            "step": 1,
+            "materials": {
+                "18332": 1,
+                "18335": 1,
+                "14344": 2,
+                "12938": 2
+            }
         },
         "consume": true
     },
@@ -4565,7 +4587,14 @@
         },
         "objective": 8188,
         "reward_from": {
-            "7479": 1
+            "quest": 7479,
+            "step": 1,
+            "materials": {
+                "18333": 1,
+                "18335": 1,
+                "14344": 4,
+                "12753": 2
+            }
         },
         "consume": true
     },
@@ -4587,7 +4616,14 @@
         },
         "objective": 9208,
         "reward_from": {
-            "7480": 1
+            "quest": 7480,
+            "step": 1,
+            "materials": {
+                "18334": 1,
+                "18335": 1,
+                "14344": 2,
+                "12735": 1
+            }
         },
         "consume": true
     },
@@ -18482,9 +18518,7 @@
             }
         },
         "provided_for": 7668,
-        "reward_from": {
-            "7666": 1
-        },
+        "reward_from": {},
         "consume": true
     },
     "18749": {

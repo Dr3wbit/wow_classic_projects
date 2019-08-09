@@ -3725,9 +3725,7 @@
         "image_name": "inv_drink_05",
         "n": "Mug of Shimmer Stout",
         "quality": 1,
-        "reward_from": {
-            "415": 1
-        },
+        "reward_from": {},
         "sells_for": {
             "copper": 11,
             "gold": 0,
@@ -7168,7 +7166,13 @@
             "level": 5
         },
         "reward_from": {
-            "418": 5
+            "quest": 418,
+            "step": 5,
+            "materials": {
+                "3172": 3,
+                "3173": 3,
+                "3174": 3
+            }
         },
         "sells_for": {
             "copper": 40,
@@ -7685,9 +7689,7 @@
         "requirements": {
             "level": 5
         },
-        "reward_from": {
-            "448": 5
-        },
+        "reward_from": {},
         "sells_for": {
             "copper": 10,
             "gold": 0,
@@ -7762,7 +7764,11 @@
         "n": "Bethor's Potion",
         "quality": 1,
         "reward_from": {
-            "446": 1
+            "quest": 446,
+            "step": 1,
+            "materials": {
+                "3250": 1
+            }
         },
         "sells_for": {
             "copper": 0,

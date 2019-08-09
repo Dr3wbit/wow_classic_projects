@@ -33727,7 +33727,14 @@
             "t": "Inflicts 149 to 202 Fire damage and stuns targets in a 10 yard radius for 3 sec. Any damage will break the effect. (cooldown 1 min)"
         },
         "reward_from": {
-            "3601": 3
+            "quest": 3601,
+            "step": 3,
+            "materials": {
+                "10717": 1,
+                "10715": 1,
+                "10722": 1,
+                "10718": 1
+            }
         },
         "consume": true
     },

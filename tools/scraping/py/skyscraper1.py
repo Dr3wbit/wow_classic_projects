@@ -19,7 +19,7 @@ TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 # if permissions error: chmod 755 path/to/chromedriver
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 iStart = datetime.datetime.now()
-
+MISSING = [8410, 8411, 8412, 8423, 8424]
 
 def main():
 	start = prefix*1000
@@ -35,7 +35,7 @@ def main():
 	print('{:<22} {:<6} {:>4}s'.format('NAME', 'ITEM#', 'TIME'))
 	print("=======================================")
 
-	for ix in item_numbers:
+	for ix in MISSING:
 		# try:
 
 		url = "{}{}".format(BASE_URL, ix)
@@ -76,7 +76,7 @@ def save_and_close():
 		json.dump(ALL_ITEMS, f, indent=4)
 
 	with open(os.path.abspath('../js/ERRORS.js'), 'w+') as f:
-		json.dump(const.ALL_ERRORS, f, indent=4)
+		json.dump(const.ERRORS1, f, indent=4)
 
 	with open(os.path.abspath('../js/zones.js'), 'w+') as f:
 		json.dump(const.ZONES, f, indent=4)

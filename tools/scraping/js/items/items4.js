@@ -9146,7 +9146,11 @@
             "level": 20
         },
         "reward_from": {
-            "4767": 2
+            "quest": 4767,
+            "step": 2,
+            "materials": {
+                "12356": 10
+            }
         },
         "sells_for": {
             "copper": 50,
@@ -19062,7 +19066,11 @@
             "level": 25
         },
         "reward_from": {
-            "703": 2
+            "quest": 703,
+            "step": 2,
+            "materials": {
+                "3404": 4
+            }
         },
         "sells_for": {
             "copper": 0,
@@ -23520,9 +23528,7 @@
             "s": 4318,
             "t": "Increases your Agility by 12 for 30 min."
         },
-        "reward_from": {
-            "847": 1
-        },
+        "reward_from": {},
         "consume": true
     },
     "4547": {
@@ -26001,7 +26007,11 @@
             "t": "Restores 140 to 181 health. (cooldown 2 min)"
         },
         "reward_from": {
-            "429": 1
+            "quest": 429,
+            "step": 1,
+            "materials": {
+                "3164": 6
+            }
         },
         "consume": true,
         "created_by": {
@@ -26060,7 +26070,11 @@
             "t": "Inflicts 128 to 173 Fire damage in a 5 yard radius. (cooldown 1 min)"
         },
         "reward_from": {
-            "189": 8
+            "quest": 189,
+            "step": 8,
+            "materials": {
+                "1519": 15
+            }
         },
         "consume": true
     },
@@ -28284,7 +28298,12 @@
             }
         },
         "reward_from": {
-            "715": 2
+            "quest": 715,
+            "step": 2,
+            "materials": {
+                "929": 1,
+                "3823": 1
+            }
         },
         "consume": true,
         "created_by": {
@@ -29061,9 +29080,7 @@
                 "3710": 100.0
             }
         },
-        "reward_from": {
-            "2158": 5
-        },
+        "reward_from": {},
         "consume": true
     },
     "4658": {
@@ -37954,7 +37971,11 @@
             "t": "Causes all Beasts in a 5 yard radius to run away for 10 sec. (cooldown 1 min)"
         },
         "reward_from": {
-            "705": 1
+            "quest": 705,
+            "step": 1,
+            "materials": {
+                "4611": 9
+            }
         },
         "consume": true,
         "created_by": {
@@ -39476,7 +39497,12 @@
             "t": "Renders a target unable to move for 10 sec. (cooldown 1 min)"
         },
         "reward_from": {
-            "818": 10
+            "quest": 818,
+            "step": 10,
+            "materials": {
+                "4887": 4,
+                "4888": 8
+            }
         },
         "consume": true
     },
@@ -39541,7 +39567,11 @@
             "t": "Steals 75 to 126 life from target enemy."
         },
         "reward_from": {
-            "808": 1
+            "quest": 808,
+            "step": 1,
+            "materials": {
+                "4864": 1
+            }
         },
         "consume": true
     },
@@ -39750,7 +39780,13 @@
             "t": "A powerful ale that increases your strength by 4 and decreases your intellect by 5 for 5 min."
         },
         "reward_from": {
-            "821": 5
+            "quest": 821,
+            "step": 5,
+            "materials": {
+                "4893": 5,
+                "4894": 5,
+                "4895": 1
+            }
         },
         "consume": true
     },
@@ -39772,7 +39808,13 @@
             "t": "Increases your health by 23 to 38, but decreases your spirit by 4 for 5 min."
         },
         "reward_from": {
-            "822": 5
+            "quest": 822,
+            "step": 5,
+            "materials": {
+                "4898": 5,
+                "4897": 1,
+                "4896": 1
+            }
         },
         "consume": true
     },
@@ -40637,9 +40679,7 @@
             "s": 5099,
             "t": "Place upon the Altar of Fire"
         },
-        "reward_from": {
-            "926": 1
-        },
+        "reward_from": {},
         "consume": true
     },
     "4987": {

@@ -38641,7 +38641,8 @@
             "t": "Restores 1050 to 1751 health and mana. (cooldown 2 min)"
         },
         "reward_from": {
-            "5721": 1
+            "quest": 5721,
+            "step": 1
         },
         "consume": true
     },
@@ -40279,7 +40280,11 @@
             "t": "Summons a mechanical yeti that will protect you for 10 min. (cooldown 10 min)"
         },
         "reward_from": {
-            "5163": 1
+            "quest": 5163,
+            "step": 1,
+            "materials": {
+                "12928": 1
+            }
         },
         "consume": true
     },

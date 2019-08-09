@@ -120,6 +120,7 @@ elif TESTING:
 			'PASSWORD': os.environ['DEV_DB_PASS'],
 			'HOST': os.environ['DEV_DB_HOST'],
 			'PORT': os.environ['DEV_DB_PORT'],
+			'CONN_MAX_AGE': 20,
 		}
 	}
 else:
@@ -167,7 +168,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Chicago'
+# TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 

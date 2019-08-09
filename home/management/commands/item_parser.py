@@ -50,19 +50,22 @@ class Command(BaseCommand):
 		parser.add_argument("-c", "--crafted", action='store_true', help='Attempts to add consume recipes')
 
 		parser.add_argument("-t", "--test", action='store_true', help='Just for testing')
+		parser.add_argument("-n", "--noprof", action='store_true', help="Finding consumes that don't have a profession")
 
 	def handle(self, *args, **options):
 		advanced = options['advanced']
 		basic = options['basic']
 		test = options['test']
 		crafted = options['crafted']
+		noprof = options['noprof']
 
 		if test:
 			self.stdout.write(self.style.SQL_KEYWORD('this') + " is a "+ self.style.SUCCESS('test'))
 
-		for x in range(1, 25):
+		for x in range(4, 25):
 				ALL_ITEMS = self.get_item_list(os.path.abspath('home/management/commands/data/items/items{}.js'.format(x)))
 				for ix, valu in ALL_ITEMS.items():
+
 					try:
 
 						I = int(ix)
@@ -72,17 +75,48 @@ class Command(BaseCommand):
 						quality = valu['quality']
 
 						defaults = {
-							'ix': I,
-							'name': name,
 							'img': img,
 							'quality': quality,
 							'ilvl': ilvl
 						}
 
 						item,created = Item.objects.get_or_create(
-							ix=I, name=name, img=img, ilvl=ilvl, quality=quality,
-							defaults=defaults
+							ix=I, name=name, defaults=defaults
 						)
+
+						if noprof:
+							if 'consume' in valu.keys():
+								if 'created_by' in valu.keys():
+									if 'materials' in valu['created_by'].keys():
+										if bool(valu['created_by']['materials']):
+											continue
+
+								if 'reward_from' in valu.keys():
+									if 'materials' in valu['reward_from'].keys():
+										if bool(valu['reward_from']['materials']):
+
+											crafted,craft_created = Crafted.objects.get_or_create(
+												item=item, defaults={'item':item}
+											)
+
+											if 'step' in valu['reward_from'].keys():
+												crafted.step = int(valu['reward_from']['step'])
+
+											if craft_created:
+												self.stdout.write(self.style.SQL_KEYWORD('New') + " recipe for ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +") " + self.style.SQL_TABLE(item.name))
+												crafted.save()
+
+											for mat_ix, amount in valu['reward_from']['materials'].items():
+												mat_item = Item.objects.get(ix=mat_ix)
+												material, mat_created = Material.objects.get_or_create(
+													item=mat_item, creates=crafted, amount=int(amount),
+													defaults={'item':mat_item, 'creates':crafted, 'amount':int(amount)}
+												)
+												if mat_created:
+													crafted.materials.add(material)
+													crafted.save()
+													self.stdout.write(self.style.HTTP_NOT_MODIFIED(mat_item.name) + "("+ self.style.HTTP_NOT_MODIFIED(mat_item.ix) +") ")
+
 
 
 						if basic:
@@ -254,8 +288,8 @@ class Command(BaseCommand):
 								item.disenchant = valu['disenchant']
 								item.save()
 
-						if created:
-							self.stdout.write(self.style.SUCCESS('{} ({}) {} {}'.format(name, ix, slot, proficiency)))
+							# if created:
+							# 	self.stdout.write(self.style.SUCCESS('{} ({}) {} {}'.format(name, ix, slot, proficiency)))
 
 
 					except Item.DoesNotExist:

@@ -19314,7 +19314,13 @@
         },
         "provided_for": 2200,
         "reward_from": {
-            "3375": 1
+            "quest": 3375,
+            "step": 1,
+            "materials": {
+                "3827": 1,
+                "3857": 1,
+                "1708": 1
+            }
         },
         "consume": true
     },
@@ -19470,7 +19476,11 @@
             }
         },
         "reward_from": {
-            "2381": 10
+            "quest": 2381,
+            "step": 10,
+            "materials": {
+                "7968": 1
+            }
         },
         "consume": true
     },

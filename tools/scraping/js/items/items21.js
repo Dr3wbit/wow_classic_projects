@@ -26,7 +26,12 @@
             "step": 5
         },
         "reward_from": {
-            "8586": 20
+            "quest": 8586,
+            "step": 20,
+            "materials": {
+                "9061": 20,
+                "8150": 20
+            }
         },
         "materials": {
             "2692": 1,
@@ -3367,7 +3372,11 @@
             }
         },
         "reward_from": {
-            "8763": 5
+            "quest": 8763,
+            "step": 5,
+            "materials": {
+                "8150": 1
+            }
         },
         "consume": true
     },
@@ -13740,7 +13749,11 @@
             "t": "Restores 4% of your health and mana per second for 25 sec. Must remain seated while eating."
         },
         "reward_from": {
-            "8863": 8
+            "quest": 8863,
+            "step": 8,
+            "materials": {
+                "21100": 1
+            }
         },
         "consume": true
     },
@@ -19126,7 +19139,8 @@
             "materials": {}
         },
         "reward_from": {
-            "8867": 1
+            "quest": 8867,
+            "step": 1
         },
         "consume": true
     },

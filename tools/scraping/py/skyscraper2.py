@@ -1,4 +1,4 @@
-import invariables2 as const
+import invariables as const
 import os, re, urllib.request, json, time, datetime, random
 from urllib.parse import urlparse
 from selenium import webdriver

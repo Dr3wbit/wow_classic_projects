@@ -3504,7 +3504,11 @@
             "t": "Increases Stamina by 10 for 15 min and gets you drunk to boot!"
         },
         "reward_from": {
-            "580": 5
+            "quest": 580,
+            "step": 5,
+            "materials": {
+                "3900": 12
+            }
         },
         "consume": true
     },

@@ -240,7 +240,12 @@
             "level": 15
         },
         "reward_from": {
-            "90": 4
+            "quest": 90,
+            "step": 4,
+            "materials": {
+                "1015": 10,
+                "2665": 1
+            }
         },
         "sells_for": {
             "copper": 0,
@@ -598,7 +603,13 @@
             "level": 10
         },
         "reward_from": {
-            "92": 5
+            "quest": 92,
+            "step": 5,
+            "materials": {
+                "2296": 5,
+                "1080": 5,
+                "1081": 5
+            }
         },
         "sells_for": {
             "copper": 50,
@@ -878,7 +889,8 @@
         "n": "Flash Bundle",
         "quality": 1,
         "reward_from": {
-            "226": 5
+            "quest": 226,
+            "step": 5
         },
         "sells_for": {
             "copper": 25,
@@ -1009,6 +1021,101 @@
             "s": 580,
             "t": "Summons and dismisses a rideable Timber Wolf."
         }
+    },
+    "11446": {
+        "bop": true,
+        "dropped": {
+            "10043": 25.0,
+            "8889": 25.0,
+            "8890": 25.0,
+            "8891": 25.0,
+            "8892": 25.0,
+            "8893": 25.0,
+            "8894": 25.0,
+            "8895": 25.0,
+            "8896": 25.0,
+            "8897": 25.0,
+            "8898": 25.0,
+            "8899": 25.0,
+            "8900": 25.0,
+            "8902": 25.0,
+            "8903": 25.0,
+            "8904": 25.0,
+            "8905": 25.0,
+            "8906": 25.0,
+            "8907": 25.0,
+            "8908": 25.0,
+            "8909": 25.0,
+            "8910": 25.0,
+            "8911": 25.0,
+            "8912": 25.0,
+            "8913": 25.0,
+            "8914": 25.0,
+            "8915": 25.0,
+            "8916": 25.0,
+            "8917": 25.0,
+            "8920": 25.0,
+            "8921": 25.0,
+            "8922": 25.0,
+            "8923": 25.0,
+            "8924": 25.0,
+            "8925": 25.0,
+            "8926": 25.0,
+            "8927": 25.0,
+            "8928": 25.0,
+            "8929": 25.0,
+            "8932": 25.0,
+            "8933": 25.0,
+            "8983": 25.0,
+            "9016": 25.0,
+            "9017": 25.0,
+            "9018": 25.0,
+            "9019": 25.0,
+            "9024": 25.0,
+            "9025": 25.0,
+            "9026": 25.0,
+            "9027": 25.0,
+            "9028": 25.0,
+            "9029": 25.0,
+            "9030": 25.0,
+            "9031": 25.0,
+            "9032": 25.0,
+            "9033": 25.0,
+            "9041": 25.0,
+            "9042": 25.0,
+            "9056": 25.0,
+            "9156": 25.0,
+            "9319": 25.0,
+            "9398": 25.0,
+            "9443": 25.0,
+            "9445": 25.0,
+            "9476": 25.0,
+            "9499": 25.0,
+            "9502": 25.0,
+            "9537": 25.0,
+            "9541": 25.0,
+            "9543": 25.0,
+            "9545": 25.0,
+            "9547": 25.0,
+            "9554": 25.0,
+            "9677": 25.0,
+            "9678": 25.0,
+            "9680": 25.0,
+            "9681": 25.0,
+            "9938": 25.0
+        },
+        "i": 11446,
+        "ilvl": 50,
+        "image_name": "inv_misc_note_05",
+        "n": "A Crumpled Up Note",
+        "objective": 4264,
+        "provided_for": 4264,
+        "quality": 1,
+        "requirements": {
+            "level": 50
+        },
+        "starts": 4264,
+        "unique": true
     },
     "1154": {
         "bop": true,
@@ -2147,7 +2254,11 @@
         "n": "Oil of Olaf",
         "quality": 1,
         "reward_from": {
-            "61": 5
+            "quest": 61,
+            "step": 5,
+            "materials": {
+                "957": 1
+            }
         },
         "sells_for": {
             "copper": 3,
@@ -2168,7 +2279,11 @@
         "n": "Explosive Rocket",
         "quality": 1,
         "reward_from": {
-            "61": 15
+            "quest": 61,
+            "step": 15,
+            "materials": {
+                "957": 1
+            }
         },
         "sells_for": {
             "copper": 7,
@@ -3271,7 +3386,11 @@
         },
         "quality": 1,
         "reward_from": {
-            "114": 5
+            "quest": 114,
+            "step": 5,
+            "materials": {
+                "1257": 1
+            }
         },
         "sells_for": {
             "copper": 5,
@@ -3757,7 +3876,11 @@
         "n": "Bag of Marbles",
         "quality": 1,
         "reward_from": {
-            "47": 1
+            "quest": 47,
+            "step": 1,
+            "materials": {
+                "773": 10
+            }
         },
         "sells_for": {
             "copper": 82,
@@ -6662,6 +6785,26 @@
         "slot": "Held In Off-Hand",
         "unique": true
     },
+    "1255": {
+        "i": 1255,
+        "ilvl": 12,
+        "image_name": "inv_bracer_07",
+        "n": "Brackwater Bracers",
+        "proficiency": "Mail",
+        "quality": 1,
+        "requirements": {
+            "level": 7
+        },
+        "sells_for": {
+            "copper": 70,
+            "gold": 0,
+            "silver": 0
+        },
+        "slot": "",
+        "stats": {
+            "armor": 51
+        }
+    },
     "1256": {
         "dropped": {
             "285": 33.0,
@@ -6722,7 +6865,11 @@
         "objective": 116,
         "quality": 1,
         "reward_from": {
-            "117": 1
+            "quest": 117,
+            "step": 1,
+            "materials": {
+                "1274": 5
+            }
         },
         "sells_for": {
             "copper": 11,
@@ -8325,7 +8472,11 @@
         "n": "Fishliver Oil",
         "quality": 1,
         "reward_from": {
-            "127": 5
+            "quest": 127,
+            "step": 5,
+            "materials": {
+                "1467": 10
+            }
         },
         "sells_for": {
             "copper": 68,
@@ -8357,7 +8508,11 @@
         "n": "Sauteed Sunfish",
         "quality": 1,
         "reward_from": {
-            "131": 10
+            "quest": 131,
+            "step": 10,
+            "materials": {
+                "1325": 1
+            }
         },
         "sells_for": {
             "copper": 10,
@@ -10056,7 +10211,11 @@
         "n": "Glowing Wax Stick",
         "quality": 1,
         "reward_from": {
-            "60": 5
+            "quest": 60,
+            "step": 5,
+            "materials": {
+                "772": 8
+            }
         },
         "sells_for": {
             "copper": 43,
@@ -28716,7 +28875,11 @@
         "n": "Restoring Balm",
         "quality": 1,
         "reward_from": {
-            "178": 3
+            "quest": 178,
+            "step": 3,
+            "materials": {
+                "1956": 1
+            }
         },
         "sells_for": {
             "copper": 20,
@@ -43085,7 +43248,11 @@
             "level": 5
         },
         "reward_from": {
-            "125": 2
+            "quest": 125,
+            "step": 2,
+            "materials": {
+                "1309": 1
+            }
         },
         "sells_for": {
             "copper": 0,
@@ -50700,7 +50867,11 @@
         "objective": 1581,
         "quality": 1,
         "reward_from": {
-            "61": 2
+            "quest": 61,
+            "step": 2,
+            "materials": {
+                "957": 1
+            }
         },
         "sells_for": {
             "copper": 20,
@@ -50835,7 +51006,11 @@
             "level": 5
         },
         "reward_from": {
-            "853": 3
+            "quest": 853,
+            "step": 3,
+            "materials": {
+                "5027": 1
+            }
         },
         "sells_for": {
             "copper": 15,
@@ -50875,7 +51050,11 @@
             "level": 2
         },
         "reward_from": {
-            "853": 4
+            "quest": 853,
+            "step": 4,
+            "materials": {
+                "5027": 1
+            }
         },
         "sells_for": {
             "copper": 15,
@@ -50913,7 +51092,11 @@
             "level": 2
         },
         "reward_from": {
-            "853": 4
+            "quest": 853,
+            "step": 4,
+            "materials": {
+                "5027": 1
+            }
         },
         "sells_for": {
             "copper": 15,
@@ -50957,7 +51140,11 @@
             "level": 5
         },
         "reward_from": {
-            "509": 3
+            "quest": 509,
+            "step": 3,
+            "materials": {
+                "3502": 6
+            }
         },
         "sells_for": {
             "copper": 25,
@@ -67684,9 +67871,7 @@
         "requirements": {
             "level": 5
         },
-        "reward_from": {
-            "448": 5
-        },
+        "reward_from": {},
         "sells_for": {
             "copper": 10,
             "gold": 0,
@@ -68892,7 +69077,12 @@
         "n": "Beer Basted Boar Ribs",
         "quality": 1,
         "reward_from": {
-            "384": 5
+            "quest": 384,
+            "step": 5,
+            "materials": {
+                "2886": 6,
+                "2894": 1
+            }
         },
         "sells_for": {
             "copper": 10,
@@ -76448,7 +76638,11 @@
             "level": 5
         },
         "reward_from": {
-            "22": 3
+            "quest": 22,
+            "step": 3,
+            "materials": {
+                "723": 8
+            }
         },
         "sells_for": {
             "copper": 25,
@@ -76847,7 +77041,14 @@
             "level": 5
         },
         "reward_from": {
-            "38": 3
+            "quest": 38,
+            "step": 3,
+            "materials": {
+                "729": 3,
+                "730": 3,
+                "731": 3,
+                "732": 3
+            }
         },
         "sells_for": {
             "copper": 0,
@@ -89355,7 +89556,11 @@
         "n": "Healing Herb",
         "quality": 1,
         "reward_from": {
-            "459": 3
+            "quest": 459,
+            "step": 3,
+            "materials": {
+                "3297": 8
+            }
         },
         "sells_for": {
             "copper": 2,

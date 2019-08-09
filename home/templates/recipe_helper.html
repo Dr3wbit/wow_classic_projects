@@ -3,32 +3,31 @@
 
 {% load titlecase from custom_filters %}
 
-    {% for recipe,v in recipes.items %}
+    {% for recipe in recipes %}
     <div class="row">
-            <div class="prof-item-recipe col-6" name="{{recipe}}">
-                {% with "images/icons/consumes/"|add:recipe|add:".jpg" as item_image %}
-                <div class="recipe-container {{v.quality}}" name="{{recipe}}">
+            <div class="prof-item-recipe col-6" name="{{recipe.name}}">
+
+                {% with "images/icons/large/"|add:recipe.img|add:".jpg" as item_image %}
+
+                <div class="recipe-container q{{recipe.quality}}" name="{{recipe.name}}">
                 <img class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
                 style="background-image: url({% static item_image %});">
                 {% endwith %}
-                <span class="consume-name" name="{{recipe}}">{{v.name|titlecase}}</span>
+                <span class="consume-name" name="{{recipe.name}}">{{recipe.name}}</span>
                 </div>
             </div>
         <div class="col-6 reagant-list">
-            {% for mat_name,val in v.materials.items %}
-            <div class="reagant-list-container" name="{{mat_name}}">
+            {% for mat in recipe.materials.all %}
+            <div class="reagant-list-container" name="{{mat.name}}">
                 <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
-                {% if "eko" in mat_name %}
-                style="background-image: url({% static "images/icons/medium/materials/eko.jpg" %});">
-                {% else %}
-                style="background-image: url({% static "images/icons/medium/materials/"|add:mat_name|add:".jpg" %});">
-                {% endif %}
-                {% if val.amount > 1 %}
+                style="background-image: url({% static "images/icons/large/"|add:mat.img|add:".jpg" %});">
+
+                {% if mat.amount > 1 %}
                 <span class="count-container">
-                    <div class="material-count">{{val.amount}}</div>
-                    <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{{val.amount}}</div>
-                    <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{{val.amount}}</div>
-                    <div class="material-count" style="color: black; right: 3px; z-index: 4;">{{val.amount}}</div>
+                    <div class="material-count">{{mat.amount}}</div>
+                    <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{{mat.amount}}</div>
+                    <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{{mat.amount}}</div>
+                    <div class="material-count" style="color: black; right: 3px; z-index: 4;">{{mat.amount}}</div>
                 </span>
                 {% endif %}
             </div>
@@ -36,6 +35,8 @@
         </div>
     </div>
     {% endfor %}
+
+
     <script src="{% static "js/consume_tool.js" %}"></script>
     <script>
 
@@ -61,21 +62,25 @@
     $(".consume-name").on({
         mouseenter: e => {
             clearTooltip()
-            tooltip_v2(e, false, 2)
+            // tooltip_v2(e, false, 2)
+            future_tooltip( e )
+
         },
         mouseleave: e => {
             clearTooltip()
         },
         mousemove: e => {
-            update_tooltip(e)
-            // tooltip_v2(e, 'consume')
+            update_tooltip( e )
         },
     })
 
     $(".recipe-image").on({
         mouseenter: e=> {
             clearTooltip()
-            tooltip_v2(e, true, 2)
+            // tooltip_v2(e, true, 2)
+            future_tooltip( e )
+            update_tooltip(e, true)
+
         },
         mouseleave: e => {
             clearTooltip()
@@ -116,8 +121,10 @@
 
     $(".reagant-list-container").on({
         mouseenter: e => {
-            // let name = $(e.target).closest(".reagant-list-container").attr('name')
-            tooltip_v2(e, true, 2)
+            clearTooltip()
+
+            future_tooltip( e )
+            update_tooltip(e, true)
         },
         mouseleave: e => {
             clearTooltip()

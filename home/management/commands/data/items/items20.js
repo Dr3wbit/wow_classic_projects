@@ -621,7 +621,11 @@
             "t": "Restores 0 health and 0 mana over 30 sec. Must remain seated while eating."
         },
         "reward_from": {
-            "8196": 10
+            "quest": 8196,
+            "step": 10,
+            "materials": {
+                "19858": 1
+            }
         },
         "consume": true
     },
@@ -2631,7 +2635,11 @@
             "t": "Permanently adds to a shoulder slot item increased damage and healing done by magical spells and effects up to 18."
         },
         "reward_from": {
-            "8246": 1
+            "quest": 8246,
+            "step": 1,
+            "materials": {
+                "19858": 15
+            }
         },
         "consume": true
     },
@@ -2652,7 +2660,11 @@
             "t": "Permanently adds 30 attack power to a shoulder slot item."
         },
         "reward_from": {
-            "8246": 1
+            "quest": 8246,
+            "step": 1,
+            "materials": {
+                "19858": 15
+            }
         },
         "consume": true
     },
@@ -2673,7 +2685,11 @@
             "t": "Permanently adds to a shoulder slot item increased healing done by spells and effects up to 33."
         },
         "reward_from": {
-            "8246": 1
+            "quest": 8246,
+            "step": 1,
+            "materials": {
+                "19858": 15
+            }
         },
         "consume": true
     },
@@ -2699,7 +2715,11 @@
         },
         "description": "Blessed with the mojo of Zanza",
         "reward_from": {
-            "8243": 1
+            "quest": 8243,
+            "step": 1,
+            "materials": {
+                "19858": 3
+            }
         },
         "consume": true
     },
@@ -2725,7 +2745,11 @@
         },
         "description": "Blessed with the mojo of Zanza",
         "reward_from": {
-            "8243": 1
+            "quest": 8243,
+            "step": 1,
+            "materials": {
+                "19858": 3
+            }
         },
         "consume": true
     },
@@ -2751,7 +2775,11 @@
         },
         "description": "Blessed with the mojo of Zanza",
         "reward_from": {
-            "8243": 1
+            "quest": 8243,
+            "step": 1,
+            "materials": {
+                "19858": 3
+            }
         },
         "consume": true
     },
@@ -10126,7 +10154,11 @@
         },
         "description": "Bears the Seal of the Bronze Fligh",
         "reward_from": {
-            "8301": 1
+            "quest": 8301,
+            "step": 1,
+            "materials": {
+                "20384": 200
+            }
         },
         "consume": true
     },
@@ -10482,7 +10514,12 @@
             ]
         },
         "reward_from": {
-            "8333": 1
+            "quest": 8333,
+            "step": 1,
+            "materials": {
+                "14344": 1,
+                "20513": 3
+            }
         },
         "creates": {},
         "consume": true
@@ -15237,7 +15274,13 @@
             "t": "Shatters the Holy Mightstone, granting 300 Attack Power and increasing Holy damage from spells and effects by up to 400 when fighting undead. Lasts 10 min."
         },
         "reward_from": {
-            "8418": 1
+            "quest": 8418,
+            "step": 1,
+            "materials": {
+                "20606": 2,
+                "20607": 2,
+                "20608": 2
+            }
         },
         "consume": true
     },

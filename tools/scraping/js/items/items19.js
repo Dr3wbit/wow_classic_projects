@@ -14139,7 +14139,11 @@
             "t": "Hatch a Jubling from the Egg. It will take a while before the egg is ready to hatch."
         },
         "reward_from": {
-            "7946": 1
+            "quest": 7946,
+            "step": 1,
+            "materials": {
+                "11325": 1
+            }
         },
         "consume": true
     },
@@ -21201,7 +21205,13 @@
             "t": "Permanently adds 10 Stamina, 7 Defense, and 15 Shield Block value to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8184": 1
+            "quest": 8184,
+            "step": 1,
+            "materials": {
+                "19813": 1,
+                "18331": 1,
+                "19724": 1
+            }
         },
         "consume": true
     },
@@ -21228,7 +21238,13 @@
             "t": "Permanently adds 10 Stamina, 7 Defense, and increases healing by up to 24 to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8185": 1
+            "quest": 8185,
+            "step": 1,
+            "materials": {
+                "19815": 1,
+                "18331": 1,
+                "19721": 1
+            }
         },
         "consume": true
     },
@@ -21255,7 +21271,13 @@
             "t": "Permanently adds 28 Attack Power and 1% Dodge to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8186": 1
+            "quest": 8186,
+            "step": 1,
+            "materials": {
+                "19814": 1,
+                "18329": 1,
+                "19723": 1
+            }
         },
         "consume": true
     },
@@ -21282,7 +21304,13 @@
             "t": "Permanently adds 24 Ranged Attack Power, 10 Stamina, and 1% Chance to Hit to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8187": 1
+            "quest": 8187,
+            "step": 1,
+            "materials": {
+                "19816": 1,
+                "18329": 1,
+                "19718": 1
+            }
         },
         "consume": true
     },
@@ -21309,7 +21337,13 @@
             "t": "Permanently adds 15 Intellect and increases all healing and spell damage by up to 13 to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8188": 1
+            "quest": 8188,
+            "step": 1,
+            "materials": {
+                "19817": 1,
+                "18330": 1,
+                "19720": 1
+            }
         },
         "consume": true
     },
@@ -21336,7 +21370,13 @@
             "t": "Permanently adds 18 to all healing and damage spells and 1% chance to hit with spells to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8189": 1
+            "quest": 8189,
+            "step": 1,
+            "materials": {
+                "19818": 1,
+                "18330": 1,
+                "19719": 1
+            }
         },
         "consume": true
     },
@@ -21363,7 +21403,13 @@
             "t": "Permanently adds 10 Stamina and increases spell damage and healing by up to 18 to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8190": 1
+            "quest": 8190,
+            "step": 1,
+            "materials": {
+                "19819": 1,
+                "18330": 1,
+                "19717": 1
+            }
         },
         "consume": true
     },
@@ -21390,7 +21436,13 @@
             "t": "Permanently adds 10 Stamina, 4 mana per 5 sec., and increases healing by up to 24 to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8191": 1
+            "quest": 8191,
+            "step": 1,
+            "materials": {
+                "19820": 1,
+                "18330": 1,
+                "19722": 1
+            }
         },
         "consume": true
     },
@@ -21417,7 +21469,13 @@
             "t": "Permanently adds 10 Stamina, 10 Intellect, and increases healing by up to 24 to a leg or head slot item. Does not stack with other enchantments for the selected equipment slot."
         },
         "reward_from": {
-            "8192": 1
+            "quest": 8192,
+            "step": 1,
+            "materials": {
+                "19821": 1,
+                "18331": 1,
+                "19716": 1
+            }
         },
         "consume": true
     },
@@ -23335,7 +23393,13 @@
         },
         "objective": 8243,
         "reward_from": {
-            "8195": 1
+            "quest": 8195,
+            "step": 1,
+            "materials": {
+                "19698": 1,
+                "19699": 1,
+                "19700": 1
+            }
         },
         "consume": true
     },
@@ -27764,7 +27828,11 @@
             "t": "Replaces the fishing line on your fishing pole with a high test eternium line."
         },
         "reward_from": {
-            "8224": 1
+            "quest": 8224,
+            "step": 1,
+            "materials": {
+                "19806": 1
+            }
         },
         "consume": true
     },

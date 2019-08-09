@@ -3447,7 +3447,11 @@
             "t": "While applied to target weapon it increases attack power against undead by 100. Lasts for 1 hour."
         },
         "reward_from": {
-            "9153": 2
+            "quest": 9153,
+            "step": 2,
+            "materials": {
+                "22484": 10
+            }
         },
         "consume": true
     },
@@ -3472,7 +3476,11 @@
             "t": "While applied to target weapon it increases spell damage against undead by up to 60. Lasts for 1 hour."
         },
         "reward_from": {
-            "9153": 2
+            "quest": 9153,
+            "step": 2,
+            "materials": {
+                "22484": 10
+            }
         },
         "consume": true
     },
@@ -4768,7 +4776,11 @@
             "step": 5
         },
         "reward_from": {
-            "9326": 5
+            "quest": 9326,
+            "step": 5,
+            "materials": {
+                "23181": 1
+            }
         },
         "consume": true
     },
@@ -5298,7 +5310,8 @@
             "t": "Sets your breath aflame!"
         },
         "reward_from": {
-            "9368": 10
+            "quest": 9368,
+            "step": 10
         },
         "consume": true
     },
@@ -5319,7 +5332,8 @@
             "t": "Toss into a Fire Festival Bonfire!"
         },
         "reward_from": {
-            "9323": 10
+            "quest": 9323,
+            "step": 10
         },
         "consume": true
     },
@@ -8761,7 +8775,11 @@
             "t": "Increases damage done from spells by up to 23 for 1 hr."
         },
         "reward_from": {
-            "9326": 5
+            "quest": 9326,
+            "step": 5,
+            "materials": {
+                "23181": 1
+            }
         },
         "consume": true
     },
@@ -8783,7 +8801,11 @@
             "t": "Improves your chance to hit by 2% for 1 hr."
         },
         "reward_from": {
-            "9326": 5
+            "quest": 9326,
+            "step": 5,
+            "materials": {
+                "23181": 1
+            }
         },
         "consume": true
     },
@@ -8804,7 +8826,8 @@
             "t": "Summons a Cinder Elemental that will protect you for 10 min. (cooldown 10 min)"
         },
         "reward_from": {
-            "9322": 1
+            "quest": 9322,
+            "step": 1
         },
         "consume": true
     },
@@ -8826,7 +8849,11 @@
             "t": "Increases Defense by 13 for 1 hr."
         },
         "reward_from": {
-            "9326": 5
+            "quest": 9326,
+            "step": 5,
+            "materials": {
+                "23181": 1
+            }
         },
         "consume": true
     },
