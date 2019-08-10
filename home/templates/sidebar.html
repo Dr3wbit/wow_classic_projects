@@ -4,6 +4,7 @@
 		<div class="saved-title">
 			<div class="side-bar-toggle"></div>
 		</div>
+		{% load sanitize from custom_filters %}
 		<div class="custom-saves custom-scroll-bar">
 			<div class="spec-list">
 			{% if user.is_authenticated %}
@@ -11,29 +12,29 @@
 				<div id="saved-specs">
 				{% for spec in user.spec_set.all %}
 				<div class="spec-container">
-				{% with "images/icons/large/class/"|add:spec.wow_class.name|add:".jpg" as class_image %}
+				{% with "images/icons/large/class/"|add:spec.wow_class.name|sanitize|add:".jpg" as class_image %}
 				<div class="saved-list-icon" style="background-image: url('{% static class_image %}');">
 				</div>
 				{% endwith %}
 				<div class="info-container">
 					<div class="spec-info">
-						<span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span>
+						<span class="{{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
 						<span style="font-size: 90%;">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
 					</div>
 					{% if "talent_calc" in request.path %}
-					<div class="spec-list-item" href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name}}" style="position: relative;">{{spec.name}}
+					<div class="spec-list-item" href="{% url 'talents' spec.wow_class.name|sanitize %}?{{spec.hash}}" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name|sanitize}}" style="position: relative;">{{spec.name}}
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
-							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name}}">
+							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name|sanitize}}">
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
 						</button>
 					</div>
 					{% else %}
 					<div class="spec-list-item" name="{{spec.name}}" style="position:relative;">{{spec.name}}
-						<a href="{% url 'talents' spec.wow_class.name %}?{{spec.hash}}">
+						<a href="{% url 'talents' spec.wow_class.name|sanitize %}?{{spec.hash}}">
 							<span style="left: 0; top: 0; position: absolute; width: 80%; height: 100%;"></span>
 						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
-							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name}}">
+							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name|sanitize}}">
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
 						</button>
 					</div>

@@ -246,6 +246,7 @@ class WoWClass(models.Model):
 			('Warlock', 'Warlock'),
 			('Warrior', 'Warrior'),
 	)
+
 	name = models.CharField(max_length=10, choices=CLASS_CHOICES, unique=True)
 	img = models.CharField(max_length=30)
 
@@ -288,6 +289,7 @@ class Talent(models.Model):
 
 	class Meta:
 		unique_together = ['wow_class', 'name', 'tree']
+		ordering = ['id']
 
 	@property # returns list of descriptions
 	def description(self):
@@ -460,7 +462,7 @@ class SavedList(models.Model):
 
 	name = models.CharField(max_length=30, default='')
 	user = models.ForeignKey('User', on_delete=models.CASCADE)
-	hash = models.CharField(max_length=100, default='testy test')
+	hash = models.CharField(max_length=100, default='')
 	description = models.CharField(default='couple line of text...', max_length=1000)
 	private = models.BooleanField(default=False)
 	ratings = GenericRelation('Rating', related_query_name="%(class)s_rating")
@@ -485,6 +487,7 @@ class SavedList(models.Model):
 
 class ConsumeList(SavedList):
 	consumes = models.ManyToManyField('Consume')
+	hash = models.CharField(max_length=100, default='', unique=True)
 
 
 class Spec(SavedList):
@@ -508,7 +511,16 @@ class Consume(models.Model):
 
 	@property
 	def mats(self):
-		return self.item.materials
+		return self.item.materials.all()
+
+	@property
+	def quality(self):
+		return self.item.quality
+
+	@property
+	def img(self):
+		return self.item.img
+
 
 class Zone(models.Model):
 	REACTION_CHOICES = {

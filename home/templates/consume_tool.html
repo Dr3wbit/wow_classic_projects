@@ -11,8 +11,8 @@ if (performance.navigation.type == 1) {
     let myurl = new URL(window.location)
     myurl.search = ''
     history.replaceState(null, null, myurl)
-    $("#total_crafted").hide()
-    $("#total_materials").hide()
+    $("#consumes").hide()
+    $("#materials").hide()
 }
 
 </script>
@@ -90,9 +90,6 @@ if (performance.navigation.type == 1) {
 {% endblock mainbody %}
 
 {% block javascript %}
-<script src="{% static "js/utilities.js" %}"></script>
-<script src="{% static "js/all_materials.js" %}"></script>
-<script src="{% static "js/all_consumes.js" %}"></script>
 <script src="{% static "js/consume_tool.js" %}"></script>
 
 
@@ -101,8 +98,8 @@ if (performance.navigation.type == 1) {
 $(document).ready(function() {
     if (performance.navigation.type == 1) {
         my_consume_list = {}
-        $("#total_crafted").empty()
-        $("#total_materials").empty()
+        $("#consumes").empty()
+        $("#materials").empty()
         update_url('', '?')
     }
     consume_tool_handlers()
