@@ -112,3 +112,74 @@ memcached -d -p <port> // running memcache as a daemon and listening to custom p
 brew services start memcached // on macos with brew
 
 environment variables should be stored in the gunicorn service above the ExecStart and below the WorkingDirectory
+
+#### RE-provisioning:
+create local database `postgres psql` then follow above steps for setting up local database
+
+step1: dumpdata (https://docs.djangoproject.com/en/2.2/ref/django-admin/#dumpdata)
+```
+python manage.py dumpdata home.Talent -o talentdata.json --indent 4
+python manage.py dumpdata home.TalentTree -o treedata.json --indent 4
+python manage.py dumpdata home.Tag -o tagdata.json --indent 4
+python manage.py dumpdata home.User social_django.UserSocialAuth -o userdata.json --indent 4
+```
+
+step2: create necessary models (WoWClass)
+```
+python manage.py shell
+from home.models import Profession, WoWClass
+
+wowclasses = ['Druid', 'Hunter', 'Mage', 'Paladin', 'Priest', 'Rogue', 'Shaman', 'Warlock', 'Warrior']
+for x in wowclasses:
+    cl = WoWClass.objects.create(name=x, img=x.lower())
+    cl.save()
+
+ALCH,BS,ENCH,ENGI,HERB,LW,MINING,SKIN,TAILOR = range(1, 10)
+COOK,FA,FISH,RIDING = range(10, 14)
+PROFESSION_CHOICES = (
+    (ALCH, 'Alchemy'),
+    (BS, 'Blacksmithing'),
+    (ENCH, 'Enchanting'),
+    (ENGI, 'Engineering'),
+    (HERB, 'Herbalism'),
+    (LW, 'Leatherworking'),
+    (MINING, 'Mining'),
+    (SKIN, 'Skinning'),
+    (TAILOR, 'Tailoring'),
+    (COOK, 'Cooking'),
+    (FA, 'First Aid'),
+    (FISH, 'Fishing'),
+    (RIDING, 'Riding'),
+)
+
+for (x,y) in PROFESSION_CHOICES:
+    prof = Profession.objects.create(ix=x, img=sanitize(y))
+    prof.save()
+
+```
+
+step3: loaddata (order is important) (https://docs.djangoproject.com/en/2.2/ref/django-admin/#django-admin-loaddata)
+```
+python manage.py loaddata dumps/treedata.json --app home.TalentTree
+python manage.py loaddata dumps/talentdata.json --app home.Talent
+python manage.py loaddata dumps/userdata.json --app home.User
+python manage.py loaddata dumps/userdata.json --app social_django.UserSocialAuth
+```
+
+step4: running management commands
+```
+python manage.py spell_parser
+python manage.py item_parser -c -b -a
+python manage.py itemset_parser
+```
+
+step5: dumping again
+```
+python manage.py dumpdata -o dumps/dookie.json --exclude=contenttypes exclude=auth --indent 4
+```
+
+step6: loading again
+
+```
+python manage.py loaddata dumps/dookie.json
+```
