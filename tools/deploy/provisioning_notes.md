@@ -183,3 +183,21 @@ python manage.py item_parser -b
 ```
 python manage.py dumpdata -o dumps/dookie.json --exclude=contenttypes --exclude=auth --indent 4
 ```
+##### PROFESSION dumps:
+note - will need to sanitize file name because of first aid
+
+```
+python manage.py shell
+from home.models import Crafted, Profession
+professions = [x.name for x in Profession.objects.all()]
+for prof in professions:
+    data = {}
+    qs = Crafted.objects.filter(profession__name='{}'.format(prof))
+    for crafted in qs:
+        data[crafted.item.ix] = {}
+            for mat in crafted.materials.all():
+                data[crafted.item.ix][mat.item.ix] = mat.amount
+
+    with open(os.path.abspath('dumps/{}.json'.format(prof.lower())), 'w+') as f:
+        json.dump(data, f, indent=4)
+```
