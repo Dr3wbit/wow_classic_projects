@@ -58,7 +58,7 @@ function event_handlers() {
         }
     });
 
-    prevent right context menu on main content
+    //prevent right context menu on main content
     $('.mainContent').on({
         contextmenu: e => {
             e.preventDefault()
@@ -291,6 +291,18 @@ function create_tooltip(data) {
         style: "float: left; clear: both"
     }) : null
 
+    var resist_text = ""
+    if (data.resists) {
+        for (let [key, val] of Object.entries(data.resists)) {
+            resist_text += `+${val} ${key} Resist\n`
+        }
+    }
+    const resists = (data.resists) ? $('<div/>', {
+        class: 'armor',
+        text: `${resist_text}`,
+        style: "float: left; clear: both"
+    }) : null
+
     const durability = (data.durability) ? $('<div/>', {
         class: 'durability',
         text: `Durability ${data.durability} / ${data.durability}`,
@@ -340,7 +352,7 @@ function create_tooltip(data) {
 
     const equips = (data.equips) ? $('<div/>', {
         class: 'use q2',
-        style: 'clear: both;'
+        style: 'clear: both; font-size: 13px'
     }) : null
 
     if (data.equips) {
@@ -355,7 +367,7 @@ function create_tooltip(data) {
 
     const procs = (data.procs) ? $('<div/>', {
         class: 'use q2',
-        style: 'clear: both;'
+        style: 'clear: both; font-size: 13px'
     }) : null
 
     if (data.procs) {
@@ -371,7 +383,7 @@ function create_tooltip(data) {
     const use = (data.use) ? $('<div/>', {
         class: 'use q2',
         text: `Use: ${data.use}`,
-        style: 'clear: both;'
+        style: 'clear: both; font-size: 13px'
     }) : null
 
     const description = (data.description) ? $('<div/>', {
@@ -380,7 +392,7 @@ function create_tooltip(data) {
         style: 'clear: both;'
     }) : null
 
-    tooltip.append(bop, unique, slot, proficiency, armor, damage, speed, dps, stats, durability, requirements,equips, procs, use, description)
+    tooltip.append(bop, unique, slot, proficiency, armor, damage, speed, dps, stats, resists, durability, requirements,equips, procs, use, description)
 
     tooltip_container.append(image, tooltip)
 

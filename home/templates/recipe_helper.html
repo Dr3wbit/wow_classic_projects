@@ -5,7 +5,7 @@
 
     {% for recipe in recipes %}
     <div class="row">
-            <div class="prof-item-recipe col-6" name="{{recipe.name}}">
+            <div class="prof-item-recipe col-6" name="{{recipe.name}}" data-step={{recipe.step}}>
 
                 {% with "images/icons/large/"|add:recipe.img|add:".jpg" as item_image %}
 
@@ -40,14 +40,16 @@
     <script src="{% static "js/consume_tool.js" %}"></script>
     <script>
 
-    function update_consume_list(name, amount=1) {
+    function update_consume_list(e, amount=1) {
         let prof = $("a.prof-filter.selected").attr("id")
-
+        var name = ($(e.target).attr('name')) ? $(e.target).attr('name') : $(e.target).parent().attr('name')
+        var step = ($(e.target).attr('data-step')) ? $(e.target).attr('data-step') : $(e.target).parent().attr('data-step')
         if (!my_consume_list[prof]) {
             my_consume_list[prof] = {}
         }
 
-        let step = (allConsumes[name].step) ? allConsumes[name].step : 1
+
+        // let step = (allConsumes[name].step) ? allConsumes[name].step : 1
         if (!my_consume_list[prof][name]) {
             my_consume_list[prof][name] = amount*step
         }
@@ -93,7 +95,8 @@
         mousedown: e => {
             e.stopImmediatePropagation()
             var amount = 1
-            let name = $(e.target).closest(".recipe-container").attr('name')
+            var name = ($(e.target).attr('name')) ? $(e.target).attr('name') : $(e.target).parent().attr('name')
+            var step = ($(e.target).attr('data-step')) ? $(e.target).attr('data-step') : $(e.target).parent().attr('data-step')
             var currentAmount = parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())
 
             if (e.shiftKey) {
@@ -112,9 +115,10 @@
                 return false
             }
 
+
             combatText(e, amount)
-            update_consume_list(name, amount)
-            addCraftedItem(name, amount)
+            update_consume_list(e, amount)
+            addCraftedItem(name, step*amount)
             update_url('', '')
         }
     })

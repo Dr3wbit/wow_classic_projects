@@ -787,6 +787,9 @@ def ajax_tooltip(request):
 		if item.stats:
 			data['stats'] = item.stats
 
+		if item.resists:
+			data['resists'] = item.resists
+			
 		if item.durability:
 			data['durability'] = item.durability
 

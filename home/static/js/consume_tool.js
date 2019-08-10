@@ -6,10 +6,10 @@ function stepValidator(n, step) {
 function addCraftedItem(name, numAdded=1) {
 	const NUMBRE = /\[(\d+)\]/
 	let totalItems = $("#total_crafted")
-	let craftedItemObj = allConsumes[name]
+	// let craftedItemObj = allConsumes[name]
 	let craftedContainerJr = $(`span.crafted-container[name='${name}']`)
 
-	let step = (craftedItemObj.step) ? craftedItemObj.step : 1
+	// let step = (craftedItemObj.step) ? craftedItemObj.step : 1
 	let updatedAmount = 0
 
 	let materialsListContainer
@@ -17,7 +17,7 @@ function addCraftedItem(name, numAdded=1) {
 
 	if (craftedContainerJr.length) {
 		let currentAmount = parseInt(craftedContainerJr.find($('span.amount')).text())
-		updatedAmount = currentAmount + (step * numAdded)
+		updatedAmount = currentAmount + numAdded
 
 		craftedContainerJr.find($('span.amount')).text(`${updatedAmount}`)
 		materialsListContainer = $(`#${name}_collapse`)
@@ -32,7 +32,7 @@ function addCraftedItem(name, numAdded=1) {
 		}
 
 	} else {
-		updatedAmount = step * numAdded
+		updatedAmount = numAdded
 		if (updatedAmount <= 0) {
 			return false
 		}
