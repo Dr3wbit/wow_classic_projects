@@ -64,6 +64,18 @@ function addCraftedItem(name, numAdded=1) {
 			style: `background-image: url(/static/images/icons/consumes/${name}.jpg);`,
 		})
 
+		let buttonContainer = $('<div/>', {
+			class: 'add-subtract-button-container',
+		}).append($('<button/>', {
+			class: 'adjustment-button add-button',
+			text: "+"
+		}),
+		$('<button/>', {
+			class: 'adjustment-button sub-button',
+			text: "-"
+		})
+		)
+
 		crafted_image.on({
 			mouseenter: e => {
 				clearTooltip()
@@ -122,7 +134,7 @@ function addCraftedItem(name, numAdded=1) {
 			materialsListContainer = updateOrCreate(materialsListContainer, name, numAdded)
 		}
 
-		craftedContainerSr.append(craftedContainerJr, materialsListContainer)
+		craftedContainerSr.append(craftedContainerJr, materialsListContainer, buttonContainer)
 
 		totalItems.append(craftedContainerSr)
 	}
@@ -308,7 +320,6 @@ function addSavedList(name) {
 		}), deleteBtn)
 
 	$(".savedListsContainer").append(savedList)
-
 
 }
 
