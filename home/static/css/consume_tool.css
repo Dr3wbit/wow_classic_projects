@@ -119,12 +119,13 @@
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-.recipe-container {
-}
 
-.recipe-container:hover > span {
+.recipe-name:hover {
     text-decoration: solid underline;
 }
+/* .recipe-container:hover > span {
+    text-decoration: solid underline;
+} */
 
 #recipe_list {
     overflow-y: scroll;

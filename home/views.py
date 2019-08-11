@@ -733,20 +733,16 @@ def load_spec(request):
 	return JsonResponse(data)
 
 
-def save_consume_list(request):
-	pass
+# def save_consume_list(request):
+# 	pass
 
 def ajax_tooltip(request):
-
-
 	data = {}
-
 	# static = request.GET.get('static', None)
 	which = request.GET.get('which', 0)
 	name = request.GET.get('name', None)
-
 	data['name'] = name
-
+	static = request.GET.get('static', False)
 
 	if int(which) == 0:
 		items = Item.objects.filter(name=name)
@@ -755,10 +751,10 @@ def ajax_tooltip(request):
 		else:
 			item = Item.objects.get(name='samwise', ix=69420)
 
+		if not static:
+			data['image_name'] = item.img
 
 		data['quality'] = item.quality
-		data['image_name'] = item.img
-
 		if item.bop:
 			data['bop'] = item.bop
 

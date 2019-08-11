@@ -155,6 +155,9 @@ class Command(BaseCommand):
 							if 'resist' in valu.keys():
 								item.resists = valu['resist']
 
+							if 'description' in valu.keys():
+								item.description = valu['description']
+								
 							item.save()
 
 						if crafted:

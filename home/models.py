@@ -202,9 +202,9 @@ class Damage(models.Model):
 	def __str__(self):
 		added = "+" if self.i.proficiency != "Wand" else ""
 		if self.school.ix <= 1:
-			return "{} - {} Damage".format(self.low, self.high)
+			return "{}  -  {} Damage".format(self.low, self.high)
 		else:
-			return "{}{} — {} {} Damage".format(added, self.low, self.high, self.school.name)
+			return "{}{}  -  {} {} Damage".format(added, self.low, self.high, self.school.name)
 
 	class Meta:
 		unique_together = ['i', 'school']

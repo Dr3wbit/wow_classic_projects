@@ -608,7 +608,7 @@ ul {
     max-width: 320px;
     display: block;
     background-color: rgba(0, 0, 30, 0.85) !important;
-    color: rgba(240,255,255,0.95);
+    color: rgba(240,255,255,0.98);
     pointer-events: none;
     border: 1px solid #b6bbc0;
     padding: 5px;
@@ -947,4 +947,9 @@ a#discord-login:hover{
         transform: translate(-30px,-130px);
         opacity: 0;
 	}
+}
+
+.hidden {
+    height: 0;
+    overflow: hidden;
 }

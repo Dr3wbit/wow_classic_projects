@@ -213,7 +213,7 @@
         "image_name": "inv_jewelry_necklace_01",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The glowing emerald just needs to be pulled out.."
+        "description": "The glowing emerald just needs to be pulled out..."
     },
     "8050": {
         "i": 8050,
@@ -6049,7 +6049,7 @@
         "requirements": {
             "level": 10
         },
-        "description": "Not quite as good as the 2 Rin"
+        "description": "Not quite as good as the 2 Ring"
     },
     "8363": {
         "i": 8363,
@@ -6646,7 +6646,7 @@
             "s": 10667,
             "t": "Increases Strength by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "description": "Robust Operational Imbue Derived From Snickerfan",
+        "description": "Robust Operational Imbue Derived From Snickerfang",
         "consume": true,
         "reward_from": {
             "quest": 2581,
@@ -6675,7 +6675,7 @@
             "s": 10668,
             "t": "Increases Stamina by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "description": "100% Grade A Lung Juice - Freshly Squeeze",
+        "description": "100% Grade A Lung Juice - Freshly Squeezed",
         "consume": true,
         "objective": 4481,
         "reward_from": {
@@ -6733,7 +6733,7 @@
             "s": 10692,
             "t": "Increases Intellect by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "description": "Best Served Chille",
+        "description": "Best Served Chilled",
         "consume": true,
         "reward_from": {
             "quest": 2601,
@@ -6761,7 +6761,7 @@
             "s": 10693,
             "t": "Increases Spirit by 25 when consumed. Effect lasts for 60 minutes. (cooldown 1 hr)"
         },
-        "description": "Strawberry Flavo",
+        "description": "Strawberry Flavor",
         "consume": true,
         "objective": 4463,
         "reward_from": {
@@ -6897,7 +6897,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The seal is broken",
+        "description": "The seal is broken.",
         "click_to_read": true
     },
     "8483": {
@@ -6925,7 +6925,7 @@
             "copper": 68
         },
         "bop": true,
-        "description": "Model 103-XB"
+        "description": "Model 103-XB!"
     },
     "8485": {
         "i": 8485,
@@ -7271,7 +7271,7 @@
             "faction": "H"
         },
         "starts": 654,
-        "description": "Using this power source will activate the Field Testing Kit",
+        "description": "Using this power source will activate the Field Testing Kit.",
         "provided_for": 654,
         "reward_from": {
             "379": 1
@@ -7497,7 +7497,7 @@
         },
         "bop": true,
         "unique": true,
-        "description": "It's huge",
+        "description": "It's huge!",
         "contained": {
             "objects": {
                 "141931": 100.0
@@ -7978,7 +7978,7 @@
         },
         "bop": true,
         "unique": true,
-        "description": "There's something very special about this egg..",
+        "description": "There's something very special about this egg...",
         "contained": {
             "items": {
                 "8647": 5.0
@@ -8053,7 +8053,7 @@
         "image_name": "inv_box_01",
         "ilvl": 1,
         "bop": true,
-        "description": "Quality Guaranteed",
+        "description": "Quality Guaranteed!",
         "reward_from": {
             "2741": 1
         }
@@ -8074,7 +8074,7 @@
                 "blacksmithing": 210
             }
         },
-        "description": "E Pluribus Mithri",
+        "description": "E Pluribus Mithril",
         "provided_for": 2759,
         "objective": 2759
     },
@@ -8095,7 +8095,7 @@
             "s": 7737,
             "t": "Restores 30 health over 15 sec. Must remain seated while eating."
         },
-        "description": "A fresh piece of fruit that's good to eat... and is apparently good for disguises also",
+        "description": "A fresh piece of fruit that's good to eat... and is apparently good for disguises also!",
         "contained": {
             "objects": {
                 "142076": 100.0
@@ -8126,7 +8126,7 @@
         "image_name": "inv_cask_03",
         "ilvl": 1,
         "unique": true,
-        "description": "This barrel contains Dran's packaged ripple and his extra bottles",
+        "description": "This barrel contains Dran's packaged ripple and his extra bottles.",
         "provided_for": 81,
         "objective": 81
     },
@@ -8138,14 +8138,14 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Bears the Seal of Galvan the Ancien",
+        "description": "Bears the Seal of Galvan the Ancient",
         "provided_for": 2760,
         "objective": 2760
     },
     "8687": {
         "i": 8687,
         "quality": 1,
-        "n": "Sealed Description of Thredd's Visitor",
+        "n": "Sealed Description of Thredd's Visitor.",
         "image_name": "inv_misc_note_02",
         "ilvl": 1,
         "unique": true,
@@ -8175,7 +8175,7 @@
             "s": 11209,
             "t": "Summons a Hammer of Expertise. (cooldown 3 hr)"
         },
-        "description": "Honorable Member of the Mithril Orde",
+        "description": "Honorable Member of the Mithril Order",
         "reward_from": {
             "2765": 1
         }
@@ -9598,7 +9598,7 @@
                 "Rogue"
             ]
         },
-        "description": "Used by rogues to brew poison",
+        "description": "Used by rogues to brew poison.",
         "sold": {
             "4585": {
                 "cost": {
@@ -9744,7 +9744,7 @@
                 "Rogue"
             ]
         },
-        "description": "Used by rogues to brew poison",
+        "description": "Used by rogues to brew poison.",
         "sold": {
             "4585": {
                 "cost": {

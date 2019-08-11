@@ -3,6 +3,7 @@ function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
 
+var ALL_PROFS = ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'fishing', 'first aid', 'leatherworking', 'mining', 'herbalism', 'riding', 'skinning']
 function add_consume(name, num_added=1, step=1) {
 
 	let consume_container = $(`span.consume-container[name="${name}"]`)
@@ -151,7 +152,7 @@ function update_or_create(parent_elem, num_added, materials) {
 
 	if (materials) {
 		for (let [name, mat] of Object.entries(materials)) {
-			let material_container = parent_elem.find($(`span.material-container[name='${name}']`))
+			let material_container = parent_elem.find($(`span.material-container[name="${name}"]`))
 			let amount_added = Math.round(mat.amount * num_added)
 
 			if (material_container.length) { // already exists; update it
