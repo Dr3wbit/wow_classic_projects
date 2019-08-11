@@ -206,6 +206,12 @@ body {
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
 }
 
+#navbarSupportedContent{
+    z-index: 1310;
+    background-color: #272727;
+    border-bottom: 1px solid black;
+}
+
 .nav-item:hover {
     box-shadow: inset 4px 0 4px -4px black, inset -4px 0 4px -4px black;
 }

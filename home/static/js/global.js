@@ -17,6 +17,15 @@ function build_consume_list(url, name) {
 
 function event_handlers() {
 
+    if (window.innerWidth <= 992) {
+        $('.mainBody').css({ 'padding-left': '15px' })
+        $('.saved').removeClass('side-min')
+        $('.custom-saves').css({ 'display': 'block' })
+        $('.side-bar-toggle').removeClass('flip-background')
+        $('.mainBody').append($('<div/>', {
+            class : "black-out"
+        }))
+    }
     $(".side-bar-toggle").on({
         click: e => {
             let bool = $('.saved').hasClass('side-min')

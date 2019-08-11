@@ -18,9 +18,8 @@
 			<div class="row">
 			</div>
 		</div>
-		<div class="col-8">
+		<div class="col-md-8 col-12">
 			<div class="row feed-header">
-
 			</div>
 			<div class="row feed-content">
 				<div class="col-8 feedTitle">
@@ -35,9 +34,11 @@
 					{{spec.description}}
 				</div>
 			</div>
-			<hr class="row mt-2 mb-2"
-				style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
-			</hr>
+			<div class="row feed-content">
+					<hr class="m-2"
+					style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+				</hr>
+			</div>
 			<div class="row feed-content">
 				{% for tag in spec.tags.all %}
 				<div class="feed-tag">{{tag.name}}</div>
@@ -46,13 +47,13 @@
 			<div class="row feed-content"></div>
 		</div>
 		<div class="col-12 row feed-footer">
-			<div class="col-4">
+			<div class="col-md-4 col-12">
 				<span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span>
 				<span
 					class="">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
 			</div>
-			<div class="col-3">
-				<div class="ratings-container" name="{{spec.name}}" data-id="{{spec.id}}"
+			<div class="col-md-3 col-12">
+				<div class="ratings-container mx-auto" name="{{spec.name}}" data-id="{{spec.id}}"
 					data-wowclass="{{spec.wow_class.name}}">
 					{% has_voted spec.id request.user.email 1 as voted %}
 
@@ -102,7 +103,7 @@
 					</span>
 				</div>
 			</div>
-			<div class="col-5 text-left">
+			<div class="col-md-5 col-12 text-left">
 				{% if spec.updated|date:"m/d/Y, P" == spec.created|date:"m/d/Y, P" %}
 				Created By {% if spec.user == request.user %}
 				<a href="">me</a>
@@ -156,7 +157,7 @@
 			<div class="row">
 			</div>
 		</div>
-		<div class="col-8">
+		<div class="col-md-8 col-12">
 			<div class="row feed-header">
 
 			</div>
@@ -173,9 +174,11 @@
 					{{cl.description}}
 				</div>
 			</div>
-			<hr class="row mt-2 mb-2"
-				style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
-			</hr>
+			<div class="row feed-content">
+					<hr class="m-2"
+					style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+				</hr>
+			</div>
 			<div class="row feed-content">
 				{% for tag in cl.tags.all %}
 				<div class="feed-tag">{{tag.name}}</div>
@@ -184,10 +187,10 @@
 			<div class="row feed-content"></div>
 		</div>
 		<div class="col-12 row feed-footer">
-			<div class="col-4">
+			<div class="col-md-4 col-12">
 
 			</div>
-			<div class="col-3">
+			<div class="col-md-3 col-12">
 				<div class="ratings-container" name="{{cl.name}}" data-id="{{cl.id}}">
 					<span
 						style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:20px">
@@ -237,7 +240,7 @@
 					{% endif %}
 				</div>
 			</div>
-			<div class="col-5 text-left">
+			<div class="col-md-5 col-12 text-left">
 				{% if cl.created == cl.updated %}
 				Created By {% if request.user == cl.user %}
 				<a href="">me</a>
