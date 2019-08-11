@@ -48,10 +48,7 @@
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-<<<<<<< HEAD
-=======
     position: relative;
->>>>>>> 1a2309cd98633f1caf8f871d3eb8dc2858108096
 }
 
 .materials-list-item {
