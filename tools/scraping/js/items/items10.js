@@ -23334,7 +23334,7 @@
             "s": 12733,
             "t": "Increases armor by 50, all resistances by 10 and grants immunity to Fear for 30 sec. (cooldown 10 min)"
         },
-        "description": "Courage, Honor, and above all, Patienc",
+        "description": "Courage, Honor, and above all, Patience",
         "reward_from": {
             "3321": 1
         }
@@ -23560,7 +23560,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The Stone Emanates Evi",
+        "description": "The Stone Emanates Evil",
         "contained": {
             "objects": {
                 "148506": 100.0
@@ -23620,7 +23620,7 @@
         "image_name": "inv_misc_gem_pearl_01",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The cold black heart is still pulsin",
+        "description": "The cold black heart is still pulsing",
         "dropped": {
             "8400": 100.0
         },
@@ -23633,7 +23633,7 @@
         "image_name": "inv_misc_head_dwarf_01",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The remnants of a once honorable dwar",
+        "description": "The remnants of a once honorable dwarf",
         "dropped": {
             "8391": 100.0
         },
@@ -23672,7 +23672,7 @@
             "level": 48
         },
         "starts": 3373,
-        "description": "Green mists swirl inside the lattices of this gem",
+        "description": "Green mists swirl inside the lattices of this gem.",
         "dropped": {
             "5709": 100.0
         },
@@ -23776,7 +23776,7 @@
         "image_name": "inv_misc_stonetablet_05",
         "ilvl": 1,
         "quest_item": true,
-        "description": "Your heart feels light when you hold this item",
+        "description": "Your heart feels light when you hold this item.",
         "dropped": {
             "5860": 25.0,
             "5861": 25.0,
@@ -23994,7 +23994,7 @@
         "image_name": "inv_misc_bag_07_black",
         "ilvl": 1,
         "quest_item": true,
-        "description": "Full of trade goods",
+        "description": "Full of trade goods.",
         "dropped": {
             "8444": 100.0
         },
@@ -24678,7 +24678,7 @@
         "image_name": "inv_misc_gem_bloodstone_02",
         "stack": 4,
         "ilvl": 1,
-        "description": "The flame burns eternall",
+        "description": "The flame burns eternally",
         "dropped": {
             "5852": 31.0,
             "5850": 29.0,
@@ -24773,7 +24773,7 @@
         "image_name": "inv_misc_gem_pearl_01",
         "stack": 4,
         "ilvl": 1,
-        "description": "The oil is encased in ston",
+        "description": "The oil is encased in stone",
         "dropped": {
             "5855": 30.0,
             "5853": 28.0,
@@ -24911,7 +24911,7 @@
             "s": 12534,
             "t": "Use on a Sentry Brazier."
         },
-        "description": "The flame never falter",
+        "description": "The flame never falters",
         "created_by": {
             "materials": {}
         },
@@ -25492,7 +25492,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The symbol emanates old magi",
+        "description": "The symbol emanates old magic",
         "dropped": {
             "5860": 15.0,
             "5861": 15.0,
@@ -25969,7 +25969,7 @@
         "ilvl": 50,
         "bop": true,
         "unique": true,
-        "description": "Bears the mark of Kalaran the Deceive",
+        "description": "Bears the mark of Kalaran the Deceiver",
         "reward_from": {
             "3481": 1
         }
@@ -26242,7 +26242,7 @@
         "stack": 10,
         "ilvl": 1,
         "bop": true,
-        "description": "A dull and gray patch of black dragon ski",
+        "description": "A dull and gray patch of black dragon skin",
         "dropped": {
             "9461": 96.0
         },
@@ -26746,7 +26746,7 @@
             "level": 48
         },
         "starts": 3374,
-        "description": "Using this stone binds someone to aid Ysera's Dragonflight",
+        "description": "Using this stone binds someone to aid Ysera's Dragonflight.",
         "created_by": {
             "materials": {}
         },
@@ -27303,7 +27303,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Blood of the Sea Quee",
+        "description": "Blood of the Sea Queen",
         "provided_for": 3511,
         "objective": 3511
     },
@@ -28323,7 +28323,7 @@
             "s": 13278,
             "t": "The devices charges over time using your life force and then directs a burst of energy at your opponent. (cooldown 5 min)"
         },
-        "description": "Death or Serious Injury may result from use of this device",
+        "description": "Death or Serious Injury may result from use of this device.",
         "created_by": {
             "profession": "Engineering",
             "skill": {
@@ -29463,7 +29463,7 @@
             "s": 12938,
             "t": "Weakens the servants of Razelikh the Defiler. Must be within close proximity of the target to activate."
         },
-        "description": "Etched across the blade: Rakh'lik",
+        "description": "Etched across the blade: Rakh'likh",
         "reward_from": {
             "3625": 1
         },
@@ -29526,7 +29526,7 @@
             "s": 12938,
             "t": "Weakens the servants of Razelikh the Defiler. Must be within close proximity of the target to activate."
         },
-        "description": "Engraved upon the blade: Rakh'lik",
+        "description": "Engraved upon the blade: Rakh'likh",
         "reward_from": {
             "3625": 1
         },
@@ -29589,7 +29589,7 @@
             "s": 12938,
             "t": "Weakens the servants of Razelikh the Defiler. Must be within close proximity of the target to activate. (cooldown 3 min)"
         },
-        "description": "Carved into the shaft: Rakh'lik",
+        "description": "Carved into the shaft: Rakh'likh",
         "reward_from": {
             "3625": 1
         },
@@ -30207,7 +30207,7 @@
         "stack": 20,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Hot out of the oven",
+        "description": "Hot out of the oven.",
         "contained": {
             "objects": {
                 "152620": 100.0,
@@ -30716,7 +30716,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The massive box is surprisingly light",
+        "description": "The massive box is surprisingly light.",
         "provided_for": 3621,
         "objective": 3621
     },
@@ -31307,7 +31307,7 @@
         "image_name": "inv_jewelry_amulet_02",
         "ilvl": 1,
         "quest_item": true,
-        "description": "Once worn by Grol the Destroyer",
+        "description": "Once worn by Grol the Destroyer.",
         "dropped": {
             "7665": 100.0
         },
@@ -31320,7 +31320,7 @@
         "image_name": "inv_jewelry_amulet_04",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The putrid scent of Sevine still radiates from this amulet",
+        "description": "The putrid scent of Sevine still radiates from this amulet.",
         "dropped": {
             "7667": 100.0
         },
@@ -31333,7 +31333,7 @@
         "image_name": "inv_jewelry_amulet_07",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The only thing that remains from a once powerful sorcerer",
+        "description": "The only thing that remains from a once powerful sorcerer.",
         "dropped": {
             "7666": 100.0
         },
@@ -31351,7 +31351,7 @@
             "s": 13143,
             "t": "Use at the Altar of the Defiler to summon Razelikh the Defiler."
         },
-        "description": "The completed amulet of Rakh'likh",
+        "description": "The completed amulet of Rakh'likh.",
         "provided_for": 3628,
         "objective": 3628
     },
@@ -31403,7 +31403,7 @@
         "image_name": "inv_misc_horn_02",
         "ilvl": 1,
         "quest_item": true,
-        "description": "A severed and bloody horn of Razelikh the Defiler",
+        "description": "A severed and bloody horn of Razelikh the Defiler.",
         "dropped": {
             "7664": 100.0
         },
@@ -32643,7 +32643,7 @@
         "ilvl": 0,
         "bop": true,
         "unique": true,
-        "description": "A member in good standing of the Mechanical Engineering Guild, Associated",
+        "description": "A member in good standing of the Mechanical Engineering Guild, Associated.",
         "reward_from": {
             "3643": 1
         }
@@ -32656,7 +32656,7 @@
         "ilvl": 0,
         "bop": true,
         "unique": true,
-        "description": "A member in good standing of the Goblin Experimental Engineering Korporation",
+        "description": "A member in good standing of the Goblin Experimental Engineering Korporation.",
         "reward_from": {
             "3639": 1
         }
@@ -33769,7 +33769,7 @@
         "image_name": "inv_misc_book_06",
         "ilvl": 1,
         "bop": true,
-        "description": "Information on how to control your new Felhound Tracker",
+        "description": "Information on how to control your new Felhound Tracker.",
         "click_to_read": true,
         "contained": {
             "items": {
@@ -33820,7 +33820,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "FRAGILE - Handle With Car",
+        "description": "FRAGILE - Handle With Care",
         "provided_for": 3602
     },
     "10835": {
@@ -34000,7 +34000,7 @@
         "image_name": "inv_misc_rune_03",
         "ilvl": 1,
         "unique": true,
-        "description": "A note encased in azsharite crystal",
+        "description": "A note encased in azsharite crystal.",
         "click_to_read": true,
         "contained": {
             "objects": {
@@ -34018,7 +34018,7 @@
         "image_name": "inv_misc_rune_03",
         "ilvl": 1,
         "unique": true,
-        "description": "A note encased in azsharite crystal",
+        "description": "A note encased in azsharite crystal.",
         "click_to_read": true,
         "contained": {
             "objects": {
@@ -36590,7 +36590,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Etched into the face of the hammer are the letters: F.F.F",
+        "description": "Etched into the face of the hammer are the letters: F.F.F.",
         "dropped": {
             "9056": 100.0
         },

@@ -21,7 +21,7 @@
         "slots": 12
     },
     "1006": {
-        "description": "Princess - First Priz",
+        "description": "Princess - First Prize",
         "dropped": {
             "330": 100.0
         },
@@ -6526,7 +6526,7 @@
         }
     },
     "1217": {
-        "description": "It is not known what the reward will be..",
+        "description": "It is not known what the reward will be...",
         "i": 1217,
         "ilvl": 1,
         "image_name": "inv_misc_questionmark",
@@ -7502,7 +7502,7 @@
         "unique": true
     },
     "1284": {
-        "description": "There's a note attached to this crate",
+        "description": "There's a note attached to this crate.",
         "i": 1284,
         "ilvl": 1,
         "image_name": "inv_crate_01",
@@ -7655,7 +7655,7 @@
         }
     },
     "1293": {
-        "description": "Written by Magistrate Solomon, this report details the events unfolding in Redridge",
+        "description": "Written by Magistrate Solomon, this report details the events unfolding in Redridge.",
         "i": 1293,
         "ilvl": 1,
         "image_name": "inv_letter_04",
@@ -7667,7 +7667,7 @@
         "unique": true
     },
     "1294": {
-        "description": "General Marcus Jonathan's response to Magistrate Solomon's plea for help",
+        "description": "General Marcus Jonathan's response to Magistrate Solomon's plea for help.",
         "i": 1294,
         "ilvl": 1,
         "image_name": "inv_letter_05",
@@ -8527,7 +8527,7 @@
         "consume": true
     },
     "1327": {
-        "description": "A hastily written note written by Wiley the Black for Gryan Stoutmantle",
+        "description": "A hastily written note written by Wiley the Black for Gryan Stoutmantle.",
         "i": 1327,
         "ilvl": 1,
         "image_name": "inv_letter_15",
@@ -8545,7 +8545,7 @@
                 "167": 100.0
             }
         },
-        "description": "This large crate is sealed tight, but it reeks of dead things",
+        "description": "This large crate is sealed tight, but it reeks of dead things.",
         "i": 1349,
         "ilvl": 1,
         "image_name": "inv_crate_06",
@@ -8587,7 +8587,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Shaw's report on the Stonemason Guild for Gryan Stoutmantle",
+        "description": "Shaw's report on the Stonemason Guild for Gryan Stoutmantle.",
         "click_to_read": true
     },
     "1355": {
@@ -8623,7 +8623,7 @@
             "level": 10
         },
         "starts": 136,
-        "description": "The waterlogged parchment is about to disintegrate"
+        "description": "The waterlogged parchment is about to disintegrate."
     },
     "1358": {
         "i": 1358,
@@ -8633,7 +8633,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This torn piece of parchment contains scribbled writing",
+        "description": "This torn piece of parchment contains scribbled writing.",
         "click_to_read": true
     },
     "1359": {
@@ -8682,7 +8682,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This torn piece of parchment contains scribbled writing",
+        "description": "This torn piece of parchment contains scribbled writing.",
         "click_to_read": true
     },
     "1362": {
@@ -8693,7 +8693,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This torn piece of parchment contains scribbled writing",
+        "description": "This torn piece of parchment contains scribbled writing.",
         "click_to_read": true
     },
     "1364": {
@@ -8918,7 +8918,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This soot-covered note contains some cryptic text",
+        "description": "This soot-covered note contains some cryptic text.",
         "click_to_read": true
     },
     "1382": {
@@ -27415,7 +27415,7 @@
         }
     },
     "1875": {
-        "description": "Foreman Thistlenettle - Member of the Explorers' Leagu",
+        "description": "Foreman Thistlenettle - Member of the Explorers' League",
         "dropped": {
             "626": 100.0
         },
@@ -27573,7 +27573,7 @@
         }
     },
     "1922": {
-        "description": "A bundle of miscellaneous supplies for Sven",
+        "description": "A bundle of miscellaneous supplies for Sven.",
         "i": 1922,
         "ilvl": 1,
         "image_name": "inv_misc_bag_07_black",
@@ -28681,7 +28681,7 @@
         }
     },
     "1956": {
-        "description": "The spell on this pendant has faded",
+        "description": "The spell on this pendant has faded.",
         "i": 1956,
         "ilvl": 1,
         "image_name": "inv_jewelry_talisman_04",
@@ -28807,7 +28807,7 @@
     },
     "1962": {
         "bop": true,
-        "description": "This pendant glows with magic",
+        "description": "This pendant glows with magic.",
         "dropped": {
             "429": 3.0,
             "431": 3.0,
@@ -29696,7 +29696,7 @@
         }
     },
     "1987": {
-        "description": "An improved pot, with extra whistles and choppers",
+        "description": "An improved pot, with extra whistles and choppers.",
         "i": 1987,
         "ilvl": 1,
         "image_name": "inv_misc_urn_01",
@@ -30401,7 +30401,7 @@
                 }
             ]
         },
-        "description": "Morgan Ladimore's sword"
+        "description": "Morgan Ladimore's sword."
     },
     "2004": {
         "dropped": {
@@ -30422,7 +30422,7 @@
                 "57": 100.0
             }
         },
-        "description": "Moon over the Val",
+        "description": "Moon over the Vale",
         "i": 2005,
         "ilvl": 1,
         "image_name": "inv_scroll_01",
@@ -30439,7 +30439,7 @@
                 "58": 100.0
             }
         },
-        "description": "Gri'lek the Wandere",
+        "description": "Gri'lek the Wanderer",
         "i": 2006,
         "ilvl": 1,
         "image_name": "inv_scroll_01",
@@ -30455,7 +30455,7 @@
                 "52": 100.0
             }
         },
-        "description": "Fall of Gurubash",
+        "description": "Fall of Gurubashi",
         "i": 2007,
         "ilvl": 1,
         "image_name": "inv_scroll_01",
@@ -30471,7 +30471,7 @@
                 "54": 100.0
             }
         },
-        "description": "The Emperor's Tom",
+        "description": "The Emperor's Tomb",
         "i": 2008,
         "ilvl": 1,
         "image_name": "inv_scroll_01",
@@ -37820,7 +37820,7 @@
         "unique": true
     },
     "2162": {
-        "description": "Sarah Ladimore's ring",
+        "description": "Sarah Ladimore's ring.",
         "i": 2162,
         "ilvl": 1,
         "image_name": "inv_jewelry_ring_03",
@@ -40399,7 +40399,7 @@
         }
     },
     "2239": {
-        "description": "Engraved with the words 'For years of service: -EVC.",
+        "description": "Engraved with the words 'For years of service: -EVC.'",
         "dropped": {
             "473": 100.0
         },
@@ -40816,7 +40816,7 @@
         "stack": 10
     },
     "2252": {
-        "description": "A crate of miscellaneous supplies addressed to Private Thorsen",
+        "description": "A crate of miscellaneous supplies addressed to Private Thorsen.",
         "i": 2252,
         "ilvl": 1,
         "image_name": "inv_misc_gear_08",
@@ -62079,7 +62079,7 @@
             "8238": 6657,
             "8604": 6888
         },
-        "description": "Used to enhance the flavor in cooking recipes",
+        "description": "Used to enhance the flavor in cooking recipes.",
         "i": 2678,
         "ilvl": 5,
         "image_name": "inv_misc_food_wheat_02",
@@ -68352,7 +68352,7 @@
     },
     "2874": {
         "bop": true,
-        "description": "A letter found on Edwin VanCleef's person",
+        "description": "A letter found on Edwin VanCleef's person.",
         "dropped": {
             "639": 100.0
         },
@@ -68680,7 +68680,7 @@
             "8880": 7166,
             "9983": 7955
         },
-        "description": "Used by Blacksmiths to remove impurities",
+        "description": "Used by Blacksmiths to remove impurities.",
         "dropped": {
             "3578": 100.0
         },
@@ -69356,7 +69356,7 @@
                 4
             ]
         },
-        "description": "Miners need a mining pick for digging",
+        "description": "Miners need a mining pick for digging.",
         "dropped": {
             "3578": 100.0
         },
@@ -70348,7 +70348,7 @@
             "8687": 6949,
             "8694": 6951
         },
-        "description": "Used by rogues to brew poison",
+        "description": "Used by rogues to brew poison.",
         "dropped": {
             "10262": 60.0,
             "15200": 0.173,
@@ -70535,7 +70535,7 @@
             "5763": 5237,
             "8694": 6951
         },
-        "description": "Used by rogues to brew poison",
+        "description": "Used by rogues to brew poison.",
         "i": 2930,
         "ilvl": 22,
         "image_name": "inv_potion_12",
@@ -70671,7 +70671,7 @@
         "creates": {
             "2840": 2896
         },
-        "description": "Used by rogues to brew poison",
+        "description": "Used by rogues to brew poison.",
         "i": 2931,
         "ilvl": 60,
         "image_name": "inv_misc_herb_03",
@@ -74881,7 +74881,7 @@
                 "1166": 100.0
             }
         },
-        "description": "Baros Alexston's first compass",
+        "description": "Baros Alexston's first compass.",
         "i": 2998,
         "ilvl": 1,
         "image_name": "inv_misc_pocketwatch_02",
@@ -86260,7 +86260,7 @@
         }
     },
     "889": {
-        "description": "This dusty letter from long ago was never sent",
+        "description": "This dusty letter from long ago was never sent.",
         "i": 889,
         "ilvl": 1,
         "image_name": "inv_letter_15",
@@ -86637,7 +86637,7 @@
                 "23505": 100.0
             }
         },
-        "description": "Weathered and old, this letter was never delivered",
+        "description": "Weathered and old, this letter was never delivered.",
         "i": 910,
         "ilvl": 1,
         "image_name": "inv_letter_08",
@@ -86779,7 +86779,7 @@
         "stack": 20
     },
     "916": {
-        "description": "Only the bottom half of this journal page remains",
+        "description": "Only the bottom half of this journal page remains.",
         "i": 916,
         "ilvl": 1,
         "image_name": "inv_misc_bandage_18",
@@ -86871,7 +86871,7 @@
                 "1562": 100.0
             }
         },
-        "description": "Although most of the text is long faded, some words can still be read",
+        "description": "Although most of the text is long faded, some words can still be read.",
         "i": 921,
         "ilvl": 1,
         "image_name": "inv_misc_bandage_18",
@@ -88658,7 +88658,7 @@
         }
     },
     "938": {
-        "description": "Although the pages are covered in mud, some words can be read",
+        "description": "Although the pages are covered in mud, some words can be read.",
         "i": 938,
         "ilvl": 1,
         "image_name": "inv_misc_bandage_10",
@@ -88670,7 +88670,7 @@
         "unique": true
     },
     "939": {
-        "description": "Through thick blood a few words still remain legible",
+        "description": "Through thick blood a few words still remain legible.",
         "i": 939,
         "ilvl": 1,
         "image_name": "inv_misc_bandage_18",
@@ -89538,7 +89538,7 @@
         "consume": true
     },
     "957": {
-        "description": "There is a note attached",
+        "description": "There is a note attached.",
         "i": 957,
         "ilvl": 1,
         "image_name": "inv_misc_candle_02",

@@ -644,7 +644,7 @@
         "n": "Curmudgeon's Payoff",
         "image_name": "inv_misc_bag_10_black",
         "ilvl": 1,
-        "description": "A bag of 5 gold. For those who like telling children there's no Great Father Winter..",
+        "description": "A bag of 5 gold. For those who like telling children there's no Great Father Winter...",
         "reward_from": {
             "5502": 1
         }
@@ -4770,7 +4770,7 @@
             "s": 29334,
             "t": "Increases healing done by magical spells by up to 44 for 1 hr."
         },
-        "description": "Gooey, melty, good",
+        "description": "Gooey, melty, good.",
         "created_by": {
             "materials": {},
             "step": 5
@@ -9727,7 +9727,7 @@
             "s": 17531,
             "t": "Restores 1350 to 2251 mana. (cooldown 2 min)"
         },
-        "description": "Food for the Min",
+        "description": "Food for the Mind",
         "consume": true
     },
     "23579": {
@@ -9749,7 +9749,7 @@
             "s": 17534,
             "t": "Restores 1050 to 1751 health. (cooldown 2 min)"
         },
-        "description": "The Original",
+        "description": "The Original.",
         "consume": true
     },
     "23663": {

@@ -1158,7 +1158,7 @@
         }
     },
     "4028": {
-        "description": "To: Privateer Gro",
+        "description": "To: Privateer Groy",
         "i": 4028,
         "ilvl": 1,
         "image_name": "inv_tradeskillitem_03",
@@ -4886,7 +4886,7 @@
         }
     },
     "4085": {
-        "description": "A cooking pot covered with gauges and dials",
+        "description": "A cooking pot covered with gauges and dials.",
         "i": 4085,
         "ilvl": 1,
         "image_name": "inv_misc_urn_01",
@@ -18184,7 +18184,7 @@
         }
     },
     "4432": {
-        "description": "My dear Sara..",
+        "description": "My dear Sara...",
         "i": 4432,
         "ilvl": 1,
         "image_name": "inv_misc_note_01",
@@ -19423,7 +19423,7 @@
         "unique": true
     },
     "4468": {
-        "description": "The legendary blade of Ignaeus Trollbane",
+        "description": "The legendary blade of Ignaeus Trollbane.",
         "i": 4468,
         "ilvl": 1,
         "image_name": "inv_sword_02",
@@ -21274,7 +21274,7 @@
         "objective": 701
     },
     "4514": {
-        "description": "To My Honorable Kin",
+        "description": "To My Honorable King",
         "i": 4514,
         "ilvl": 1,
         "image_name": "inv_letter_04",
@@ -40734,7 +40734,7 @@
         }
     },
     "4992": {
-        "description": "An unsigned recruitment letter",
+        "description": "An unsigned recruitment letter.",
         "i": 4992,
         "ilvl": 1,
         "image_name": "inv_letter_17",

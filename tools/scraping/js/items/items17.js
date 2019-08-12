@@ -370,7 +370,7 @@
             "faction": "H"
         },
         "starts": 6522,
-        "description": "The scroll bears an insignia foreign to you",
+        "description": "The scroll bears an insignia foreign to you.",
         "dropped": {
             "4421": 100.0
         },
@@ -5480,7 +5480,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Handle With Care",
+        "description": "Handle With Care.",
         "provided_for": 6662,
         "objective": 6662
     },
@@ -6965,7 +6965,7 @@
             "silver": 0,
             "copper": 0
         },
-        "description": "Opens Dark Cleric Salem's Ches",
+        "description": "Opens Dark Cleric Salem's Chest",
         "consume": true
     },
     "17262": {
@@ -6979,7 +6979,7 @@
             "silver": 0,
             "copper": 0
         },
-        "description": "Opens the stolen chest from the Cathedral of Ligh",
+        "description": "Opens the stolen chest from the Cathedral of Light",
         "consume": true
     },
     "17302": {
@@ -7278,7 +7278,7 @@
         "stack": 100,
         "ilvl": 1,
         "bop": true,
-        "description": "Alliance: the other, other, OTHER, white meat",
+        "description": "Alliance: the other, other, OTHER, white meat.",
         "dropped": {
             "1": 33.0
         },
@@ -7443,7 +7443,7 @@
         "stack": 20,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Ewww..",
+        "description": "Ewww...",
         "contained": {
             "objects": {
                 "178553": 100.0
@@ -8348,7 +8348,7 @@
             "copper": 2
         },
         "bop": true,
-        "description": "Return to your base blacksmith to help upgrade troop",
+        "description": "Return to your base blacksmith to help upgrade troops",
         "dropped": {
             "1": 100.0,
             "13816": 80.0,
@@ -8413,7 +8413,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Give to Warmaster Garrick in the Field of Strif",
+        "description": "Give to Warmaster Garrick in the Field of Strife",
         "created_by": {
             "materials": {
                 "9282": 1
@@ -11003,7 +11003,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Deliver to: Smokywood Pastures Retai",
+        "description": "Deliver to: Smokywood Pastures Retail",
         "dropped": {
             "13602": 100.0
         },
@@ -11886,7 +11886,7 @@
             "s": 21848,
             "t": "Change yourself into something more befitting the wintry season. Requires a Snowball to use."
         },
-        "description": "For when the weather outside is frightful.."
+        "description": "For when the weather outside is frightful..."
     },
     "17713": {
         "i": 17713,
@@ -13494,7 +13494,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A great deal of power radiates from the amulet..",
+        "description": "A great deal of power radiates from the amulet...",
         "created_by": {
             "materials": {
                 "17761": 1,
@@ -13589,7 +13589,7 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Kolk..",
+        "description": "Found on the body of Kolk...",
         "dropped": {
             "13742": 100.0
         },
@@ -13609,7 +13609,7 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Gelk..",
+        "description": "Found on the body of Gelk...",
         "dropped": {
             "13741": 100.0
         },
@@ -13629,7 +13629,7 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Magra..",
+        "description": "Found on the body of Magra...",
         "dropped": {
             "13740": 100.0
         },
@@ -13649,7 +13649,7 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Maraudos..",
+        "description": "Found on the body of Maraudos...",
         "dropped": {
             "13739": 100.0
         },
@@ -13669,7 +13669,7 @@
             "s": 21957,
             "t": "Places all five of the Khans' gems in the Amulet of Spirits."
         },
-        "description": "Found on the body of Veng..",
+        "description": "Found on the body of Veng...",
         "dropped": {
             "13738": 100.0
         },
@@ -14583,7 +14583,7 @@
             "s": 22564,
             "t": "Returns you to the sanctuary of Dun Baldar."
         },
-        "description": "The Eye of Comman",
+        "description": "The Eye of Command",
         "created_by": {
             "materials": {}
         },
@@ -14759,7 +14759,7 @@
             "s": 22563,
             "t": "Returns you to the sanctuary of Frostwolf Keep."
         },
-        "description": "The Eye of Comman",
+        "description": "The Eye of Command",
         "created_by": {
             "materials": {}
         },

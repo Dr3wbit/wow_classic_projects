@@ -374,7 +374,7 @@ def get_lowboys(item_dict, table, ix):
 
 		elif span.get_attribute("class") is "q":
 			if '"' in text:
-				item_dict['description'] = text[1:-2]
+				item_dict['description'] = text[1:-1]
 
 			# check if its an itemset
 			elif check_element_exists_by_css(span, 'a'):

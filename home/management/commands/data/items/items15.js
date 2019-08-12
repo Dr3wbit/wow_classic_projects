@@ -38096,7 +38096,7 @@
         "n": "Ruined Tome",
         "image_name": "inv_misc_book_03",
         "ilvl": 1,
-        "description": "An old, worthless tome",
+        "description": "An old, worthless tome.",
         "contained": {
             "objects": {
                 "176150": 100.0,
@@ -40670,7 +40670,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This book is written in a language you cannot understand",
+        "description": "This book is written in a language you cannot understand.",
         "click_to_read": true,
         "provided_for": 6030,
         "objective": 6030
@@ -42093,7 +42093,7 @@
         "image_name": "inv_misc_book_11",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This book emits a faint glow",
+        "description": "This book emits a faint glow.",
         "click_to_read": true,
         "contained": {
             "objects": {
@@ -42838,7 +42838,7 @@
         "image_name": "inv_misc_note_02",
         "ilvl": 1,
         "quest_item": true,
-        "description": "Bears the Seal of the Scarlet Crusad",
+        "description": "Bears the Seal of the Scarlet Crusade",
         "dropped": {
             "12337": 100.0
         },
@@ -43166,7 +43166,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The pendant is missing its aquatic counterpart",
+        "description": "The pendant is missing its aquatic counterpart.",
         "contained": {
             "objects": {
                 "177790": 100.0,

@@ -17250,7 +17250,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "You know opening this would be a terrible idea",
+        "description": "You know opening this would be a terrible idea.",
         "dropped": {
             "11322": 25.0,
             "11324": 25.0
@@ -17265,7 +17265,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "You're glad you don't understand the runes inscribed on the cover",
+        "description": "You're glad you don't understand the runes inscribed on the cover.",
         "dropped": {
             "11322": 25.0,
             "11324": 25.0
@@ -23600,7 +23600,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This small rune marks the bearer as a lieutenant in the Burning Blade",
+        "description": "This small rune marks the bearer as a lieutenant in the Burning Blade.",
         "dropped": {
             "3197": 20.0,
             "3198": 20.0
@@ -27000,7 +27000,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Engraved: To my dear boy, Taelan. With Love, Father",
+        "description": "Engraved: To my dear boy, Taelan. With Love, Father.",
         "dropped": {
             "11886": 100.0
         },
@@ -27477,7 +27477,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Order of the Silver Han",
+        "description": "Order of the Silver Hand",
         "contained": {
             "objects": {
                 "177264": 100.0
@@ -28188,7 +28188,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This key is missing its head",
+        "description": "This key is missing its head.",
         "created_by": {
             "materials": {
                 "12359": 2
@@ -29951,7 +29951,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The picture brings a smile to your face",
+        "description": "The picture brings a smile to your face.",
         "click_to_read": true,
         "contained": {
             "objects": {

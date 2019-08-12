@@ -17,67 +17,6 @@
         "slot": "Finger",
         "stats": {
             "intellect": 5
-        },
-        "dropped": {
-            "3773": 1.25,
-            "5859": 1.25,
-            "5916": 1.25,
-            "10640": 1.25,
-            "14280": 1.25,
-            "14426": 1.25
-        },
-        "contained": {
-            "objects": {
-                "74447": 0.502,
-                "74448": 0.502,
-                "75295": 0.502,
-                "75298": 0.502,
-                "75297": 0.307,
-                "75300": 0.307,
-                "75296": 0.307,
-                "75299": 0.307,
-                "2850": 0.301,
-                "3714": 0.301,
-                "3715": 0.301,
-                "2849": 0.301,
-                "111095": 0.301,
-                "2852": 0.291,
-                "4095": 0.291,
-                "4096": 0.291,
-                "2855": 0.159,
-                "105570": 0.159,
-                "105578": 0.159,
-                "105579": 0.159,
-                "153462": 0.035,
-                "3743": 0.02
-            },
-            "items": {
-                "4633": 0.5,
-                "6647": 0.136,
-                "16882": 0.05
-            }
-        },
-        "disenchant": {
-            "11083": {
-                "chance": 75.0,
-                "v": [
-                    "1",
-                    "2"
-                ]
-            },
-            "11082": {
-                "chance": 20.0,
-                "v": [
-                    "1",
-                    "2"
-                ]
-            },
-            "11084": {
-                "chance": 5.0,
-                "v": [
-                    1
-                ]
-            }
         }
     },
     "5001": {
@@ -2035,7 +1974,7 @@
             "silver": 0,
             "copper": 25
         },
-        "description": "'Thin' is a relative term...",
+        "description": "'Thin' is a relative term....",
         "dropped": {
             "3237": 58.0,
             "3236": 57.0,
@@ -2144,7 +2083,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Venture Co. Document 534x",
+        "description": "Venture Co. Document 534x9",
         "click_to_read": true,
         "provided_for": 894
     },
@@ -3468,7 +3407,7 @@
                 "Rogue"
             ]
         },
-        "description": "It must be carried very, very carefully",
+        "description": "It must be carried very, very carefully.",
         "dropped": {
             "10262": 40.0,
             "8402": 23.0,
@@ -10059,7 +9998,7 @@
             "silver": 3,
             "copper": 22
         },
-        "description": "How To Serve Ma",
+        "description": "How To Serve Man",
         "click_to_read": true,
         "dropped": {
             "7787": 50.0,
@@ -10855,7 +10794,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This paper is covered in glowing runes",
+        "description": "This paper is covered in glowing runes.",
         "click_to_read": true,
         "created_by": {
             "materials": {
@@ -10877,7 +10816,7 @@
         },
         "unique": true,
         "quest_item": true,
-        "description": "The paper is blank save for a few runes. You'll need bracers from the elementals to use it",
+        "description": "The paper is blank save for a few runes. You'll need bracers from the elementals to use it.",
         "provided_for": 1016,
         "consume": true
     },
@@ -12211,7 +12150,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The journal is waterlogged, but in otherwise good condition",
+        "description": "The journal is waterlogged, but in otherwise good condition.",
         "click_to_read": true,
         "dropped": {
             "3891": 100.0
@@ -12492,7 +12431,7 @@
                 "Mage"
             ]
         },
-        "description": "A reagent for mage spells",
+        "description": "A reagent for mage spells.",
         "created_by": {
             "materials": {
                 "2841": 1
@@ -12517,7 +12456,7 @@
                 "Mage"
             ]
         },
-        "description": "A reagent for mage spells",
+        "description": "A reagent for mage spells.",
         "created_by": {
             "materials": {
                 "3575": 1
@@ -12967,7 +12906,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Sealed by Brother Anton of the Scarlet Crusad",
+        "description": "Sealed by Brother Anton of the Scarlet Crusade",
         "provided_for": 1052,
         "objective": 1052
     },

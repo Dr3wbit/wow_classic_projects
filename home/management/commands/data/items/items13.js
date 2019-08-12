@@ -8446,7 +8446,7 @@
             "level": 49
         },
         "starts": 5202,
-        "description": "The key looks tiny enough to fit a small lock",
+        "description": "The key looks tiny enough to fit a small lock.",
         "dropped": {
             "7118": 4.0,
             "7120": 3.0,
@@ -9281,7 +9281,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Bears the mark of Fras Siabi",
+        "description": "Bears the mark of Fras Siabi.",
         "dropped": {
             "11058": 100.0
         },
@@ -9554,7 +9554,7 @@
             "s": 17291,
             "t": "Inflicts between 438 and 562 damage to Undead in a 10 yard radius. (cooldown 1 min)"
         },
-        "description": "Just 1 calorie",
+        "description": "Just 1 calorie.",
         "contained": {
             "objects": {
                 "181085": 100.0,
@@ -10206,7 +10206,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This is the head of the leader of the Shadow Council in Felwood",
+        "description": "This is the head of the leader of the Shadow Council in Felwood.",
         "dropped": {
             "9517": 100.0
         },
@@ -11231,7 +11231,7 @@
         "requirements": {
             "level": 54
         },
-        "description": "Glows with the power of magiskull",
+        "description": "Glows with the power of magiskull.",
         "dropped": {
             "9217": 33.0
         },
@@ -11280,7 +11280,7 @@
                 }
             ]
         },
-        "description": "Blade of the Scarlet Highlor"
+        "description": "Blade of the Scarlet Highlord"
     },
     "13282": {
         "i": 13282,
@@ -11836,7 +11836,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The pages are tattered and worn..",
+        "description": "The pages are tattered and worn...",
         "contained": {
             "objects": {
                 "176356": 100.0
@@ -11971,7 +11971,7 @@
             "copper": 0
         },
         "quest_item": true,
-        "description": "This is used as a catalyst in transforming the toxins of the Scourge's cauldrons",
+        "description": "This is used as a catalyst in transforming the toxins of the Scourge's cauldrons.",
         "sold": {
             "11056": {
                 "cost": {
@@ -13113,7 +13113,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A device used to identify arcane components found in the body",
+        "description": "A device used to identify arcane components found in the body.",
         "created_by": {
             "materials": {}
         }
@@ -15071,7 +15071,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Carries the Seal of Barov",
+        "description": "Carries the Seal of Barov.",
         "contained": {
             "objects": {
                 "176485": 100.0
@@ -15087,7 +15087,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Carries the Seal of Barov",
+        "description": "Carries the Seal of Barov.",
         "contained": {
             "objects": {
                 "176486": 100.0
@@ -15103,7 +15103,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Carries the Seal of Barov",
+        "description": "Carries the Seal of Barov.",
         "contained": {
             "objects": {
                 "176487": 100.0
@@ -15950,7 +15950,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Carries the Seal of Barov",
+        "description": "Carries the Seal of Barov.",
         "contained": {
             "objects": {
                 "176484": 100.0
@@ -17493,7 +17493,7 @@
         },
         "bop": true,
         "unique": true,
-        "description": "The blood is still fresh",
+        "description": "The blood is still fresh.",
         "dropped": {
             "14861": 100.0,
             "11261": 100.0,
@@ -18259,7 +18259,7 @@
         "bop": true,
         "unique": true,
         "slot": "Trinket",
-        "description": "Allows communication with the deceased of Caer Darrow",
+        "description": "Allows communication with the deceased of Caer Darrow.",
         "created_by": {
             "materials": {}
         },
@@ -18387,7 +18387,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "All of the pages are torn out",
+        "description": "All of the pages are torn out.",
         "contained": {
             "objects": {
                 "176630": 100.0
@@ -19657,7 +19657,7 @@
         "image_name": "inv_misc_note_02",
         "ilvl": 1,
         "quest_item": true,
-        "description": "Bears the mark of the Grand Crusader",
+        "description": "Bears the mark of the Grand Crusader.",
         "contained": {
             "items": {
                 "15876": 100.0
@@ -20528,7 +20528,7 @@
             "silver": 0,
             "copper": 1
         },
-        "description": "Venture Company Supplie",
+        "description": "Venture Company Supplies",
         "dropped": {
             "15114": 21.0
         }

@@ -1425,7 +1425,7 @@
             "silver": 2,
             "copper": 48
         },
-        "description": "This item has seen much use",
+        "description": "This item has seen much use.",
         "dropped": {
             "14771": 20.0,
             "11603": 20.0,
@@ -1454,7 +1454,7 @@
             "silver": 25,
             "copper": 0
         },
-        "description": "The mystery remains unsolved",
+        "description": "The mystery remains unsolved.",
         "dropped": {
             "13443": 0.16
         }
@@ -1470,7 +1470,7 @@
             "silver": 7,
             "copper": 90
         },
-        "description": "This book is missing every page but the last",
+        "description": "This book is missing every page but the last.",
         "click_to_read": true,
         "dropped": {
             "14775": 2.0,
@@ -1494,7 +1494,7 @@
             "silver": 5,
             "copper": 9
         },
-        "description": "If only it worked",
+        "description": "If only it worked.",
         "dropped": {
             "14774": 33.0,
             "13546": 1.56,
@@ -1515,7 +1515,7 @@
             "silver": 3,
             "copper": 61
         },
-        "description": "On the inside collar it reads, \"Inspected by Earl Z. Moade.",
+        "description": "On the inside collar it reads, \"Inspected by Earl Z. Moade.\"",
         "dropped": {
             "14763": 10.0,
             "14770": 8.0,
@@ -1582,7 +1582,7 @@
             "silver": 1,
             "copper": 30
         },
-        "description": "The owner of this item could have probably used a hug",
+        "description": "The owner of this item could have probably used a hug.",
         "dropped": {
             "14770": 15.0,
             "13416": 10.0,
@@ -1616,7 +1616,7 @@
             "silver": 2,
             "copper": 25
         },
-        "description": "You think that you can make out some numbers. This appears to be a repair bill",
+        "description": "You think that you can make out some numbers. This appears to be a repair bill.",
         "dropped": {
             "10982": 13.0,
             "13180": 3.0,
@@ -2067,7 +2067,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Used with Gordok ogre shackles",
+        "description": "Used with Gordok ogre shackles.",
         "dropped": {
             "14351": 25.0,
             "14321": 13.0,
@@ -2487,7 +2487,7 @@
             "s": 22736,
             "t": "Disguise yourself as one of the Gordok ogres, and maybe even fool a particular captain in the process! The suit will only hold together for 10 min."
         },
-        "description": "It lifts AND supports",
+        "description": "It lifts AND supports!",
         "created_by": {
             "profession": "Tailoring",
             "skill": {
@@ -3009,7 +3009,7 @@
             "s": 11008,
             "t": "A typical alcoholic beverage."
         },
-        "description": "Tastes better going down than coming up",
+        "description": "Tastes better going down than coming up!",
         "consume": true
     },
     "18288": {
@@ -3028,7 +3028,7 @@
             "s": 11009,
             "t": "A strong alcoholic beverage."
         },
-        "description": "Do not consume near open flames",
+        "description": "Do not consume near open flames.",
         "consume": true
     },
     "18289": {
@@ -4637,7 +4637,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "Dark runes skitter across the surface",
+        "description": "Dark runes skitter across the surface.",
         "click_to_read": true,
         "dropped": {
             "11496": 3.0,
@@ -4673,7 +4673,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "Dark runes skitter across the surface",
+        "description": "Dark runes skitter across the surface.",
         "click_to_read": true,
         "dropped": {
             "11496": 3.0,
@@ -4709,7 +4709,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "Dark runes skitter across the surface",
+        "description": "Dark runes skitter across the surface.",
         "click_to_read": true,
         "dropped": {
             "11486": 2.0,
@@ -4785,7 +4785,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This gauntlet looks as though it once was imbued with potent magic",
+        "description": "This gauntlet looks as though it once was imbued with potent magic.",
         "contained": {
             "objects": {
                 "179545": 100.0
@@ -5287,7 +5287,7 @@
                 }
             ]
         },
-        "description": "The High Blad",
+        "description": "The High Blade",
         "reward_from": {
             "7509": 1
         }
@@ -5629,7 +5629,7 @@
             ]
         },
         "starts": 7498,
-        "description": "The tome is magically sealed",
+        "description": "The tome is magically sealed.",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5670,7 +5670,7 @@
             ]
         },
         "starts": 7499,
-        "description": "The tome is magically sealed",
+        "description": "The tome is magically sealed.",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5711,7 +5711,7 @@
             ]
         },
         "starts": 7500,
-        "description": "The tome is magically sealed",
+        "description": "The tome is magically sealed.",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5752,7 +5752,7 @@
             ]
         },
         "starts": 7501,
-        "description": "-By Uthe",
+        "description": "-By Uther",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5792,7 +5792,7 @@
             ]
         },
         "starts": 7502,
-        "description": "Tales from the Blasted Lands as told by Lady Sevine",
+        "description": "Tales from the Blasted Lands as told by Lady Sevine.",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5833,7 +5833,7 @@
             ]
         },
         "starts": 7503,
-        "description": "A Tale of a Female Troll and Her Tige",
+        "description": "A Tale of a Female Troll and Her Tiger",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5874,7 +5874,7 @@
             ]
         },
         "starts": 7504,
-        "description": "-By Shadow Priest Alliste",
+        "description": "-By Shadow Priest Allister",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5915,7 +5915,7 @@
             ]
         },
         "starts": 7505,
-        "description": "-By Drek'Tha",
+        "description": "-By Drek'Thar",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5955,7 +5955,7 @@
             ]
         },
         "starts": 7506,
-        "description": "Fact or Carefully Planned Out Farce Perpetrated By My Brother -By Illida",
+        "description": "Fact or Carefully Planned Out Farce Perpetrated By My Brother -By Illidan",
         "dropped": {
             "11492": 0.4,
             "13280": 0.4,
@@ -5988,7 +5988,7 @@
         "n": "A Thoroughly Read Copy of \"Nat Pagle's Extreme' Anglin.\"",
         "image_name": "inv_misc_book_03",
         "ilvl": 1,
-        "description": "Someone really loves to fish",
+        "description": "Someone really loves to fish.",
         "dropped": {
             "416": 78.0,
             "11460": 9.0,
@@ -7486,7 +7486,7 @@
             ]
         },
         "starts": 7507,
-        "description": "Several pages are blank",
+        "description": "Several pages are blank.",
         "click_to_read": true,
         "dropped": {
             "11492": 0.4,
@@ -8326,7 +8326,7 @@
             "faction": "H"
         },
         "starts": 7490,
-        "description": "The head of the Black Dragonflight's Brood Mothe",
+        "description": "The head of the Black Dragonflight's Brood Mother",
         "dropped": {
             "10184": 100.0
         },
@@ -8346,7 +8346,7 @@
             "faction": "A"
         },
         "starts": 7495,
-        "description": "The head of the Black Dragonflight's Brood Mothe",
+        "description": "The head of the Black Dragonflight's Brood Mother",
         "dropped": {
             "10184": 100.0
         },
@@ -9869,7 +9869,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7498": 1
         }
@@ -9899,7 +9899,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7499": 1
         }
@@ -9929,7 +9929,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7502": 1
         }
@@ -9959,7 +9959,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7500": 1
         }
@@ -9993,7 +9993,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7504": 1
         }
@@ -10023,7 +10023,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7506": 1
         }
@@ -10053,7 +10053,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7505": 1
         }
@@ -10087,7 +10087,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7501": 1
         }
@@ -10117,7 +10117,7 @@
                 }
             ]
         },
-        "description": "Blessed by the Shen'dralar Ancients",
+        "description": "Blessed by the Shen'dralar Ancients.",
         "reward_from": {
             "7503": 1
         }
@@ -10927,7 +10927,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Tempered in the blood of Onyxia",
+        "description": "Tempered in the blood of Onyxia.",
         "created_by": {
             "materials": {}
         },
@@ -13227,7 +13227,7 @@
                 "Rogue"
             ]
         },
-        "description": "The Left Half of Thunderaan's Eternal Priso",
+        "description": "The Left Half of Thunderaan's Eternal Prison",
         "dropped": {
             "12056": 3.0
         },
@@ -13249,7 +13249,7 @@
                 "Rogue"
             ]
         },
-        "description": "The Right Half of Thunderaan's Eternal Priso",
+        "description": "The Right Half of Thunderaan's Eternal Prison",
         "dropped": {
             "12057": 3.0
         },
@@ -13727,7 +13727,7 @@
             "s": 23000,
             "t": "Inflicts 213 to 288 Fire damage in a 5 yard radius (Assuming that it gets to the target, some restrictions may apply.) (cooldown 1 min)"
         },
-        "description": "The dynamite for Non-Engineers that rarely* blows up in your hand with over twice the blasting power of standard EZ-Thro",
+        "description": "The dynamite for Non-Engineers that rarely* blows up in your hand with over twice the blasting power of standard EZ-Thro.",
         "created_by": {
             "profession": "Engineering",
             "skill": {
@@ -14355,7 +14355,7 @@
             "level": 60
         },
         "starts": 7604,
-        "description": "Bound in Dark Iron Wirin",
+        "description": "Bound in Dark Iron Wiring",
         "created_by": {
             "materials": {}
         },
@@ -14898,7 +14898,7 @@
         "ilvl": 0,
         "unique": true,
         "quest_item": true,
-        "description": "Be strong Randis, and aspire to be the hero you were meant to be. -- Lady Jaina Proudmoor",
+        "description": "Be strong Randis, and aspire to be the hero you were meant to be. -- Lady Jaina Proudmoore",
         "created_by": {
             "materials": {}
         },
@@ -14912,7 +14912,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Heed the spirits, young Grunth. It is there that true heroes hear their calling. -- Cairne Bloodhoo",
+        "description": "Heed the spirits, young Grunth. It is there that true heroes hear their calling. -- Cairne Bloodhoof",
         "created_by": {
             "materials": {}
         },
@@ -14970,7 +14970,7 @@
             ],
             "level": 60
         },
-        "description": "You can see movement when you peer into the Eye",
+        "description": "You can see movement when you peer into the Eye.",
         "click_to_read": true,
         "contained": {
             "objects": {
@@ -15341,7 +15341,7 @@
             "s": 23151,
             "t": "Forms Benediction when combined with the Eye of Shadow and the Eye of Divinity."
         },
-        "description": "A tiny fragment of the World Tre",
+        "description": "A tiny fragment of the World Tree",
         "reward_from": {
             "7622": 1
         },
@@ -15370,7 +15370,7 @@
             "s": 23126,
             "t": "Enlarges the entire world for 5 min or until you attack. (cooldown 1 hr)"
         },
-        "description": "Only Gnomish Technology could invent a device that affects the entire world",
+        "description": "Only Gnomish Technology could invent a device that affects the entire world!",
         "created_by": {
             "profession": "Engineering",
             "skill": {
@@ -15494,7 +15494,7 @@
         "requirements": {
             "level": 60
         },
-        "description": "Seething darkness engulfs the eye",
+        "description": "Seething darkness engulfs the eye.",
         "dropped": {
             "12397": 100.0,
             "8716": 3.0,
@@ -16858,7 +16858,7 @@
             ]
         },
         "starts": 7632,
-        "description": "A very large petrified leaf",
+        "description": "A very large petrified leaf.",
         "contained": {
             "objects": {
                 "179703": 50.0
@@ -16946,7 +16946,7 @@
             "s": 23192,
             "t": "Forms Rhok'delar, Longbow of the Ancient Keepers, when combined with Enchanted Black Dragon Sinew."
         },
-        "description": "A Gift from the Ancients",
+        "description": "A Gift from the Ancients.",
         "reward_from": {
             "7636": 1
         },
@@ -17586,7 +17586,7 @@
             ],
             "level": 60
         },
-        "description": "An almost indestructible string. Perfect for a mighty bow stave",
+        "description": "An almost indestructible string. Perfect for a mighty bow stave.",
         "reward_from": {
             "7635": 1
         },
@@ -19036,7 +19036,7 @@
             }
         },
         "starts": 7649,
-        "description": "Volume ",
+        "description": "Volume I",
         "created_by": {
             "materials": {
                 "18779": 1,
@@ -19064,7 +19064,7 @@
             }
         },
         "starts": 7650,
-        "description": "Volume I",
+        "description": "Volume II",
         "created_by": {
             "materials": {
                 "18781": 1,
@@ -19089,7 +19089,7 @@
             "level": 50
         },
         "starts": 7651,
-        "description": "Volume II",
+        "description": "Volume III",
         "created_by": {
             "materials": {
                 "18783": 1,
@@ -19216,7 +19216,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Oats and grains specially mixed with the Argent Dawn's enriched manna biscuits",
+        "description": "Oats and grains specially mixed with the Argent Dawn's enriched manna biscuits.",
         "created_by": {
             "materials": {}
         },
@@ -20072,7 +20072,7 @@
                 }
             ]
         },
-        "description": "Property of Finkle Einhorn, Grandmaster Adventure",
+        "description": "Property of Finkle Einhorn, Grandmaster Adventurer",
         "disenchant": {
             "20725": {
                 "chance": 100.0,
@@ -20091,7 +20091,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Your finished Divination Scryer and Blessed Arcanite Barding are inside the satchel",
+        "description": "Your finished Divination Scryer and Blessed Arcanite Barding are inside the satchel.",
         "provided_for": 7647
     },
     "18805": {
@@ -23507,7 +23507,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Keep away from Thorium Brotherhood",
+        "description": "Keep away from Thorium Brotherhood.",
         "contained": {
             "objects": {
                 "179826": 100.0
@@ -24110,7 +24110,7 @@
             "level": 55
         },
         "starts": 7761,
-        "description": "A letter of command from Rend Blackhand",
+        "description": "A letter of command from Rend Blackhand.",
         "dropped": {
             "9046": 100.0
         },

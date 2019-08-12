@@ -158,7 +158,7 @@
                 }
             ]
         },
-        "description": "Forged from pure light",
+        "description": "Forged from pure light.",
         "reward_from": {
             "8257": 1
         },
@@ -246,7 +246,7 @@
         "n": "For the Light!",
         "image_name": "inv_misc_book_07",
         "ilvl": 1,
-        "description": "by Jennre Loresinger... dedicated to Uther Lightbringe",
+        "description": "by Jennre Loresinger... dedicated to Uther Lightbringer",
         "click_to_read": true,
         "reward_from": {
             "8149": 1
@@ -258,7 +258,7 @@
         "n": "The Horde's Hellscream",
         "image_name": "inv_misc_book_06",
         "ilvl": 1,
-        "description": "by Tolven Warsong... dedicated to Grom Hellscrea",
+        "description": "by Tolven Warsong... dedicated to Grom Hellscream",
         "click_to_read": true,
         "reward_from": {
             "8150": 1
@@ -518,7 +518,7 @@
         "stack": 20,
         "ilvl": 1,
         "quest_item": true,
-        "description": "The text is written in an arcane language",
+        "description": "The text is written in an arcane language.",
         "dropped": {
             "6377": 80.0,
             "6378": 80.0,
@@ -595,7 +595,7 @@
             "silver": 15,
             "copper": 80
         },
-        "description": "It looks happy",
+        "description": "It looks happy.",
         "pickpocketed": {
             "6188": 3.0
         }
@@ -793,7 +793,7 @@
                 }
             ]
         },
-        "description": "Diabolical runes adorn the blade",
+        "description": "Diabolical runes adorn the blade.",
         "reward_from": {
             "8253": 1
         },
@@ -823,7 +823,7 @@
             "s": 24389,
             "t": "Restores 1 to 501 mana and increases the damage of your next Fire spell by up to 100. Effect lasts for 1 min. (cooldown 3 min)"
         },
-        "description": "Unpredictability leads to both victory and death",
+        "description": "Unpredictability leads to both victory and death.",
         "reward_from": {
             "8253": 1
         },
@@ -855,7 +855,7 @@
                 }
             ]
         },
-        "description": "Arcane crystals are best utilized for the purposes of a mage",
+        "description": "Arcane crystals are best utilized for the purposes of a mage.",
         "reward_from": {
             "8253": 1
         },
@@ -2713,7 +2713,7 @@
             "s": 24382,
             "t": "Increases the player's Spirit by 50 and Stamina by 50 for 2 hr. You can only have the effect of one Zanza potion at a time."
         },
-        "description": "Blessed with the mojo of Zanza",
+        "description": "Blessed with the mojo of Zanza!",
         "reward_from": {
             "quest": 8243,
             "step": 1,
@@ -2743,7 +2743,7 @@
             "s": 24417,
             "t": "Increases the chance that the player will reflect hostile spells cast on them by 3% for 2 hr. Will automatically reflect the first offensive spell cast against the user. Only one type of Zanza potion may be active at any given time. (cooldown 2 min)"
         },
-        "description": "Blessed with the mojo of Zanza",
+        "description": "Blessed with the mojo of Zanza!",
         "reward_from": {
             "quest": 8243,
             "step": 1,
@@ -2773,7 +2773,7 @@
             "s": 24383,
             "t": "Increases the player's run speed by 20% for 2 hr. You can only have the effect of one Zanza potion at a time."
         },
-        "description": "Blessed with the mojo of Zanza",
+        "description": "Blessed with the mojo of Zanza!",
         "reward_from": {
             "quest": 8243,
             "step": 1,
@@ -2816,7 +2816,7 @@
                 }
             ]
         },
-        "description": "Woe to those who oppose",
+        "description": "Woe to those who oppose.",
         "reward_from": {
             "8257": 1
         },
@@ -4780,7 +4780,7 @@
             "s": 24427,
             "t": "Restores 9 health every 5 sec and increases your Strength by 75. Lasts 1 min. (cooldown 6 min)"
         },
-        "description": "Served on the rocks",
+        "description": "Served on the rocks.",
         "reward_from": {
             "8425": 1
         },
@@ -8830,7 +8830,7 @@
         "image_name": "inv_misc_ribbon_01",
         "stack": 250,
         "ilvl": 1,
-        "description": "Second Plac",
+        "description": "Second Place",
         "created_by": {
             "materials": {}
         },
@@ -9783,7 +9783,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Only ONE May Rise... (and consequently, only ONE may loot this head",
+        "description": "Only ONE May Rise... (and consequently, only ONE may loot this head)",
         "dropped": {
             "12017": 100.0
         },
@@ -9967,7 +9967,7 @@
         "image_name": "inv_misc_bag_11",
         "ilvl": 1,
         "bop": true,
-        "description": "Open your bag quickly as it will fade on logout",
+        "description": "Open your bag quickly as it will fade on logout.",
         "created_by": {
             "materials": {}
         }
@@ -10129,7 +10129,7 @@
         "ilvl": 60,
         "bop": true,
         "unique": true,
-        "description": "As an Agent of Nozdormu, only you may take the Silithid Carapace Fragments from the corpses of the silithid. Keep your badge in your pack at all times",
+        "description": "As an Agent of Nozdormu, only you may take the Silithid Carapace Fragments from the corpses of the silithid. Keep your badge in your pack at all times.",
         "created_by": {
             "materials": {}
         },
@@ -10152,7 +10152,7 @@
             "s": 24726,
             "t": "Target a friendly player to deputize them as an Agent of Nozdormu. As an Agent of Nozdormu, only you and your deputies may take the Silithid Carapace Fragments from the corpses of the silithid. Keep your badge in your pack at all times."
         },
-        "description": "Bears the Seal of the Bronze Fligh",
+        "description": "Bears the Seal of the Bronze Flight",
         "reward_from": {
             "quest": 8301,
             "step": 1,
@@ -10169,7 +10169,7 @@
         "image_name": "inv_misc_note_06",
         "stack": 250,
         "ilvl": 1,
-        "description": "These words are unintelligibl",
+        "description": "These words are unintelligible",
         "dropped": {
             "15308": 100.0,
             "11804": 25.0,
@@ -10430,7 +10430,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "This tome appears freshly inked",
+        "description": "This tome appears freshly inked.",
         "click_to_read": true,
         "provided_for": 8303
     },
@@ -11371,7 +11371,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "For use with Glyphed Crystals",
+        "description": "For use with Glyphed Crystals.",
         "provided_for": 8309,
         "objective": 8309
     },
@@ -11991,7 +11991,7 @@
         "bop": true,
         "unique": true,
         "starts": 0,
-        "description": "This arcane sliver glows with an eerie luster"
+        "description": "This arcane sliver glows with an eerie luster."
     },
     "20487": {
         "i": 20487,
@@ -12117,7 +12117,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A classic Hallow's End treat of the Dwarves",
+        "description": "A classic Hallow's End treat of the Dwarves.",
         "objective": 8311,
         "reward_from": {
             "8353": 1
@@ -12131,7 +12131,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A classic Hallow's End treat of the Forsaken",
+        "description": "A classic Hallow's End treat of the Forsaken.",
         "objective": 8312,
         "reward_from": {
             "8354": 1
@@ -12145,7 +12145,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A classic Hallow's End treat of the Humans",
+        "description": "A classic Hallow's End treat of the Humans.",
         "objective": 8311,
         "reward_from": {
             "8356": 1
@@ -12159,7 +12159,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "An Orgrimmar classic Hallow's End treat",
+        "description": "An Orgrimmar classic Hallow's End treat.",
         "objective": 8312,
         "reward_from": {
             "8359": 1
@@ -12173,7 +12173,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A classic Hallow's End treat of the Gnomes",
+        "description": "A classic Hallow's End treat of the Gnomes.",
         "objective": 8311,
         "reward_from": {
             "8355": 1
@@ -12187,7 +12187,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A classic Hallow's End treat of the Darkspear tribe",
+        "description": "A classic Hallow's End treat of the Darkspear tribe.",
         "objective": 8312,
         "reward_from": {
             "8358": 1
@@ -12201,7 +12201,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A classic Hallow's End treat of the Night Elves",
+        "description": "A classic Hallow's End treat of the Night Elves.",
         "objective": 8311,
         "reward_from": {
             "8357": 1
@@ -12215,7 +12215,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A classic Hallow's End treat of the Tauren",
+        "description": "A classic Hallow's End treat of the Tauren.",
         "objective": 8312,
         "reward_from": {
             "8360": 1
@@ -12807,7 +12807,7 @@
             "s": 24869,
             "t": "Restores 2% of your health per second for 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain Stamina and Spirit for 15 min."
         },
-        "description": "Crisp, delicious and hopefully worm-fre",
+        "description": "Crisp, delicious and hopefully worm-free",
         "contained": {
             "objects": {
                 "180523": 100.0
@@ -13186,7 +13186,7 @@
             "s": 25112,
             "t": "Casts your Summon Voidwalker spell with no mana or Soul Shard requirements. (cooldown 30 min)"
         },
-        "description": "Dark rituals are trapped in dark gems",
+        "description": "Dark rituals are trapped in dark gems.",
         "reward_from": {
             "8422": 1
         },
@@ -13496,7 +13496,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "A decoded True Believer articl",
+        "description": "A decoded True Believer article",
         "click_to_read": true,
         "dropped": {
             "11738": 0.02,
@@ -13589,7 +13589,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "A decoded True Believer articl",
+        "description": "A decoded True Believer article",
         "click_to_read": true,
         "dropped": {
             "11738": 0.02,
@@ -13863,7 +13863,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "A decoded True Believer articl",
+        "description": "A decoded True Believer article",
         "click_to_read": true,
         "dropped": {
             "11738": 0.02
@@ -14026,7 +14026,7 @@
         "image_name": "inv_misc_rune_07",
         "stack": 20,
         "ilvl": 1,
-        "description": "Medal awarded for fighting in Warsong Gulc",
+        "description": "Medal awarded for fighting in Warsong Gulch",
         "created_by": {
             "materials": {}
         },
@@ -14042,7 +14042,7 @@
         "image_name": "inv_jewelry_amulet_07",
         "stack": 20,
         "ilvl": 1,
-        "description": "Medal awarded for fighting in Arathi Basi",
+        "description": "Medal awarded for fighting in Arathi Basin",
         "created_by": {
             "materials": {}
         },
@@ -14058,7 +14058,7 @@
         "image_name": "inv_jewelry_necklace_21",
         "stack": 20,
         "ilvl": 1,
-        "description": "Medal awarded for fighting in Alterac Valle",
+        "description": "Medal awarded for fighting in Alterac Valley",
         "created_by": {
             "materials": {}
         },
@@ -14886,7 +14886,7 @@
             "s": 24973,
             "t": "Clean up a stink bomb found in Southshore. (cooldown 1 min)"
         },
-        "description": "Fights the funk of the Forsaken with the power of pine",
+        "description": "Fights the funk of the Forsaken with the power of pine!",
         "provided_for": 8373,
         "consume": true
     },
@@ -14898,7 +14898,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Suitable for ruining the contents of a keg..",
+        "description": "Suitable for ruining the contents of a keg...",
         "provided_for": 8322,
         "objective": 8322
     },
@@ -16356,7 +16356,7 @@
             "level": 60
         },
         "starts": 8446,
-        "description": "An unknown object shrouded in nightmares",
+        "description": "An unknown object shrouded in nightmares.",
         "dropped": {
             "14887": 100.0,
             "14888": 100.0,
@@ -17795,7 +17795,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "A decoded True Believer articl",
+        "description": "A decoded True Believer article",
         "click_to_read": true,
         "contained": {
             "items": {
@@ -17815,7 +17815,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "A decoded True Believer articl",
+        "description": "A decoded True Believer article",
         "click_to_read": true,
         "contained": {
             "items": {
@@ -17835,7 +17835,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "A decoded True Believer articl",
+        "description": "A decoded True Believer article",
         "click_to_read": true,
         "dropped": {
             "11881": 0.02
@@ -17858,7 +17858,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "A decoded True Believer articl",
+        "description": "A decoded True Believer article",
         "click_to_read": true,
         "dropped": {
             "7449": 0.02,
@@ -20456,7 +20456,7 @@
             "level": 45
         },
         "starts": 8470,
-        "description": "The totem is thick with the taint of corruption",
+        "description": "The totem is thick with the taint of corruption.",
         "dropped": {
             "7157": 3.0,
             "7156": 3.0,
@@ -20477,7 +20477,7 @@
             "level": 50
         },
         "starts": 8471,
-        "description": "The totem is thick with the taint of corruption",
+        "description": "The totem is thick with the taint of corruption.",
         "dropped": {
             "7441": 4.0,
             "10916": 3.0,

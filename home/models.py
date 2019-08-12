@@ -51,6 +51,9 @@ class User(AbstractUser):
 	def disc_username(self):
 		return self.discord.extra_data['disc_username'] if self.discord else False
 
+	def __str__(self):
+		return "{}#{} - ".format(self.disc_username, self.tag, self.email)
+
 ### NOTE: NEW
 # the baseline; everything is an item
 class Item(models.Model):
@@ -470,6 +473,7 @@ class SavedList(models.Model):
 	updated = models.DateTimeField(auto_now=True)
 	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
 
+	visible = models.BooleanField(default=True)
 
 	def __str__(self):
 		return("{}, last updated:{}, rating:{}, created by:{}".format(self.name, self.updated, self.rating, self.user.email))

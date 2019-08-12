@@ -867,6 +867,35 @@ def apply_filters(request):
 	response = render(request, "index_helper.html", context=context)
 	return response
 
+def flag_list(request):
+	uid = request.POST.get("uid", None)
+	ix = request.POST.get("ix", None)
+	print(request.POST)
+
+
+	wow_class = request.POST.get("wow_class", None)
+	data = {}
+	if wow_class:
+		print('wow_class')
+
+		saved_list = Spec.objects.filter(id=int(ix)).first()
+
+	else:
+		saved_list = ConsumeList.objects.filter(id=(ix)).first()
+
+	if saved_list:
+		saved_list.visible = False
+		saved_list.save()
+		message = "SavedList ({}) flagged for review`".format(ix)
+		data['message'] = message
+		response = JsonResponse(data)
+
+	else:
+		response = JsonResponse(data)
+		response.status_code = 400
+
+	return response
+
 
 def titlecase(s):
 	word_exceptions = ['of', 'the']

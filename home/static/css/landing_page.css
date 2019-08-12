@@ -169,3 +169,7 @@ a:hover{
 .filter-box.filter-selected{
     color: #ffc107;
 }
+
+.flag-item:hover > span{
+    color: #ffc107;
+}

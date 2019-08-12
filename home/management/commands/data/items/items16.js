@@ -3459,7 +3459,7 @@
             "silver": 10,
             "copper": 0
         },
-        "description": "Needed by Enchanters",
+        "description": "Needed by Enchanters.",
         "created_by": {
             "profession": "Blacksmithing",
             "skill": {
@@ -4584,7 +4584,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "The Blood of Drakkisath Flows Within..",
+        "description": "The Blood of Drakkisath Flows Within...",
         "created_by": {
             "materials": {}
         },
@@ -17025,7 +17025,7 @@
         "stack": 20,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Magic stirs deep inside",
+        "description": "Magic stirs deep inside.",
         "contained": {
             "objects": {
                 "178104": 100.0,

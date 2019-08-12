@@ -4139,7 +4139,7 @@
                 "1571": 100.0
             }
         },
-        "description": "This aging scroll is written in the indecipherable language of the Kirin Tor",
+        "description": "This aging scroll is written in the indecipherable language of the Kirin Tor.",
         "i": 3155,
         "ilvl": 1,
         "image_name": "inv_scroll_02",
@@ -7556,7 +7556,7 @@
     },
     "3235": {
         "bop": true,
-        "description": "For Delia",
+        "description": "For Deliah",
         "disenchant": {
             "10939": {
                 "chance": 20.0,
@@ -7626,7 +7626,7 @@
         "unique": true
     },
     "3238": {
-        "description": "The sealed findings of Apothecary Johaan",
+        "description": "The sealed findings of Apothecary Johaan.",
         "i": 3238,
         "ilvl": 1,
         "image_name": "inv_letter_02",
@@ -9879,7 +9879,7 @@
     },
     "3317": {
         "bop": true,
-        "description": "Its lips are moving",
+        "description": "Its lips are moving!",
         "dropped": {
             "1939": 2.0,
             "1940": 2.0,
@@ -10436,7 +10436,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "It's dripping"
+        "description": "It's dripping."
     },
     "3352": {
         "i": 3352,
@@ -12379,7 +12379,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "Used by blacksmiths to remove impurities"
+        "description": "Used by blacksmiths to remove impurities."
     },
     "3467": {
         "i": 3467,
@@ -12404,7 +12404,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The sealed findings of Apothecary Renferrel"
+        "description": "The sealed findings of Apothecary Renferrel."
     },
     "3469": {
         "i": 3469,
@@ -13252,7 +13252,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A crescent moon dangling from a silver chain"
+        "description": "A crescent moon dangling from a silver chain."
     },
     "3499": {
         "i": 3499,
@@ -13405,7 +13405,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This letter is encrypted and indecipherable"
+        "description": "This letter is encrypted and indecipherable."
     },
     "3530": {
         "i": 3530,
@@ -13775,7 +13775,7 @@
         "stats": {
             "durability": 45
         },
-        "description": "Dwarves aren't known for their subtlety"
+        "description": "Dwarves aren't known for their subtlety."
     },
     "3569": {
         "i": 3569,
@@ -15248,7 +15248,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Arm of Gri'le"
+        "description": "Arm of Gri'lek"
     },
     "3660": {
         "i": 3660,
@@ -15771,7 +15771,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "To be opened by Lord Varimathras"
+        "description": "To be opened by Lord Varimathras."
     },
     "3702": {
         "i": 3702,
@@ -15826,7 +15826,7 @@
             "faction": "A"
         },
         "starts": 551,
-        "description": "Its letters are enshrouded in magic"
+        "description": "Its letters are enshrouded in magic."
     },
     "3708": {
         "i": 3708,
@@ -15893,7 +15893,7 @@
         "stack": 20,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Its magic has faded"
+        "description": "Its magic has faded."
     },
     "3715": {
         "i": 3715,
@@ -16972,7 +16972,7 @@
                 "Rogue"
             ]
         },
-        "description": "Used by rogues to brew poison"
+        "description": "Used by rogues to brew poison."
     },
     "3778": {
         "i": 3778,
@@ -19574,7 +19574,7 @@
             "silver": 0,
             "copper": 25
         },
-        "description": "Stone of the Tide",
+        "description": "Stone of the Tides",
         "click_to_read": true
     },
     "3900": {
@@ -19718,7 +19718,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A glowing gem filled with the soul of Yenniku"
+        "description": "A glowing gem filled with the soul of Yenniku."
     },
     "3914": {
         "i": 3914,
@@ -19824,7 +19824,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "It jingles when shaken"
+        "description": "It jingles when shaken."
     },
     "3925": {
         "i": 3925,

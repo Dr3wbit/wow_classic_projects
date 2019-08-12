@@ -81,7 +81,7 @@
                 "yellow": 225
             }
         },
-        "description": "Used by Gnomish Engineers to reinforce their creation",
+        "description": "Used by Gnomish Engineers to reinforce their creations",
         "i": 9060,
         "ilvl": 42,
         "image_name": "inv_musket_01",
@@ -108,7 +108,7 @@
                 "yellow": 225
             }
         },
-        "description": "Used by Goblin Engineers to power their creation",
+        "description": "Used by Goblin Engineers to power their creations",
         "i": 9061,
         "ilvl": 42,
         "image_name": "inv_cask_02",
@@ -205,7 +205,7 @@
                 "yellow": 240
             }
         },
-        "description": "Required for Alchemical Transmutation",
+        "description": "Required for Alchemical Transmutation.",
         "i": 9149,
         "ilvl": 45,
         "image_name": "inv_misc_orb_01",
@@ -1083,7 +1083,7 @@
     "9279": {
         "bop": true,
         "click_to_read": true,
-        "description": "Grants access to Matrix Punchograph 3005-",
+        "description": "Grants access to Matrix Punchograph 3005-A",
         "i": 9279,
         "ilvl": 1,
         "image_name": "inv_ingot_01",
@@ -1103,7 +1103,7 @@
                 "9279": 1
             }
         },
-        "description": "Grants access to Matrix Punchograph 3005-",
+        "description": "Grants access to Matrix Punchograph 3005-B",
         "i": 9280,
         "ilvl": 1,
         "image_name": "inv_ingot_01",
@@ -1119,7 +1119,7 @@
                 "9282": 1
             }
         },
-        "description": "Grants access to Matrix Punchograph 3005-",
+        "description": "Grants access to Matrix Punchograph 3005-D",
         "i": 9281,
         "ilvl": 1,
         "image_name": "inv_ingot_01",
@@ -1135,7 +1135,7 @@
                 "9280": 1
             }
         },
-        "description": "Grants access to Matrix Punchograph 3005-",
+        "description": "Grants access to Matrix Punchograph 3005-C",
         "i": 9282,
         "ilvl": 1,
         "image_name": "inv_ingot_01",
@@ -1145,7 +1145,7 @@
         "unique": true
     },
     "9283": {
-        "description": "One Shot, One Fil",
+        "description": "One Shot, One Fill",
         "i": 9283,
         "ilvl": 1,
         "image_name": "inv_drink_01",
@@ -1168,7 +1168,7 @@
         "created_by": {
             "materials": {}
         },
-        "description": "Keep Out of Reach of Childre",
+        "description": "Keep Out of Reach of Children",
         "i": 9284,
         "ilvl": 1,
         "image_name": "inv_drink_01",
@@ -1643,7 +1643,7 @@
         "quest_item": true
     },
     "9308": {
-        "description": "Caked grime obscures the true identity of this object",
+        "description": "Caked grime obscures the true identity of this object.",
         "i": 9308,
         "ilvl": 1,
         "image_name": "inv_ammo_firetar",
@@ -1777,7 +1777,7 @@
                 "9281": 1
             }
         },
-        "description": "Data card onl",
+        "description": "Data card only",
         "i": 9316,
         "ilvl": 1,
         "image_name": "inv_ingot_01",
@@ -1945,7 +1945,7 @@
         "unique": true
     },
     "9328": {
-        "description": "New & Improved",
+        "description": "New & Improved!",
         "i": 9328,
         "ilvl": 1,
         "image_name": "inv_misc_spyglass_03",
@@ -1960,7 +1960,7 @@
     },
     "9329": {
         "click_to_read": true,
-        "description": "Tied with a bow",
+        "description": "Tied with a bow.",
         "i": 9329,
         "ilvl": 1,
         "image_name": "inv_letter_13",
@@ -1974,7 +1974,7 @@
         "created_by": {
             "materials": {}
         },
-        "description": "She's so photogenic..",
+        "description": "She's so photogenic...",
         "i": 9330,
         "ilvl": 1,
         "image_name": "inv_misc_monsterhead_02",
@@ -2204,7 +2204,7 @@
         }
     },
     "9364": {
-        "description": "Handle With Car",
+        "description": "Handle With Care",
         "i": 9364,
         "ilvl": 1,
         "image_name": "inv_drink_01",
@@ -2227,7 +2227,7 @@
         "created_by": {
             "materials": {}
         },
-        "description": "DANGER! DO NOT INGEST",
+        "description": "DANGER! DO NOT INGEST!",
         "i": 9365,
         "ilvl": 1,
         "image_name": "spell_nature_abolishmagic",
@@ -5458,7 +5458,7 @@
     },
     "9509": {
         "boe": true,
-        "description": "Keep away from fire",
+        "description": "Keep away from fire.",
         "i": 9509,
         "ilvl": 30,
         "image_name": "inv_pants_08",
@@ -7467,7 +7467,7 @@
     },
     "9648": {
         "bop": true,
-        "description": "Now even less absorbant",
+        "description": "Now even less absorbant!",
         "i": 9648,
         "ilvl": 48,
         "image_name": "inv_misc_cape_05",

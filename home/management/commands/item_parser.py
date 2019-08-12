@@ -62,241 +62,242 @@ class Command(BaseCommand):
 		if test:
 			self.stdout.write(self.style.SQL_KEYWORD('this') + " is a "+ self.style.SUCCESS('test'))
 
-		for x in range(4, 25):
-				ALL_ITEMS = self.get_item_list(os.path.abspath('home/management/commands/data/items/items{}.js'.format(x)))
-				for ix, valu in ALL_ITEMS.items():
+		for x in range(5, 25):
+			print('page: ', x)
+			ALL_ITEMS = self.get_item_list(os.path.abspath('home/management/commands/data/items/items{}.js'.format(x)))
+			for ix, valu in ALL_ITEMS.items():
+				print('ix: ', ix)
+				try:
 
-					try:
+					I = int(ix)
+					# img = valu['image_name']
+					name = valu['n']
+					ilvl = valu['ilvl']
+					quality = valu['quality']
 
-						I = int(ix)
-						img = valu['image_name']
-						name = valu['n']
-						ilvl = valu['ilvl']
-						quality = valu['quality']
+					defaults = {
+						# 'img': img,
+						'quality': quality,
+						'ilvl': ilvl
+					}
 
-						defaults = {
-							'img': img,
-							'quality': quality,
-							'ilvl': ilvl
-						}
+					item,created = Item.objects.get_or_create(
+						ix=I, name=name, defaults=defaults
+					)
 
-						item,created = Item.objects.get_or_create(
-							ix=I, name=name, defaults=defaults
-						)
-
-						if noprof:
-							if 'consume' in valu.keys():
-								if 'created_by' in valu.keys():
-									if 'materials' in valu['created_by'].keys():
-										if bool(valu['created_by']['materials']):
-											continue
-
-								if 'reward_from' in valu.keys():
-									if 'materials' in valu['reward_from'].keys():
-										if bool(valu['reward_from']['materials']):
-
-											crafted,craft_created = Crafted.objects.get_or_create(
-												item=item, defaults={'item':item}
-											)
-
-											if 'step' in valu['reward_from'].keys():
-												crafted.step = int(valu['reward_from']['step'])
-
-											if craft_created:
-												self.stdout.write(self.style.SQL_KEYWORD('New') + " recipe for ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +") " + self.style.SQL_TABLE(item.name))
-												crafted.save()
-
-											for mat_ix, amount in valu['reward_from']['materials'].items():
-												mat_item = Item.objects.get(ix=mat_ix)
-												material, mat_created = Material.objects.get_or_create(
-													item=mat_item, creates=crafted, amount=int(amount),
-													defaults={'item':mat_item, 'creates':crafted, 'amount':int(amount)}
-												)
-												if mat_created:
-													crafted.materials.add(material)
-													crafted.save()
-													self.stdout.write(self.style.HTTP_NOT_MODIFIED(mat_item.name) + "("+ self.style.HTTP_NOT_MODIFIED(mat_item.ix) +") ")
-
-
-
-						if basic:
-
-							if 'consume' in valu.keys():
-								item.consume = True
-
-							if 'bop' in valu.keys():
-								item.bop = True
-
-							if 'unique' in valu.keys():
-								item.unique = True
-
-							slot = ''
-							if 'slot' in valu.keys():
-								if valu['slot'] != "":
-									slot = SLOT_TRANSLATOR[valu['slot']]
-									if bool(slot):
-										item._slot =  slot
-
-							proficiency = ''
-							if 'proficiency' in valu.keys():
-								valu['proficiency']
-								item._proficiency = self.get_proficiency(item._slot, valu['proficiency'])
-
-							if 'quest_item' in valu.keys():
-								item.quest_item = True
-
-							# NOTE: need to change profession setup? axesmith, tribal lw, etc.
-							if 'requirements' in valu.keys():
-								item.requirements = valu['requirements']
-
-							if 'speed' in valu.keys():
-								item.speed = float(valu['speed'])
-
-							if 'resist' in valu.keys():
-								item.resists = valu['resist']
-
-							if 'description' in valu.keys():
-								item.description = valu['description']
-								
-							item.save()
-
-						if crafted:
+					if noprof:
+						if 'consume' in valu.keys():
 							if 'created_by' in valu.keys():
-								if all(x in valu['created_by'].keys() for x in REQUIRED_FIELDS):
-									if bool(valu['created_by']['materials']) and bool(valu['created_by']['profession']):
-										prof_name = valu['created_by']['profession']
-										prof = Profession.objects.get(name=prof_name)
+								if 'materials' in valu['created_by'].keys():
+									if bool(valu['created_by']['materials']):
+										continue
+
+							if 'reward_from' in valu.keys():
+								if 'materials' in valu['reward_from'].keys():
+									if bool(valu['reward_from']['materials']):
 
 										crafted,craft_created = Crafted.objects.get_or_create(
-											profession=prof, item=item, defaults={
-												'profession':prof, 'item':item
-											}
+											item=item, defaults={'item':item}
 										)
-										if 'step' in valu['created_by'].keys():
-											crafted.step = int(valu['created_by']['step'])
 
+										if 'step' in valu['reward_from'].keys():
+											crafted.step = int(valu['reward_from']['step'])
 
 										if craft_created:
 											self.stdout.write(self.style.SQL_KEYWORD('New') + " recipe for ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +") " + self.style.SQL_TABLE(item.name))
 											crafted.save()
 
-										for k,v in valu['created_by']['materials'].items():
-
-											mat_item = Item.objects.get(ix=int(k))
-											material,mat_created = Material.objects.update_or_create(
-												item=mat_item, creates=crafted, amount=int(v),
-												defaults={'item':mat_item, 'creates':crafted, 'amount':int(v)}
+										for mat_ix, amount in valu['reward_from']['materials'].items():
+											mat_item = Item.objects.get(ix=mat_ix)
+											material, mat_created = Material.objects.get_or_create(
+												item=mat_item, creates=crafted, amount=int(amount),
+												defaults={'item':mat_item, 'creates':crafted, 'amount':int(amount)}
 											)
 											if mat_created:
-
 												crafted.materials.add(material)
 												crafted.save()
 												self.stdout.write(self.style.HTTP_NOT_MODIFIED(mat_item.name) + "("+ self.style.HTTP_NOT_MODIFIED(mat_item.ix) +") ")
 
 
-										if item.ilvl >= 250:
-											crafted.end_game = True
-											crafted.save()
 
-										if 'skill' in valu['created_by'].keys():
-											crafted.skillup = valu['created_by']['skill']
-											crafted.save()
+					if basic:
 
-						if advanced:
+						if 'consume' in valu.keys():
+							item.consume = True
 
-							if 'stats' in valu.keys():
-								stats = {}
-								for stat, v in valu['stats'].items():
-									if stat == 'durability':
-										item.durability = int(v)
-									elif stat == 'armor':
-										item.durability = int(v)
-									else:
-										stats[stat.title()] = int(v)
+						if 'bop' in valu.keys():
+							item.bop = True
 
-								if stats:
-									item.stats = stats
+						if 'unique' in valu.keys():
+							item.unique = True
 
-								elif not stats:
-									self.stdout.write(self.style.NOTICE('REMOVED') + " stats from ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+						slot = ''
+						if 'slot' in valu.keys():
+							if valu['slot'] != "":
+								slot = SLOT_TRANSLATOR[valu['slot']]
+								if bool(slot):
+									item._slot =  slot
 
-									item.stats = None
+						proficiency = ''
+						if 'proficiency' in valu.keys():
+							valu['proficiency']
+							item._proficiency = self.get_proficiency(item._slot, valu['proficiency'])
 
-								item.save()
+						if 'quest_item' in valu.keys():
+							item.quest_item = True
 
+						# NOTE: need to change profession setup? axesmith, tribal lw, etc.
+						if 'requirements' in valu.keys():
+							item.requirements = valu['requirements']
 
-							if 'damage' in valu.keys():
-								for dmg_type, highlow in valu['damage'].items():
-									if dmg_type == 'normal':
-										school = School.objects.get(name='Physical')
-									else:
-										school = School.objects.get(name=dmg_type)
+						if 'speed' in valu.keys():
+							item.speed = float(valu['speed'])
 
-									low,high = highlow
-									damage,_created = Damage.objects.get_or_create(
-										i=item, school=school,
-										defaults={'low':low, 'high':high}
+						if 'resist' in valu.keys():
+							item.resists = valu['resist']
+
+						if 'description' in valu.keys():
+							item.description = valu['description']
+
+						item.save()
+
+					if crafted:
+						if 'created_by' in valu.keys():
+							if all(x in valu['created_by'].keys() for x in REQUIRED_FIELDS):
+								if bool(valu['created_by']['materials']) and bool(valu['created_by']['profession']):
+									prof_name = valu['created_by']['profession']
+									prof = Profession.objects.get(name=prof_name)
+
+									crafted,craft_created = Crafted.objects.get_or_create(
+										profession=prof, item=item, defaults={
+											'profession':prof, 'item':item
+										}
 									)
+									if 'step' in valu['created_by'].keys():
+										crafted.step = int(valu['created_by']['step'])
 
-									if damage not in item.damage.all():
 
-										item.damage.add(damage)
-										self.stdout.write("("+self.style.HTTP_NOT_MODIFIED(item.ix)+") "+self.style.HTTP_NOT_MODIFIED(low) + " - " + self.style.HTTP_NOT_MODIFIED(high)+" "+ self.style.SQL_KEYWORD(str(school.name))+"Damage")
+									if craft_created:
+										self.stdout.write(self.style.SQL_KEYWORD('New') + " recipe for ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +") " + self.style.SQL_TABLE(item.name))
+										crafted.save()
 
-										item.save()
+									for k,v in valu['created_by']['materials'].items():
 
-							if 'effects' in valu.keys():
-								for effect_type,effect_list in valu['effects'].items():
-									for effect in effect_list:
-										s = effect['s']
-										t = effect['t']
-										spell,spell_created = Spell.objects.get_or_create(
-											ix=int(s), defaults={'t':t}
+										mat_item = Item.objects.get(ix=int(k))
+										material,mat_created = Material.objects.update_or_create(
+											item=mat_item, creates=crafted, amount=int(v),
+											defaults={'item':mat_item, 'creates':crafted, 'amount':int(v)}
 										)
+										if mat_created:
 
-										if spell_created:
-											self.stdout.write(self.style.SQL_KEYWORD('NEW') + " spell: ("+ self.style.SUCCESS(s) +")")
+											crafted.materials.add(material)
+											crafted.save()
+											self.stdout.write(self.style.HTTP_NOT_MODIFIED(mat_item.name) + "("+ self.style.HTTP_NOT_MODIFIED(mat_item.ix) +") ")
 
-										if effect_type == "equip":
-											if spell not in item.equips.all():
-												item.equips.add(spell)
-												self.stdout.write(self.style.SQL_KEYWORD('Equip') + " added to ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
 
-										elif effect_type == "proc":
-											if spell not in item.procs.all():
-												item.procs.add(spell)
-												self.stdout.write(self.style.SQL_KEYWORD('Proc') + " added to ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+									if item.ilvl >= 250:
+										crafted.end_game = True
+										crafted.save()
 
-										item.save()
+									if 'skill' in valu['created_by'].keys():
+										crafted.skillup = valu['created_by']['skill']
+										crafted.save()
 
-							if 'use' in valu.keys():
-								s = valu['use']['s']
-								t = valu['use']['t']
-								spell,spell_created = Spell.objects.get_or_create(
-									ix=int(s), defaults={'t':t}
+					if advanced:
+
+						if 'stats' in valu.keys():
+							stats = {}
+							for stat, v in valu['stats'].items():
+								if stat == 'durability':
+									item.durability = int(v)
+								elif stat == 'armor':
+									item.durability = int(v)
+								else:
+									stats[stat.title()] = int(v)
+
+							if stats:
+								item.stats = stats
+
+							elif not stats:
+								self.stdout.write(self.style.NOTICE('REMOVED') + " stats from ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+
+								item.stats = None
+
+							item.save()
+
+
+						if 'damage' in valu.keys():
+							for dmg_type, highlow in valu['damage'].items():
+								if dmg_type == 'normal':
+									school = School.objects.get(name='Physical')
+								else:
+									school = School.objects.get(name=dmg_type)
+
+								low,high = highlow
+								damage,_created = Damage.objects.get_or_create(
+									i=item, school=school,
+									defaults={'low':low, 'high':high}
 								)
 
-								if spell_created:
-									self.stdout.write(self.style.SQL_KEYWORD('NEW') + " spell: ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+								if damage not in item.damage.all():
 
-
-								if not item.use:
-
-									item.use = spell
-									self.stdout.write(self.style.SQL_KEYWORD('Use') + " added to ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+									item.damage.add(damage)
+									self.stdout.write("("+self.style.HTTP_NOT_MODIFIED(item.ix)+") "+self.style.HTTP_NOT_MODIFIED(low) + " - " + self.style.HTTP_NOT_MODIFIED(high)+" "+ self.style.SQL_KEYWORD(str(school.name))+"Damage")
 
 									item.save()
 
-							if 'disenchant' in valu.keys():
-								item.disenchant = valu['disenchant']
+						if 'effects' in valu.keys():
+							for effect_type,effect_list in valu['effects'].items():
+								for effect in effect_list:
+									s = effect['s']
+									t = effect['t']
+									spell,spell_created = Spell.objects.get_or_create(
+										ix=int(s), defaults={'t':t}
+									)
+
+									if spell_created:
+										self.stdout.write(self.style.SQL_KEYWORD('NEW') + " spell: ("+ self.style.SUCCESS(s) +")")
+
+									if effect_type == "equip":
+										if spell not in item.equips.all():
+											item.equips.add(spell)
+											self.stdout.write(self.style.SQL_KEYWORD('Equip') + " added to ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+
+									elif effect_type == "proc":
+										if spell not in item.procs.all():
+											item.procs.add(spell)
+											self.stdout.write(self.style.SQL_KEYWORD('Proc') + " added to ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+
+									item.save()
+
+						if 'use' in valu.keys():
+							s = valu['use']['s']
+							t = valu['use']['t']
+							spell,spell_created = Spell.objects.get_or_create(
+								ix=int(s), defaults={'t':t}
+							)
+
+							if spell_created:
+								self.stdout.write(self.style.SQL_KEYWORD('NEW') + " spell: ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+
+
+							if not item.use:
+
+								item.use = spell
+								self.stdout.write(self.style.SQL_KEYWORD('Use') + " added to ("+ self.style.HTTP_NOT_MODIFIED(item.ix) +")")
+
 								item.save()
 
-							# if created:
-							# 	self.stdout.write(self.style.SUCCESS('{} ({}) {} {}'.format(name, ix, slot, proficiency)))
+						if 'disenchant' in valu.keys():
+							item.disenchant = valu['disenchant']
+							item.save()
+
+						# if created:
+						# 	self.stdout.write(self.style.SUCCESS('{} ({}) {} {}'.format(name, ix, slot, proficiency)))
 
 
-					except Item.DoesNotExist:
-						raise CommandError('Item "%s" does not exist' % ix)
+				except Item.DoesNotExist:
+					raise CommandError('Item "%s" does not exist' % ix)
 
 
 

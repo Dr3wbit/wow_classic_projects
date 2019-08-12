@@ -4820,7 +4820,7 @@
         "image_name": "inv_misc_bag_12",
         "ilvl": 50,
         "bop": true,
-        "description": "A chest full of \"junk",
+        "description": "A chest full of \"junk\"",
         "reward_from": {
             "3502": 1
         }
@@ -5696,7 +5696,7 @@
         "image_name": "racial_dwarf_findtreasure",
         "ilvl": 1,
         "unique": true,
-        "description": "Three empty sockets cover the face",
+        "description": "Three empty sockets cover the face.",
         "dropped": {
             "9043": 8.0,
             "9044": 8.0,
@@ -7434,7 +7434,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The cage rattles and shakes",
+        "description": "The cage rattles and shakes.",
         "created_by": {
             "materials": {}
         },
@@ -7999,7 +7999,7 @@
             "Nature": 10,
             "Frost": 10
         },
-        "description": "Draconic runes appear and disappear along the inner band",
+        "description": "Draconic runes appear and disappear along the inner band.",
         "reward_from": {
             "4743": 1
         }
@@ -8655,7 +8655,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Master Key to the City of Stratholm",
+        "description": "Master Key to the City of Stratholme",
         "dropped": {
             "10435": 100.0
         }
@@ -10715,7 +10715,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Something seems to shake from withi",
+        "description": "Something seems to shake from within",
         "contained": {
             "objects": {
                 "175565": 100.0
@@ -10804,7 +10804,7 @@
             "s": 16378,
             "t": "Take a reading of the temperature at a hot spot. (cooldown 10 sec)"
         },
-        "description": "Quality Guaranteed by Kraklenheit Industrie",
+        "description": "Quality Guaranteed by Kraklenheit Industries",
         "provided_for": 974,
         "objective": 974
     },
@@ -11906,7 +11906,7 @@
             "level": 55
         },
         "starts": 4903,
-        "description": "Bears the seal of the K.E.F",
+        "description": "Bears the seal of the K.E.F.",
         "created_by": {
             "materials": {}
         },
@@ -12146,7 +12146,7 @@
             "s": 16537,
             "t": "Cures 1 poison effect."
         },
-        "description": "Protects the brood against Mother's Milk. Efficacy decays over time",
+        "description": "Protects the brood against Mother's Milk. Efficacy decays over time.",
         "dropped": {
             "10375": 96.0,
             "10374": 71.0
@@ -13529,7 +13529,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Sickening, bloody, foulness",
+        "description": "Sickening, bloody, foulness.",
         "dropped": {
             "10429": 100.0
         },
@@ -13888,7 +13888,7 @@
         "stack": 20,
         "ilvl": 0,
         "quest_item": true,
-        "description": "The hands of this watch are frozen at 3:00",
+        "description": "The hands of this watch are frozen at 3:00.",
         "contained": {
             "objects": {
                 "175802": 100.0
@@ -14308,7 +14308,7 @@
             "s": 16629,
             "t": "Inflict 525 to 676 arcane damage on the attuned target, and lower the damage it deals by 25%. (cooldown 1 min)"
         },
-        "description": "This object has been attuned to work against a specific being",
+        "description": "This object has been attuned to work against a specific being.",
         "reward_from": {
             "quest": 4973,
             "step": 1,
@@ -14374,7 +14374,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "TOP SECRE",
+        "description": "TOP SECRET",
         "provided_for": 4983,
         "objective": 4983
     },
@@ -14559,7 +14559,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Glyphs of a druidic nature adorn the branch",
+        "description": "Glyphs of a druidic nature adorn the branch.",
         "provided_for": 4987,
         "objective": 4987
     },
@@ -15610,7 +15610,7 @@
                 }
             ]
         },
-        "description": "Property of Finkle Einhorn, Grandmaster Adventure",
+        "description": "Property of Finkle Einhorn, Grandmaster Adventurer",
         "dropped": {
             "10430": 19.0
         },
@@ -15631,7 +15631,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "It Glows",
+        "description": "It Glows!",
         "provided_for": 5047,
         "objective": 5047
     },
@@ -17998,7 +17998,7 @@
         "ilvl": 60,
         "bop": true,
         "unique": true,
-        "description": "Covered in Demonic runes",
+        "description": "Covered in Demonic runes.",
         "contained": {
             "objects": {
                 "175970": 100.0
@@ -18274,7 +18274,7 @@
         },
         "unique": true,
         "quest_item": true,
-        "description": "It's got enough juice to set a large tent on fire",
+        "description": "It's got enough juice to set a large tent on fire!",
         "contained": {
             "objects": {
                 "176092": 100.0
@@ -18910,7 +18910,7 @@
         "bop": true,
         "unique": true,
         "slot": "Trinket",
-        "description": "Equipping this badge is an indication of service to the Argent Dawn",
+        "description": "Equipping this badge is an indication of service to the Argent Dawn.",
         "created_by": {
             "materials": {}
         },
@@ -18948,7 +18948,7 @@
             "s": 17048,
             "t": "Claim the promised soul."
         },
-        "description": "Fel energies pulse across the pike",
+        "description": "Fel energies pulse across the pike.",
         "provided_for": 5127,
         "consume": true
     },
@@ -19364,7 +19364,7 @@
         "image_name": "inv_misc_candle_03",
         "stack": 5,
         "ilvl": 1,
-        "description": "A ritual candle from the depths of Jaedenar, new home of the Shadow Council",
+        "description": "A ritual candle from the depths of Jaedenar, new home of the Shadow Council.",
         "contained": {
             "objects": {
                 "176188": 100.0

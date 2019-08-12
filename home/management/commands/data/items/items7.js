@@ -3939,7 +3939,7 @@
         "image_name": "inv_gizmo_pipe_04",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This antenna won't twitch foreve",
+        "description": "This antenna won't twitch forever",
         "dropped": {
             "3250": 100.0,
             "3251": 100.0,
@@ -4925,7 +4925,7 @@
         "image_name": "inv_misc_book_01",
         "ilvl": 1,
         "quest_item": true,
-        "description": "By Magus Tirt",
+        "description": "By Magus Tirth",
         "contained": {
             "objects": {
                 "103664": 100.0
@@ -5798,7 +5798,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Use near a mana rift disturbanc",
+        "description": "Use near a mana rift disturbance",
         "contained": {
             "objects": {
                 "105175": 100.0
@@ -6413,7 +6413,7 @@
             "copper": 0
         },
         "slot": "Finger",
-        "description": "It's huge",
+        "description": "It's huge!",
         "sold": {
             "2849": {
                 "cost": {
@@ -6436,7 +6436,7 @@
             "copper": 0
         },
         "slot": "Finger",
-        "description": "It's blue, wait, it's green",
+        "description": "It's blue, wait, it's green!",
         "sold": {
             "2849": {
                 "cost": {
@@ -6474,7 +6474,7 @@
             "copper": 0
         },
         "slot": "Finger",
-        "description": "Hey, it's still a diamond",
+        "description": "Hey, it's still a diamond.",
         "sold": {
             "2849": {
                 "cost": {
@@ -6507,7 +6507,7 @@
             "copper": 0
         },
         "slot": "Finger",
-        "description": "Will you marry me",
+        "description": "Will you marry me?",
         "sold": {
             "2849": {
                 "cost": {
@@ -6530,7 +6530,7 @@
             "copper": 0
         },
         "slot": "Finger",
-        "description": "Trust me, she'll know",
+        "description": "Trust me, she'll know.",
         "sold": {
             "2849": {
                 "cost": {
@@ -6571,7 +6571,7 @@
             "copper": 0
         },
         "slot": "Finger",
-        "description": "Nothing says sorry like Piffeny",
+        "description": "Nothing says sorry like Piffeny.",
         "sold": {
             "2849": {
                 "cost": {
@@ -19245,7 +19245,7 @@
         "ilvl": 0,
         "unique": true,
         "quest_item": true,
-        "description": "A sealed lette",
+        "description": "A sealed letter",
         "provided_for": 8,
         "objective": 8
     },
@@ -19425,7 +19425,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Seale",
+        "description": "Sealed",
         "provided_for": 2205,
         "objective": 2205
     },
@@ -20992,7 +20992,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Written in a language you cannot decipher",
+        "description": "Written in a language you cannot decipher.",
         "pickpocketed": {
             "6909": 100.0
         },
@@ -22456,7 +22456,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Inside this lockbox are the empty thaumaturgy vessels",
+        "description": "Inside this lockbox are the empty thaumaturgy vessels.",
         "provided_for": 2501
     },
     "7871": {
@@ -22482,7 +22482,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "You do not understand the writing in the journal",
+        "description": "You do not understand the writing in the journal.",
         "provided_for": 2338,
         "objective": 2338
     },
@@ -25834,7 +25834,7 @@
             "s": 9976,
             "t": "Parrots love crackers!"
         },
-        "description": "Enormous Chemically Altered Cracke",
+        "description": "Enormous Chemically Altered Cracker",
         "created_by": {
             "materials": {}
         },

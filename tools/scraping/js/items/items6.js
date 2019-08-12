@@ -1027,7 +1027,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "These documents are sealed by a magical force",
+        "description": "These documents are sealed by a magical force.",
         "dropped": {
             "764": 5.0,
             "765": 5.0,
@@ -2105,7 +2105,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Place upon Yuriv's grave",
+        "description": "Place upon Yuriv's grave.",
         "provided_for": 264,
         "objective": 264
     },
@@ -3698,7 +3698,7 @@
             "silver": 0,
             "copper": 24
         },
-        "description": "Needed by an Enchanter to make a runed copper rod",
+        "description": "Needed by an Enchanter to make a runed copper rod.",
         "sold": {
             "2118": {
                 "cost": {
@@ -6112,7 +6112,7 @@
             "silver": 0,
             "copper": 20
         },
-        "description": "Looks like someone didn't like this guy"
+        "description": "Looks like someone didn't like this guy."
     },
     "6302": {
         "i": 6302,
@@ -7487,7 +7487,7 @@
             "silver": 1,
             "copper": 25
         },
-        "description": "Needed by Enchanters",
+        "description": "Needed by Enchanters.",
         "created_by": {
             "profession": "Blacksmithing",
             "skill": {
@@ -8080,7 +8080,7 @@
             "silver": 0,
             "copper": 1
         },
-        "description": "Venture Company Supplie"
+        "description": "Venture Company Supplies"
     },
     "6352": {
         "i": 6352,
@@ -8093,7 +8093,7 @@
             "silver": 0,
             "copper": 1
         },
-        "description": "Venture Company Supplie"
+        "description": "Venture Company Supplies"
     },
     "6353": {
         "i": 6353,
@@ -8154,7 +8154,7 @@
             "silver": 0,
             "copper": 1
         },
-        "description": "Venture Company Supplie"
+        "description": "Venture Company Supplies"
     },
     "6358": {
         "i": 6358,
@@ -23785,7 +23785,7 @@
         "requirements": {
             "level": 7
         },
-        "description": "Alterac Old-and-Yello"
+        "description": "Alterac Old-and-Yellow"
     },
     "6652": {
         "i": 6652,
@@ -27318,7 +27318,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "By the hand of Khadga",
+        "description": "By the hand of Khadgar",
         "contained": {
             "objects": {
                 "83763": 100.0
@@ -29734,7 +29734,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This letter is seale",
+        "description": "This letter is sealed",
         "provided_for": 1703,
         "objective": 1703
     },
@@ -29798,7 +29798,7 @@
             "s": 8712,
             "t": "Call forth a felhunter using the summoning circle. (cooldown 3 min)"
         },
-        "description": "Faint letters on the cover of the locked book read, 'Tome of the Cabal.",
+        "description": "Faint letters on the cover of the locked book read, 'Tome of the Cabal.'",
         "contained": {
             "objects": {
                 "92013": 100.0
@@ -31311,7 +31311,7 @@
             "s": 8712,
             "t": "Call forth a felhunter using the summoning circle. (cooldown 3 min)"
         },
-        "description": "A large number of papers from the 'Tome of the Cabal.",
+        "description": "A large number of papers from the 'Tome of the Cabal.'",
         "contained": {
             "objects": {
                 "92423": 100.0

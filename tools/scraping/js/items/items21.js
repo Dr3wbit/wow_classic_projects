@@ -91,7 +91,7 @@
         "image_name": "inv_misc_food_15",
         "ilvl": 1,
         "quest_item": true,
-        "description": "It really does look like a big chicken",
+        "description": "It really does look like a big chicken.",
         "dropped": {
             "12803": 100.0
         },
@@ -449,7 +449,7 @@
         "image_name": "ability_spy",
         "ilvl": 1,
         "bop": true,
-        "description": "A map indicating where the crooks expect the drop-off to be made",
+        "description": "A map indicating where the crooks expect the drop-off to be made.",
         "click_to_read": true,
         "dropped": {
             "7446": 0.02,
@@ -477,7 +477,7 @@
             "s": 25688,
             "t": "Transforms the appearance of the recipient to resemble Narain Soothfancy."
         },
-        "description": "Use with Narain's Robe to disguise yourself as Narain",
+        "description": "Use with Narain's Robe to disguise yourself as Narain!",
         "dropped": {
             "7446": 0.02,
             "11357": 0.02
@@ -744,7 +744,7 @@
         "stack": 100,
         "ilvl": 1,
         "bop": true,
-        "description": "A symbol of honor and respect for one's ancestry",
+        "description": "A symbol of honor and respect for one's ancestry.",
         "objective": 8876,
         "reward_from": {
             "8674": 1
@@ -758,7 +758,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Chapter ",
+        "description": "Chapter I",
         "dropped": {
             "15552": 100.0
         },
@@ -774,7 +774,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Chapter I",
+        "description": "Chapter II",
         "dropped": {
             "8716": 4.0,
             "8717": 4.0,
@@ -792,7 +792,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Chapter II",
+        "description": "Chapter III",
         "dropped": {
             "7461": 6.0,
             "7463": 6.0
@@ -809,7 +809,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Chapter I",
+        "description": "Chapter IV",
         "created_by": {
             "materials": {}
         },
@@ -825,7 +825,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Chapter ",
+        "description": "Chapter V",
         "created_by": {
             "materials": {}
         },
@@ -841,7 +841,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Chapter V",
+        "description": "Chapter VI",
         "dropped": {
             "10184": 100.0
         },
@@ -857,7 +857,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Chapter VI",
+        "description": "Chapter VII",
         "created_by": {
             "materials": {}
         },
@@ -873,7 +873,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Chapter VII",
+        "description": "Chapter VIII",
         "dropped": {
             "11502": 100.0
         },
@@ -1540,7 +1540,7 @@
             "s": 25793,
             "t": "Place the torch in the mouth of High Chief Winterfall's cave to summon the demon that is corrupting the Winterfall furbolgs. Bring some friends before planting it... (cooldown 10 min)"
         },
-        "description": "A shamanistic device fashioned by the Timbermaw to summon forth corrupting demons",
+        "description": "A shamanistic device fashioned by the Timbermaw to summon forth corrupting demons.",
         "provided_for": 8481,
         "objective": 8481
     },
@@ -1565,7 +1565,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "-Hinterland",
+        "description": "-Hinterlands",
         "dropped": {
             "12477": 5.0,
             "12478": 5.0,
@@ -1581,7 +1581,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "-Ashenval",
+        "description": "-Ashenvale",
         "dropped": {
             "12474": 5.0,
             "12475": 5.0,
@@ -1597,7 +1597,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "-Ferala",
+        "description": "-Feralas",
         "dropped": {
             "5317": 5.0,
             "5319": 5.0,
@@ -1613,7 +1613,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "-Duskwoo",
+        "description": "-Duskwood",
         "dropped": {
             "15625": 100.0
         },
@@ -1760,7 +1760,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This truesilver-wrought item is a furbolg symbol of peace. A sealed message is attached to it",
+        "description": "This truesilver-wrought item is a furbolg symbol of peace. A sealed message is attached to it.",
         "provided_for": 8485,
         "objective": 8485
     },
@@ -2744,7 +2744,7 @@
                 }
             ]
         },
-        "description": "The Path of the Protecto",
+        "description": "The Path of the Protector",
         "created_by": {
             "materials": {}
         },
@@ -2782,7 +2782,7 @@
                 }
             ]
         },
-        "description": "The Path of the Protecto",
+        "description": "The Path of the Protector",
         "created_by": {
             "materials": {}
         },
@@ -2820,7 +2820,7 @@
                 }
             ]
         },
-        "description": "The Path of the Protecto",
+        "description": "The Path of the Protector",
         "created_by": {
             "materials": {}
         },
@@ -2858,7 +2858,7 @@
                 }
             ]
         },
-        "description": "The Path of the Protecto",
+        "description": "The Path of the Protector",
         "created_by": {
             "materials": {}
         },
@@ -2896,7 +2896,7 @@
                 }
             ]
         },
-        "description": "The Path of the Protecto",
+        "description": "The Path of the Protector",
         "created_by": {
             "materials": {}
         },
@@ -2934,7 +2934,7 @@
                 }
             ]
         },
-        "description": "The Path of the Conquero",
+        "description": "The Path of the Conqueror",
         "created_by": {
             "materials": {}
         },
@@ -2972,7 +2972,7 @@
                 }
             ]
         },
-        "description": "The Path of the Conquero",
+        "description": "The Path of the Conqueror",
         "created_by": {
             "materials": {}
         },
@@ -3010,7 +3010,7 @@
                 }
             ]
         },
-        "description": "The Path of the Conquero",
+        "description": "The Path of the Conqueror",
         "created_by": {
             "materials": {}
         },
@@ -3048,7 +3048,7 @@
                 }
             ]
         },
-        "description": "The Path of the Conquero",
+        "description": "The Path of the Conqueror",
         "created_by": {
             "materials": {}
         },
@@ -3086,7 +3086,7 @@
                 }
             ]
         },
-        "description": "The Path of the Conquero",
+        "description": "The Path of the Conqueror",
         "created_by": {
             "materials": {}
         },
@@ -3128,7 +3128,7 @@
                 }
             ]
         },
-        "description": "The Path of the Invoke",
+        "description": "The Path of the Invoker",
         "created_by": {
             "materials": {}
         },
@@ -3170,7 +3170,7 @@
                 }
             ]
         },
-        "description": "The Path of the Invoke",
+        "description": "The Path of the Invoker",
         "created_by": {
             "materials": {}
         },
@@ -3212,7 +3212,7 @@
                 }
             ]
         },
-        "description": "The Path of the Invoke",
+        "description": "The Path of the Invoker",
         "created_by": {
             "materials": {}
         },
@@ -3254,7 +3254,7 @@
                 }
             ]
         },
-        "description": "The Path of the Invoke",
+        "description": "The Path of the Invoker",
         "created_by": {
             "materials": {}
         },
@@ -3296,7 +3296,7 @@
                 }
             ]
         },
-        "description": "The Path of the Invoke",
+        "description": "The Path of the Invoker",
         "created_by": {
             "materials": {}
         },
@@ -3313,7 +3313,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This strange dust should allow Metzen to be freed when sprinkled on him",
+        "description": "This strange dust should allow Metzen to be freed when sprinkled on him.",
         "contained": {
             "items": {
                 "21315": 100.0
@@ -3430,7 +3430,7 @@
             "s": 25990,
             "t": "Restores 5% of your health and mana per second for 20 sec. Must remain seated while eating. You should also probably like the taste of fruitcake."
         },
-        "description": "Preserved with Graccu's special spices! It'll be a very long time before these turn bad..",
+        "description": "Preserved with Graccu's special spices! It'll be a very long time before these turn bad...",
         "contained": {
             "items": {
                 "21216": 100.0,
@@ -3908,7 +3908,7 @@
         "requirements": {
             "level": 60
         },
-        "description": "Ceremonial Armaments of the Qiraji Lords. Used by Qiraji infantry",
+        "description": "Ceremonial Armaments of the Qiraji Lords. Used by Qiraji infantry.",
         "dropped": {
             "15275": 4.0,
             "15276": 4.0,
@@ -3958,7 +3958,7 @@
         "requirements": {
             "level": 60
         },
-        "description": "Regalia of Qiraji Nobility. Used by Qiraji spell casters",
+        "description": "Regalia of Qiraji Nobility. Used by Qiraji spell casters.",
         "dropped": {
             "15275": 4.0,
             "15276": 4.0,
@@ -4033,7 +4033,7 @@
                 }
             ]
         },
-        "description": "The weapon is infused and reinforced with Elementium",
+        "description": "The weapon is infused and reinforced with Elementium.",
         "reward_from": {
             "8789": 1
         },
@@ -4103,7 +4103,7 @@
                 }
             ]
         },
-        "description": "The weapon is infused and reinforced with Elementium",
+        "description": "The weapon is infused and reinforced with Elementium.",
         "reward_from": {
             "8789": 1
         },
@@ -4275,7 +4275,7 @@
             "s": 24869,
             "t": "Restores 2% of your health per second for 24 sec. Must remain seated while eating. If you spend at least 10 seconds eating you will become well fed and gain Stamina and Spirit for 15 min."
         },
-        "description": "Fresh from the ove",
+        "description": "Fresh from the oven",
         "contained": {
             "items": {
                 "21191": 100.0
@@ -4591,7 +4591,7 @@
                 }
             ]
         },
-        "description": "The weapon is infused and reinforced with Elementium",
+        "description": "The weapon is infused and reinforced with Elementium.",
         "reward_from": {
             "8790": 1
         },
@@ -4645,7 +4645,7 @@
                 }
             ]
         },
-        "description": "The shield is infused and reinforced with Elementium",
+        "description": "The shield is infused and reinforced with Elementium.",
         "reward_from": {
             "8789": 1
         },
@@ -4718,7 +4718,7 @@
                 }
             ]
         },
-        "description": "The weapon is infused and reinforced with Elementium",
+        "description": "The weapon is infused and reinforced with Elementium.",
         "reward_from": {
             "8789": 1
         },
@@ -4778,7 +4778,7 @@
                 }
             ]
         },
-        "description": "The weapon is infused and reinforced with Elementium",
+        "description": "The weapon is infused and reinforced with Elementium.",
         "reward_from": {
             "8790": 1
         },
@@ -4834,7 +4834,7 @@
                 }
             ]
         },
-        "description": "The weapon is infused and reinforced with Elementium",
+        "description": "The weapon is infused and reinforced with Elementium.",
         "reward_from": {
             "8790": 1
         },
@@ -5918,7 +5918,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "A collection of information related to the whereabouts of Metzen the reindeer, including both ransom notes",
+        "description": "A collection of information related to the whereabouts of Metzen the reindeer, including both ransom notes.",
         "click_to_read": true,
         "contained": {
             "items": {
@@ -5934,7 +5934,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Inside are the things you will need to rescue Metzen the Reindeer",
+        "description": "Inside are the things you will need to rescue Metzen the Reindeer!",
         "provided_for": 8762
     },
     "21316": {
@@ -8910,7 +8910,7 @@
             "copper": 0
         },
         "bop": true,
-        "description": "These may be gathered for the Timbermaw furbolgs to earn their trust",
+        "description": "These may be gathered for the Timbermaw furbolgs to earn their trust.",
         "dropped": {
             "7156": 35.0,
             "7157": 35.0,
@@ -9037,7 +9037,7 @@
             "copper": 0
         },
         "bop": true,
-        "description": "These may be gathered for the Timbermaw furbolgs to earn their trust",
+        "description": "These may be gathered for the Timbermaw furbolgs to earn their trust.",
         "dropped": {
             "7438": 30.0,
             "10738": 30.0,
@@ -10545,7 +10545,7 @@
         "stack": 100,
         "ilvl": 1,
         "bop": true,
-        "description": "Seek out an Alliance Commendation Officer to exchange signets for recognition",
+        "description": "Seek out an Alliance Commendation Officer to exchange signets for recognition.",
         "objective": 8849,
         "reward_from": {
             "8499": 10
@@ -10559,7 +10559,7 @@
         "stack": 100,
         "ilvl": 1,
         "bop": true,
-        "description": "Seek out an Horde Commendation Officer to exchange signets for recognition",
+        "description": "Seek out an Horde Commendation Officer to exchange signets for recognition.",
         "objective": 8854,
         "reward_from": {
             "8604": 10
@@ -12192,7 +12192,7 @@
             "s": 26168,
             "t": "Spikes sprout from you causing 25 Nature damage to attackers when hit. Lasts 30 sec. (cooldown 3 min)"
         },
-        "description": "Ouc",
+        "description": "Ouch",
         "dropped": {
             "15370": 14.0
         },
@@ -12614,7 +12614,7 @@
                 }
             ]
         },
-        "description": "Still dripping with bloo",
+        "description": "Still dripping with blood",
         "dropped": {
             "15348": 17.0
         },
@@ -13680,7 +13680,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A tiny fragment of a very large insect",
+        "description": "A tiny fragment of a very large insect.",
         "provided_for": 8859,
         "objective": 8859
     },
@@ -13692,7 +13692,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A tiny fragment of a very large insect",
+        "description": "A tiny fragment of a very large insect.",
         "provided_for": 8857,
         "objective": 8857
     },
@@ -13704,7 +13704,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "A tiny fragment of a very large insect",
+        "description": "A tiny fragment of a very large insect.",
         "provided_for": 8858,
         "objective": 8858
     },
@@ -13806,7 +13806,7 @@
             "s": 26265,
             "t": "Create an Elune Stone. Requires a Solid Stone. (cooldown 1 day)"
         },
-        "description": "A device said to capture the light shed by Elune herself",
+        "description": "A device said to capture the light shed by Elune herself.",
         "reward_from": {
             "8868": 1
         }
@@ -13897,7 +13897,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Use before 201",
+        "description": "Use before 2010",
         "provided_for": 8861,
         "objective": 8861
     },
@@ -16393,7 +16393,7 @@
                 }
             ]
         },
-        "description": "Recently devoure",
+        "description": "Recently devoured",
         "dropped": {
             "15299": 14.0
         },
@@ -16725,7 +16725,7 @@
         "image_name": "inv_box_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Filled with fireworks to celebrate the Lunar Festival in style",
+        "description": "Filled with fireworks to celebrate the Lunar Festival in style!",
         "reward_from": {
             "8876": 1
         }
@@ -20623,7 +20623,7 @@
             "copper": 10
         },
         "bop": true,
-        "description": "A small message of affection..",
+        "description": "A small message of affection...",
         "sold": {
             "2352": {
                 "stock": 10,
@@ -20770,7 +20770,7 @@
         "n": "Heart Candy",
         "image_name": "inv_valentinescandy",
         "ilvl": 1,
-        "description": "Be mine",
+        "description": "Be mine!",
         "created_by": {
             "materials": {}
         }
@@ -20781,7 +20781,7 @@
         "n": "Heart Candy",
         "image_name": "inv_valentinescandy",
         "ilvl": 1,
-        "description": "I LOVE YO",
+        "description": "I LOVE YOU",
         "created_by": {
             "materials": {}
         }
@@ -20792,7 +20792,7 @@
         "n": "Heart Candy",
         "image_name": "inv_valentinescandy",
         "ilvl": 1,
-        "description": "I'll follow you all around Azeroth",
+        "description": "I'll follow you all around Azeroth.",
         "created_by": {
             "materials": {}
         }
@@ -20803,7 +20803,7 @@
         "n": "Heart Candy",
         "image_name": "inv_valentinescandy",
         "ilvl": 1,
-        "description": "All yours",
+        "description": "All yours.",
         "created_by": {
             "materials": {}
         }
@@ -20814,7 +20814,7 @@
         "n": "Heart Candy",
         "image_name": "inv_valentinescandy",
         "ilvl": 1,
-        "description": "You're the best",
+        "description": "You're the best!",
         "created_by": {
             "materials": {}
         }
@@ -20825,7 +20825,7 @@
         "n": "Heart Candy",
         "image_name": "inv_valentinescandy",
         "ilvl": 1,
-        "description": "I'm all yours",
+        "description": "I'm all yours!",
         "created_by": {
             "materials": {}
         }
@@ -20836,7 +20836,7 @@
         "n": "Heart Candy",
         "image_name": "inv_valentinescandy",
         "ilvl": 1,
-        "description": "You're mine",
+        "description": "You're mine!",
         "created_by": {
             "materials": {}
         }
@@ -20847,7 +20847,7 @@
         "n": "Heart Candy",
         "image_name": "inv_valentinescandy",
         "ilvl": 1,
-        "description": "Hot lips",
+        "description": "Hot lips.",
         "created_by": {
             "materials": {}
         }
@@ -20998,7 +20998,7 @@
         "image_name": "inv_misc_giftwrap_02",
         "stack": 10,
         "ilvl": 1,
-        "description": "This one is missing..",
+        "description": "This one is missing...",
         "contained": {
             "items": {
                 "21812": 31.0
@@ -21696,7 +21696,7 @@
             "copper": 0
         },
         "unique": true,
-        "description": "Fel and Elemental, two great tastes..",
+        "description": "Fel and Elemental, two great tastes...",
         "sold": {
             "16015": {
                 "cost": {
@@ -21860,7 +21860,7 @@
             "s": 27146,
             "t": "Recombines the left, right and top pieces of Lord Valthalak's Amulet into one whole."
         },
-        "description": "The evil trapped within this fragment seems to be growing stronger..",
+        "description": "The evil trapped within this fragment seems to be growing stronger...",
         "created_by": {
             "materials": {}
         },
@@ -21916,7 +21916,7 @@
         "image_name": "inv_ore_thorium_01",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This still-smoldering chunk of Lord Incendius will make for an excellent coal",
+        "description": "This still-smoldering chunk of Lord Incendius will make for an excellent coal.",
         "dropped": {
             "9017": 100.0
         },
@@ -21929,7 +21929,7 @@
         "image_name": "inv_ammo_firetar",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This one's far too hot to touch... better wrap it in something nonflammable",
+        "description": "This one's far too hot to touch... better wrap it in something nonflammable!",
         "dropped": {
             "9816": 100.0
         },
@@ -21942,7 +21942,7 @@
         "image_name": "spell_fire_fire",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This visceral chunk of the Duke burns on, fueled by his hatred for you",
+        "description": "This visceral chunk of the Duke burns on, fueled by his hatred for you.",
         "dropped": {
             "15206": 100.0
         },

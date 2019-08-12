@@ -8145,7 +8145,7 @@
     "8687": {
         "i": 8687,
         "quality": 1,
-        "n": "Sealed Description of Thredd's Visitor.",
+        "n": "Sealed Description of Thredd's Visitor",
         "image_name": "inv_misc_note_02",
         "ilvl": 1,
         "unique": true,

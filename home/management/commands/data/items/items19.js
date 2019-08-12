@@ -12,7 +12,7 @@
             "faction": "H"
         },
         "starts": 7783,
-        "description": "The head of Nefarian: Brood of Deathwing",
+        "description": "The head of Nefarian: Brood of Deathwing.",
         "dropped": {
             "11583": 100.0
         },
@@ -32,7 +32,7 @@
             "faction": "A"
         },
         "starts": 7781,
-        "description": "The head of Nefarian: Brood of Deathwing",
+        "description": "The head of Nefarian: Brood of Deathwing.",
         "dropped": {
             "11583": 100.0
         },
@@ -421,7 +421,7 @@
                 }
             ]
         },
-        "description": "Limited Editio",
+        "description": "Limited Edition",
         "reward_from": {
             "7815": 1
         },
@@ -6269,7 +6269,7 @@
         "image_name": "inv_jewelry_talisman_10",
         "stack": 250,
         "ilvl": 1,
-        "description": "Proof of winning a battle in Warsong Gulc",
+        "description": "Proof of winning a battle in Warsong Gulch",
         "created_by": {
             "materials": {}
         },
@@ -6705,7 +6705,7 @@
             "level": 1
         },
         "starts": 7907,
-        "description": "Property of the Darkmoon Faire",
+        "description": "Property of the Darkmoon Faire.",
         "created_by": {
             "materials": {
                 "19227": 1,
@@ -6738,7 +6738,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Never eat beef with a tauren",
+        "description": "Never eat beef with a tauren.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -6954,7 +6954,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "The Forsaken are up to something",
+        "description": "The Forsaken are up to something.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -6968,7 +6968,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "An enemy from your past will soon become an ally",
+        "description": "An enemy from your past will soon become an ally.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -6982,7 +6982,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "You will be fortunate in everything you put your hands to",
+        "description": "You will be fortunate in everything you put your hands to.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -6996,7 +6996,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Someone is speaking well of you",
+        "description": "Someone is speaking well of you.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7010,7 +7010,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Be cautious when landing in unfamiliar territory",
+        "description": "Be cautious when landing in unfamiliar territory.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7024,7 +7024,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Avoid taking unnecessary gambles",
+        "description": "Avoid taking unnecessary gambles.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7038,7 +7038,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "You will receive a fortune",
+        "description": "You will receive a fortune.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7052,7 +7052,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Your first love and last love is self-love",
+        "description": "Your first love and last love is self-love.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7066,7 +7066,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Rest is a good thing, but boredom is its brother",
+        "description": "Rest is a good thing, but boredom is its brother.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7080,7 +7080,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Those with simple tastes are always satisfied with the best",
+        "description": "Those with simple tastes are always satisfied with the best.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7094,7 +7094,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Let not the tides of war wash you away",
+        "description": "Let not the tides of war wash you away.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7108,7 +7108,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "You leave your adversaries speechless",
+        "description": "You leave your adversaries speechless.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7122,7 +7122,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "You have a good eye for spotting hypocrisy",
+        "description": "You have a good eye for spotting hypocrisy.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7136,7 +7136,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "One learns most when teaching others",
+        "description": "One learns most when teaching others.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7150,7 +7150,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "The time will soon come for you to make a choice in a pressing matter",
+        "description": "The time will soon come for you to make a choice in a pressing matter.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7164,7 +7164,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Accept the next proposition you hear",
+        "description": "Accept the next proposition you hear.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7178,7 +7178,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Never punt a gnome without due cause",
+        "description": "Never punt a gnome without due cause.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7192,7 +7192,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Divine Shields and Hearthstones do not make a hero heroic",
+        "description": "Divine Shields and Hearthstones do not make a hero heroic.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7206,7 +7206,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "An answer in blue is always true",
+        "description": "An answer in blue is always true.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7220,7 +7220,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "You will find something wonderful tomorrow",
+        "description": "You will find something wonderful tomorrow.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7242,7 +7242,7 @@
             "level": 1
         },
         "starts": 7928,
-        "description": "Property of the Darkmoon Faire",
+        "description": "Property of the Darkmoon Faire.",
         "created_by": {
             "materials": {
                 "19258": 1,
@@ -7514,7 +7514,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Many a false step is made by standing still",
+        "description": "Many a false step is made by standing still.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -7536,7 +7536,7 @@
             "level": 1
         },
         "starts": 7929,
-        "description": "Property of the Darkmoon Faire",
+        "description": "Property of the Darkmoon Faire.",
         "created_by": {
             "materials": {
                 "19268": 1,
@@ -7829,7 +7829,7 @@
             "level": 1
         },
         "starts": 7927,
-        "description": "Property of the Darkmoon Faire",
+        "description": "Property of the Darkmoon Faire.",
         "created_by": {
             "materials": {
                 "19276": 1,
@@ -8327,7 +8327,7 @@
         "requirements": {
             "level": 45
         },
-        "description": "Guaranteed to contain an item of value",
+        "description": "Guaranteed to contain an item of value!",
         "reward_from": {
             "7933": 1
         }
@@ -8346,7 +8346,7 @@
         "requirements": {
             "level": 30
         },
-        "description": "Guaranteed to contain an item of value",
+        "description": "Guaranteed to contain an item of value!",
         "reward_from": {
             "7932": 1
         }
@@ -8365,7 +8365,7 @@
         "requirements": {
             "level": 15
         },
-        "description": "Guaranteed to contain an item of value",
+        "description": "Guaranteed to contain an item of value!",
         "reward_from": {
             "7931": 1
         }
@@ -8686,7 +8686,7 @@
             "s": 23696,
             "t": "Heals 2000 damage over 8 sec."
         },
-        "description": "May only be used in Alterac Valley",
+        "description": "May only be used in Alterac Valley.",
         "sold": {
             "13216": {
                 "cost": {
@@ -9187,7 +9187,7 @@
             "s": 23698,
             "t": "Restores 4410 mana over 30 sec. Must remain seated while drinking. Also increases your Spirit by 10 for 10 min."
         },
-        "description": "From the mountain springs of Alterac",
+        "description": "From the mountain springs of Alterac!",
         "sold": {
             "13216": {
                 "cost": {
@@ -9404,7 +9404,7 @@
         "image_name": "inv_misc_rune_07",
         "stack": 250,
         "ilvl": 1,
-        "description": "Proof of winning a battle in Warsong Gulc",
+        "description": "Proof of winning a battle in Warsong Gulch",
         "created_by": {
             "materials": {}
         },
@@ -11050,7 +11050,7 @@
                 }
             ]
         },
-        "description": "The Hand of Nefariu",
+        "description": "The Hand of Nefarius",
         "dropped": {
             "11583": 10.0
         },
@@ -11245,7 +11245,7 @@
                 }
             ]
         },
-        "description": "The initials A.L. are etched on the hilt",
+        "description": "The initials A.L. are etched on the hilt.",
         "dropped": {
             "11583": 10.0
         },
@@ -11852,7 +11852,7 @@
                 }
             ]
         },
-        "description": "The threading is unlike anything you have ever seen. It appears metallic in origin",
+        "description": "The threading is unlike anything you have ever seen. It appears metallic in origin.",
         "dropped": {
             "11583": 20.0
         },
@@ -11895,7 +11895,7 @@
                 }
             ]
         },
-        "description": "A silver liquid flows within the impenetrable ebony shell. The item feels pure. It radiates an essence of extreme power",
+        "description": "A silver liquid flows within the impenetrable ebony shell. The item feels pure. It radiates an essence of extreme power.",
         "dropped": {
             "11583": 20.0
         },
@@ -11945,7 +11945,7 @@
                 }
             ]
         },
-        "description": "The metal is warm to the touch. The links connecting the belt together appear to be fashioned out of Elementium",
+        "description": "The metal is warm to the touch. The links connecting the belt together appear to be fashioned out of Elementium.",
         "dropped": {
             "11583": 20.0
         },
@@ -12036,7 +12036,7 @@
                 }
             ]
         },
-        "description": "Flawless. Indestructible. You cannot comprehend the craftsmanship involved with the creation of this ring",
+        "description": "Flawless. Indestructible. You cannot comprehend the craftsmanship involved with the creation of this ring.",
         "dropped": {
             "11583": 20.0
         },
@@ -12348,7 +12348,7 @@
                 }
             ]
         },
-        "description": "The hides of several different dragon flights appear to be stitched together, comprising the top of the shoulders",
+        "description": "The hides of several different dragon flights appear to be stitched together, comprising the top of the shoulders.",
         "dropped": {
             "14020": 20.0
         },
@@ -12397,7 +12397,7 @@
                 }
             ]
         },
-        "description": "A cold chill passes through your spine as you place your hands on these gloves. They appear to be made from the skin of whelplings - a lot of whelplings",
+        "description": "A cold chill passes through your spine as you place your hands on these gloves. They appear to be made from the skin of whelplings - a lot of whelplings.",
         "dropped": {
             "14020": 16.0
         },
@@ -12665,7 +12665,7 @@
                 }
             ]
         },
-        "description": "The flesh from different dragon flights has been sewn together to make this belt",
+        "description": "The flesh from different dragon flights has been sewn together to make this belt.",
         "dropped": {
             "11983": 7.0,
             "11981": 7.0,
@@ -13138,7 +13138,7 @@
             "level": 10
         },
         "starts": 7937,
-        "description": "Your fortune awaits you in Eastvale",
+        "description": "Your fortune awaits you in Eastvale.",
         "contained": {
             "items": {
                 "19422": 1.875
@@ -13159,7 +13159,7 @@
             "level": 10
         },
         "starts": 7938,
-        "description": "Your fortune awaits you inside the Deadmines",
+        "description": "Your fortune awaits you inside the Deadmines.",
         "contained": {
             "items": {
                 "19422": 1.875
@@ -13804,7 +13804,7 @@
             "level": 10
         },
         "starts": 7944,
-        "description": "Your fortune awaits you inside Wailing Caverns",
+        "description": "Your fortune awaits you inside Wailing Caverns.",
         "contained": {
             "items": {
                 "19422": 1.875
@@ -14065,7 +14065,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Time is nothing; timing is everything",
+        "description": "Time is nothing; timing is everything.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -14084,7 +14084,7 @@
             "level": 10
         },
         "starts": 7945,
-        "description": "Your fortune awaits you outside Palemane Rock",
+        "description": "Your fortune awaits you outside Palemane Rock.",
         "contained": {
             "items": {
                 "19422": 1.875
@@ -14100,7 +14100,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Hunters who specialize in survival are not guaranteed to survive",
+        "description": "Hunters who specialize in survival are not guaranteed to survive.",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -14114,7 +14114,7 @@
         "image_name": "inv_scroll_02",
         "ilvl": 1,
         "bop": true,
-        "description": "Look out",
+        "description": "Look out!",
         "contained": {
             "items": {
                 "19422": 4.0
@@ -14153,7 +14153,7 @@
         "n": "Peeling the Onion",
         "image_name": "inv_misc_book_07",
         "ilvl": 1,
-        "description": "The How to Guide On Dismantling the Stormpike - By Drek'Tha",
+        "description": "The How to Guide On Dismantling the Stormpike - By Drek'Thar",
         "click_to_read": true,
         "sold": {
             "13219": {
@@ -14174,7 +14174,7 @@
         "n": "The Frostwolf Artichoke",
         "image_name": "inv_misc_book_04",
         "ilvl": 1,
-        "description": "Tales of Stormpike Glory - By Vanndar Stormpik",
+        "description": "Tales of Stormpike Glory - By Vanndar Stormpike",
         "click_to_read": true,
         "sold": {
             "13217": {
@@ -19572,7 +19572,7 @@
         "image_name": "inv_misc_armorkit_11",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19604,7 +19604,7 @@
         "image_name": "inv_misc_coin_10",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19636,7 +19636,7 @@
         "image_name": "inv_misc_coin_09",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19668,7 +19668,7 @@
         "image_name": "inv_misc_coin_07",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19700,7 +19700,7 @@
         "image_name": "inv_misc_coin_13",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19732,7 +19732,7 @@
         "image_name": "inv_misc_coin_14",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19764,7 +19764,7 @@
         "image_name": "inv_misc_coin_15",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19796,7 +19796,7 @@
         "image_name": "inv_misc_coin_12",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19828,7 +19828,7 @@
         "image_name": "inv_misc_coin_11",
         "stack": 250,
         "ilvl": 1,
-        "description": "One of the lesser Paragons of Power from the Gurubashi Empire",
+        "description": "One of the lesser Paragons of Power from the Gurubashi Empire.",
         "dropped": {
             "11338": 5.0,
             "11339": 5.0,
@@ -19868,7 +19868,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -19908,7 +19908,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -19948,7 +19948,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -19988,7 +19988,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -20028,7 +20028,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -20068,7 +20068,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -20108,7 +20108,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -20148,7 +20148,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -20188,7 +20188,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "A significant Paragon of Power from the Gurubashi Empire",
+        "description": "A significant Paragon of Power from the Gurubashi Empire.",
         "dropped": {
             "15043": 3.0,
             "11338": 2.0,
@@ -20228,7 +20228,7 @@
                 "Mage"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20255,7 +20255,7 @@
                 "Shaman"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20282,7 +20282,7 @@
                 "Druid"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20309,7 +20309,7 @@
                 "Shaman"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20336,7 +20336,7 @@
                 "Druid"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20363,7 +20363,7 @@
                 "Mage"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20390,7 +20390,7 @@
                 "Druid"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20417,7 +20417,7 @@
                 "Warlock"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20444,7 +20444,7 @@
                 "Priest"
             ]
         },
-        "description": "A legendary Paragon of Power from the old Gurubashi Empire",
+        "description": "A legendary Paragon of Power from the old Gurubashi Empire.",
         "dropped": {
             "11380": 11.0,
             "11382": 11.0,
@@ -20463,7 +20463,7 @@
         "image_name": "inv_crate_01",
         "stack": 20,
         "ilvl": 1,
-        "description": "Proof of victory in Arathi Basi",
+        "description": "Proof of victory in Arathi Basin",
         "created_by": {
             "materials": {}
         },
@@ -20536,7 +20536,7 @@
         },
         "bop": true,
         "unique": true,
-        "description": "Allows an Herbalist to collect Bloodvine from Zul'Gurub Flora when carried",
+        "description": "Allows an Herbalist to collect Bloodvine from Zul'Gurub Flora when carried.",
         "dropped": {
             "11360": 0.18,
             "11338": 0.12
@@ -20957,7 +20957,7 @@
         "image_name": "inv_misc_bag_16",
         "ilvl": 1,
         "quest_item": true,
-        "description": "Sealed tight",
+        "description": "Sealed tight.",
         "dropped": {
             "6188": 0.368
         },
@@ -21505,7 +21505,7 @@
         "stack": 20,
         "ilvl": 45,
         "bop": true,
-        "description": "Someone in Booty Bay might be interested",
+        "description": "Someone in Booty Bay might be interested.",
         "contained": {
             "objects": {
                 "180248": 0.1
@@ -21521,7 +21521,7 @@
         "stack": 20,
         "ilvl": 45,
         "bop": true,
-        "description": "Someone in Booty Bay might be interested",
+        "description": "Someone in Booty Bay might be interested.",
         "contained": {
             "objects": {
                 "180248": 0.1
@@ -21537,7 +21537,7 @@
         "stack": 20,
         "ilvl": 45,
         "bop": true,
-        "description": "Someone in Booty Bay might be interested",
+        "description": "Someone in Booty Bay might be interested.",
         "contained": {
             "objects": {
                 "180248": 0.1
@@ -21661,7 +21661,7 @@
             "s": 24289,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a warrior",
+        "description": "The doll resembles a warrior.",
         "dropped": {
             "11360": 0.08,
             "11361": 0.04,
@@ -21707,7 +21707,7 @@
             "s": 24281,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a rogue",
+        "description": "The doll resembles a rogue.",
         "dropped": {
             "11351": 0.06,
             "11360": 0.04,
@@ -21756,7 +21756,7 @@
             "s": 24285,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a paladin",
+        "description": "The doll resembles a paladin.",
         "dropped": {
             "15067": 0.3
         },
@@ -21790,7 +21790,7 @@
             "s": 24280,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a hunter",
+        "description": "The doll resembles a hunter.",
         "dropped": {
             "11351": 0.06,
             "14883": 0.06,
@@ -21837,7 +21837,7 @@
             "s": 24288,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a shaman",
+        "description": "The doll resembles a shaman.",
         "dropped": {
             "14883": 0.04,
             "11350": 0.02,
@@ -21879,7 +21879,7 @@
             "s": 24282,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a mage",
+        "description": "The doll resembles a mage.",
         "dropped": {
             "14883": 0.06,
             "11339": 0.04,
@@ -21927,7 +21927,7 @@
             "s": 24290,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a warlock",
+        "description": "The doll resembles a warlock.",
         "dropped": {
             "11361": 0.06,
             "14883": 0.06,
@@ -21975,7 +21975,7 @@
             "s": 24284,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a priest",
+        "description": "The doll resembles a priest.",
         "dropped": {
             "11831": 0.06,
             "11353": 0.04,
@@ -22026,7 +22026,7 @@
             "s": 24279,
             "t": "Combines with Gri'lek's Blood, Renataki's Tooth, Wushoolay's Mane, and Hazza'rah's Dream Thread to form a powerful charm."
         },
-        "description": "The doll resembles a druid",
+        "description": "The doll resembles a druid.",
         "dropped": {
             "14883": 0.1,
             "11338": 0.08,
@@ -23691,7 +23691,7 @@
                 }
             ]
         },
-        "description": "Forged in..",
+        "description": "Forged in...",
         "itemset": {
             "n": "The Twin Blades of Hakkari",
             "i": 461
@@ -23745,7 +23745,7 @@
                 }
             ]
         },
-        "description": "The seething flames of hatred",
+        "description": "The seething flames of hatred.",
         "itemset": {
             "n": "The Twin Blades of Hakkari",
             "i": 461
@@ -25145,7 +25145,7 @@
                 }
             ]
         },
-        "description": "Bears the mark of Jin",
+        "description": "Bears the mark of Jin.",
         "dropped": {
             "14507": 17.0
         },
@@ -26561,7 +26561,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "The Iron Blood of Gri'lek",
+        "description": "The Iron Blood of Gri'lek.",
         "dropped": {
             "15082": 100.0
         },
@@ -26585,7 +26585,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "The Razor Sharp Tooth of Renataki",
+        "description": "The Razor Sharp Tooth of Renataki.",
         "dropped": {
             "15084": 100.0
         },
@@ -26609,7 +26609,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Wushoolay's Unkempt Mane",
+        "description": "Wushoolay's Unkempt Mane.",
         "dropped": {
             "15085": 100.0
         },
@@ -26660,7 +26660,7 @@
             "silver": 20,
             "copper": 0
         },
-        "description": "More Mojo than any one troll should have",
+        "description": "More Mojo than any one troll should have.",
         "dropped": {
             "14834": 100.0,
             "14507": 9.0,
@@ -26705,7 +26705,7 @@
         "requirements": {
             "level": 60
         },
-        "description": "The inscription reads: Fishin's fer sissies -Nat Pagl",
+        "description": "The inscription reads: Fishin's fer sissies -Nat Pagle",
         "dropped": {
             "15114": 25.0
         },
@@ -26847,7 +26847,7 @@
             "s": 24610,
             "t": "Increases the chance to hit with spells by 10% for 15 sec. (cooldown 1.25 min)"
         },
-        "description": "The inscription reads: Fer really long castin'",
+        "description": "The inscription reads: Fer really long castin'.",
         "dropped": {
             "15114": 25.0
         },
@@ -27308,7 +27308,7 @@
         "image_name": "inv_misc_gem_topaz_02",
         "ilvl": 0,
         "unique": true,
-        "description": "The crown jewel of killer bees",
+        "description": "The crown jewel of killer bees.",
         "created_by": {
             "materials": {}
         }
@@ -27797,7 +27797,7 @@
                 }
             ]
         },
-        "description": "It looks like Nat Pagle himself used this",
+        "description": "It looks like Nat Pagle himself used this.",
         "reward_from": {
             "8193": 1
         },
@@ -28090,7 +28090,7 @@
             "s": 24354,
             "t": "Increases healing done by spells and effects by up to 190 for 20 sec. (cooldown 2 min)"
         },
-        "description": "A friend in need is a friend without beads",
+        "description": "A friend in need is a friend without beads.",
         "reward_from": {
             "8257": 1
         },

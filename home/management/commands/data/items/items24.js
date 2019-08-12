@@ -117,7 +117,7 @@
             "silver": 3,
             "copper": 2
         },
-        "description": "Looks like the carving was never finished.."
+        "description": "Looks like the carving was never finished..."
     },
     "24282": {
         "i": 24282,
@@ -131,7 +131,7 @@
             "silver": 45,
             "copper": 62
         },
-        "description": "All the pages are blank"
+        "description": "All the pages are blank."
     },
     "24283": {
         "i": 24283,
@@ -144,6 +144,6 @@
             "silver": 80,
             "copper": 86
         },
-        "description": "The name 'Lasitor' is etched into the barrel"
+        "description": "The name 'Lasitor' is etched into the barrel."
     }
 }

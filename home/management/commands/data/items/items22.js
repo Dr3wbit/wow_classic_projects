@@ -722,7 +722,7 @@
             "s": 27738,
             "t": "Recombines the left, right and top pieces of Lord Valthalak's Amulet into one whole."
         },
-        "description": "This section of the amulet vibrates with a palpable fervor to be rejoined with its sibling pieces",
+        "description": "This section of the amulet vibrates with a palpable fervor to be rejoined with its sibling pieces.",
         "created_by": {
             "materials": {}
         },
@@ -755,7 +755,7 @@
             "s": 27739,
             "t": "Recombines the left, right and top pieces of Lord Valthalak's Amulet into one whole."
         },
-        "description": "This object feels wrong to the touch, as if an evil within is trying to escape",
+        "description": "This object feels wrong to the touch, as if an evil within is trying to escape.",
         "created_by": {
             "materials": {}
         },
@@ -781,7 +781,7 @@
             "s": 27360,
             "t": "Target Lord Valthalak's corpse to instill his spirit from the amulet."
         },
-        "description": "Reunited into its whole form, the amulet pulses strongly with the evil spirit of Lord Valthalak",
+        "description": "Reunited into its whole form, the amulet pulses strongly with the evil spirit of Lord Valthalak.",
         "created_by": {
             "materials": {}
         },
@@ -2549,7 +2549,7 @@
         "stack": 25,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Its red juice can leave an indelible stain on your clothing, so be careful",
+        "description": "Its red juice can leave an indelible stain on your clothing, so be careful.",
         "dropped": {
             "4364": 20.0,
             "4366": 20.0,
@@ -3688,7 +3688,7 @@
         "stack": 50,
         "ilvl": 1,
         "quest_item": true,
-        "description": "Crudely crafted, mostly from dark iron, these bracers exhibit trace amounts of a shiny metal",
+        "description": "Crudely crafted, mostly from dark iron, these bracers exhibit trace amounts of a shiny metal.",
         "dropped": {
             "9044": 80.0,
             "9045": 80.0,
@@ -5376,7 +5376,7 @@
         "image_name": "inv_misc_bone_02",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The silithid have left little to the corpse of this champion of the Cenarion Circle",
+        "description": "The silithid have left little to the corpse of this champion of the Cenarion Circle.",
         "dropped": {
             "11730": 15.0,
             "11731": 15.0,
@@ -5393,7 +5393,7 @@
         "image_name": "trade_engraving",
         "ilvl": 1,
         "quest_item": true,
-        "description": "This night elvic antiquity has been frozen solid by the Frostmaul giants. Handle with care",
+        "description": "This night elvic antiquity has been frozen solid by the Frostmaul giants. Handle with care.",
         "dropped": {
             "7428": 100.0,
             "7429": 100.0
@@ -5407,7 +5407,7 @@
         "image_name": "inv_sword_01",
         "ilvl": 1,
         "quest_item": true,
-        "description": "The keenest of edges, meant to indiscriminately cleave through any foe, living or dead",
+        "description": "The keenest of edges, meant to indiscriminately cleave through any foe, living or dead.",
         "dropped": {
             "9448": 100.0
         },
@@ -5420,7 +5420,7 @@
         "image_name": "inv_misc_dust_03",
         "ilvl": 1,
         "quest_item": true,
-        "description": "These ashen remains of an exiled soul pulse faintly with the echo of a once-promising life",
+        "description": "These ashen remains of an exiled soul pulse faintly with the echo of a once-promising life.",
         "dropped": {
             "7071": 100.0,
             "7072": 100.0,
@@ -6177,7 +6177,7 @@
                 }
             ]
         },
-        "description": "The title reads \"The Brode to Nowhere",
+        "description": "The title reads \"The Brode to Nowhere\"",
         "dropped": {
             "10363": 25.0
         },
@@ -6422,7 +6422,7 @@
         "stack": 100,
         "ilvl": 1,
         "bop": true,
-        "description": "These are received from true friends..",
+        "description": "These are received from true friends...",
         "created_by": {
             "materials": {}
         }
@@ -6461,7 +6461,7 @@
         "n": "Alliance Gift Collection",
         "image_name": "inv_valentinesboxofchocolates01",
         "ilvl": 1,
-        "description": "Give this collection to Kwee Q. Peddlefeet",
+        "description": "Give this collection to Kwee Q. Peddlefeet.",
         "created_by": {
             "materials": {
                 "22133": 1,
@@ -6477,7 +6477,7 @@
         "n": "Horde Gift Collection",
         "image_name": "inv_valentinesboxofchocolates01",
         "ilvl": 1,
-        "description": "Give this collection to Kwee Q. Peddlefeet",
+        "description": "Give this collection to Kwee Q. Peddlefeet.",
         "created_by": {
             "materials": {
                 "22136": 1,
@@ -8371,7 +8371,7 @@
                 }
             ]
         },
-        "description": "Not edibl",
+        "description": "Not edible",
         "dropped": {
             "16080": 20.0
         },
@@ -9183,7 +9183,7 @@
         "image_name": "inv_misc_book_09",
         "ilvl": 0,
         "bop": true,
-        "description": "Where to find Haunted Loc",
+        "description": "Where to find Haunted Loci",
         "click_to_read": true,
         "reward_from": {
             "8996": 1
@@ -15829,7 +15829,7 @@
             "level": 55
         },
         "starts": 9178,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -15848,7 +15848,7 @@
             "level": 55
         },
         "starts": 9179,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -15867,7 +15867,7 @@
             "level": 55
         },
         "starts": 9181,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -15886,7 +15886,7 @@
             "level": 55
         },
         "starts": 9182,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -15905,7 +15905,7 @@
             "level": 55
         },
         "starts": 9183,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -15924,7 +15924,7 @@
             "level": 55
         },
         "starts": 9184,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -15943,7 +15943,7 @@
             "level": 55
         },
         "starts": 9185,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -15962,7 +15962,7 @@
             "level": 55
         },
         "starts": 9186,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -15981,7 +15981,7 @@
             "level": 55
         },
         "starts": 9187,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16000,7 +16000,7 @@
             "level": 55
         },
         "starts": 9188,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16019,7 +16019,7 @@
             "level": 55
         },
         "starts": 9190,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16038,7 +16038,7 @@
             "level": 55
         },
         "starts": 9191,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16057,7 +16057,7 @@
             "level": 55
         },
         "starts": 9194,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16076,7 +16076,7 @@
             "level": 55
         },
         "starts": 9195,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16095,7 +16095,7 @@
             "level": 55
         },
         "starts": 9196,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16114,7 +16114,7 @@
             "level": 55
         },
         "starts": 9197,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16133,7 +16133,7 @@
             "level": 55
         },
         "starts": 9198,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16152,7 +16152,7 @@
             "level": 55
         },
         "starts": 9200,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16171,7 +16171,7 @@
             "level": 55
         },
         "starts": 9202,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16190,7 +16190,7 @@
             "level": 55
         },
         "starts": 9201,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16209,7 +16209,7 @@
             "level": 55
         },
         "starts": 9203,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16228,7 +16228,7 @@
             "level": 55
         },
         "starts": 9204,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16247,7 +16247,7 @@
             "level": 55
         },
         "starts": 9205,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16266,7 +16266,7 @@
             "level": 55
         },
         "starts": 9206,
-        "description": "Bears the seal of the Argent Dawn",
+        "description": "Bears the seal of the Argent Dawn.",
         "contained": {
             "items": {
                 "22568": 4.0
@@ -16487,7 +16487,7 @@
         "requirements": {
             "level": 58
         },
-        "description": "An ancient evil stirs within..",
+        "description": "An ancient evil stirs within...",
         "dropped": {
             "11380": 100.0,
             "11382": 100.0
@@ -18262,7 +18262,7 @@
                 }
             ]
         },
-        "description": "Blade of the Scarlet Highlor",
+        "description": "Blade of the Scarlet Highlord",
         "contained": {
             "objects": {
                 "181366": 17.0
@@ -18457,7 +18457,7 @@
         "resist": {
             "Frost": 25
         },
-        "description": "Inscribed on the band: Ramaladn",
+        "description": "Inscribed on the band: Ramaladni",
         "reward_from": {
             "9230": 1
         },
@@ -18478,7 +18478,7 @@
         "image_name": "inv_jewelry_ring_35",
         "ilvl": 1,
         "quest_item": true,
-        "description": "Inscribed on the band: Ramaladn",
+        "description": "Inscribed on the band: Ramaladni",
         "dropped": {
             "15974": 1.0,
             "15975": 1.0,
@@ -19056,7 +19056,7 @@
             "level": 1
         },
         "starts": 9247,
-        "description": "The indelible mark of the Argent Dawn is pressed clearly into the wax of the seal",
+        "description": "The indelible mark of the Argent Dawn is pressed clearly into the wax of the seal.",
         "provided_for": 9247,
         "objective": 9247
     },
@@ -19124,7 +19124,7 @@
             "s": 28324,
             "t": "Combines 40 Splinters of Atiesh to form the Frame of Atiesh."
         },
-        "description": "A splinter of Atiesh, Greatstaff of the Guardian",
+        "description": "A splinter of Atiesh, Greatstaff of the Guardian.",
         "dropped": {
             "15931": 30.0,
             "15932": 30.0,
@@ -19160,7 +19160,7 @@
             "level": 60
         },
         "starts": 9250,
-        "description": "The head and base are missing",
+        "description": "The head and base are missing.",
         "created_by": {
             "materials": {
                 "22726": 39
@@ -19372,7 +19372,7 @@
                 }
             ]
         },
-        "description": "This blade is dimensional. It appears to be fading from this plane of existence"
+        "description": "This blade is dimensional. It appears to be fading from this plane of existence."
     },
     "22737": {
         "i": 22737,
@@ -21849,7 +21849,7 @@
         "n": "iCoke Prize Voucher",
         "image_name": "inv_scroll_03",
         "ilvl": 1,
-        "description": "Return to the iCoke redemption vendor to receive a virtual priz",
+        "description": "Return to the iCoke redemption vendor to receive a virtual prize",
         "created_by": {
             "materials": {}
         }

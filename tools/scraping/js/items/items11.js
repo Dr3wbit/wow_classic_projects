@@ -7,7 +7,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Master Key to the Depths, Courtesy of F.F.F"
+        "description": "Master Key to the Depths, Courtesy of F.F.F."
     },
     "11018": {
         "i": 11018,
@@ -77,7 +77,7 @@
         "image_name": "inv_misc_food_45",
         "ilvl": 1,
         "bop": true,
-        "description": "Using Un'Goro soil, Tharlendris seeds have been cultivated inside",
+        "description": "Using Un'Goro soil, Tharlendris seeds have been cultivated inside.",
         "created_by": {
             "materials": {
                 "11018": 2,
@@ -218,7 +218,7 @@
             "s": 13484,
             "t": "Place on a SOFT DIRT MOUND."
         },
-        "description": "Gor'tesh's severed head, propped up on a pike",
+        "description": "Gor'tesh's severed head, propped up on a pike.",
         "consume": true
     },
     "11080": {
@@ -229,7 +229,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Squishy, Smelly, Slim"
+        "description": "Squishy, Smelly, Slimy"
     },
     "11081": {
         "i": 11081,
@@ -402,7 +402,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Good for twenty packs of Tharlendris seeds"
+        "description": "Good for twenty packs of Tharlendris seeds."
     },
     "11104": {
         "i": 11104,
@@ -412,7 +412,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "It always points towards the center of Ungoro Crater.."
+        "description": "It always points towards the center of Ungoro Crater..."
     },
     "11105": {
         "i": 11105,
@@ -496,7 +496,7 @@
         "image_name": "inv_gizmo_06",
         "ilvl": 0,
         "quest_item": true,
-        "description": "Property of Marshal Expeditions"
+        "description": "Property of Marshal Expeditions."
     },
     "11113": {
         "i": 11113,
@@ -505,7 +505,7 @@
         "image_name": "inv_crate_04",
         "ilvl": 0,
         "quest_item": true,
-        "description": "Property of Marshal Expeditions"
+        "description": "Property of Marshal Expeditions."
     },
     "11114": {
         "i": 11114,
@@ -528,7 +528,7 @@
             "level": 48
         },
         "starts": 3884,
-        "description": "Property of Williden Marsha"
+        "description": "Property of Williden Marshal"
     },
     "11118": {
         "i": 11118,
@@ -707,7 +707,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Runes filled with liquid fire dance across the tablet"
+        "description": "Runes filled with liquid fire dance across the tablet."
     },
     "11127": {
         "i": 11127,
@@ -729,7 +729,7 @@
             "silver": 5,
             "copper": 0
         },
-        "description": "Needed by Enchanters",
+        "description": "Needed by Enchanters.",
         "created_by": {
             "profession": "Blacksmithing",
             "skill": {
@@ -914,7 +914,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Various runes and etchings cover the surface of the key"
+        "description": "Various runes and etchings cover the surface of the key."
     },
     "11141": {
         "i": 11141,
@@ -964,7 +964,7 @@
             "silver": 10,
             "copper": 0
         },
-        "description": "Needed by Enchanters",
+        "description": "Needed by Enchanters.",
         "created_by": {
             "profession": "Blacksmithing",
             "skill": {
@@ -1891,7 +1891,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The fiery essence of Bael'Gar wrapped tightly inside black dragonflight molt",
+        "description": "The fiery essence of Bael'Gar wrapped tightly inside black dragonflight molt.",
         "created_by": {
             "materials": {}
         }
@@ -1914,7 +1914,7 @@
             "s": 13982,
             "t": "Use on the remains of Bael'Gar to capture his fiery essence."
         },
-        "description": "A dull and gray patch of black dragon ski",
+        "description": "A dull and gray patch of black dragon skin",
         "consume": true
     },
     "11242": {
@@ -2053,7 +2053,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The dark, pale skin feels like clay"
+        "description": "The dark, pale skin feels like clay."
     },
     "11269": {
         "i": 11269,
@@ -2148,7 +2148,7 @@
             "s": 14250,
             "t": "Use on Grark when the time is right!"
         },
-        "description": "Unbreakable bindings",
+        "description": "Unbreakable bindings.",
         "created_by": {
             "materials": {}
         }
@@ -2752,7 +2752,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Seale"
+        "description": "Sealed"
     },
     "11367": {
         "i": 11367,
@@ -2771,7 +2771,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Bears the Seal of Stormwin",
+        "description": "Bears the Seal of Stormwind",
         "click_to_read": true
     },
     "11370": {
@@ -3344,7 +3344,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "-General Angerforg"
+        "description": "-General Angerforge"
     },
     "11465": {
         "i": 11465,
@@ -3354,7 +3354,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "-Golem Lord Argelmac"
+        "description": "-Golem Lord Argelmach"
     },
     "11466": {
         "i": 11466,
@@ -3619,7 +3619,7 @@
         "ilvl": 0,
         "unique": true,
         "quest_item": true,
-        "description": "This device helps identify corrupted elements of nature",
+        "description": "This device helps identify corrupted elements of nature.",
         "created_by": {
             "materials": {}
         }
@@ -3683,7 +3683,7 @@
         "stack": 100,
         "ilvl": 1,
         "bop": true,
-        "description": "This druidic brew is used to cleanse corrupted plants"
+        "description": "This druidic brew is used to cleanse corrupted plants."
     },
     "11522": {
         "i": 11522,
@@ -5321,7 +5321,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "To: Krinkle Goodsteel, Tanari"
+        "description": "To: Krinkle Goodsteel, Tanaris"
     },
     "11725": {
         "i": 11725,
@@ -5505,7 +5505,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "Dark runes skitter across the surface",
+        "description": "Dark runes skitter across the surface.",
         "click_to_read": true
     },
     "11733": {
@@ -5518,7 +5518,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "Dark runes skitter across the surface",
+        "description": "Dark runes skitter across the surface.",
         "click_to_read": true
     },
     "11734": {
@@ -5531,7 +5531,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "Dark runes skitter across the surface",
+        "description": "Dark runes skitter across the surface.",
         "click_to_read": true
     },
     "11735": {
@@ -5576,7 +5576,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "Dark runes skitter across the surface",
+        "description": "Dark runes skitter across the surface.",
         "click_to_read": true
     },
     "11737": {
@@ -5589,7 +5589,7 @@
         "requirements": {
             "level": 50
         },
-        "description": "Dark runes skitter across the surface",
+        "description": "Dark runes skitter across the surface.",
         "click_to_read": true
     },
     "11742": {
@@ -5880,7 +5880,7 @@
         "stack": 5,
         "ilvl": 1,
         "bop": true,
-        "description": "The smoldering remains of something.."
+        "description": "The smoldering remains of something..."
     },
     "11752": {
         "i": 11752,
@@ -5890,7 +5890,7 @@
         "stack": 5,
         "ilvl": 0,
         "bop": true,
-        "description": "The putrid scent of burned blood assaults your senses"
+        "description": "The putrid scent of burned blood assaults your senses."
     },
     "11753": {
         "i": 11753,
@@ -5900,7 +5900,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "The pupil tracks your every move"
+        "description": "The pupil tracks your every move."
     },
     "11754": {
         "i": 11754,

@@ -1974,7 +1974,7 @@
             "silver": 0,
             "copper": 25
         },
-        "description": "'Thin' is a relative term...",
+        "description": "'Thin' is a relative term....",
         "dropped": {
             "3237": 58.0,
             "3236": 57.0,
@@ -2083,7 +2083,7 @@
         "ilvl": 1,
         "bop": true,
         "unique": true,
-        "description": "Venture Co. Document 534x",
+        "description": "Venture Co. Document 534x9",
         "click_to_read": true,
         "provided_for": 894
     },
@@ -3407,7 +3407,7 @@
                 "Rogue"
             ]
         },
-        "description": "It must be carried very, very carefully",
+        "description": "It must be carried very, very carefully.",
         "dropped": {
             "10262": 40.0,
             "8402": 23.0,
@@ -9998,7 +9998,7 @@
             "silver": 3,
             "copper": 22
         },
-        "description": "How To Serve Ma",
+        "description": "How To Serve Man",
         "click_to_read": true,
         "dropped": {
             "7787": 50.0,
@@ -10794,7 +10794,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "This paper is covered in glowing runes",
+        "description": "This paper is covered in glowing runes.",
         "click_to_read": true,
         "created_by": {
             "materials": {
@@ -10816,7 +10816,7 @@
         },
         "unique": true,
         "quest_item": true,
-        "description": "The paper is blank save for a few runes. You'll need bracers from the elementals to use it",
+        "description": "The paper is blank save for a few runes. You'll need bracers from the elementals to use it.",
         "provided_for": 1016,
         "consume": true
     },
@@ -12150,7 +12150,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "The journal is waterlogged, but in otherwise good condition",
+        "description": "The journal is waterlogged, but in otherwise good condition.",
         "click_to_read": true,
         "dropped": {
             "3891": 100.0
@@ -12431,7 +12431,7 @@
                 "Mage"
             ]
         },
-        "description": "A reagent for mage spells",
+        "description": "A reagent for mage spells.",
         "created_by": {
             "materials": {
                 "2841": 1
@@ -12456,7 +12456,7 @@
                 "Mage"
             ]
         },
-        "description": "A reagent for mage spells",
+        "description": "A reagent for mage spells.",
         "created_by": {
             "materials": {
                 "3575": 1
@@ -12906,7 +12906,7 @@
         "ilvl": 1,
         "unique": true,
         "quest_item": true,
-        "description": "Sealed by Brother Anton of the Scarlet Crusad",
+        "description": "Sealed by Brother Anton of the Scarlet Crusade",
         "provided_for": 1052,
         "objective": 1052
     },
