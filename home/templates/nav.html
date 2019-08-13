@@ -4,7 +4,7 @@
 <div class="row">
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark col-12">
 
-	<a class="navbar-brand {% if request.path == '/' %}selected{% endif %}" href="/{# url 'index' nav='index' #}">
+	<a class="navbar-brand" href="/{# url 'index' nav='index' #}" title="Onybuff.com">
 		<img src="{% static "images/onybuff_icon_head_blue.png" %}" width="45" height="45" alt="">
 	</a>
 		<!-- <span class="navbar-logo-text">Ony Buff</span> -->
@@ -17,7 +17,7 @@
 		<ul class="navbar-nav">
 			{# nav_items #}
 			{% for k,v in nav_items.items %}
-			<li class="nav-item">
+			<li class="nav-item {% if v == 'Enchant Tool' %}d-none{% endif %}">
 				<a class="nav-link" href="{% url k %}">{{ v }}</a>
 			</li>
 			{% endfor %}

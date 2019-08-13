@@ -116,7 +116,7 @@ environment variables should be stored in the gunicorn service above the ExecSta
 #### RE-provisioning:
 create local database `postgres psql` then follow above steps for setting up local database
 
-step1: dumpdata (https://docs.djangoproject.com/en/2.2/ref/django-admin/#dumpdata)
+step1: [dumpdata](https://docs.djangoproject.com/en/2.2/ref/django-admin/#dumpdata)
 ```
 python manage.py dumpdata home.Talent -o talentdata.json --indent 4
 python manage.py dumpdata home.TalentTree -o treedata.json --indent 4
@@ -158,7 +158,7 @@ for (x,y) in PROFESSION_CHOICES:
 
 ```
 
-step3: loaddata (order is important) (https://docs.djangoproject.com/en/2.2/ref/django-admin/#django-admin-loaddata)
+step3: [loaddata](https://docs.djangoproject.com/en/2.2/ref/django-admin/#django-admin-loaddata) (order is important)
 ```
 python manage.py loaddata dumps/treedata.json --app home.TalentTree
 python manage.py loaddata dumps/talentdata.json --app home.Talent
@@ -167,19 +167,36 @@ python manage.py loaddata dumps/userdata.json --app social_django.UserSocialAuth
 ```
 
 step4: running management commands
+
+adding spell data
 ```
 python manage.py spell_parser
-python manage.py item_parser -c -b -a
-python manage.py itemset_parser
+```
+adding (-b --basic, -a --advanced, -c --crafted, -n --noprof) item info, where `-n` is just non-crafted consumes
+```
+python manage.py item_parser -b
 ```
 
-step5: dumping again
-```
-python manage.py dumpdata -o dumps/dookie.json --exclude=contenttypes exclude=auth --indent 4
-```
-
-step6: loading again
+###### BIG dumps:
 
 ```
-python manage.py loaddata dumps/dookie.json
+python manage.py dumpdata -o dumps/dookie.json --exclude=contenttypes --exclude=auth --indent 4
+```
+##### PROFESSION dumps:
+note - will need to sanitize file name because of first aid
+
+```
+python manage.py shell
+from home.models import Crafted, Profession
+professions = [x.name for x in Profession.objects.all()]
+for prof in professions:
+    data = {}
+    qs = Crafted.objects.filter(profession__name='{}'.format(prof))
+    for crafted in qs:
+        data[crafted.item.ix] = {}
+            for mat in crafted.materials.all():
+                data[crafted.item.ix][mat.item.ix] = mat.amount
+
+    with open(os.path.abspath('dumps/{}.json'.format(prof.lower())), 'w+') as f:
+        json.dump(data, f, indent=4)
 ```

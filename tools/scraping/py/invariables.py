@@ -120,33 +120,39 @@ def get_item_list(path):
 	else:
 		return all_items
 
-# def create_image_list(dir):
-# 	regex = re.compile("([\w\_]+).jpg")
-# 	file_list = []
-# 	for _root, _dirs, files in os.walk(dir):
-# 		for name in files:
-# 			match = regex.search(name)
-# 			if match:
-# 				file_name = match.group(1)
-# 				file_list.append(file_name)
-#
-#
-# 	with open(os.path.abspath("image_list.txt"), 'a+') as f:
-# 		for name in set(file_list):
-# 			f.write(name+"\n")
-#
-# 	return file_list
+def create_image_list(dir):
+	regex = re.compile("([\w\_]+).jpg")
+	file_list = []
+	for _root, _dirs, files in os.walk(dir):
+		for name in files:
+			match = regex.search(name)
+			if match:
+				file_name = match.group(1)
+				file_list.append(file_name)
 
-ALL_ERRORS = get_item_list(os.path.abspath('../js/ERRORS.js'))
+
+	with open(os.path.abspath("image_list.txt"), 'a+') as f:
+		for name in set(file_list):
+			f.write(name+"\n")
+
+	return file_list
+
 
 NPCS = get_item_list(os.path.abspath('../js/npcs.js'))
-# QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
-# ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))
 ZONES = get_item_list(os.path.abspath('../js/zones.js'))
 FACTIONS = get_item_list(os.path.abspath('../js/factions.js'))
 OBJECTS = get_item_list(os.path.abspath('../js/objects.js'))
 SPELLS = get_item_list(os.path.abspath('../js/spells.js'))
 RUNTIME_STATS = get_item_list(os.path.abspath('../js/runtime_stats.js'))
+RUNTIME_STATS_V2 = get_item_list(os.path.abspath('../js/runtime_stats_v2.js'))
+ALL_IMAGES = create_image_list(os.path.abspath('../../../home/static/images/icons/large'))
+
+ITEMSETS = get_item_list(os.path.abspath('../js/itemsets.js'))
+QUESTS = get_item_list(os.path.abspath('../js/quests.js'))
+
+
+ERRORS2 = get_item_list(os.path.abspath('../js/ERRORS_p2.js'))
+ERRORS1 = get_item_list(os.path.abspath('../js/ERRORS.js'))
 
 FN_NAMES = [
 	'get_lowboys', 'get_mats', 'create_npc', 'disenchant', 'contained_or_gathered',

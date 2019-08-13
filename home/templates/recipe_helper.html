@@ -3,32 +3,39 @@
 
 {% load titlecase from custom_filters %}
 
-    {% for recipe,v in recipes.items %}
+    {% for recipe in recipes %}
     <div class="row">
-            <div class="prof-item-recipe col-6" name="{{recipe}}">
-                {% with "images/icons/consumes/"|add:recipe|add:".jpg" as item_image %}
-                <div class="recipe-container {{v.quality}}" name="{{recipe}}">
-                <img class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
-                style="background-image: url({% static item_image %});">
+            <div class="prof-item-recipe col-6" name="{{recipe.name}}" data-step={{recipe.step}} data-q="{{recipe.quality}}">
+
+                {% with "images/icons/large/"|add:recipe.img|add:".jpg" as item_image %}
+
+                <div class="recipe-container q{{recipe.quality}}">
+                    <img class="icon-medium recipe-image" data-img="{{recipe.img}}" src="{% static "images/icon_border_2.png" %}"
+                    style="background-image: url({% static item_image %});">
+                    {% if recipe.step > 1%}
+                    <span class="recipe-step">
+                        <div class="step-amount">{{recipe.step}}</div>
+                        <div class="step-amount" style="color: black; bottom: 1px; z-index: 4;">{{recipe.step}}</div>
+                        <div class="step-amount" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{{recipe.step}}</div>
+                        <div class="step-amount" style="color: black; right: 3px; z-index: 4;">{{recipe.step}}</div>
+                    </span>
+                    {% endif %}
                 {% endwith %}
-                <span class="consume-name" name="{{recipe}}">{{v.name|titlecase}}</span>
+                    <span class="recipe-name">{{recipe.name}}</span>
                 </div>
             </div>
-        <div class="col-6 reagant-list">
-            {% for mat_name,val in v.materials.items %}
-            <div class="reagant-list-container" name="{{mat_name}}">
-                <img class="icon-medium" src="{% static "images/icon_border_2.png" %}"
-                {% if "eko" in mat_name %}
-                style="background-image: url({% static "images/icons/medium/materials/eko.jpg" %});">
-                {% else %}
-                style="background-image: url({% static "images/icons/medium/materials/"|add:mat_name|add:".jpg" %});">
-                {% endif %}
-                {% if val.amount > 1 %}
+        <div class="col-6 reagent-list">
+            {% for mat in recipe.materials.all %}
+            <div class="reagent-list-container" name="{{mat.name}}" data-q="{{mat.quality}}">
+                <img class="icon-medium" data-img="{{mat.img}}" src="{% static "images/icon_border_2.png" %}"
+                style="background-image: url({% static "images/icons/large/"|add:mat.img|add:".jpg" %});">
+
+                {% if mat.amount > 1 %}
                 <span class="count-container">
-                    <div class="material-count">{{val.amount}}</div>
-                    <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{{val.amount}}</div>
-                    <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{{val.amount}}</div>
-                    <div class="material-count" style="color: black; right: 3px; z-index: 4;">{{val.amount}}</div>
+                    <div class="material-count">{{mat.amount}}</div>
+                    <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{{mat.amount}}</div>
+                    <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{{mat.amount}}</div>
+                    <div class="material-count" style="color: black; right: 3px; z-index: 4;">{{mat.amount}}</div>
                 </span>
                 {% endif %}
             </div>
@@ -36,17 +43,23 @@
         </div>
     </div>
     {% endfor %}
-    <script src="{% static "js/consume_tool.js" %}"></script>
+
+
     <script>
+    $(document).ready(function() {
+        $(".recipe-name").unbind()
+        $(".recipe-image").unbind()
+        $(".reagent-list-container").unbind()
+        $(".prof-item-recipe").unbind()
+        recipe_helper_handlers()
+    })
 
-    function update_consume_list(name, amount=1) {
+    function update_consume_list(name, amount=1, step=1) {
         let prof = $("a.prof-filter.selected").attr("id")
-
         if (!my_consume_list[prof]) {
             my_consume_list[prof] = {}
         }
-
-        let step = (allConsumes[name].step) ? allConsumes[name].step : 1
+        // let step = (allConsumes[name].step) ? allConsumes[name].step : 1
         if (!my_consume_list[prof][name]) {
             my_consume_list[prof][name] = amount*step
         }
@@ -54,32 +67,50 @@
             my_consume_list[prof][name] += amount*step
         }
         if (my_consume_list[prof][name] <= 0) {
-            my_consume_list[prof][name] = 0
-        }
-        console.log(my_consume_list)
+            delete my_consume_list[prof][name]
 
+        }
+        if (Object.keys(my_consume_list[prof]) == 0 ) {
+            delete my_consume_list[prof]
+        }
 
     }
 
-    $(".consume-name").on({
+function recipe_helper_handlers() {
+    $(".recipe-name").on({
         mouseenter: e => {
             clearTooltip()
-            tooltip_v2(e, false, 2)
+            // tooltip_v2(e, false, 2)
+            future_tooltip( e )
+
+            update_tooltip( e )
+
         },
         mouseleave: e => {
             clearTooltip()
         },
         mousemove: e => {
-            update_tooltip(e)
-            // tooltip_v2(e, 'consume')
+            update_tooltip( e )
         },
     })
 
     $(".recipe-image").on({
         mouseenter: e=> {
             clearTooltip()
-            tooltip_v2(e, true, 2)
+            e.stopImmediatePropagation()
+
+            // tooltip_v2(e, true, 2)
+            future_tooltip(e, 0, true)
+            // $(e.target).one('mousemove', update_tooltip(e, true));
+
         },
+        mousemove: e=> {
+            // need to someone run this until its in the correct position
+            if ($("#tooltip").length) {
+                update_tooltip(e, true)
+            }
+        },
+
         mouseleave: e => {
             clearTooltip()
         },
@@ -88,11 +119,14 @@
 
 
     $(".prof-item-recipe").on({
+        mouseenter: e => {
+            e.stopImmediatePropagation()
+        },
         mousedown: e => {
             e.stopImmediatePropagation()
             var amount = 1
-            let name = $(e.target).closest(".recipe-container").attr('name')
-            var currentAmount = parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())
+            var name = ($(e.target).attr('name')) ? $(e.target).attr('name') : ($(e.target).parent().attr('name')) ? $(e.target).parent().attr('name') : $(e.target).parent().parent().attr('name')
+            var step = ($(e.target).attr('data-step')) ? $(e.target).attr('data-step') : ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') : $(e.target).parent().parent().attr('data-step')
 
             if (e.shiftKey) {
                 amount = 5
@@ -102,30 +136,40 @@
                 amount = amount*(-1)
             }
 
-            var current_amount = parseInt($(`span.crafted-container[name='${name}']`).find($('span.amount')).text())
+            var current_amount = parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text())
 
             if ((current_amount >= 100) && (e.which != 3)) {
                 // NOTE: visual indicator for
                 alert('100 is the limit, fix me')
                 return false
             }
-
-            combatText(e, amount)
-            update_consume_list(name, amount)
-            addCraftedItem(name, amount)
+            update_consume_list(name, amount, step)
+            add_consume(name, amount, step)
             update_url('', '')
+            combatText(e, amount)
+
         }
     })
 
-    $(".reagant-list-container").on({
+    $(".reagent-list-container").on({
         mouseenter: e => {
-            // let name = $(e.target).closest(".reagant-list-container").attr('name')
-            tooltip_v2(e, true, 2)
+            e.stopImmediatePropagation()
+            clearTooltip()
+
+            future_tooltip(e, 0, true)
+        },
+        mousemove: e=> {
+            // need to somehow run this until its in the correct position
+            if ($("#tooltip").length) {
+                update_tooltip(e, true)
+            }
         },
         mouseleave: e => {
             clearTooltip()
         },
     });
+
+}
 
 
     </script>

@@ -23,12 +23,12 @@
     background-color: inherit;
 }
 
-#total_materials {
+#materials {
     text-align: left;
     padding:0;
 }
 
-#total_crafted {
+#consumes {
     padding:0;
     text-align: left;
 }
@@ -38,7 +38,7 @@
     padding-top: 4px;
 }
 
-.crafted-list-item {
+.consume-list-item {
     font-size: 95%;
     margin-top: 1px;
     padding: 1px;
@@ -48,6 +48,7 @@
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
+    position: relative;
 }
 
 .materials-list-item {
@@ -119,12 +120,13 @@
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-.recipe-container {
-}
 
-.recipe-container:hover > span {
+.recipe-name:hover {
     text-decoration: solid underline;
 }
+/* .recipe-container:hover > span {
+    text-decoration: solid underline;
+} */
 
 #recipe_list {
     overflow-y: scroll;
@@ -141,7 +143,7 @@
     text-decoration: solid underline;
 }
 
-.crafted-container:hover > span {
+.consume-container:hover > span {
     text-decoration: solid underline;
 }
 
@@ -150,6 +152,23 @@
 }
 
 .material-count {
+    font-size: 11px;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    text-decoration: none;
+    color: azure;
+    -webkit-text-stroke: 0.01rem black;
+    z-index: 10;
+}
+
+.recipe-step {
+    position: relative;
+    bottom: -15px;
+    right: 5px;
+}
+
+.step-amount {
     font-size: 11px;
     position: absolute;
     bottom: 2px;
@@ -187,12 +206,12 @@
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-.reagant-list {
+.reagent-list {
     margin-top: 4px;
     background-color: #101010;
 }
 
-.reagant-list-container {
+.reagent-list-container {
     position: relative;
     display: inline-block;
 }
@@ -202,7 +221,23 @@
     cursor: pointer;
 }
 
-.add-subtract-button{
+.add-subtract-button-container {
     position: absolute;
     right: 0;
+    top: 0;
 }
+
+.adjustment-button {
+    /* height: 24px; */
+    /* width: 24px; */
+    color: azure;
+    background-color: #1C1C1C;
+    border: none;
+    /* border: 2px solid black; */
+    /* font-size: 16px; */
+    /* line-height: 1; */
+}
+
+/* .adjustment-button:hover {
+    cursor: pointer;
+} */

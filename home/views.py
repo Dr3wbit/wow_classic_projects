@@ -12,7 +12,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from itertools import chain
 from operator import attrgetter
-import re, datetime
+import re, datetime, secrets
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
@@ -25,7 +25,7 @@ class APIView(TemplateView):
 		if request.user.groups.filter(name='admins').exists():
 
 			context = {}
-			context['recipes'] = Crafted.objects.filter(prof__name='alchemy')
+			context['recipes'] = Crafted.objects.filter(prof__name='Alchemy')
 			context['consume_lists'] = ConsumeList.objects.all()
 			context['rangen'] = range(5)
 			context['specs'] = {}
@@ -85,7 +85,14 @@ class IndexView(TemplateView):
 
 
 class TalentCalcTemplate(TemplateView):
+	nope = re.compile(r"[\-]")
+	forbidden = re.compile(r"[\:\'\(\)]")
+
 	form_class = SpecForm
+	def sanitize(self, s):
+		a = self.forbidden.sub('', str(s))
+		a = self.nope.sub(' ', a).strip().replace(' ', '_').lower()
+		return(a)
 
 	def setup(self, request, *args, **kwargs):
 		setup = super().setup(request, *args, **kwargs)
@@ -97,53 +104,30 @@ class TalentCalcTemplate(TemplateView):
 		return dispatch
 
 	def talent_architect(self, context):
-		START = datetime.datetime.now()
 		class_name = context["selected"]
-		wow_class = WoWClass.objects.get(name=class_name)
-		talent_trees = wow_class.talenttree_set.all()
-		context["talent_trees"] = []
-		blueprints = {}
+		wow_class = WoWClass.objects.filter(name=class_name.title()).first()
+		if wow_class:
 
-		for tree in talent_trees:
-			context["talent_trees"].append({'name':tree.name})
-			tree_name = tree.name
-			all_talents = iter(tree.talent_set.all())
-			blueprints[tree_name] = tree.architect
-			for outer_i, outer_v in enumerate(blueprints[tree_name]):
-				for inner_i, inner_v in enumerate(outer_v):
-					if inner_v:
-						# tal = Talent.objects.get(x=x, y=y)
-						next_tal = next(all_talents)
-						# print(outer_i, inner_i)
-						# print(next_tal.y, next_tal.x)
-						val = [inner_v] if type(inner_v) is not list else inner_v
-						val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
-						blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':str(next_tal.sanitized), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
-		#
-		# for tree in talent_trees:
-		# 	tree_name = tree.name
-		#
-		# 	context["talent_trees"].append({'name':tree_name})
-		# 	tals = Talent.objects.filter(wow_class=wow_class, tree=tree)
-		#
-		# 	blueprints[tree_name] = tree.architect
-		# 	for y, outer_v in enumerate(blueprints[tree_name]):
-		# 		for x, inner_v in enumerate(outer_v):
-		# 			if inner_v:
-		# 				# tal = Talent.objects.get(x=x, y=y)
-		# 				tal = tals.get(x=x, y=y)
-		# 				# print(outer_i, inner_i)
-		# 				# print(next_tal.y, next_tal.x)
-		# 				val = [inner_v] if type(inner_v) is not list else inner_v
-		# 				val = zip(val, tal.unlocks) if tal.unlocks else val
-		# 				blueprints[tree_name][y][x] = (val, {'name':tal.name, 'sanitized':str(tal.sanitized), 'locked':tal.locked, 'unlocks':tal.unlocks}, 0)
+			talent_trees = wow_class.talenttree_set.all()
+			context["talent_trees"] = []
+			blueprints = {}
 
-		context["blueprints"] = blueprints
-		FINISH = datetime.datetime.now() - START
+			for tree in talent_trees:
+				context["talent_trees"].append({'name':tree.name})
+				tree_name = tree.name
+				all_talents = iter(tree.talent_set.all())
+				blueprints[tree_name] = tree.architect
+				for outer_i, outer_v in enumerate(blueprints[tree_name]):
+					for inner_i, inner_v in enumerate(outer_v):
+						if inner_v:
+							next_tal = next(all_talents)
+							val = [inner_v] if type(inner_v) is not list else inner_v
+							val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
+							blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':self.sanitize(next_tal.name), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
 
-		print('talent architect took: {}'.format(str(FINISH)))
+			context["blueprints"] = blueprints
+			return(context)
 
-		return(context)
 
 	def get(self, request, *args, **kwargs):
 		context = {}
@@ -156,7 +140,7 @@ class TalentCalcTemplate(TemplateView):
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
 		class_name = self.kwargs.get("class", None)
 
-		if class_name:
+		if bool(class_name):
 			context["selected"] = class_name
 			context = self.talent_architect(context)
 
@@ -164,7 +148,6 @@ class TalentCalcTemplate(TemplateView):
 			response = render(request, "talent_builder.html", context=context)
 
 		else:
-			context["first_load"] = True
 			response = render(request, "talent.html", context=context)
 
 		return response
@@ -175,7 +158,6 @@ class TalentCalcTemplate(TemplateView):
 		context = {}
 		context['form'] = form
 
-		print('post request')
 		if form.is_valid():
 
 			# response = self.save_list(request)
@@ -199,7 +181,6 @@ class TalentCalcTemplate(TemplateView):
 					}
 					response = JsonResponse(data)
 				except IntegrityError as e:
-					print('e: ', e)
 					name = request.POST.get('name', None)
 					message = "User {} already has consume list with name: {}".format(request.user.email, name)
 					data = {
@@ -238,7 +219,7 @@ class TalentCalcTemplate(TemplateView):
 		if request.user.is_authenticated:
 			user = request.user
 			if url and wow_class and name:
-				wow_class = WoWClass.objects.get(name=wow_class)
+				wow_class = WoWClass.objects.get(name=wow_class.title())
 				spec,spec_created = Spec.objects.update_or_create(
 					name=name, user=user, wow_class=wow_class, private=private,
 					hash=url, description=description,
@@ -285,7 +266,7 @@ class TalentBuilderRedirectView(RedirectView):
 		spec = Spec.objects.get(id=id)
 		class_name = spec.wow_class.name
 		qs = spec.hash
-		self.url = new_url+"/{}?{}".format(class_name, qs)
+		self.url = new_url+"/{}?{}".format(class_name.lower(), qs)
 
 		return self.url
 
@@ -332,44 +313,34 @@ class ConsumeToolTemplate(TemplateView):
 		context["selected"] = prof
 
 		if prof=='other':
-			recipes = Crafted.objects.filter(prof=None)
+			recipes = Crafted.objects.filter(profession=None)
 			# context["recipes"] = Crafted.objects.filter(prof=None)
 		elif prof:
-			recipes = Crafted.objects.filter(prof__name=self.kwargs["prof"])
+			recipes = Crafted.objects.filter(profession__name=titlecase(prof))
 
 		else:
 			recipes = []
 
-		for recipe in recipes:
-			nombre = recipe.name
-			context["recipes"][nombre] = {}
-			context["recipes"][nombre]['quality'] = recipe.quality
-			context["recipes"][nombre]['name'] = str(recipe)
-			context["recipes"][nombre]['materials'] = {}
-			for mat in recipe.materials.all():
-				m_nombre = mat.name
-				context["recipes"][nombre]['materials'][m_nombre] = {}
-				context["recipes"][nombre]['materials'][m_nombre]['quality'] = mat.quality
-				context["recipes"][nombre]['materials'][m_nombre]['amount'] = int(recipe.step*mat.amount)
-				context["recipes"][nombre]['materials'][m_nombre]['name'] = str(mat)
+		context["recipes"] = recipes
+		qs = request.META.get('QUERY_STRING', None)
 
-		PROF_ABBR = ['AL', 'BS', 'CK', 'EN', 'EC', 'FA', 'FI', 'LW', 'OT', 'TL', 'SK']
-		if data.keys() & PROF_ABBR:
-			qs = request.META['QUERY_STRING']
-			context['consumes'] = self.consume_list_builder(qs)
+		if data.keys() and qs:
+			print(qs)
+			context['consumes'] = {}
 			context['materials'] = {}
 			cl = ConsumeList.objects.filter(hash=qs).first()
 			if cl:
-				context['cl'] = cl
-				for c in cl.consumes.all():
-					for mat in c.item.materials.all():
+				context['consume_list'] = cl
+				print('cl', cl)
+				for consume in cl.consumes.all():
+					for mat in consume.mats:
 						if mat.name not in context['materials'].keys():
 							context['materials'][mat.name] = {}
 							context['materials'][mat.name]['value'] = 0
-							context['materials'][mat.name]['quality'] = mat.item.quality
+							context['materials'][mat.name]['quality'] = mat.quality
+							context['materials'][mat.name]['img'] = mat.img
 
-
-						context['materials'][mat.name]['value'] += int(c.amount * mat.amount)
+						context['materials'][mat.name]['value'] += int(consume.amount * mat.amount)
 
 
 
@@ -408,7 +379,6 @@ class ConsumeToolTemplate(TemplateView):
 					}
 					response = JsonResponse(data)
 				except IntegrityError as e:
-					print('e: ', e)
 					name = request.POST.get('name', None)
 					message = "User {} already has consume list with name: {}".format(request.user.email, name)
 					data = {
@@ -427,8 +397,10 @@ class ConsumeToolTemplate(TemplateView):
 		return response
 
 
+	# decommissioned
 	def consume_list_builder(self, query_str):
 
+		print('query_str: ', query_str)
 		qd = QueryDict(query_str).dict()
 		my_consumes = {}
 		translator = {}
@@ -438,7 +410,8 @@ class ConsumeToolTemplate(TemplateView):
 			'alchemy': 'AL', 'blacksmithing':'BS', 'cooking':'CK', 'engineering':'EN',
 			'enchanting': 'EC', 'first_aid':'FA', 'fishing':'FI', 'leatherworking': 'LW', 'other':'OT',
 			'tailoring': 'TL', 'skinning':'SK'
-			}
+		}
+
 		prof_trans = {}
 		for k,v in prof_str.items():
 			prof_trans[v] = k
@@ -461,7 +434,6 @@ class ConsumeToolTemplate(TemplateView):
 			splitted = re.split(r'([a-zA-Z]{1}[\d]{1,2})', y)
 			item_str_list = list(filter(None, splitted))
 			for str_item in item_str_list:
-				print(str_item)
 				item_name = translator[prof_name][str_item[:1]]
 				quantity = str_item[1:]
 				my_consumes[prof_name][item_name] = int(quantity)
@@ -486,8 +458,8 @@ class ConsumeToolTemplate(TemplateView):
 			b = y[1]
 
 			cr = Crafted.objects.get(item__name=a)
-			if cr.prof:
-				prof_name = cr.prof.name
+			if cr.profession:
+				prof_name = cr.profession.name
 			else:
 				prof_name = 'other'
 
@@ -495,21 +467,25 @@ class ConsumeToolTemplate(TemplateView):
 				spent[prof_name] = {}
 			spent[prof_name][a] = b
 
-		hash = self.url_builder(spent)
 		data['name'] = name
 		data['spent'] = spent
-		data['hash'] = hash
 
 		user = request.user
 
 		c_list,cl_created = ConsumeList.objects.update_or_create(
-			name=name, user=user, private=private,
-			hash=hash, description=description,
-			defaults={'name': name, 'user':user, 'hash': hash,
+			name=name, user=user, private=private, description=description,
+			defaults={'name': name, 'user':user,
 				'description':description, 'private':private
 			}
 		)
 
+		hash = secrets.token_hex(5)
+
+		if hash in ConsumeList.objects.all().values_list('hash', flat=True):
+			hash = secrets.token_hex(5)
+
+		data['hash'] = hash
+		c_list.hash = hash
 
 		data['created'] = True if cl_created else False
 
@@ -540,38 +516,41 @@ class ConsumeToolTemplate(TemplateView):
 
 				c_list.save()
 
+
 		return data
 		# return JsonResponse(data)
 
-	def url_builder(self, consume_list):
-		stringy_boy = ''
-
-		rle_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-		prof_str = {
-			'alchemy': 'AL', 'blacksmithing':'BS', 'cooking':'CK', 'engineering':'EN',
-			'enchanting': 'EC', 'first_aid':'FA', 'fishing':'FI', 'leatherworking': 'LW', 'other':'OT',
-			'tailoring': 'TL', 'skinning':'SK'
-			}
-		translator = {}
-		translator['professions'] = prof_str
-
-		for prof_name,crafted_list in consume_list.items():
-			stringy_boy = ''.join([stringy_boy, "&{}=".format(translator['professions'][prof_name])])
-			if prof_name == 'other':
-				prof = None
-			else:
-				prof = Profession.objects.get(name=prof_name)
-
-			all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
-			translator[prof_name] = {}
-
-			for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
-				translator[prof_name][crafted.name] = k
-
-			for i,v in crafted_list.items():
-				stringy_boy = ''.join([stringy_boy, translator[prof_name][i], str(v)])
-
-		return(stringy_boy)
+	# def url_builder(self, user, consume_list, spent):
+	# 	stringy_boy = 'iX={}'.format(uuid.uuid4().hex[:6].upper())
+	#
+	#
+	#
+	# 	rle_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	# 	prof_str = {
+	# 		'Alchemy': 'AL', 'Blacksmithing':'BS', 'Cooking':'CK', 'Engineering':'EN',
+	# 		'Enchanting': 'EC', 'First Aid':'FA', 'Fishing':'FI', 'Leatherworking': 'LW', 'Other':'OT',
+	# 		'Tailoring': 'TL', 'Skinning':'SK'
+	# 		}
+	# 	translator = {}
+	# 	translator['professions'] = prof_str
+	#
+	# 	for prof_name,crafted_list in spent.items():
+	# 		stringy_boy = ''.join([stringy_boy, "&{}=".format(translator['professions'][prof_name])])
+	# 		if prof_name == 'other':
+	# 			prof = None
+	# 		else:
+	# 			prof = Profession.objects.get(name=prof_name)
+	#
+	# 		all_crafted = Crafted.objects.filter(profession=prof, end_game=True)
+	# 		translator[prof_name] = {}
+	#
+	# 		for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
+	# 			translator[prof_name][crafted.name] = k
+	#
+	# 		for i,v in crafted_list.items():
+	# 			stringy_boy = ''.join([stringy_boy, translator[prof_name][i], str(v)])
+	#
+	# 	return(stringy_boy)
 
 class EnchantToolView(TemplateView):
 	template_name = "enchant_tool.html"
@@ -746,7 +725,6 @@ def delete_list(request):
 def load_spec(request):
 	data = {}
 	name = request.GET.get('spec_name', None)
-	print(name)
 	if name:
 		spec = Spec.objects.filter(name=name).first()
 		if spec:
@@ -755,40 +733,82 @@ def load_spec(request):
 	return JsonResponse(data)
 
 
-def save_consume_list(request):
-	pass
+# def save_consume_list(request):
+# 	pass
 
 def ajax_tooltip(request):
 	data = {}
-
-	tal_name = request.GET.get('static', None)
-
-	if tal_name:
-		talent = Talent.objects.get(name=tal_name)
-
-
+	# static = request.GET.get('static', None)
+	which = request.GET.get('which', 0)
 	name = request.GET.get('name', None)
-	item = Item.objects.get(name=name)
-
 	data['name'] = name
-	data['quality'] = item.quality
-	data['image_name'] = item.image_name
+	static = request.GET.get('static', False)
 
-	if item.description:
-		data['description'] = item.description
+	if int(which) == 0:
+		items = Item.objects.filter(name=name)
+		if items:
+			item = items.first()
+		else:
+			item = Item.objects.get(name='samwise', ix=69420)
 
-	if item.unique:
-		data['unique'] = item.unique
+		if not static:
+			data['image_name'] = item.img
 
-	if item.use:
-		data['use'] = item.use
+		data['quality'] = item.quality
+		if item.bop:
+			data['bop'] = item.bop
 
-	if item.bop:
-		data['bop'] = item.bop
+		if item.unique:
+			data['unique'] = item.unique
 
-	if item.required_level:
-		data['required_level'] = item.required_level
+		if item.slot:
+			data['slot'] = item.slot
 
+		if item.proficiency:
+			data['proficiency'] = item.proficiency
+
+		if item.damage:
+			data['damage'] = []
+			for dmg in item.damage.all():
+				data['damage'].append(str(dmg))
+
+		if item.speed:
+			data['speed'] = item.speed
+
+		if item.damage and item.speed:
+			data['dps'] = item.dps
+
+		if item.stats:
+			data['stats'] = item.stats
+
+		if item.resists:
+			data['resists'] = item.resists
+
+		if item.durability:
+			data['durability'] = item.durability
+
+		if item.requirements:
+			data['requirements'] = item.requirements
+
+		if item.equips:
+			data['equips'] = []
+			for equip in item.equips.all():
+				data['equips'].append(equip.t)
+
+		if item.procs:
+			data['procs'] = []
+			for proc in item.procs.all():
+				data['procs'].append(proc.t)
+
+		if item.use:
+			data['use'] = item.use.t
+
+		if item.description:
+			data['description'] = item.description
+
+	elif which == 1:
+		talents = Talent.objects.filter(name=name)
+		pass
 
 	response = JsonResponse(data)
 	return response
@@ -846,3 +866,45 @@ def apply_filters(request):
 
 	response = render(request, "index_helper.html", context=context)
 	return response
+
+def flag_list(request):
+	uid = request.POST.get("uid", None)
+	ix = request.POST.get("ix", None)
+	print(request.POST)
+
+
+	wow_class = request.POST.get("wow_class", None)
+	data = {}
+	if wow_class:
+		print('wow_class')
+
+		saved_list = Spec.objects.filter(id=int(ix)).first()
+
+	else:
+		saved_list = ConsumeList.objects.filter(id=(ix)).first()
+
+	if saved_list:
+		saved_list.visible = False
+		saved_list.save()
+		message = "SavedList ({}) flagged for review`".format(ix)
+		data['message'] = message
+		response = JsonResponse(data)
+
+	else:
+		response = JsonResponse(data)
+		response.status_code = 400
+
+	return response
+
+
+def titlecase(s):
+	word_exceptions = ['of', 'the']
+	a = s.replace('_', ' ')
+	word_list = a.split()
+
+	for i,word in enumerate(word_list):
+		if word not in word_exceptions:
+			word_list[i] = word.title()
+
+	c = ' '.join(word_list)
+	return(c)

@@ -25,6 +25,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 DEV = False
+TESTING = True
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', '13.59.19.192']
@@ -108,6 +109,20 @@ if LOCAL:
 			'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 		}
 	}
+elif TESTING:
+	AUTH_USER_MODEL = 'home.User'
+	SOCIAL_AUTH_USER_MODEL = 'home.User'
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.postgresql_psycopg2',
+			'NAME': os.environ['DEV_DB_NAME'],
+			'USER': os.environ['DEV_DB_USER'],
+			'PASSWORD': os.environ['DEV_DB_PASS'],
+			'HOST': os.environ['DEV_DB_HOST'],
+			'PORT': os.environ['DEV_DB_PORT'],
+			'CONN_MAX_AGE': 20,
+		}
+	}
 else:
 	AUTH_USER_MODEL = 'home.User'
 	SOCIAL_AUTH_USER_MODEL = 'home.User'
@@ -153,7 +168,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Chicago'
+# TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 

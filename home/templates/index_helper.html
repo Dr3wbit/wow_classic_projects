@@ -1,181 +1,183 @@
 {% load static %}
-{% load has_voted from custom_filters %}
+{% load has_voted sanitize from custom_filters %}
 {% for spec in specs %}
-<div class="col-12">
-	<div class="feedItem row mt-5">
-		<div class="col">
-			<div class="listImage"
-				style="background-image: url('static/images/icons/large/mini_spec/{{ spec.wow_class.name }}.png')">
-				<div class="listIcon">
-					{% with "images/icons/large/class/"|add:spec.wow_class.name|add:".jpg" as class_image %}
-					<img class="class-icon" src="{% static "images/icon_border_2.png" %}"
-						style="background-image: url('{% static class_image %}');">
-					{% endwith %}
+
+	{% if spec.visible %}
+	<div class="col-12 saved-list-item" data-ix="{{spec.id}}" data-uid="{{spec.user.uid}}">
+		<div class="feedItem row mt-5">
+			<div class="col">
+				<div class="listImage"
+					style="background-image: url('static/images/icons/large/mini_spec/{{ spec.wow_class.name|sanitize }}.png')">
+					<div class="listIcon">
+						{% with "images/icons/large/class/"|add:spec.wow_class.name|sanitize|add:".jpg" as class_image %}
+						<img class="class-icon" src="{% static "images/icon_border_2.png" %}"
+							style="background-image: url('{% static class_image %}');">
+						{% endwith %}
+					</div>
+					<a style=" position : absolute; height: 125px; width: 180px;"
+						href="{% url 'talent_builder' spec.id %}?{{spec.hash}}"></a>
 				</div>
-				<a style=" position : absolute; height: 125px; width: 180px;"
-					href="{% url 'talent_builder' spec.id %}?{{spec.hash}}"></a>
+				<div class="row">
+				</div>
 			</div>
-			<div class="row">
-			</div>
-		</div>
-		<div class="col-8">
+		<div class="col-md-8 col-12">
 			<div class="row feed-header">
+			</div>
+				<div class="row feed-content">
+					<div class="col-8 feedTitle">
+						<a href="{% url 'talent_builder' spec.id %}?{{spec.hash}}">{{spec.name}}</a>
+					</div>
+					<div class="col-4">
 
-			</div>
-			<div class="row feed-content">
-				<div class="col-8 feedTitle">
-					<a href="{% url 'talent_builder' spec.id %}?{{spec.hash}}">{{spec.name}}</a>
+					</div>
 				</div>
-				<div class="col-4">
-
+				<div class="row feed-content">
+					<div class="col-12 feed-desc">
+						{{spec.description}}
+					</div>
 				</div>
-			</div>
-			<div class="row feed-content">
-				<div class="col-12 feed-desc">
-					{{spec.description}}
+				<div class="row feed-content">
+					<hr class="row m-2"
+						style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+					</hr>
 				</div>
+				<div class="row feed-content">
+					{% for tag in spec.tags.all %}
+					<div class="feed-tag">{{tag.name}}</div>
+					{% endfor %}
+				</div>
+				<div class="row feed-content"></div>
 			</div>
-			<hr class="row mt-2 mb-2"
-				style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
-			</hr>
-			<div class="row feed-content">
-				{% for tag in spec.tags.all %}
-				<div class="feed-tag">{{tag.name}}</div>
-				{% endfor %}
-			</div>
-			<div class="row feed-content"></div>
-		</div>
 		<div class="col-12 row feed-footer">
-			<div class="col-4">
-				<span class="{{spec.wow_class.name}}">{{spec.wow_class.name|title}}</span>
+			<div class="col-md-4 col-12">
+				<span class="{{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
 				<span
 					class="">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
 			</div>
-			<div class="col-3">
-				<div class="ratings-container" name="{{spec.name}}" data-id="{{spec.id}}"
+			<div class="col-md-3 col-12">
+				<div class="ratings-container mx-auto" name="{{spec.name}}" data-id="{{spec.id}}"
 					data-wowclass="{{spec.wow_class.name}}">
 					{% has_voted spec.id request.user.email 1 as voted %}
 
-					{% if not request.user.is_authenticated or request.user == spec.user or voted %}
-					<div class="star-box">
-						{% widthratio spec.rating 1 20 as width %}
-						<div class="star-limiter" style="width:{{width|default:0}}%">
+						{% if not request.user.is_authenticated or request.user == spec.user or voted %}
+						<div class="star-box">
+							{% widthratio spec.rating 1 20 as width %}
+							<div class="star-limiter" style="width:{{width|default:0}}%">
+								<div class="longbar">
+									{% for n in rangen %}
+									<span class="glyphicon glyphicon-star"></span>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+						<div class="star-bg">
 							<div class="longbar">
 								{% for n in rangen %}
 								<span class="glyphicon glyphicon-star"></span>
 								{% endfor %}
 							</div>
 						</div>
-					</div>
-					<div class="star-bg">
-						<div class="longbar">
-							{% for n in rangen %}
-							<span class="glyphicon glyphicon-star"></span>
-							{% endfor %}
+						<!-- <p id="rating_data"></p> -->
+						{% else %}
+						<div class="star-box rating-vote">
+							<div class="star-limiter" style="width: 0%">
+								<div class="longbar">
+									{% for n in rangen %}
+									<span class="glyphicon glyphicon-star-empty"></span>
+									{% endfor %}
+								</div>
+							</div>
 						</div>
-					</div>
-					<!-- <p id="rating_data"></p> -->
-					{% else %}
-					<div class="star-box rating-vote">
-						<div class="star-limiter" style="width: 0%">
+						<div class="star-bg rating-vote">
 							<div class="longbar">
 								{% for n in rangen %}
 								<span class="glyphicon glyphicon-star-empty"></span>
 								{% endfor %}
 							</div>
 						</div>
-					</div>
-					<div class="star-bg rating-vote">
-						<div class="longbar">
-							{% for n in rangen %}
-							<span class="glyphicon glyphicon-star-empty"></span>
-							{% endfor %}
-						</div>
-					</div>
-					{% endif %}
-					<span style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 50px;">
-						{% if request.user.is_staff and spec.user != request.user and voted %}
-						<a href="" class="remove-rating">({{spec.ratings.count}})</a>
-						{% else %}
-						({{spec.ratings.count}})
 						{% endif %}
-					</span>
+						<span style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 50px;">
+							{% if request.user.is_staff and spec.user != request.user and voted %}
+							<a href="" class="remove-rating">({{spec.ratings.count}})</a>
+							{% else %}
+							({{spec.ratings.count}})
+							{% endif %}
+						</span>
+					</div>
 				</div>
-			</div>
-			<div class="col-5 text-left">
-				{% if spec.updated|date:"m/d/Y, P" == spec.created|date:"m/d/Y, P" %}
-				Created By {% if spec.user == request.user %}
-				<a href="">me</a>
-				{% elif not spec.private %}
-				<a href="">{{spec.user.disc_username}}</a>
-				{% else %}
-				anonymous
-				{% endif %}
-				on
-				{{spec.created}}
-				{% else %}
-				Last Edited By {% if spec.user == request.user %}
-				<a href="">me</a>
-				{% elif not spec.private %}
-				<a href="">{{spec.user.disc_username}}</a>
-				{% else %}
-				anonymous
-				{% endif %}
-				on
-				{{spec.updated}}
-				{% endif %}
+				<div class="col-md-5 col-12 text-left">
+					{% if spec.updated|date:"m/d/Y, P" == spec.created|date:"m/d/Y, P" %}
+					Created By {% if spec.user == request.user %}
+					<a href="">me</a>
+					{% elif not spec.private %}
+					<a href="">{{spec.user.disc_username}}</a>
+					{% else %}
+					anonymous
+					{% endif %}
+					on
+					{{spec.created}}
+					{% else %}
+					Last Edited By {% if spec.user == request.user %}
+					<a href="">me</a>
+					{% elif not spec.private %}
+					<a href="">{{spec.user.disc_username}}</a>
+					{% else %}
+					anonymous
+					{% endif %}
+					on
+					{{spec.updated}}
+					{% endif %}
 
-				{% if request.user.is_staff %}
-				<button class="btn btn-sm float-right flag-item" aria-label="Flag" title="Flag"
-					style="font-size: margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;"
-					type="button">
-					<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
-				</button>
-				{% endif %}
+					{% if request.user.is_staff %}
+					<button class="btn btn-sm float-right flag-item" aria-label="Flag" title="Flag"
+						style="font-size: margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;"
+						type="button" data-ix="{{spec.id}}" data-uid="{{spec.user.uid}}" data-wowclass="{{spec.wow_class.name}}">
+						<span style='user-select:none; pointer-events:none;' class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+					</button>
+					{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	{% endif %}
 {% endfor %}
 
 
 {% for cl in consume_lists %}
-{% has_voted cl.id request.user.email 0 as voted %}
+{% if cl.visible %}
+	{% has_voted cl.id request.user.email 0 as voted %}
 
-<div class="col-12">
-	<div class="feedItem row mt-5">
-		<div class="col">
-			<div class="listImage"
-			style="background-image: url('static/images/icons/large/mini_spec/crafting_image_2.png')">
-				<div class="listIcon">
-					<img class="class-icon" src="{% static "images/icon_border_2.png" %}">
+	<div class="col-12">
+		<div class="feedItem row mt-5">
+			<div class="col">
+				<div class="listImage"
+					style="background-image: url('static/images/icons/large/mini_spec/crafting_image_2.png')">
+					<div class="listIcon">
+						<img class="class-icon" src="{% static "images/icon_border_2.png" %}">
+					</div>
+					<a style=" position : absolute; height: 125px; width: 180px;"
+						href="{% url 'consume_builder' cl.id %}?{{cl.hash}}"></a>
 				</div>
-				<a style=" position : absolute; height: 125px; width: 180px;"
-				href="{% url 'consume_builder' cl.id %}?{{cl.hash}}"></a>
+				<div class="row"></div>
 			</div>
-			<div class="row">
-			</div>
-		</div>
-		<div class="col-8">
-			<div class="row feed-header">
-
-			</div>
+		<div class="col-md-8 col-12">
+			<div class="row feed-header"></div>
 			<div class="row feed-content">
-				<div class="col-8 feedTitle">
-					<a href="{% url 'consume_builder' cl.id %}?{{cl.hash}}">{{cl.name}}</a>
-				</div>
-				<div class="col-4">
-
-				</div>
+					<div class="col-8 feedTitle">
+						<a href="{% url 'consume_builder' cl.id %}?{{cl.hash}}">{{cl.name}}</a>
+					</div>
+					<div class="col-4"></div>
 			</div>
 			<div class="row feed-content">
 				<div class="col-12 feed-desc">
 					{{cl.description}}
 				</div>
 			</div>
-			<hr class="row mt-2 mb-2"
-				style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
-			</hr>
+			<div class="row feed-content">
+					<hr class="m-2"
+					style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
+				</hr>
+			</div>
 			<div class="row feed-content">
 				{% for tag in cl.tags.all %}
 				<div class="feed-tag">{{tag.name}}</div>
@@ -184,10 +186,9 @@
 			<div class="row feed-content"></div>
 		</div>
 		<div class="col-12 row feed-footer">
-			<div class="col-4">
-
+			<div class="col-md-4 col-12">
 			</div>
-			<div class="col-3">
+			<div class="col-md-3 col-12">
 				<div class="ratings-container" name="{{cl.name}}" data-id="{{cl.id}}">
 					<span
 						style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:20px">
@@ -198,69 +199,135 @@
 						{% endif %}
 					</span>
 					{% if not request.user.is_authenticated or voted or request.user == cl.user %}
-
-					<div class="star-box">
-						{% widthratio cl.rating 1 20 as width %}
-						<div class="star-limiter" style="width:{{width|default:0}}%">
+						<div class="star-box">
+							{% widthratio cl.rating 1 20 as width %}
+							<div class="star-limiter" style="width:{{width|default:0}}%">
+								<div class="longbar">
+									{% for n in rangen %}
+									<span class="glyphicon glyphicon-star"></span>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+						<div class="star-bg">
 							<div class="longbar">
 								{% for n in rangen %}
 								<span class="glyphicon glyphicon-star"></span>
 								{% endfor %}
 							</div>
 						</div>
-					</div>
-					<div class="star-bg">
-						<div class="longbar">
-							{% for n in rangen %}
-							<span class="glyphicon glyphicon-star"></span>
-							{% endfor %}
+						<!-- <p id="rating_data"></p> -->
+						{% else %}
+						<div class="star-box rating-vote">
+							<div class="star-limiter" style="width: 0%">
+								<div class="longbar">
+									{% for n in rangen %}
+									<span class="glyphicon glyphicon-star-empty"></span>
+									{% endfor %}
+								</div>
+							</div>
 						</div>
-					</div>
-					<!-- <p id="rating_data"></p> -->
-					{% else %}
-					<div class="star-box rating-vote">
-						<div class="star-limiter" style="width: 0%">
+						<div class="star-bg rating-vote">
 							<div class="longbar">
 								{% for n in rangen %}
 								<span class="glyphicon glyphicon-star-empty"></span>
 								{% endfor %}
 							</div>
 						</div>
+						{% endif %}
 					</div>
-					<div class="star-bg rating-vote">
-						<div class="longbar">
-							{% for n in rangen %}
-							<span class="glyphicon glyphicon-star-empty"></span>
-							{% endfor %}
-						</div>
-					</div>
-					{% endif %}
 				</div>
-			</div>
-			<div class="col-5 text-left">
-				{% if cl.created == cl.updated %}
-				Created By {% if request.user == cl.user %}
-				<a href="">me</a>
-				{% elif not cl.private %}
-				<a href="">{{cl.user.disc_username}}</a>
-				{% else %}
-				anonymous
-				{% endif %}
-				on
-				{{cl.created}}
-				{% else %}
-				Last Edited By {% if cl.user == request.user %}
-				<a href="">me</a>
-				{% elif not cl.private %}
-				<a href="">{{cl.user.disc_username}}</a>
-				{% else %}
-				anonymous
-				{% endif %}
-				on
-				{{cl.updated}}
-				{% endif %}
+				<div class="col-md-5 col-12 text-left">
+					{% if cl.created == cl.updated %}
+					Created By {% if request.user == cl.user %}
+					<a href="">me</a>
+					{% elif not cl.private %}
+					<a href="">{{cl.user.disc_username}}</a>
+					{% else %}
+					anonymous
+					{% endif %}
+					on
+					{{cl.created}}
+					{% else %}
+					Last Edited By {% if cl.user == request.user %}
+					<a href="">me</a>
+					{% elif not cl.private %}
+					<a href="">{{cl.user.disc_username}}</a>
+					{% else %}
+					anonymous
+					{% endif %}
+					on
+					{{cl.updated}}
+					{% endif %}
+					{% if request.user.is_staff %}
+					<button class="btn btn-sm float-right flag-item" aria-label="Flag" title="Flag"
+						style="font-size: margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;"
+						type="button" data-ix="{{cl.id}}" data-uid="{{cl.user.uid}}">
+						<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+					</button>
+					{% endif %}
+
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+{% endif %}
 {% endfor %}
+
+{% if request.user.is_staff %}
+<script>
+
+$(".flag-item").on({
+	click: e=> {
+		var $data = {}
+		if ($(e.target).attr("data-wowclass")) {
+			$data['wow_class'] = $(e.target).attr("data-wowclass")
+		// }
+		// $data['uid']= ($(e.target).attr('data-uid')) ? $(e.target).attr('data-uid') : $(e.target).parent().attr('data-uid')
+ 		// $data['ix'] = ($(e.target).attr('data-ix')) ? $(e.target).attr('data-ix') : $(e.target).parent().attr('data-ix')
+		}
+		$data['uid']= $(e.target).attr('data-uid')
+		$data['ix'] = $(e.target).attr('data-ix')
+
+		console.log('data: ', $data)
+
+		$.ajax({
+			method: "POST",
+			url: '/ajax/flag_list/',
+			data: $data,
+			success: flag_success,
+			error: flag_error,
+		})
+	}
+})
+
+function flag_success(data, textStatus, jqXHR) {
+	let uid = data.uid.toString()
+	let ix = data.ix.toString()
+
+	let list_item = $(`.saved-list-item[data-ix='${ix}'][data-uid='${uid}']`);
+
+	list_item.hide(800, function () {
+		$(this).remove()
+	})
+
+	let message = data.message.toString() // <--------------- NOTE: HERE
+	notifyUser(message)
+	console.log('\n**success**\n')
+	console.log(data.message.toString())
+	console.log('data: ', data)
+	console.log('status: ', textStatus)
+	console.log(jqXHR)
+	// $myForm.reset(); // reset form data
+}
+
+function flag_error(jqXHR, textStatus, errorThrown) {
+	notifyUser(errorThrown)
+	console.log('\n**error**\n')
+	console.log(jqXHR)
+	console.log(textStatus)
+	console.log(errorThrown)
+}
+</script>
+
+{% endif %}
