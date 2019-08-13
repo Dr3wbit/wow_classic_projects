@@ -260,6 +260,7 @@ function get_dimensions(elem) {
 }
 
 function create_tooltip_v2(data, e) {
+	clearTooltip()
 	const tooltip_container = document.getElementById("tooltip_container")
 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
 

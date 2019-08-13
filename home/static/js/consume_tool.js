@@ -2,7 +2,6 @@
 function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
-
 var ALL_PROFS = ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'fishing', 'first aid', 'leatherworking', 'mining', 'herbalism', 'riding', 'skinning']
 function add_consume(name, num_added=1, step=1) {
 
@@ -81,14 +80,22 @@ function add_consume(name, num_added=1, step=1) {
 		let buttonContainer = $('<div/>', {
 			class: 'add-subtract-button-container',
 		}).append($('<button/>', {
-			class: 'adjustment-button add-button',
-			text: "+"
-		}),
+			class: 'btn btn-sm adjustment-button add-button',
+			style: "background-color: transparent; padding: 1px; padding-right: 2px"
+		}).append($('<span/>', {
+			class: "glyphicon glyphicon-plus",
+			style: "font-size: 12px;"
+		})),
 		$('<button/>', {
-			class: 'adjustment-button sub-button',
-			text: "-"
-		})
+			class: 'btn btn-sm adjustment-button sub-button',
+			style: "background-color: transparent; padding: 1px; padding-right: 2px"
+		}).append($('<span/>', {
+			class: "glyphicon glyphicon-minus",
+			style: "font-size: 12px;"
+		}))
 		)
+
+
 
 		consume_image.on({
 			mouseenter: e => {
