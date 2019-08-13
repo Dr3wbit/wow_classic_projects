@@ -21,7 +21,8 @@ admin.site.register(WoWClass)
 class ItemAdmin(admin.ModelAdmin):
 	model = Item
 	# change_list_results_template = "change_list_results.html"
-	list_display = ('name', 'quality', 'image')
+	list_display = ('name', 'quality', 'image',)
+
 	# def image(self, obj):
 	#     return format_html(
 	#         '<img class="icon-medium" src=style="color: #{};">{} {}</span>',
@@ -35,7 +36,7 @@ class ItemAdmin(admin.ModelAdmin):
 		return html.format_html(
 			'<img class="icon-medium" src="{}" style="background-image: url({});">',
 			html.format_html(settings.STATIC_URL+"images/icon_border_2.png"),
-			html.format_html(settings.STATIC_URL+"images/icons/consumes/"+obj.name+".jpg"),
+			html.format_html(settings.STATIC_URL+"images/icons/large/"+obj.img+".jpg"),
 	)
 	#
 	# def image(self, obj):
@@ -76,50 +77,104 @@ admin.site.register(Item, ItemAdmin)
 #         if commit:
 #             instance.save()
 #         return instance
+#
+# class InlineApproval(admin.TabularInline):
+#
+# 	def formfield_for_choice_field(self, db_field, request, **kwargs):
+#         if db_field.name == "status":
+#             kwargs['choices'] = (
+#                 ('accepted', 'Accepted'),
+#                 ('denied', 'Denied'),
+#             )
+#             if request.user.is_superuser:
+#                 kwargs['choices'] += (('ready', 'Ready for deployment'),)
+#         return super().formfield_for_choice_field(db_field, request, **kwargs)
 
-class FlaggedSpecForm(forms.ModelForm):
+class SpecApprovalForm(forms.ModelForm):
 
-	STATUS_CHOICES = (
-		('approved', 'Approved'),
-		('denied', 'Denied'),
-	)
-
-	visible = forms.BooleanField()
 
 	class Meta:
-		model = Spec
-		fields = ('name', 'description', 'user', 'visible')
+		STATUS_CHOICES = (
+			('TRUE', 'True'),
+			('FALSE', 'False'),
+		)
+		fields = ['user', 'name', 'description', 'visible']
+		widgets = {'visible': forms.Select(choices=STATUS_CHOICES)}
 
-	def __init__(self, *args, **kwargs):
-		super().__init__(*args, **kwargs)
-		self.queryset = Spec.objects.filter(visible=False)
+	def save(self, *args, **kwargs):
+		print('\ndir self: ', dir(self))
+		print('\n initial: ', self.initial)
+		print('\ndir self.instance: ', dir(self.instance))
+		print('\ncleaned: ', self.cleaned_data)
+		print(self.cleaned_data['visible'])
+		# print('data: ', self.data)
 
+		# print('\nself.fields: ', self.fields)
+		# print('\nself.visible_fields: ', self.visible_fields)
+
+		# print('\nargs: ', args)
+		# print('\nkwargs: ', kwargs)
+
+		# print('dir self: ', dir(self))
+
+
+		# print('\nself.instance.name: ', self.instance.name)
+		#
+		# print('\nself.Meta: ', self.Meta())
+		# self.cleaned_data['visible'] =
+		# super().save(*args, **kwargs)
 
 class FlaggedSpecsAdmin(admin.ModelAdmin):
-	model = Spec
-	actions = ['resolve']
+	form = SpecApprovalForm
+	# class Meta:
+		# model = Spec
+	# model = Spec
+	# def __init__(self, *args, **kwargs):
+		# super().__init__(*args, **kwargs)
+
+	def get_changelist_form(self, request, **kwargs):
+		return SpecApprovalForm
+
+	def get_queryset(self, request):
+		qs = super().get_queryset(request)
+		return qs.filter(flagged=True)
+
+	# def resolve(self, obj):
+	# 	STATUS_CHOICES = (
+	# 		('approved', 'Approve'),
+	# 		('denied', 'Deny'),
+	# 	)
+	#
+	# 	resolve = forms.CharField(
+	# 		max_length=10,
+	# 		widget=forms.Select(choices=STATUS_CHOICES),
+	# 	)
+	#
+	# 	print(dir(resolve))
+		# return resolve
+
+
+	list_display = ('name', 'description', 'user', 'visible',)
+	list_editable = ('visible', )
+	# readonly_fields = ('user',)
+
+# class FlaggedSpecsAdmin(admin.ModelAdmin):
+# 	model = Spec
+# 	form = FlaggedSpecForm
+# 	list_display = ('name', 'description', 'user',)
+
+	# actions = ['resolve']
 	# change_list_results_template = "change_list_results.html"
-	list_display = ('name', 'description', 'user', 'visible')
-	readonly_fields = ('user',)
+	# list_display = ('name', 'description', 'user', 'resolve')
+	# readonly_fields = ('user',)
+	#
+	#
+	# def get_queryset(self, request):
+	# 	qs = super().get_queryset(request)
+	# 	return qs.filter(flagged=True)
 
-
-	# def get_changelist_formset(self, request, **kwargs):
-	#     kwargs['formset'] = FlaggedSpecFormset
-	#     return super().get_changelist_formset(request, **kwargs)
-
-	def __init__(self, *args, **kwargs):
-		super().__init__(*args, **kwargs)
-		self.queryset = Spec.objects.filter(visible=False)
-
-
-	def resolve(self, request, queryset):
-		queryset.update()
-		return forms.ChoiceField(queryset=CHOICE_FIELDS)
-
-
-
-
-	# resolve.short_description = "Mark selected specs as resolved"
+	# def resolve(self, request):
+	# 	return self.form.resolve
 
 	# def get_fieldsets(self, request, obj=None):
 	#     fieldsets = super().get_fieldsets(request, obj)
