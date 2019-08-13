@@ -78,6 +78,18 @@ function add_consume(name, num_added=1, step=1) {
 			style: `background-image: url(${image_url});`,
 		})
 
+		let buttonContainer = $('<div/>', {
+			class: 'add-subtract-button-container',
+		}).append($('<button/>', {
+			class: 'adjustment-button add-button',
+			text: "+"
+		}),
+		$('<button/>', {
+			class: 'adjustment-button sub-button',
+			text: "-"
+		})
+		)
+
 		consume_image.on({
 			mouseenter: e => {
 				clearTooltip()
@@ -137,7 +149,8 @@ function add_consume(name, num_added=1, step=1) {
 			materials_list_elem = update_or_create(materials_list_elem, num_added, materials)
 		}
 
-		consume_list_item.append(consume_container, materials_list_elem)
+		consume_list_item.append(consume_container, materials_list_elem, buttonContainer)
+
 
 		$("#consumes").append(consume_list_item)
 	}
@@ -258,7 +271,6 @@ function addSavedList(name) {
 		}), deleteBtn)
 
 	$(".savedListsContainer").append(savedList)
-
 
 }
 

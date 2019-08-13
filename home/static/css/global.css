@@ -166,11 +166,12 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     height: 50px;
-    border-left: solid 1px black;
     border-right: solid 1px black;
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
+    cursor: default;
+    pointer-events: none;
 
 }
 
@@ -178,9 +179,6 @@ body {
     /* vertical-align: top; */
     position: relative;
     top: 3px;
-}
-.navbar-brand:hover{
-    box-shadow: inset 4px 0 4px -4px black, inset -4px 0 4px -4px black;
 }
 
 .nav-link {
@@ -204,6 +202,12 @@ body {
     border-right: 1px solid black;
     border-right: 1px solid black;
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
+}
+
+#navbarSupportedContent{
+    z-index: 1310;
+    background-color: #272727;
+    border-bottom: 1px solid black;
 }
 
 .nav-item:hover {

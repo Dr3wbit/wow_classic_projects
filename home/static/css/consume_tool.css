@@ -48,6 +48,7 @@
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
+    position: relative;
 }
 
 .materials-list-item {
@@ -220,7 +221,23 @@
     cursor: pointer;
 }
 
-.add-subtract-button{
+.add-subtract-button-container {
     position: absolute;
     right: 0;
+    top: 0;
+}
+
+.adjustment-button {
+    height: 24px;
+    width: 24px;
+    color: white;
+    background-color: #1C1C1C;
+    border: none;
+    border: 2px solid black;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.adjustment-button:hover {
+    cursor: pointer;
 }

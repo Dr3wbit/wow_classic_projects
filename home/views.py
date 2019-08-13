@@ -105,7 +105,6 @@ class TalentCalcTemplate(TemplateView):
 
 	def talent_architect(self, context):
 		class_name = context["selected"]
-		print('class_name: ', class_name)
 		wow_class = WoWClass.objects.filter(name=class_name.title()).first()
 		if wow_class:
 
@@ -128,6 +127,7 @@ class TalentCalcTemplate(TemplateView):
 
 			context["blueprints"] = blueprints
 			return(context)
+
 
 	def get(self, request, *args, **kwargs):
 		context = {}

@@ -11,3 +11,4 @@ keys
 ONY_BUFF_KEY.pem
 *__pycache__
 /static*
+addondev

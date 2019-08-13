@@ -16,128 +16,75 @@
 <div class="mainBody container">
     <div class="row selection-header sticky-top">
         <div class="col">
-                <form class="form-inline row selection-header">
-                        <div class="col-2">
-                                <div class="dropdown show">
-                                        <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Filters
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownMenuLink">
-                                           <div class="filter-dropdown-container container">
-                                               <div class="filter-category-title">Classes</div>
-                                               <div name="classes" class="filter-container">
-                                                   {% for class in wowclasses %}
-                                                   <div name="{{class.name}}" class="filter-box">{{class.name}}</div>
-                                                   {%endfor%}
-                                               </div>
-                                               <div class="filter-category-title">Professions</div>
-                                               <div name="professions" class="filter-container">
-                                                   {% for profession in wowprofessions %}
-                                                   <div name="{{profession.name}}" class="filter-box">{{profession.name}}</div>
-                                                   {%endfor%}
-                                               </div>
-                                               <div class="filter-category-title">Tags</div>
-                                               <div name="tags" class="filter-container">
-                                                    {% for tag in tags %}
-                                                   <div name="{{tag.name}}" class="filter-box">{{tag.name}}</div>
-                                                   {%endfor%}
-                                               </div>
-                                               <div class="filter-footer row">
-                                                   <div class="col-12 justify-content-around mt-2">
-                                                        <button class="btn btn-dark" id="reset-filters">Reset</button>
-                                                        <button class="btn btn-dark" id="apply-filters">Apply Filters</button>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                        </div>
+            <form class="form-inline row selection-header">
+                <div class="d-none d-md-inline-block col-xl-4 col-md-5">
+                    <div class="dropdown show d-inline-block">
+                        <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="dropdownFilterLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filters
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownFilterLink">
+                            <div class="filter-dropdown-container container row">
+                                <div class="col-4">
+                                    <div class="filter-category-title">Classes</div>
+                                    <div name="classes" class="filter-container custom-scroll-bar">
+                                        {% for class in wowclasses %}
+                                        <div name="{{class.name}}" class="filter-box">{{class.name}}</div>
+                                        {%endfor%}
                                     </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="dropdown show">
-                                <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Sort By
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item dropdown-item-custom" href="#">Top Rated</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item dropdown-item-custom" href="#">Most Recent</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item dropdown-item-custom" href="#">Most Comments</a>
                                 </div>
+                                <div class="col-4">
+                                    <div class="filter-category-title">Professions</div>
+                                    <div name="professions" class="filter-container custom-scroll-bar">
+                                        {% for profession in wowprofessions %}
+                                        <div name="{{profession.name}}" class="filter-box">{{profession.name}}</div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="filter-category-title">Tags</div>
+                                    <div name="tags" class="filter-container custom-scroll-bar">
+                                        {% for tag in tags %}
+                                        <div name="{{tag.name}}" class="filter-box">{{tag.name}}</div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                                <div class="col-12 justify-content-around mt-2">
+                                    <button class="btn btn-sm btn-dark" id="reset-filters">Reset</button>
+                                    <button class="btn btn-sm btn-dark" id="apply-filters">Apply Filters</button>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="col-6">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" size="40" aria-label="Search">
-                            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                    </div>
+                    <div class="dropdown show d-inline-block">
+                        <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="dropdownSortByLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sort By
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownSortByLink">
+                            <a class="dropdown-item dropdown-item-custom" href="#">Top Rated</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dropdown-item-custom" href="#">Most Recent</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item dropdown-item-custom" href="#">Most Relevant</a>
                         </div>
-                        <div class="col-2"></div>
-                    </form>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-8 col-md-7">
+                    <input class="form-control form-control-sm" type="search" placeholder="Search Keywords" size="30"
+                        aria-label="Search">
+                    <button class="btn btn-sm btn-outline-warning" type="submit">Search</button>
+                </div>
+            </form>
         </div>
     </div>
     <div class="row content-container mt-4">
-        <div class="col d-none mb-4 site-content">
-            <div class="sidebar-header">Site Content</div>
-            <div class="col sidebar-content">
-                <a class="sidebar-ref" href="specsAndGuides">Specs & Guides</a>
-                <p>If you need to know what consumes to bring to raid or a quick spec reference or you should check
-                    out our Specs & Guides.</p>
-                <a class="sidebar-ref" href="consumeTool">Consumable Calculator</a>
-                <p>Getting your consumables crafted buy a guildie or crafting them yourself? Use our Consumable Tool
-                    to find ot exactly what materials you need.</p>
-                <a class="sidebar-ref" href="talent">Talent Calculator</a>
-                <p>Want to mess around with your characters spec? Instead of wasting gold for an extra respec, plan
-                    it out first with our Talent Calculator.</p>
-                <a class="sidebar-ref" href="enchantTool">Enchant Calculator</a>
-                <p>Got your preraid bis or a shiney new peice of gear from Molten Core? Use our Enchant Tool to get
-                    all the correct materials before hitting up an enchanter.</p>
-                <a class="sidebar-ref" href="contact">Contact Us</a>
-                <p>Have an idea you'd like to see on the website? Found a bug? Send us a message and let us know
-                    about it!</p>
-                <span>Classic WoW releases in:</span>
-                <div class="countdown"></div>
-            </div>
+        <div class="applied-filter-container mx-auto col-12"></div>
+        <div id="saved_list_container" class="mx-auto">
+            {% include "index_helper.html" %}
         </div>
 
-    <div id="saved_list_container" class="mx-auto">
-        {% include "index_helper.html" %}
-    </div>
-
-
-        <div class=" pt-4 ">
-            <div class="card mb-3 bg-transparent border-light text-center">
-                <h5 class="card-header bg-transparent border-light text-light">
-                    Changelog
-                </h5>
-                <div class="card-body text-light">
-                    <p class="card-text text-left">4/29/2019</p>
-                    <ul class="card-text text-left">
-                        <li>
-                            Added Specs and Guides Section.
-                        </li>
-                        <li>
-                            Added Working Talent Calculator.
-                        </li>
-                        <li>
-                            Updated Consume Tool to display more useful information.
-                        </li>
-                        <li>
-                            Changed overall site style and design.
-                        </li>
-                    </ul>
-                    <p class="card-text text-left">1/5/2019</p>
-                    <ul class="card-text text-left">
-                        <li>
-                            Initial Launch with consume tool and enchant tool.
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-footer text-muted border-light">
-                    <p>We are constantly adding new things to Onybuff.com</p>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 </div>
@@ -162,9 +109,9 @@
             e.stopPropagation()
             var target = $(e.target)
             // add target[0].innerText   to an array to be sent with apply filters
-            if(target.hasClass('filter-selected')){
+            if (target.hasClass('filter-selected')) {
                 target.removeClass('filter-selected')
-            }else{
+            } else {
                 target.addClass('filter-selected')
             }
         }
@@ -179,6 +126,9 @@
                 filterArray.push(filter.innerText)
             }
             apply_filters(filterArray)
+            $('.dropdown-menu').removeClass('show')
+            let displayFilters = filterArray.toString().replace(/,/g, ', ')
+            $('.applied-filter-container').text(`Applied Filters: ${displayFilters}`)
         }
     })
 
@@ -189,6 +139,16 @@
             let selectedFilters = $('.filter-selected')
             selectedFilters.removeClass('filter-selected')
             apply_filters(filterArray)
+            $('.applied-filter-container').text(filterArray)
+        }
+    })
+
+    $('.dropdown-item-custom').on({
+        click: e => {
+            e.preventDefault()
+            let sortBySelection = e.target.innerText
+            $('#dropdownSortByLink').text(sortBySelection)
+            // add sorting function here
         }
     })
 
@@ -288,7 +248,7 @@
     function apply_filters(filters) {
         console.log('filters: ', filters);
         // var $data = {'tags': filters}
-        var $data = $.param({'tags': filters}, true)
+        var $data = $.param({ 'tags': filters }, true)
         // var $myData = $data.serialize()
         $.ajax({
             method: "GET",

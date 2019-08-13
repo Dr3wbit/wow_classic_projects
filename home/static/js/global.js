@@ -17,90 +17,99 @@ function build_consume_list(url, name) {
 
 function global_event_handlers() {
 
-	$(".side-bar-toggle").on({
-		click: e => {
-			let bool = $('.saved').hasClass('side-min')
-			let windowWidth = window.innerWidth
-			// console.log(windowWidth)
-			if (window.innerWidth <= 992) {
-				$('.mainBody').css({ 'padding-left': '15px' })
-				if (bool) {
-					$('.saved').removeClass('side-min')
-					$('.custom-saves').css({ 'display': 'block' })
-					$('.side-bar-toggle').removeClass('flip-background')
-					$('.mainBody').append($('<div/>', {
-						class : "black-out"
-					}))
+    if (window.innerWidth <= 992) {
+        $('.mainBody').css({ 'padding-left': '15px' })
+        $('.saved').removeClass('side-min')
+        $('.custom-saves').css({ 'display': 'block' })
+        $('.side-bar-toggle').removeClass('flip-background')
+        $('.mainBody').append($('<div/>', {
+            class : "black-out"
+        }))
+    }
+    $(".side-bar-toggle").on({
+        click: e => {
+            let bool = $('.saved').hasClass('side-min')
+            let windowWidth = window.innerWidth
+            // console.log(windowWidth)
+            if (window.innerWidth <= 992) {
+                $('.mainBody').css({ 'padding-left': '15px' })
+                if (bool) {
+                    $('.saved').removeClass('side-min')
+                    $('.custom-saves').css({ 'display': 'block' })
+                    $('.side-bar-toggle').removeClass('flip-background')
+                    $('.mainBody').append($('<div/>', {
+                        class : "black-out"
+                    }))
 
-				} else {
-					$('.saved').addClass('side-min')
-					$('.custom-saves').css({ 'display': 'none' })
-					$('.side-bar-toggle').addClass('flip-background')
-					$('.black-out').remove()
-				}
-			} else {
-				if (bool) {
-					$('.saved').removeClass('side-min')
-					$('.mainBody').css({ 'padding-left': '265px' })
-					$('.custom-saves').css({ 'display': 'block' })
-					$('.side-bar-toggle').removeClass('flip-background')
-					$('.black-out').remove()
+                } else {
+                    $('.saved').addClass('side-min')
+                    $('.custom-saves').css({ 'display': 'none' })
+                    $('.side-bar-toggle').addClass('flip-background')
+                    $('.black-out').remove()
+                }
+            } else {
+                if (bool) {
+                    $('.saved').removeClass('side-min')
+                    $('.mainBody').css({ 'padding-left': '265px' })
+                    $('.custom-saves').css({ 'display': 'block' })
+                    $('.side-bar-toggle').removeClass('flip-background')
+                    $('.black-out').remove()
 
-				} else {
-					$('.saved').addClass('side-min')
-					$('.mainBody').css({ 'padding-left': '15px' })
-					$('.custom-saves').css({ 'display': 'none' })
-					$('.side-bar-toggle').addClass('flip-background')
-					$('.black-out').remove()
-				}
-			}
+                } else {
+                    $('.saved').addClass('side-min')
+                    $('.mainBody').css({ 'padding-left': '15px' })
+                    $('.custom-saves').css({ 'display': 'none' })
+                    $('.side-bar-toggle').addClass('flip-background')
+                    $('.black-out').remove()
+                }
+            }
 
-		}
-	});
+        }
+    });
 
-	//prevent right context menu on main content
-	$('.mainContent').on({
-		contextmenu: e => {
-			e.preventDefault()
-		},
-	})
+    // prevent right context menu on main content
+    $('.mainContent').on({
+        contextmenu: e => {
+            e.preventDefault()
+        },
+    })
 
-	$(".spec-list-item").on({
-		click: e => {
-			var list_name = $(e.target).attr('name');
-			var wow_class = ($(e.target).attr('data-wowclass')) ? $(e.target).attr('data-wowclass') : ''
-			$(".spec-list-item").removeClass("selected")
-			$(e.target).addClass("selected")
-			if (wow_class) {
-				update_class(wow_class, list_name)
-			} else {
-				let href = $(e.target).attr("href")
-				let url = new URL(href = href, base = document.location.origin)
-				build_consume_list(url, list_name)
-			}
-		}
-	});
+    $(".spec-list-item").on({
+        click: e => {
+            var list_name = $(e.target).attr('name');
+            var wow_class = ($(e.target).attr('data-wowclass')) ? $(e.target).attr('data-wowclass') : ''
+            $(".spec-list-item").removeClass("selected")
+            $(e.target).addClass("selected")
+            if (wow_class) {
+                update_class(wow_class, list_name)
+            } else {
+                let href = $(e.target).attr("href")
+                let url = new URL(href = href, base = document.location.origin)
+                build_consume_list(url, list_name)
+            }
+        }
+    });
 
-	$(".trashcan").on({
-		click: e => {
-			e.stopPropagation()
-			var $data = {}
-			if ($(e.target).attr("data-wowclass")) {
-				$data['wow_class'] = $(e.target).attr("data-wowclass")
-			}
-			var $name = $(e.target).val();
-			$data['name'] = $name
-			var $thisURL = '/ajax/delete_list/'
+    $(".trashcan").on({
+        click: e => {
+            e.stopPropagation()
+            var $data = {}
+            if ($(e.target).attr("data-wowclass")) {
+                $data['wow_class'] = $(e.target).attr("data-wowclass")
+            }
+            var $name = $(e.target).val();
+            $data['name'] = $name
+            var $thisURL = '/ajax/delete_list/'
 
-			$.ajax({
-				method: "POST",
-				url: $thisURL,
-				data: $data,
-				success: trashCanSuccess,
-				error: trashCanError,
-			})
-		}
-	});
+            $.ajax({
+                method: "POST",
+                url: $thisURL,
+                data: $data,
+                success: trashCanSuccess,
+                error: trashCanError,
+            })
+        }
+    });
 }
 
 function trashCanSuccess(data, textStatus, jqXHR) {
@@ -409,24 +418,11 @@ function create_tooltip_v2(data, e) {
 		tooltip.appendChild(description)
 	}
 
-
-
 	tooltip_container.appendChild(tooltip)
 
 	var coords = get_tooltip_pos(e, Boolean(data.image_name))
 
 	tooltip_container.style.cssText = `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`
-
-	// console.log('container: ', tooltip_container)
-	// console.log('actual: ', tooltip)
-
-	// console.log('tooltip_container outerheight:', tooltip_container.outerHeight(true))
-	// console.log('tooltip_container outerwidth:', tooltip_container.outerWidth(true))
-	// console.log('tooltip_container width:', tooltip_container.width())
-	// console.log('tooltip_container height:', tooltip_container.height())
-	// console.log('tooltip outerheight:', tooltip.outerHeight(true))
-	// console.log('tooltip outerwidth:', tooltip.outerWidth(true))
-	// console.timeEnd('vanilla create_tooltip')
 
 }
 
