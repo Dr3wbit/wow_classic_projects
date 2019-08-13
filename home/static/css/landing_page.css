@@ -173,6 +173,9 @@ a:hover{
     color: #ffc107;
 }
 
+.flag-item:hover > span{
+    color: #ffc107;
+}
 .applied-filter-container{
     color: #ffc1078c;
     font-size: 10px;

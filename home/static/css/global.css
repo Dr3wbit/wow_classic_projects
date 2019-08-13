@@ -551,28 +551,32 @@ ul {
     text-shadow: 0px 0px 0.1rem rgba(0, 0, 30, 0.85);
 }
 
-.junk {
+.junk, .q0 {
 	color: rgba(157,157,157,1);
 }
 
-.common {
+.common, .q1 {
     color: rgba(240,255,255,0.95);
 }
 
-.uncommon {
+.uncommon, .q2 {
     color: rgba(30,255,0,0.95);
 }
 
-.rare {
+.rare, .q3 {
     color: rgba(0, 112, 221, 1);
 }
 
-.epic {
+.epic, .q4 {
     color: rgba(163, 53, 238, 1);
 }
 
-.legendary {
+.legendary, .q5{
     color: rgba(255, 128, 0, 0.95);
+}
+
+.gm, .q6{
+    color: rgba(229, 204, 128, 1);
 }
 
 .req, .unlearn {
@@ -608,7 +612,7 @@ ul {
     max-width: 320px;
     display: block;
     background-color: rgba(0, 0, 30, 0.85) !important;
-    color: rgba(240,255,255,0.95);
+    color: rgba(240,255,255,0.98);
     pointer-events: none;
     border: 1px solid #b6bbc0;
     padding: 5px;
@@ -947,4 +951,9 @@ a#discord-login:hover{
         transform: translate(-30px,-130px);
         opacity: 0;
 	}
+}
+
+.hidden {
+    height: 0;
+    overflow: hidden;
 }

@@ -4,7 +4,7 @@ from home.models import Spec, ConsumeList
 import re
 
 nope = re.compile(r"[\-]")
-forbiden = re.compile(r"[\:\'\(\)]")
+forbidden = re.compile(r"[\:\'\(\)]")
 
 register = template.Library()
 
@@ -25,7 +25,7 @@ def titlecase(s):
 @register.filter
 @stringfilter
 def sanitize(s):
-	a = forbiden.sub('', s)
+	a = forbidden.sub('', s)
 	a = nope.sub(' ', a).strip().replace(' ', '_').lower()
 	return(a)
 

@@ -1,0 +1,6914 @@
+[
+{
+    "model": "home.talent",
+    "pk": 1,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Suppression",
+        "max_rank": 5,
+        "_description": "Reduces the chance for enemies to resist your Affliction spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "suppression"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 2,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Improved Corruption",
+        "max_rank": 5,
+        "_description": "Reduces the casting time of your Corruption spell by {:g} sec.",
+        "formula": "[(x * 0.4)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "improved_corruption"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 3,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Improved Curse of Weakness",
+        "max_rank": 3,
+        "_description": "Increases the effect of your Curse of Weakness by {}%.",
+        "formula": "[math.floor(x * 6.67)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_curse_of_weakness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 4,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Improved Drain Soul",
+        "max_rank": 2,
+        "_description": "Gives you a {}% chance to get a 100% increase to your Mana regeneration for 10 sec if the target is killed by you while you drain its soul.  In addition your Mana may continue to regenerate while casting at 50% of normal.",
+        "formula": "[(50 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_drain_soul"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 5,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Improved Life Tap",
+        "max_rank": 2,
+        "_description": "Increases the amount of Mana awarded by your Life Tap spell by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "improved_life_tap"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 6,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Improved Drain Life",
+        "max_rank": 5,
+        "_description": "Increases the Health drained by your Drain Life spell by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "improved_drain_life"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 7,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Improved Curse of Agony",
+        "max_rank": 3,
+        "_description": "Increases the damage done by your Curse of Agony by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "improved_curse_of_agony"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 8,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Fel Concentration",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.",
+        "formula": "[(14 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "fel_concentration"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 9,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Amplify Curse",
+        "max_rank": 1,
+        "_description": "Increases the effect of your next Curse of Weakness or Curse of Agony by 50%, or your next Curse of Exhaustion by 20%.  Lasts 30 sec.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "amplify_curse"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 10,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Grim Reach",
+        "max_rank": 2,
+        "_description": "Increases the range of your Affliction spells by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "grim_reach"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 11,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Nightfall",
+        "max_rank": 2,
+        "_description": "Gives your Corruption and Drain Life spells a {}% chance to cause you to enter a Shadow Trance state after damaging the opponent.  The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "nightfall"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 12,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Improved Drain Mana",
+        "max_rank": 2,
+        "_description": "Causes {}% of the Mana drained by your Drain Mana spell to damage the opponent.",
+        "formula": "[(15 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "improved_drain_mana"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 13,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Siphon Life",
+        "max_rank": 1,
+        "_description": "Transfers 15 health from the target to the caster every 3 sec.  Lasts 30 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "siphon_life"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 14,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Curse of Exhaustion",
+        "max_rank": 1,
+        "_description": "Reduces the target's movement speed by 10% for 12 sec.  Only one Curse per Warlock can be active on any one target.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": 9,
+        "img": "curse_of_exhaustion"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 15,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Improved Curse of Exhaustion",
+        "max_rank": 4,
+        "_description": "Increases the speed reduction of your Curse of Exhaustion by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 3,
+        "y": 4,
+        "locked": 14,
+        "img": "improved_curse_of_exhaustion"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 16,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Shadow Mastery",
+        "max_rank": 5,
+        "_description": "Increases the damage dealt or life drained by your Shadow spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 5,
+        "locked": 13,
+        "img": "shadow_mastery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 17,
+    "fields": {
+        "wow_class": 1,
+        "tree": 1,
+        "name": "Dark Pact",
+        "max_rank": 1,
+        "_description": "Drains 150 of your pet's Mana, returning 100% to you.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": null,
+        "img": "dark_pact"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 18,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Improved Healthstone",
+        "max_rank": 2,
+        "_description": "Increases the amount of Health restored by your Healthstone by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "improved_healthstone"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 19,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Improved Imp",
+        "max_rank": 3,
+        "_description": "Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_imp"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 20,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Demonic Embrace",
+        "max_rank": 5,
+        "_description": "Increases your total Stamina by {0}% but reduces your total Spirit by {1}%.",
+        "formula": "[(3 * x), (x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "demonic_embrace"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 21,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Improved Health Funnel",
+        "max_rank": 2,
+        "_description": "Increases the amount of Health transferred by your Health Funnel spell by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_health_funnel"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 22,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Improved Voidwalker",
+        "max_rank": 3,
+        "_description": "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice and Suffering spells by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_voidwalker"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 23,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Fel Intellect",
+        "max_rank": 5,
+        "_description": "Increases the maximum Mana of your Imp, Voidwalker, Succubus, and Felhunter by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "fel_intellect"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 24,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Improved Succubus",
+        "max_rank": 3,
+        "_description": "Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by {0}%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by {0}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "improved_succubus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 25,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Fel Domination",
+        "max_rank": 1,
+        "_description": "Your next Imp, Voidwalker, Succubus, or Felhunter Summon spell has its casting time reduced by 5.5 sec and its Mana cost reduced by 50%.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "fel_domination"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 26,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Fel Stamina",
+        "max_rank": 5,
+        "_description": "Increases the maximum Health of your Imp, Voidwalker, Succubus, and Felhunter by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "fel_stamina"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 27,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Master Summoner",
+        "max_rank": 2,
+        "_description": "Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by {0} sec and the Mana cost by {1}%.",
+        "formula": "[(2 * x), (20 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": 25,
+        "img": "master_summoner"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 28,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Unholy Power",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your Voidwalker, Succubus, and Felhunter's melee attacks by {}%.",
+        "formula": "[(4 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "unholy_power"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 29,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Improved Enslave Demon",
+        "max_rank": 5,
+        "_description": "Reduces the Attack Speed and Casting Speed penalty of your Enslave Demon spell by {0}% and reduces the resist chance by {0}%.",
+        "formula": "[(2 * x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "improved_enslave_demon"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 30,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Demonic Sacrifice",
+        "max_rank": 1,
+        "_description": "When activated, sacrifices your summoned demon to grant you an effect that lasts 30 min.  The effect is canceled if any Demon is summoned.\n\nImp: Increases your Fire damage by 15%.\n\nVoidwalker: Restores 3% of total Health every 4 sec.\n\nSuccubus: Increases your Shadow damage by 15%.\n\nFelhunter: Restores 2% of total Mana every 4 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "demonic_sacrifice"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 31,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Improved Firestone",
+        "max_rank": 2,
+        "_description": "Increases the bonus Fire damage from Firestones and the Firestone effect by {}%.",
+        "formula": "[(15 * x)]",
+        "x": 3,
+        "y": 4,
+        "locked": null,
+        "img": "improved_firestone"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 32,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Master Demonologist",
+        "max_rank": 5,
+        "_description": "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Reduces threat caused by {0:g}%.\n\nVoidwalker - Reduces physical damage taken by {1:g}%.\n\nSuccubus - Increases all damage caused by {1:g}%.\n\nFelhunter - Increases all resistances by {2:g} per level.",
+        "formula": "[(4 * x), (2 * x), (0.2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": 28,
+        "img": "master_demonologist"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 33,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Soul Link",
+        "max_rank": 1,
+        "_description": "When active, 30% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, or Felhunter demon instead.  In addition, both the demon and master will inflict 3% more damage.  Lasts as long as the demon is active.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 30,
+        "img": "soul_link"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 34,
+    "fields": {
+        "wow_class": 1,
+        "tree": 2,
+        "name": "Improved Spellstone",
+        "max_rank": 2,
+        "_description": "Increases the amount of damage absorbed by your Spellstone by {}%.",
+        "formula": "[(15 * x)]",
+        "x": 2,
+        "y": 6,
+        "locked": null,
+        "img": "improved_spellstone"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 35,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Improved Shadow Bolt",
+        "max_rank": 5,
+        "_description": "Your Shadow Bolt critical strikes increase Shadow damage dealt to the target by {}% until 4 non-periodic damage sources are applied.  Effect lasts a maximum of 12 sec.",
+        "formula": "[(4 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_shadow_bolt"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 36,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Cataclysm",
+        "max_rank": 5,
+        "_description": "Reduces the Mana cost of your Destruction spells by {}%.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "cataclysm"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 37,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Bane",
+        "max_rank": 5,
+        "_description": "Reduces the casting time of your Shadow Bolt and Immolate spells by {0:g} sec and your Soul Fire spell by {1:g} sec.",
+        "formula": "[(0.1 * x), (0.4 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "bane"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 38,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Aftermath",
+        "max_rank": 5,
+        "_description": "Gives your Destruction spells a {}% chance to daze the target for 5 sec.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "aftermath"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 39,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Improved Firebolt",
+        "max_rank": 2,
+        "_description": "Reduces the casting time of your Imp's Firebolt spell by {:g} sec.",
+        "formula": "[(0.5 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "improved_firebolt"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 40,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Improved Lash of Pain",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Succubus' Lash of Pain spell by {} sec.",
+        "formula": "[(3 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "improved_lash_of_pain"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 41,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Devastation",
+        "max_rank": 5,
+        "_description": "Increases the critical strike chance of your Destruction spells by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "devastation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 42,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Shadowburn",
+        "max_rank": 1,
+        "_description": "Instantly blasts the target for 87 to 100 Shadow damage.  If the target dies within 5 sec of Shadowburn, and yields experience or honor, the caster gains a Soul Shard.",
+        "formula": "[x]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "shadowburn"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 43,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Intensity",
+        "max_rank": 2,
+        "_description": "Gives you a {}% chance to resist interruption caused by damage while channeling the Rain of Fire, Hellfire or Soul Fire spell.",
+        "formula": "[(35 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "intensity"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 44,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Destructive Reach",
+        "max_rank": 2,
+        "_description": "Increases the range of your Destruction spells by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "destructive_reach"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 45,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Improved Searing Pain",
+        "max_rank": 5,
+        "_description": "Increases the critical strike chance of your Searing Pain spell by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "improved_searing_pain"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 46,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Pyroclasm",
+        "max_rank": 2,
+        "_description": "Gives your Rain of Fire, Hellfire, and Soul Fire spells a {}% chance to stun the target for 3 sec.",
+        "formula": "[(13 * x)]",
+        "x": 0,
+        "y": 4,
+        "locked": 43,
+        "img": "pyroclasm"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 47,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Improved Immolate",
+        "max_rank": 5,
+        "_description": "Increases the initial damage of your Immolate spell by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "improved_immolate"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 48,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Ruin",
+        "max_rank": 1,
+        "_description": "Increases the critical strike damage bonus of your Destruction spells by 100%.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": 41,
+        "img": "ruin"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 49,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Emberstorm",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your Fire spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "emberstorm"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 50,
+    "fields": {
+        "wow_class": 1,
+        "tree": 3,
+        "name": "Conflagrate",
+        "max_rank": 1,
+        "_description": "Ignites a target that is already afflicted by Immolate, dealing 240 to 307 Fire damage and consuming the Immolate spell.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 47,
+        "img": "conflagrate"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 51,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Arcane Subtlety",
+        "max_rank": 2,
+        "_description": "Reduces your target's resistance to all your spells by {0} and reduces the threat caused by your Arcane spells by {1}%.",
+        "formula": "[(5 * x), (20 * x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "arcane_subtlety"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 52,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Arcane Focus",
+        "max_rank": 5,
+        "_description": "Reduces the chance that the opponent can resist your Arcane spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "arcane_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 53,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Improved Arcane Missiles",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to avoid interruption caused by damage while channeling Arcane Missiles.",
+        "formula": "[(20 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "improved_arcane_missiles"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 54,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Wand Specialization",
+        "max_rank": 2,
+        "_description": "Increases your damage with Wands by {}%.",
+        "formula": "[math.ceil(12.4 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "wand_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 55,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Magic Absorption",
+        "max_rank": 5,
+        "_description": "Increases all resistances by {0} and causes all spells you fully resist to restore {1}% of your total mana.  1 sec. cooldown.",
+        "formula": "[(2 * x), (x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "magic_absorption"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 56,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Arcane Concentration",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance of entering a Clearcasting state after any damage spell hits a target.  The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "arcane_concentration"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 57,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Magic Attunement",
+        "max_rank": 2,
+        "_description": "Increases the effect of your Amplify Magic and Dampen Magic spells by {}%.",
+        "formula": "[(25 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "magic_attunement"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 58,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Improved Arcane Explosion",
+        "max_rank": 3,
+        "_description": "Increases the critical strike chance of your Arcane Explosion spell by an additional {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "improved_arcane_explosion"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 59,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Arcane Resilience",
+        "max_rank": 1,
+        "_description": "Increases your armor by an amount equal to 50% of your Intellect.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "arcane_resilience"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 60,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Improved Mana Shield",
+        "max_rank": 2,
+        "_description": "Decreases the mana lost per point of damage taken when Mana Shield is active by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "improved_mana_shield"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 61,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Improved Counterspell",
+        "max_rank": 2,
+        "_description": "Gives your Counterspell a {}% chance to silence the target for 4 sec.",
+        "formula": "[(50 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_counterspell"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 62,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Arcane Meditation",
+        "max_rank": 3,
+        "_description": "Allows {}% of your Mana regeneration to continue while casting.",
+        "formula": "[(5 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "arcane_meditation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 63,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Presence of Mind",
+        "max_rank": 1,
+        "_description": "When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "presence_of_mind"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 64,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Arcane Mind",
+        "max_rank": 5,
+        "_description": "Increases your maximum Mana by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": 59,
+        "img": "arcane_mind"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 65,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Arcane Instability",
+        "max_rank": 3,
+        "_description": "Increases your spell damage and critical strike chance by {}%.",
+        "formula": "[(x)]",
+        "x": 1,
+        "y": 5,
+        "locked": 63,
+        "img": "arcane_instability"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 66,
+    "fields": {
+        "wow_class": 2,
+        "tree": 4,
+        "name": "Arcane Power",
+        "max_rank": 1,
+        "_description": "When activated, your spells deal 30% more damage while costing 30% more mana to cast.  This effect lasts 15 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 65,
+        "img": "arcane_power"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 67,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Improved Fireball",
+        "max_rank": 5,
+        "_description": "Reduces the casting time of your Fireball spell by {:g} sec.",
+        "formula": "[(0.1 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_fireball"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 68,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Impact",
+        "max_rank": 5,
+        "_description": "Gives your Fire spells a {}% chance to stun the target for 2 sec.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "impact"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 69,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Ignite",
+        "max_rank": 5,
+        "_description": "Your critical strikes from Fire damage spells cause the target to burn for an additional {}% of your spell's damage over 4 sec.",
+        "formula": "[(8 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "ignite"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 70,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Flame Throwing",
+        "max_rank": 2,
+        "_description": "Increases the range of your Fire spells by {} yards.",
+        "formula": "[(3 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "flame_throwing"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 71,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Improved Fire Blast",
+        "max_rank": 3,
+        "_description": "Reduces the cooldown of your Fire Blast spell by {:g} sec.",
+        "formula": "[(0.5 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "improved_fire_blast"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 72,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Incinerate",
+        "max_rank": 2,
+        "_description": "Increases the critical strike chance of your Fire Blast and Scorch spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "incinerate"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 73,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Improved Flamestrike",
+        "max_rank": 3,
+        "_description": "Increases the critical strike chance of your Flamestrike spell by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "improved_flamestrike"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 74,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Pyroblast",
+        "max_rank": 1,
+        "_description": "Hurls an immense fiery boulder that causes 141 to 188 Fire damage and an additional 56 Fire damage over 12 sec.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "pyroblast"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 75,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Burning Soul",
+        "max_rank": 2,
+        "_description": "Gives your Fire spells a {0}% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by {1}%.",
+        "formula": "[(35 * x), (15 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "burning_soul"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 76,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Improved Scorch",
+        "max_rank": 3,
+        "_description": "Your Scorch spells have a {}% chance to cause your target to be vulnerable to Fire damage.  This vulnerability increases the Fire damage dealt to your target by 3% and lasts 30 sec.  Stacks up to 3 times.",
+        "formula": "[math.floor(33.34 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "improved_scorch"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 77,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Improved Fire Ward",
+        "max_rank": 2,
+        "_description": "Causes your Fire Ward to have a {}% chance to reflect Fire spells while active.",
+        "formula": "[(10 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_fire_ward"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 78,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Master of Elements",
+        "max_rank": 3,
+        "_description": "Your Fire and Frost spell criticals will refund {}% of their base mana cost.",
+        "formula": "[(10 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "master_of_elements"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 79,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Critical Mass",
+        "max_rank": 3,
+        "_description": "Increases the critical strike chance of your Fire spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "critical_mass"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 80,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Blast Wave",
+        "max_rank": 1,
+        "_description": "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 154 to 187 Fire damage, and dazing them for 6 sec.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": 74,
+        "img": "blast_wave"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 81,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Fire Power",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your Fire spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "fire_power"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 82,
+    "fields": {
+        "wow_class": 2,
+        "tree": 5,
+        "name": "Combustion",
+        "max_rank": 1,
+        "_description": "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%.  This effect lasts until you have caused 3 critical strikes with Fire spells.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 79,
+        "img": "combustion"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 83,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Frost Warding",
+        "max_rank": 2,
+        "_description": "Increases the armor and resistances given by your Frost Armor and Ice Armor spells by {}%.  In addition, gives your Frost Ward a {}% chance to reflect Frost spells and effects while active.",
+        "formula": "[(15 * x), (10 * x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "frost_warding"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 84,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Improved Frostbolt",
+        "max_rank": 5,
+        "_description": "Reduces the casting time of your Frostbolt spell by {:g} sec.",
+        "formula": "[(0.1 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_frostbolt"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 85,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Elemental Precision",
+        "max_rank": 3,
+        "_description": "Reduces the chance that the opponent can resist your Frost and Fire spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "elemental_precision"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 86,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Ice Shards",
+        "max_rank": 5,
+        "_description": "Increases the critical strike damage bonus of your Frost spells by {}%.",
+        "formula": "[(20 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "ice_shards"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 87,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Frostbite",
+        "max_rank": 3,
+        "_description": "Gives your Chill effects a {}% chance to freeze the target for 5 sec.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "frostbite"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 88,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Improved Frost Nova",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Frost Nova spell by {} sec.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "improved_frost_nova"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 89,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Permafrost",
+        "max_rank": 3,
+        "_description": "Increases the duration of your Chill effects by {} sec and reduces the target's speed by an additional {}%.",
+        "formula": "[(x), math.ceil(3.33 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "permafrost"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 90,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Piercing Ice",
+        "max_rank": 3,
+        "_description": "Increases the damage done by your Frost spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "piercing_ice"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 91,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Cold Snap",
+        "max_rank": 1,
+        "_description": "When activated, this spell finishes the cooldown on all of your Frost spells.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "cold_snap"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 92,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Improved Blizzard",
+        "max_rank": 3,
+        "_description": "Adds a chill effect to your Blizzard spell.  This effect lowers the target's movement speed by {}%.  Lasts 2 sec.",
+        "formula": "[(15 * (x + 1)) + (5 * math.floor(0.6 * x))]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "improved_blizzard"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 93,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Arctic Reach",
+        "max_rank": 2,
+        "_description": "Increases the range of your Frostbolt and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "arctic_reach"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 94,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Frost Channeling",
+        "max_rank": 3,
+        "_description": "Reduces the mana cost of your Frost spells by {0}% and reduces the threat caused by your Frost spells by {0}%.",
+        "formula": "[(5 * x), (10 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "frost_channeling"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 95,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Shatter",
+        "max_rank": 5,
+        "_description": "Increases the critical strike chance of all your spells against frozen targets by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": 88,
+        "img": "shatter"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 96,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Ice Block",
+        "max_rank": 1,
+        "_description": "You become encased in a block of ice, protecting you from all physical attacks and spells for 10 sec, but during that time you cannot attack, move or cast spells.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "ice_block"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 97,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Improved Cone of Cold",
+        "max_rank": 3,
+        "_description": "Increases the damage dealt by your Cone of Cold spell by {}%.",
+        "formula": "[(10 * x) + 5]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "improved_cone_of_cold"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 98,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Winter's Chill",
+        "max_rank": 5,
+        "_description": "Gives your Frost damage spells a {}% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec.  Stacks up to 5 times.",
+        "formula": "[(20 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "winters_chill"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 99,
+    "fields": {
+        "wow_class": 2,
+        "tree": 6,
+        "name": "Ice Barrier",
+        "max_rank": 1,
+        "_description": "Instantly shields you, absorbing 438 damage.  Lasts 1 min.  While the shield holds, spells will not be interrupted.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 96,
+        "img": "ice_barrier"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 100,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Improved Wrath",
+        "max_rank": 5,
+        "_description": "Reduces the cast time of your Wrath spell by {:g} sec.",
+        "formula": "[(0.1 * x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "improved_wrath"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 101,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Nature's Grasp",
+        "max_rank": 1,
+        "_description": "While active, any time an enemy strikes the caster they have a 35% chance to become afflicted by Entangling Roots (Rank 1).  Only useable outdoors.  1 charge.  Lasts 45 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "natures_grasp"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 102,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Improved Nature's Grasp",
+        "max_rank": 4,
+        "_description": "Increases the chance for your Nature's Grasp to entangle an enemy by {}%.",
+        "formula": "[(15 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": 101,
+        "img": "improved_natures_grasp"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 103,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Improved Entangling Roots",
+        "max_rank": 3,
+        "_description": "Gives you a {}% chance to avoid interruption caused by damage while casting Entangling Roots.",
+        "formula": "[math.ceil(3.33 * x) * 10]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_entangling_roots"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 104,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Improved Moonfire",
+        "max_rank": 5,
+        "_description": "Increases the damage and critical strike chance of your Moonfire spell by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_moonfire"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 105,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Natural Weapons",
+        "max_rank": 5,
+        "_description": "Increases the damage you deal with physical attacks in all forms by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "natural_weapons"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 106,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Natural Shapeshifter",
+        "max_rank": 3,
+        "_description": "Reduces the mana cost of all shapeshifting by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "natural_shapeshifter"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 107,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Improved Thorns",
+        "max_rank": 3,
+        "_description": "Increases damage caused by your Thorns spell by {}%.",
+        "formula": "[(25 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "improved_thorns"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 108,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Omen of Clarity",
+        "max_rank": 1,
+        "_description": "Imbues the Druid with natural energy.  Each of the Druid's melee attacks has a chance of causing the caster to enter a Clearcasting state.  The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by 100%.  Lasts 10 min.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": 105,
+        "img": "omen_of_clarity"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 109,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Nature's Reach",
+        "max_rank": 2,
+        "_description": "Increases the range of your Wrath, Entangling Roots, Faerie Fire, Moonfire, Starfire, and Hurricane spells by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "natures_reach"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 110,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Vengeance",
+        "max_rank": 5,
+        "_description": "Increases the critical strike damage bonus of your Starfire, Moonfire, and Wrath spells by {}%.",
+        "formula": "[(20 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": 104,
+        "img": "vengeance"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 111,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Improved Starfire",
+        "max_rank": 5,
+        "_description": "Reduces the cast time of Starfire by {0:g} sec and has a {1}% chance to stun the target for 3 sec.",
+        "formula": "[(0.1 * x), (3 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "improved_starfire"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 112,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Nature's Grace",
+        "max_rank": 1,
+        "_description": "All spell criticals grace you with a blessing of nature, reducing the casting time of your next spell by 0.5 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "natures_grace"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 113,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Moonglow",
+        "max_rank": 3,
+        "_description": "Reduces the Mana cost of your Moonfire, Starfire, Wrath, Healing Touch, Regrowth and Rejuvenation spells by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "moonglow"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 114,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Moonfury",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your Starfire, Moonfire and Wrath spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 5,
+        "locked": 112,
+        "img": "moonfury"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 115,
+    "fields": {
+        "wow_class": 3,
+        "tree": 7,
+        "name": "Moonkin Form",
+        "max_rank": 1,
+        "_description": "Transforms the Druid into Moonkin Form.  While in this form the armor contribution from items is increased by 360% and all party members within 30 yards have their spell critical chance increased by 3%.  The Moonkin can only cast Balance spells while shapeshifted.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": null,
+        "img": "moonkin_form"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 116,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Ferocity",
+        "max_rank": 5,
+        "_description": "Reduces the cost of your Maul, Swipe, Claw, and Rake abilities by {} Rage or Energy.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "ferocity"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 117,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Feral Aggression",
+        "max_rank": 5,
+        "_description": "Increases the Attack Power reduction of your Demoralizing Roar by {0}% and the damage caused by your Ferocious Bite by {1}%.",
+        "formula": "[(8 * x), (3 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "feral_aggression"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 118,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Feral Instinct",
+        "max_rank": 5,
+        "_description": "Increases threat caused in Bear and Dire Bear Form by {}% and reduces the chance enemies have to detect you while Prowling.",
+        "formula": "[(3 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "feral_instinct"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 119,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Brutal Impact",
+        "max_rank": 2,
+        "_description": "Increases the stun duration of your Bash and Pounce abilities by {:g} sec.",
+        "formula": "[(0.5 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "brutal_impact"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 120,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Thick Hide",
+        "max_rank": 5,
+        "_description": "Increases your Armor contribution from items by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "thick_hide"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 121,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Feline Swiftness",
+        "max_rank": 2,
+        "_description": "Increases your movement speed by {0}% while outdoors in Cat Form and increases your chance to dodge while in Cat Form by {0}%.",
+        "formula": "[(15 * x ), (2 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "feline_swiftness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 122,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Feral Charge",
+        "max_rank": 1,
+        "_description": "Causes you to charge an enemy, immobilizing and interrupting any spell being cast for 4 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "feral_charge"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 123,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Sharpened Claws",
+        "max_rank": 3,
+        "_description": "Increases your critical strike chance while in Bear, Dire Bear or Cat Form by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "sharpened_claws"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 124,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Improved Shred",
+        "max_rank": 2,
+        "_description": "Reduces the Energy cost of your Shred ability by 6.",
+        "formula": "[(6 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "improved_shred"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 125,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Predatory Strikes",
+        "max_rank": 3,
+        "_description": "Increases your melee attack power in Cat, Bear and Dire Bear Forms by {}% of your level.",
+        "formula": "[(50 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "predatory_strikes"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 126,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Blood Frenzy",
+        "max_rank": 2,
+        "_description": "Your critical strikes from Cat Form abilities that add combo points  have a {}% chance to add an additional combo point.",
+        "formula": "[(50 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": 123,
+        "img": "blood_frenzy"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 127,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Primal Fury",
+        "max_rank": 2,
+        "_description": "Gives you a {}% chance to gain an additional 5 Rage anytime you get a critical strike while in Bear and Dire Bear Form.",
+        "formula": "[(50 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": 123,
+        "img": "primal_fury"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 128,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Savage Fury",
+        "max_rank": 2,
+        "_description": "Increases the damage caused by your Claw, Rake, Maul and Swipe abilities by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "savage_fury"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 129,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Faerie Fire (Feral)",
+        "max_rank": 1,
+        "_description": "Decrease the armor of the target by 175 for 40 sec.  While affected, the target cannot stealth or turn invisible.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "faerie_fire_feral"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 130,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Heart of the Wild",
+        "max_rank": 5,
+        "_description": "Increases your Intellect by {0}%.  In addition, while in Bear or Dire Bear Form your Stamina is increased by {0}% and while in Cat Form your Strength is increased by {}%.",
+        "formula": "[(4 * x)]",
+        "x": 1,
+        "y": 5,
+        "locked": 125,
+        "img": "heart_of_the_wild"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 131,
+    "fields": {
+        "wow_class": 3,
+        "tree": 8,
+        "name": "Leader of the Pack",
+        "max_rank": 1,
+        "_description": "While in Cat, Bear or Dire Bear Form, the Leader of the Pack increases ranged and melee critical chance of all party members within 45 yards by 3%.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": null,
+        "img": "leader_of_the_pack"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 132,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Improved Mark of the Wild",
+        "max_rank": 5,
+        "_description": "Increases the effects of your Mark of the Wild and Gift of the Wild spells by {}%.",
+        "formula": "[(7 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_mark_of_the_wild"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 133,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Furor",
+        "max_rank": 5,
+        "_description": "Gives you {}% chance to gain 10 Rage when you shapeshift into Bear and Dire Bear Form or 40 Energy when you shapeshift into Cat Form.",
+        "formula": "[(20 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "furor"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 134,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Improved Healing Touch",
+        "max_rank": 5,
+        "_description": "Reduces the cast time of your Healing Touch spell by {:g} sec.",
+        "formula": "[(0.1 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_healing_touch"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 135,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Nature's Focus",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to avoid interruption caused by damage while casting the Healing Touch, Regrowth and Tranquility spells.",
+        "formula": "[(14 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "natures_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 136,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Improved Enrage",
+        "max_rank": 2,
+        "_description": "The Enrage ability now instantly generates {} Rage.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "improved_enrage"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 137,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Reflection",
+        "max_rank": 3,
+        "_description": "Allows {}% of your Mana regeneration to continue while casting.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "reflection"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 138,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Insect Swarm",
+        "max_rank": 1,
+        "_description": "The enemy target is swarmed by insects, decreasing their chance to hit by 2% and causing 66 Nature damage over 12 sec.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "insect_swarm"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 139,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Subtlety",
+        "max_rank": 5,
+        "_description": "Reduces the threat generated by your Healing spells by {}%.",
+        "formula": "[(4 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "subtlety"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 140,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Tranquil Spirit",
+        "max_rank": 5,
+        "_description": "Reduces the mana cost of your Healing Touch and Tranquility spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "tranquil_spirit"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 141,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Improved Rejuvenation",
+        "max_rank": 3,
+        "_description": "Increases the effect of your Rejuvenation spell by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "improved_rejuvenation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 142,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Nature's Swiftness",
+        "max_rank": 1,
+        "_description": "When activated, your next Nature spell becomes an instant cast spell.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 4,
+        "locked": 134,
+        "img": "natures_swiftness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 143,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Gift of Nature",
+        "max_rank": 5,
+        "_description": "Increases the effect of all healing spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": 138,
+        "img": "gift_of_nature"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 144,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Improved Tranquility",
+        "max_rank": 2,
+        "_description": "Reduces threat caused by Tranquility by {}%.",
+        "formula": "[(50 * x)]",
+        "x": 3,
+        "y": 4,
+        "locked": null,
+        "img": "improved_tranquility"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 145,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Improved Regrowth",
+        "max_rank": 5,
+        "_description": "Increases the critical effect chance of your Regrowth spell by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "improved_regrowth"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 146,
+    "fields": {
+        "wow_class": 3,
+        "tree": 9,
+        "name": "Swiftmend",
+        "max_rank": 1,
+        "_description": "Consumes a Rejuvenation or Regrowth effect on a friendly target to instantly heal them an amount equal to 12 sec. of Rejuvenation or 18 sec. of Regrowth.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 140,
+        "img": "swiftmend"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 147,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Improved Aspect of the Hawk",
+        "max_rank": 5,
+        "_description": "While Aspect of the Hawk is active, all normal ranged attacks have a {}% chance of increasing ranged attack speed by 30% for 12 sec.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_aspect_of_the_hawk"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 148,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Endurance Training",
+        "max_rank": 5,
+        "_description": "Increases the Health of your pets by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "endurance_training"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 149,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Improved Eyes of the Beast",
+        "max_rank": 2,
+        "_description": "Increases the duration of your Eyes of the Beast by {} sec.",
+        "formula": "[(30 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_eyes_of_the_beast"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 150,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Improved Aspect of the Monkey",
+        "max_rank": 5,
+        "_description": "Increases the Dodge bonus of your Aspect of the Monkey by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_aspect_of_the_monkey"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 151,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Thick Hide",
+        "max_rank": 3,
+        "_description": "Increases the Armor rating of your pets by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "thick_hide"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 152,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Improved Revive Pet",
+        "max_rank": 2,
+        "_description": "Revive Pet's casting time is reduced by {0} sec, mana cost is reduced by {1}%, and increases the health your pet returns with by an additional {2}%.",
+        "formula": "[(3 * x), (20 * x), (15 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "improved_revive_pet"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 153,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Pathfinding",
+        "max_rank": 2,
+        "_description": "Increases the speed bonus of your Aspect of the Cheetah and Aspect of the Pack by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "pathfinding"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 154,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Bestial Swiftness",
+        "max_rank": 1,
+        "_description": "Increases the outdoor movement speed of your pets by 30%.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "bestial_swiftness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 155,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Unleashed Fury",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your pets by {}%.",
+        "formula": "[(4 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "unleashed_fury"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 156,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Improved Mend Pet",
+        "max_rank": 2,
+        "_description": "Gives the Mend Pet spell a {}% chance of cleansing 1 Curse, Disease, Magic or Poison effect from the pet each tick.",
+        "formula": "[(15 * x) + (20 * (x - 1))]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_mend_pet"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 157,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Ferocity",
+        "max_rank": 5,
+        "_description": "Increases the critical strike chance of your pets by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "ferocity"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 158,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Spirit Bond",
+        "max_rank": 2,
+        "_description": "While your pet is active, you and your pet will regenerate {}% of total health every 10 sec.",
+        "formula": "[(1 * x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "spirit_bond"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 159,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Intimidation",
+        "max_rank": 1,
+        "_description": "Command your pet to intimidate the target on the next successful melee attack, causing a high amount of threat and stunning the target for 3 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "intimidation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 160,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Bestial Discipline",
+        "max_rank": 2,
+        "_description": "Increases the Focus regeneration of your pets by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 3,
+        "y": 4,
+        "locked": null,
+        "img": "bestial_discipline"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 161,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Frenzy",
+        "max_rank": 5,
+        "_description": "Gives your pet a {}% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.",
+        "formula": "[(20 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": 157,
+        "img": "frenzy"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 162,
+    "fields": {
+        "wow_class": 4,
+        "tree": 10,
+        "name": "Bestial Wrath",
+        "max_rank": 1,
+        "_description": "Send your pet into a rage causing 50% additional damage for 18 sec.  While enraged, the beast does not feel pity or remorse or fear and it cannot be stopped unless killed.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 159,
+        "img": "bestial_wrath"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 163,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Improved Concussive Shot",
+        "max_rank": 5,
+        "_description": "Gives your Concussive Shot a {}% chance to stun the target for 3 sec.",
+        "formula": "[(4 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_concussive_shot"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 164,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Efficiency",
+        "max_rank": 5,
+        "_description": "Reduces the Mana cost of your Shots and Stings by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "efficiency"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 165,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Improved Hunter's Mark",
+        "max_rank": 5,
+        "_description": "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_hunters_mark"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 166,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Lethal Shots",
+        "max_rank": 5,
+        "_description": "Increases your critical strike chance with ranged weapons by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "lethal_shots"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 167,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Aimed Shot",
+        "max_rank": 1,
+        "_description": "An aimed shot that increases ranged damage by 70.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "aimed_shot"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 168,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Improved Arcane Shot",
+        "max_rank": 5,
+        "_description": "Reduces the cooldown of your Arcane Shot by {:g} sec.",
+        "formula": "[(0.2 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "improved_arcane_shot"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 169,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Hawk Eye",
+        "max_rank": 3,
+        "_description": "Increases the range of your ranged weapons by {} yards.",
+        "formula": "[(2 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "hawk_eye"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 170,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Improved Serpent Sting",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your Serpent Sting by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_serpent_sting"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 171,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Mortal Shots",
+        "max_rank": 5,
+        "_description": "Increases your ranged weapon critical strike damage bonus by {}%.",
+        "formula": "[(6 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": 166,
+        "img": "mortal_shots"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 172,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Scatter Shot",
+        "max_rank": 1,
+        "_description": "A short-range shot that deals 50% weapon damage and disorients the target for 4 sec.  Any damage caused will remove the effect.  Turns off your attack when used.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "scatter_shot"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 173,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Barrage",
+        "max_rank": 3,
+        "_description": "Increases the damage done by your Multi-Shot and Volley spells by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "barrage"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 174,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Improved Scorpid Sting",
+        "max_rank": 3,
+        "_description": "Reduces the Stamina of targets affected by your Scorpid Sting by {}% of the amount of Strength reduced.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "improved_scorpid_sting"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 175,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Ranged Weapon Specialization",
+        "max_rank": 5,
+        "_description": "Increases the damage you deal with ranged weapons by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "ranged_weapon_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 176,
+    "fields": {
+        "wow_class": 4,
+        "tree": 11,
+        "name": "Trueshot Aura",
+        "max_rank": 1,
+        "_description": "Increases the attack power of party members within 45 yards by 50.  Lasts 30 min.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 173,
+        "img": "trueshot_aura"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 177,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Monster Slaying",
+        "max_rank": 3,
+        "_description": "Increases all damage caused against Beasts, Giants and Dragonkin targets by {0}% and increases critical damage caused against Beasts, Giants and Dragonkin targets by an additional {0}%.",
+        "formula": "[(1 * x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "monster_slaying"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 178,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Humanoid Slaying",
+        "max_rank": 3,
+        "_description": "Increases all damage caused against Humanoid targets by {0}% and increases critical damage caused against Humanoid targets by an additional {0}%.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "humanoid_slaying"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 179,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Deflection",
+        "max_rank": 5,
+        "_description": "Increases your Parry chance by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "deflection"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 180,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Entrapment",
+        "max_rank": 5,
+        "_description": "Gives your Immolation Trap, Frost Trap, and Explosive Trap a {}% chance to entrap the target, preventing them from moving for 5 sec.",
+        "formula": "[(5 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "entrapment"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 181,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Savage Strikes",
+        "max_rank": 2,
+        "_description": "Increases the critical strike chance of Raptor Strike and Mongoose Bite by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "savage_strikes"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 182,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Improved Wing Clip",
+        "max_rank": 5,
+        "_description": "Gives your Wing Clip ability a {}% chance to immobilize the target for 5 sec.",
+        "formula": "[(4 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "improved_wing_clip"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 183,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Clever Traps",
+        "max_rank": 2,
+        "_description": "Increases the duration of Freezing and Frost trap effects by {0}% and the damage of Immolation and Explosive trap effects by {0}%.",
+        "formula": "[(15 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "clever_traps"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 184,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Survivalist",
+        "max_rank": 5,
+        "_description": "Increases total health by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "survivalist"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 185,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Deterrence",
+        "max_rank": 1,
+        "_description": "When activated, increases your Dodge and Parry chance by 25% for 10 sec.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "deterrence"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 186,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Trap Mastery",
+        "max_rank": 2,
+        "_description": "Decreases the chance enemies will resist trap effects by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "trap_mastery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 187,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Surefooted",
+        "max_rank": 3,
+        "_description": "Increases hit chance by {0}% and increases the chance movement impairing effects will be resisted by an additional {1}%.",
+        "formula": "[(x), (5 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "surefooted"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 188,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Improved Feign Death",
+        "max_rank": 2,
+        "_description": "Reduces the chance your Feign Death ability will be resisted by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "improved_feign_death"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 189,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Killer Instinct",
+        "max_rank": 3,
+        "_description": "Increases your critical strike chance with all attacks by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "killer_instinct"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 190,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Counterattack",
+        "max_rank": 1,
+        "_description": "A strike that becomes active after parrying an opponent's attack.  This attack deals 40 damage and immobilizes the target for 5 sec.  Counterattack cannot be blocked, dodged, or parried.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": 185,
+        "img": "counterattack"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 191,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Lightning Reflexes",
+        "max_rank": 5,
+        "_description": "Increases your Agility by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "lightning_reflexes"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 192,
+    "fields": {
+        "wow_class": 4,
+        "tree": 12,
+        "name": "Wyvern Sting",
+        "max_rank": 1,
+        "_description": "A stinging shot that puts the target to sleep for 12 sec.  Any damage will cancel the effect.  When the target wakes up, the Sting causes 0 Nature damage over 12 sec.  Only usable out of combat.  Only one Sting per Hunter can be active on the target at a time.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 189,
+        "img": "wyvern_sting"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 193,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Divine Strength",
+        "max_rank": 5,
+        "_description": "Increases your Strength by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "divine_strength"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 194,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Divine Intellect",
+        "max_rank": 5,
+        "_description": "Increases your total Intellect by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "divine_intellect"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 195,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Spiritual Focus",
+        "max_rank": 5,
+        "_description": "Gives your Flash of Light and Holy Light spells a {}% chance to not lose casting time when you take damage.",
+        "formula": "[(14 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "spiritual_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 196,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Improved Seal of Righteousness",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your Seal of Righteousness and Judgement of Righteousness by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "improved_seal_of_righteousness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 197,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Healing Light",
+        "max_rank": 3,
+        "_description": "Increases the amount healed by your Holy Light and Flash of Light spells by {}%.",
+        "formula": "[(4 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "healing_light"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 198,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Consecration",
+        "max_rank": 1,
+        "_description": "Consecrates the land beneath Paladin, doing 64 Holy damage over 8 sec to enemies who enter the area.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "consecration"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 199,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Improved Lay on Hands",
+        "max_rank": 2,
+        "_description": "Gives the target of your Lay on Hands spell a {0}% bonus to their armor value from items for 2 min.  In addition, the cooldown for your Lay on Hands spell is reduced by {1} min.",
+        "formula": "[(15 * x), (10 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "improved_lay_on_hands"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 200,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Unyielding Faith",
+        "max_rank": 2,
+        "_description": "Increases your chance to resist Fear and Disorient effects by an additional {}%.",
+        "formula": "[(5 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "unyielding_faith"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 201,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Illumination",
+        "max_rank": 5,
+        "_description": "After getting a critical effect from your Flash of Light, Holy Light, or Holy Shock heal spell, gives you a {}% chance to gain Mana equal to the base cost of the spell.",
+        "formula": "[(20 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "illumination"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 202,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Improved Blessing of Wisdom",
+        "max_rank": 2,
+        "_description": "Increases the effect of your Blessing of Wisdom spell by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "improved_blessing_of_wisdom"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 203,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Divine Favor",
+        "max_rank": 1,
+        "_description": "When activated, gives your next Flash of Light, Holy Light, or Holy Shock spell a 100% critical effect chance.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": 201,
+        "img": "divine_favor"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 204,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Lasting Judgement",
+        "max_rank": 3,
+        "_description": "Increases the duration of your Judgement of Light and Judgement of Wisdom by {} sec.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "lasting_judgement"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 205,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Holy Power",
+        "max_rank": 5,
+        "_description": "Increases the critical effect chance of your Holy spells by {}%.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "holy_power"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 206,
+    "fields": {
+        "wow_class": 5,
+        "tree": 13,
+        "name": "Holy Shock",
+        "max_rank": 1,
+        "_description": "Blasts the target with Holy energy, causing 204 to 221 Holy damage to an enemy, or 204 to 221 healing to an ally.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 203,
+        "img": "holy_shock"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 207,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Improved Devotion Aura",
+        "max_rank": 5,
+        "_description": "Increases the armor bonus of your Devotion Aura by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_devotion_aura"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 208,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Redoubt",
+        "max_rank": 5,
+        "_description": "Increases your chance to block attacks with your shield by {}% after being the victim of a critical strike. Lasts 10 sec or 5 blocks.",
+        "formula": "[(6 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "redoubt"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 209,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Precision",
+        "max_rank": 3,
+        "_description": "Increases your chance to hit with melee weapons by {}%.",
+        "formula": "[(x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "precision"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 210,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Guardian's Favor",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Blessing of Protection by {0} sec and increases the duration of your Blessing of Freedom by {1} sec.",
+        "formula": "[(60*x),(3*x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "guardians_favor"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 211,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Toughness",
+        "max_rank": 5,
+        "_description": "Increases your armor value from items by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "toughness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 212,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Blessing of Kings",
+        "max_rank": 1,
+        "_description": "Places a Blessing on the friendly target, increasing total stats by 10% for 5 min.  Players may only have one Blessing on them per Paladin at any one time.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "blessing_of_kings"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 213,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Improved Righteous Fury",
+        "max_rank": 3,
+        "_description": "Increases the amount of threat generated by your Righteous Fury spell by {}%.",
+        "formula": "[math.ceil(16.67*x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "improved_righteous_fury"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 214,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Shield Specialization",
+        "max_rank": 3,
+        "_description": "Increases the amount of damage absorbed by your shield by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": 208,
+        "img": "shield_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 215,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Anticipation",
+        "max_rank": 5,
+        "_description": "Increases your Defense skill by {}.",
+        "formula": "[(2 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "anticipation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 216,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Improved Hammer of Justice",
+        "max_rank": 3,
+        "_description": "Decreases the cooldown of your Hammer of Justice spell by {} sec.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_hammer_of_justice"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 217,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Improved Concentration Aura",
+        "max_rank": 3,
+        "_description": "Increases the effect of your Concentration Aura by an additional {0}% and gives all group members affected by the aura an additional {0}% chance to resist Silence and Interrupt effects.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "improved_concentration_aura"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 218,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Blessing of Sanctuary",
+        "max_rank": 1,
+        "_description": "Places a Blessing on the friendly target, reducing damage dealt from all sources by up to 10 for 5 min.  In addition, when the target blocks a melee attack the attacker will take 14 Holy damage.  Players may only have one Blessing on them per Paladin at any one time.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "blessing_of_sanctuary"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 219,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Reckoning",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to gain an extra attack after being the victim of a critical strike.",
+        "formula": "[(20 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "reckoning"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 220,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "One-Handed Weapon Specialization",
+        "max_rank": 5,
+        "_description": "Increases the damage you deal with one-handed melee weapons by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "one_handed_weapon_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 221,
+    "fields": {
+        "wow_class": 5,
+        "tree": 14,
+        "name": "Holy Shield",
+        "max_rank": 1,
+        "_description": "Increases chance to block by 30% for 10 sec, and deals 65 Holy damage for each attack blocked while active.  Damage caused by Holy Shield causes 20% additional threat.  Each block expends a charge.  4 charges.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 218,
+        "img": "holy_shield"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 222,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Improved Blessing of Might",
+        "max_rank": 5,
+        "_description": "Increases the melee attack power bonus of your Blessing of Might by {}%.",
+        "formula": "[(4 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_blessing_of_might"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 223,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Benediction",
+        "max_rank": 5,
+        "_description": "Reduces the Mana cost of your Judgement and Seal spells by {}%.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "benediction"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 224,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Improved Judgement",
+        "max_rank": 2,
+        "_description": "Decreases the cooldown of your Judgement spell by {} sec.",
+        "formula": "[(1 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_judgement"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 225,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Improved Seal of the Crusader",
+        "max_rank": 3,
+        "_description": "Increases the melee attack power bonus of your Seal of the Crusader and the Holy damage increase of your Judgement of the Crusader by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_seal_of_the_crusader"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 226,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Deflection",
+        "max_rank": 5,
+        "_description": "Increases your Parry chance by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "deflection"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 227,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Vindication",
+        "max_rank": 3,
+        "_description": "Gives the Paladin's damaging melee attacks a chance to reduce the target's Strength and Agility by {}% for 10 sec.",
+        "formula": "[(5 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "vindication"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 228,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Conviction",
+        "max_rank": 5,
+        "_description": "Increases your chance to get a critical strike with melee weapons by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "conviction"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 229,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Seal of Command",
+        "max_rank": 1,
+        "_description": "Gives the Paladin a chance to deal additional Holy damage equal to 70% of normal weapon damage.  Only one Seal can be active on the Paladin at any one time.  Lasts 30 sec.\n\nUnleashing this Seal's energy will judge an enemy, instantly causing 46.5 to 55.5 Holy damage, 93 to 102 if the target is stunned or incapacitated.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "seal_of_command"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 230,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Pursuit of Justice",
+        "max_rank": 2,
+        "_description": "Increases movement and mounted movement speed by {}%.  This does not stack with other movement speed increasing effects.",
+        "formula": "[(4 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "pursuit_of_justice"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 231,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Eye for an Eye",
+        "max_rank": 2,
+        "_description": "All spell criticals against you cause {}% of the damage taken to the caster as well.  The damage caused by Eye for an Eye will not exceed 50% of the Paladin's total health.",
+        "formula": "[(15 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "eye_for_an_eye"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 232,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Improved Retribution Aura",
+        "max_rank": 2,
+        "_description": "Increases the damage done by your Retribution Aura by {}%.",
+        "formula": "[(25 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "improved_retribution_aura"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 233,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Two-Handed Weapon Specialization",
+        "max_rank": 3,
+        "_description": "Increases the damage you deal with two-handed melee weapons by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "two_handed_weapon_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 234,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Sanctity Aura",
+        "max_rank": 1,
+        "_description": "Increases Holy damage done by party members within 30 yards by 10%.  Players may only have one Aura on them per Paladin at any one time.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "sanctity_aura"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 235,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Vengeance",
+        "max_rank": 5,
+        "_description": "Gives you a {}% bonus to Physical and Holy damage you deal for 8 sec after dealing a critical strike from a weapon swing, spell, or ability.",
+        "formula": "[(3 * x)]",
+        "x": 1,
+        "y": 5,
+        "locked": 228,
+        "img": "vengeance"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 236,
+    "fields": {
+        "wow_class": 5,
+        "tree": 15,
+        "name": "Repentance",
+        "max_rank": 1,
+        "_description": "Puts the enemy target in a state of meditation, incapacitating them for up to 6 sec.  Any damage caused will awaken the target.  Only works against Humanoids.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": null,
+        "img": "repentance"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 237,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Unbreakable Will",
+        "max_rank": 5,
+        "_description": "Increases your chance to resist Stun, Fear, and Silence effects by an additional {}%.",
+        "formula": "[(3 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "unbreakable_will"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 238,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Wand Specialization",
+        "max_rank": 5,
+        "_description": "Increases your damage with Wands by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "wand_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 239,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Silent Resolve",
+        "max_rank": 5,
+        "_description": "Reduces the threat generated by your spells by {}%.",
+        "formula": "[(4 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "silent_resolve"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 240,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Improved Power Word: Fortitude",
+        "max_rank": 2,
+        "_description": "Increases the effect of your Power Word: Fortitude and Prayer of Fortitude spells by {}%.",
+        "formula": "[(15 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_power_word_fortitude"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 241,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Improved Power Word: Shield",
+        "max_rank": 3,
+        "_description": "Increases the damage absorbed by your Power Word: Shield by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "improved_power_word_shield"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 242,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Martyrdom",
+        "max_rank": 2,
+        "_description": "Gives you a {0}% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect prevents you from losing casting time when taking damage and increases resistance to Interrupt effects by {1}%.",
+        "formula": "[(50 * x), (10 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "martyrdom"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 243,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Inner Focus",
+        "max_rank": 1,
+        "_description": "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is capable of a critical effect.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "inner_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 244,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Meditation",
+        "max_rank": 3,
+        "_description": "Allows {}% of your Mana regeneration to continue while casting.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "meditation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 245,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Improved Inner Fire",
+        "max_rank": 3,
+        "_description": "Increases the Armor bonus of your Inner Fire spell by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "improved_inner_fire"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 246,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Mental Agility",
+        "max_rank": 5,
+        "_description": "Reduces the mana cost of your instant cast spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "mental_agility"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 247,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Improved Mana Burn",
+        "max_rank": 2,
+        "_description": "Reduces the casting time of your Mana Burn spell by {:g} secs.",
+        "formula": "[(0.25 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "improved_mana_burn"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 248,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Mental Strength",
+        "max_rank": 5,
+        "_description": "Increases your maximum Mana by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "mental_strength"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 249,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Divine Spirit",
+        "max_rank": 1,
+        "_description": "Holy power infuses the target, increasing their Spirit by 17 for 30 min.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": 244,
+        "img": "divine_spirit"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 250,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Force of Will",
+        "max_rank": 5,
+        "_description": "Increases your spell damage by {0}% and the critical strike chance of your offensive spells by {0}%.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "force_of_will"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 251,
+    "fields": {
+        "wow_class": 6,
+        "tree": 16,
+        "name": "Power Infusion",
+        "max_rank": 1,
+        "_description": "Infuses the target with power, increasing their spell damage and healing by 20%.  Lasts 15 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 248,
+        "img": "power_infusion"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 252,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Healing Focus",
+        "max_rank": 2,
+        "_description": "Gives you a {}% chance to avoid interruption caused by damage while casting any healing spell.",
+        "formula": "[(35 * x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "healing_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 253,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Improved Renew",
+        "max_rank": 3,
+        "_description": "Increases the amount healed by your Renew spell by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_renew"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 254,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Holy Specialization",
+        "max_rank": 5,
+        "_description": "Increases the critical effect chance of your Holy spells by {}%.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "holy_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 255,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Spell Warding",
+        "max_rank": 5,
+        "_description": "Reduces all spell damage taken by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "spell_warding"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 256,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Divine Fury",
+        "max_rank": 5,
+        "_description": "Reduces the casting time of your Smite, Holy Fire, Heal and Greater Heal spells by {:g} sec.",
+        "formula": "[(0.1*x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "divine_fury"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 257,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Holy Nova",
+        "max_rank": 1,
+        "_description": "Causes an explosion of holy light around the caster, causing 28 to 33 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 52 to 61.  These effects cause no threat.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "holy_nova"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 258,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Blessed Recovery",
+        "max_rank": 3,
+        "_description": "After being struck by a melee or ranged critical hit, heal {}% of the damage taken over 6 sec.",
+        "formula": "[math.floor(8.34 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "blessed_recovery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 259,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Inspiration",
+        "max_rank": 3,
+        "_description": "Increases your target's armor by {}% for 15 sec after getting a critical effect from your Flash Heal, Heal, Greater Heal, or Prayer of Healing spell.",
+        "formula": "[math.floor(8.34 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "inspiration"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 260,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Holy Reach",
+        "max_rank": 2,
+        "_description": "Increases the range of your Smite and Holy Fire spells and the radius of your Prayer of Healing and Holy Nova spells by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "holy_reach"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 261,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Improved Healing",
+        "max_rank": 3,
+        "_description": "Reduces the Mana cost of your Lesser Heal, Heal, and Greater Heal spells by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_healing"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 262,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Searing Light",
+        "max_rank": 2,
+        "_description": "Increases the damage of your Smite and Holy Fire spells by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": 256,
+        "img": "searing_light"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 263,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Improved Prayer of Healing",
+        "max_rank": 2,
+        "_description": "Reduces the Mana cost of your Prayer of Healing spell by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "improved_prayer_of_healing"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 264,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Spirit of Redemption",
+        "max_rank": 1,
+        "_description": "Upon death, the priest becomes the Spirit of Redemption for 10 sec.  The Spirit of Redemption cannot move, attack, be attacked or targeted by any spells or effects.  While in this form the priest can cast any healing spell free of cost.  When the effect ends, the priest dies.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "spirit_of_redemption"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 265,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Spiritual Guidance",
+        "max_rank": 5,
+        "_description": "Increases spell damage and healing by up to {}% of your total Spirit.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "spiritual_guidance"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 266,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Spiritual Healing",
+        "max_rank": 5,
+        "_description": "Increases the amount healed by your healing spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "spiritual_healing"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 267,
+    "fields": {
+        "wow_class": 6,
+        "tree": 17,
+        "name": "Lightwell",
+        "max_rank": 1,
+        "_description": "Creates a holy Lightwell near the priest.  Members of your raid or party can click the Lightwell to restore 0 health over 10 sec.  Being attacked cancels the effect.  Lightwell lasts for 0 sec or 5 charges.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 264,
+        "img": "lightwell"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 268,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Spirit Tap",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to gain a 100% bonus to your Spirit after killing a target that yields experience.  For the duration, your Mana will regenerate at a 50% rate while casting.  Lasts 15 sec.",
+        "formula": "[(20 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "spirit_tap"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 269,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Blackout",
+        "max_rank": 5,
+        "_description": "Gives your Shadow damage spells a {}% chance to stun the target for 3 sec.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "blackout"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 270,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Shadow Affinity",
+        "max_rank": 3,
+        "_description": "Reduces the threat generated by your Shadow spells by {}%.",
+        "formula": "[math.floor(8.34 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "shadow_affinity"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 271,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Improved Shadow Word: Pain",
+        "max_rank": 2,
+        "_description": "Increases the duration of your Shadow Word: Pain spell by {} sec.",
+        "formula": "[(3 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_shadow_word_pain"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 272,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Shadow Focus",
+        "max_rank": 5,
+        "_description": "Reduces your target's chance to resist your Shadow spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "shadow_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 273,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Improved Psychic Scream",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Psychic Scream spell by {} sec.",
+        "formula": "[(2 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "improved_psychic_scream"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 274,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Improved Mind Blast",
+        "max_rank": 5,
+        "_description": "Reduces the cooldown of your Mind Blast spell by {:g} sec.",
+        "formula": "[(0.5 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "improved_mind_blast"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 275,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Mind Flay",
+        "max_rank": 1,
+        "_description": "Assault the target's mind with Shadow energy, causing 75 Shadow damage over 3 sec and slowing their movement speed by 50%.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "mind_flay"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 276,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Improved Fade",
+        "max_rank": 2,
+        "_description": "Decreases the cooldown of your Fade ability by {} sec.",
+        "formula": "[(3 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_fade"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 277,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Shadow Reach",
+        "max_rank": 3,
+        "_description": "Increases the range of your Shadow damage spells by {}%.",
+        "formula": "[math.floor(6.67 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "shadow_reach"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 278,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Shadow Weaving",
+        "max_rank": 5,
+        "_description": "Your Shadow damage spells have a {}% chance to cause your target to be vulnerable to Shadow damage.  This vulnerability increases the Shadow damage dealt to your target by 3% and lasts 15 sec.  Stacks up to 5 times.",
+        "formula": "[(20 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "shadow_weaving"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 279,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Silence",
+        "max_rank": 1,
+        "_description": "Silences the target, preventing them from casting spells for 5 sec.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 4,
+        "locked": 273,
+        "img": "silence"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 280,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Vampiric Embrace",
+        "max_rank": 1,
+        "_description": "Afflicts your target with Shadow energy that causes all party members to be healed for 20% of any Shadow spell damage you deal for 1 min.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "vampiric_embrace"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 281,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Improved Vampiric Embrace",
+        "max_rank": 2,
+        "_description": "Increases the percentage healed by Vampiric Embrace by an additional {}%.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": 280,
+        "img": "improved_vampiric_embrace"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 282,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Darkness",
+        "max_rank": 5,
+        "_description": "Increases your Shadow spell damage by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "darkness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 283,
+    "fields": {
+        "wow_class": 6,
+        "tree": 18,
+        "name": "Shadowform",
+        "max_rank": 1,
+        "_description": "Assume a Shadowform, increasing your Shadow damage by 15% and reducing Physical damage done to you by 15%.  However, you may not cast Holy spells while in this form.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 280,
+        "img": "shadowform"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 284,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Improved Eviscerate",
+        "max_rank": 3,
+        "_description": "Increases the damage done by your Eviscerate ability by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "improved_eviscerate"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 285,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Remorseless Attacks",
+        "max_rank": 2,
+        "_description": "After killing an opponent that yields experience or honor, gives you a {}% increased critical strike chance on your next Sinister Strike, Backstab, Ambush, or Ghostly Strike.  Lasts {} sec.",
+        "formula": "[(20 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "remorseless_attacks"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 286,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Malice",
+        "max_rank": 5,
+        "_description": "Increases your critical strike chance by {}%.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "malice"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 287,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Ruthlessness",
+        "max_rank": 3,
+        "_description": "Gives your finishing moves a {}% chance to add a combo point to your target.",
+        "formula": "[(20 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "ruthlessness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 288,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Murder",
+        "max_rank": 2,
+        "_description": "Increases all damage caused against Humanoid, Giant, Beast and Dragonkin targets by {}%.",
+        "formula": "[(x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "murder"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 289,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Improved Slice and Dice",
+        "max_rank": 3,
+        "_description": "Increases the duration of your Slice and Dice ability by {}%.",
+        "formula": "[(25 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "improved_slice_and_dice"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 290,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Relentless Strikes",
+        "max_rank": 1,
+        "_description": "Your finishing moves have a 20% chance per combo point to restore 25 energy.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "relentless_strikes"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 291,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Improved Expose Armor",
+        "max_rank": 2,
+        "_description": "Increases the armor reduced by your Expose Armor ability by {}%.",
+        "formula": "[(25 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "improved_expose_armor"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 292,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Lethality",
+        "max_rank": 5,
+        "_description": "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, and Hemorrhage abilities by {}%.",
+        "formula": "[(6 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": 286,
+        "img": "lethality"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 293,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Vile Poisons",
+        "max_rank": 5,
+        "_description": "Increases the damage dealt by your poisons by {0}% and gives your poisons an additional {1}% chance to resist dispel effects.",
+        "formula": "[(4*x), (8*x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "vile_poisons"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 294,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Improved Poisons",
+        "max_rank": 5,
+        "_description": "Increases the chance to apply poisons to your target by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "improved_poisons"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 295,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Cold Blood",
+        "max_rank": 1,
+        "_description": "When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Ambush, or Eviscerate by 100%.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "cold_blood"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 296,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Improved Kidney Shot",
+        "max_rank": 3,
+        "_description": "While affected by your Kidney Shot ability, the target receives an additional {}% damage from all sources.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "improved_kidney_shot"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 297,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Seal Fate",
+        "max_rank": 5,
+        "_description": "Your critical strikes from abilities that add combo points have a {}% chance to add an additional combo point.",
+        "formula": "[(20 * x)]",
+        "x": 1,
+        "y": 5,
+        "locked": 295,
+        "img": "seal_fate"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 298,
+    "fields": {
+        "wow_class": 7,
+        "tree": 19,
+        "name": "Vigor",
+        "max_rank": 1,
+        "_description": "Increases your maximum Energy by 10.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": null,
+        "img": "vigor"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 299,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Improved Gouge",
+        "max_rank": 3,
+        "_description": "Increases the effect duration of your Gouge ability by {:g} sec.",
+        "formula": "[(0.5*x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "improved_gouge"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 300,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Improved Sinister Strike",
+        "max_rank": 2,
+        "_description": "Reduces the Energy cost of your Sinister Strike ability by {}.",
+        "formula": "[math.ceil(2.49 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_sinister_strike"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 301,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Lightning Reflexes",
+        "max_rank": 5,
+        "_description": "Increases your Dodge chance by {}%.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "lightning_reflexes"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 302,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Improved Backstab",
+        "max_rank": 3,
+        "_description": "Increases the critical strike chance of your Backstab ability by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_backstab"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 303,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Deflection",
+        "max_rank": 5,
+        "_description": "Increases your Parry chance by {}%.",
+        "formula": "[(x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "deflection"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 304,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Precision",
+        "max_rank": 5,
+        "_description": "Increases your chance to hit with melee weapons by {}%.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "precision"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 305,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Endurance",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Sprint and Evasion abilities by {} ",
+        "formula": "['45 sec.' if x<2 else '1.5 min.']",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "endurance"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 306,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Riposte",
+        "max_rank": 1,
+        "_description": "A strike that becomes active after parrying an opponent's attack.  This attack deals 150% weapon damage and disarms the target for 6 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": 303,
+        "img": "riposte"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 307,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Improved Sprint",
+        "max_rank": 2,
+        "_description": "Gives a {}% chance to remove all movement impairing effects when you activate your Sprint ability.",
+        "formula": "[(50 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "improved_sprint"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 308,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Improved Kick",
+        "max_rank": 2,
+        "_description": "Gives your Kick ability a {}% chance to silence the target for 2 sec.",
+        "formula": "[(50 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "improved_kick"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 309,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Dagger Specialization",
+        "max_rank": 5,
+        "_description": "Increases your chance to get a critical strike with Daggers by {}%.",
+        "formula": "[(x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "dagger_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 310,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Dual Wield Specialization",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your offhand weapon by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": 304,
+        "img": "dual_wield_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 311,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Mace Specialization",
+        "max_rank": 5,
+        "_description": "Increases your skill with Maces by {}, and gives you a {}% chance to stun your target for 3 sec with a mace.",
+        "formula": "[(x), math.floor(1.2*x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "mace_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 312,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Blade Flurry",
+        "max_rank": 1,
+        "_description": "Increases your attack speed by 20%.  In addition, attacks strike an additional nearby opponent.  Lasts 15 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "blade_flurry"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 313,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Sword Specialization",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to get an extra attack on the same target after dealing damage with your Sword.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "sword_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 314,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Fist Weapon Specialization",
+        "max_rank": 5,
+        "_description": "Increases your chance to get a critical strike with Fist Weapons by {}%.",
+        "formula": "[(x)]",
+        "x": 3,
+        "y": 4,
+        "locked": null,
+        "img": "fist_weapon_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 315,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Weapon Expertise",
+        "max_rank": 2,
+        "_description": "Increases your skill with Sword, Fist and Dagger weapons by {}.",
+        "formula": "[math.ceil(2.49 * x)]",
+        "x": 1,
+        "y": 5,
+        "locked": 312,
+        "img": "weapon_expertise"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 316,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Aggression",
+        "max_rank": 3,
+        "_description": "Increases the damage of your Sinister Strike and Eviscerate abilities by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "aggression"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 317,
+    "fields": {
+        "wow_class": 7,
+        "tree": 20,
+        "name": "Adrenaline Rush",
+        "max_rank": 1,
+        "_description": "Increases your Energy regeneration rate by 100% for 15 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": null,
+        "img": "adrenaline_rush"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 318,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Master of Deception",
+        "max_rank": 5,
+        "_description": "Reduces the chance enemies have to detect you while in Stealth mode. {}",
+        "formula": "['More effective than Master of Deception (Rank {})'.format(x-1) if x>1 else '']",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "master_of_deception"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 319,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Opportunity",
+        "max_rank": 5,
+        "_description": "Increases the damage dealt when striking from behind with your Backstab, Garrote, or Ambush abilities by {}%.",
+        "formula": "[(4 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "opportunity"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 320,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Sleight of Hand",
+        "max_rank": 2,
+        "_description": "Reduces the chance you are critically hit by melee and ranged attacks by ${this.invested}% and increases the threat reduction of your Feint ability by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "sleight_of_hand"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 321,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Elusiveness",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Vanish and Blind abilities by {} ",
+        "formula": "['45 sec.' if x<2 else '1.5 min.']",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "elusiveness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 322,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Camouflage",
+        "max_rank": 5,
+        "_description": "Increases your speed while stealthed by {}% and reduces the cooldown of your Stealth ability by ${this.invested} sec.",
+        "formula": "[(3 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "camouflage"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 323,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Initiative",
+        "max_rank": 3,
+        "_description": "Gives you a {}% chance to add an additional combo point to your target when using your Ambush, Garrote, or Cheap Shot ability.",
+        "formula": "[(25 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "initiative"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 324,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Ghostly Strike",
+        "max_rank": 1,
+        "_description": "A strike that deals 125% weapon damage and increases your chance to dodge by 15% for 7 sec.  Awards 1 combo point.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "ghostly_strike"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 325,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Improved Ambush",
+        "max_rank": 3,
+        "_description": "Increases the critical strike chance of your Ambush ability by {}%.",
+        "formula": "[(15 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "improved_ambush"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 326,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Setup",
+        "max_rank": 3,
+        "_description": "Gives you a {}% chance to add a combo point to your target after dodging their attack or fully resisting one of their spells.",
+        "formula": "[(15 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "setup"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 327,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Improved Sap",
+        "max_rank": 3,
+        "_description": "Gives you a {}% chance to return to stealth mode after using your Sap ability.",
+        "formula": "[(30 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_sap"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 328,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Serrated Blades",
+        "max_rank": 3,
+        "_description": "Causes your attacks to ignore {0} of your target's Armor and increases the damage dealt by your Rupture ability by {1}%.  The amount of Armor reduced increases with your level.",
+        "formula": "[((lvl - 10)* 2*x),(10 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "serrated_blades"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 329,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Heightened Senses",
+        "max_rank": 2,
+        "_description": "Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by {}%. {}",
+        "formula": "[(2 * x), ('More effective than Heightened Senses (Rank 1).' if x>1 else '')]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "heightened_senses"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 330,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Preparation",
+        "max_rank": 1,
+        "_description": "When activated, this ability immediately finishes the cooldown on your other Rogue abilities.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "preparation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 331,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Dirty Deeds",
+        "max_rank": 2,
+        "_description": "Reduces the Energy cost of your Cheap Shot and Garrote abilities by {}.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "dirty_deeds"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 332,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Hemorrhage",
+        "max_rank": 1,
+        "_description": "An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by up to 3.  Lasts 30 charges or 15 sec.  Awards 1 combo point.",
+        "formula": "[x]",
+        "x": 3,
+        "y": 4,
+        "locked": 328,
+        "img": "hemorrhage"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 333,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Deadliness",
+        "max_rank": 5,
+        "_description": "Increases your Attack Power by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "deadliness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 334,
+    "fields": {
+        "wow_class": 7,
+        "tree": 21,
+        "name": "Premeditation",
+        "max_rank": 1,
+        "_description": "When used, adds 2 combo points to your target.  You must add to or use those combo points within 10 sec or the combo points are lost. ",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 330,
+        "img": "premeditation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 335,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Convection",
+        "max_rank": 5,
+        "_description": "Reduces the mana cost of your Shock, Lightning Bolt and Chain Lightning spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "convection"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 336,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Concussion",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by {}%.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "concussion"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 337,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Earth's Grasp",
+        "max_rank": 2,
+        "_description": "Increases the health of your Stoneclaw Totem by {0}% and the radius of your Earthbind Totem by {1}%.",
+        "formula": "[(25*x), (10*x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "earths_grasp"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 338,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Elemental Warding",
+        "max_rank": 3,
+        "_description": "Reduces damage taken from Fire, Frost and Nature effects by {}%.",
+        "formula": "[math.ceil(3.33*x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "elemental_warding"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 339,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Call of Flame",
+        "max_rank": 3,
+        "_description": "Increases the damage done by your Fire Totems by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "call_of_flame"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 340,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Elemental Focus",
+        "max_rank": 1,
+        "_description": "Gives you a 10% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell.  The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "elemental_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 341,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Reverberation",
+        "max_rank": 5,
+        "_description": "Reduces the cooldown of your Shock spells by {:g} sec.",
+        "formula": "[(0.2*x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "reverberation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 342,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Call of Thunder",
+        "max_rank": 5,
+        "_description": "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional {}%.",
+        "formula": "[math.floor(1.2*x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "call_of_thunder"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 343,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Improved Fire Totems",
+        "max_rank": 2,
+        "_description": "Reduces the delay before your Fire Nova Totem activates by {0} sec. and decreases the threat generated by your Magma Totem by {1}%.",
+        "formula": "[(x), (25*x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "improved_fire_totems"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 344,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Eye of the Storm",
+        "max_rank": 3,
+        "_description": "Gives you a {}% chance to gain the Focused Casting effect that lasts for 6 sec after being the victim of a melee or ranged critical strike.  The Focused Casting effect prevents you from losing casting time when taking damage.",
+        "formula": "[math.floor(33.34 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "eye_of_the_storm"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 345,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Elemental Devastation",
+        "max_rank": 3,
+        "_description": "Your offensive spell crits will increase your chance to get a critical strike with melee attacks by {}% for 10 sec.",
+        "formula": "[(3 * x)]",
+        "x": 3,
+        "y": 3,
+        "locked": null,
+        "img": "elemental_devastation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 346,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Storm Reach",
+        "max_rank": 2,
+        "_description": "Increases the range of your Lightning Bolt and Chain Lightning spells by {} yards.",
+        "formula": "[(3 * x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "storm_reach"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 347,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Elemental Fury",
+        "max_rank": 1,
+        "_description": "Increases the critical strike damage bonus of your Searing, Magma, and Fire Nova Totems and your Fire, Frost, and Nature spells by 100%.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "elemental_fury"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 348,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Lightning Mastery",
+        "max_rank": 5,
+        "_description": "Reduces the cast time of your Lightning Bolt and Chain Lightning spells by {:g} sec.",
+        "formula": "[(0.2*x)]",
+        "x": 2,
+        "y": 5,
+        "locked": 342,
+        "img": "lightning_mastery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 349,
+    "fields": {
+        "wow_class": 8,
+        "tree": 22,
+        "name": "Elemental Mastery",
+        "max_rank": 1,
+        "_description": "When activated, this spell gives your next Fire, Frost, or Nature damage spell a 100% critical strike chance and reduces the mana cost by 100%.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 347,
+        "img": "elemental_mastery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 350,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Ancestral Knowledge",
+        "max_rank": 5,
+        "_description": "Increases your maximum Mana by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "ancestral_knowledge"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 351,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Shield Specialization",
+        "max_rank": 5,
+        "_description": "Increases your chance to block attacks with a shield by {0}% and increases the amount blocked by {1}%.",
+        "formula": "[(x), (5*x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "shield_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 352,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Guardian Totems",
+        "max_rank": 2,
+        "_description": "Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by {0}% and reduces the cooldown of your Grounding Totem by {1} sec.",
+        "formula": "[(10*x),(x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "guardian_totems"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 353,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Thundering Strikes",
+        "max_rank": 5,
+        "_description": "Improves your chance to get a critical strike with your weapon attacks by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "thundering_strikes"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 354,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Improved Ghost Wolf",
+        "max_rank": 2,
+        "_description": "Reduces the cast time of your Ghost Wolf spell by {} sec.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "improved_ghost_wolf"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 355,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Improved Lightning Shield",
+        "max_rank": 3,
+        "_description": "Increases the damage done by your Lightning Shield orbs by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "improved_lightning_shield"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 356,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Enhancing Totems",
+        "max_rank": 2,
+        "_description": "Increases the effect of your Strength of Earth and Grace of Air Totems by {}%.",
+        "formula": "[math.ceil(7.49*x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "enhancing_totems"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 357,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Two-Handed Axes and Maces",
+        "max_rank": 1,
+        "_description": "Allows you to use Two-Handed Axes and Two-Handed Maces.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "two_handed_axes_and_maces"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 358,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Anticipation",
+        "max_rank": 5,
+        "_description": "Increases your chance to dodge by an additional {}%.",
+        "formula": "[(1 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "anticipation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 359,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Flurry",
+        "max_rank": 5,
+        "_description": "Increases your attack speed by {}% for your next 3 swings after dealing a critical strike.",
+        "formula": "[(5*x) + 5]",
+        "x": 1,
+        "y": 3,
+        "locked": 353,
+        "img": "flurry"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 360,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Toughness",
+        "max_rank": 5,
+        "_description": "Increases your armor value from items by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "toughness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 361,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Improved Weapon Totems",
+        "max_rank": 2,
+        "_description": "Increases the melee attack power bonus of your Windfury Totem by {0}% and increases the damage caused by your Flametongue Totem by {1}%.",
+        "formula": "[(15*x), (6*x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "improved_weapon_totems"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 362,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Elemental Weapons",
+        "max_rank": 3,
+        "_description": "Increases the melee attack power bonus of your Rockbiter Weapon by {0}%, your Windfury Weapon effect by {1}% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by {2}%.",
+        "formula": "[math.ceil(6.66*x), math.ceil(13.2*x), (5*x)]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "elemental_weapons"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 363,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Parry",
+        "max_rank": 1,
+        "_description": "Gives a chance to parry enemy melee attacks.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "parry"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 364,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Weapon Mastery",
+        "max_rank": 5,
+        "_description": "Increases the damage you deal with all weapons by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "weapon_mastery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 365,
+    "fields": {
+        "wow_class": 8,
+        "tree": 23,
+        "name": "Stormstrike",
+        "max_rank": 1,
+        "_description": "Gives you an extra attack.  In addition, the next 2 sources of Nature damage dealt to the target are increased by 20%.  Lasts 12 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 362,
+        "img": "stormstrike"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 366,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Improved Healing Wave",
+        "max_rank": 5,
+        "_description": "Reduces the casting time of your Healing Wave spell by {:g} sec.",
+        "formula": "[(0.1*x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "improved_healing_wave"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 367,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Tidal Focus",
+        "max_rank": 5,
+        "_description": "Reduces the Mana cost of your healing spells by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "tidal_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 368,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Improved Reincarnation",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Reincarnation spell by {0} min and increases the amount of health and mana you reincarnate with by an additional {0}%.",
+        "formula": "[(10 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_reincarnation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 369,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Ancestral Healing",
+        "max_rank": 3,
+        "_description": "Increases your target's armor value by {}% for 15 sec after getting a critical effect from one of your healing spells.",
+        "formula": "[math.floor(8.34*x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "ancestral_healing"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 370,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Totemic Focus",
+        "max_rank": 5,
+        "_description": "Reduces the Mana cost of your totems by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "totemic_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 371,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Nature's Guidance",
+        "max_rank": 3,
+        "_description": "Increases your chance to hit with melee attacks and spells by ${this.invested}%.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "natures_guidance"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 372,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Healing Focus",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to avoid interruption caused by damage while casting any healing spell.",
+        "formula": "[(14 * x)]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "healing_focus"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 373,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Totemic Mastery",
+        "max_rank": 1,
+        "_description": "The radius of your totems that affect friendly targets is increased to 30 yd.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "totemic_mastery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 374,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Healing Grace",
+        "max_rank": 3,
+        "_description": "Reduces the threat generated by your healing spells by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "healing_grace"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 375,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Restorative Totems",
+        "max_rank": 5,
+        "_description": "Increases the effect of your Mana Spring and Healing Stream Totems by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "restorative_totems"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 376,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Tidal Mastery",
+        "max_rank": 5,
+        "_description": "Increases the critical effect chance of your healing and lightning spells by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "tidal_mastery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 377,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Healing Way",
+        "max_rank": 3,
+        "_description": "Your Healing Wave spells have a {}% chance to increase the effect of subsequent Healing Wave spells on that target by 6% for 15 sec.  This effect will stack up to 5 times.",
+        "formula": "[math.floor(33.34*x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "healing_way"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 378,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Nature's Swiftness",
+        "max_rank": 1,
+        "_description": "When activated, your next Nature spell with a casting time less than 10 sec. becomes an instant cast spell.",
+        "formula": "[x]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "natures_swiftness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 379,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Purification",
+        "max_rank": 5,
+        "_description": "Increases the effectiveness of your healing spells by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "purification"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 380,
+    "fields": {
+        "wow_class": 8,
+        "tree": 24,
+        "name": "Mana Tide Totem",
+        "max_rank": 1,
+        "_description": "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 170 mana every 3 seconds to group members within 20 yards.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 375,
+        "img": "mana_tide_totem"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 381,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Improved Heroic Strike",
+        "max_rank": 3,
+        "_description": "Reduces the cost of your Heroic Strike ability by {} rage point.",
+        "formula": "[(1 * x)]",
+        "x": 0,
+        "y": 0,
+        "locked": null,
+        "img": "improved_heroic_strike"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 382,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Deflection",
+        "max_rank": 5,
+        "_description": "Increases your Parry chance by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "deflection"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 383,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Improved Rend",
+        "max_rank": 3,
+        "_description": "Increases the bleed damage done by your Rend ability by {}%.",
+        "formula": "[(10*x)+5]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "improved_rend"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 384,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Improved Charge",
+        "max_rank": 2,
+        "_description": "Increases the amount of rage generated by your Charge ability by {}.",
+        "formula": "[(3 * x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_charge"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 385,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Tactical Mastery",
+        "max_rank": 5,
+        "_description": "You retain up to {} of your rage points when you change stances.",
+        "formula": "[(5 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "tactical_mastery"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 386,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Improved Thunder Clap",
+        "max_rank": 3,
+        "_description": "Reduces the cost of your Thunder Clap ability by {} rage point.",
+        "formula": "[math.floor(1.34*x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "improved_thunder_clap"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 387,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Improved Overpower",
+        "max_rank": 2,
+        "_description": "Increases the critical strike chance of your Overpower ability by {}%.",
+        "formula": "[(25 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "improved_overpower"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 388,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Anger Management",
+        "max_rank": 1,
+        "_description": "Increases the time required for your rage to decay while out of combat by 30%.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": 385,
+        "img": "anger_management"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 389,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Deep Wounds",
+        "max_rank": 3,
+        "_description": "Your critical strikes cause the opponent to bleed, dealing {}% of your melee weapon's average damage over 12 sec.",
+        "formula": "[(20 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": 383,
+        "img": "deep_wounds"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 390,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Two-Handed Weapon Specialization",
+        "max_rank": 5,
+        "_description": "Increases the damage you deal with two-handed melee weapons by {}%.",
+        "formula": "[(x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "two_handed_weapon_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 391,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Impale",
+        "max_rank": 2,
+        "_description": "Increases the critical strike damage bonus of your abilities in Battle, Defensive, and Berserker stance by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": 389,
+        "img": "impale"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 392,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Axe Specialization",
+        "max_rank": 5,
+        "_description": "Increases your chance to get a critical strike with Axes by {}%.",
+        "formula": "[(x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "axe_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 393,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Sweeping Strikes",
+        "max_rank": 1,
+        "_description": "Your next 5 melee attacks strike an additional nearby opponent.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "sweeping_strikes"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 394,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Mace Specialization",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to stun your target for 3 sec with a Mace.",
+        "formula": "[math.floor(1.2*x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "mace_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 395,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Sword Specialization",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to get an extra attack on the same target after dealing damage with your Sword.",
+        "formula": "[(x)]",
+        "x": 3,
+        "y": 4,
+        "locked": null,
+        "img": "sword_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 396,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Polearm Specialization",
+        "max_rank": 5,
+        "_description": "Increases your chance to get a critical strike with Polearms by {}%.",
+        "formula": "[(x)]",
+        "x": 0,
+        "y": 5,
+        "locked": null,
+        "img": "polearm_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 397,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Improved Hamstring",
+        "max_rank": 3,
+        "_description": "Gives your Hamstring ability a {}% chance to immobilize the target for 5 sec.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "improved_hamstring"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 398,
+    "fields": {
+        "wow_class": 9,
+        "tree": 25,
+        "name": "Mortal Strike",
+        "max_rank": 1,
+        "_description": "A vicious strike that deals weapon damage plus 85 and wounds the target, reducing the effectiveness of any healing by 50% for 10 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 393,
+        "img": "mortal_strike"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 399,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Booming Voice",
+        "max_rank": 5,
+        "_description": "Increases the area of effect and duration of your Battle Shout and Demoralizing Shout by {}%.",
+        "formula": "[(10 * x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "booming_voice"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 400,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Cruelty",
+        "max_rank": 5,
+        "_description": "Increases your chance to get a critical strike with melee weapons by {}%.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "cruelty"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 401,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Improved Demoralizing Shout",
+        "max_rank": 5,
+        "_description": "Increases the melee attack power reduction of your Demoralizing Shout by {}%.",
+        "formula": "[(8 * x)]",
+        "x": 1,
+        "y": 1,
+        "locked": null,
+        "img": "improved_demoralizing_shout"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 402,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Unbridled Wrath",
+        "max_rank": 5,
+        "_description": "Gives you a {}% chance to generate an additional Rage point when you deal melee damage with a weapon.",
+        "formula": "[(8 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "unbridled_wrath"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 403,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Improved Cleave",
+        "max_rank": 3,
+        "_description": "Increases the bonus damage done by your Cleave ability by {}%.",
+        "formula": "[(40 * x)]",
+        "x": 0,
+        "y": 2,
+        "locked": null,
+        "img": "improved_cleave"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 404,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Piercing Howl",
+        "max_rank": 1,
+        "_description": "Causes all enemies near the warrior to be dazed, reducing movement speed by 50% for 6 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 2,
+        "locked": null,
+        "img": "piercing_howl"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 405,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Blood Craze",
+        "max_rank": 3,
+        "_description": "Regenerates {}% of your total Health over 6 sec after being the victim of a critical strike.",
+        "formula": "[(x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "blood_craze"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 406,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Improved Battle Shout",
+        "max_rank": 5,
+        "_description": "Increases the melee attack power bonus of your Battle Shout by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "improved_battle_shout"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 407,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Dual Wield Specialization",
+        "max_rank": 5,
+        "_description": "Increases the damage done by your offhand weapon by {}%.",
+        "formula": "[(5 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "dual_wield_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 408,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Improved Execute",
+        "max_rank": 2,
+        "_description": "Reduces the Rage cost of your Execute ability by {}.",
+        "formula": "[math.floor(2.51*x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_execute"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 409,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Enrage",
+        "max_rank": 5,
+        "_description": "Gives you a {}% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.",
+        "formula": "[(5 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "enrage"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 410,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Improved Slam",
+        "max_rank": 5,
+        "_description": "Decreases the casting time of your Slam ability by {:g} sec.",
+        "formula": "[(0.1*x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "improved_slam"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 411,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Death Wish",
+        "max_rank": 1,
+        "_description": "When activated, increases your physical damage by 20% and makes you immune to Fear effects, but lowers your armor and all resistances by 20%.  Lasts 30 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "death_wish"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 412,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Improved Intercept",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Intercept ability by {} sec.",
+        "formula": "[(5 * x)]",
+        "x": 3,
+        "y": 4,
+        "locked": null,
+        "img": "improved_intercept"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 413,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Improved Berserker Rage",
+        "max_rank": 2,
+        "_description": "The Berserker Rage ability will generate {} rage when used.",
+        "formula": "[(5 * x)]",
+        "x": 0,
+        "y": 5,
+        "locked": null,
+        "img": "improved_berserker_rage"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 414,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Flurry",
+        "max_rank": 5,
+        "_description": "Increases your attack speed by {}% for your next 3 swings after dealing a melee critical strike.",
+        "formula": "[(5*x)+5]",
+        "x": 2,
+        "y": 5,
+        "locked": 409,
+        "img": "flurry"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 415,
+    "fields": {
+        "wow_class": 9,
+        "tree": 26,
+        "name": "Bloodthirst",
+        "max_rank": 1,
+        "_description": "Instantly attack the target causing damage equal to 45% of your attack power.  In addition, the next 5 successful melee attacks will restore 10 health.  This effect lasts 8 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 411,
+        "img": "bloodthirst"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 416,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Shield Specialization",
+        "max_rank": 5,
+        "_description": "Increases your chance to block attacks with a shield by {0}% and has a {1}% chance to generate 1 rage when a block occurs.",
+        "formula": "[(x), (20*x)]",
+        "x": 1,
+        "y": 0,
+        "locked": null,
+        "img": "shield_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 417,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Anticipation",
+        "max_rank": 5,
+        "_description": "Increases your Defense skill by {}.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 0,
+        "locked": null,
+        "img": "anticipation"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 418,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Improved Bloodrage",
+        "max_rank": 2,
+        "_description": "Increases the instant Rage generated by your Bloodrage ability by {}.",
+        "formula": "[math.floor(2.51*x)]",
+        "x": 0,
+        "y": 1,
+        "locked": null,
+        "img": "improved_bloodrage"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 419,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Toughness",
+        "max_rank": 5,
+        "_description": "Increases your armor value from items by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 1,
+        "locked": null,
+        "img": "toughness"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 420,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Iron Will",
+        "max_rank": 5,
+        "_description": "Increases your chance to resist Stun and Charm effects by an additional {}%.",
+        "formula": "[(3 * x)]",
+        "x": 3,
+        "y": 1,
+        "locked": null,
+        "img": "iron_will"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 421,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Last Stand",
+        "max_rank": 1,
+        "_description": "When activated, this ability temporarily grants you 30% of your maximum hit points for 20 seconds.  After the effect expires, the hit points are lost.",
+        "formula": "[x]",
+        "x": 0,
+        "y": 2,
+        "locked": 418,
+        "img": "last_stand"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 422,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Improved Shield Block",
+        "max_rank": 3,
+        "_description": "Allows your Shield Block ability to block an additional attack and increases the duration by {:g} second.",
+        "formula": "[(0.5*x)]",
+        "x": 1,
+        "y": 2,
+        "locked": 416,
+        "img": "improved_shield_block"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 423,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Improved Revenge",
+        "max_rank": 3,
+        "_description": "Gives your Revenge ability a {}% chance to stun the target for 3 sec.",
+        "formula": "[(15 * x)]",
+        "x": 2,
+        "y": 2,
+        "locked": null,
+        "img": "improved_revenge"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 424,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Defiance",
+        "max_rank": 5,
+        "_description": "Increases the threat generated by your attacks by {}% while in Defensive Stance.",
+        "formula": "[(3 * x)]",
+        "x": 3,
+        "y": 2,
+        "locked": null,
+        "img": "defiance"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 425,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Improved Sunder Armor",
+        "max_rank": 3,
+        "_description": "Reduces the cost of your Sunder Armor ability by {} rage point.",
+        "formula": "[(1 * x)]",
+        "x": 0,
+        "y": 3,
+        "locked": null,
+        "img": "improved_sunder_armor"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 426,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Improved Disarm",
+        "max_rank": 3,
+        "_description": "Increases the duration of your Disarm ability by {} secs.",
+        "formula": "[(1 * x)]",
+        "x": 1,
+        "y": 3,
+        "locked": null,
+        "img": "improved_disarm"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 427,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Improved Taunt",
+        "max_rank": 2,
+        "_description": "Reduces the cooldown of your Taunt ability by {} sec.",
+        "formula": "[(1 * x)]",
+        "x": 2,
+        "y": 3,
+        "locked": null,
+        "img": "improved_taunt"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 428,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Improved Shield Wall",
+        "max_rank": 2,
+        "_description": "Increases the effect duration of your Shield Wall ability by {} secs.",
+        "formula": "[math.ceil(2.49*x)]",
+        "x": 0,
+        "y": 4,
+        "locked": null,
+        "img": "improved_shield_wall"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 429,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Concussion Blow",
+        "max_rank": 1,
+        "_description": "Stuns the opponent for 5 sec.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 4,
+        "locked": null,
+        "img": "concussion_blow"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 430,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Improved Shield Bash",
+        "max_rank": 2,
+        "_description": "Gives your Shield Bash ability a {}% chance to silence the target for 3 sec.",
+        "formula": "[(50 * x)]",
+        "x": 2,
+        "y": 4,
+        "locked": null,
+        "img": "improved_shield_bash"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 431,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "One-Handed Weapon Specialization",
+        "max_rank": 5,
+        "_description": "Increases the damage you deal with One-Handed Melee weapons by {}%.",
+        "formula": "[(2 * x)]",
+        "x": 2,
+        "y": 5,
+        "locked": null,
+        "img": "one_handed_weapon_specialization"
+    }
+},
+{
+    "model": "home.talent",
+    "pk": 432,
+    "fields": {
+        "wow_class": 9,
+        "tree": 27,
+        "name": "Shield Slam",
+        "max_rank": 1,
+        "_description": "Slam the target with your shield, causing 225 to 236 damage, modified by your shield block value, and has a 50% chance of dispelling 1 magic effect on the target.  Also causes a high amount of threat.",
+        "formula": "[x]",
+        "x": 1,
+        "y": 6,
+        "locked": 429,
+        "img": "shield_slam"
+    }
+}
+]
