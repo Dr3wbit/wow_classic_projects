@@ -277,7 +277,7 @@ class TalentTree(models.Model):
 
 class Talent(models.Model):
 
-	img = models.CharField(max_length=50 default='')
+	img = models.CharField(max_length=50, default='')
 	name = models.CharField(max_length=40)
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
 	tree = models.ForeignKey('TalentTree', on_delete=models.CASCADE)
@@ -296,7 +296,7 @@ class Talent(models.Model):
 
 	def __str__(self):
 		return self.name
-  
+
 	@property # returns list of descriptions
 	def description(self):
 		self.descripts = []
