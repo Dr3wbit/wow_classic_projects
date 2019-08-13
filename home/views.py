@@ -266,7 +266,7 @@ class TalentBuilderRedirectView(RedirectView):
 		spec = Spec.objects.get(id=id)
 		class_name = spec.wow_class.name
 		qs = spec.hash
-		self.url = new_url+"/{}?{}".format(class_name, qs)
+		self.url = new_url+"/{}?{}".format(class_name.lower(), qs)
 
 		return self.url
 
