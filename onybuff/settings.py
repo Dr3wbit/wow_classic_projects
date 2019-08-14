@@ -25,7 +25,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 DEV = False
-TESTING = True
+TESTING = False
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', '13.59.19.192']
