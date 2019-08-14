@@ -21,9 +21,6 @@
 				<a class="nav-link" href="{% url k %}">{{ v }}</a>
 			</li>
 			{% endfor %}
-			<li class="nav-item">
-				<a class="nav-link" href="{{request}}"></a>
-			</li>
 		</ul>
 		<div style="margin-left: auto; position: relative; padding-right: 10px; background-color: #272727; cursor: pointer;">
 			{% if user.is_authenticated %}
