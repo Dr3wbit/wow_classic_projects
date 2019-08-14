@@ -21,8 +21,8 @@
                         <span class="section" title="Flagged Specs and ConsumeLists">FLAGGED</span>
                     </caption>
                     <tbody>
-                        {% for model in app.models %}
-                        {% if model.name == "Specs" or model.name == "ConsumeLists" %}
+                    {% for model in app.models %}
+                        {% if model.name == "Specs" %}
                             <tr class="model-{{ model.object_name|lower }}">
                                 <th scope="row">
                                     <a href="{{ model.admin_url }}">Specs</a>
@@ -40,9 +40,30 @@
                                         </td>
                                 {% endif %}
                                 <td>
-                                    <span>(1)</span>
+                                    <span>{% if flagged.specs %}({{flagged.specs}}){% endif %}</span>
                                 </td>
                             </tr>
+                        {% elif model.name == "Consume lists" %}
+                        <tr class="model-{{ model.object_name|lower }}">
+                            <th scope="row">
+                                <a href="{{ model.admin_url }}">ConsumeLists</a>
+                            </th>
+                            <td>
+                                <a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a>
+                            </td>
+                            {% if model.view_only %}
+                                <td>
+                                    <a href="{{ model.admin_url }}" class="viewlink">{% trans 'View' %}</a>
+                                </td>
+                            {% else %}
+                                    <td>
+                                        <a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a>
+                                    </td>
+                            {% endif %}
+                            <td>
+                                <span>{% if flagged.consumelists %}({{flagged.consumelists}}){% endif %}</span>
+                            </td>
+                        </tr>
                         {% endif %}
                     {% endfor %}
                 </tbody>
@@ -61,7 +82,7 @@
         {% for model in app.models %}
             <tr class="model-{{ model.object_name|lower }}">
             {% if model.admin_url %}
-                {% if model.name == "Specs" or model.name == "ConsumeLists" %}
+                {% if model.name == "Specs" or model.name == "Consume lists" %}
                 {% else %}
                 <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
                 {% endif %}
@@ -70,7 +91,7 @@
             {% endif %}
 
             {% if model.add_url %}
-            {% if model.name == "Specs" or model.name == "ConsumeLists" %}
+            {% if model.name == "Specs" or model.name == "Consume lists" %}
             {% else %}
                 <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td>
             {% endif %}
@@ -79,7 +100,7 @@
             {% endif %}
 
             {% if model.admin_url %}
-                {% if model.name == "Specs" or model.name == "ConsumeLists" %}
+                {% if model.name == "Specs" or model.name == "Consume lists" %}
                 {% else %}
                     {% if model.view_only %}
                     <td><a href="{{ model.admin_url }}" class="viewlink">{% trans 'View' %}</a></td>

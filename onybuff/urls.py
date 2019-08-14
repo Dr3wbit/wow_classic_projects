@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
+from home.models import Spec, ConsumeList
+from home.admin import admin_site
+
+admin.site = admin_site
+admin.autodiscover()
 
 urlpatterns = [
 	path('account/', include('account.urls')),
