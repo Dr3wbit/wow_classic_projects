@@ -63,69 +63,43 @@ class ItemAdmin(admin.ModelAdmin):
 admin.site.register(Item, ItemAdmin)
 
 
-# class ItemLocationAdminForm(admin.TabularInline):
-#     choice = forms.ChoiceField(choice=(('APPROVE', 'Approve'), ('DENY', 'Deny')))
-#
-#     class Meta:
-#         fields = ['choice']
-#
-#     def save(self, commit=True):
-#         choice = self.cleaned_data['choice']
-#
-#         instance = super(ItemLocationAdminForm, self).save(commit=False)
-# 		instance.visibility = True if choice=='APPROVE' else False
-#         if commit:
-#             instance.save()
-#         return instance
-#
-# class InlineApproval(admin.TabularInline):
-#
-# 	def formfield_for_choice_field(self, db_field, request, **kwargs):
-#         if db_field.name == "status":
-#             kwargs['choices'] = (
-#                 ('accepted', 'Accepted'),
-#                 ('denied', 'Denied'),
-#             )
-#             if request.user.is_superuser:
-#                 kwargs['choices'] += (('ready', 'Ready for deployment'),)
-#         return super().formfield_for_choice_field(db_field, request, **kwargs)
 
 class SpecApprovalForm(forms.ModelForm):
+
+	def has_changed(self, *args, **kwargs):
+		return True
 
 
 	class Meta:
 		STATUS_CHOICES = (
-			('TRUE', 'True'),
-			('FALSE', 'False'),
+			(True, 'ACCEPT'),
+			(False, 'DENY'),
 		)
+
 		fields = ['user', 'name', 'description', 'visible']
+		# visible = forms.ChoiceField(widget=forms.Select(choices=STATUS_CHOICES), initial=False, label="Violating?", required=True)
 		widgets = {'visible': forms.Select(choices=STATUS_CHOICES)}
 
 	def save(self, *args, **kwargs):
-		print('\ndir self: ', dir(self))
-		print('\n initial: ', self.initial)
-		print('\ndir self.instance: ', dir(self.instance))
-		print('\ncleaned: ', self.cleaned_data)
-		print(self.cleaned_data['visible'])
-		# print('data: ', self.data)
-
-		# print('\nself.fields: ', self.fields)
-		# print('\nself.visible_fields: ', self.visible_fields)
-
-		# print('\nargs: ', args)
-		# print('\nkwargs: ', kwargs)
-
-		# print('dir self: ', dir(self))
-
-
-		# print('\nself.instance.name: ', self.instance.name)
-		#
-		# print('\nself.Meta: ', self.Meta())
-		# self.cleaned_data['visible'] =
-		# super().save(*args, **kwargs)
+		data_dict = self.data.dict()
+		print('datadict: ', data_dict)
+		for x in range(int(data_dict['form-TOTAL_FORMS'])):
+			inx = 'form-{}-id'.format(x)
+			ix = data_dict[inx]
+			spec = Spec.objects.get(id=ix)
+			approved_key = 'form-{}-visible'.format(x)
+			approved = True if data_dict[approved_key] == 'True' else False
+			spec.visible = approved
+			spec.flagged = False
+			spec.save(force_update=True)
+			print(spec.flagged)
+		m = super().save(*args, **kwargs)
+		return spec
 
 class FlaggedSpecsAdmin(admin.ModelAdmin):
 	form = SpecApprovalForm
+	# actions = ['update_selected']
+	actions = None
 	# class Meta:
 		# model = Spec
 	# model = Spec
@@ -133,11 +107,26 @@ class FlaggedSpecsAdmin(admin.ModelAdmin):
 		# super().__init__(*args, **kwargs)
 
 	def get_changelist_form(self, request, **kwargs):
+		print(dir(self))
 		return SpecApprovalForm
 
 	def get_queryset(self, request):
 		qs = super().get_queryset(request)
 		return qs.filter(flagged=True)
+
+	# def update_selected(self, request, queryset):
+	# 	print('\nself: ', dir(self))
+	# 	print('\nrequest: ', dir(request))
+	# 	print(request.POST)
+	# 	for obj in queryset:
+	# 		print(dir(obj))
+	# 		print(obj)
+
+		# if rows_updated == 1:
+		#     message_bit = "1 story was"
+		# else:
+		#     message_bit = "%s stories were" % rows_updated
+		# self.message_user(request, "wilddaddy")
 
 	# def resolve(self, obj):
 	# 	STATUS_CHOICES = (
@@ -156,7 +145,7 @@ class FlaggedSpecsAdmin(admin.ModelAdmin):
 
 	list_display = ('name', 'description', 'user', 'visible',)
 	list_editable = ('visible', )
-	# readonly_fields = ('user',)
+	readonly_fields = ('user',)
 
 # class FlaggedSpecsAdmin(admin.ModelAdmin):
 # 	model = Spec
