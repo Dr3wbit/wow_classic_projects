@@ -3,6 +3,8 @@ from home.models import Item, WoWClass, Spec, ConsumeList
 from django.utils import html
 from django.conf import settings
 from django import forms
+from django.contrib.auth.models import Group
+from django.contrib.auth.admin import GroupAdmin
 
 QUALITY = {
 	"junk": "rgba(157,157,157,1)",
@@ -13,147 +15,141 @@ QUALITY = {
 	"legendary": "rgba(255, 128, 0, 0.95)",
 }
 
-admin.site.site_header = 'Onybuff Admin'
-admin.site.register(WoWClass)
+class OnybuffAdminSite(admin.AdminSite):
+	# Text to put at the end of each page's <title>.
+	site_title = 'ONYBUFF'
+	site_header = 'Onybuff Admin'
+	# My custom variable
+	#
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+
+
+	def each_context(self, request):
+		"""
+		Overriden dictionary of variables returned for
+		*every* page in the admin site.
+		"""
+		context = super().each_context(request)
+
+		context['flagged'] = {}
+		context['flagged']['specs'] = Spec.objects.filter(flagged=True).count()
+		context['flagged']['consumelists'] = ConsumeList.objects.filter(flagged=True).count()
+
+		return context
+
+admin_site = OnybuffAdminSite(name='admin')
+# admin.site.site_header = 'Onybuff Admin'
+# OnybuffAdminSite.register(model_or_iterable=WoWClass)
 # admin.site.register(Spec)
 # admin.site.register(ConsumeList)
 
 class ItemAdmin(admin.ModelAdmin):
 	model = Item
 	# change_list_results_template = "change_list_results.html"
-	list_display = ('name', 'quality', 'image')
-	# def image(self, obj):
-	#     return format_html(
-	#         '<img class="icon-medium" src=style="color: #{};">{} {}</span>',
-	#         self.color_code,
-	#         self.first_name,
-	#         self.last_name,
-	#     )
+	list_display = ('name', 'quality', 'image',)
 
 	def image(self, obj):
 		# format_html_join()
 		return html.format_html(
 			'<img class="icon-medium" src="{}" style="background-image: url({});">',
 			html.format_html(settings.STATIC_URL+"images/icon_border_2.png"),
-			html.format_html(settings.STATIC_URL+"images/icons/consumes/"+obj.name+".jpg"),
+			html.format_html(settings.STATIC_URL+"images/icons/large/"+obj.img+".jpg"),
 	)
-	#
-	# def image(self, obj):
-	# 	return "{}".format(obj.image_name)
 
 	image.short_description = 'Image'
 
-	# def get_list_display(self, request):
-	# 	list_display = super().get_list_display(request)
-	# 	print('\nlist_display: ', list_display)
-	# 	list_display += ('quality', )
-	# 	return list_display
-
-	# def colored_name(self):
-	# 	color = QUALITY[self.quality]
-	# 	return format_html(
-	# 		'<span style="color: {};">{}</span>',
-	# 		color, self.name
-	# 	)
-	# colored_name.admin_order_field = 'name'
-
-# print(dir(ItemAdmin))
-
-admin.site.register(Item, ItemAdmin)
 
 
-# class ItemLocationAdminForm(admin.TabularInline):
-#     choice = forms.ChoiceField(choice=(('APPROVE', 'Approve'), ('DENY', 'Deny')))
-#
-#     class Meta:
-#         fields = ['choice']
-#
-#     def save(self, commit=True):
-#         choice = self.cleaned_data['choice']
-#
-#         instance = super(ItemLocationAdminForm, self).save(commit=False)
-# 		instance.visibility = True if choice=='APPROVE' else False
-#         if commit:
-#             instance.save()
-#         return instance
+class SpecApprovalForm(forms.ModelForm):
 
-class FlaggedSpecForm(forms.ModelForm):
-
-	STATUS_CHOICES = (
-		('approved', 'Approved'),
-		('denied', 'Denied'),
-	)
-
-	visible = forms.BooleanField()
+	def has_changed(self, *args, **kwargs):
+		return True
 
 	class Meta:
-		model = Spec
-		fields = ('name', 'description', 'user', 'visible')
+		STATUS_CHOICES = (
+			(True, 'ACCEPT'),
+			(False, 'DENY'),
+		)
 
-	def __init__(self, *args, **kwargs):
-		super().__init__(*args, **kwargs)
-		self.queryset = Spec.objects.filter(visible=False)
+		fields = ['user', 'name', 'description', 'visible']
+		widgets = {'visible': forms.Select(choices=STATUS_CHOICES)}
 
+	def save(self, *args, **kwargs):
+		data_dict = self.data.dict()
+		for x in range(int(data_dict['form-TOTAL_FORMS'])):
+			inx = 'form-{}-id'.format(x)
+			ix = data_dict[inx]
+			spec = Spec.objects.get(id=ix)
+			approved_key = 'form-{}-visible'.format(x)
+			approved = True if data_dict[approved_key] == 'True' else False
+			spec.visible = approved
+			spec.flagged = False
+			spec.save(force_update=True)
+		m = super().save(*args, **kwargs)
+		return spec
 
 class FlaggedSpecsAdmin(admin.ModelAdmin):
-	model = Spec
-	actions = ['resolve']
-	# change_list_results_template = "change_list_results.html"
-	list_display = ('name', 'description', 'user', 'visible')
+	form = SpecApprovalForm
+	actions = None
+
+	def get_changelist_form(self, request, **kwargs):
+		return SpecApprovalForm
+
+	def get_queryset(self, request):
+		qs = super().get_queryset(request)
+		return qs.filter(flagged=True)
+
+	list_display = ('name', 'description', 'user', 'visible',)
+	list_editable = ('visible', )
 	readonly_fields = ('user',)
 
 
-	# def get_changelist_formset(self, request, **kwargs):
-	#     kwargs['formset'] = FlaggedSpecFormset
-	#     return super().get_changelist_formset(request, **kwargs)
+class CLApprovalForm(forms.ModelForm):
 
-	def __init__(self, *args, **kwargs):
-		super().__init__(*args, **kwargs)
-		self.queryset = Spec.objects.filter(visible=False)
+	def has_changed(self, *args, **kwargs):
+		return True
 
+	class Meta:
+		STATUS_CHOICES = (
+			(True, 'ACCEPT'),
+			(False, 'DENY'),
+		)
 
-	def resolve(self, request, queryset):
-		queryset.update()
-		return forms.ChoiceField(queryset=CHOICE_FIELDS)
+		fields = ['user', 'name', 'description', 'visible']
+		widgets = {'visible': forms.Select(choices=STATUS_CHOICES)}
 
+	def save(self, *args, **kwargs):
+		data_dict = self.data.dict()
+		for x in range(int(data_dict['form-TOTAL_FORMS'])):
+			inx = 'form-{}-id'.format(x)
+			ix = data_dict[inx]
+			cl = ConsumeList.objects.get(id=ix)
+			approved_key = 'form-{}-visible'.format(x)
+			approved = True if data_dict[approved_key] == 'True' else False
+			cl.visible = approved
+			cl.flagged = False
+			cl.save(force_update=True)
 
+		m = super().save(*args, **kwargs)
+		return cl
 
+class FlaggedCLAdmin(admin.ModelAdmin):
+	form = CLApprovalForm
+	actions = None
 
-	# resolve.short_description = "Mark selected specs as resolved"
+	def get_changelist_form(self, request, **kwargs):
+		return SpecApprovalForm
 
-	# def get_fieldsets(self, request, obj=None):
-	#     fieldsets = super().get_fieldsets(request, obj)
-	#
-	#     newfieldsets = list(fieldsets)
-	#     fields = ['foo', 'bar', 'baz']
-	#     newfieldsets.append(['Dynamic Fields', { 'fields': fields }])
-	#
-	#     return newfieldsets
+	def get_queryset(self, request):
+		qs = super().get_queryset(request)
+		return qs.filter(flagged=True)
 
-#
-#
-# 	# def get_list_display(self, request):
-# 	# 	list_display = super().get_list_display(request)
-# 	# 	print('\nlist_display: ', list_display)
-# 	# 	list_display += ('quality', )
-# 	# 	return list_display
-#
-# 	# def colored_name(self):
-# 	# 	color = QUALITY[self.quality]
-# 	# 	return format_html(
-# 	# 		'<span style="color: {};">{}</span>',
-# 	# 		color, self.name
-# 	# 	)
-# 	# colored_name.admin_order_field = 'name'
-#
-# # print(dir(ItemAdmin))
-#
-#
-#
-admin.site.register(Spec, FlaggedSpecsAdmin)
+	list_display = ('name', 'description', 'user', 'visible',)
+	list_editable = ('visible', )
+	readonly_fields = ('user',)
 
 
-from django.conf import settings
 if not settings.LOCAL:
 
 	from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
@@ -182,4 +178,21 @@ if not settings.LOCAL:
 		search_fields = ('email', 'first_name', 'last_name')
 		ordering = ('email',)
 
-	admin.site.register(User, UserAdmin)
+	# OnybuffAdminSite.site.register(User, UserAdmin)
+
+
+# OnybuffAdminSite.site.register(Spec, FlaggedSpecsAdmin)
+# OnybuffAdminSite.register(Item, ItemAdmin)
+# OnybuffAdminSite.register(model_or_iterable=WoWClass)
+
+admin_site.register(WoWClass)
+admin_site.register(Item, ItemAdmin)
+admin_site.register(Group, GroupAdmin)
+admin_site.register(Spec, FlaggedSpecsAdmin)
+admin_site.register(ConsumeList, FlaggedCLAdmin)
+
+# admin_site.register(model_or_iterable=Item, admin_class=ItemAdmin)
+
+if not settings.LOCAL:
+
+	admin_site.register(User,UserAdmin)

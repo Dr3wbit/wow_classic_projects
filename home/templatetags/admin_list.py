@@ -299,7 +299,7 @@ def items_for_result(cl, result, form):
                 style = ''
 
                 if cl.opts.model_name == 'item':
-                    this_item = Item.objects.get(id=value)
+                    this_item = Item.objects.get(ix=value)
                     style = this_item.quality
 
 

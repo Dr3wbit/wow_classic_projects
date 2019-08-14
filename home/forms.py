@@ -21,13 +21,13 @@ class ConsumeListForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'cols': 60, 'rows': 20}),
         }
 
-        def full_clean(self):
-            super(ConsumeListForm, self).full_clean()
-            try:
-                self.instance.validate_unique()
-            except forms.ValidationError as e:
-                print('validation error in full_clean')
-                self._update_errors(e)
+    def full_clean(self):
+        super(ConsumeListForm, self).full_clean()
+        try:
+            self.instance.validate_unique()
+        except forms.ValidationError as e:
+            print('validation error in full_clean')
+            self._update_errors(e)
 
 class ContactForm(forms.Form):
     subject = forms.CharField(max_length=100)

@@ -272,12 +272,12 @@ class TalentBuilderRedirectView(RedirectView):
 
 class ConsumeBuilderRedirectView(RedirectView):
 	query_string = False
-	pattern_name = 'consume_tool'
+	pattern_name = 'profession_tool'
 	permanent = False
 
 	def get_redirect_url(self, *args, **kwargs):
 
-		new_url = "{}://{}/consume_tool".format(self.request.scheme, self.request.get_host())
+		new_url = "{}://{}/profession_tool".format(self.request.scheme, self.request.get_host())
 
 		if 'id' in self.request.session:
 			del self.request.session['id']
@@ -352,7 +352,7 @@ class ConsumeToolTemplate(TemplateView):
 				response = render(request, "consume_helper.html", context=context)
 		else:
 			context["whole_page"] = True
-			response = render(request, "consume_tool.html", context=context)
+			response = render(request, "profession_tool.html", context=context)
 
 		return response
 
@@ -389,10 +389,10 @@ class ConsumeToolTemplate(TemplateView):
 					response.status_code = 400
 
 			else:
-				response = HttpResponseRedirect('consume_tool')
+				response = HttpResponseRedirect('profession_tool')
 		else:
 			print('save failed, redirecting to previous page...')
-			response = HttpResponseRedirect('consume_tool')
+			response = HttpResponseRedirect('profession_tool')
 
 		return response
 
@@ -885,9 +885,12 @@ def flag_list(request):
 
 	if saved_list:
 		saved_list.visible = False
+		saved_list.flagged = True
 		saved_list.save()
 		message = "SavedList ({}) flagged for review`".format(ix)
 		data['message'] = message
+		data['uid'] = uid
+		data['ix'] = ix
 		response = JsonResponse(data)
 
 	else:
