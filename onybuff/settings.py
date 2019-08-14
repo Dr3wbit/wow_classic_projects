@@ -58,6 +58,7 @@ MIDDLEWARE = [
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
+	'home.middleware.SocialAuthCancelledMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -186,11 +187,16 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 # 	os.path.join(BASE_DIR, "static"),
 # )
 
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
 # SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/authorize'
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
+SOCIAL_AUTH_BACKEND_ERROR_URL = '/'
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
-
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_LOGIN_ERROR_URL
 SOCIAL_AUTH_DISCORD_KEY = os.environ['DISCORD_KEY']
 SOCIAL_AUTH_DISCORD_SECRET = os.environ['DISCORD_SECRET_KEY']
 SOCIAL_AUTH_DISCORD_EXTRA_DATA = [

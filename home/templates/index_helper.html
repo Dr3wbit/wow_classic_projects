@@ -3,7 +3,7 @@
 {% for spec in specs %}
 
 	{% if spec.visible %}
-	<div class="col-12 saved-list-item" data-ix="{{spec.id}}" data-uid="{{spec.user.uid}}">
+	<div class="col-12 saved-list-item" {% if request.user.is_staff %}data-ix="{{spec.id}}" data-uid="{{spec.user.uid}}"{% endif %}>
 		<div class="feedItem row mt-5">
 			<div class="col">
 				<div class="listImage"
@@ -147,7 +147,7 @@
 {% if cl.visible %}
 	{% has_voted cl.id request.user.email 0 as voted %}
 
-	<div class="col-12">
+	<div class="col-12 saved-list-item" {% if request.user.is_staff %}data-ix="{{cl.id}}" data-uid="{{cl.user.uid}}"{% endif %}>
 		<div class="feedItem row mt-5">
 			<div class="col">
 				<div class="listImage"
@@ -263,7 +263,7 @@
 					<button class="btn btn-sm float-right flag-item" aria-label="Flag" title="Flag"
 						style="font-size: margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;"
 						type="button" data-ix="{{cl.id}}" data-uid="{{cl.user.uid}}">
-						<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+						<span style="user-select:none; pointer-events:none;" class="glyphicon glyphicon-flag" aria-hidden="true"></span>
 					</button>
 					{% endif %}
 
@@ -286,6 +286,7 @@ $(".flag-item").on({
 		// $data['uid']= ($(e.target).attr('data-uid')) ? $(e.target).attr('data-uid') : $(e.target).parent().attr('data-uid')
  		// $data['ix'] = ($(e.target).attr('data-ix')) ? $(e.target).attr('data-ix') : $(e.target).parent().attr('data-ix')
 		}
+
 		$data['uid']= $(e.target).attr('data-uid')
 		$data['ix'] = $(e.target).attr('data-ix')
 

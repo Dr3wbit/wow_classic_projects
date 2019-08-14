@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
 
 class LoginView(TemplateView):
 
@@ -27,6 +28,14 @@ class LogoutView(TemplateView):
 		dispatch = super().dispatch(request, *args, **kwargs)
 		logout(request)
 		return dispatch
+
+	def get(self, request, *args, **kwargs):
+		print(dir(request.session))
+		self.request.session['logged_out'] = 1
+		# print('dir get request:', dir(request))
+		response = HttpResponseRedirect(request.GET.get('next'))
+		print(dir(response))
+		return response
 
 
 # class SocialSerializer(serializers.Serializer):
