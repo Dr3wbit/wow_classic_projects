@@ -124,9 +124,10 @@ a:hover{
 
 .feed-desc {
     text-overflow: ellipsis;
-    overflow-y: hidden;
+    overflow: hidden;
     min-height: 52.8px;
     max-height: 52.8px;
+    word-wrap: break-word;
 }
 
 .dropdown-item-custom{
