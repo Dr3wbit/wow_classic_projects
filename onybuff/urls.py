@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
+from home.models import Spec, ConsumeList
 
 urlpatterns = [
 	path('account/', include('account.urls')),
 	path('', include('home.urls')),
-	path('admin/', admin.site.urls),
+	path('admin/', admin.site.urls, {'extra_context': {'FLAGGED_SPECS':Spec.objects.filter(flagged=True).count()}}),
 	path('authorize/', include('social_django.urls', namespace='social')),
 ]
 

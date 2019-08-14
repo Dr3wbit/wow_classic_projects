@@ -33,9 +33,11 @@ class ItemAdmin(admin.ModelAdmin):
 
 	image.short_description = 'Image'
 
-
 admin.site.register(Item, ItemAdmin)
 
+print(dir(admin.site))
+print(admin.site.index)
+print(admin.site.each_context())
 
 
 class SpecApprovalForm(forms.ModelForm):

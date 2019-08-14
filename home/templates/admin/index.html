@@ -40,7 +40,9 @@
                                         </td>
                                 {% endif %}
                                 <td>
-                                    <span>(1)</span>
+                                    <span>(1) {{extra_context.FLAGGED_SPECS}}</span>
+
+                                    <div>EXTRA: {{extra_context}}</div>
                                 </td>
                             </tr>
                         {% endif %}
