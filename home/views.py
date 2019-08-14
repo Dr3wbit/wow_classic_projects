@@ -885,9 +885,12 @@ def flag_list(request):
 
 	if saved_list:
 		saved_list.visible = False
+		saved_list.flagged = True
 		saved_list.save()
 		message = "SavedList ({}) flagged for review`".format(ix)
 		data['message'] = message
+		data['uid'] = uid
+		data['ix'] = ix
 		response = JsonResponse(data)
 
 	else:
