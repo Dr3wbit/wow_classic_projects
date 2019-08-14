@@ -12,6 +12,7 @@
 		aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
+
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav">
 			{# nav_items #}
@@ -20,6 +21,10 @@
 				<a class="nav-link" href="{% url k %}">{{ v }}</a>
 			</li>
 			{% endfor %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{request}}"></a>
+				{{request.session}}
+			</li>
 		</ul>
 		<div style="margin-left: auto; position: relative; padding-right: 10px;">
 			{% if user.is_authenticated %}

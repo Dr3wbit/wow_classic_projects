@@ -30,8 +30,12 @@ class LogoutView(TemplateView):
 		return dispatch
 
 	def get(self, request, *args, **kwargs):
-		print('dir get request:', dir(request))
-		return HttpResponseRedirect(request.GET.get('next'))
+		print(dir(request.session))
+		self.request.session['logged_out'] = 1
+		# print('dir get request:', dir(request))
+		response = HttpResponseRedirect(request.GET.get('next'))
+		print(dir(response))
+		return response
 
 
 # class SocialSerializer(serializers.Serializer):
