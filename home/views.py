@@ -887,7 +887,7 @@ def flag_list(request):
 		saved_list.visible = False
 		saved_list.flagged = True
 		saved_list.save()
-		message = "SavedList ({}) flagged for review`".format(ix)
+		message = "{} - ({}) by {}, flagged for review`".format(saved_list.name, ix, saved_list.user.email)
 		data['message'] = message
 		data['uid'] = uid
 		data['ix'] = ix
