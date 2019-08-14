@@ -5,7 +5,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark col-12">
 
 	<a class="navbar-brand" href="/{# url 'index' nav='index' #}" title="Onybuff.com">
-		<img src="{% static "images/onybuff_icon_head_blue.png" %}" width="45" height="45" alt="">
+		<img src="{% static "images/onybuff_icon_head_blue.png" %}" width="45" height="100%%" alt="">
 	</a>
 		<!-- <span class="navbar-logo-text">Ony Buff</span> -->
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -22,10 +22,10 @@
 			</li>
 			{% endfor %}
 		</ul>
-		<div style="margin-left: auto; position: relative; padding-right: 10px;">
+		<div style="margin-left: auto; position: relative; padding-right: 10px; background-color: #272727; cursor: pointer;">
 			{% if user.is_authenticated %}
 			<div class="dropdown show">
-				  <a class="btn" id="discord-avatar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  <a id="discord-avatar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					  <img style="background-image: url(https://cdn.discordapp.com/avatars/{{user.uid}}/{{user.avatar}}.jpg?size=128); background-repeat: no-repeat; background-size: contain; width: 40px; height: 40px; border-radius: 50%;">
 				  </a>
 				  <div class="dropdown-menu menu-left login-dropdown" aria-labelledby="discord-avatar">
