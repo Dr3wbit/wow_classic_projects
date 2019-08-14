@@ -5,7 +5,7 @@ def add_navlinks_to_context(request):
 	context['nav_items'] = {
 		"index": "Home",
 		"talent_calc": "Talent Calculator",
-		"consume_tool": "Consume Tool", 
+		"profession_tool": "Profession Tool", 
 		"enchant_tool": "Enchant Tool",
 		"contact": "Contact"
 		}

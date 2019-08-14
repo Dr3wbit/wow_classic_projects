@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}- Consume Tool{% endblock title %}
+{% block title %}- Profession Tool{% endblock title %}
 
 {% load static %}
 {% block extra_head %}
-<link rel="stylesheet" type="text/css" href="{% static "css/consume_tool.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
 <script>
 
 if (performance.navigation.type == 1) {
@@ -90,7 +90,7 @@ if (performance.navigation.type == 1) {
 {% endblock mainbody %}
 
 {% block javascript %}
-<script src="{% static "js/consume_tool.js" %}"></script>
+<script src="{% static "js/profession_tool.js" %}"></script>
 
 
 <script>
@@ -102,11 +102,11 @@ $(document).ready(function() {
         $("#materials").empty()
         update_url('', '?')
     }
-    consume_tool_handlers()
+    profession_tool_handlers()
  });
 
 
-function consume_tool_handlers() {
+function profession_tool_handlers() {
     $(".prof-filter").on({
         click: e => {
             e.preventDefault()
@@ -118,7 +118,7 @@ function consume_tool_handlers() {
 
 function build_recipe_list(prof, spec_name = '') {
     $.ajax({
-        url: `/consume_tool/${prof}`,
+        url: `/profession_tool/${prof}`,
         data: {
             'prof': prof,
         },
@@ -140,7 +140,7 @@ function update_url(prof_name='', search) {
 	console.log('updating url')
 	let url = new URL(document.location)
     if (prof_name) {
-        url.pathname = `consume_tool/${prof_name}`
+        url.pathname = `profession_tool/${prof_name}`
     }
     url.search = search
 	history.replaceState(null, null, url)
