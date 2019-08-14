@@ -17,11 +17,15 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from home.models import Spec, ConsumeList
+from home.admin import admin_site
+
+admin.site = admin_site
+admin.autodiscover()
 
 urlpatterns = [
 	path('account/', include('account.urls')),
 	path('', include('home.urls')),
-	path('admin/', admin.site.urls, {'extra_context': {'FLAGGED_SPECS':Spec.objects.filter(flagged=True).count()}}),
+	path('admin/', admin.site.urls),
 	path('authorize/', include('social_django.urls', namespace='social')),
 ]
 

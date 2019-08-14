@@ -3,6 +3,8 @@ from home.models import Item, WoWClass, Spec, ConsumeList
 from django.utils import html
 from django.conf import settings
 from django import forms
+from django.contrib.auth.models import Group
+from django.contrib.auth.admin import GroupAdmin
 
 QUALITY = {
 	"junk": "rgba(157,157,157,1)",
@@ -13,8 +15,32 @@ QUALITY = {
 	"legendary": "rgba(255, 128, 0, 0.95)",
 }
 
-admin.site.site_header = 'Onybuff Admin'
-admin.site.register(WoWClass)
+class OnybuffAdminSite(admin.AdminSite):
+	# Text to put at the end of each page's <title>.
+	site_title = 'ONYBUFF'
+	site_header = 'Onybuff Admin'
+	# My custom variable
+	#
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+
+
+	def each_context(self, request):
+		"""
+		Overriden dictionary of variables returned for
+		*every* page in the admin site.
+		"""
+		context = super().each_context(request)
+
+		context['flagged'] = {}
+		context['flagged']['specs'] = Spec.objects.filter(flagged=True).count()
+		context['flagged']['consumelists'] = ConsumeList.objects.filter(flagged=True).count()
+
+		return context
+
+admin_site = OnybuffAdminSite(name='admin')
+# admin.site.site_header = 'Onybuff Admin'
+# OnybuffAdminSite.register(model_or_iterable=WoWClass)
 # admin.site.register(Spec)
 # admin.site.register(ConsumeList)
 
@@ -33,18 +59,12 @@ class ItemAdmin(admin.ModelAdmin):
 
 	image.short_description = 'Image'
 
-admin.site.register(Item, ItemAdmin)
-
-print(dir(admin.site))
-print(admin.site.index)
-print(admin.site.each_context())
 
 
 class SpecApprovalForm(forms.ModelForm):
 
 	def has_changed(self, *args, **kwargs):
 		return True
-
 
 	class Meta:
 		STATUS_CHOICES = (
@@ -57,7 +77,6 @@ class SpecApprovalForm(forms.ModelForm):
 
 	def save(self, *args, **kwargs):
 		data_dict = self.data.dict()
-		print('datadict: ', data_dict)
 		for x in range(int(data_dict['form-TOTAL_FORMS'])):
 			inx = 'form-{}-id'.format(x)
 			ix = data_dict[inx]
@@ -85,10 +104,52 @@ class FlaggedSpecsAdmin(admin.ModelAdmin):
 	list_editable = ('visible', )
 	readonly_fields = ('user',)
 
-admin.site.register(Spec, FlaggedSpecsAdmin)
+
+class CLApprovalForm(forms.ModelForm):
+
+	def has_changed(self, *args, **kwargs):
+		return True
+
+	class Meta:
+		STATUS_CHOICES = (
+			(True, 'ACCEPT'),
+			(False, 'DENY'),
+		)
+
+		fields = ['user', 'name', 'description', 'visible']
+		widgets = {'visible': forms.Select(choices=STATUS_CHOICES)}
+
+	def save(self, *args, **kwargs):
+		data_dict = self.data.dict()
+		for x in range(int(data_dict['form-TOTAL_FORMS'])):
+			inx = 'form-{}-id'.format(x)
+			ix = data_dict[inx]
+			cl = ConsumeList.objects.get(id=ix)
+			approved_key = 'form-{}-visible'.format(x)
+			approved = True if data_dict[approved_key] == 'True' else False
+			cl.visible = approved
+			cl.flagged = False
+			cl.save(force_update=True)
+
+		m = super().save(*args, **kwargs)
+		return cl
+
+class FlaggedCLAdmin(admin.ModelAdmin):
+	form = CLApprovalForm
+	actions = None
+
+	def get_changelist_form(self, request, **kwargs):
+		return SpecApprovalForm
+
+	def get_queryset(self, request):
+		qs = super().get_queryset(request)
+		return qs.filter(flagged=True)
+
+	list_display = ('name', 'description', 'user', 'visible',)
+	list_editable = ('visible', )
+	readonly_fields = ('user',)
 
 
-from django.conf import settings
 if not settings.LOCAL:
 
 	from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
@@ -117,4 +178,21 @@ if not settings.LOCAL:
 		search_fields = ('email', 'first_name', 'last_name')
 		ordering = ('email',)
 
-	admin.site.register(User, UserAdmin)
+	# OnybuffAdminSite.site.register(User, UserAdmin)
+
+
+# OnybuffAdminSite.site.register(Spec, FlaggedSpecsAdmin)
+# OnybuffAdminSite.register(Item, ItemAdmin)
+# OnybuffAdminSite.register(model_or_iterable=WoWClass)
+
+admin_site.register(WoWClass)
+admin_site.register(Item, ItemAdmin)
+admin_site.register(Group, GroupAdmin)
+admin_site.register(Spec, FlaggedSpecsAdmin)
+admin_site.register(ConsumeList, FlaggedCLAdmin)
+
+# admin_site.register(model_or_iterable=Item, admin_class=ItemAdmin)
+
+if not settings.LOCAL:
+
+	admin_site.register(User,UserAdmin)

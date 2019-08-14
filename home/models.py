@@ -256,6 +256,9 @@ class WoWClass(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		verbose_name_plural = "classes"
+
 class TalentTree(models.Model):
 	name = models.CharField(max_length=40)
 	wow_class = models.ForeignKey('WoWClass', on_delete=models.CASCADE)
@@ -274,6 +277,7 @@ class TalentTree(models.Model):
 	class Meta:
 		ordering = ['position']
 		unique_together = ['wow_class', 'name']
+		verbose_name_plural = "talent_trees"
 
 class Talent(models.Model):
 
