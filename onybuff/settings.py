@@ -25,7 +25,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 DEV = False
-TESTING = True
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', '13.59.19.192']
@@ -103,14 +102,8 @@ WSGI_APPLICATION = 'onybuff.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 if LOCAL:
-	DATABASES = {
-		'default': {
-			'ENGINE': 'django.db.backends.sqlite3',
-			'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-		}
-	}
-elif TESTING:
 	AUTH_USER_MODEL = 'home.User'
 	SOCIAL_AUTH_USER_MODEL = 'home.User'
 	DATABASES = {

@@ -35,7 +35,7 @@ if settings.DEV:
 		path('__debug__/', include(debug_toolbar.urls)),
 	] + urlpatterns
 
-if not settings.DEBUG and settings.TESTING:
+if not settings.DEBUG and settings.LOCAL:
 	from django.views.static import serve
 	urlpatterns = [
 		re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),

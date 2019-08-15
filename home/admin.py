@@ -5,6 +5,10 @@ from django.conf import settings
 from django import forms
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import GroupAdmin
+from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
+from django.utils.translation import ugettext_lazy as _
+from home.models import User
+
 
 QUALITY = {
 	"junk": "rgba(157,157,157,1)",
@@ -150,33 +154,29 @@ class FlaggedCLAdmin(admin.ModelAdmin):
 	readonly_fields = ('user',)
 
 
-if not settings.LOCAL:
 
-	from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-	from django.utils.translation import ugettext_lazy as _
-	from home.models import User
 
-	class UserAdmin(DjangoUserAdmin):
+class UserAdmin(DjangoUserAdmin):
 
-		"""Define admin model for custom User model with no email field."""
+	"""Define admin model for custom User model with no email field."""
 
-		fieldsets = (
-			(None, {'fields': ('email', 'password')}),
-			(_('Personal info'), {'fields': ('first_name', 'last_name')}),
-			(_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
-										   'groups', 'user_permissions')}),
-			(_('Important dates'), {'fields': ('last_login', 'date_joined')}),
-		)
-		readonly_fields = ('date_joined',)
-		add_fieldsets = (
-			(None, {
-				'classes': ('wide',),
-				'fields': ('email', 'password1', 'password2'),
-			}),
-		)
-		list_display = ('email', 'first_name', 'last_name', 'is_staff')
-		search_fields = ('email', 'first_name', 'last_name')
-		ordering = ('email',)
+	fieldsets = (
+		(None, {'fields': ('email', 'password')}),
+		(_('Personal info'), {'fields': ('first_name', 'last_name')}),
+		(_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
+									   'groups', 'user_permissions')}),
+		(_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+	)
+	readonly_fields = ('date_joined',)
+	add_fieldsets = (
+		(None, {
+			'classes': ('wide',),
+			'fields': ('email', 'password1', 'password2'),
+		}),
+	)
+	list_display = ('email', 'first_name', 'last_name', 'is_staff')
+	search_fields = ('email', 'first_name', 'last_name')
+	ordering = ('email',)
 
 	# OnybuffAdminSite.site.register(User, UserAdmin)
 
@@ -193,6 +193,4 @@ admin_site.register(ConsumeList, FlaggedCLAdmin)
 
 # admin_site.register(model_or_iterable=Item, admin_class=ItemAdmin)
 
-if not settings.LOCAL:
-
-	admin_site.register(User,UserAdmin)
+admin_site.register(User,UserAdmin)
