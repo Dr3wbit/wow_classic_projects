@@ -3,6 +3,7 @@ function stepValidator(n, step) {
 	return ((step*Math.round(n/step) >= 0) ? step*Math.round(n/step) : 0)
 }
 var ALL_PROFS = ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'fishing', 'first aid', 'leatherworking', 'mining', 'herbalism', 'riding', 'skinning']
+
 function add_consume(name, num_added=1, step=1) {
 
 	let consume_container = $(`span.consume-container[name="${name}"]`)

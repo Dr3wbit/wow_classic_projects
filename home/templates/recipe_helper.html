@@ -129,8 +129,13 @@ function recipe_helper_handlers() {
         mousedown: e => {
             e.stopImmediatePropagation()
             var amount = 1
-            var name = ($(e.target).attr('name')) ? $(e.target).attr('name') : ($(e.target).parent().attr('name')) ? $(e.target).parent().attr('name') : $(e.target).parent().parent().attr('name')
-            var step = ($(e.target).attr('data-step')) ? $(e.target).attr('data-step') : ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') : $(e.target).parent().parent().attr('data-step')
+            var name = ($(e.target).attr('name')) ? $(e.target).attr('name') :
+                ($(e.target).parent().attr('name')) ? $(e.target).parent().attr('name') :
+                $(e.target).parent().parent().attr('name');
+
+            var step = ($(e.target).attr('data-step')) ? $(e.target).attr('data-step') :
+                ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') :
+                ($(e.target).parent().parent().attr('data-step')) ? $(e.target).parent().parent().attr('data-step') : 1;
 
             if (e.shiftKey) {
                 amount = 5
@@ -142,15 +147,30 @@ function recipe_helper_handlers() {
 
             var current_amount = parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text())
 
-            if ((current_amount >= 100) && (e.which != 3)) {
-                // NOTE: visual indicator for
-                alert('100 is the limit, fix me')
-                return false
+            // if ((current_amount >= 100) && (e.which != 3)) {
+            //     // NOTE: visual indicator for
+            //     alert('100 is the limit, fix me')
+            //     return false
+            // }
+
+            var x = 0
+            if (current_amount+(amount*step) <= 0) {
+                amount = -current_amount
+                if ( amount % step != 0 ) {
+                    amount = Math.ceil(amount/step)
+                }
+            }
+            if (current_amount + (amount * step) >= 100) {
+                x = (100 - current_amount)
+                amount = x/step
+                if ( amount % step != 0 ) {
+                    amount = Math.floor(amount/step)
+                }
             }
             update_consume_list(name, amount, step)
             add_consume(name, amount, step)
             update_url('', '')
-            combatText(e, amount)
+            combatText(e, amount*step)
 
         }
     })
