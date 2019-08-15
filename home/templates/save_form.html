@@ -223,13 +223,15 @@ function append_list_item(data) {
     } else {
         $("#saved-consume-lists").append(spec_cont)
     }
-{% comment %} 
+
    setTimeout(()=>{
-    $(".selected, .spec-list-item").removeClass("selected")
-    $(".progress-bar-striped, .progress-bar-animated").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
-    $(".selected, .spec-list-item").click()
+       console.log($(".selected.spec-list-item"))
+    $(".selected.spec-list-item").removeClass("selected")
+    console.log($(".progress-bar-striped.progress-bar-animated.spec-list-item"))
+    $(".progress-bar-striped.progress-bar-animated.spec-list-item").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
+    console.log($(".selected.spec-list-item"))
+    $(".selected.spec-list-item").click()
     }, 5000) 
-{% endcomment %}
 
 }
 

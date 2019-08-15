@@ -38,23 +38,23 @@ if (performance.navigation.type == 1) {
     {% endblock class_selection %}
     <div class="mainContent container">
     <div class="row justify-content-center prof-header">
-        <div class="col-lg-8 col-12 columnTitle">Recipes</div>
-        <div class="col-lg-4 col-12 columnTitle d-none d-lg-block">
+        <div class="col-xl-8 col-12 columnTitle">Recipes</div>
+        <div class="col-xl-4 col-12 columnTitle d-none d-xl-block">
         </div>
         <!-- <div class="col-lg-3 col-12 columnTitle d-none d-lg-block">Materials</div> -->
     </div>
     <div class="row prof-header sticky-top" style="top: 15vh;">
         <div class="col-xl-8 col-12">
             <div class="row">
-                    <div class="col-6 columnTitle">Name</div>
-                    <div class="col-6 columnTitle">Reagents</div>
+                    <div class="col columnTitle">Name</div>
+                    <div class="columnTitle" style="min-width: 323px">Reagents</div>
             </div>
         </div>
-        <div class="col-xl-4 d-none d-xl-block columnTitle">Items</div>
+        <div class="col d-none d-xl-block columnTitle">Items</div>
     </div>
 
     <div class="row">
-        <div id="recipe_list" class="col-xl-8 col-12 pageColumn custom-scroll-bar">
+        <div id="recipe_list" class="col pageColumn custom-scroll-bar">
             {% if whole_page %}
             {% include "recipe_helper.html" %}
             {% endif %}
