@@ -121,6 +121,10 @@ function recipe_helper_handlers() {
     $(".prof-item-recipe").on({
         mouseenter: e => {
             e.stopImmediatePropagation()
+            clearTooltip()
+        },
+        mouseleave: e=> {
+            clearTooltip()
         },
         mousedown: e => {
             e.stopImmediatePropagation()
