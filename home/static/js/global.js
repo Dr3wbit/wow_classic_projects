@@ -872,7 +872,7 @@ function bigdaddytooltip(e, name, ...args) {
 	})
 
 	tooltip_container.append(image, tooltip)
-	let coords = update_tooltip(e, staticK)
+	let coords = get_tooltip_pos(e, staticK)
 	tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px;`)
 }
 

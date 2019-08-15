@@ -93,6 +93,17 @@ function update_consume_inputs() {
 
 }
 
+function oversized_words(max_length=20) {
+    var description = $("#id_description").val().split(/\s/)
+    var violations = []
+
+    description.forEach(function(x) {
+        if (x.length > max_length) {
+            violations.push(x);
+        }
+    })
+    return violations
+}
 function update_tree_inputs() {
     $("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
     $("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
@@ -114,10 +125,26 @@ $(".saved-list-form").on({
             }
         }
         e.preventDefault()
+
+        var violations = oversized_words()
+
+        if (violations.length) {
+
+            //NOTE DO A MESSAGE
+
+            var message = (violations.length>1) ? `Unable to save list, the following ${violations.length} words are too long:\n` : `Unable to save list, the following word is too long:\n`
+
+            message += violations.join('\n')
+            console.log(message)
+            notifyUser(message)
+            return false
+        }
+
         // console.log($myForm.serialize())
         var $myForm = $(".saved-list-form")
         var $thisURL = $myForm.attr('data-url') || window.location.href
         var $formData = $myForm.serialize()
+
         console.log("DATA: ", $formData, $thisURL, $myForm)
         $.ajax({
             method: "POST",
@@ -231,7 +258,7 @@ function append_list_item(data) {
     $(".progress-bar-striped.progress-bar-animated.spec-list-item").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
     console.log($(".selected.spec-list-item"))
     $(".selected.spec-list-item").click()
-    }, 5000) 
+    }, 5000)
 
 }
 
