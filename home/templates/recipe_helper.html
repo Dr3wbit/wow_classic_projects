@@ -145,7 +145,8 @@ function recipe_helper_handlers() {
                 multiple = multiple*(-1)
             }
 
-            var current_amount = parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text())
+            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+
 
             // if ((current_amount >= 100) && (e.which != 3)) {
             //     // NOTE: visual indicator for
@@ -154,18 +155,23 @@ function recipe_helper_handlers() {
             // }
 
             var x = 0
+            var cumulative = current_amount+(multiple*step)
             if (current_amount+(multiple*step) <= 0) {
-                multiple = (-current_amount/multiple)
-                if ( multiple % step != 0 ) {
+
+                x = -(current_amount)
+
+                multiple = x/step
+
+                if ( x % step != 0 ) {
                     multiple = Math.ceil(multiple/step)
                 }
             }
-            if (current_amount + (multiple * step) >= 100) {
-                console.log('cumulative >= 100')
-                multiple = (100 - current_amount)/step
-                console.log('multiple: ', multiple)
-                if ( multiple % step != 0 ) {
-                    multiple = Math.floor(multiple/step)
+            else if (current_amount + (multiple * step) >= 100) {
+                x = (100 - current_amount)
+                multiple = x/step
+                if ( x % step != 0 ) {
+
+                    multiple = Math.floor(x/step)
                 }
             }
             update_consume_list(name, multiple, step)
