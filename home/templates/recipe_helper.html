@@ -5,7 +5,7 @@
 
     {% for recipe in recipes %}
     <div class="row">
-            <div class="prof-item-recipe col-6" name="{{recipe.name}}" data-step={{recipe.step}} data-q="{{recipe.quality}}">
+            <div class="prof-item-recipe col" name="{{recipe.name}}" data-step={{recipe.step}} data-q="{{recipe.quality}}">
 
                 {% with "images/icons/large/"|add:recipe.img|add:".jpg" as item_image %}
 
@@ -24,7 +24,7 @@
                     <span class="recipe-name">{{recipe.name}}</span>
                 </div>
             </div>
-        <div class="col-6 reagent-list">
+        <div class="reagent-list d-none d-md-block">
             {% for mat in recipe.materials.all %}
             <div class="reagent-list-container" name="{{mat.name}}" data-q="{{mat.quality}}">
                 <img class="icon-medium" data-img="{{mat.img}}" src="{% static "images/icon_border_2.png" %}"
