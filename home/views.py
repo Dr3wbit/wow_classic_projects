@@ -25,7 +25,7 @@ class APIView(TemplateView):
 		if request.user.groups.filter(name='admins').exists():
 
 			context = {}
-			context['recipes'] = Crafted.objects.filter(prof__name='Alchemy')
+			context['recipes'] = Crafted.objects.filter(profession__name='Alchemy')
 			context['consume_lists'] = ConsumeList.objects.all()
 			context['rangen'] = range(5)
 			context['specs'] = {}
@@ -49,10 +49,10 @@ class APIView(TemplateView):
 
 				for consume in cl.consumes.all():
 					c = consume.item
-					if not c.prof:
+					if not c.profession:
 						prof_name = 'other'
 					else:
-						prof_name = c.prof.name
+						prof_name = c.profession.name
 
 					if prof_name not in context['saved_lists'][name]['consumes'].keys():
 						context['saved_lists'][name]['consumes'][prof_name] = {}
