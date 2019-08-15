@@ -128,7 +128,7 @@ function recipe_helper_handlers() {
         },
         mousedown: e => {
             e.stopImmediatePropagation()
-            var amount = 1
+            var multiple = 1
             var name = ($(e.target).attr('name')) ? $(e.target).attr('name') :
                 ($(e.target).parent().attr('name')) ? $(e.target).parent().attr('name') :
                 $(e.target).parent().parent().attr('name');
@@ -138,11 +138,11 @@ function recipe_helper_handlers() {
                 ($(e.target).parent().parent().attr('data-step')) ? $(e.target).parent().parent().attr('data-step') : 1;
 
             if (e.shiftKey) {
-                amount = 5
+                multiple = 5
             }
 
             if (e.which === 3) {
-                amount = amount*(-1)
+                multiple = multiple*(-1)
             }
 
             var current_amount = parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text())
@@ -154,23 +154,24 @@ function recipe_helper_handlers() {
             // }
 
             var x = 0
-            if (current_amount+(amount*step) <= 0) {
-                amount = -current_amount
-                if ( amount % step != 0 ) {
-                    amount = Math.ceil(amount/step)
+            if (current_amount+(multiple*step) <= 0) {
+                multiple = (-current_amount/multiple)
+                if ( multiple % step != 0 ) {
+                    multiple = Math.ceil(multiple/step)
                 }
             }
-            if (current_amount + (amount * step) >= 100) {
-                x = (100 - current_amount)
-                amount = x/step
-                if ( amount % step != 0 ) {
-                    amount = Math.floor(amount/step)
+            if (current_amount + (multiple * step) >= 100) {
+                console.log('cumulative >= 100')
+                multiple = (100 - current_amount)/step
+                console.log('multiple: ', multiple)
+                if ( multiple % step != 0 ) {
+                    multiple = Math.floor(multiple/step)
                 }
             }
-            update_consume_list(name, amount, step)
-            add_consume(name, amount, step)
+            update_consume_list(name, multiple, step)
+            add_consume(name, multiple, step)
             update_url('', '')
-            combatText(e, amount*step)
+            combatText(e, multiple*step)
 
         }
     })
