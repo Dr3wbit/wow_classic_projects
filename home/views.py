@@ -46,18 +46,28 @@ class APIView(TemplateView):
 				context['saved_lists'][name]['user'] = cl.user
 				context['saved_lists'][name]['hash'] = cl.hash
 				context['saved_lists'][name]['consumes'] = {}
+				context['saved_lists'][name]['materials'] = {}
 
 				for consume in cl.consumes.all():
-					c = consume.item
-					if not c.profession:
+					if not consume.item.profession:
 						prof_name = 'other'
 					else:
-						prof_name = c.profession.name
+						prof_name = consume.item.profession.name
 
 					if prof_name not in context['saved_lists'][name]['consumes'].keys():
 						context['saved_lists'][name]['consumes'][prof_name] = {}
 
 					context['saved_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
+
+					for mat in consume.item.materials.all():
+						if mat.name not in context['saved_lists'][name]['materials'].keys():
+							context['saved_lists'][name]['materials'][mat.name] = {}
+							context['saved_lists'][name]['materials'][mat.name]['value'] = 0
+							context['saved_lists'][name]['materials'][mat.name]['quality'] = mat.quality
+							context['saved_lists'][name]['materials'][mat.name]['img'] = mat.img
+
+						context['saved_lists'][name]['materials'][mat.name]['value'] = int(consume.amount * mat.amount)
+
 
 			return render(request, self.template_name, context)
 		else:
@@ -325,7 +335,6 @@ class ConsumeToolTemplate(TemplateView):
 		qs = request.META.get('QUERY_STRING', None)
 
 		if data.keys() and qs:
-			print(qs)
 			context['consumes'] = {}
 			context['materials'] = {}
 			cl = ConsumeList.objects.filter(hash=qs).first()
@@ -341,7 +350,6 @@ class ConsumeToolTemplate(TemplateView):
 							context['materials'][mat.name]['img'] = mat.img
 
 						context['materials'][mat.name]['value'] += int(consume.amount * mat.amount)
-
 
 
 

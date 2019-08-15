@@ -121,32 +121,63 @@ function recipe_helper_handlers() {
     $(".prof-item-recipe").on({
         mouseenter: e => {
             e.stopImmediatePropagation()
+            clearTooltip()
+        },
+        mouseleave: e=> {
+            clearTooltip()
         },
         mousedown: e => {
             e.stopImmediatePropagation()
-            var amount = 1
-            var name = ($(e.target).attr('name')) ? $(e.target).attr('name') : ($(e.target).parent().attr('name')) ? $(e.target).parent().attr('name') : $(e.target).parent().parent().attr('name')
-            var step = ($(e.target).attr('data-step')) ? $(e.target).attr('data-step') : ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') : $(e.target).parent().parent().attr('data-step')
+            var multiple = 1
+            var name = ($(e.target).attr('name')) ? $(e.target).attr('name') :
+                ($(e.target).parent().attr('name')) ? $(e.target).parent().attr('name') :
+                $(e.target).parent().parent().attr('name');
+
+            var step = ($(e.target).attr('data-step')) ? $(e.target).attr('data-step') :
+                ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') :
+                ($(e.target).parent().parent().attr('data-step')) ? $(e.target).parent().parent().attr('data-step') : 1;
 
             if (e.shiftKey) {
-                amount = 5
+                multiple = 5
             }
 
             if (e.which === 3) {
-                amount = amount*(-1)
+                multiple = multiple*(-1)
             }
 
-            var current_amount = parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text())
+            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
 
-            if ((current_amount >= 100) && (e.which != 3)) {
-                // NOTE: visual indicator for
-                alert('100 is the limit, fix me')
-                return false
+
+            // if ((current_amount >= 100) && (e.which != 3)) {
+            //     // NOTE: visual indicator for
+            //     alert('100 is the limit, fix me')
+            //     return false
+            // }
+
+            var x = 0
+            var cumulative = current_amount+(multiple*step)
+            if (current_amount+(multiple*step) <= 0) {
+
+                x = -(current_amount)
+
+                multiple = x/step
+
+                if ( x % step != 0 ) {
+                    multiple = Math.ceil(multiple/step)
+                }
             }
-            update_consume_list(name, amount, step)
-            add_consume(name, amount, step)
+            else if (current_amount + (multiple * step) >= 100) {
+                x = (100 - current_amount)
+                multiple = x/step
+                if ( x % step != 0 ) {
+
+                    multiple = Math.floor(x/step)
+                }
+            }
+            update_consume_list(name, multiple, step)
+            add_consume(name, multiple, step)
             update_url('', '')
-            combatText(e, amount)
+            combatText(e, multiple*step)
 
         }
     })

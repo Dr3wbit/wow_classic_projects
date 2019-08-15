@@ -19,7 +19,8 @@ class User(AbstractUser):
 	email = models.EmailField(_('email address'), unique=True)
 	date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
 	is_active = models.BooleanField(_('active'), default=True)
-	avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+	# avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+	max_lists = models.PositiveSmallIntegerField(default=10)
 
 	objects = UserManager()
 

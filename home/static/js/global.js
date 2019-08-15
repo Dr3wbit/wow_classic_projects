@@ -204,6 +204,7 @@ function future_tooltip(e, which=0, staticK=false) {
 		data: $data,
 		dataType: 'json',
 		success: function(data) {
+			clearTooltip()
 			create_tooltip_v2(data, e)
 		}
 	})
@@ -211,8 +212,8 @@ function future_tooltip(e, which=0, staticK=false) {
 
 function update_tooltip(e, staticK=false) {
 
-	var tooltip_container = $("#tooltip_container")
-	var tooltip = $("#tooltip")
+	var tooltip_container = $("#tooltip_container");
+	var tooltip = $("#tooltip");
 	var coords = get_tooltip_pos(e, staticK)
 	tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`)
 }
@@ -872,21 +873,6 @@ function bigdaddytooltip(e, name, ...args) {
 	})
 
 	tooltip_container.append(image, tooltip)
-	let coords = update_tooltip(e, staticK)
+	let coords = get_tooltip_pos(e, staticK)
 	tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px;`)
 }
-
-// function update_tooltip(e) {
-//
-// 	const tooltip = $("#tooltip_container")
-// 	var x = e.pageX - 30
-// 	var y = e.pageY - tooltip.outerHeight(true)
-//
-// 	if (x + 10 + tooltip.outerWidth(true) > window.innerWidth) {
-// 		x = (x - tooltip.outerWidth(true) + 10)
-// 	}
-//     if (y) {
-//         //
-//     }
-//     tooltip.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
-// }
