@@ -111,6 +111,7 @@ function global_event_handlers() {
 			url.search = search
 
             if (wow_class) {
+				url.pathname = `talent_calc/${wow_class}`
                 update_class(url, wow_class, id)
             } else {
 				let prof_elem = $('a.prof-filter.selected')
