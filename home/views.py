@@ -735,10 +735,17 @@ def delete_list(request):
 def load_spec(request):
 	data = {}
 	name = request.GET.get('spec_name', None)
-	if name:
-		spec = Spec.objects.filter(name=name).first()
+	id = request.GET.get('id', None)
+	print('id: ', id)
+	if id:
+		spec = Spec.objects.filter(id=id).first()
 		if spec:
 			data['hash'] = spec.hash
+	#
+	# if name:
+	# 	spec = Spec.objects.filter(name=name).first()
+	# 	if spec:
+	# 		data['hash'] = spec.hash
 
 	return JsonResponse(data)
 
@@ -876,6 +883,26 @@ def apply_filters(request):
 
 	response = render(request, "index_helper.html", context=context)
 	return response
+
+def savedlist_info(request):
+	id = request.GET.get("id", None)
+	print('id: ', id)
+	caller = request.GET.get("caller", None)
+	context = {}
+	if id:
+		if caller == 'tc':
+			saved_list = Spec.objects.filter(id=id).first()
+			if saved_list:
+				context['spec'] = saved_list
+
+		elif caller == 'pt':
+			saved_list = ConsumeList.objects.filter(id=id).first()
+			if saved_list:
+				context['consume_list'] = saved_list
+
+		return render(request, "info_display.html", context=context)
+
+
 
 def flag_list(request):
 	uid = request.POST.get("uid", None)

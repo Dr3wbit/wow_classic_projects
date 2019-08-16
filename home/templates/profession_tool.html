@@ -66,6 +66,8 @@ if (performance.navigation.type == 1) {
         </div>
     </div>
 
+    <div id="saved_list_info"></div>
+
     {% if CL %}
     {% with "images/icons/large/" as image_prefix %}
 
@@ -151,13 +153,17 @@ function build_recipe_list(prof, spec_name = '') {
     });
 }
 
-function update_url(prof_name='', search) {
-	console.log('updating url')
-	let url = new URL(document.location)
-    if (prof_name) {
-        url.pathname = `profession_tool/${prof_name}`
+function update_url(prof_name='', search, href='') {
+
+    if (Boolean(href)) {
+        url = new URL(href = href, base = document.location)
+    } else {
+        url = new URL(document.location)
+        if (prof_name) {
+            url.pathname = `profession_tool/${prof_name}`
+        }
+        url.search = search
     }
-    url.search = search
 	history.replaceState(null, null, url)
 }
 
