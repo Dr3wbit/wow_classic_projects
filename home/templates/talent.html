@@ -138,12 +138,22 @@ function update_url(class_name, search='', good_url='') {
 
 function update_class(url, class_name, ix) {
 	var id = ix;
-	var search = url.search;
-	var path = url.pathname
+	var myurl = new URL(document.location.origin.toString())
+	var search;
+	if (url) {
+		myurl.pathname = url.pathname
+	} else {
+		myurl.pathname = `talent_calc/${class_name}`
+	}
+
+	if (Boolean(url.search)) {
+		myurl.search = search
+	}
+
 	// console.log('path: ', path)
 
 	$.ajax({
-		url: `${path}${search}`,
+		url: myurl,
 		dataType: 'html',
 		// beforeSend: function() {
 		// 	update_selected_spec(spec_name);
@@ -161,20 +171,26 @@ function update_class(url, class_name, ix) {
 			// }
 		},
 		complete: function (data) {
+			var data2 = {}
 			if (id) {
+				data2['id'] = id
+			}
+			if (class_name) {
+				data2['class_name'] = class_name
 				$.ajax({
 					url: '/ajax/load_spec/',
-					data: {
-						'class_name': class_name,
-						'id': id
-					},
+					data: data2,
 					dataType: 'json',
 					success: function (data){
 						if (class_name) {
 							resetAll()
 							update_url(class_name, data.hash);
-							preBuiltSpec(data.hash);
-							info_display(id, 'tc')
+							if (data.hash) {
+								preBuiltSpec(data.hash);
+							}
+							if (id) {
+								info_display(id, 'tc')
+							}
 						}
 					}
 			   });
@@ -187,7 +203,10 @@ $(".class-filter").on({
    click: e=> {
 	   console.log('class filter clicked')
 	   var class_name = $( e.target )[0].id;
-	   update_class(class_name);
+	   // console.log('target', $( e.target ) )
+
+
+	   update_class('', class_name)
 	   update_url(class_name, '');
    }
 });

@@ -149,7 +149,8 @@ class TalentCalcTemplate(TemplateView):
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
 		class_name = self.kwargs.get("class", None)
-
+		
+		print(class_name)
 		if bool(class_name):
 			context["selected"] = class_name
 			context = self.talent_architect(context)
