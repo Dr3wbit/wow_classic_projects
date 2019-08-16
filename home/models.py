@@ -20,7 +20,7 @@ class User(AbstractUser):
 	date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
 	is_active = models.BooleanField(_('active'), default=True)
 	# avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
-	max_lists = models.PositiveSmallIntegerField(default=10)
+	max_lists = models.PositiveSmallIntegerField(default=20)
 
 	objects = UserManager()
 
@@ -29,8 +29,8 @@ class User(AbstractUser):
 
 
 	def email_user(self, subject, message, from_email=None, **kwargs):
-			'''Sends an email to this User.'''
-			send_mail(subject, message, from_email, [self.email], **kwargs)
+		'''Sends an email to this User.'''
+		send_mail(subject, message, from_email, [self.email], **kwargs)
 
 	@property
 	def discord(self):
@@ -474,7 +474,7 @@ class SavedList(models.Model):
 	name = models.CharField(max_length=30, default='')
 	user = models.ForeignKey('User', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='')
-	description = models.CharField(default='couple line of text...', max_length=1000)
+	description = models.CharField(default='couple line of text...', max_length=2000)
 	private = models.BooleanField(default=False)
 	ratings = GenericRelation('Rating', related_query_name="%(class)s_rating")
 	created = models.DateTimeField(auto_now_add=True)
@@ -507,7 +507,7 @@ class Spec(SavedList):
 
 
 class Consume(models.Model):
-	amount = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
+	amount = models.PositiveSmallIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(999)])
 	item = models.ForeignKey('Crafted', on_delete=models.CASCADE)
 	consume_list = models.ForeignKey('ConsumeList', on_delete=models.CASCADE)
 

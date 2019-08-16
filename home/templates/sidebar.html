@@ -22,7 +22,7 @@
 						<span style="font-size: 90%;">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
 					</div>
 					{% if "talent_calc" in request.path %}
-					<div class="spec-list-item" href="{% url 'talents' spec.wow_class.name|sanitize %}?{{spec.hash}}" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name|sanitize}}" style="position: relative;">{{spec.name}}
+					<div class="spec-list-item" href="{% url 'talent_builder' spec.id %}?{{spec.hash}}" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name|sanitize}}" style="position: relative;">{{spec.name}}
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name|sanitize}}">
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
@@ -30,7 +30,8 @@
 					</div>
 					{% else %}
 					<div class="spec-list-item" name="{{spec.name}}" style="position:relative;">{{spec.name}}
-						<a href="{% url 'talents' spec.wow_class.name|sanitize %}?{{spec.hash}}">
+
+						<a href="{% url 'talent_builder' spec.id %}?{{spec.hash}}">
 							<span style="left: 0; top: 0; position: absolute; width: 80%; height: 100%;"></span>
 						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
@@ -53,7 +54,7 @@
 						<span>{{consume_list.name}}</span>
 					</div>
 					{% if "consume_tool" in request.path %}
-					<div class="spec-list-item" href="{% url 'consume_helper' %}?{{consume_list.hash}}" name="{{consume_list.name}}" style="position: relative;">{{consume_list.name}}
+					<div class="spec-list-item" href="{% url 'consume_builder' consume_list.id %}?{{consume_list.hash}}" name="{{consume_list.name}}" style="position: relative;">{{consume_list.name}}
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 							value="{{consume_list.name}}" type="button">
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
@@ -61,7 +62,7 @@
 					</div>
 					{% else %}
 					<div class="spec-list-item" name="{{consume_list.name}}" style="position:relative;">{{consume_list.name}}
-						<a href="{% url 'consume_helper' %}?{{consume_list.hash}}">
+						<a href="{% url 'consume_builder' consume_list.id %}?{{consume_list.hash}}">
 							<span style="left: 0; position: absolute; width: 80%; height: 100%;"></span>
 						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"

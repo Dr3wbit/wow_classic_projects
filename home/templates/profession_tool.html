@@ -67,18 +67,33 @@ if (performance.navigation.type == 1) {
     </div>
 
     {% if CL %}
+    {% with "images/icons/large/" as image_prefix %}
+
     <div>
         <h5>name: <span class="fix-me">{{CL.name}}</span></h5>
         <h5>description: <span class="fix-me">{{CL.description}}</span></h5>
 
-        <ul>
         {% for consume in CL.consumes.all %}
-
-        <li>name: <span class="fix-me">{{consume.name}}</span>, amount: <span class="fix-me">{{consume.amount}}</span></li>
-
+        <div>
+            <img class="icon-small" src="{% static "images/icon_border_2.png" %}"
+            style="background-image: url({% static image_prefix|add:consume.img|add:".jpg" %});">
+            <span class="q{{consume.quality}}">{{consume.name}}</span> : <span class="fix-me">{{consume.amount}}</span>
+        </div>
         {% endfor %}
-        </ul>
+
     </div>
+    <div>
+        <h5 class="fix-me">MATERIALS</h5>
+
+        {% for mat_name,v in materials.items %}
+
+        <div>
+            <img class="icon-small" src="{% static "images/icon_border_2.png" %}"
+            style="background-image: url({% static image_prefix|add:v.img|add:".jpg" %});">
+            <span class="q{{v.quality}}">{{mat_name}}</span> : <span class="fix-me">{{v.value}}</span>
+        </div>
+        {% endfor %}
+    {% endwith %}
     {% endif %}
 
     {% if user.is_authenticated %}

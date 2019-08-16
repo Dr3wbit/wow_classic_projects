@@ -155,19 +155,15 @@ function recipe_helper_handlers() {
             // }
 
             var x = 0
-            var cumulative = current_amount+(multiple*step)
             if (current_amount+(multiple*step) <= 0) {
-
                 x = -(current_amount)
-
                 multiple = x/step
-
                 if ( x % step != 0 ) {
                     multiple = Math.ceil(multiple/step)
                 }
             }
-            else if (current_amount + (multiple * step) >= 100) {
-                x = (100 - current_amount)
+            else if (current_amount + (multiple * step) >= 999) {
+                x = (999 - current_amount)
                 multiple = x/step
                 if ( x % step != 0 ) {
 
