@@ -68,29 +68,6 @@ if (!my_consume_list) {
 }
 
 function consume_helper_handlers() {
-    $(".material-container").on({
-        mouseenter: e => {
-            clearTooltip()
-            future_tooltip( e )
-        },
-        mouseleave: e => {
-            clearTooltip()
-        },
-
-    });
-
-    $(".consume-name, .consume-image, .material-name, .material-image").on({
-        mouseenter: e => {
-            clearTooltip()
-            future_tooltip(e)
-        },
-        mouseleave: e => {
-            clearTooltip()
-        },
-        mousemove: e => {
-            update_tooltip(e)
-        }
-    });
 
     $(".materials-list").on({
         'shown.bs.collapse': e => {

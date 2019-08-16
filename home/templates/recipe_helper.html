@@ -79,53 +79,32 @@
 function recipe_helper_handlers() {
     $(".recipe-name").on({
         mouseenter: e => {
-            clearTooltip()
-            // tooltip_v2(e, false, 2)
+            clearTooltip(e)
             future_tooltip( e )
-
-            update_tooltip( e )
-
         },
         mouseleave: e => {
-            clearTooltip()
+            clearTooltip(e)
+        },
+        mousemove: e => {
+            update_tooltip( e )
+        },
+    }) 
+
+    $(".recipe-image").on({
+        mouseenter: e => {
+            clearTooltip(e)
+            future_tooltip( e )
+        },
+        mouseleave: e => {
+            clearTooltip(e)
         },
         mousemove: e => {
             update_tooltip( e )
         },
     })
 
-    $(".recipe-image").on({
-        mouseenter: e=> {
-            clearTooltip()
-            e.stopImmediatePropagation()
-
-            // tooltip_v2(e, true, 2)
-            future_tooltip(e, 0, true)
-            // $(e.target).one('mousemove', update_tooltip(e, true));
-
-        },
-        mousemove: e=> {
-            // need to someone run this until its in the correct position
-            if ($("#tooltip").length) {
-                update_tooltip(e, true)
-            }
-        },
-
-        mouseleave: e => {
-            clearTooltip()
-        },
-
-    })
-
 
     $(".prof-item-recipe").on({
-        mouseenter: e => {
-            e.stopImmediatePropagation()
-            clearTooltip()
-        },
-        mouseleave: e=> {
-            clearTooltip()
-        },
         mousedown: e => {
             e.stopImmediatePropagation()
             var multiple = 1
@@ -183,20 +162,15 @@ function recipe_helper_handlers() {
     })
 
     $(".reagent-list-container").on({
-        mouseenter: e => {
-            e.stopImmediatePropagation()
-            clearTooltip()
-
-            future_tooltip(e, 0, true)
-        },
-        mousemove: e=> {
-            // need to somehow run this until its in the correct position
-            if ($("#tooltip").length) {
-                update_tooltip(e, true)
-            }
+       mouseenter: e => {
+            clearTooltip(e)
+            future_tooltip( e )
         },
         mouseleave: e => {
-            clearTooltip()
+            clearTooltip(e)
+        },
+        mousemove: e => {
+            update_tooltip( e )
         },
     });
 
