@@ -305,18 +305,30 @@ class ConsumeToolTemplate(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
-		if 'id' in request.session:
-			id = request.session['id']
-			context["CL"] = ConsumeList.objects.get(id=id)
-			del request.session['id']
-
-		data = dict(request.GET)
 		context["form"] = self.form_class()
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
 			"skinning", "mining", "herbalism", "fishing"
-			]
+		]
+
+		if 'id' in request.session:
+			id = request.session['id']
+			cl = ConsumeList.objects.filter(id=id).first()
+			if cl:
+				context['consume_list'] = cl
+				context['materials'] = self.get_materials(context["consume_list"])
+			del request.session['id']
+
+		elif 'id' in self.kwargs.keys():
+			cl = ConsumeList.objects.filter(id=self.kwargs.get('id')).first()
+			if cl:
+				context["consume_list"] = cl
+				context['materials'] = self.get_materials(context["consume_list"])
+
+
+		data = dict(request.GET)
+
 
 		prof = self.kwargs.get("prof", None)
 		context["recipes"] = {}
@@ -340,17 +352,7 @@ class ConsumeToolTemplate(TemplateView):
 			cl = ConsumeList.objects.filter(hash=qs).first()
 			if cl:
 				context['consume_list'] = cl
-				print('cl', cl)
-				for consume in cl.consumes.all():
-					for mat in consume.mats:
-						if mat.name not in context['materials'].keys():
-							context['materials'][mat.name] = {}
-							context['materials'][mat.name]['value'] = 0
-							context['materials'][mat.name]['quality'] = mat.quality
-							context['materials'][mat.name]['img'] = mat.img
-
-						context['materials'][mat.name]['value'] += int(consume.amount * mat.amount)
-
+				context['materials'] = self.get_materials(cl)
 
 
 		if request.is_ajax():
@@ -363,6 +365,20 @@ class ConsumeToolTemplate(TemplateView):
 			response = render(request, "profession_tool.html", context=context)
 
 		return response
+
+	def get_materials(self, cl):
+		materials = {}
+		for consume in cl.consumes.all():
+			for mat in consume.mats:
+				if mat.name not in materials.keys():
+					materials[mat.name] = {}
+					materials[mat.name]['value'] = 0
+					materials[mat.name]['quality'] = mat.quality
+					materials[mat.name]['img'] = mat.img
+
+				materials[mat.name]['value'] += int(consume.amount * mat.amount)
+
+		return materials
 
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
