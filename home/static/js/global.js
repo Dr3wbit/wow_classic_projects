@@ -180,13 +180,11 @@ function notifyUser(message) {
 
 
 function clearTooltip(e) {
-	if(e){
-		console.log(e.type)
-	}
+	// if(e){
+	// 	console.log(e.type)
+	// }
 	$("#tooltip_container").empty().css({'visibility':'hidden'})
 }
-
-
 
 function future_tooltip(e, which=0, staticK=false) {
 	const targetElement = $(e.target);
@@ -212,14 +210,30 @@ function future_tooltip(e, which=0, staticK=false) {
 }
 
 function update_tooltip(e, staticK=false) {
-
+	let out_of_bounds =  mouse_leave(e)
 	var tooltip_container = $("#tooltip_container");
 	var tooltip = $("#tooltip");
-	var coords = get_tooltip_pos(e, staticK)
-	tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`)
-	if(tooltip_container[0].childElementCount > 0){
-		tooltip_container.css({'visibility':'visible'})
+	if(!out_of_bounds){
+		var coords = get_tooltip_pos(e, staticK)
+		tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`)
+		if(tooltip_container[0].childElementCount > 0){
+			tooltip_container.css({'visibility':'visible'})
+		}
+	}else{
+		tooltip_container.css({'visibility':'hidden'})
 	}
+}
+
+function mouse_leave(e){
+	let mouseX = e.pageX
+	let mouseY = e.pageY
+	let element = e.target
+	let boundry = element.getBoundingClientRect()
+	if (mouseX > boundry.right -2 || mouseX < boundry.left +2 || mouseY > boundry.bottom -2 || mouseY < boundry.top +2){
+		return true
+	}
+	return false
+
 }
 
 function get_tooltip_pos(e, staticK=false) {
