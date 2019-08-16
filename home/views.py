@@ -404,8 +404,10 @@ class ConsumeToolTemplate(TemplateView):
 
 		return response
 
-
-	# decommissioned
+	#####################################################################
+	## with the addition of all items/recipes, no longer a viable method
+	## of generating meaningful CL hashes; decommissioned
+	#####################################################################
 	def consume_list_builder(self, query_str):
 
 		print('query_str: ', query_str)
