@@ -180,7 +180,9 @@ function notifyUser(message) {
 
 
 function clearTooltip(e) {
-	console.log(e.type)
+	if(e){
+		console.log(e.type)
+	}
 	$("#tooltip_container").empty().css({'visibility':'hidden'})
 }
 
