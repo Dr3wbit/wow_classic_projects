@@ -8,7 +8,6 @@ urlpatterns = [
     path('talent_calc', views.TalentCalcTemplate.as_view(), name='talent_calc'),
     path('talent_calc/', views.TalentCalcTemplate.as_view(), name='talent_calc'),
     path('talent_calc/<str:class>', views.TalentCalcTemplate.as_view(), name='talents'),
-    path('talent_calc/<str:class>/', views.TalentCalcTemplate.as_view(), name='talents'),
     path('talent_calc/<str:class>/<int:id>', views.TalentCalcTemplate.as_view(), name='talent_helper'),
     path('talent_calc/<str:class>/<int:id>/', views.TalentCalcTemplate.as_view(), name='talent_helper'),
     path('tc/<int:id>', views.TalentBuilderRedirectView.as_view(), name='talent_builder'),
