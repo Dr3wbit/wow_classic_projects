@@ -22,7 +22,6 @@ function build_consume_list(url, ix) {
 }
 
 function info_display(id, caller) {
-	console.log(id)
 	$.ajax({
 		url: "/ajax/savedlist_info/",
 		data: {
