@@ -13,6 +13,7 @@ urlpatterns = [
     path('profession_tool', views.ConsumeToolTemplate.as_view(), name='profession_tool'),
     path('profession_tool/<str:prof>', views.ConsumeToolTemplate.as_view(), name='recipes'),
     path('profession_tool/<int:id>', views.ConsumeToolTemplate.as_view(), name='consume_helper'),
+    path('profession_tool/<str:prof>/<int:id>', views.ConsumeToolTemplate.as_view(), name='consume_helper'),
     path('enchant_tool', views.EnchantToolView.as_view(), name='enchant_tool'),
     path('specs_and_guides', views.SpecsAndGuidesView.as_view(), name='specs_and_guides'),
     path('contact', views.ContactView.as_view(), name='contact'),

@@ -308,6 +308,7 @@ class ConsumeToolTemplate(TemplateView):
 		if 'id' in request.session:
 			id = request.session['id']
 			context["CL"] = ConsumeList.objects.get(id=id)
+			context['materials'] = self.get_materials(context["CL"])
 			del request.session['id']
 
 		data = dict(request.GET)
@@ -340,17 +341,7 @@ class ConsumeToolTemplate(TemplateView):
 			cl = ConsumeList.objects.filter(hash=qs).first()
 			if cl:
 				context['consume_list'] = cl
-				print('cl', cl)
-				for consume in cl.consumes.all():
-					for mat in consume.mats:
-						if mat.name not in context['materials'].keys():
-							context['materials'][mat.name] = {}
-							context['materials'][mat.name]['value'] = 0
-							context['materials'][mat.name]['quality'] = mat.quality
-							context['materials'][mat.name]['img'] = mat.img
-
-						context['materials'][mat.name]['value'] += int(consume.amount * mat.amount)
-
+				context['materials'] = self.get_mats(cl)
 
 
 		if request.is_ajax():
@@ -363,6 +354,20 @@ class ConsumeToolTemplate(TemplateView):
 			response = render(request, "profession_tool.html", context=context)
 
 		return response
+
+	def get_mats(self, cl):
+		materials = {}
+		for consume in cl.consumes.all():
+			for mat in consume.mats:
+				if mat.name not in materials.keys():
+					materials[mat.name] = {}
+					materials[mat.name]['value'] = 0
+					materials[mat.name]['quality'] = mat.quality
+					materials[mat.name]['img'] = mat.img
+
+				materials[mat.name]['value'] += int(consume.amount * mat.amount)
+
+		return materials
 
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)

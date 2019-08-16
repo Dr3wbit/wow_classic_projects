@@ -148,23 +148,30 @@ function build_recipe_list(prof, spec_name = '') {
                 $(".prof-filter").removeClass('selected');
                 $(`#${prof}`).addClass('selected');
             }
-            update_url(prof, document.location.search)
+            console.log('pathname: ', document.location.pathname)
+
+
+            update_url(`/profession_tool/${prof}`, document.location.search)
         }
     });
 }
 
-function update_url(prof_name='', search, href='') {
+function update_url(path='', search='') {
 
-    if (Boolean(href)) {
-        url = new URL(href = href, base = document.location)
+    console.log('update_url')
+    console.log('path: ', path)
+    console.log('search: ', search)
+
+    var url = new URL(document.location.origin.toString())
+
+    if (Boolean(path)) {
+        url.pathname = path
     } else {
-        url = new URL(document.location)
-        if (prof_name) {
-            url.pathname = `profession_tool/${prof_name}`
-        }
-        url.search = search
+        url.pathname = "/profession_tool"
     }
-	history.replaceState(null, null, url)
+    url.search = search
+
+    history.replaceState(null, null, url)
 }
 
 </script>

@@ -11,7 +11,7 @@ function build_consume_list(url, ix) {
 		dataType: 'html',
 		success: function (data) {
 			$("#totals_container").html(data);
-			update_url('', search, url)
+			update_url(path, search)
 		},
 		complete: function(data) {
 			if (id) {
@@ -104,16 +104,19 @@ function global_event_handlers() {
             var list_name = $(e.target).attr('name');
             var wow_class = ($(e.target).attr('data-wowclass')) ? $(e.target).attr('data-wowclass') : ''
 			let href = $(e.target).attr("href")
-			let url = new URL(href = href, base = document.location.origin)
 			let id = $(e.target).attr('data-ix')
-            // $(".spec-list-item").removeClass("selected")
-            // $(e.target).addClass("selected")
+			let tempurl = new URL(href = href, base = document.location.origin)
+			let search = tempurl.search
+			// pathname = `${document.location.pathname}/${id}`
+			let url = new URL(document.location.origin.toString())
+			url.search = search
 
             if (wow_class) {
                 update_class(url, wow_class, id)
             } else {
-                // let href = $(e.target).attr("href")
-                // let url = new URL(href = href, base = document.location.origin)
+				let prof_elem = $('a.prof-filter.selected')
+				let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
+				url.pathname = path
                 build_consume_list(url, id)
             }
         }
