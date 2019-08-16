@@ -179,9 +179,9 @@ function notifyUser(message) {
 }
 
 
-function clearTooltip() {
-	$("#tooltip_container").empty()
-	$("#tooltip_container").hide()
+function clearTooltip(e) {
+	console.log(e.type)
+	$("#tooltip_container").empty().css({'visibility':'hidden'})
 }
 
 
@@ -204,7 +204,6 @@ function future_tooltip(e, which=0, staticK=false) {
 		data: $data,
 		dataType: 'json',
 		success: function(data) {
-			clearTooltip()
 			create_tooltip_v2(data, e)
 		}
 	})
@@ -216,6 +215,9 @@ function update_tooltip(e, staticK=false) {
 	var tooltip = $("#tooltip");
 	var coords = get_tooltip_pos(e, staticK)
 	tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`)
+	if(tooltip_container[0].childElementCount > 0){
+		tooltip_container.css({'visibility':'visible'})
+	}
 }
 
 function get_tooltip_pos(e, staticK=false) {
@@ -263,6 +265,7 @@ function get_dimensions(elem) {
 function create_tooltip_v2(data, e) {
 	clearTooltip()
 	const tooltip_container = document.getElementById("tooltip_container")
+
 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
 
 	if (data.image_name) {
@@ -426,6 +429,7 @@ function create_tooltip_v2(data, e) {
 
 	tooltip_container.style.cssText = `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`
 
+	update_tooltip(e)
 }
 
 function create_element(tag, class_name, style, text, id) {
@@ -800,6 +804,7 @@ function tooltip_v2(e, staticK=false, which=0) {
 	}
 	tooltipElems.push(staticK)
 	bigdaddytooltip(e, name, tooltipElems)
+	$('#tooltip_container').css({'visibility':'visible'})
 }
 
 
