@@ -31,4 +31,34 @@
         {{spec.updated}}
         {% endif %}
         </div>
+{% elif consume_list %}
+	<h1 class="mt-4">{{consume_list.name}}</h1>
+    <!-- add star rating here -->
+	{% for tag in consume_list.tags.all %}
+		<div class="feed-tag">{{tag.name}}</div>
+	{% endfor %}
+	<h5 span class="mt-3">{{consume_list.description}}</h5>
+	<div class="mt-3">
+        {% if consume_list.updated|date:"m/d/Y, P" == consume_list.created|date:"m/d/Y, P" %}
+        Created By {% if consume_list.user == request.user %}
+        <a href="">me</a>
+        {% elif not consume_list.private %}
+        <a href="">{{consume_list.user.disc_username}}</a>
+        {% else %}
+        anonymous
+        {% endif %}
+        on
+        {{consume_list.created}}
+        {% else %}
+        Last Edited By {% if consume_list.user == request.user %}
+        <a href="">me</a>
+        {% elif not consume_list.private %}
+        <a href="">{{consume_list.user.disc_username}}</a>
+        {% else %}
+        anonymous
+        {% endif %}
+        on
+        {{consume_list.updated}}
+        {% endif %}
+        </div>
 {% endif %}

@@ -6,15 +6,15 @@ from django.dispatch import receiver
 @receiver(pre_save, sender=Spec, weak=False)
 def savedspec_limit(sender, instance, **kwargs):
 	user = User.objects.get(email=instance.user.email)
-	if user.spec_set.count() >= 10:
-		raise PermissionDenied("Username: %s can only save 10 specs"%instance.user.email)
+	if user.spec_set.count() >= instance.user.max_lists:
+		raise PermissionDenied("Username: {} can only save {} specs".format(instance.user.email, instance.user.max_lists))
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
 
 @receiver(pre_save, sender=ConsumeList, weak=False)
 def consumelist_limit(sender, instance, **kwargs):
 	user = User.objects.get(email=instance.user.email)
-	if user.consumelist_set.count() >= 10:
-		raise PermissionDenied("Username: %s can only save 10 consume lists"%instance.user.email)
+	if user.consumelist_set.count() > instance.user.max_lists:
+		raise PermissionDenied("Username: {} can only save {} consume lists".format(instance.user.email, instance.user.max_lists))
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
 
 @receiver(post_init, sender=Profession)

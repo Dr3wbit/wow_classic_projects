@@ -70,8 +70,9 @@
 		{% include "talent_builder.html" %}
 	</div>
 
+	<div id="saved_list_info">
 	{% include "info_display.html" %}
-	
+	</div>
 	{% if user.is_authenticated %}
 	{% include "save_form.html" %}
 	{% endif %}
@@ -117,12 +118,19 @@
 	<script src="{% static "js/talent_table_data.js" %}"></script>
 	<script>
 
-function update_url(class_name, search='') {
-	console.log('updating url')
+function update_url(class_name, search='', good_url='') {
 	const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
-	let url = new URL(document.location)
-	url.pathname = `/talent_calc/${class_name}`
-	url.search = search
+
+	var url;
+
+	if (Boolean(good_url)) {
+		url = new URL(good_url)
+	} else {
+		url = new URL(document.location)
+		url.pathname = `/talent_calc/${class_name}`
+		url.search = search
+	}
+
 	history.replaceState(null, null, url)
 }
 
@@ -135,12 +143,14 @@ function update_url(class_name, search='') {
 // 	}
 // }
 
-function update_class(class_name, spec_name='') {
+function update_class(url, class_name, ix) {
+	var id = ix;
+	console.log('id: ', id)
+	var search = url.search;
+	var path = url.pathname
+
 	$.ajax({
-		url: `/talent_calc/${class_name}`,
-		data: {
-			'class_name': class_name,
-		},
+		url: `${path}${search}`,
 		dataType: 'html',
 		// beforeSend: function() {
 		// 	update_selected_spec(spec_name);
@@ -153,24 +163,25 @@ function update_class(class_name, spec_name='') {
 				$(".class-filter").removeClass('selected');
 				$(`#${class_name}`).addClass('selected');
 			}
-			if (!spec_name) {
-				resetAll();
-			}
+			// if (!spec_name) {
+			// 	resetAll();
+			// }
 		},
 		complete: function (data) {
-			if (spec_name) {
+			if (id) {
 				$.ajax({
 					url: '/ajax/load_spec/',
 					data: {
 						'class_name': class_name,
-						'spec_name': spec_name
+						'id': id
 					},
 					dataType: 'json',
 					success: function (data){
 						if (class_name) {
 							resetAll()
-							update_url(class_name, data.hash);
+							update_url(class_name, data.hash, url);
 							preBuiltSpec(data.hash);
+							info_display(id, 'tc')
 						}
 					}
 			   });

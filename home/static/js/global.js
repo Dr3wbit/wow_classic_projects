@@ -1,20 +1,45 @@
 
 $(document).ready(global_event_handlers());
 
-function build_consume_list(url, name) {
+function build_consume_list(url, ix) {
+	var id = ix;
 	var search = url.search
 	var path = url.pathname
+	var url = `${path}${search}`
 	$.ajax({
-		url: `${path}${search}`,
+		url: url,
 		dataType: 'html',
 		success: function (data) {
 			$("#totals_container").html(data);
-			update_url('', search)
+			update_url('', search, url)
+		},
+		complete: function(data) {
+			if (id) {
+				info_display(id, 'pt')
+			}
 		}
 	});
 }
 
+function info_display(id, caller) {
+	console.log(id)
+	$.ajax({
+		url: "/ajax/savedlist_info/",
+		data: {
+			'id':id,
+			'caller': caller
+		},
+		dataType: 'html',
+		success: function (data) {
+			$("#saved_list_info").html(data);
+			// update_url('', search)
+		}
+	});
+}
 
+function display_list_info(data) {
+
+}
 function global_event_handlers() {
 
     if (window.innerWidth <= 992) {
@@ -78,14 +103,18 @@ function global_event_handlers() {
         click: e => {
             var list_name = $(e.target).attr('name');
             var wow_class = ($(e.target).attr('data-wowclass')) ? $(e.target).attr('data-wowclass') : ''
-            $(".spec-list-item").removeClass("selected")
-            $(e.target).addClass("selected")
+			let href = $(e.target).attr("href")
+			let url = new URL(href = href, base = document.location.origin)
+			let id = $(e.target).attr('data-ix')
+            // $(".spec-list-item").removeClass("selected")
+            // $(e.target).addClass("selected")
+
             if (wow_class) {
-                update_class(wow_class, list_name)
+                update_class(url, wow_class, id)
             } else {
-                let href = $(e.target).attr("href")
-                let url = new URL(href = href, base = document.location.origin)
-                build_consume_list(url, list_name)
+                // let href = $(e.target).attr("href")
+                // let url = new URL(href = href, base = document.location.origin)
+                build_consume_list(url, id)
             }
         }
     });
