@@ -148,6 +148,7 @@ class Item(models.Model):
 
 	class Meta:
 		unique_together = ['ix', 'name']
+		ordering = ['name']
 
 class ItemSet(models.Model):
 	ix = models.PositiveIntegerField(primary_key=True)
@@ -196,6 +197,8 @@ class Crafted(models.Model):
 
 	def __str__(self):
 		return self.item.__str__()
+
+
 
 class Damage(models.Model):
 	i = models.ForeignKey('Item', on_delete=models.CASCADE, related_name='+')

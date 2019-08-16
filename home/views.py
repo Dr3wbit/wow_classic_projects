@@ -323,10 +323,10 @@ class ConsumeToolTemplate(TemplateView):
 		context["selected"] = prof
 
 		if prof=='other':
-			recipes = Crafted.objects.filter(profession=None)
+			recipes = Crafted.objects.filter(profession=None).order_by('item')
 			# context["recipes"] = Crafted.objects.filter(prof=None)
 		elif prof:
-			recipes = Crafted.objects.filter(profession__name=titlecase(prof))
+			recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
 
 		else:
 			recipes = []
