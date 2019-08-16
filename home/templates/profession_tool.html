@@ -127,19 +127,13 @@ function build_recipe_list(prof, spec_name = '') {
                 $(`#${prof}`).addClass('selected');
             }
             var path = document.location.pathname
-            console.log('document.location.pathname: ', path)
             if (current_prof.length) {
-                console.log('current_prof: ', current_prof.attr('id'))
                 path = document.location.pathname.toString().replace(current_prof.attr('id'), prof)
-                console.log('path: ', path)
             } else {
 
                 var ix = document.location.pathname.toString().replace("\/profession_tool", '')
-                console.log('ix: ', ix)
                 path = (Boolean(ix)) ? `/profession_tool/${prof}/${ix}` : `/profession_tool/${prof}`
             }
-
-            console.log('path: ', path)
             update_url(path, document.location.search)
         }
     });
