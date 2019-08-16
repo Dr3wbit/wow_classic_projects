@@ -120,16 +120,9 @@
 
 function update_url(class_name, search='', good_url='') {
 	const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
-
-	var url;
-
-	if (Boolean(good_url)) {
-		url = new URL(good_url)
-	} else {
-		url = new URL(document.location)
-		url.pathname = `/talent_calc/${class_name}`
-		url.search = search
-	}
+	var url = new URL(document.location)
+	url.pathname = `/talent_calc/${class_name}`
+	url.search = search
 
 	history.replaceState(null, null, url)
 }
@@ -145,9 +138,9 @@ function update_url(class_name, search='', good_url='') {
 
 function update_class(url, class_name, ix) {
 	var id = ix;
-	console.log('id: ', id)
 	var search = url.search;
 	var path = url.pathname
+	// console.log('path: ', path)
 
 	$.ajax({
 		url: `${path}${search}`,
@@ -179,7 +172,7 @@ function update_class(url, class_name, ix) {
 					success: function (data){
 						if (class_name) {
 							resetAll()
-							update_url(class_name, data.hash, url);
+							update_url(class_name, data.hash);
 							preBuiltSpec(data.hash);
 							info_display(id, 'tc')
 						}

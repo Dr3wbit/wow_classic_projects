@@ -142,7 +142,6 @@ function resetHandler() {
 }
 
 function resetAll() {
-	console.log('resetting all')
 	let className = $('.class-filter.selected').attr("id")
 	let treeNames = talentPointsSpent.treeNames
 
@@ -221,7 +220,6 @@ function buildClassData(refresh) {
 	talentPointsSpent = {}
 	classData = {}
 	// 	let params = myURL.searchParams
-	console.log('building class data')
 
 	const className = $('.class-filter.selected')[0].id
 	const selectedClass = talentData.classes.find(function (a) {

@@ -88,7 +88,7 @@ function recipe_helper_handlers() {
         mousemove: e => {
             update_tooltip( e )
         },
-    }) 
+    })
 
     $(".recipe-image").on({
         mouseenter: e => {
@@ -125,30 +125,7 @@ function recipe_helper_handlers() {
             }
 
             var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-
-
-            // if ((current_amount >= 100) && (e.which != 3)) {
-            //     // NOTE: visual indicator for
-            //     alert('100 is the limit, fix me')
-            //     return false
-            // }
-
-            var x = 0
-            if (current_amount+(multiple*step) <= 0) {
-                x = -(current_amount)
-                multiple = x/step
-                if ( x % step != 0 ) {
-                    multiple = Math.ceil(multiple/step)
-                }
-            }
-            else if (current_amount + (multiple * step) >= 999) {
-                x = (999 - current_amount)
-                multiple = x/step
-                if ( x % step != 0 ) {
-
-                    multiple = Math.floor(x/step)
-                }
-            }
+            multiple = consume_calculator(current_amount, multiple, step)
             update_consume_list(name, multiple, step)
             add_consume(name, multiple, step)
             combatText(e, multiple*step)
@@ -156,12 +133,13 @@ function recipe_helper_handlers() {
         }
     })
 
+
     $(".reagent-list-container").on({
        mouseenter: e => {
             clearTooltip(e)
             future_tooltip( e )
         },
-            mouseleave: e => {
+        mouseleave: e => {
             clearTooltip(e)
         }, 
         mousemove: e => {
@@ -169,6 +147,23 @@ function recipe_helper_handlers() {
         },
     });
 
+}
+function consume_calculator(current_amount, multiple, step) {
+    var x = 0
+    if (current_amount+(multiple*step) <= 0) {
+        x = -(current_amount)
+        multiple = x/step
+        if ( x % step != 0 ) {
+            multiple = Math.ceil(multiple/step)
+        }
+    }
+    else if (current_amount + (multiple * step) >= 999) {
+        x = (999 - current_amount)
+        multiple = x/step
+        if ( x % step != 0 ) {
+            multiple = Math.floor(x/step)
+        }
+    }
 }
 
 
