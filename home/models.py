@@ -53,7 +53,7 @@ class User(AbstractUser):
 		return self.discord.extra_data['disc_username'] if self.discord else False
 
 	def __str__(self):
-		return "{}#{} - ".format(self.disc_username, self.tag, self.email)
+		return "{}#{} - {}".format(self.disc_username, self.tag, self.email)
 
 ### NOTE: NEW
 # the baseline; everything is an item
@@ -171,7 +171,7 @@ class SetBonus(models.Model):
 
 class Crafted(models.Model):
 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
-	profession = models.ForeignKey('Profession', on_delete=models.CASCADE, blank=True, null=True)
+	profession = models.ForeignKey('Profession', on_delete=models.SET_NULL, blank=True, null=True)
 	step = models.PositiveSmallIntegerField(default=1)
 	materials = models.ManyToManyField('Material')
 	help_text = "Describes an item as a craftable or consumable"
@@ -503,6 +503,28 @@ class SavedList(models.Model):
 class ConsumeList(SavedList):
 	consumes = models.ManyToManyField('Consume')
 	hash = models.CharField(max_length=100, default='', unique=True)
+
+	shorthand = {
+		'Alchemy':'alch', 'Blacksmithing':'BS', 'Engineering':'eng',
+		'Enchanting':'ench', 'Leatherworking':'LW', 'Tailoring':'tailor',
+		'Cooking':'cook', 'First Aid':'FA', 'Other':'misc', 'Mining':'mining',
+		'Herbalism': 'herb'
+		}
+
+	@property
+	def prof_shorthand(self):
+		prof_dict = {}
+		for consume in self.consumes.all():
+			if consume.item.profession:
+				if consume.item.profession.name not in prof_dict.keys():
+					prof_dict[consume.item.profession.name] = 0
+				prof_dict[consume.item.profession.name] += 1
+			else:
+				if 'Other' not in prof_dict.keys():
+					prof_dict['Other'] = 0
+				prof_dict['Other'] += 1
+
+		return [self.shorthand[x] for x,y in sorted(prof_dict.items(), key=lambda kv: kv[1], reverse=True)]
 
 
 class Spec(SavedList):
