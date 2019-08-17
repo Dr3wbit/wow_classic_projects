@@ -96,7 +96,7 @@
 							</div>
 						</div>
 						{% endif %}
-						<span style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 50px;">
+						<span class="ratings-count" style="position: relative; bottom: 2px; color: azure; font-size: 14px; left: 50px;">
 							{% if request.user.is_staff and spec.user != request.user and voted %}
 							<a href="" class="remove-rating">({{spec.ratings.count}})</a>
 							{% else %}
@@ -191,7 +191,7 @@
 			</div>
 			<div class="col-md-3 col-12">
 				<div class="ratings-container" name="{{cl.name}}" data-id="{{cl.id}}">
-					<span
+					<span class="ratings-count"
 						style="position: relative; bottom: 2px; float: right; color: azure; font-size: 14px; right:20px">
 						{% if request.user.is_staff and cl.user != request.user and voted %}
 						<a href="" class="remove-rating">({{cl.ratings.count}})</a>

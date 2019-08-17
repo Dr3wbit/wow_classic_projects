@@ -170,8 +170,12 @@
         },
         mousedown: e => {
             // need some sort of confirmation here
+
             var target = $(e.target)
-            var rating = target.closest($("div.longbar")).find($(".glyphicon-star")).length
+            let longbar = target.closest($("div.longbar"))
+            let stars = longbar.find($(".glyphicon"))
+            stars.unbind()
+            var rating = longbar.find($(".glyphicon-star")).length
             var container = target.closest($(".ratings-container"))
             var id = container.attr("data-id")
             var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : 0
@@ -197,12 +201,30 @@
                 'spec': spec,
             },
             dataType: 'json',
-
-            success: function (data) {
-                console.log('data: ', data)
-                // TODO: remove elements that would allow user to potentially vote again
-            }
+            success: update_rating
         });
+    }
+
+    function update_rating(data) {
+        //
+        var ratings_container;
+        if (data.wow_class) {
+            ratings_container = $(`div.ratings-container[data-id='${data.id}'][data-wowclass="${data.wow_class}"]`)
+        } else {
+            ratings_container = $(`div.ratings-container[data-id='${data.id}']`)
+        }
+        let width = data.average_rating*20
+
+        var star_limiter = ratings_container.find("div.star-limiter")
+        star_limiter.css('width', `${width}%`)
+
+        var stars = ratings_container.find($(".glyphicon"))
+        stars.unbind()
+        stars.removeClass("glyphicon-star-empty").addClass("glyphicon-star")
+        ratings_container.find("div.star-box").removeClass("rating-vote")
+        ratings_container.find("div.star-bg").removeClass("rating-vote")
+        ratings_container.find($(".ratings-count")).text(`(${data.num_ratings})`)
+
     }
 
     {% if request.user.is_staff %}
@@ -237,7 +259,6 @@
             },
             dataType: 'json',
             success: function (data) {
-                console.log('data: ', data)
                 // TODO: remove elements that would allow user to potentially vote again
             }
         });
@@ -246,7 +267,6 @@
 
     //connect to endpoint
     function apply_filters(filters) {
-        console.log('filters: ', filters);
         // var $data = {'tags': filters}
         var $data = $.param({ 'tags': filters }, true)
         // var $myData = $data.serialize()

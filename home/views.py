@@ -687,6 +687,7 @@ def save_rating(request):
 		user = request.user
 		if spec:
 			saved_list = Spec.objects.get(id=id)
+			data['wow_class'] = saved_list.wow_class.name
 		else:
 			saved_list = ConsumeList.objects.get(id=id)
 
@@ -696,6 +697,8 @@ def save_rating(request):
 		data['average_rating'] = saved_list.rating
 		data['num_ratings'] = saved_list.ratings.count()
 		data['message'] = "USER: {} SUCCESSFULLY RATED {}".format(user.email, saved_list.name)
+		data['id'] = id
+		data['spec'] = spec
 
 	return JsonResponse(data)
 
