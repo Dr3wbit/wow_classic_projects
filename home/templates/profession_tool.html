@@ -98,7 +98,6 @@ function profession_tool_handlers() {
         click: e => {
             e.preventDefault()
             var prof = $(e.target)[0].id;
-            console.log('prof: ', prof)
             build_recipe_list(prof);
         }
     });
