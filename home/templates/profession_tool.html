@@ -137,6 +137,7 @@ function update_url(path='', search='') {
     var url = new URL(document.location.origin.toString())
 
     if (Boolean(path)) {
+        console.log('path: ', path)
         url.pathname = path
     } else {
         url.pathname = "/profession_tool"

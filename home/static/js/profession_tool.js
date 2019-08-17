@@ -133,18 +133,16 @@ function add_consume(name, num_added=1, step=1) {
 		}))
 		)
 
-
-
 		consume_image.on({
 			mouseenter: e => {
 				clearTooltip(e)
-				future_tooltip( e )
+				ez_tooltip( e )
 			},
 			mouseleave: e => {
-				clearTooltip(e)
+				$("#tooltip_container").hide()
 			},
 			mousemove: e => {
-				update_tooltip(e)
+				move_tooltip(e)
 			}
 		})
 
@@ -157,13 +155,13 @@ function add_consume(name, num_added=1, step=1) {
 		consume_span.on({
 			mouseenter: e => {
 				clearTooltip(e)
-				future_tooltip( e )
+				ez_tooltip( e )
 			},
 			mouseleave: e => {
-				clearTooltip(e)
+				$("#tooltip_container").hide()
 			},
 			mousemove: e => {
-				update_tooltip(e)
+				move_tooltip(e)
 			}
 		})
 
@@ -244,13 +242,13 @@ function update_or_create(parent_elem, num_added, materials) {
 				.on({
 			        mouseenter: e => {
 			            clearTooltip(e)
-			            future_tooltip( e )
+						ez_tooltip( e )
 			        },
 			        mouseleave: e => {
-			            clearTooltip(e)
+						$("#tooltip_container").hide()
 			        },
 					mousemove: e => {
-						update_tooltip( e )
+						move_tooltip( e )
 					}
 			    }), $('<span/>', {
 					class: `material-name q${mat.q}`,
@@ -258,13 +256,13 @@ function update_or_create(parent_elem, num_added, materials) {
 				}).on({
 			        mouseenter: e => {
 			            clearTooltip(e)
-						future_tooltip( e )
+						ez_tooltip( e )
 			        },
 			        mouseleave: e => {
-			            clearTooltip(e)
+						$("#tooltip_container").hide()
 			        },
 					mousemove: e => {
-						update_tooltip( e )
+						move_tooltip( e )
 					}
 			    }), " ", $('<span/>', {
 					text: "[",
@@ -276,7 +274,6 @@ function update_or_create(parent_elem, num_added, materials) {
 				})
 
 				)
-
 				materials_list_item.append(material_container)
 				parent_elem.append(materials_list_item)
 			}
@@ -285,14 +282,6 @@ function update_or_create(parent_elem, num_added, materials) {
 	return parent_elem
 }
 
-
-// function removeSavedList(name) {
-// 	$(`div.saved-list[name='${name}']`).remove()
-// 	let oldLists = JSON.parse(localStorage.getItem('consumeLists'))
-// 	delete oldLists[name]
-// 	let allLists = Object.assign({}, oldLists)
-// 	localStorage.setItem('consumeLists', JSON.stringify(allLists))
-// }
 
 function addSavedList(name) {
 
@@ -321,38 +310,3 @@ function addSavedList(name) {
 	$(".savedListsContainer").append(savedList)
 
 }
-
-
-
-// function updatetooltip(e, name, matOrConsume='consume') {
-
-// 	const targetElement = $(e.target)
-
-// 	const thisObj = (matOrConsume=='consume') ? allConsumes[name] : allMaterials[name]
-// 	const properName = (thisObj.name) ? thisObj.name : utilities.titleCase(name)
-// 	const rarity = thisObj.rarity
-// 	const tooltipElems = [{class: `title ${rarity}`, text: properName}]
-// 	if (thisObj.bop) {
-// 		tooltipElems.push({class: 'bop', text: "Binds when picked up",})
-// 	}
-// 	if (thisObj.unique) {
-// 		tooltipElems.push({class: 'unique', text: "Unique",})
-// 	}
-// 	let requirementText = ''
-// 	if (name == 'goblin_rocket_boots' || name == 'black_mageweave_boots') {
-// 		requirementText = thisObj.req
-// 	} else {
-// 		requirementText = (thisObj.req) ? ((thisObj.req.toString().startsWith('engi') || thisObj.req.toString().startsWith('first')) ? utilities.titleCase(thisObj.req.replace(/([a-zA-Z\_]+)(\d+)/, "$1 ($2)")) : `Requires Level ${thisObj.req}`) : false
-// 	}
-
-// 	if (thisObj.req || thisObj.stats) {
-// 		tooltipElems.push({class: 'requiredLevel', text: requirementText})
-// 	}
-// 	if (thisObj.use) {
-// 		tooltipElems.push({class: 'use', text: `Use: ${thisObj.use}`})
-// 	}
-// 	if (thisObj.description) {
-// 		tooltipElems.push({class: 'description', text: `"${thisObj.description}"`})
-// 	}
-// 	utilities_v2.bigdaddytooltip(e, tooltipElems)
-// }

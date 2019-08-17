@@ -145,7 +145,9 @@ class Item(models.Model):
 	def dps(self):
 		if self.speed and self.damage.count() > 0:
 			return (Decimal((self.damage.aggregate(Sum('low'))['low__sum']+self.damage.aggregate(Sum('high'))['high__sum'])/2)/self.speed).quantize(Decimal('1.0'))
-
+		else:
+			return False
+			
 	class Meta:
 		unique_together = ['ix', 'name']
 		ordering = ['name']

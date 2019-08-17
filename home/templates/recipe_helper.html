@@ -5,7 +5,25 @@
 
     {% for recipe in recipes %}
     <div class="row">
-        <div class="prof-item-recipe col" name="{{recipe.name}}" data-step={{recipe.step}} data-q="{{recipe.quality}}">
+        <div class="prof-item-recipe data col" name="{{recipe.name}}"
+            data-step={{recipe.step}} data-q="{{recipe.quality}}" data-n="{{recipe.name}}"
+            data-img="{{recipe.img}}"
+            {% if recipe.item.bop %}data-bop="{{recipe.item.bop}}"{% endif %}
+            {% if recipe.item.use %}data-use="{{recipe.item.use}}"{% endif %}
+            {% if recipe.item.slot %}data-slot="{{recipe.item.slot}}"{% endif %}
+            {% if recipe.item.proficiency %}data-proficiency="{{recipe.item.proficiency}}"{% endif %}
+            {% if recipe.item.stats %}data-stats="{{recipe.item.stats}}"{% endif %}
+            {% if recipe.item.armor %}data-armor="{{recipe.item.armor}}"{% endif %}
+            {% if recipe.item.description %}data-description="{{recipe.item.description}}"{% endif %}
+            {% if recipe.item.requirements %}data-requirements="{{recipe.item.requirements}}"{% endif %}
+            {% if recipe.item.speed %}data-speed="{{recipe.item.speed}}"{% endif %}
+            {% if recipe.item.resists %}data-resists="{{recipe.item.resists}}"{% endif %}
+            {% if recipe.item.durability %}data-durability="{{recipe.item.durability}}"{% endif %}
+            {% if recipe.item.procs.exists %}data-procs='[{% for proc in recipe.item.procs.all %}"{% if proc is recipe.item.procs.all|last %}{{proc.t}}{% else %}{{proc.t}},{% endif %}"{% endfor %}]'{% endif %}
+            {% if recipe.item.equips.exists %}data-equips='[{% for equip in recipe.item.equips.all %}"{% if equip == recipe.item.equips.all|last %}{{equip.t}}{% else %}{{equip.t}},{% endif %}"{% endfor %}]'{% endif %}
+            {% if recipe.item.dps %}data-dps="{{recipe.item.dps}}"{% endif %}
+            {% if recipe.item.damage.exists %}data-damage='[{% for damage in recipe.item.damage.all %}"{{damage}}",{% endfor %}]'{% endif %}
+            >
 
             {% with "images/icons/large/"|add:recipe.img|add:".jpg" as item_image %}
 
@@ -76,30 +94,37 @@
 
     }
 
+function move_tooltip(e) {
+	let pageY = e.pageY
+	let pageX = e.pageX+15
+    const tooltip = $("#tooltip_container")
+    // get_dimensions(tooltip)
+    tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visibility: visible;`)
+}
+
 function recipe_helper_handlers() {
     $(".recipe-name").on({
         mouseenter: e => {
-            clearTooltip(e)
-            future_tooltip( e )
+            clear_tooltip()
+            ez_tooltip( e )
         },
         mouseleave: e => {
-            clearTooltip(e)
+            $("#tooltip_container").hide()
         },
         mousemove: e => {
-            update_tooltip( e )
+            move_tooltip( e )
         },
     })
-
     $(".recipe-image").on({
         mouseenter: e => {
-            clearTooltip(e)
-            future_tooltip( e )
+            clear_tooltip()
+            ez_tooltip( e )
         },
         mouseleave: e => {
-            clearTooltip(e)
+            $("#tooltip_container").hide()
         },
         mousemove: e => {
-            update_tooltip( e )
+            move_tooltip( e )
         },
     })
 
@@ -136,14 +161,14 @@ function recipe_helper_handlers() {
 
     $(".reagent-list-container").on({
        mouseenter: e => {
-            clearTooltip(e)
-            future_tooltip( e )
+            clear_tooltip(e)
+            ez_tooltip( e )
         },
         mouseleave: e => {
-            clearTooltip(e)
+            $("#tooltip_container").hide()
         },
         mousemove: e => {
-            update_tooltip( e )
+            move_tooltip( e )
         },
     });
 
