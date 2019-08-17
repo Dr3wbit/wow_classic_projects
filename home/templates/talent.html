@@ -6,13 +6,7 @@
 	{% block extra_head %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/talent.css" %}">
 
-	<script>
-		if (performance.navigation.type === 1) {
-		    let myurl = new URL(window.location)
-		    myurl.search = ''
-		    history.replaceState(null, null, myurl)
-		}
-	</script>
+
 	{% endblock extra_head %}
 
 
@@ -118,12 +112,34 @@
 	<script src="{% static "js/talent_table_data.js" %}"></script>
 	<script>
 
-function update_url(class_name, search='', good_url='') {
-	const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
-	var url = new URL(document.location)
-	url.pathname = `/talent_calc/${class_name}`
-	url.search = search
+	$(document).ready(function() {
+		if (performance.navigation.type === 1) {
+			var class_name;
+			if ($(".class-filter.selected").length) {
+				class_name = $(".class-filter.selected")[0].id;
+			} else {
+				class_name = 'warrior'
+			}
+			update_url(class_name)
+		}
+		talent_calc_handlers()
 
+	 });
+
+
+
+function update_url(class_name, search='', badass_url='') {
+	const CLASS_ARR = ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior']
+	var url;
+	if (Boolean(badass_url)) {
+		url = new URL(badass_url)
+	} else {
+		url = new URL(document.location.origin.toString())
+		url.pathname = `/talent_calc/${class_name}`
+	}
+	if (Boolean(search)) {
+		url.search = search
+	}
 	history.replaceState(null, null, url)
 }
 
@@ -136,24 +152,19 @@ function update_url(class_name, search='', good_url='') {
 // 	}
 // }
 
-function update_class(url, class_name, ix) {
+function update_class(class_name, ix=0, search) {
 	var id = ix;
-	var myurl = new URL(document.location.origin.toString())
-	var search;
-	if (url) {
-		myurl.pathname = url.pathname
-	} else {
-		myurl.pathname = `talent_calc/${class_name}`
+	var badass_url = new URL(document.location.origin.toString())
+	badass_url.pathname = `talent_calc/${class_name}`
+	if (Boolean(id)) {
+		badass_url.pathname = `talent_calc/${class_name}/${id}`
 	}
-
-	if (Boolean(url.search)) {
-		myurl.search = search
+	if (Boolean(search)) {
+		badass_url.search = search
 	}
-
-	// console.log('path: ', path)
 
 	$.ajax({
-		url: myurl,
+		url: badass_url,
 		dataType: 'html',
 		// beforeSend: function() {
 		// 	update_selected_spec(spec_name);
@@ -161,7 +172,6 @@ function update_class(url, class_name, ix) {
 		success: function (data) {
 			let selected = $("a.class-filter.selected").attr("id");
 			if (selected != class_name) {
-				console.log('reloading class')
 				$("#talent_calc").html(data);
 				$(".class-filter").removeClass('selected');
 				$(`#${class_name}`).addClass('selected');
@@ -184,7 +194,7 @@ function update_class(url, class_name, ix) {
 					success: function (data){
 						if (class_name) {
 							resetAll()
-							update_url(class_name, data.hash);
+							update_url(class_name, data.hash, badass_url);
 							if (data.hash) {
 								preBuiltSpec(data.hash);
 							}
@@ -199,17 +209,15 @@ function update_class(url, class_name, ix) {
 	});
 }
 
-$(".class-filter").on({
-   click: e=> {
-	   console.log('class filter clicked')
-	   var class_name = $( e.target )[0].id;
-	   // console.log('target', $( e.target ) )
-
-
-	   update_class('', class_name)
-	   update_url(class_name, '');
-   }
-});
+function talent_calc_handlers() {
+	$(".class-filter").on({
+	   click: e=> {
+		   var class_name = $( e.target )[0].id;
+		   update_class(class_name)
+		   update_url(class_name);
+	   }
+	});
+}
 
 
  </script>
