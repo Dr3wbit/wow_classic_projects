@@ -97,12 +97,12 @@ class IndexView(TemplateView):
 class TalentCalcTemplate(TemplateView):
 	nope = re.compile(r"[\-]")
 	forbidden = re.compile(r"[\:\'\(\)]")
-
-	form_class = SpecForm
 	def sanitize(self, s):
 		a = self.forbidden.sub('', str(s))
 		a = self.nope.sub(' ', a).strip().replace(' ', '_').lower()
 		return(a)
+	form_class = SpecForm
+
 
 	def setup(self, request, *args, **kwargs):
 		setup = super().setup(request, *args, **kwargs)
@@ -323,26 +323,31 @@ class ConsumeToolTemplate(TemplateView):
 			"skinning", "mining", "herbalism", "fishing"
 		]
 
+		id,cl = False,False
+
 		if 'id' in request.session:
 			id = request.session['id']
-			cl = ConsumeList.objects.filter(id=id).first()
-			if cl:
-				context['consume_list'] = cl
-				context['ix'] = id
-				context['materials'] = self.get_materials(context["consume_list"])
 			del request.session['id']
 
 		elif 'id' in self.kwargs.keys():
 			id = self.kwargs.get('id')
-			cl = ConsumeList.objects.filter(id=id).first()
-			if cl:
-				context['ix'] = id
-				context["consume_list"] = cl
-				context['materials'] = self.get_materials(context["consume_list"])
 
+		if id:
+			cl = ConsumeList.objects.filter(id=id).first()
+
+		if cl:
+			context['ix'] = id
+			context["consume_list"] = cl
+			context['materials'] = self.get_materials(context["consume_list"])
+			context['consumes'] = {}
+
+			for consume in cl.consumes.all():
+				prof_name = sanitize(consume.item.profession.name) if consume.item.profession else 'other'
+				if prof_name not in context['consumes'].keys():
+					context['consumes'][prof_name] = {}
+				context['consumes'][prof_name][consume.name] = consume.amount
 
 		data = dict(request.GET)
-
 
 		prof = self.kwargs.get("prof", None)
 		context["recipes"] = {}
@@ -361,7 +366,7 @@ class ConsumeToolTemplate(TemplateView):
 		qs = request.META.get('QUERY_STRING', None)
 
 		if data.keys() and qs:
-			context['consumes'] = {}
+			# context['consumes'] = {}
 			context['materials'] = {}
 			cl = ConsumeList.objects.filter(hash=qs).first()
 			if cl:
@@ -978,3 +983,11 @@ def titlecase(s):
 
 	c = ' '.join(word_list)
 	return(c)
+
+nope = re.compile(r"[\-]")
+forbidden = re.compile(r"[\:\'\(\)]")
+
+def sanitize(s):
+	a = forbidden.sub('', str(s))
+	a = nope.sub(' ', a).strip().replace(' ', '_').lower()
+	return(a)
