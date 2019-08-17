@@ -520,9 +520,7 @@ function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
 function checkLockedTiers(tree) {
 	let bool_arr = [], num_arr = []
 	let tier_check = talentPointsSpent[tree].highest_tier() - 1
-
 	for (let k = 0; k < tier_check; k++) {
-
 		let y = k + 1
 		let req_points = y * 5
 		let f = talentPointsSpent[tree].vals.slice(0, y).reduce((a, b) => (a + b))
@@ -530,7 +528,6 @@ function checkLockedTiers(tree) {
 		num_arr.push(sum)
 		bool_arr.push({ extrapoints: sum, tier: y }) //for debugging
 	}
-
 	let locked_tier = num_arr.lastIndexOf(0) + 1
 	return locked_tier
 }
