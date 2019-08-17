@@ -30,12 +30,12 @@
             </div>
             {% endfor %}
         </div>
-        <div class="add-subtract-button-container">
+        <div class="add-subtract-button-container" name="{{consume.name}}" {% if consume.step > 1 %}data-step="{{consume.step}}"{% endif %}>
             <button class="btn btn-sm adjustment-button add-button" style="background-color: transparent; padding:1px">
-                <span class="glyphicon glyphicon-plus" style="color: azure; font-size: 12px;"></span>
+                <span class="glyphicon glyphicon-plus untouchable" style="color: azure; font-size: 12px;"></span>
             </button>
             <button class="btn btn-sm adjustment-button sub-button" style="background-color: transparent; padding: 1px; padding-right: 2px;">
-                <span class="glyphicon glyphicon-minus" style="color: azure; font-size: 12px;"></span>
+                <span class="glyphicon glyphicon-minus untouchable" style="color: azure; font-size: 12px;"></span>
             </button>
         </div>
     </div>
@@ -80,32 +80,31 @@ function consume_helper_handlers() {
         },
     });
 
-    // $(".sub-button").on({
-    //     click: e=> {
-    //         var multiple = (e.shiftKey) ? -(5) : -(1)
-    //         var name = $(e.target).parent().parent().find("span.consume-container").attr('name')
-    //         var test = $(e.target).parent().parent().find("span.consume-container")
-    //         var step = $(`.prof-item-recipe[name="${name}"]`).attr("data-step")
-    //         var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-    //         multiple = consume_calculator(current_amount, multiple, step)
-    //         update_consume_list(name, multiple, step)
-    //         add_consume(name, multiple, step)
-    //         combatText(e, multiple*step)
-    //     }
-    // });
-    // $(".add-button").on({
-    //     click: e=> {
-    //         var multiple = (e.shiftKey) ? 5 : 1
-    //         var name = $(e.target).parent().find("span.consume-container").attr('name')
-    //         var step = $(`.prof-item-recipe[name="${name}"]`).attr("data-step")
-    //
-    //         var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-    //         multiple = consume_calculator(current_amount, multiple, step)
-    //         update_consume_list(name, multiple, step)
-    //         add_consume(name, multiple, step)
-    //         combatText(e, multiple*step)
-    //     }
-    // });
+    $(".sub-button").on({
+        click: e=> {
+            var multiple = (e.shiftKey) ? -(5) : -(1)
+            var name = $(e.target).parent().attr('name')
+            var step = ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') : 1
+            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+            multiple = consume_calculator(current_amount, multiple, step)
+            update_consume_list(name, multiple, step)
+            add_consume(name, multiple, step)
+            combatText(e, multiple*step)
+        }
+    });
+
+    $(".add-button").on({
+        click: e=> {
+            var multiple = (e.shiftKey) ? 5 : 1
+            var name = $(e.target).parent().attr('name')
+            var step = ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') : 1
+            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+            multiple = consume_calculator(current_amount, multiple, step)
+            update_consume_list(name, multiple, step)
+            add_consume(name, multiple, step)
+            combatText(e, multiple*step)
+        }
+    });
 }
 
 

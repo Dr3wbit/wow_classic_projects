@@ -974,3 +974,8 @@ a#discord-login:hover{
     height: 0;
     overflow: hidden;
 }
+
+.untouchable {
+    user-select: none;
+    pointer-events: none;
+}
