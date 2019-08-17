@@ -11,9 +11,9 @@ function build_consume_list(url, ix) {
 		dataType: 'html',
 		success: function (data) {
 			$("#totals_container").html(data);
-			update_url(path, search)
 		},
 		complete: function(data) {
+			update_url(path, search)
 			if (id) {
 				info_display(id, 'pt')
 			}
@@ -108,13 +108,14 @@ function global_event_handlers() {
 			let search = tempurl.search
 			let url = new URL(document.location.origin.toString())
 			url.search = search
-
             if (wow_class) {
-				url.pathname = `talent_calc/${wow_class}`
-                update_class(url, wow_class, id)
+				// url.pathname = `talent_calc/${wow_class}`
+                update_class(wow_class, id)
             } else {
 				let prof_elem = $('a.prof-filter.selected')
 				let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
+				console.log('path: ', path)
+				console.log('url: ', url)
 				url.pathname = path
                 build_consume_list(url, id)
             }

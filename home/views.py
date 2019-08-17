@@ -143,14 +143,24 @@ class TalentCalcTemplate(TemplateView):
 		context = {}
 		if 'id' in request.session:
 			id = request.session['id']
-			context["spec"] = Spec.objects.get(id=id)
+			context['id'] = id
+			spec = Spec.objects.filter(id=id).first()
+			if spec:
+				context["spec"] = spec
+
 			del request.session['id']
+		else:
+			id = self.kwargs.get('id', None)
+			if id:
+				context['id'] = id
+				spec = Spec.objects.filter(id=id).first()
+				if spec:
+					context["spec"] = spec
 
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
 		class_name = self.kwargs.get("class", None)
-		
-		print(class_name)
+
 		if bool(class_name):
 			context["selected"] = class_name
 			context = self.talent_architect(context)
@@ -277,7 +287,7 @@ class TalentBuilderRedirectView(RedirectView):
 		spec = Spec.objects.get(id=id)
 		class_name = spec.wow_class.name
 		qs = spec.hash
-		self.url = new_url+"/{}?{}".format(class_name.lower(), qs)
+		self.url = new_url+"/{}/{}?{}".format(class_name.lower(), id, qs)
 
 		return self.url
 
@@ -297,7 +307,7 @@ class ConsumeBuilderRedirectView(RedirectView):
 		self.request.session['id'] = id
 		cl = ConsumeList.objects.get(id=id)
 		qs = cl.hash
-		self.url = new_url+"?{}".format(qs)
+		self.url = new_url+"/{}?{}".format(id, qs)
 
 		return self.url
 
@@ -318,12 +328,15 @@ class ConsumeToolTemplate(TemplateView):
 			cl = ConsumeList.objects.filter(id=id).first()
 			if cl:
 				context['consume_list'] = cl
+				context['ix'] = id
 				context['materials'] = self.get_materials(context["consume_list"])
 			del request.session['id']
 
 		elif 'id' in self.kwargs.keys():
-			cl = ConsumeList.objects.filter(id=self.kwargs.get('id')).first()
+			id = self.kwargs.get('id')
+			cl = ConsumeList.objects.filter(id=id).first()
 			if cl:
+				context['ix'] = id
 				context["consume_list"] = cl
 				context['materials'] = self.get_materials(context["consume_list"])
 
