@@ -4,6 +4,25 @@ function stepValidator(n, step) {
 }
 var ALL_PROFS = ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'fishing', 'first aid', 'leatherworking', 'mining', 'herbalism', 'riding', 'skinning']
 
+function consume_calculator(current_amount, multiple, step) {
+    var x = 0
+    if (current_amount+(multiple*step) <= 0) {
+        x = -(current_amount)
+        multiple = x/step
+        if ( x % step != 0 ) {
+            multiple = Math.ceil(multiple/step)
+        }
+    }
+    else if (current_amount + (multiple * step) >= 999) {
+        x = (999 - current_amount)
+        multiple = x/step
+        if ( x % step != 0 ) {
+            multiple = Math.floor(x/step)
+        }
+    }
+	return multiple
+}
+
 function add_consume(name, num_added=1, step=1) {
 
 	let consume_container = $(`span.consume-container[name="${name}"]`)
@@ -83,6 +102,15 @@ function add_consume(name, num_added=1, step=1) {
 		}).append($('<button/>', {
 			class: 'btn btn-sm adjustment-button add-button',
 			style: "background-color: transparent; padding: 1px; padding-right: 2px"
+		}).on({
+			click: e=> {
+				var multiple = (e.shiftKey) ? 5 : 1
+				var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+				multiple = consume_calculator(current_amount, multiple, step)
+				update_consume_list(name, multiple, step)
+	            add_consume(name, multiple, step)
+	            combatText(e, multiple*step)
+		}
 		}).append($('<span/>', {
 			class: "glyphicon glyphicon-plus",
 			style: "font-size: 12px;"
@@ -90,6 +118,15 @@ function add_consume(name, num_added=1, step=1) {
 		$('<button/>', {
 			class: 'btn btn-sm adjustment-button sub-button',
 			style: "background-color: transparent; padding: 1px; padding-right: 2px"
+		}).on({
+			click: e=> {
+				var multiple = (e.shiftKey) ? -(5) : -(1)
+				var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+				multiple = consume_calculator(current_amount, multiple, step)
+				update_consume_list(name, multiple, step)
+	            add_consume(name, multiple, step)
+	            combatText(e, multiple*step)
+		}
 		}).append($('<span/>', {
 			class: "glyphicon glyphicon-minus",
 			style: "font-size: 12px;"
@@ -203,7 +240,7 @@ function update_or_create(parent_elem, num_added, materials) {
 					src: static_url+"images/icons/small/icon_border.png",
 					style: `background-image: url(${icon_image});`,
 				})
-				
+
 				.on({
 			        mouseenter: e => {
 			            clearTooltip(e)
@@ -237,7 +274,7 @@ function update_or_create(parent_elem, num_added, materials) {
 				}), $('<span/>', {
 					text: "]",
 				})
-				
+
 				)
 
 				materials_list_item.append(material_container)

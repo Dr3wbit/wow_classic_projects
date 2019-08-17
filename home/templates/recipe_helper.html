@@ -5,9 +5,9 @@
 
     {% for recipe in recipes %}
     <div class="row">
-            <div class="prof-item-recipe col" name="{{recipe.name}}" data-step={{recipe.step}} data-q="{{recipe.quality}}">
+        <div class="prof-item-recipe col" name="{{recipe.name}}" data-step={{recipe.step}} data-q="{{recipe.quality}}">
 
-                {% with "images/icons/large/"|add:recipe.img|add:".jpg" as item_image %}
+            {% with "images/icons/large/"|add:recipe.img|add:".jpg" as item_image %}
 
                 <div class="recipe-container q{{recipe.quality}}">
                     <img class="icon-medium recipe-image" data-img="{{recipe.img}}" src="{% static "images/icon_border_2.png" %}"
@@ -141,29 +141,12 @@ function recipe_helper_handlers() {
         },
         mouseleave: e => {
             clearTooltip(e)
-        }, 
+        },
         mousemove: e => {
             update_tooltip( e )
         },
     });
 
-}
-function consume_calculator(current_amount, multiple, step) {
-    var x = 0
-    if (current_amount+(multiple*step) <= 0) {
-        x = -(current_amount)
-        multiple = x/step
-        if ( x % step != 0 ) {
-            multiple = Math.ceil(multiple/step)
-        }
-    }
-    else if (current_amount + (multiple * step) >= 999) {
-        x = (999 - current_amount)
-        multiple = x/step
-        if ( x % step != 0 ) {
-            multiple = Math.floor(x/step)
-        }
-    }
 }
 
 

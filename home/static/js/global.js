@@ -106,7 +106,6 @@ function global_event_handlers() {
 			let id = $(e.target).attr('data-ix')
 			let tempurl = new URL(href = href, base = document.location.origin)
 			let search = tempurl.search
-			// pathname = `${document.location.pathname}/${id}`
 			let url = new URL(document.location.origin.toString())
 			url.search = search
 

@@ -79,6 +79,33 @@ function consume_helper_handlers() {
             $(`span.consume-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
         },
     });
+
+    // $(".sub-button").on({
+    //     click: e=> {
+    //         var multiple = (e.shiftKey) ? -(5) : -(1)
+    //         var name = $(e.target).parent().parent().find("span.consume-container").attr('name')
+    //         var test = $(e.target).parent().parent().find("span.consume-container")
+    //         var step = $(`.prof-item-recipe[name="${name}"]`).attr("data-step")
+    //         var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+    //         multiple = consume_calculator(current_amount, multiple, step)
+    //         update_consume_list(name, multiple, step)
+    //         add_consume(name, multiple, step)
+    //         combatText(e, multiple*step)
+    //     }
+    // });
+    // $(".add-button").on({
+    //     click: e=> {
+    //         var multiple = (e.shiftKey) ? 5 : 1
+    //         var name = $(e.target).parent().find("span.consume-container").attr('name')
+    //         var step = $(`.prof-item-recipe[name="${name}"]`).attr("data-step")
+    //
+    //         var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+    //         multiple = consume_calculator(current_amount, multiple, step)
+    //         update_consume_list(name, multiple, step)
+    //         add_consume(name, multiple, step)
+    //         combatText(e, multiple*step)
+    //     }
+    // });
 }
 
 
