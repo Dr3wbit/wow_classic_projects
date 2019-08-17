@@ -220,8 +220,13 @@ function buildClassData(refresh) {
 	talentPointsSpent = {}
 	classData = {}
 	// 	let params = myURL.searchParams
+	// let classEle =
+	// const className = $('.class-filter.selected')[0].id
+	const className = ($('.class-filter.selected').length) ? $('.class-filter.selected')[0].id : false
 
-	const className = $('.class-filter.selected')[0].id
+	if (!className) {
+		return
+	}
 	const selectedClass = talentData.classes.find(function (a) {
 		return a.name == className;
 	})
