@@ -176,28 +176,29 @@ function calculateData() {
             style: `background-image: url(static/images/icons/small/${material[i]}.${imageType});`,
         }).on({
             mouseenter: e => {
-                clearTooltip()
+                clear_tooltip()
                 tooltip_v2(e, false, 2)
             },
             mouseleave: e => {
-                clearTooltip()
+                clear_tooltip()
             },
             mousemove: e => {
-                update_tooltip(e)
+                move_tooltip(e)
             }
         })).append($('<span/>', {
             text: utilities.titleCase(material[i]),
             class: `materials-name rarity ${allMaterials[material[i]].rarity}`,
         }).on({
             mouseenter: e => {
-                clearTooltip()
+                clear_tooltip()
                 tooltip_v2(e, false, 2)
             },
             mouseleave: e => {
-                clearTooltip()
+
+                clear_tooltip()
             },
             mousemove: e => {
-                update_tooltip(e)
+                move_tooltip(e)
             }
         })).append($('<span/>', {
             text: ` [${counts[material[i]]}]`,
@@ -215,14 +216,14 @@ function calculateData() {
 function materialsTooltip() {
     $(".materials-name, .material-image").on({
         mouseenter: e => {
-            clearTooltip()
+            clear_tooltip()
             tooltip_v2(e, false, 2)
         },
         mouseleave: e => {
-            clearTooltip()
+            clear_tooltip()
         },
         mousemove: e => {
-            update_tooltip(e)
+            move_tooltip(e)
         }
     });
 }
@@ -282,13 +283,14 @@ function materialsTooltip() {
 function showEnchantEffect() {
     $('.enchantHolder').on({
         mouseenter: e=> {
+            clear_tooltip()
             tooltip_v2(e, false, 3)
         },
         mousemove: e=> {
-            update_tooltip(e)
+            move_tooltip(e)
         },
         mouseleave: e=>  {
-            clearTooltip()
+            clear_tooltip()
         }
     })
 }

@@ -231,7 +231,7 @@ function ez_tooltip(e, staticK=false) {
 
 	if (data.img && !staticK) {
 		let image_name = static_url+`images/icons/large/${data.img}.jpg`
-		style = `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
+		style = `pointer-events: none; float: left; background-image: url(${image_name})`
 		var img = create_element('img', 'icon-medium', style, '', "tooltip_img")
 		img.src = static_url+"images/icon_border_2.png"
 		tooltip_container.appendChild(img)
@@ -426,10 +426,6 @@ function get_tooltip_pos(e, staticK=false) {
 	if (x + 10 + tooltip_container.outerWidth(true) > window.innerWidth) {
 		x = x - tooltip_container.outerWidth(true) + 10
 	}
-
-	console.log('y: ', y)
-	console.log('tooltip_container.outerHeight(): ', tooltip_container.outerHeight())
-	console.log('window.innerHeight: ', window.innerHeight)
 
 	if (y + 110 - tooltip_container.outerHeight() < 0) {
 		y = (y + tooltip_container.outerHeight(true))

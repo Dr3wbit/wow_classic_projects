@@ -166,6 +166,8 @@
     position: relative;
     bottom: -15px;
     right: 5px;
+    user-select: none;
+    pointer-events: none;
 }
 
 .step-amount {
@@ -173,6 +175,8 @@
     position: absolute;
     bottom: 2px;
     right: 2px;
+    user-select: none;
+    pointer-events: none;
     text-decoration: none;
     color: azure;
     -webkit-text-stroke: 0.01rem black;

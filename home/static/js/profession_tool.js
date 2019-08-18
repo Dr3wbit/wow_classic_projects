@@ -154,7 +154,7 @@ function add_consume(name, num_added=1, step=1) {
 
 		consume_span.on({
 			mouseenter: e => {
-				clearTooltip(e)
+				clear_tooltip(e)
 				ez_tooltip( e )
 			},
 			mouseleave: e => {
