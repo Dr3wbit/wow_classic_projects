@@ -221,15 +221,15 @@ function looseJsonParse(obj){
     return Function('"use strict";return (' + obj + ')')();
 }
 
-function ez_tooltip(e) {
+function ez_tooltip(e, staticK=false) {
     var target = $(e.target)
-    var data = target.closest(".data")[0].dataset
+    var data = target.closest(".data-container")[0].dataset
 
 	const tooltip_container = document.getElementById("tooltip_container")
 
 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
 
-	if (data.img) {
+	if (data.img && !staticK) {
 		let image_name = static_url+`images/icons/large/${data.img}.jpg`
 		style = `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
 		var img = create_element('img', 'icon-medium', style, '', "tooltip_img")
@@ -391,18 +391,18 @@ function ez_tooltip(e) {
 	}
 
 	tooltip_container.appendChild(tooltip)
-
-	var coords = get_tooltip_pos(e, Boolean(data.image_name))
-
+	var coords = get_tooltip_pos(e, staticK)
 	tooltip_container.style.cssText = `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`
 }
 
-function move_tooltip(e) {
+function move_tooltip(e, staticK=false) {
 	let pageY = e.pageY
 	let pageX = e.pageX+15
+	var coords = get_tooltip_pos(e, staticK)
+
     const tooltip = $("#tooltip_container")
 
-    tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visibility: visible;`)
+    tooltip.attr("style", `top: ${coords.y}px; left: ${coords.x}px; visibility: visible; display:block;`)
 }
 
 
@@ -411,27 +411,44 @@ function get_tooltip_pos(e, staticK=false) {
 	var tooltip_container = $("#tooltip_container")
 	var tooltip = $("#tooltip")
 	this.coords = {}
-	var x = 0
 	var y = 0
+	var x = 0
+
 	if (staticK) {
-		x = $(e.target).offset().left + $( e.target ).outerWidth(true)
-		y = $(e.target).offset().top - tooltip.outerHeight()
+		x = $(e.target).offset().left - 5 + $( e.target ).outerWidth(true)
+		y = $(e.target).offset().top + 5 - tooltip_container.outerHeight(true)
 
 	} else {
-		x = e.pageX - 30
-		y = e.pageY - tooltip_container.outerHeight(true)
+		x = e.pageX - 40
+		y = e.pageY - tooltip_container.outerHeight()
 	}
 
 	if (x + 10 + tooltip_container.outerWidth(true) > window.innerWidth) {
-		x = (x - tooltip_container.outerWidth(true) + 25)
+		x = x - tooltip_container.outerWidth(true) + 10
 	}
-	if (y + 60 - tooltip_container.outerHeight() < 0) {
+
+	console.log('y: ', y)
+	console.log('tooltip_container.outerHeight(): ', tooltip_container.outerHeight())
+	console.log('window.innerHeight: ', window.innerHeight)
+
+	if (y + 110 - tooltip_container.outerHeight() < 0) {
 		y = (y + tooltip_container.outerHeight(true))
 		//
 	}
 	this.coords.x = x
 	this.coords.y = y
 	return this.coords
+}
+
+function get_dimensions(elem) {
+	console.log('getting dimensions for: ')
+	console.log(elem)
+	console.log('width:', elem.width())
+	console.log('height:', elem.height())
+	console.log('outerheight:', elem.outerHeight(true))
+	console.log('outerwidth:', elem.outerWidth(true))
+	console.log('offsetHeight:', elem.offsetHeight)
+	console.log('offsetWidth:', elem.offsetWidth)
 }
 
 function create_element(tag, class_name, style, text, id) {
@@ -660,6 +677,36 @@ function bigdaddytooltip(e, name, ...args) {
 	})
 
 	tooltip_container.append(image, tooltip)
-	let coords = get_tooltip_pos(e, staticK)
+	let coords = get_talent_tooltip_pos(e, staticK, true)
 	tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px;`)
+}
+
+function get_talent_tooltip_pos(e, staticK=false, tc=false) {
+
+	var tooltip_container = $("#tooltip_container")
+	var tooltip = $("#tooltip")
+	this.coords = {}
+	var y = 0
+	var x = 0
+
+	if (staticK) {
+		x = $(e.target).offset().left + $( e.target ).outerWidth(true)
+		y = $(e.target).offset().top - tooltip_container.outerHeight()
+
+	} else {
+		x = e.pageX - 45
+		y = e.pageY - tooltip_container.outerHeight(true)
+	}
+
+	if (x + 10 + tooltip_container.outerWidth(true) > window.innerWidth) {
+		x = x - tooltip_container.outerWidth(true) - $(e.target).outerWidth(true)
+	}
+
+	if ((y + 60 - tooltip_container.outerHeight() < 0) && !(tc)) {
+		y = (y + tooltip_container.outerHeight(true))
+		//
+	}
+	this.coords.x = x
+	this.coords.y = y
+	return this.coords
 }

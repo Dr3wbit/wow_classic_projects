@@ -634,7 +634,9 @@ ul {
     padding: 5px;
     margin: 5px;
     margin-left: 2px;
-    border-radius: 4px;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+    border-radius: 3px;
     box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
     text-shadow: -0.01rem -0.01rem 0.01rem black;
 }

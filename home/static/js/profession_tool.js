@@ -136,7 +136,7 @@ function add_consume(name, num_added=1, step=1) {
 		consume_image.on({
 			mouseenter: e => {
 				clearTooltip(e)
-				ez_tooltip( e )
+				ez_tooltip(e, true)
 			},
 			mouseleave: e => {
 				$("#tooltip_container").hide()
@@ -242,13 +242,13 @@ function update_or_create(parent_elem, num_added, materials) {
 				.on({
 			        mouseenter: e => {
 			            clearTooltip(e)
-						ez_tooltip( e )
+						ez_tooltip(e, true)
 			        },
 			        mouseleave: e => {
 						$("#tooltip_container").hide()
 			        },
 					mousemove: e => {
-						move_tooltip( e )
+						move_tooltip(e, true)
 					}
 			    }), $('<span/>', {
 					class: `material-name q${mat.q}`,
