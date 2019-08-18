@@ -874,13 +874,22 @@ a#discord-login:hover{
 }
 
 .notification-container{
-    position: absolute;
+    position: fixed;
     font-size: 250%;
     color: #ffc107;
     left:50%;
-    top: 200px;
-    background-color: #000000;
-    border-radius: 5px;
+    top: 20vh;
+    background-color: rgba(0, 0, 0, 0.600);
+    border-radius: 10px;
+    border: 1px solid black;
+    z-index: 4000;
+    width: 80vw;
+    margin-left: -40vw;
+    user-select: none;
+    pointer-events: none;
+    animation-name: fade-out;
+    animation-duration: 5s;
+    animation-direction: normal;
 }
 
 .floating-container{
@@ -893,6 +902,18 @@ a#discord-login:hover{
     animation-duration: 3s;
     animation-direction: normal;
     z-index: 2000;
+}
+
+@keyframes fade-out {
+	0% {
+        opacity: 1;
+    }
+	50% {
+		opacity: 0.6;
+    }
+	100% {
+        opacity: 0;
+	}
 }
 
 @keyframes float-up {

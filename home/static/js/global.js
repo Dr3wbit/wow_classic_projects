@@ -206,8 +206,8 @@ function notifyUser(message) {
 		class: "notification-container",
 		text: message,
 	}))
-	$(".navbar").append(notificationContainer)
-	setTimeout(() => { $(".notification-container").remove() }, 5000);
+	$("body").append(notificationContainer)
+	setTimeout(() => { $(".notification-container").remove() }, 4500);
 }
 
 
