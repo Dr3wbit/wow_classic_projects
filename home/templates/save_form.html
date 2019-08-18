@@ -179,11 +179,20 @@ function append_list_item(data) {
 
     let wow_class = data.wow_class
     let name = data.name
+    let icon = (wow_class) ? `class/${wow_class}.jpg` : `inv_misc_book_09.jpg`
+    console.log('THE DATA :  ', data)
     let spec_cont = $("<div/>", {
         class: "spec-container",
     })
     let spec_info = $("<div/>", {
         class: "spec-info",
+    })
+    let info_cont = $("<div/>", {
+        class: "info-container",
+    })
+    let save_icon = $("<div/>", {
+        class: "saved-list-icon",
+        style: `background-image: url('/static/images/icons/large/${icon}')`
     })
 
     let child_text = (wow_class) ? `${utilities.titleCase(wow_class)}` : `${name}`
@@ -243,7 +252,8 @@ function append_list_item(data) {
     }))
 
     spec_item.append(trashcan)
-    spec_cont.append(spec_info, spec_item)
+    info_cont.append(spec_info, spec_item)
+    spec_cont.append(save_icon,info_cont)
 
     if (wow_class) {
         $("#saved-specs").append(spec_cont)
