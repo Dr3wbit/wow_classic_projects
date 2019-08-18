@@ -341,17 +341,17 @@ function talentHandler() {
 		},
 
 		mouseenter: e => {
-			clearTooltip()
+			clear_tooltip()
 			tooltip_v2(e, true, 1)
 		},
 
 		mouseleave: e => {
-			clearTooltip()
+			clear_tooltip()
 		},
 
 		mousedown: e => {
 			mouseDownHandler(e)
-			clearTooltip()
+			clear_tooltip()
 			tooltip_v2(e, true, 1)
 		},
 	})

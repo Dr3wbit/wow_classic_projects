@@ -572,13 +572,30 @@
             </tr>
         </thead>
         <tbody>
+            {% with "images/icons/large/" as image_prefix %}
             {% for recipe in recipes %}
             <tr>
                 <td style="text-align: left;">
-                    <span class="recipe-container {{recipe.quality}}" name="{{recipe.name}}">
-                        <img name="{{recipe.name}}" class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
-                        style="background-image: url({% static item_image %});">
-                        <span class="consume-name" name="{{recipe.name}}">{{recipe.name|titlecase}}</span>
+                    <span class="recipe-container q{{recipe.quality}}"
+                        data-q="{{recipe.quality}}" data-n="{{recipe.name}}" data-img="{{recipe.img}}"
+                        {% if recipe.item.bop %}data-bop="{{recipe.item.bop}}"{% endif %}
+                        {% if recipe.item.use %}data-use="{{recipe.item.use}}"{% endif %}
+                        {% if recipe.item.slot %}data-slot="{{recipe.item.slot}}"{% endif %}
+                        {% if recipe.item.proficiency %}data-proficiency="{{recipe.item.proficiency}}"{% endif %}
+                        {% if recipe.item.stats %}data-stats="{{recipe.item.stats}}"{% endif %}
+                        {% if recipe.item.armor %}data-armor="{{recipe.item.armor}}"{% endif %}
+                        {% if recipe.item.description %}data-description="{{recipe.item.description}}"{% endif %}
+                        {% if recipe.item.requirements %}data-requirements="{{recipe.item.requirements}}"{% endif %}
+                        {% if recipe.item.speed %}data-speed="{{recipe.item.speed}}"{% endif %}
+                        {% if recipe.item.resists %}data-resists="{{recipe.item.resists}}"{% endif %}
+                        {% if recipe.item.durability %}data-durability="{{recipe.item.durability}}"{% endif %}
+                        {% if recipe.item.procs.exists %}data-procs="[{% for proc in recipe.item.procs.all %}{{proc.t}},{% endfor %}]"{% endif %}
+                        {% if recipe.item.equips.exists %}data-equips="[{% for equip in recipe.item.equips.all %}{{equip.t}},{% endfor %}]"{% endif %}
+                        {% if recipe.item.dps %}data-dps="{{recipe.item.dps}}"{% endif %}
+                        >
+                        <img name="{{recipe.name}}" data-img="{{recipe.img}}" class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
+                            style="background-image: url({% static image_prefix|add:recipe.img|add:".jpg" %});">
+                        <span class="consume-name" name="{{recipe.name}}">{{recipe.name}}</span>
                     </span>
                 </td>
                 <td class="reagant-list">
@@ -598,6 +615,7 @@
 
             </tr>
             {% endfor %}
+            {% endwith %}
         </tbody>
     </table>
 </div>
@@ -708,7 +726,8 @@ function delete_rating(d) {
 $(".consume-name, .recipe-image").on({
     mouseenter: e=> {
         clear_tooltip()
-        get_tooltip_info(e)
+        // get_tooltip_info(e)
+        ez_tooltip(e)
     },
     mouseleave: e=> {
         $("#tooltip_container").hide()
@@ -718,27 +737,20 @@ $(".consume-name, .recipe-image").on({
     }
 })
 
-function get_tooltip_info(e) {
-    var $name = $(e.target).attr("name")
-    var $data = {}
-    $data['name'] = $name
-
-    $.ajax({
-        method: "GET",
-        url: `/ajax/tooltip`,
-        data: $data,
-        dataType: 'json',
-        success: create_tooltip
-    })
+function looseJsonParse(obj){
+    return Function('"use strict";return (' + obj + ')')();
 }
 
-function create_tooltip(data) {
+function ez_tooltip(e) {
+    var target = $(e.target)
+    var data = target.parent(".recipe-container")[0].dataset
+
+    console.log('data: ', data)
+    // console.log('data[0].dataset: ', data[0].dataset)
+    // console.log('data: ', data)
 
     const tooltip_container = $("#tooltip_container")
-
-    const image_name = data.image_name
-
-    delete data.image_name
+    const image_name = target.find($('img')).attr('data-img')
 
     const tooltip = $('<div/>', {
         class: 'tooltip-container',
@@ -746,14 +758,109 @@ function create_tooltip(data) {
         style: "float: right;"
     })
 
-    for (let [key, val] of Object.entries(data)) {
-        // tooltip.append($('<div/>', {
-        //     class: `${key}`,
-        //     text: ''
-        // }))
-        console.log('name: ', name)
-        console.log('val: ', val)
+    const image = (image_name) ? $('<img/>', {
+        class: 'icon-medium',
+        src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
+        style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/${image_name})`
+    }) : null
+
+    let name = data.n
+    let quality = data.q
+
+    tooltip.append($('<div/>', {
+        class: `title q${quality}`,
+        text: `${name}`,
+    }))
+    const slot = (data.slot) ? $('<div/>', {
+        class: 'slot',
+        text: `${data.slot}`
+    }) : null
+
+    const proficiency = (data.proficiency) ? $('<div/>', {
+        class: 'slot',
+        text: `${data.proficiency}`
+    }) : null
+
+    const bop = (data.bop) ? $('<div/>', {
+        class: 'bop',
+        text: "Binds when picked up"
+    }) : null
+
+    const unique = (data.unique) ? $('<div/>', {
+        class: 'unique',
+        text: "Unique"
+    }) : null
+
+    looseJsonParse()
+    const req_lvl = (data.requirements) ? $('<div/>', {
+        class: 'required_level',
+        text: `Requires Level ${data.requirements}`
+    }) : null
+
+    const use = (data.use) ? $('<div/>', {
+        class: 'use',
+        text: `Use: ${data.use}`
+    }) : null
+
+    const description = (data.description) ? $('<div/>', {
+        class: 'description',
+        text: `${data.description}`,
+    }) : null
+
+    tooltip.append(slot, proficiency, bop, unique, req_lvl, use, description)
+    tooltip_container.append(image, tooltip)
+
+    var x = 0
+    var y = 0
+
+    if (image) {
+        x = e.pageX + 15
+        y = e.pageY - 25
+    } else {
+        x = $(e.target).offset().left + 45
+        y = $(e.target).offset().top - 45
     }
+
+    tooltip_container.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
+}
+
+function get_tooltip_info(e) {
+    var $name = $(e.target).attr("name")
+    var $data = {}
+    $data['name'] = $name
+    console.log('sent data: ', $data)
+    $.ajax({
+        method: "GET",
+        url: `/ajax/tooltip`,
+        data: $data,
+        dataType: 'json',
+        success: API_create_tooltip
+    })
+}
+
+function API_create_tooltip(data) {
+
+    console.log('returned data: ', data)
+    const tooltip_container = $("#tooltip_container")
+
+    const image_name = data.img
+
+    delete data.img
+
+    const tooltip = $('<div/>', {
+        class: 'tooltip-container',
+        id: "tooltip",
+        style: "float: right;"
+    })
+
+    // for (let [key, val] of Object.entries(data)) {
+    //     // tooltip.append($('<div/>', {
+    //     //     class: `${key}`,
+    //     //     text: ''
+    //     // }))
+    //     console.log('name: ', name)
+    //     console.log('val: ', val)
+    // }
 
     const image = (image_name) ? $('<img/>', {
         class: 'icon-medium',
@@ -762,8 +869,8 @@ function create_tooltip(data) {
     }) : null
 
     tooltip.append($('<div/>', {
-        class: `title ${data.quality}`,
-        text: `${utilities.titleCase(data.name)}`,
+        class: `title q${data.quality}`,
+        text: `${data.name}`,
     }))
 
     const bop = (data.bop) ? $('<div/>', {
@@ -798,19 +905,18 @@ function create_tooltip(data) {
     var x = 0
     var y = 0
 
-    try {
-        if (image) {
-            x = e.pageX + 15
-            y = e.pageY - 25
-        } else {
-            x = $(e.target).offset().left + 45
-            y = $(e.target).offset().top - 45
-        }
-    } catch (err) {
-        console.log('suppressing errors')
+    if (image) {
+        x = e.pageX + 15
+        y = e.pageY - 25
+    } else {
+        x = $(e.target).offset().left + 45
+        y = $(e.target).offset().top - 45
     }
 
     // utilities_v2.getTooltipPosition(e, tooltip_container)
+
+    console.log('x: ', x)
+    console.log('y: ', y)
 
     tooltip_container.attr("style", `left: ${x}px; top: ${y}px; visiblity: visible;`)
 
@@ -839,7 +945,9 @@ function move_tooltip(e) {
 	let pageY = e.pageY
 	let pageX = e.pageX+15
     const tooltip = $("#tooltip_container")
-    tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visiblity: visible;`)
+    // get_dimensions(tooltip)
+
+    tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visibility: visible;`)
 }
 
 {% endif %}

@@ -25,7 +25,7 @@ class APIView(TemplateView):
 		if request.user.groups.filter(name='admins').exists():
 
 			context = {}
-			context['recipes'] = Crafted.objects.filter(profession__name='Alchemy')
+			context['recipes'] = Crafted.objects.filter(profession__name='Blacksmithing')
 			context['consume_lists'] = ConsumeList.objects.all()
 			context['rangen'] = range(5)
 			context['specs'] = {}
