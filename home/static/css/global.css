@@ -8,9 +8,6 @@ body {
     color: rgb(255, 255, 255);
     text-align: center;
     font-size: 12px;
-    /* background-image: url("../images/tileable_texture_light.jpg");
-    background-repeat: repeat;
-    background-attachment: fixed; */
     background-color: #121212;
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     margin-bottom: 3vh;
@@ -126,25 +123,12 @@ body {
     font-family: Aeio, lifecraft, morpheus;
     font-size: 25px;
     color: rgba(240, 255, 255, 0.17) !important;
-    /* color: rgba(215, 40, 10, 1) !important; */
-    text-shadow: -0.01rem -1px 1px #a97f0e1f, 0.8px 0.7px 0.1px #495057, 1.2px 1.3px 0 #442e1a, -0.01rem 1px 0 #212529, 0.5px 1px 0 #343a40, -0.5px 0 1px #000000;
-    /* text-shadow: -0.01rem -1px 0 #343a40, 0.8px 0.7px 0.1px #000000fa, 1.2px 1.3px 0 #442e1a, -0.01rem 1px 0 #212529, 0.5px 1px 0 #f5f5f54a, -0.5px 0 1px #00000087; */
     vertical-align: bottom;
-    /* font-weight: lighter; */
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke: .5px rgba(0, 0, 80, 1);
-    /* letter-spacing: 1px; */
     position: relative;
     top: 4px;
 }
-
-/* .navbar-logo-text {
-    font-family: Aeio;
-    font-size: 25px;
-    color: rgba(215, 40, 10, 1) !important;
-    text-shadow: -0.01rem -1px 0 #343a40, 1px -1px 0 rgba(52, 58, 64, 0.15), -0.01rem 1px 0 #212529, 1px 1px 0 #f5f5f54a;
-    vertical-align: bottom;
-} */
 
 .navbar-toggler {
     background-color: black;
@@ -180,7 +164,6 @@ body {
 }
 
 .navbar-brand img{
-    /* vertical-align: top; */
     position: relative;
 }
 
@@ -189,13 +172,14 @@ body {
     color: rgb(255, 255, 255) !important;
     height: 100%;
     background-color: #272727;
+    display: flex;
+    align-items :center;
+    justify-content: center;
    }
 
 .nav-link:hover {
     outline: none;
     background-color: transparent;
-    /* color: #909caf !important; */
-
    }
 
 .nav-item {
@@ -253,35 +237,8 @@ body {
     transition: all 0.1s ease-in;
 }
 
-/* button.class-filter {
-    background-color: transparent;
-    border: unset;
-    padding: unset;
-    text-shadow: unset;
-}
-
-button.class-filter:focus,  button.class-filter:active{
-    outline:0;
-    text-shadow: unset;
-} */
-
-/* .class-filter:first-child{
-    border-left: 1px solid rgba(0, 0, 0, .95);
-} */
-
-/* .class-filter:hover, .prof-filter:hover{
-    box-shadow: inset 0 0 4px black;
-}
-
-.class-filter.selected {
-    background-image: linear-gradient(rgba(28,28,28,0.8), rgba(40, 40, 40, 0.85), rgba(20,20,20,0.8));
-    box-shadow: inset 0 0 5px black, rgba(255,255,255,.1) 0 1px 0;
-    border-color: unset;
-} */
 
 .prof-filter.selected {
-    /* background-image: linear-gradient(rgba(28,28,28,0.8), rgba(40, 40, 40, 0.85), rgba(20,20,20,0.8));
-    box-shadow: inset 0 0 5px black, rgba(255,255,255,.1) 0 1px 0; */
     border-color: rgb(231, 186, 0);
     color: rgb(231, 186, 0);
 }
@@ -301,21 +258,9 @@ button.class-filter:focus,  button.class-filter:active{
         padding-left: 15px;
         padding-right: 20px;
     }
-    .class-filter, .prof-filter {
-
-    }
 }
 
 @media only screen and (max-width: 768px) {
-
-
-    .class-filter, .prof-filter  {
-
-    }
-
-    .class-icon, .prof-icon {
-
-    }
 
     #warrior {
         background-image: url("../images/icons/medium/warrior.jpg");
@@ -503,11 +448,6 @@ button.class-filter:focus,  button.class-filter:active{
 .class-filter:active img, .prof-filter:active img{
     transform: scale(0.97);
 }
-
-
-/* .class-icon:active {
-    transform: scale(0.97);
-} */
 
 .disabled {
     opacity: 0.2;
@@ -729,7 +669,6 @@ ul {
 .steel-textured {
     background: -webkit-linear-gradient(360deg, rgba(0, 0, 0, 0.65) 40%, rgba(0, 0, 0, 0.85) 80%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background: -moz-linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
-    /* background: linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg); */
     background-size: 100%, cover;
     background-repeat: no-repeat, repeat;
     box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
