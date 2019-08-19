@@ -4,7 +4,7 @@
     {% load sanitize from custom_filters %}
 
     {% for consume in consume_list.consumes.all %}
-    <div class="consume-list-item data-center"
+    <div class="consume-list-item data-container"
         data-step={{consume.step}} data-q="{{consume.quality}}" data-n="{{consume.name}}"
         data-img="{{consume.img}}"
         {% if consume.item.bop %}data-bop="{{consume.item.bop}}"{% endif %}
@@ -30,7 +30,7 @@
                 <span class="glyphicon glyphicon-triangle-right" style="color: azure;"></span>
             </a>
             {% with "images/icons/large/"|add:consume.img|add:".jpg" as item_image %}
-            <img class="icon-small" src="{% static "images/icons/small/icon_border.png" %}"
+            <img class="icon-small crafted-small" src="{% static "images/icons/small/icon_border.png" %}"
                 style="background-image: url({% static item_image %});">
             {% endwith %}
             <span class="consume-name q{{consume.quality}}">{{consume.name}}</span>
@@ -39,7 +39,7 @@
 
         <div class="materials-list collapse" id="{{consume.name|sanitize}}_collapse">
             {% for mat in consume.mats %}
-            <div class="materials-list-item"
+            <div class="materials-list-item data-container"
                 data-step={{mat.step}} data-q="{{mat.quality}}" data-n="{{mat.name}}"
                 data-img="{{mat.img}}"
                 {% if mat.item.bop %}data-bop="{{mat.item.bop}}"{% endif %}
@@ -59,9 +59,9 @@
                 {% if mat.item.damage.exists %}data-damage='[{% for damage in mat.item.damage.all %}"{{damage}}",{% endfor %}]'{% endif %}
                 >
                 <span class="material-container" name="{{mat.name}}">
-                    <img class="icon-small" src="{% static "images/icons/small/icon_border.png" %}"
+                    <img class="icon-small material-image" src="{% static "images/icons/small/icon_border.png" %}"
                         style="background-image: url({% static "images/icons/large/"|add:mat.img|add:".jpg" %});">
-                    <span class="materials-name q{{mat.quality}}">{{mat.name}}</span>
+                    <span class="material-name q{{mat.quality}}">{{mat.name}}</span>
                     <span>[</span><span class="amount">{% widthratio mat.amount 1 consume.amount %}</span><span>]</span>
                 </span>
             </div>
@@ -81,7 +81,7 @@
     <span id="separator" class="col-12">Totals</span>
     <div id="materials" class="col-12">
         {% for mat_name,v in materials.items %}
-        <div class="materials-list-item">
+        <div class="materials-list-item data-container">
             <span class="material-container" name="{{mat_name}}">
                 <img class="icon-small material-image" src="{% static "images/icons/small/icon_border.png" %}"
                     style="background-image: url({% static "images/icons/large/"|add:v.img|add:".jpg" %});">
@@ -106,6 +106,33 @@ if (!my_consume_list) {
 
 function consume_helper_handlers() {
 
+    $(".consume-name, .material-name").on({
+        mouseenter: e => {
+            clear_tooltip(e)
+            ez_tooltip( e )
+        },
+        mouseleave: e => {
+            $("#tooltip_container").hide()
+        },
+        mousemove: e => {
+            move_tooltip( e )
+        }
+    });
+
+    $(".consume-image, .material-image, .crafted-small").on({
+        mouseenter: e => {
+                clear_tooltip(e)
+                ez_tooltip(e, true)
+            },
+            mouseleave: e => {
+                $("#tooltip_container").hide()
+            },
+            mousemove: e => {
+                move_tooltip(e, true)
+            }
+    });
+
+    
     $(".materials-list").on({
         'shown.bs.collapse': e => {
             let id = $( e.target ).attr("id")
