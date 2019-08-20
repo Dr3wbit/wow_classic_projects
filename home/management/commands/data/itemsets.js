@@ -183,6 +183,20 @@
             }
         }
     },
+    "143": {
+        "n": "Devilsaur Armor",
+        "i": 143,
+        "items": [
+            15062,
+            15063
+        ],
+        "bonuses": {
+            "2": {
+                "s": "15465",
+                "t": "Improves your chance to hit by 2%."
+            }
+        }
+    },
     "144": {
         "n": "Ironfeather Armor",
         "i": 144,

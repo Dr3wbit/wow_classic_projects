@@ -2,35 +2,16 @@
 {% load static %}
 
 {% load titlecase from custom_filters %}
-
     {% for recipe in recipes %}
     <div class="row">
-        <div class="prof-item-recipe data-container col" name="{{recipe.name}}"
-            data-step={{recipe.step}} data-q="{{recipe.quality}}" data-n="{{recipe.name}}"
-            data-img="{{recipe.img}}"
-            {% if recipe.item.bop %}data-bop="{{recipe.item.bop}}"{% endif %}
-            {% if recipe.item.use %}data-use="{{recipe.item.use}}"{% endif %}
-            {% if recipe.item.slot %}data-slot="{{recipe.item.slot}}"{% endif %}
-            {% if recipe.item.proficiency %}data-proficiency="{{recipe.item.proficiency}}"{% endif %}
-            {% if recipe.item.stats %}data-stats="{{recipe.item.stats}}"{% endif %}
-            {% if recipe.item.armor %}data-armor="{{recipe.item.armor}}"{% endif %}
-            {% if recipe.item.description %}data-description="{{recipe.item.description}}"{% endif %}
-            {% if recipe.item.requirements %}data-requirements="{{recipe.item.requirements}}"{% endif %}
-            {% if recipe.item.speed %}data-speed="{{recipe.item.speed}}"{% endif %}
-            {% if recipe.item.resists %}data-resists="{{recipe.item.resists}}"{% endif %}
-            {% if recipe.item.durability %}data-durability="{{recipe.item.durability}}"{% endif %}
-            {% if recipe.item.procs.exists %}data-procs='[{% for proc in recipe.item.procs.all %}"{{proc.t}}",{% endfor %}]'{% endif %}
-            {% if recipe.item.equips.exists %}data-equips='[{% for equip in recipe.item.equips.all %}"{{equip.t}}",{% endfor %}]'{% endif %}
-            {% if recipe.item.dps %}data-dps="{{recipe.item.dps}}"{% endif %}
-            {% if recipe.item.damage.exists %}data-damage='[{% for damage in recipe.item.damage.all %}"{{damage}}",{% endfor %}]'{% endif %}
-            >
+        <div class="prof-item-recipe data-container col" name="{{recipe.name}}" data-ix="{{recipe.item.ix}}">
 
             {% with "images/icons/large/"|add:recipe.img|add:".jpg" as item_image %}
 
                 <div class="recipe-container q{{recipe.quality}}">
                     <img class="icon-medium recipe-image" data-img="{{recipe.img}}" src="{% static "images/icon_border_2.png" %}"
                     style="background-image: url({% static item_image %});">
-                    {% if recipe.step > 1%}
+                    {% if recipe.step > 1 %}
                     <span class="recipe-step">
                         <div class="step-amount">{{recipe.step}}</div>
                         <div class="step-amount" style="color: black; bottom: 1px; z-index: 4;">{{recipe.step}}</div>
@@ -44,25 +25,7 @@
             </div>
         <div class="reagent-list d-none d-md-block">
             {% for mat in recipe.materials.all %}
-            <div class="reagent-list-container data-container q{{mat.quality}}" name="{{mat.name}}"
-                data-step="{{mat.step}}" data-q="{{mat.quality}}" data-n="{{mat.name}}"
-                data-img="{{mat.img}}"
-                {% if mat.item.bop %}data-bop="{{mat.item.bop}}"{% endif %}
-                {% if mat.item.use %}data-use="{{mat.item.use}}"{% endif %}
-                {% if mat.item.slot %}data-slot="{{mat.item.slot}}"{% endif %}
-                {% if mat.item.proficiency %}data-proficiency="{{mat.item.proficiency}}"{% endif %}
-                {% if mat.item.stats %}data-stats="{{mat.item.stats}}"{% endif %}
-                {% if mat.item.armor %}data-armor="{{mat.item.armor}}"{% endif %}
-                {% if mat.item.description %}data-description="{{mat.item.description}}"{% endif %}
-                {% if mat.item.requirements %}data-requirements="{{mat.item.requirements}}"{% endif %}
-                {% if mat.item.speed %}data-speed="{{mat.item.speed}}"{% endif %}
-                {% if mat.item.resists %}data-resists="{{mat.item.resists}}"{% endif %}
-                {% if mat.item.durability %}data-durability="{{mat.item.durability}}"{% endif %}
-                {% if mat.item.procs.exists %}data-procs='[{% for proc in mat.item.procs.all %}"{% if proc is mat.item.procs.all|last %}{{proc.t}}{% else %}{{proc.t}}",{% endif %}{% endfor %}]'{% endif %}
-                {% if mat.item.equips.exists %}data-equips='[{% for equip in mat.item.equips.all %}"{{equip.t}}",{% endfor %}]'{% endif %}
-                {% if mat.item.dps %}data-dps="{{mat.item.dps}}"{% endif %}
-                {% if mat.item.damage.exists %}data-damage='[{% for damage in mat.item.damage.all %}"{{damage}}",{% endfor %}]'{% endif %}
-            >
+            <div class="reagent-list-container data-container q{{mat.quality}}" name="{{mat.name}}" data-ix="{{mat.item.ix}}">
                 <img class="icon-medium" data-img="{{mat.img}}" src="{% static "images/icon_border_2.png" %}"
                 style="background-image: url({% static "images/icons/large/"|add:mat.img|add:".jpg" %});">
 
@@ -81,8 +44,22 @@
     {% endfor %}
     {% endif %}
 
+    {% if selected %}
+    <script src="{% static "js/professions/"|add:selected|add:"/recipes.js" %}"></script>
+    <script src="{% static "js/professions/"|add:selected|add:"/materials.js" %}"></script>
+    <script src="{% static "js/professions/"|add:selected|add:"/itemsets.js" %}"></script>
+    {% endif %}
     <script>
+    var RECIPES = (RECIPES) ? RECIPES : {}
+    var MATERIALS = (MATERIALS) ? MATERIALS : {}
+    var ITEMSETS = (ITEMSETS) ? ITEMSETS : {}
+
+    var ALL_RECIPES = (Boolean(ALL_RECIPES) && Boolean(RECIPES)) ? Object.assign(ALL_RECIPES, RECIPES) : (RECIPES) ? Object.assign({}, RECIPES) : {}
+    var ALL_MATERIALS = (Boolean(ALL_MATERIALS) && Boolean(MATERIALS)) ? Object.assign(ALL_MATERIALS, MATERIALS) : (Boolean(MATERIALS)) ? Object.assign({}, MATERIALS) : {}
+    var ALL_ITEMSETS = (Boolean(ALL_ITEMSETS) && Boolean(ITEMSETS)) ? Object.assign(ALL_ITEMSETS, ITEMSETS) : (Boolean(ITEMSETS)) ? Object.assign({}, ITEMSETS) : {}
+
     $(document).ready(function() {
+
         $(".recipe-name").unbind()
         $(".recipe-image").unbind()
         $(".reagent-list-container").unbind()
