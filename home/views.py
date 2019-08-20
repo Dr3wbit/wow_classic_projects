@@ -657,29 +657,6 @@ class DeniedView(TemplateView):
 def save_rating(request):
 	id = request.POST.get('id', None)
 	value = request.POST.get('value', None)
-	spec = request.POST.get('spec', False)
-	type_of = 'spec' if spec else 'consume_list'
-	data = {}
-	if (request.user.is_authenticated and id and value):
-		user = request.user
-		if spec:
-			saved_list = Spec.objects.get(id=id)
-		else:
-			saved_list = ConsumeList.objects.get(id=id)
-
-		rating = Rating(content_object=saved_list, value=value, user=user)
-		rating.save()
-		data['success'] = True
-		data['average_rating'] = saved_list.rating
-		data['num_ratings'] = saved_list.ratings.count()
-		data['message'] = "user: {} successfully rated {}".format(user.email, saved_list.name)
-
-	return JsonResponse(data)
-
-
-def save_rating(request):
-	id = request.POST.get('id', None)
-	value = request.POST.get('value', None)
 	spec = bool(int(request.POST.get('spec', 0)))
 	type_of = 'spec' if spec else 'consume_list'
 	data = {}

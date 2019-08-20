@@ -698,10 +698,15 @@ function get_talent_tooltip_pos(e, staticK=false, tc=false) {
 		x = x - tooltip_container.outerWidth(true) - $(e.target).outerWidth(true)
 	}
 
-	if ((y + 60 - tooltip_container.outerHeight() < 0) && !(tc)) {
-		y = (y + tooltip_container.outerHeight(true))
+	if (y + 120 - tooltip_container.outerHeight() < 0) {
+		if (tc) {
+			y = y + Math.abs(y + 120 - tooltip_container.outerHeight())
+		} else {
+			y = (y + tooltip_container.outerHeight(true))
+		}
 		//
 	}
+
 	this.coords.x = x
 	this.coords.y = y
 	return this.coords
