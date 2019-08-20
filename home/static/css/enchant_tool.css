@@ -16,13 +16,11 @@
 }
 
 .pageColumn{
-    background-image: url("../images/textured_background.png");
-    background-size: cover;
-    border: 1px rgba(240, 255, 255, 0.95) solid;
-    min-height: 475px;
-    max-height: 475px;
+    background-color: #272727;
+    border: 1px black solid;
+    min-height: 520px;
+    max-height: 520px;
     color: #1EFF00;
-    /* border: 1px solid #78797a; */
 }
 .enchantOptionContainer {
     border-top-left-radius: 1px;
@@ -31,32 +29,13 @@
 
 .materialContainer {
     overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
     border-top-right-radius: 1px;
     border-bottom-right-radius: 5px;
 }
 
-.materialContainer::-webkit-scrollbar {
-    width: 5px;
-}
-
-.materialContainer::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 0, 0);
-}
 
 .selectedEnchantContainer {
     overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.selectedEnchantContainer::-webkit-scrollbar {
-    width: 5px;
-}
-
-.selectedEnchantContainer::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 0, 0);
 }
 
 .right-slots {
@@ -69,33 +48,22 @@
 
 .enchantHolder {
     pointer-events: none;
-    margin-left: 5px; /* offsets scrollbar */
 }
 .enchantOptions {
-    background-image: url("../images/textured_background.png");
-    background-size: cover;
-    border-radius: 5px;
-    border: 2px black solid;
+    border: 1px black solid;
     width: 100%;
     min-height: 419px;
     max-height: 419px;
     overflow-y: scroll;
 }
 
-.enchantOptions::-webkit-scrollbar {
-    width: 5px;
-}
-
-.enchantOptions::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 0, 0);
-}
-
 .bookImg {
     background-image: url("../images/enchanted_book_3_small.png");
     background-size: contain;
     background-repeat: no-repeat;
-    padding: 5px;
-    height: 100%;
+    padding-top: 5px;
+    margin-left: 10px;
+    height: 50%;
 }
 
 .enchantOption {
@@ -103,11 +71,10 @@
     color: white;
     margin-top: 5px;
     cursor: pointer;
-    border: 2px black solid;
-    background-color: black;
+    border: 1px black solid;
+    background-color: #181818;
     display: block;
     text-overflow: ellipsis;
-    border-radius: 4px;
     align-items: center;
     pointer-events: auto;
 }
@@ -117,10 +84,13 @@
 }
 
 .columnTitle {
-    border: 1px solid black;
-    color: rgba(240, 255, 255, 0.95);
-    line-height: 38px;
-    box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
 }
 
 .enchant-slot-title {
@@ -133,25 +103,24 @@
 }
 
 .selected-enchant {
-    padding-top: 10px;
+    margin-top: 30px;
 }
 
 .enchantInfo {
     font-size: 100%;
     padding: 1px;
     margin-top: 5px;
-    background-image: url("../images/textured_background.png");
-    border-radius: 2px;
-    border: 1px solid #b6bbc0;
-    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
     color: #1EFF00;
-    margin-left: 5px; /* offsets scrollbar */
+    margin-left: 10px; /* offsets scrollbar */
+    border: 1px solid black;
+    background-color: #181818;
 
 }
 
 .totalContainer {
    padding-top: 10px;
-   margin-left: 5px; /* offsets scrollbar */
+   margin-left: 10px; /* offsets scrollbar */
+   margin-top: 30px;
 }
 
 .copyTotal {
@@ -178,10 +147,9 @@
 }
 
 .filterOptions{
-    background-image: linear-gradient(rgb(20, 20, 20), black, rgb(20, 20, 20));
-    box-shadow: inset 0 0 5px rgb(40, 40, 40);
     border: 1px solid black;
-    margin-left: 5px;
+    background-color: #121212;
+    margin-left: 10px;
     color: rgba(240, 255, 255, 0.95);
 }
 
@@ -197,7 +165,11 @@
     background-image: url("../images/equipment_slots/cloak.png")
 }
 
-#ring {
+#ring1 {
+    background-image: url("../images/equipment_slots/ring.png")
+}
+
+#ring2 {
     background-image: url("../images/equipment_slots/ring.png")
 }
 
@@ -233,7 +205,11 @@
     background-image: url("../images/equipment_slots/tabard.png")
 }
 
-#trinket {
+#trinket1 {
+    background-image: url("../images/equipment_slots/trinket.png")
+}
+
+#trinket2 {
     background-image: url("../images/equipment_slots/trinket.png")
 }
 
@@ -287,4 +263,8 @@
 
 .results {
     pointer-events: auto;
+}
+
+.enchant-slot-container{
+    margin-top: 30px;
 }

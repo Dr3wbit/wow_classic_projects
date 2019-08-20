@@ -157,6 +157,7 @@ $(".saved-list-form").on({
 })
 
 function savedListSuccess(data, textStatus, jqXHR){
+    console.log("DATA : ",data)
     if (data.created) {
         append_list_item(data)
     }

@@ -34,8 +34,11 @@
     {% block mainbody %}
     <div class="container mainBody">
         <div class="row selection-header sticky-top"></div>
+        <div class="container mainContent">
         <div class="row">
-            <div class="col-12 col-lg-4 enchantOptionContainer pageColumn">
+            <div class="col-12 col-lg-6 col-xl-4 enchantOptionContainer pageColumn">
+                <div class="columnTitle">Choose Enchant(s)</div>
+                <div class="enchant-slot-container">
                 <div class="row">
                     <div class="col-2 left-slots">
                         <div class="itemslot enchantable " id="head" data-toggle="tooltip" data-placement="left"
@@ -57,7 +60,7 @@
                     </div>
                     <div class="col">
                         <div class="row">
-                            <div class="enchantOptions">
+                            <div class="enchantOptions custom-scroll-bar">
                                 <div class="filterOptions sticky-top">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="inlineRadioOptions"
@@ -110,6 +113,7 @@
                             data-placement="left" title="Ranged"></div>
                     </div>
                 </div>
+            </div>
 
                 <!-- <div class="row">
                     <div class="col">
@@ -120,18 +124,21 @@
             <div class="col-12 columnTitle d-lg-none">
                 <!-- Selected Enchants -->
             </div>
-            <div class="col-12 col-lg-4 selectedEnchantContainer pageColumn">
+            <div class="col-12 col-lg-6 col-xl-4 selectedEnchantContainer custom-scroll-bar pageColumn">
+                <div class="columnTitle">Selected Enchants</div>
                 <div class="selected-enchant"></div>
             </div>
             <div class="col-12 columnTitle d-lg-none">
                 <!-- Total Materials -->
             </div>
-            <div class="col-12 col-lg-4 materialContainer pageColumn">
+            <div class="col-12 col-lg-12 col-xl-4 materialContainer custom-scroll-bar pageColumn">
+                    <div class="columnTitle">Total Materials</div>
                 <div class="totalContainer">
                     <div class="results"></div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     {% endblock mainbody %}
