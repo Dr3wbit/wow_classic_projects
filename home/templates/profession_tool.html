@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block title %}- Profession Tool{% endblock title %}
 
 {% load static %}
@@ -80,6 +79,9 @@
 
 $(document).ready(function() {
 
+    var ALL_RECIPES = {}
+    var ALL_MATERIALS = {}
+    var ALL_ITEMSETS = {}
     if (performance.navigation.type === 1) {
         my_consume_list = {}
         $(".prof-filter").removeClass('selected');

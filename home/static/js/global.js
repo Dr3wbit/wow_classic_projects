@@ -1,4 +1,3 @@
-
 $(document).ready(global_event_handlers());
 
 function build_consume_list(url, ix) {
@@ -219,12 +218,14 @@ function looseJsonParse(obj){
     return Function('"use strict";return (' + obj + ')')();
 }
 
+// NEW
 function ez_tooltip(e, staticK=false) {
     var target = $(e.target)
     var data = target.closest(".data-container")[0].dataset
 
-	const tooltip_container = document.getElementById("tooltip_container")
+	var data = (ALL_RECIPES[data.ix]) ? ALL_RECIPES[data.ix] : ALL_MATERIALS[data.ix]
 
+	const tooltip_container = document.getElementById("tooltip_container")
 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
 
 	if (data.img && !staticK) {
@@ -250,7 +251,8 @@ function ez_tooltip(e, staticK=false) {
 	}
 
 	if (data.slot) {
-		const slot = create_element('div', 'slot', 'float:left; margin-right: 5px; padding-right: 5px;', `${data.slot}\n`)
+		var slot_text = (data.slot == 'Bag') ? `${data.slots} Slot Bag` : data.slot
+		const slot = create_element('div', 'slot', 'float:left; margin-right: 5px; padding-right: 5px;', `${slot_text}\n`)
 		tooltip.appendChild(slot)
 	}
 
@@ -260,9 +262,8 @@ function ez_tooltip(e, staticK=false) {
 	}
 
 	if (data.damage) {
-		var _damage = looseJsonParse(data.damage)
 		var damage_text = ""
-		_damage.forEach(function(x) {
+		data.damage.forEach(function(x) {
 			damage_text += `${x}\n`
 		})
 		const damage = create_element('div', 'damage', 'float: left; clear:left; margin-right: 10px; padding-right: 10px', damage_text)
@@ -287,8 +288,8 @@ function ez_tooltip(e, staticK=false) {
 
 	if (data.stats) {
 		var stat_text = ""
-		var _stats = looseJsonParse(data.stats)
-		for (let [key, val] of Object.entries(_stats)) {
+		// var _stats = looseJsonParse(data.stats)
+		for (let [key, val] of Object.entries(data.stats)) {
 			let some_text = `${val} ${key}\n`
 
 			if (key!='Block') {
@@ -303,8 +304,8 @@ function ez_tooltip(e, staticK=false) {
 
 	if (data.resists) {
 		var resist_text = ""
-		var _resists = looseJsonParse(data.resists)
-		for (let [key, val] of Object.entries(_resists)) {
+		// var _resists = looseJsonParse(data.resists)
+		for (let [key, val] of Object.entries(data.resists)) {
 			resist_text += `+${val} ${key} Resist\n`
 		}
 		const resists = create_element('div', 'resists', "float: left; clear: both", `${resist_text}`)
@@ -319,10 +320,10 @@ function ez_tooltip(e, staticK=false) {
 	}
 
 	if (data.requirements) {
-		var _requirements = looseJsonParse(data.requirements)
+		// var _requirements = looseJsonParse(data.requirements)
 		var requirements = create_element('div', 'requirements', 'clear: both;')
 
-		for (let [key, val] of Object.entries(_requirements)) {
+		for (let [key, val] of Object.entries(data.requirements)) {
 			if (key == "level") {
 				requirements.appendChild(create_element('div', 'required_level', '', `Required Level: ${val}`))
 			} else if (key == "classes") {
@@ -357,10 +358,10 @@ function ez_tooltip(e, staticK=false) {
 	}
 
 	if (data.equips) {
-		var _equips = looseJsonParse(data.equips)
+		// var _equips = looseJsonParse(data.equips)
 		var equips = create_element('div', 'use q2', 'clear: both; font-size: 13px')
 
-		_equips.forEach(function(x) {
+		data.equips.forEach(function(x) {
 			equips.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `Equip: ${x}`))
 		})
 
@@ -369,9 +370,9 @@ function ez_tooltip(e, staticK=false) {
 	}
 
 	if (data.procs) {
-		var _procs = looseJsonParse(data.procs)
+		// var _procs = looseJsonParse(data.procs)
 		var procs = create_element('div', 'use q2', 'clear: both; font-size: 13px')
-		_procs.forEach(function(x) {
+		data.procs.forEach(function(x) {
 			procs.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `Chance on Hit: ${x}`))
 		})
 		tooltip.appendChild(procs)
@@ -388,10 +389,203 @@ function ez_tooltip(e, staticK=false) {
 		tooltip.appendChild(description)
 	}
 
+	if (data.itemset) {
+		var itemset = ITEMSETS[data.itemset]
+		// let num_items =
+		var itemset_text = `${itemset.n} (0/${itemset.items.length})`
+		var itemset_elem = create_element('div', 'description', 'clear: both;', `\n${itemset_text}`)
+		itemset.items.forEach(function(name) {
+			itemset_elem.appendChild(create_element('div', 'q0', 'text-indent: 8px;', `${name}\n`))
+		})
+		itemset_elem.appendChild(create_element('div', '', '', `\n`))
+		itemset.bonuses.forEach(function(bonus) {
+			itemset_elem.appendChild(create_element('div', 'q0', '', `${bonus}\n`))
+		})
+
+		tooltip.appendChild(itemset_elem)
+
+	}
+
 	tooltip_container.appendChild(tooltip)
 	var coords = get_tooltip_pos(e, staticK)
 	tooltip_container.style.cssText = `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`
 }
+
+// OLD
+// function ez_tooltip(e, staticK=false) {
+//     var target = $(e.target)
+//     var data = target.closest(".data-container")[0].dataset
+//
+// 	const tooltip_container = document.getElementById("tooltip_container")
+//
+// 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
+//
+// 	if (data.img && !staticK) {
+// 		let image_name = static_url+`images/icons/large/${data.img}.jpg`
+// 		style = `pointer-events: none; float: left; background-image: url(${image_name})`
+// 		var img = create_element('img', 'icon-medium', style, '', "tooltip_img")
+// 		img.src = static_url+"images/icon_border_2.png"
+// 		tooltip_container.appendChild(img)
+// 	}
+//
+// 	const title = create_element('div', `title q${data.q}`, 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
+// 	tooltip.appendChild(title)
+//
+// 	if ((data.slot || data.bop) && (data.q > 1)) {
+// 		const bop_text = (data.bop) ? "Binds when picked up" : "Binds when equipped"
+// 		const bop_elem = create_element('div', 'bop', '', `${bop_text}`)
+// 		tooltip.appendChild(bop_elem)
+// 	}
+//
+// 	if (data.unique) {
+// 		const unique = create_element('div', 'unique', 'padding-right: 5px; margin-right: 5px;', "Unique")
+// 		tooltip.appendChild(unique)
+// 	}
+//
+// 	if (data.slot) {
+// 		const slot = create_element('div', 'slot', 'float:left; margin-right: 5px; padding-right: 5px;', `${data.slot}\n`)
+// 		tooltip.appendChild(slot)
+// 	}
+//
+// 	if (data.proficiency) {
+// 		const proficiency = create_element('div', 'proficiency', 'float: right; clear: right;', `${data.proficiency}`)
+// 		tooltip.appendChild(proficiency)
+// 	}
+//
+// 	if (data.damage) {
+// 		var _damage = looseJsonParse(data.damage)
+// 		var damage_text = ""
+// 		_damage.forEach(function(x) {
+// 			damage_text += `${x}\n`
+// 		})
+// 		const damage = create_element('div', 'damage', 'float: left; clear:left; margin-right: 10px; padding-right: 10px', damage_text)
+// 		tooltip.appendChild(damage)
+// 	}
+//
+// 	if (data.speed) {
+// 		const speed = create_element('div', 'speed', 'float: right; clear: right; margin-left: 10px; padding-left: 10px', `Speed ${data.speed}`)
+// 		tooltip.appendChild(speed)
+// 	}
+//
+// 	if (data.dps) {
+// 		const dps = create_element('div', 'dps', 'clear: both;', `(${data.dps} damage per second)`)
+// 		tooltip.appendChild(dps)
+//
+// 	}
+//
+// 	if (data.armor) {
+// 		const armor = create_element('div', 'armor', 'clear: both;', `${data.armor} Armor`)
+// 		tooltip.appendChild(armor)
+// 	}
+//
+// 	if (data.stats) {
+// 		var stat_text = ""
+// 		var _stats = looseJsonParse(data.stats)
+// 		for (let [key, val] of Object.entries(_stats)) {
+// 			let some_text = `${val} ${key}\n`
+//
+// 			if (key!='Block') {
+// 				some_text = "+"+some_text
+// 			}
+// 			stat_text += some_text
+// 		}
+// 		const stats = create_element('div', 'stats', "float: left; clear: both", `${stat_text}`)
+// 		tooltip.appendChild(stats)
+//
+// 	}
+//
+// 	if (data.resists) {
+// 		var resist_text = ""
+// 		var _resists = looseJsonParse(data.resists)
+// 		for (let [key, val] of Object.entries(_resists)) {
+// 			resist_text += `+${val} ${key} Resist\n`
+// 		}
+// 		const resists = create_element('div', 'resists', "float: left; clear: both", `${resist_text}`)
+// 		tooltip.appendChild(resists)
+// 	}
+//
+//
+// 	if (data.durability) {
+// 		const durability = create_element('div', 'durability', 'clear: both;', `Durability ${data.durability} / ${data.durability}`)
+// 		tooltip.appendChild(durability)
+//
+// 	}
+//
+// 	if (data.requirements) {
+// 		var _requirements = looseJsonParse(data.requirements)
+// 		var requirements = create_element('div', 'requirements', 'clear: both;')
+//
+// 		for (let [key, val] of Object.entries(_requirements)) {
+// 			if (key == "level") {
+// 				requirements.appendChild(create_element('div', 'required_level', '', `Required Level: ${val}`))
+// 			} else if (key == "classes") {
+// 				var class_reqs = create_element('div', `${class_text}`, '', "Classes: ")
+//
+// 				let class_name = val.pop()
+// 				let class_span = create_element('span', `${class_name}`, '', `${class_name}`)
+//
+// 				class_reqs.appendChild(class_span)
+//
+// 				val.forEach(function(class_name) {
+// 					class_reqs.appendChild(create_element('span', `${class_name}`, '', `, ${class_name}`))
+// 				})
+//
+// 			requirements.appendChild(class_reqs)
+// 			} else if (key == "rank") {
+// 				let rank_req = create_element('div', 'required_rank', '', `Requires ${val}`)
+// 				requirements.appendChild(rank_req)
+// 			} else if (key=='profession') {
+// 				for (let [k, v] of Object.entries(val)) {
+// 					var req_text = "Requires "+titleCase(k)
+// 					if (ALL_PROFS.includes(k.toString())) {
+// 						req_text += ` (${v})`
+// 					}
+// 					let prof_req = create_element('div', 'required_prof', '', req_text)
+// 					requirements.appendChild(prof_req)
+// 				}
+// 			}
+// 		}
+// 		requirements.appendChild(create_element('div', '', 'clear: both;'))
+// 		tooltip.appendChild(requirements)
+// 	}
+//
+// 	if (data.equips) {
+// 		var _equips = looseJsonParse(data.equips)
+// 		var equips = create_element('div', 'use q2', 'clear: both; font-size: 13px')
+//
+// 		_equips.forEach(function(x) {
+// 			equips.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `Equip: ${x}`))
+// 		})
+//
+// 		tooltip.appendChild(equips)
+//
+// 	}
+//
+// 	if (data.procs) {
+// 		var _procs = looseJsonParse(data.procs)
+// 		var procs = create_element('div', 'use q2', 'clear: both; font-size: 13px')
+// 		_procs.forEach(function(x) {
+// 			procs.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `Chance on Hit: ${x}`))
+// 		})
+// 		tooltip.appendChild(procs)
+// 	}
+//
+//
+// 	if (data.use) {
+// 		const use = create_element('div', 'use q2', 'clear: both; font-size: 13px', `Use: ${data.use}`)
+// 		tooltip.appendChild(use)
+// 	}
+//
+// 	if (data.description) {
+// 		const description = create_element('div', 'description', 'clear: both;', `"${data.description}"`)
+// 		tooltip.appendChild(description)
+// 	}
+//
+// 	tooltip_container.appendChild(tooltip)
+// 	var coords = get_tooltip_pos(e, staticK)
+// 	tooltip_container.style.cssText = `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`
+// }
+
 
 function move_tooltip(e, staticK=false) {
 	let pageY = e.pageY
@@ -425,7 +619,7 @@ function get_tooltip_pos(e, staticK=false) {
 		x = x - tooltip_container.outerWidth(true) + 10
 	}
 
-	if (y + 110 - tooltip_container.outerHeight() < 0) {
+	if (e.pageY + 100 - tooltip_container.outerHeight() < 0) {
 		y = (y + tooltip_container.outerHeight(true))
 		//
 	}
@@ -696,7 +890,7 @@ function get_talent_tooltip_pos(e, staticK=false, tc=false) {
 		x = x - tooltip_container.outerWidth(true) - $(e.target).outerWidth(true)
 	}
 
-	if (y + 140 - tooltip_container.outerHeight() < 0) {
+	if (y + 120 - tooltip_container.outerHeight() < 0) {
 		if (tc) {
 			y = y + Math.abs(y + 120 - tooltip_container.outerHeight())
 		} else {
