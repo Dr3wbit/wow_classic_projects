@@ -36,9 +36,7 @@ function info_display(id, caller) {
 	});
 }
 
-function display_list_info(data) {
 
-}
 function global_event_handlers() {
 
     if (window.innerWidth <= 992) {
@@ -698,7 +696,7 @@ function get_talent_tooltip_pos(e, staticK=false, tc=false) {
 		x = x - tooltip_container.outerWidth(true) - $(e.target).outerWidth(true)
 	}
 
-	if (y + 120 - tooltip_container.outerHeight() < 0) {
+	if (y + 140 - tooltip_container.outerHeight() < 0) {
 		if (tc) {
 			y = y + Math.abs(y + 120 - tooltip_container.outerHeight())
 		} else {

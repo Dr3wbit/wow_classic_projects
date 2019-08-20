@@ -101,6 +101,7 @@ class TalentCalcTemplate(TemplateView):
 		a = self.forbidden.sub('', str(s))
 		a = self.nope.sub(' ', a).strip().replace(' ', '_').lower()
 		return(a)
+
 	form_class = SpecForm
 
 
@@ -180,27 +181,23 @@ class TalentCalcTemplate(TemplateView):
 		context['form'] = form
 
 		if form.is_valid():
-
-			# response = self.save_list(request)
 			if request.is_ajax():
 				try:
 					form_data = self.save_list(request, form.cleaned_data)
-					name = form_data['name']
-					spent = form_data['spent']
-					wow_class = form_data['wow_class']
 					created = form_data['created']
 					saved_or_updated = 'created' if created else 'updated'
 					message = "Successfully {} spec!".format(saved_or_updated)
-					hash = form_data['hash']
 					data = {
-						'name': name,
+						'name': form_data['name'],
 						'created': created,
-						'wow_class': wow_class,
-						'spent': spent,
+						'wow_class': form_data['wow_class'],
+						'spent': form_data['spent'],
 						'message': message,
-						'hash': hash
+						'hash': form_data['hash'],
+						'id': form_data['id']
 					}
 					response = JsonResponse(data)
+
 				except IntegrityError as e:
 					name = request.POST.get('name', None)
 					message = "User {} already has consume list with name: {}".format(request.user.email, name)
@@ -249,6 +246,7 @@ class TalentCalcTemplate(TemplateView):
 					}
 				)
 				data['created'] = True if spec_created else False
+				data['id'] = spec.id
 
 				for tag in tags:
 					t,tag_created = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
@@ -408,17 +406,16 @@ class ConsumeToolTemplate(TemplateView):
 				try:
 					form_data = self.save_list(request, form.cleaned_data)
 					name = form_data['name']
-					spent = form_data['spent']
-					hash = form_data['hash']
 					created = form_data['created']
 					update_or_create = 'created' if created else 'updated'
 					message = "Successfully {} list: {}".format(update_or_create, name)
 					data = {
 						'name': name,
-						'spent': spent,
-						'hash': hash,
+						'spent': form_data['spent'],
+						'hash': form_data['hash'],
 						'created': created,
-						'message': message
+						'message': message,
+						'id': form_data['id']
 					}
 					response = JsonResponse(data)
 				except IntegrityError as e:
@@ -524,6 +521,7 @@ class ConsumeToolTemplate(TemplateView):
 			}
 		)
 
+		data['id'] = c_list.id
 		hash = secrets.token_hex(5)
 
 		if hash in ConsumeList.objects.all().values_list('hash', flat=True):

@@ -571,8 +571,8 @@ ul {
     pointer-events: none;
     user-select: none;
     border: 1px solid #b6bbc0;
-    padding: 1px;
-    margin: 1px;
+    padding: 3px;
+    margin: 3px;
     /* margin-left: 1px; */
     margin-bottom: 2px;
     /* padding-bottom: 2px; */
@@ -595,8 +595,8 @@ ul {
     user-select: none;
     z-index: 500000;
     visibility: hidden;
-    border: 1px solid red;
-    margin-bottom: 5px;
+    /* border: 1px solid red; */
+    /* margin-bottom: 5px; */
 }
 
 #tooltip-image {

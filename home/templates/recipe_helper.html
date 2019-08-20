@@ -44,8 +44,8 @@
             </div>
         <div class="reagent-list d-none d-md-block">
             {% for mat in recipe.materials.all %}
-            <div class="reagent-list-container data-container" name="{{mat.name}}"
-                data-step={{mat.step}} data-q="{{mat.quality}}" data-n="{{mat.name}}"
+            <div class="reagent-list-container data-container q{{mat.quality}}" name="{{mat.name}}"
+                data-step="{{mat.step}}" data-q="{{mat.quality}}" data-n="{{mat.name}}"
                 data-img="{{mat.img}}"
                 {% if mat.item.bop %}data-bop="{{mat.item.bop}}"{% endif %}
                 {% if mat.item.use %}data-use="{{mat.item.use}}"{% endif %}
