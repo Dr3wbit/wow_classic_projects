@@ -88,14 +88,6 @@
         }
 
     }
-//
-// function move_tooltip(e) {
-// 	let pageY = e.pageY
-// 	let pageX = e.pageX+15
-//     const tooltip = $("#tooltip_container")
-//     // get_dimensions(tooltip)
-//     tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visibility: visible;`)
-// }
 
 function recipe_helper_handlers() {
     $(".recipe-name").on({
@@ -122,7 +114,6 @@ function recipe_helper_handlers() {
             move_tooltip(e, true)
         },
     })
-
 
     $(".prof-item-recipe").on({
         mousedown: e => {
@@ -153,7 +144,6 @@ function recipe_helper_handlers() {
         }
     })
 
-
     $(".reagent-list-container").on({
        mouseenter: e => {
             clear_tooltip(e)
@@ -168,6 +158,4 @@ function recipe_helper_handlers() {
     });
 
 }
-
-
     </script>

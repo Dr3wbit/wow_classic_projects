@@ -106,7 +106,7 @@ if (!my_consume_list) {
 
 function consume_helper_handlers() {
 
-    $(".consume-name, .material-name").on({
+    $(".consume-name, .material-name, .consume-image, .material-image").on({
         mouseenter: e => {
             clear_tooltip(e)
             ez_tooltip( e )
@@ -119,20 +119,7 @@ function consume_helper_handlers() {
         }
     });
 
-    $(".consume-image, .material-image, .crafted-small").on({
-        mouseenter: e => {
-                clear_tooltip(e)
-                ez_tooltip(e, true)
-            },
-            mouseleave: e => {
-                $("#tooltip_container").hide()
-            },
-            mousemove: e => {
-                move_tooltip(e, true)
-            }
-    });
 
-    
     $(".materials-list").on({
         'shown.bs.collapse': e => {
             let id = $( e.target ).attr("id")

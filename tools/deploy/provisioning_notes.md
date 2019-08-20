@@ -190,13 +190,20 @@ python manage.py shell
 from home.models import Crafted, Profession
 professions = [x.name for x in Profession.objects.all()]
 for prof in professions:
-    data = {}
+    all_crafted = {}
+    all_mats = {}
     qs = Crafted.objects.filter(profession__name='{}'.format(prof))
     for crafted in qs:
-        data[crafted.item.ix] = {}
+        all_crafted[crafted.item.ix] = {}
+        all_crafted[crafted.item.ix]
             for mat in crafted.materials.all():
-                data[crafted.item.ix][mat.item.ix] = mat.amount
 
-    with open(os.path.abspath('dumps/{}.json'.format(prof.lower())), 'w+') as f:
+                all_crafted[crafted.item.ix][mat.item.ix] = mat.amount
+
+    with open(os.path.abspath('dumps/{}.js'.format(prof.lower())), 'w+') as f:
         json.dump(data, f, indent=4)
+
+    with open(os.path.abspath('dumps/{}.js'.format(prof.lower())), 'w+') as f:
+        json.dump(data, f, indent=4)
+
 ```

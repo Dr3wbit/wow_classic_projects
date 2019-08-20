@@ -221,7 +221,7 @@ function looseJsonParse(obj){
 // NEW
 function ez_tooltip(e, staticK=false) {
     var target = $(e.target)
-    var data = target.closest(".data-container")[0].dataset
+    // var data = target.closest(".data-container")[0].dataset
 
 	var data = (ALL_RECIPES[data.ix]) ? ALL_RECIPES[data.ix] : ALL_MATERIALS[data.ix]
 

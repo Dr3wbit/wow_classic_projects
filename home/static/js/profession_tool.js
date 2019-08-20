@@ -27,6 +27,7 @@ function add_consume(name, num_added=1, step=1) {
 
 	let consume_container = $(`span.consume-container[name="${name}"]`)
 	let prof_item_recipe = $(`div.prof-item-recipe[name="${name}"]`)
+	var ix = prof_item_recipe.attr("data-ix")
 	let reagent_list_containers = prof_item_recipe.siblings("div.reagent-list").children("div.reagent-list-container")
 	var materials = {}
 	reagent_list_containers.each(function() {
@@ -73,11 +74,13 @@ function add_consume(name, num_added=1, step=1) {
 		})
 
 		let consume_container = $('<span/>', {
-			class: "consume-container",
+			class: "consume-container data-container",
 			role: "button",
 			href: `#${sanitized}_collapse`,
 			name: `${name}`,
 		}).attr("data-toggle", "collapse")
+
+		consume_container.attr("data-ix", ix)
 
 		let expand_button = $('<a/>', {
 			class: "btn btn-sm plus",
@@ -87,7 +90,6 @@ function add_consume(name, num_added=1, step=1) {
 			class: "glyphicon glyphicon-triangle-right",
 			style: "color: azure;"
 		}))
-
 
 		let image_url = static_url+"images/icons/large/"+prof_item_recipe.find("img.recipe-image").attr("data-img")+".jpg"
 
@@ -135,7 +137,7 @@ function add_consume(name, num_added=1, step=1) {
 
 		consume_image.on({
 			mouseenter: e => {
-				clearTooltip(e)
+				clear_tooltip(e)
 				ez_tooltip(e, true)
 			},
 			mouseleave: e => {
@@ -238,7 +240,6 @@ function update_or_create(parent_elem, num_added, materials) {
 					src: static_url+"images/icons/small/icon_border.png",
 					style: `background-image: url(${icon_image});`,
 				})
-
 				.on({
 			        mouseenter: e => {
 			            clear_tooltip(external)
