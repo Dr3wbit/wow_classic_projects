@@ -177,7 +177,11 @@ function savedListError(jqXHR, textStatus, errorThrown){
 }
 
 function append_list_item(data) {
-
+    let path = document.location.pathname
+    let re = /^([^/]*\/[^/]*\/).*$/g;
+    let filtered_path = re.exec(path)
+    console.log('PATH : ', filtered_path)
+    console.log(document.location)
     let wow_class = data.wow_class
     let name = data.name
     let icon = (wow_class) ? `class/${wow_class}.jpg` : `inv_misc_book_09.jpg`
@@ -215,7 +219,8 @@ function append_list_item(data) {
         name: name,
         text: name,
         style: "position: relative;",
-        href: `${document.location.pathname}?${data.hash}`,
+        href: `${filtered_path[1]}${data.id}?${data.hash}`,
+        'data-ix': data.id
     })
     if (wow_class) {
         spec_item.attr("data-wowclass", wow_class)
@@ -251,6 +256,30 @@ function append_list_item(data) {
     trashcan.append($("<span/>", {
         class: "glyphicon glyphicon-trash glyphicon-custom"
     }))
+
+    spec_item.on({
+        click: e => {
+            var list_name = $(e.target).attr('name');
+            var wow_class = ($(e.target).attr('data-wowclass')) ? $(e.target).attr('data-wowclass') : ''
+			let href = $(e.target).attr("href")
+			let id = $(e.target).attr('data-ix')
+			let tempurl = new URL(href = href, base = document.location.origin)
+			let search = tempurl.search
+			let url = new URL(document.location.origin.toString())
+			url.search = search
+            if (wow_class) {
+				// url.pathname = `talent_calc/${wow_class}`
+                update_class(wow_class, id)
+            } else {
+				let prof_elem = $('a.prof-filter.selected')
+				let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
+				console.log('path: ', path)
+				console.log('url: ', url)
+				url.pathname = path
+                build_consume_list(url, id)
+            }
+        }
+    });
 
     spec_item.append(trashcan)
     info_cont.append(spec_info, spec_item)
