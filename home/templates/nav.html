@@ -17,7 +17,7 @@
 		<ul class="navbar-nav">
 			{# nav_items #}
 			{% for k,v in nav_items.items %}
-			<li class="nav-item {% if v == 'Enchant Tool' %}d-none{% endif %}">
+			<li class="nav-item">
 				<a class="nav-link" href="{% url k %}">{{ v }}</a>
 			</li>
 			{% endfor %}
