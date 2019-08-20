@@ -4,33 +4,18 @@
     {% load sanitize from custom_filters %}
 
     {% for consume in consume_list.consumes.all %}
-    <div class="consume-list-item data-container"
+    <div class="consume-list-item"
         data-step={{consume.step}} data-q="{{consume.quality}}" data-n="{{consume.name}}"
-        data-img="{{consume.img}}"
-        {% if consume.item.bop %}data-bop="{{consume.item.bop}}"{% endif %}
-        {% if consume.item.use %}data-use="{{consume.item.use}}"{% endif %}
-        {% if consume.item.slot %}data-slot="{{consume.item.slot}}"{% endif %}
-        {% if consume.item.proficiency %}data-proficiency="{{consume.item.proficiency}}"{% endif %}
-        {% if consume.item.stats %}data-stats="{{consume.item.stats}}"{% endif %}
-        {% if consume.item.armor %}data-armor="{{consume.item.armor}}"{% endif %}
-        {% if consume.item.description %}data-description="{{consume.item.description}}"{% endif %}
-        {% if consume.item.requirements %}data-requirements="{{consume.item.requirements}}"{% endif %}
-        {% if consume.item.speed %}data-speed="{{consume.item.speed}}"{% endif %}
-        {% if consume.item.resists %}data-resists="{{consume.item.resists}}"{% endif %}
-        {% if consume.item.durability %}data-durability="{{consume.item.durability}}"{% endif %}
-        {% if consume.item.procs.exists %}data-procs='[{% for proc in consume.item.procs.all %}"{{proc.t}}",{% endfor %}]'{% endif %}
-        {% if consume.item.equips.exists %}data-equips='[{% for equip in consume.item.equips.all %}"{{equip.t}}",{% endfor %}]'{% endif %}
-        {% if consume.item.dps %}data-dps="{{consume.item.dps}}"{% endif %}
-        {% if consume.item.damage.exists %}data-damage='[{% for damage in consume.item.damage.all %}"{{damage}}",{% endfor %}]'{% endif %}
-    >
+        data-img="{{consume.img}}" data-ix="{{consume.item.item.ix}}"
+        >
 
-        <span class="consume-container" name="{{consume.name}}" role="button" href="#{{consume.name|sanitize}}_collapse"
-            data-toggle="collapse" aria-expanded="false">
+        <span class="consume-container data-container" name="{{consume.name}}" role="button" href="#{{consume.name|sanitize}}_collapse"
+            data-toggle="collapse" data-ix="{{consume.item.item.ix}}" aria-expanded="false">
             <a class="btn btn-sm plus">
                 <span class="glyphicon glyphicon-triangle-right" style="color: azure;"></span>
             </a>
             {% with "images/icons/large/"|add:consume.img|add:".jpg" as item_image %}
-            <img class="icon-small crafted-small" src="{% static "images/icons/small/icon_border.png" %}"
+            <img class="icon-small consume-image" src="{% static "images/icons/small/icon_border.png" %}"
                 style="background-image: url({% static item_image %});">
             {% endwith %}
             <span class="consume-name q{{consume.quality}}">{{consume.name}}</span>
@@ -41,22 +26,7 @@
             {% for mat in consume.mats %}
             <div class="materials-list-item data-container"
                 data-step={{mat.step}} data-q="{{mat.quality}}" data-n="{{mat.name}}"
-                data-img="{{mat.img}}"
-                {% if mat.item.bop %}data-bop="{{mat.item.bop}}"{% endif %}
-                {% if mat.item.use %}data-use="{{mat.item.use}}"{% endif %}
-                {% if mat.item.slot %}data-slot="{{mat.item.slot}}"{% endif %}
-                {% if mat.item.proficiency %}data-proficiency="{{mat.item.proficiency}}"{% endif %}
-                {% if mat.item.stats %}data-stats="{{mat.item.stats}}"{% endif %}
-                {% if mat.item.armor %}data-armor="{{mat.item.armor}}"{% endif %}
-                {% if mat.item.description %}data-description="{{mat.item.description}}"{% endif %}
-                {% if mat.item.requirements %}data-requirements="{{mat.item.requirements}}"{% endif %}
-                {% if mat.item.speed %}data-speed="{{mat.item.speed}}"{% endif %}
-                {% if mat.item.resists %}data-resists="{{mat.item.resists}}"{% endif %}
-                {% if mat.item.durability %}data-durability="{{mat.item.durability}}"{% endif %}
-                {% if mat.item.procs.exists %}data-procs='[{% for proc in mat.item.procs.all %}"{% if proc is mat.item.procs.all|last %}{{proc.t}}{% else %}{{proc.t}},{% endif %}"{% endfor %}]'{% endif %}
-                {% if mat.item.equips.exists %}data-equips='[{% for equip in mat.item.equips.all %}"{% if equip == mat.item.equips.all|last %}{{equip.t}}{% else %}{{equip.t}},{% endif %}"{% endfor %}]'{% endif %}
-                {% if mat.item.dps %}data-dps="{{mat.item.dps}}"{% endif %}
-                {% if mat.item.damage.exists %}data-damage='[{% for damage in mat.item.damage.all %}"{{damage}}",{% endfor %}]'{% endif %}
+                data-img="{{mat.img}}" data-ix="{{mat.item.ix}}"
                 >
                 <span class="material-container" name="{{mat.name}}">
                     <img class="icon-small material-image" src="{% static "images/icons/small/icon_border.png" %}"
@@ -81,7 +51,7 @@
     <span id="separator" class="col-12">Totals</span>
     <div id="materials" class="col-12">
         {% for mat_name,v in materials.items %}
-        <div class="materials-list-item data-container">
+        <div class="materials-list-item data-container" data-ix="{{v.ix}}" data-img="{{v.img}}">
             <span class="material-container" name="{{mat_name}}">
                 <img class="icon-small material-image" src="{% static "images/icons/small/icon_border.png" %}"
                     style="background-image: url({% static "images/icons/large/"|add:v.img|add:".jpg" %});">
@@ -137,8 +107,10 @@ function consume_helper_handlers() {
             var name = $(e.target).parent().attr('name')
             var step = ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') : 1
             var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+            let ix = $(e.target).closest(".data-container").attr("data-ix")
+            update_consume_list(name, multiple, step, ix)
+
             multiple = consume_calculator(current_amount, multiple, step)
-            update_consume_list(name, multiple, step)
             add_consume(name, multiple, step)
             combatText(e, multiple*step)
         }
@@ -150,8 +122,10 @@ function consume_helper_handlers() {
             var name = $(e.target).parent().attr('name')
             var step = ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') : 1
             var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+            let ix = $(e.target).closest(".data-container").attr("data-ix")
+
             multiple = consume_calculator(current_amount, multiple, step)
-            update_consume_list(name, multiple, step)
+            update_consume_list(name, multiple, step, ix)
             add_consume(name, multiple, step)
             combatText(e, multiple*step)
         }

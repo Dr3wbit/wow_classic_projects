@@ -111,8 +111,6 @@ function global_event_handlers() {
             } else {
 				let prof_elem = $('a.prof-filter.selected')
 				let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
-				console.log('path: ', path)
-				console.log('url: ', url)
 				url.pathname = path
                 build_consume_list(url, id)
             }
@@ -221,10 +219,11 @@ function looseJsonParse(obj){
 // NEW
 function ez_tooltip(e, staticK=false) {
     var target = $(e.target)
-    // var data = target.closest(".data-container")[0].dataset
+    var data_container = target.closest(".data-container")[0].dataset
+	console.log('data_container: ', target.closest(".data-container"))
 
-	var data = (ALL_RECIPES[data.ix]) ? ALL_RECIPES[data.ix] : ALL_MATERIALS[data.ix]
-
+	var data = (ALL_RECIPES[data_container.ix]) ? ALL_RECIPES[data_container.ix] : ALL_MATERIALS[data_container.ix]
+	console.log('data: ', data)
 	const tooltip_container = document.getElementById("tooltip_container")
 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
 
@@ -316,7 +315,6 @@ function ez_tooltip(e, staticK=false) {
 	if (data.durability) {
 		const durability = create_element('div', 'durability', 'clear: both;', `Durability ${data.durability} / ${data.durability}`)
 		tooltip.appendChild(durability)
-
 	}
 
 	if (data.requirements) {
@@ -619,7 +617,7 @@ function get_tooltip_pos(e, staticK=false) {
 		x = x - tooltip_container.outerWidth(true) + 10
 	}
 
-	if (e.pageY + 100 - tooltip_container.outerHeight() < 0) {
+	if (e.pageY - tooltip_container.outerHeight() < 0) {
 		y = (y + tooltip_container.outerHeight(true))
 		//
 	}

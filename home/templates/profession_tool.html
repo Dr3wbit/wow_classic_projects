@@ -4,7 +4,11 @@
 {% load static %}
 {% block extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
-
+<script>
+var ALL_RECIPES = {}
+var ALL_MATERIALS = {}
+var ALL_ITEMSETS = {}
+</script>
 {% endblock extra_head %}
 
 {% block mainbody %}
@@ -79,9 +83,6 @@
 
 $(document).ready(function() {
 
-    var ALL_RECIPES = {}
-    var ALL_MATERIALS = {}
-    var ALL_ITEMSETS = {}
     if (performance.navigation.type === 1) {
         my_consume_list = {}
         $(".prof-filter").removeClass('selected');
@@ -139,7 +140,6 @@ function update_url(path='', search='') {
     var url = new URL(document.location.origin.toString())
 
     if (Boolean(path)) {
-        console.log('path: ', path)
         url.pathname = path
     } else {
         url.pathname = "/profession_tool"
