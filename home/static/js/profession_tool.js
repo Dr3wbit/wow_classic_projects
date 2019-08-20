@@ -241,7 +241,7 @@ function update_or_create(parent_elem, num_added, materials) {
 
 				.on({
 			        mouseenter: e => {
-			            clearTooltip(e)
+			            clear_tooltip(external)
 						ez_tooltip(e, true)
 			        },
 			        mouseleave: e => {
@@ -255,7 +255,7 @@ function update_or_create(parent_elem, num_added, materials) {
 					text: `${name}`,
 				}).on({
 			        mouseenter: e => {
-			            clearTooltip(e)
+			            clear_tooltip(e)
 						ez_tooltip( e )
 			        },
 			        mouseleave: e => {
