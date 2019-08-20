@@ -114,6 +114,8 @@ class Item(models.Model):
 	description = models.CharField(max_length=250, blank=True)
 	itemset = models.ForeignKey('ItemSet', blank=True, null=True, on_delete=models.SET_NULL)
 
+	bagslots = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(30)])
+
 	val = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True, help_text='Monetary Value')
 	disenchant = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
 
@@ -147,7 +149,7 @@ class Item(models.Model):
 			return (Decimal((self.damage.aggregate(Sum('low'))['low__sum']+self.damage.aggregate(Sum('high'))['high__sum'])/2)/self.speed).quantize(Decimal('1.0'))
 		else:
 			return False
-			
+
 	class Meta:
 		unique_together = ['ix', 'name']
 		ordering = ['name']
@@ -165,7 +167,7 @@ class SetBonus(models.Model):
 	spell = models.ForeignKey('Spell', on_delete=models.CASCADE)
 
 	def __str__(self):
-		return "({}) Set: {}".format(self.pieces, self.s.t)
+		return "({}) Set: {}".format(self.pieces, self.spell.t)
 
 	class Meta:
 		ordering = ['pieces']
