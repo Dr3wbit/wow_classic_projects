@@ -1,4 +1,4 @@
-var RECIPES = {
+{
     "2862": {
         "n": "Rough Sharpening Stone",
         "q": 1,

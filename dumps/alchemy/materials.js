@@ -1,4 +1,4 @@
-var MATERIALS = {
+{
     "2447": {
         "n": "Peacebloom",
         "q": 1,

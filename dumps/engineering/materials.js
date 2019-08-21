@@ -1,4 +1,4 @@
-var MATERIALS = {
+{
     "4357": {
         "n": "Rough Blasting Powder",
         "q": 1,

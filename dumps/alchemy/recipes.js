@@ -1,4 +1,4 @@
-var RECIPES = {
+{
     "118": {
         "n": "Minor Healing Potion",
         "q": 1,

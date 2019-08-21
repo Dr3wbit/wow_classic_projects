@@ -1,4 +1,4 @@
-var MATERIALS = {
+{
     "2318": {
         "n": "Light Leather",
         "q": 1,

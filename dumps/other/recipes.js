@@ -1,4 +1,4 @@
-var RECIPES = {
+{
     "8412": {
         "n": "Ground Scorpok Assay",
         "q": 1,

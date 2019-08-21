@@ -51,7 +51,6 @@
     {% endif %}
     <script>
     if (!RECIPES) {
-        console.log('no recipes')
         var RECIPES = {}
     }
     if (!MATERIALS) {
@@ -60,7 +59,6 @@
     if (!ITEMSETS) {
         var ITEMSETS = {}
     }
-    var OLD_RECIPES = Object.assign({}, ALL_RECIPES)
 
     ALL_RECIPES = Object.assign(ALL_RECIPES, RECIPES)
     ALL_MATERIALS = Object.assign(ALL_MATERIALS, MATERIALS)
@@ -78,8 +76,10 @@
         recipe_helper_handlers()
     })
 
-    function update_consume_list(name, amount=1, step=1) {
-        let prof = $("a.prof-filter.selected").attr("id")
+    function update_consume_list(name, amount=1, step=1, prof) {
+
+        var prof = (!prof) ? $("a.prof-filter.selected").attr("id") : prof
+
         if (!my_consume_list[prof]) {
             my_consume_list[prof] = {}
         }
@@ -131,14 +131,10 @@ function recipe_helper_handlers() {
             e.stopImmediatePropagation()
             var multiple = 1
             var ix = $(e.target).closest(".data-container").attr("data-ix")
+            var recipe = ALL_RECIPES[ix]
 
-            var name = ($(e.target).attr('name')) ? $(e.target).attr('name') :
-                ($(e.target).parent().attr('name')) ? $(e.target).parent().attr('name') :
-                $(e.target).parent().parent().attr('name');
-
-            var step = ($(e.target).attr('data-step')) ? $(e.target).attr('data-step') :
-                ($(e.target).parent().attr('data-step')) ? $(e.target).parent().attr('data-step') :
-                ($(e.target).parent().parent().attr('data-step')) ? $(e.target).parent().parent().attr('data-step') : 1;
+            var name = recipe.n
+            var step = recipe.step
 
             if (e.shiftKey) {
                 multiple = 5
@@ -151,7 +147,7 @@ function recipe_helper_handlers() {
             var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
             multiple = consume_calculator(current_amount, multiple, step)
             update_consume_list(name, multiple, step)
-            add_consume(name, multiple, step, ix)
+            add_consume(recipe, multiple, step, ix)
             combatText(e, multiple*step)
 
         }

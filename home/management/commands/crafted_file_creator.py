@@ -16,7 +16,6 @@ class Command(BaseCommand):
 		other = options['other']
 
 		if basic:
-
 			professions = [x.name for x in Profession.objects.all()]
 		else:
 			professions = ['other']
@@ -156,6 +155,9 @@ class Command(BaseCommand):
 		if item.use:
 			attributes['use'] = item.use.t
 
+		if item.quest_item:
+			attributes['quest_item'] = item.quest_item
+			
 		if item.bop:
 			attributes['bop'] = item.bop
 

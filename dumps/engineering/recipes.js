@@ -1,4 +1,4 @@
-var RECIPES = {
+{
     "4358": {
         "n": "Rough Dynamite",
         "q": 1,

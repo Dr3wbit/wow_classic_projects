@@ -1,4 +1,4 @@
-var MATERIALS = {
+{
     "10938": {
         "n": "Lesser Magic Essence",
         "q": 2,
