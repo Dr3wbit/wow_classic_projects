@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/info_display.css" %}">
 
 {% if spec %}
-	<h1 class="mt-4">{{spec.name}}</h1>
+	<h1 class="mt-5">{{spec.name}}</h1>
     <!-- add star rating here -->
 	{% for tag in spec.tags.all %}
 		<div class="feed-tag">{{tag.name}}</div>
@@ -34,7 +34,7 @@
 {% elif consume_list %}
 {% with "images/icons/large/" as image_prefix %}
 
-	<h1 class="mt-4">{{consume_list.name}}</h1>
+	<h1 class="mt-5">{{consume_list.name}}</h1>
     <!-- add star rating here -->
 	{% for tag in consume_list.tags.all %}
 		<div class="feed-tag">{{tag.name}}</div>
@@ -63,24 +63,63 @@
         {{consume_list.updated}}
         {% endif %}
         </div>
-        {% for consume in consume_list.consumes.all %}
-        <div>
-            <img class="icon-small" src="{% static "images/icon_border_2.png" %}"
-            style="background-image: url({% static image_prefix|add:consume.img|add:".jpg" %});">
-            <span class="q{{consume.quality}}">{{consume.name}}</span> : <span class="fix-me">{{consume.amount}}</span>
-        </div>
-        {% endfor %}
+
+
+
+        <table class="table table-sm table-dark table-hover mx-auto mt-5 text-left" style="background-color:#1C1C1C">
+            <thead>
+                    <tr>
+                        <th colspan="3">
+                            <h5 class="fix-me text-center">Crafted Items</h5>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Icon</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+            </thead>
+            <tbody>
+                {% for consume in consume_list.consumes.all %}
+                <tr>
+                    <td>
+                        <img class="icon-small" src="{% static "images/icon_border_2.png" %}"
+                        style="background-image: url({% static image_prefix|add:consume.img|add:".jpg" %});">
+                    </td>
+                    <td><span class="q{{consume.quality}}">{{consume.name}}</span></td>
+                    <td><span class="fix-me">{{consume.amount}}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
         {% if materials %}
-        <div>
-            <h5 class="fix-me">MATERIALS</h5>
-            {% for mat_name,v in materials.items %}
-            <div>
-                <img class="icon-small" src="{% static "images/icon_border_2.png" %}"
-                    style="background-image: url({% static image_prefix|add:v.img|add:".jpg" %});">
-                <span class="q{{v.quality}}">{{mat_name}}</span> : <span class="fix-me">{{v.value}}</span>
-            </div>
-            {% endfor %}
-        </div>
+        <table class="table table-sm table-dark table-hover mx-auto mt-5 text-left" style="background-color: #1C1C1C">
+                <thead>
+                        <tr>
+                            <th colspan="3">
+                                <h5 class="fix-me text-center">Total Materials</h5>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Icon</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Amount</th>
+                        </tr>
+                </thead>
+            <tbody>
+                    {% for mat_name,v in materials.items %}
+                <tr>
+                    <td>
+                        <img class="icon-small" src="{% static "images/icon_border_2.png" %}"
+                        style="background-image: url({% static image_prefix|add:v.img|add:".jpg" %});">
+                    </td>
+                    <td><span class="q{{v.quality}}">{{mat_name}}</span></td>
+                    <td><span class="fix-me">{{v.value}}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         {% endif %}
 {% endwith %}
 

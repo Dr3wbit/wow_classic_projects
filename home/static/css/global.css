@@ -812,12 +812,20 @@ a#discord-login:hover{
     font-size: unset;
 }
 
+button:focus {
+    outline: none !important;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
 
 
 .login-dropdown > div:first-child{
     color: inherit!important;
     text-decoration: none;
-    background-color: inherit!important;
+    background-color: inherit !important;
 }
 
 #logout-button {
