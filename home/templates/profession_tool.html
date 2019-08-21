@@ -127,8 +127,10 @@ function build_recipe_list(prof, spec_name = '') {
                 path = document.location.pathname.toString().replace(current_prof.attr('id'), prof)
             } else {
                 let p = document.location.pathname
-                var ix = p.toString().replace("\/profession_tool", '')
+                var ix = p.toString().replace("\/profession_tool", '').replace("/", '')
+                console.log('ix: ', ix)
                 path = (Boolean(ix)) ? `/profession_tool/${prof}/${ix}` : `/profession_tool/${prof}`
+                console.log('path: ', path)
             }
             update_url(path, document.location.search)
         }

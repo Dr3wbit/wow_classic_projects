@@ -160,6 +160,8 @@
     color: azure;
     -webkit-text-stroke: 0.01rem black;
     z-index: 10;
+    user-select: none;
+    pointer-events: none;
 }
 
 .recipe-step {

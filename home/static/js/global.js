@@ -614,7 +614,7 @@ function get_tooltip_pos(e, staticK=false) {
 	}
 
 	if (x + 10 + tooltip_container.outerWidth(true) > window.innerWidth) {
-		x = x - tooltip_container.outerWidth(true) + 10
+		x = x - tooltip_container.outerWidth() + 40
 	}
 
 	if (e.pageY - tooltip_container.outerHeight() < 0) {
