@@ -111,8 +111,6 @@ function global_event_handlers() {
             } else {
 				let prof_elem = $('a.prof-filter.selected')
 				let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
-				console.log('path: ', path)
-				console.log('url: ', url)
 				url.pathname = path
                 build_consume_list(url, id)
             }
@@ -221,10 +219,11 @@ function looseJsonParse(obj){
 // NEW
 function ez_tooltip(e, staticK=false) {
     var target = $(e.target)
-    var data = target.closest(".data-container")[0].dataset
+    var data_container = target.closest(".data-container")[0].dataset
+	console.log('data_container: ', target.closest(".data-container"))
 
-	var data = (ALL_RECIPES[data.ix]) ? ALL_RECIPES[data.ix] : ALL_MATERIALS[data.ix]
-
+	var data = (ALL_RECIPES[data_container.ix]) ? ALL_RECIPES[data_container.ix] : ALL_MATERIALS[data_container.ix]
+	console.log('data: ', data)
 	const tooltip_container = document.getElementById("tooltip_container")
 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
 
@@ -316,7 +315,6 @@ function ez_tooltip(e, staticK=false) {
 	if (data.durability) {
 		const durability = create_element('div', 'durability', 'clear: both;', `Durability ${data.durability} / ${data.durability}`)
 		tooltip.appendChild(durability)
-
 	}
 
 	if (data.requirements) {
@@ -619,7 +617,7 @@ function get_tooltip_pos(e, staticK=false) {
 		x = x - tooltip_container.outerWidth(true) + 10
 	}
 
-	if (e.pageY + 100 - tooltip_container.outerHeight() < 0) {
+	if (e.pageY - tooltip_container.outerHeight() < 0) {
 		y = (y + tooltip_container.outerHeight(true))
 		//
 	}
@@ -752,10 +750,21 @@ function tooltip_v2(e, staticK=false, which=0) {
 			}
 			break
 		// for displaying items (consumes, materials, etc.)
+		// NOTE: Enchant tool is the only template still using this
 		case 2:
 			var thisObj = (allConsumes[name]) ? allConsumes[name] : allMaterials[name]
 			const properName = (thisObj.name) ? thisObj.name : titleCase(name)
 			const rarity = thisObj.rarity
+			let border_image = static_url+"images/icon_border_2.png"
+
+			let image_name = static_url+`images/icons/medium/materials/${thisObj.name}.jpg`
+
+			var image = (!staticK) ? $('<img/>', {
+				class: 'icon-medium',
+				src: `${border_image}`,
+				style: `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
+			}) : null
+
 			tooltipElems = [{class: `title ${rarity}`, text: properName}]
 			if (thisObj.bop) {
 				tooltipElems.push({class: 'bop', text: "Binds when picked up"})
@@ -841,14 +850,15 @@ function titleCase(str) {
 function bigdaddytooltip(e, name, ...args) {
 	var tooltip_container = $("#tooltip_container")
 	var elems = args[0]
+	// let image_name = static_url+`images/icons/medium/materials/${thisObj.name}.jpg`
 
-	var image_name = static_url+`images/icons/consumes/${name}.jpg`
+	var image_name = static_url+`images/icons/small/${name}.jpg`
 	var border_image = static_url+"images/icon_border_2.png"
 	var staticK = elems.pop()
 	var image = (!staticK) ? $('<img/>', {
 		class: 'icon-medium',
 		src: `${border_image}`,
-		style: `margin-top: 4px; pointer-events: none; float: left; background-image: url(${image_name})`
+		style: `padding-top: 0; width: 28px; height: 28px; background-size: 24px 24px; margin-top: 2px; pointer-events: none; float: left; background-image: url(${image_name})`
 	}) : null
 
 	var tooltip = $('<div/>', {

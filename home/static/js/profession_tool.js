@@ -23,38 +23,33 @@ function consume_calculator(current_amount, multiple, step) {
 	return multiple
 }
 
-function add_consume(name, num_added=1, step=1) {
-
+function add_consume(name, num_added=1, step=1, ix) {
 	let consume_container = $(`span.consume-container[name="${name}"]`)
 	let prof_item_recipe = $(`div.prof-item-recipe[name="${name}"]`)
-	let reagent_list_containers = prof_item_recipe.siblings("div.reagent-list").children("div.reagent-list-container")
+	var ix = (ix) ? ix : consume_container.attr("data-ix")
+	var consume = ALL_RECIPES[ix]
+	var step = consume.step
 	var materials = {}
-	reagent_list_containers.each(function() {
-		var amount = 1;
-		let mat_name = $( this ).attr('name')
-		materials[mat_name] = {}
-		materials[mat_name]['img'] = $( this ).children("img.icon-medium").attr("data-img")
-		materials[mat_name]['q'] = $( this ).attr('data-q')
-		if ( $( this ).children("span.count-container").length ) {
-			amount =  parseInt($( this ).find("div.material-count").first().text())
-		}
-		// console.log('amount: ', amount)
-		materials[mat_name]['amount'] = amount
-	})
+
+	for (let [id, amount] of Object.entries(ALL_RECIPES[ix].materials)) {
+		let material = ALL_MATERIALS[id]
+		let name = material.n
+		materials[name] = {}
+		materials[name]['amount'] = amount
+		materials[name]['q'] = material.q
+		materials[name]['img'] = material.img
+		materials[name]['ix'] = id
+
+	}
 
 	let updated_amount = 0
 	let materials_list_elem
 	let sanitized = sanitize(name)
 	if (consume_container.length) {
 		let current_amount = parseInt(consume_container.find($('span.amount')).text())
-
 		updated_amount = current_amount + (num_added*step)
 		materials_list_elem = $(`#${sanitized}_collapse`)
-
-		if (reagent_list_containers.length) {
-			update_or_create(materials_list_elem, num_added, materials)
-		}
-
+		update_or_create(materials_list_elem, num_added, materials)
 		consume_container.children("span.amount").text(updated_amount)
 
 		if (updated_amount <= 0) {
@@ -73,11 +68,13 @@ function add_consume(name, num_added=1, step=1) {
 		})
 
 		let consume_container = $('<span/>', {
-			class: "consume-container",
+			class: "consume-container data-container",
 			role: "button",
 			href: `#${sanitized}_collapse`,
 			name: `${name}`,
 		}).attr("data-toggle", "collapse")
+
+		consume_container.attr("data-ix", ix)
 
 		let expand_button = $('<a/>', {
 			class: "btn btn-sm plus",
@@ -87,7 +84,6 @@ function add_consume(name, num_added=1, step=1) {
 			class: "glyphicon glyphicon-triangle-right",
 			style: "color: azure;"
 		}))
-
 
 		let image_url = static_url+"images/icons/large/"+prof_item_recipe.find("img.recipe-image").attr("data-img")+".jpg"
 
@@ -108,7 +104,7 @@ function add_consume(name, num_added=1, step=1) {
 				var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
 				multiple = consume_calculator(current_amount, multiple, step)
 				update_consume_list(name, multiple, step)
-	            add_consume(name, multiple, step)
+	            add_consume(name, multiple, step, ix)
 	            combatText(e, multiple*step)
 		}
 		}).append($('<span/>', {
@@ -124,7 +120,7 @@ function add_consume(name, num_added=1, step=1) {
 				var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
 				multiple = consume_calculator(current_amount, multiple, step)
 				update_consume_list(name, multiple, step)
-	            add_consume(name, multiple, step)
+	            add_consume(name, multiple, step, ix)
 	            combatText(e, multiple*step)
 		}
 		}).append($('<span/>', {
@@ -135,8 +131,8 @@ function add_consume(name, num_added=1, step=1) {
 
 		consume_image.on({
 			mouseenter: e => {
-				clearTooltip(e)
-				ez_tooltip(e, true)
+				clear_tooltip(e)
+				ez_tooltip( e )
 			},
 			mouseleave: e => {
 				$("#tooltip_container").hide()
@@ -146,9 +142,8 @@ function add_consume(name, num_added=1, step=1) {
 			}
 		})
 
-		let quality = prof_item_recipe.attr("data-q")
 		let consume_span = $('<span/>', {
-			class: `consume-name q${quality}`,
+			class: `consume-name q${consume.q}`,
 			text: `${name}`,
 		})
 
@@ -208,7 +203,9 @@ function update_or_create(parent_elem, num_added, materials) {
 
 	if (materials) {
 		for (let [name, mat] of Object.entries(materials)) {
+
 			let material_container = parent_elem.find($(`span.material-container[name="${name}"]`))
+
 			let amount_added = Math.round(mat.amount * num_added)
 
 			if (material_container.length) { // already exists; update it
@@ -226,8 +223,8 @@ function update_or_create(parent_elem, num_added, materials) {
 				}
 
 				let materials_list_item = $('<div/>', {
-					class: 'materials-list-item',
-				})
+					class: 'materials-list-item  data-container',
+				}).attr("data-ix", mat.ix)
 
 				let icon_image = static_url+`images/icons/large/${mat.img}.jpg`
 				material_container = $('<span/>', {
@@ -238,17 +235,16 @@ function update_or_create(parent_elem, num_added, materials) {
 					src: static_url+"images/icons/small/icon_border.png",
 					style: `background-image: url(${icon_image});`,
 				})
-
 				.on({
 			        mouseenter: e => {
 			            clear_tooltip(external)
-						ez_tooltip(e, true)
+						ez_tooltip(e )
 			        },
 			        mouseleave: e => {
 						$("#tooltip_container").hide()
 			        },
 					mousemove: e => {
-						move_tooltip(e, true)
+						move_tooltip(e )
 					}
 			    }), $('<span/>', {
 					class: `material-name q${mat.q}`,

@@ -392,6 +392,7 @@ class ConsumeToolTemplate(TemplateView):
 					materials[mat.name]['value'] = 0
 					materials[mat.name]['quality'] = mat.quality
 					materials[mat.name]['img'] = mat.img
+					materials[mat.name]['ix'] = mat.item.ix
 
 				materials[mat.name]['value'] += int(consume.amount * mat.amount)
 

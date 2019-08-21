@@ -50,13 +50,24 @@
     <script src="{% static "js/professions/"|add:selected|add:"/itemsets.js" %}"></script>
     {% endif %}
     <script>
-    var RECIPES = (RECIPES) ? RECIPES : {}
-    var MATERIALS = (MATERIALS) ? MATERIALS : {}
-    var ITEMSETS = (ITEMSETS) ? ITEMSETS : {}
+    if (!RECIPES) {
+        console.log('no recipes')
+        var RECIPES = {}
+    }
+    if (!MATERIALS) {
+        var MATERIALS = {}
+    }
+    if (!ITEMSETS) {
+        var ITEMSETS = {}
+    }
+    var OLD_RECIPES = Object.assign({}, ALL_RECIPES)
 
-    var ALL_RECIPES = (Boolean(ALL_RECIPES) && Boolean(RECIPES)) ? Object.assign(ALL_RECIPES, RECIPES) : (RECIPES) ? Object.assign({}, RECIPES) : {}
-    var ALL_MATERIALS = (Boolean(ALL_MATERIALS) && Boolean(MATERIALS)) ? Object.assign(ALL_MATERIALS, MATERIALS) : (Boolean(MATERIALS)) ? Object.assign({}, MATERIALS) : {}
-    var ALL_ITEMSETS = (Boolean(ALL_ITEMSETS) && Boolean(ITEMSETS)) ? Object.assign(ALL_ITEMSETS, ITEMSETS) : (Boolean(ITEMSETS)) ? Object.assign({}, ITEMSETS) : {}
+    ALL_RECIPES = Object.assign(ALL_RECIPES, RECIPES)
+    ALL_MATERIALS = Object.assign(ALL_MATERIALS, MATERIALS)
+    ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, ITEMSETS)
+
+    // ALL_MATERIALS = (Boolean(ALL_MATERIALS) && Boolean(MATERIALS)) ? Object.assign(ALL_MATERIALS, MATERIALS) : (Boolean(MATERIALS)) ? Object.assign({}, MATERIALS) : {}
+    // ALL_ITEMSETS = (Boolean(ALL_ITEMSETS) && Boolean(ITEMSETS)) ? Object.assign(ALL_ITEMSETS, ITEMSETS) : (Boolean(ITEMSETS)) ? Object.assign({}, ITEMSETS) : {}
 
     $(document).ready(function() {
 
@@ -88,14 +99,6 @@
         }
 
     }
-//
-// function move_tooltip(e) {
-// 	let pageY = e.pageY
-// 	let pageX = e.pageX+15
-//     const tooltip = $("#tooltip_container")
-//     // get_dimensions(tooltip)
-//     tooltip.attr("style", `top: ${pageY}px; left: ${pageX}px; visibility: visible;`)
-// }
 
 function recipe_helper_handlers() {
     $(".recipe-name").on({
@@ -123,11 +126,12 @@ function recipe_helper_handlers() {
         },
     })
 
-
     $(".prof-item-recipe").on({
         mousedown: e => {
             e.stopImmediatePropagation()
             var multiple = 1
+            var ix = $(e.target).closest(".data-container").attr("data-ix")
+
             var name = ($(e.target).attr('name')) ? $(e.target).attr('name') :
                 ($(e.target).parent().attr('name')) ? $(e.target).parent().attr('name') :
                 $(e.target).parent().parent().attr('name');
@@ -147,12 +151,11 @@ function recipe_helper_handlers() {
             var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
             multiple = consume_calculator(current_amount, multiple, step)
             update_consume_list(name, multiple, step)
-            add_consume(name, multiple, step)
+            add_consume(name, multiple, step, ix)
             combatText(e, multiple*step)
 
         }
     })
-
 
     $(".reagent-list-container").on({
        mouseenter: e => {
@@ -168,6 +171,4 @@ function recipe_helper_handlers() {
     });
 
 }
-
-
     </script>
