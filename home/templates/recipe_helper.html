@@ -131,7 +131,10 @@ function recipe_helper_handlers() {
             e.stopImmediatePropagation()
             var multiple = 1
             var ix = $(e.target).closest(".data-container").attr("data-ix")
+            console.log('ix: ', ix)
             var recipe = ALL_RECIPES[ix]
+            console.log('recipe: ', recipe)
+
             var name = recipe.n
             var step = recipe.step
 

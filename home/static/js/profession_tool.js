@@ -23,7 +23,8 @@ function consume_calculator(current_amount, multiple, step) {
 	return multiple
 }
 
-function add_consume(recipe, num_added=1, step=1, ix) {
+function add_consume(r, num_added=1, step=1, ix) {
+	var recipe = (typeof(r) == "string") ? ALL_RECIPES[ix] : r
 	var name = recipe.n
 	let consume_container = $(`span.consume-container[name="${name}"]`)
 	let prof_item_recipe = $(`div.prof-item-recipe[name="${name}"]`)

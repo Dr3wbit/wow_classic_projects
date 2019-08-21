@@ -335,7 +335,9 @@ function ez_tooltip(e, staticK=false) {
 				class_reqs.appendChild(class_span)
 
 				val.forEach(function(class_name) {
-					class_reqs.appendChild(create_element('span', `${class_name.toLowerCase()}`, '', `, ${class_name}`))
+					class_reqs.appendChild(create_element('span', '', '', ', '))
+
+					class_reqs.appendChild(create_element('span', `${class_name.toLowerCase()}`, '', `${class_name}`))
 				})
 
 				val.unshift(first_class_name)
@@ -364,7 +366,7 @@ function ez_tooltip(e, staticK=false) {
 		var equips = create_element('div', 'use q2', 'clear: both; font-size: 13px')
 
 		data.equips.forEach(function(x) {
-			equips.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `Equip: ${x}`))
+			equips.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `${x}`))
 		})
 
 		tooltip.appendChild(equips)
