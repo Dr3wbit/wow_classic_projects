@@ -1,4 +1,4 @@
-var MATERIALS = {
+{
     "8392": {
         "n": "Blasted Boar Lung",
         "q": 1,

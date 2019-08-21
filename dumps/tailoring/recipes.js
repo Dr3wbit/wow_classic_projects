@@ -1,4 +1,4 @@
-var RECIPES = {
+{
     "2568": {
         "n": "Brown Linen Vest",
         "q": 1,

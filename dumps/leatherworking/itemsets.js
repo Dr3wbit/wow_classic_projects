@@ -1,4 +1,4 @@
-var ITEMSETS = {
+{
     "490": {
         "n": "Green Dragon Mail",
         "items": [

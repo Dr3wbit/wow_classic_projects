@@ -220,10 +220,7 @@ function looseJsonParse(obj){
 function ez_tooltip(e, staticK=false) {
     var target = $(e.target)
     var data_container = target.closest(".data-container")[0].dataset
-	console.log('data_container: ', target.closest(".data-container"))
-
 	var data = (ALL_RECIPES[data_container.ix]) ? ALL_RECIPES[data_container.ix] : ALL_MATERIALS[data_container.ix]
-	console.log('data: ', data)
 	const tooltip_container = document.getElementById("tooltip_container")
 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
 
@@ -238,10 +235,15 @@ function ez_tooltip(e, staticK=false) {
 	const title = create_element('div', `title q${data.q}`, 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
 	tooltip.appendChild(title)
 
-	if ((data.slot || data.bop) && (data.q > 1)) {
+	if ((data.slot && data.q > 1) || (data.bop)) {
 		const bop_text = (data.bop) ? "Binds when picked up" : "Binds when equipped"
 		const bop_elem = create_element('div', 'bop', '', `${bop_text}`)
 		tooltip.appendChild(bop_elem)
+	}
+
+	if (data.quest_item) {
+		const quest_item = create_element('div', 'unique', 'padding-right: 5px; margin-right: 5px;', "Quest Item")
+		tooltip.appendChild(quest_item)
 	}
 
 	if (data.unique) {
@@ -324,17 +326,19 @@ function ez_tooltip(e, staticK=false) {
 		for (let [key, val] of Object.entries(data.requirements)) {
 			if (key == "level") {
 				requirements.appendChild(create_element('div', 'required_level', '', `Required Level: ${val}`))
-			} else if (key == "classes") {
-				var class_reqs = create_element('div', `${class_text}`, '', "Classes: ")
+			} else if (key == "class") {
+				var class_reqs = create_element('div', 'class_text', '', "Classes: ")
 
-				let class_name = val.pop()
-				let class_span = create_element('span', `${class_name}`, '', `${class_name}`)
+				let first_class_name = val.shift()
+				let class_span = create_element('span', `${first_class_name.toLowerCase()}`, '', `${first_class_name}`)
 
 				class_reqs.appendChild(class_span)
 
 				val.forEach(function(class_name) {
-					class_reqs.appendChild(create_element('span', `${class_name}`, '', `, ${class_name}`))
+					class_reqs.appendChild(create_element('span', `${class_name.toLowerCase()}`, '', `, ${class_name}`))
 				})
+
+				val.unshift(first_class_name)
 
 			requirements.appendChild(class_reqs)
 			} else if (key == "rank") {
@@ -388,7 +392,7 @@ function ez_tooltip(e, staticK=false) {
 	}
 
 	if (data.itemset) {
-		var itemset = ITEMSETS[data.itemset]
+		var itemset = ALL_ITEMSETS[data.itemset]
 		// let num_items =
 		var itemset_text = `${itemset.n} (0/${itemset.items.length})`
 		var itemset_elem = create_element('div', 'description', 'clear: both;', `\n${itemset_text}`)

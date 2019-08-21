@@ -48,6 +48,7 @@ class Command(BaseCommand):
 		parser.add_argument("-a", "--advanced", action='store_true', help='Attempts to add equips, procs, and on use effects')
 		parser.add_argument("-b", "--basic", action='store_true', help='Attempts to add basic information about the items')
 		parser.add_argument("-c", "--crafted", action='store_true', help='Attempts to add consume recipes')
+		parser.add_argument("-d", "--description", action='store_true', help='Only attempts to add description text')
 
 		parser.add_argument("-t", "--test", action='store_true', help='Just for testing')
 		parser.add_argument("-n", "--noprof", action='store_true', help="Finding consumes that don't have a profession")
@@ -55,6 +56,7 @@ class Command(BaseCommand):
 	def handle(self, *args, **options):
 		advanced = options['advanced']
 		basic = options['basic']
+		only_description = options['description']
 		test = options['test']
 		crafted = options['crafted']
 		noprof = options['noprof']
@@ -66,7 +68,6 @@ class Command(BaseCommand):
 			print('page: ', x)
 			ALL_ITEMS = self.get_item_list(os.path.abspath('home/management/commands/data/items/items{}.js'.format(x)))
 			for ix, valu in ALL_ITEMS.items():
-				print('ix: ', ix)
 				try:
 
 					I = int(ix)
@@ -156,8 +157,6 @@ class Command(BaseCommand):
 						if 'resist' in valu.keys():
 							item.resists = valu['resist']
 
-						if 'description' in valu.keys():
-							item.description = valu['description']
 
 						item.save()
 
@@ -202,6 +201,13 @@ class Command(BaseCommand):
 									if 'skill' in valu['created_by'].keys():
 										crafted.skillup = valu['created_by']['skill']
 										crafted.save()
+					if only_description:
+						if 'description' in valu.keys():
+							item.description = valu['description']
+							print('description: ', valu['description'])
+							item.save()
+							print('{} ({}) - {}'.format(name, ix, item.description))
+
 
 					if advanced:
 

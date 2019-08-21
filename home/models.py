@@ -516,7 +516,7 @@ class ConsumeList(SavedList):
 		}
 
 	@property
-	def prof_shorthand(self):
+	def profs_used(self):
 		prof_dict = {}
 		for consume in self.consumes.all():
 			if consume.item.profession:
@@ -527,8 +527,11 @@ class ConsumeList(SavedList):
 				if 'Other' not in prof_dict.keys():
 					prof_dict['Other'] = 0
 				prof_dict['Other'] += 1
+		short = [self.shorthand[x] for x,y in sorted(prof_dict.items(), key=lambda kv: kv[1], reverse=True)]
+		long = [x.replace(' ', '_').lower() for x,y in sorted(prof_dict.items(), key=lambda kv: kv[1], reverse=True)]
 
-		return [self.shorthand[x] for x,y in sorted(prof_dict.items(), key=lambda kv: kv[1], reverse=True)]
+		return [short, long]
+
 
 
 class Spec(SavedList):

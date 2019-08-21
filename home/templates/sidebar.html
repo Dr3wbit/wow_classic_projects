@@ -51,7 +51,10 @@
 					<div class="saved-list-icon" style="background-image: url('{% static 'images/icons/large/inv_misc_book_09.jpg' %}');"></div>
 					<div class="info-container">
 					<div class="spec-info">
-						<span>{% for prof in consume_list.prof_shorthand %}{% if prof == consume_list.prof_shorthand|first %}{{prof}}{% else %}/{{prof}}{% endif %}{% endfor %}</span>
+						{% for shorthand in consume_list.profs_used.0 %}
+						{% if shorthand == consume_list.profs_used.0|first %}
+						<span>{{shorthand}}{% else %}, {{shorthand}}</span>
+						{% endif %}{% endfor %}
 					</div>
 					{% if "profession_tool" in request.path %}
 					<div data-ix="{{consume_list.id}}" class="spec-list-item" href="{% url 'consume_helper' consume_list.id %}?{{consume_list.hash}}" name="{{consume_list.name}}" style="position: relative;">{{consume_list.name}}

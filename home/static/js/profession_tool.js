@@ -23,15 +23,16 @@ function consume_calculator(current_amount, multiple, step) {
 	return multiple
 }
 
-function add_consume(name, num_added=1, step=1, ix) {
+function add_consume(recipe, num_added=1, step=1, ix) {
+	var name = recipe.n
 	let consume_container = $(`span.consume-container[name="${name}"]`)
 	let prof_item_recipe = $(`div.prof-item-recipe[name="${name}"]`)
 	var ix = (ix) ? ix : consume_container.attr("data-ix")
-	var consume = ALL_RECIPES[ix]
-	var step = consume.step
+	// var consume = ALL_RECIPES[ix]
+	// var step = consume.step
 	var materials = {}
 
-	for (let [id, amount] of Object.entries(ALL_RECIPES[ix].materials)) {
+	for (let [id, amount] of Object.entries(recipe.materials)) {
 		let material = ALL_MATERIALS[id]
 		let name = material.n
 		materials[name] = {}
@@ -39,7 +40,6 @@ function add_consume(name, num_added=1, step=1, ix) {
 		materials[name]['q'] = material.q
 		materials[name]['img'] = material.img
 		materials[name]['ix'] = id
-
 	}
 
 	let updated_amount = 0
@@ -143,7 +143,7 @@ function add_consume(name, num_added=1, step=1, ix) {
 		})
 
 		let consume_span = $('<span/>', {
-			class: `consume-name q${consume.q}`,
+			class: `consume-name q${recipe.q}`,
 			text: `${name}`,
 		})
 
