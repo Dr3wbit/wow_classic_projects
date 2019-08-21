@@ -16,7 +16,7 @@
 <div class="mainBody container">
     <div class="row selection-header sticky-top">
         <div class="col">
-            <form class="form-inline row selection-header">
+            <form id="test_form" class="form-inline row selection-header">
                 <div class="d-none d-md-inline-block col-xl-4 col-md-5">
                     <div class="dropdown show d-inline-block">
                         <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="dropdownFilterLink"
@@ -72,9 +72,8 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-8 col-md-7">
-                    <input class="form-control form-control-sm" type="search" placeholder="Search Keywords" size="30"
-                        aria-label="Search">
-                    <button class="btn btn-sm btn-outline-warning" type="submit">Search</button>
+                    <input id="search_bar" class="form-control form-control-sm" type="search" placeholder="Search Keywords" size="30" aria-label="Search">
+                    <button id="search_bar_button" class="btn btn-sm btn-outline-warning" type="submit">Search</button>
                 </div>
             </form>
         </div>
@@ -131,6 +130,44 @@
             $('.applied-filter-container').text(`Applied Filters: ${displayFilters}`)
         }
     })
+    $("#test_form, #search_bar_button").on({
+        submit: e=> {
+            e.preventDefault()
+            console.log('searchbar submit')
+            search_daddy()
+        }
+    })
+
+    $("#search_bar").on({
+        search: e=> {
+            console.log('searchbar search')
+            search_daddy()
+        }
+    })
+
+    function search_daddy() {
+        var separator = /(?:\s|\,|\.)/
+        var search_string = $("#search_bar").val()
+        var words = search_string.split(separator)
+
+        var $data = $.param({ 'query': words }, true)
+        // var $data = {'query': words }
+
+        $.ajax({
+            method: "GET",
+            url: '/ajax/search_query/',
+            data: $data,
+            dataType: 'json',
+            success: apply_filter_success,
+        });
+
+        console.log('words: ', words)
+
+    }
+
+    function search_query_success(data) {
+        console.log('data: ', data)
+    }
 
     $('#reset-filters').on({
         click: e => {
@@ -160,7 +197,6 @@
             for (var i = 0; i < index; i++) {
                 $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
             }
-
         },
         mouseleave: e => {
             let target = $(e.target)
@@ -259,7 +295,6 @@
             },
             dataType: 'json',
             success: function (data) {
-                // TODO: remove elements that would allow user to potentially vote again
             }
         });
     }
@@ -267,9 +302,7 @@
 
     //connect to endpoint
     function apply_filters(filters) {
-        // var $data = {'tags': filters}
         var $data = $.param({ 'tags': filters }, true)
-        // var $myData = $data.serialize()
         $.ajax({
             method: "GET",
             url: '/ajax/apply_filters/',
