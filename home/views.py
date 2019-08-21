@@ -336,7 +336,7 @@ class ConsumeToolTemplate(TemplateView):
 		if cl:
 			context['ix'] = id
 			context["consume_list"] = cl
-			context['materials'] = self.get_materials(context["consume_list"])
+			context['materials'] = get_materials(context["consume_list"])
 			context['consumes'] = {}
 
 			for consume in cl.consumes.all():
@@ -369,7 +369,7 @@ class ConsumeToolTemplate(TemplateView):
 			cl = ConsumeList.objects.filter(hash=qs).first()
 			if cl:
 				context['consume_list'] = cl
-				context['materials'] = self.get_materials(cl)
+				context['materials'] = get_materials(cl)
 
 
 		if request.is_ajax():
@@ -382,21 +382,6 @@ class ConsumeToolTemplate(TemplateView):
 			response = render(request, "profession_tool.html", context=context)
 
 		return response
-
-	def get_materials(self, cl):
-		materials = {}
-		for consume in cl.consumes.all():
-			for mat in consume.mats:
-				if mat.name not in materials.keys():
-					materials[mat.name] = {}
-					materials[mat.name]['value'] = 0
-					materials[mat.name]['quality'] = mat.quality
-					materials[mat.name]['img'] = mat.img
-					materials[mat.name]['ix'] = mat.item.ix
-
-				materials[mat.name]['value'] += int(consume.amount * mat.amount)
-
-		return materials
 
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
@@ -913,10 +898,24 @@ def savedlist_info(request):
 			saved_list = ConsumeList.objects.filter(id=id).first()
 			if saved_list:
 				context['consume_list'] = saved_list
-
+				context['materials'] = get_materials(saved_list)
+				
 		return render(request, "info_display.html", context=context)
 
+def get_materials(cl):
+	materials = {}
+	for consume in cl.consumes.all():
+		for mat in consume.mats:
+			if mat.name not in materials.keys():
+				materials[mat.name] = {}
+				materials[mat.name]['value'] = 0
+				materials[mat.name]['quality'] = mat.quality
+				materials[mat.name]['img'] = mat.img
+				materials[mat.name]['ix'] = mat.item.ix
 
+			materials[mat.name]['value'] += int(consume.amount * mat.amount)
+
+	return materials
 
 def flag_list(request):
 	uid = request.POST.get("uid", None)
