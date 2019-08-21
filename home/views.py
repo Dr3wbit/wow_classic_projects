@@ -851,7 +851,7 @@ def apply_filters(request):
 
 		# NOTE: or(||):
 		specs = set(Spec.objects.filter(tags__name__in=tags) | Spec.objects.filter(wow_class__name__in=tags))
-		consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__prof__name__in=tags))
+		consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__profession__name__in=tags))
 
 
 	if sorting:
@@ -883,6 +883,7 @@ def apply_filters(request):
 	response = render(request, "index_helper.html", context=context)
 	return response
 
+
 def savedlist_info(request):
 	id = request.GET.get("id", None)
 	print('id: ', id)
@@ -899,7 +900,7 @@ def savedlist_info(request):
 			if saved_list:
 				context['consume_list'] = saved_list
 				context['materials'] = get_materials(saved_list)
-				
+
 		return render(request, "info_display.html", context=context)
 
 def get_materials(cl):
@@ -916,6 +917,41 @@ def get_materials(cl):
 			materials[mat.name]['value'] += int(consume.amount * mat.amount)
 
 	return materials
+
+def search_query(request):
+	class_names = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
+	tag_names = [x.name.lower() for x in Tag.objects.all()]
+
+	print('request.GET: ', request.GET)
+	qd = dict(request.GET)
+	print('qd: ', qd)
+	qs = qd.get('query', None)
+
+	# qs = [x.lower() for x in qs]
+	print("qs: ", qs)
+
+	if qs:
+
+		class_ix = [class_names.index(x) for x in qs if x in class_names]
+		if class_ix:
+			wow_classes = [class_names[x] for x in class_ix]
+			print('wow_classes: ', wow_classes)
+
+		tag_ix = [tag_names.index(x) for x in qs if x in tag_names]
+		if tag_ix:
+			tags = [tag_names[x] for x in tag_ix]
+			tags = [x for x in tags if x not in class_names]
+			
+			print('tags present: ', wow_classes)
+
+
+
+	ConsumeList.objects.filter()
+	data = {}
+	data['message'] = 'ok'
+	response = JsonResponse(data)
+
+	return response
 
 def flag_list(request):
 	uid = request.POST.get("uid", None)
