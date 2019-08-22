@@ -830,12 +830,12 @@ def ajax_tooltip(request):
 	response = JsonResponse(data)
 	return response
 
-def apply_filters(request):
+def yeet_cannon(request):
 
 	context = {}
 	context['rangen'] = range(5)
-	specs = Spec.objects.all()
-	consume_lists = ConsumeList.objects.all()
+	# specs = Spec.objects.all()
+	# consume_lists = ConsumeList.objects.all()
 
 	data = dict(request.GET)
 	reverse = data.get('reverse', False)
@@ -844,17 +844,51 @@ def apply_filters(request):
 	tags = data.get('tags', None)
 	sorting = data.get('sorting', None)
 	combined = data.get('combined', None)
-
+	query = data.get('query', None)
+	specs = ''
+	consume_lists = ''
 	if tags:
 		# NOTE: and(&&):
+		print('tags: ', tags)
 		# specs = set(specs.filter(tags__name__in=tags).filter(wow_class__name__in=tags))
 		# consume_lists = set(consume_lists.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
 
 		# NOTE: or(||):
-		specs = set(Spec.objects.filter(tags__name__in=tags) | Spec.objects.filter(wow_class__name__in=tags))
+		specs = Spec.objects.filter(Q(tags__name__in=tags) | Q(wow_class__name__in=tags))
+
+		# print('specs.count: ', specs.count)
 		consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__profession__name__in=tags))
 
 
+	if query:
+		search_re = ''
+		for i,term in enumerate(query):
+			if term != query[-1]:
+				search_re = search_re+"{}|".format(term)
+			else:
+				search_re = search_re+"{}".format(term)
+
+		search_regex = r"({})+".format(search_re)
+
+		# qs = [x.lower() for x in qs]
+		# print("qs: ", query)
+		# print("search_regex: ", search_regex)
+		query_consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
+		query_specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
+
+		if specs:
+			specs = specs.union(query_specs)
+		else:
+			specs = query_specs
+
+		if consume_lists:
+			consume_lists = consume_lists.union(query_consume_lists)
+		else:
+			consume_lists = query_consume_lists
+
+
+	sorting = False
+	print("SORTING IS MANUALLY SET TO FALSE #YEET_CANNON")
 	if sorting:
 		# combining specs and consume lists
 		if combined:
@@ -878,8 +912,16 @@ def apply_filters(request):
 
 			# context['result_list'] = list(chain(specs, consume_lists))
 
-	context['specs'] = specs
-	context['consume_lists'] = consume_lists
+	if not specs and not consume_lists:
+		context['specs'] = Spec.objects.all()
+		context['consume_lists'] = ConsumeList.objects.all()
+
+
+	else:
+		context['specs'] = specs.distinct()
+		context['consume_lists'] = consume_lists.distinct()
+	# context['specs'] = Spec.objects.all() if not specs else specs
+	# context['consume_lists'] = ConsumeList.objects.all() if not consume_lists else consume_lists
 
 	response = render(request, "index_helper.html", context=context)
 	return response
@@ -918,65 +960,66 @@ def get_materials(cl):
 			materials[mat.name]['value'] += int(consume.amount * mat.amount)
 
 	return materials
-
-def search_query(request):
-	context = {}
-	context['message'] = 'ok'
-
-	class_names = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
-	tag_names = [x.name.lower() for x in Tag.objects.all()]
-
-	qd = dict(request.GET)
-	qs = qd.get('query', None)
-
-	search_re = ''
-	for i,term in enumerate(qs):
-		if term != qs[-1]:
-			search_re = search_re+"{}|".format(term)
-		else:
-			search_re = search_re+"{}".format(term)
-
-	search_regex = r"({})+".format(search_re)
-
-	# qs = [x.lower() for x in qs]
-	print("qs: ", qs)
-	print("search_regex: ", search_regex)
-
-	if qs:
-		class_ix = [class_names.index(x) for x in qs if x in class_names]
-		if class_ix:
-			wow_classes = [class_names[x] for x in class_ix]
-			print('wow_classes: ', wow_classes)
-
-		tag_ix = [tag_names.index(x) for x in qs if x in tag_names]
-		if tag_ix:
-			tags = [tag_names[x] for x in tag_ix]
-			tags = [x for x in tags if x not in class_names]
-
-			print('tags present: ', wow_classes)
-
-		# consumelists = ConsumeList.objects.filter(Q(description__icontains__in=qs) | Q(name__icontains__in=qs))
-		consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
-		specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
-
-		context['consume_lists'] = consume_lists
-		context['specs'] = specs
-
-		# saved_lists = consume_lists.union(specs)
-		print('consume_lists: ', consume_lists)
-		print('specs: ', specs)
-
-		print('num consume_lists: ', consume_lists.count())
-		print('num specs: ', specs.count())
-
-
-
-	if (specs.count==0) and (consume_lists.count==0):
-		# context['status_code'] = 400
-		context['message'] = 'not ok'
-		return HttpResponse('No matches', status=400)
-	else:
-		return render(request, "index_helper.html", context=context)
+#
+# def search_query(request):
+# 	context = {}
+# 	context['message'] = 'ok'
+#
+# 	class_names = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
+# 	tag_names = [x.name.lower() for x in Tag.objects.all()]
+#
+# 	qd = dict(request.GET)
+# 	qs = qd.get('query', None)
+#
+# 	search_re = ''
+# 	for i,term in enumerate(qs):
+# 		if term != qs[-1]:
+# 			search_re = search_re+"{}|".format(term)
+# 		else:
+# 			search_re = search_re+"{}".format(term)
+#
+# 	search_regex = r"({})+".format(search_re)
+#
+# 	# qs = [x.lower() for x in qs]
+# 	print("qs: ", qs)
+# 	print("search_regex: ", search_regex)
+#
+# 	if qs:
+# 		class_ix = [class_names.index(x) for x in qs if x in class_names]
+# 		if class_ix:
+# 			wow_classes = [class_names[x] for x in class_ix]
+# 			print('wow_classes: ', wow_classes)
+#
+# 		tag_ix = [tag_names.index(x) for x in qs if x in tag_names]
+# 		if tag_ix:
+# 			tags = [tag_names[x] for x in tag_ix]
+# 			tags = [x for x in tags if x not in class_names]
+#
+# 			print('tags present: ', wow_classes)
+#
+# 		# consumelists = ConsumeList.objects.filter(Q(description__icontains__in=qs) | Q(name__icontains__in=qs))
+# 		consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
+# 		specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
+#
+# 		context['consume_lists'] = consume_lists
+# 		context['specs'] = specs
+#
+# 		# saved_lists = consume_lists.union(specs)
+# 		print('consume_lists: ', consume_lists)
+# 		print('specs: ', specs)
+#
+# 		print('num consume_lists: ', consume_lists.count())
+# 		print('num specs: ', specs.count())
+#
+#
+#
+# 	if (specs.count==0) and (consume_lists.count==0):
+# 		# context['status_code'] = 400
+# 		context['message'] = 'not ok'
+# 		print('no ok')
+# 		return HttpResponse('No matches', status=400)
+# 	else:
+# 		return render(request, "index_helper.html", context=context)
 
 	# response = JsonResponse(context)
 

@@ -50,25 +50,28 @@
                                     </div>
                                 </div>
                                 <div class="col-12 justify-content-around mt-2">
-                                    <button class="btn btn-sm btn-dark" id="reset-filters">Reset</button>
-                                    <button class="btn btn-sm btn-dark" id="apply-filters">Apply Filters</button>
+                                    <button class="btn btn-sm btn-dark" id="reset-filters" type="button">Reset</button>
+                                    <button class="btn btn-sm btn-dark" id="apply-filters" type="button">Apply Filters</button>
                                 </div>
 
                             </div>
                         </div>
                     </div>
                     <div class="dropdown show d-inline-block">
-                        <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="dropdownSortByLink"
+                        <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="sorting"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sort By
+                            Sort
                         </a>
-                        <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownSortByLink">
-                            <a class="dropdown-item dropdown-item-custom" href="#">Top Rated</a>
+                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
+                            <a class="dropdown-item sorting-item" href="#">Rating</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item dropdown-item-custom" href="#">Most Recent</a>
+                            <a class="dropdown-item sorting-item" href="#">Created</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item dropdown-item-custom" href="#">Most Relevant</a>
+                            <a class="dropdown-item sorting-item" href="#">Updated</a>
                         </div>
+                        <a id="sorting_order" class="btn btn-sm untouchable hidden">
+                            <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-8 col-md-7">
@@ -98,134 +101,243 @@
 {% block javascript %}
 <script>
 
-    $('.filter-dropdown-container').on({
-        click: e => {
-            e.stopPropagation()
-        }
-    })
-    $('.filter-box').on({
-        click: e => {
-            e.stopPropagation()
-            var target = $(e.target)
-            // add target[0].innerText   to an array to be sent with apply filters
-            if (target.hasClass('filter-selected')) {
-                target.removeClass('filter-selected')
-            } else {
-                target.addClass('filter-selected')
-            }
-        }
-    })
+$(document).ready(function() {
+    index_handlers()
 
-    // $('#apply-filters').on({
-    //     click: e => {
-    //         e.preventDefault()
-    //         let filterArray = []
-    //         let selectedFilters = $('.filter-selected')
-    //         for (const filter of selectedFilters) {
-    //             filterArray.push(filter.innerText)
-    //         }
-    //         apply_filters(filterArray)
-    //         $('.dropdown-menu').removeClass('show')
-    //         let displayFilters = filterArray.toString().replace(/,/g, ', ')
-    //         $('.applied-filter-container').text(`Applied Filters: ${displayFilters}`)
+ });
+
+ function index_handlers() {
+     $("#test_form").on({
+         submit: e => {
+             console.log("#test_form submit")
+             e.preventDefault()
+             // e.stopPropagation()
+         }
+     });
+
+     $('.filter-dropdown-container').on({
+         click: e => {
+             console.log(".filter-dropdown-container click")
+             e.stopPropagation()
+         }
+     });
+     $('.filter-box').on({
+         click: e => {
+             e.stopPropagation()
+             console.log(".filter-box click")
+             var target = $(e.target)
+             // add target[0].innerText   to an array to be sent with apply filters
+             if (target.hasClass('filter-selected')) {
+                 target.removeClass('filter-selected')
+             } else {
+                 target.addClass('filter-selected')
+             }
+         }
+     });
+     // $("#search_bar_button").on({
+     //     submit: e=> {
+     //         e.preventDefault()
+     //         e.stopImmediatePropagation()
+     //
+     //         console.log('#search_bar_button submit')
+     //         search_daddy()
+     //     },
+     //     click: e=> {
+     //         e.preventDefault()
+     //         e.stopImmediatePropagation()
+     //         console.log('#search_bar_button click')
+     //         search_daddy()
+     //     }
+     // });
+
+     $("#search_bar").on({
+         search: e=> {
+             e.stopImmediatePropagation()
+             console.log('#search_bar search')
+             yeet_cannon()
+         }
+     });
+
+     $("#apply-filters, #search_bar_button").on({
+         click: e => {
+             console.log('#apply-filters click')
+             e.preventDefault()
+
+             yeet_cannon()
+
+             $('.dropdown-menu').removeClass('show')
+
+             let tags = $.map($(".filter-selected"), x => x.innerText).join(", ")
+
+             // let filterArray = []
+             // let selectedFilters = $('.filter-selected')
+             // for (const filter of selectedFilters) {
+             //     filterArray.push(filter.innerText)
+             // }
+             // let displayFilters = filterArray.toString().replace(/,/g, ', ')
+
+             $('.applied-filter-container').text(`Applied Filters: ${tags}`)
+         }
+     });
+
+     $('#reset-filters').on({
+         click: e => {
+             console.log('#reset-filters click')
+
+             e.preventDefault()
+             e.stopImmediatePropagation()
+             $('.filter-selected').removeClass('filter-selected')
+
+             let tags = $.map($(".filter-selected"), x => x.innerText)
+
+             yeet_cannon()
+             $('.applied-filter-container').text(tags)
+         },
+         submit: e => {
+             e.preventDefault()
+         }
+     });
+
+     $('.sorting-item').on({
+         click: e => {
+             // e.preventDefault()
+             let sortBySelection = $(e.target).text()
+             console.log($(e.target))
+             $('#sorting').text(sortBySelection)
+             console.log($(e.target).text())
+             let sort_order = $("#sorting_order")
+             sort_order.removeClass("hidden").removeClass("untouchable")
+             sort_order.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+             // add sorting function here
+             yeet_cannon()
+
+         }
+     });
+
+     $("#sorting_order").on({
+         click: e=> {
+             console.log('#sorting_order')
+             let sort_order = $(e.target).find("span.glyphicon")
+             if (sort_order.hasClass("glyphicon-triangle-bottom")) {
+                 sort_order.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
+             } else {
+                 sort_order.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+             }
+             yeet_cannon()
+         }
+     })
+
+     $(".glyphicon-star-empty").on({
+         mouseenter: e => {
+             var target = $(e.target)
+             var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
+             var index = empty_stars.index(target) + 1
+             for (var i = 0; i < index; i++) {
+                 $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
+             }
+         },
+         mouseleave: e => {
+             let target = $(e.target)
+             let longbar = target.closest($("div.longbar"))
+             let stars = longbar.find($(".glyphicon"))
+             stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
+         },
+         mousedown: e => {
+             // need some sort of confirmation here
+
+             var target = $(e.target)
+             let longbar = target.closest($("div.longbar"))
+             let stars = longbar.find($(".glyphicon"))
+             stars.unbind()
+             var rating = longbar.find($(".glyphicon-star")).length
+             var container = target.closest($(".ratings-container"))
+             var id = container.attr("data-id")
+             var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : 0
+             var data = {
+                 wow_class: wow_class,
+                 id: id,
+                 rating: rating
+             }
+             rate_saved_list(data)
+         }
+     });
+
+ }
+
+
+
+     function yeet_cannon() {
+         var separator = /(?:\s|\,|\.)/
+         var search_string = $("#search_bar").val()
+         var words = search_string.split(separator).filter(Boolean).filter(word => word.length < 21)
+         var $predata = {};
+
+         var sorting;
+         if (!($("#sorting_order").hasClass("hidden"))) {
+             let sort_text = $("#sorting").text()
+             sorting = ($("#sorting_order").hasClass("glyphicon-triangle-top")) ? `+${sort_text}` : `-${sort_text}`
+         }
+
+         var tags = $.map($(".filter-selected"), x => x.innerText)
+
+         if (Boolean(sorting)) {
+             $predata['sorting'] = sorting.toString()
+         }
+         if (words.length > 0) {
+             $predata['query'] = words
+         }
+
+         if (tags.length > 0) {
+              $predata['tags'] = tags
+         }
+
+         var $data = $.param($predata, true)
+
+         // console.log("typeof(data): ", typeof($data))
+
+         $.ajax({
+             method: "GET",
+             url: '/ajax/yeet_cannon/',
+             data: $data,
+             dataType: 'html',
+             success: yeet_cannon_success,
+         });
+     }
+
+     function yeet_cannon_success(data) {
+         $("#saved_list_container").html(data)
+     }
+
+    // function search_daddy() {
+    //     var separator = /(?:\s|\,|\.)/
+    //     var search_string = $("#search_bar").val()
+    //     var words = search_string.split(separator).filter(Boolean)
+    //
+    //     var $data = $.param({ 'query': words }, true)
+    //     // var $data = {'query': words }
+    //     if (words.length == 0) {
+    //         return false
     //     }
-    // })
-    $("#search_bar_button").on({
-        submit: e=> {
-            e.preventDefault()
-            console.log('searchbar submit')
-            search_daddy()
-        }
-    })
+    //
+    //     $.ajax({
+    //         method: "GET",
+    //         url: '/ajax/search_query/',
+    //         data: $data,
+    //         dataType: 'html',
+    //         success: search_query_success,
+    //         error: search_query_error,
+    //     });
+    // }
 
-    $("#search_bar").on({
-        search: e=> {
-            e.stopPropagation()
-            console.log('searchbar search')
-            search_daddy()
-        }
-    })
+    // function search_query_success(data) {
+    //     $("#saved_list_container").html(data)
+    //     // console.log('data: ', data)
+    // }
+    //
+    // function search_query_error(data) {
+    //     notifyUser(data.message)
+    // }
 
-    function search_daddy() {
-        var separator = /(?:\s|\,|\.)/
-        var search_string = $("#search_bar").val()
-        var words = search_string.split(separator).filter(Boolean)
-
-        var $data = $.param({ 'query': words }, true)
-        // var $data = {'query': words }
-        if (words.length == 0) {
-            return false
-        }
-
-        $.ajax({
-            method: "GET",
-            url: '/ajax/search_query/',
-            data: $data,
-            dataType: 'html',
-            success: search_query_success,
-        });
-    }
-
-    function search_query_success(data) {
-        $("#saved_list_container").html(data)
-        // console.log('data: ', data)
-    }
-
-    $('#reset-filters').on({
-        click: e => {
-            e.preventDefault()
-            e.stopImmediatePropagation()
-            let filterArray = []
-            let selectedFilters = $('.filter-selected')
-            selectedFilters.removeClass('filter-selected')
-            apply_filters(filterArray)
-            $('.applied-filter-container').text(filterArray)
-        }
-    })
-
-    $('.dropdown-item-custom').on({
-        click: e => {
-            e.preventDefault()
-            let sortBySelection = e.target.innerText
-            $('#dropdownSortByLink').text(sortBySelection)
-            // add sorting function here
-        }
-    })
-
-    $(".glyphicon-star-empty").on({
-        mouseenter: e => {
-            var target = $(e.target)
-            var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
-            var index = empty_stars.index(target) + 1
-            for (var i = 0; i < index; i++) {
-                $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
-            }
-        },
-        mouseleave: e => {
-            let target = $(e.target)
-            let longbar = target.closest($("div.longbar"))
-            let stars = longbar.find($(".glyphicon"))
-            stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
-        },
-        mousedown: e => {
-            // need some sort of confirmation here
-
-            var target = $(e.target)
-            let longbar = target.closest($("div.longbar"))
-            let stars = longbar.find($(".glyphicon"))
-            stars.unbind()
-            var rating = longbar.find($(".glyphicon-star")).length
-            var container = target.closest($(".ratings-container"))
-            var id = container.attr("data-id")
-            var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : 0
-            var data = {
-                wow_class: wow_class,
-                id: id,
-                rating: rating
-            }
-            rate_saved_list(data)
-        }
-    })
 
     function rate_saved_list(d) {
         var spec = (d.wow_class) ? 1 : 0
@@ -240,7 +352,8 @@
                 'spec': spec,
             },
             dataType: 'json',
-            success: update_rating
+            success: update_rating,
+            error: rating_error,
         });
     }
 
@@ -264,6 +377,10 @@
         ratings_container.find("div.star-bg").removeClass("rating-vote")
         ratings_container.find($(".ratings-count")).text(`(${data.num_ratings})`)
 
+    }
+
+    function rating_error(data) {
+        notifyUser(data.message)
     }
 
     {% if request.user.is_staff %}
@@ -305,22 +422,6 @@
         notifyUser(data.message)
     }
     {% endif %}
-
-    //connect to endpoint
-    // function apply_filters(filters) {
-    //     var $data = $.param({ 'tags': filters }, true)
-    //     $.ajax({
-    //         method: "GET",
-    //         url: '/ajax/apply_filters/',
-    //         data: $data,
-    //         dataType: 'html',
-    //         success: apply_filter_success,
-    //     });
-    // }
-
-    // function apply_filter_success(data) {
-    //     $("#saved_list_container").html(data)
-    // }
 
 
 </script>
