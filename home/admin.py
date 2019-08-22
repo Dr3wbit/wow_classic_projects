@@ -81,9 +81,13 @@ class SpecApprovalForm(forms.ModelForm):
 
 	def save(self, *args, **kwargs):
 		data_dict = self.data.dict()
+		print(data_dict)
 		for x in range(int(data_dict['form-TOTAL_FORMS'])):
 			inx = 'form-{}-id'.format(x)
-			ix = data_dict[inx]
+			ix = int(data_dict[inx])
+			print('ix: ', ix)
+			print('inx: ', inx)
+
 			spec = Spec.objects.get(id=ix)
 			approved_key = 'form-{}-visible'.format(x)
 			approved = True if data_dict[approved_key] == 'True' else False
@@ -143,7 +147,7 @@ class FlaggedCLAdmin(admin.ModelAdmin):
 	actions = None
 
 	def get_changelist_form(self, request, **kwargs):
-		return SpecApprovalForm
+		return CLApprovalForm
 
 	def get_queryset(self, request):
 		qs = super().get_queryset(request)
@@ -193,4 +197,4 @@ admin_site.register(ConsumeList, FlaggedCLAdmin)
 
 # admin_site.register(model_or_iterable=Item, admin_class=ItemAdmin)
 
-admin_site.register(User,UserAdmin)
+admin_site.register(User, UserAdmin)

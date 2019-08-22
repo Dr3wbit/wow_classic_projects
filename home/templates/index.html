@@ -116,21 +116,21 @@
         }
     })
 
-    $('#apply-filters').on({
-        click: e => {
-            e.preventDefault()
-            let filterArray = []
-            let selectedFilters = $('.filter-selected')
-            for (const filter of selectedFilters) {
-                filterArray.push(filter.innerText)
-            }
-            apply_filters(filterArray)
-            $('.dropdown-menu').removeClass('show')
-            let displayFilters = filterArray.toString().replace(/,/g, ', ')
-            $('.applied-filter-container').text(`Applied Filters: ${displayFilters}`)
-        }
-    })
-    $("#test_form, #search_bar_button").on({
+    // $('#apply-filters').on({
+    //     click: e => {
+    //         e.preventDefault()
+    //         let filterArray = []
+    //         let selectedFilters = $('.filter-selected')
+    //         for (const filter of selectedFilters) {
+    //             filterArray.push(filter.innerText)
+    //         }
+    //         apply_filters(filterArray)
+    //         $('.dropdown-menu').removeClass('show')
+    //         let displayFilters = filterArray.toString().replace(/,/g, ', ')
+    //         $('.applied-filter-container').text(`Applied Filters: ${displayFilters}`)
+    //     }
+    // })
+    $("#search_bar_button").on({
         submit: e=> {
             e.preventDefault()
             console.log('searchbar submit')
@@ -140,6 +140,7 @@
 
     $("#search_bar").on({
         search: e=> {
+            e.stopPropagation()
             console.log('searchbar search')
             search_daddy()
         }
@@ -148,30 +149,32 @@
     function search_daddy() {
         var separator = /(?:\s|\,|\.)/
         var search_string = $("#search_bar").val()
-        var words = search_string.split(separator)
+        var words = search_string.split(separator).filter(Boolean)
 
         var $data = $.param({ 'query': words }, true)
         // var $data = {'query': words }
+        if (words.length == 0) {
+            return false
+        }
 
         $.ajax({
             method: "GET",
             url: '/ajax/search_query/',
             data: $data,
-            dataType: 'json',
-            success: apply_filter_success,
+            dataType: 'html',
+            success: search_query_success,
         });
-
-        console.log('words: ', words)
-
     }
 
     function search_query_success(data) {
-        console.log('data: ', data)
+        $("#saved_list_container").html(data)
+        // console.log('data: ', data)
     }
 
     $('#reset-filters').on({
         click: e => {
             e.preventDefault()
+            e.stopImmediatePropagation()
             let filterArray = []
             let selectedFilters = $('.filter-selected')
             selectedFilters.removeClass('filter-selected')
@@ -294,27 +297,30 @@
                 'spec': spec,
             },
             dataType: 'json',
-            success: function (data) {
-            }
+            success: delete_rating_success
         });
+    }
+
+    function delete_rating_success(data) {
+        notifyUser(data.message)
     }
     {% endif %}
 
     //connect to endpoint
-    function apply_filters(filters) {
-        var $data = $.param({ 'tags': filters }, true)
-        $.ajax({
-            method: "GET",
-            url: '/ajax/apply_filters/',
-            data: $data,
-            dataType: 'html',
-            success: apply_filter_success,
-        });
-    }
+    // function apply_filters(filters) {
+    //     var $data = $.param({ 'tags': filters }, true)
+    //     $.ajax({
+    //         method: "GET",
+    //         url: '/ajax/apply_filters/',
+    //         data: $data,
+    //         dataType: 'html',
+    //         success: apply_filter_success,
+    //     });
+    // }
 
-    function apply_filter_success(data) {
-        $("#saved_list_container").html(data)
-    }
+    // function apply_filter_success(data) {
+    //     $("#saved_list_container").html(data)
+    // }
 
 
 </script>

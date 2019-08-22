@@ -406,6 +406,7 @@ class Profession(models.Model):
 	ix = models.PositiveIntegerField(primary_key=True, unique=True, choices=PROFESSION_CHOICES)
 	img = models.CharField(max_length=40)
 	name = models.CharField(max_length=30, default='')
+	# recipes = models.ManyToManyField('Crafted', related_name='recipes')
 
 	@property
 	def primary(self):
@@ -413,6 +414,10 @@ class Profession(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	# @property
+	# def crafted(self):
+	# 	return self.recipes.all().prefetch_related("recipes")
 
 
 class Tag(models.Model):

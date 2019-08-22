@@ -685,12 +685,13 @@ def delete_rating(request):
 
 
 				rating = saved_list.ratings.filter(user=user).first()
+				rating_value = rating.value
 				rating.delete()
 
 				data['success'] = True
 				data['average_rating'] = saved_list.rating
 				data['num_ratings'] = saved_list.ratings.count()
-				data['message'] = "user: {} successfully deleted your rating for {}".format(user.email, saved_list.name)
+				data['message'] = "User: {} successfully deleted your {} star rating for {}".format(str(request.user), rating_value, saved_list.name)
 		else:
 			data['success'] = False
 			data['message'] = 'No id found or user is not authenticated'
@@ -837,7 +838,7 @@ def apply_filters(request):
 	consume_lists = ConsumeList.objects.all()
 
 	data = dict(request.GET)
-
+	reverse = data.get('reverse', False)
 	# prof_filters = request.GET.get('prof_filters', None)
 	# class_filters = request.GET.get('class_filters', None)
 	tags = data.get('tags', None)
@@ -858,10 +859,10 @@ def apply_filters(request):
 		# combining specs and consume lists
 		if combined:
 			#created, ascending(oldest):
-			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'))
+			# context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'))
 
 			#created, descending(newest):
-			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=True)
+			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=reverse)
 
 			#top rated (filters out saved lists with 0 ratings):
 			specs = specs.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
@@ -919,19 +920,29 @@ def get_materials(cl):
 	return materials
 
 def search_query(request):
+	context = {}
+	context['message'] = 'ok'
+
 	class_names = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
 	tag_names = [x.name.lower() for x in Tag.objects.all()]
 
-	print('request.GET: ', request.GET)
 	qd = dict(request.GET)
-	print('qd: ', qd)
 	qs = qd.get('query', None)
+
+	search_re = ''
+	for i,term in enumerate(qs):
+		if term != qs[-1]:
+			search_re = search_re+"{}|".format(term)
+		else:
+			search_re = search_re+"{}".format(term)
+
+	search_regex = r"({})+".format(search_re)
 
 	# qs = [x.lower() for x in qs]
 	print("qs: ", qs)
+	print("search_regex: ", search_regex)
 
 	if qs:
-
 		class_ix = [class_names.index(x) for x in qs if x in class_names]
 		if class_ix:
 			wow_classes = [class_names[x] for x in class_ix]
@@ -941,17 +952,35 @@ def search_query(request):
 		if tag_ix:
 			tags = [tag_names[x] for x in tag_ix]
 			tags = [x for x in tags if x not in class_names]
-			
+
 			print('tags present: ', wow_classes)
 
+		# consumelists = ConsumeList.objects.filter(Q(description__icontains__in=qs) | Q(name__icontains__in=qs))
+		consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
+		specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
+
+		context['consume_lists'] = consume_lists
+		context['specs'] = specs
+
+		# saved_lists = consume_lists.union(specs)
+		print('consume_lists: ', consume_lists)
+		print('specs: ', specs)
+
+		print('num consume_lists: ', consume_lists.count())
+		print('num specs: ', specs.count())
 
 
-	ConsumeList.objects.filter()
-	data = {}
-	data['message'] = 'ok'
-	response = JsonResponse(data)
 
-	return response
+	if (specs.count==0) and (consume_lists.count==0):
+		# context['status_code'] = 400
+		context['message'] = 'not ok'
+		return HttpResponse('No matches', status=400)
+	else:
+		return render(request, "index_helper.html", context=context)
+
+	# response = JsonResponse(context)
+
+	# return response
 
 def flag_list(request):
 	uid = request.POST.get("uid", None)
