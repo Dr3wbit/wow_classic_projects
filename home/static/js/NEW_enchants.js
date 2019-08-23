@@ -1,4 +1,4 @@
-const enchants = {
+const new_enchants = {
 	boots: {
 		agility: {
 			materials: {

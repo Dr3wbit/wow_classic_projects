@@ -490,8 +490,9 @@ function create_element(tag, class_name, style, text, id) {
 
 function tooltip_v2(e, staticK=false, which=0) {
 	const targetElement = $(e.target);
-	const name = (targetElement.attr('name')) ? targetElement.attr('name') : targetElement.parent().attr('name');
+	var name = (targetElement.attr('name')) ? targetElement.attr('name') : targetElement.parent().attr('name');
 	var tooltipElems = [];
+	var recipe = false;
 
 	switch (which) {
 
@@ -585,8 +586,9 @@ function tooltip_v2(e, staticK=false, which=0) {
 			const properName = (thisObj.name) ? thisObj.name : titleCase(name)
 			const rarity = thisObj.rarity
 			let border_image = static_url+"images/icon_border_2.png"
+			let ench_img_name = ENCHANT_IMAGES[thisObj.name]
 
-			let image_name = static_url+`images/icons/medium/materials/${thisObj.name}.jpg`
+			let image_name = static_url+`images/icons/large/${ench_img_name}.jpg`
 
 			var image = (!staticK) ? $('<img/>', {
 				class: 'icon-medium',
@@ -621,13 +623,19 @@ function tooltip_v2(e, staticK=false, which=0) {
 
 		// enchant recipes
 		case 3:
+			recipe = true;
 			const slot = $("div.itemslot.enchantable.focus").attr("id")
 			const enchant = allEnchants[slot][name]
 			tooltipElems.push({class: "title spell", text: `Enchant ${titleCase(slot)} - ${titleCase(name)}`})
 			tooltipElems.push({class: "description", text: enchant.description})
 			break
 	}
+
 	tooltipElems.push(staticK)
+
+	if (recipe) {
+		name="spell_holy_greaterheal"
+	}
 	bigdaddytooltip(e, name, tooltipElems)
 	$('#tooltip_container').css({'visibility':'visible'})
 }
@@ -646,12 +654,7 @@ function combatText(e, t){
 	let timeStamp = $.now();
 	let uniqueID = `${e.pageX}${e.pageY}${timeStamp}`
 	let notificationContainer = create_element('div', "floating-container", `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`, text, uniqueID)
-	// let notificationContainer = ($("<div/>", {
-	//     class: "floating-container",
-	//     id: uniqueID,
-	//     text: text,
-	//     style: `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`
-	// }))
+
 	document.body.appendChild(notificationContainer)
 
 	// $( e.target ).append(notificationContainer)
@@ -681,13 +684,15 @@ function bigdaddytooltip(e, name, ...args) {
 	var elems = args[0]
 	// let image_name = static_url+`images/icons/medium/materials/${thisObj.name}.jpg`
 
-	var image_name = static_url+`images/icons/small/${name}.jpg`
+	let ench_img_name = (ENCHANT_IMAGES[name]) ? ENCHANT_IMAGES[name] : name
+
+	var image_name = static_url+`images/icons/large/${ench_img_name}.jpg`
 	var border_image = static_url+"images/icon_border_2.png"
 	var staticK = elems.pop()
 	var image = (!staticK) ? $('<img/>', {
 		class: 'icon-medium',
 		src: `${border_image}`,
-		style: `padding-top: 0; width: 28px; height: 28px; background-size: 24px 24px; margin-top: 2px; pointer-events: none; float: left; background-image: url(${image_name})`
+		style: `padding-top: 0; margin-top: 2px; pointer-events: none; float: left; background-image: url(${image_name})`
 	}) : null
 
 	var tooltip = $('<div/>', {

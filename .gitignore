@@ -13,3 +13,6 @@ ONY_BUFF_KEY.pem
 /static*
 addondev
 home/management/commands/data
+tools/scraping/py/old
+tools/scraping/js/items
+tools/scraping/py/skyscraper3.py
