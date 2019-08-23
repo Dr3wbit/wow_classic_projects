@@ -1,8 +1,10 @@
 {% load static %}
 {% load has_voted sanitize from custom_filters %}
-{% for spec in specs %}
 
-	{% if spec.visible %}
+{% if specs %}
+{% for spec in specs %}
+{% if spec.visible %}
+
 	<div class="col-12 saved-list-item" {% if request.user.is_staff %}data-ix="{{spec.id}}" data-uid="{{spec.user.uid}}"{% endif %}>
 		<div class="feedItem row mt-5">
 			<div class="col">
@@ -139,10 +141,12 @@
 			</div>
 		</div>
 	</div>
-	{% endif %}
+	
+{% endif %}
 {% endfor %}
+{% endif %}
 
-
+{% if consume_lists %}
 {% for cl in consume_lists %}
 {% if cl.visible %}
 	{% has_voted cl.id request.user.email 0 as voted %}
@@ -274,6 +278,7 @@
 	</div>
 {% endif %}
 {% endfor %}
+{% endif %}
 
 {% if request.user.is_staff %}
 <script>
