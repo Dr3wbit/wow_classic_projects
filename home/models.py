@@ -21,6 +21,8 @@ class User(AbstractUser):
 	is_active = models.BooleanField(_('active'), default=True)
 	# avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 	max_lists = models.PositiveSmallIntegerField(default=20)
+	queue = models.PositiveSmallIntegerField(default=0)
+	queue_type = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(3)], help_text="1 for Specs, 2 for CLs")
 
 	objects = UserManager()
 
@@ -494,6 +496,7 @@ class SavedList(models.Model):
 	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
 	flagged = models.BooleanField(default=False)
 	visible = models.BooleanField(default=True)
+	img = models.CharField(max_length=30, default='samwise')
 
 	def __str__(self):
 		return("{}, last updated:{}, rating:{}, created by:{}".format(self.name, self.updated, self.rating, self.user.email))
@@ -592,7 +595,7 @@ class Zone(models.Model):
 
 
 from home.signals import savedspec_limit, consumelist_limit, set_profession_name, set_school_name, set_slot, set_proficiency
-
+from home.signals import spec_profanity_filter, cl_profanity_filter
 # class Faction(models.Model):
 # 	ALLY,HORDE,NEUTRAL = 1,2,3
 # 	FACTION_CHOICES = (

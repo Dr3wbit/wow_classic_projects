@@ -1,4 +1,4 @@
-from django.db.models.signals import pre_save, post_init
+from django.db.models.signals import pre_save, post_save, post_init
 from django.core.exceptions import PermissionDenied, ValidationError
 from home.models import ConsumeList, Spec, User, Profession, School, Item
 from django.dispatch import receiver
@@ -9,37 +9,73 @@ NAUGHTY_WORDS = ["nigger", "faggot", "shit", "fuck", "fag", "nlgger", "nigg3r", 
 @receiver(pre_save, sender=Spec, weak=False)
 def savedspec_limit(sender, instance, **kwargs):
 	user = User.objects.get(email=instance.user.email)
+
+	print('kwargs: ', kwargs)
+	print('instance: ', instance)
+
 	if user.spec_set.count() >= instance.user.max_lists:
 		raise PermissionDenied("Username: {} can only save {} specs".format(instance.user.email, instance.user.max_lists))
 
-	naughty_words = [x.lower() for x in NAUGHTY_WORDS]
+	if instance.img == 'samwise':
+		instance.img = "class/"+instance.wow_class.name.lower()
 
-	reggie = r"({})".format("|".join(naughty_words))
-	description = instance.description.lower().strip().split()
-	description = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in description])
 
-	match = False
-	for word in description:
-		if re.search(reggie, word):
-			match = True
-	if match:
-		instance.flagged = True
-		instance.visible = False
 
-	else:
-		title = instance.name.lower().strip().split()
-		title = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in title])
+@receiver(post_save, sender=Spec, weak=False)
+def spec_profanity_filter(sender, instance, created, **kwargs):
+	if created:
+		naughty_words = [x.lower() for x in NAUGHTY_WORDS]
+		reggie = r"({})".format("|".join(naughty_words))
+		description = instance.description.lower().strip().split()
+		description = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in description])
+
 		match = False
-		for word in title:
+		for word in description:
 			if re.search(reggie, word):
 				match = True
-				instance.flagged = True
-				instance.visible = False
+		if match:
+			instance.flagged = True
+			instance.visible = False
+
+		else:
+			title = instance.name.lower().strip().split()
+			title = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in title])
+			match = False
+			for word in title:
+				if re.search(reggie, word):
+					match = True
+					instance.flagged = True
+					instance.visible = False
 
 
 	# if (any(x for x in NAUGHTY_WORDS if x in instance.description) or any()):
 
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
+@receiver(post_save, sender=ConsumeList, weak=False)
+def cl_profanity_filter(sender, instance, created, **kwargs):
+	if created:
+		naughty_words = [x.lower() for x in NAUGHTY_WORDS]
+		reggie = r"({})".format("|".join(naughty_words))
+		description = instance.description.lower().strip().split()
+		description = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in description])
+
+		match = False
+		for word in description:
+			if re.search(reggie, word):
+				match = True
+		if match:
+			instance.flagged = True
+			instance.visible = False
+
+		else:
+			title = instance.name.lower().strip().split()
+			title = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in title])
+			match = False
+			for word in title:
+				if re.search(reggie, word):
+					match = True
+					instance.flagged = True
+					instance.visible = False
 
 @receiver(pre_save, sender=ConsumeList, weak=False)
 def consumelist_limit(sender, instance, **kwargs):
@@ -47,27 +83,8 @@ def consumelist_limit(sender, instance, **kwargs):
 	if user.consumelist_set.count() > instance.user.max_lists:
 		raise PermissionDenied("Username: {} can only save {} consume lists".format(instance.user.email, instance.user.max_lists))
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
-
-	naughty_words = [x.lower() for x in NAUGHTY_WORDS]
-	reggie = r"({})".format("|".join(naughty_words))
-	description = instance.description.lower().strip().split()
-	description = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in description])
-	match = False
-	for word in description:
-		if re.search(reggie, word):
-			match = True
-	if match:
-		instance.flagged = True
-		instance.visible = False
-	else:
-		title = instance.name.lower().strip().split()
-		title = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in title])
-		match = False
-		for word in title:
-			if re.search(reggie, word):
-				match = True
-				instance.flagged = True
-				instance.visible = False
+	if instance.img == 'samwise':
+		instance.img = 'inv_misc_book_09'
 
 
 @receiver(post_init, sender=Profession)

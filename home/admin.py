@@ -72,12 +72,14 @@ class SpecApprovalForm(forms.ModelForm):
 
 	class Meta:
 		STATUS_CHOICES = (
-			(True, 'ACCEPT'),
-			(False, 'DENY'),
+			(None, '------'),
+			('True', 'ACCEPT'),
+			('False', 'DENY'),
 		)
 
 		fields = ['user', 'name', 'description', 'visible']
 		widgets = {'visible': forms.Select(choices=STATUS_CHOICES)}
+		# initial = {'visible': '------'}
 
 	def save(self, *args, **kwargs):
 		data_dict = self.data.dict()
@@ -85,21 +87,33 @@ class SpecApprovalForm(forms.ModelForm):
 		for x in range(int(data_dict['form-TOTAL_FORMS'])):
 			inx = 'form-{}-id'.format(x)
 			ix = int(data_dict[inx])
-			print('ix: ', ix)
-			print('inx: ', inx)
+			# print('ix: ', ix)
+			# print('inx: ', inx)
 
 			spec = Spec.objects.get(id=ix)
 			approved_key = 'form-{}-visible'.format(x)
-			approved = True if data_dict[approved_key] == 'True' else False
-			spec.visible = approved
-			spec.flagged = False
-			spec.save(force_update=True)
+			if data_dict[approved_key] == 'True':
+				spec.visible = True
+				spec.flagged = False
+				spec.save(force_update=True)
+
+			elif data_dict[approved_key] == 'False':
+				spec.visible = False
+				spec.flagged = False
+				spec.save(force_update=True)
+
+
+
 		m = super().save(*args, **kwargs)
 		return spec
 
 class FlaggedSpecsAdmin(admin.ModelAdmin):
 	form = SpecApprovalForm
 	actions = None
+
+
+	def get_changeform_initial_data(self, request):
+		return {'visible': '------'}
 
 	def get_changelist_form(self, request, **kwargs):
 		return SpecApprovalForm

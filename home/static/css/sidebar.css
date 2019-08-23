@@ -198,5 +198,50 @@ div.modal-footer {
     background-repeat: no-repeat;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
+    position: relative;
+}
 
+.edit-image {
+    position: absolute;
+    color: #3d7e9a;
+    font-size: 10px;
+    right: -2px;
+    bottom: -5px;
+    padding: 0;
+    color: #f00000 !important;
+    cursor: pointer;
+}
+
+.edit-image:hover {
+
+  box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+              inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+
+.icon-selection {
+    cursor: pointer;
+}
+
+.icon-selection:hover {
+
+  box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
+              inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+              inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  border-color: ;
+  border: 2px solid #0056b3;
+
+}
+
+.icon-selection.selected {
+    border: 2px solid rgb(231, 186, 0);
+    color: rgb(231, 186, 0);
 }

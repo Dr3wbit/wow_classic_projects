@@ -1,0 +1,66 @@
+{% load static %}
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button> -->
+{% with "images/icons/large/" as image_prefix %}
+{% for image in context.images %}
+        <img class="icon-medium icon-selection" src="{% static "images/icon_border_2.png" %}"
+        style="background-image: url({% static image_prefix|add:image|add:".jpg" %});" data-img="{{image}}">
+{% endfor %}
+{% endwith %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if context.info.has_previous %}
+            <a class="change-page" href="#">&laquo; first</a>
+            <a class="change-page" href="#">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page <span class="current-page">{{ context.info.page_number }}</span> of <span class="last-page">{{ context.info.num_pages }}</span>
+        </span>
+
+        {% if context.info.has_next %}
+        <div>
+            <a class="change-page" href="#">next</a>
+            {% if context.info.plus_one %}<a class="change-page next-page" href="#">{{ context.info.page_number|add:"1" }}</a>{% endif %}
+            {% if context.info.plus_two %}<a class="change-page" href="#">{{ context.info.page_number|add:"2" }}</a>{% endif %}
+            {% if context.info.plus_three %}<a class="change-page" href="#">{{ context.info.page_number|add:"3" }}</a>{% endif %}
+            <a class="change-page last-page" href="#">last &raquo;</a>
+        </div>
+        {% endif %}
+    </span>
+</div>
+
+<script>
+$(".change-page").on({
+    click: e=> {
+        e.preventDefault()
+        let target = $(e.target)
+        var page = 1
+        if (target.text() == "next") {
+            page = $(".change-page.next-page").text()
+        } else if (target.text() == "last »") {
+            page = $("span.last-page").text()
+        } else if (target.text() == "previous"){
+            page = parseInt($("span.current-page").text()) - 1
+        } else if (target.text() == "« first"){
+            page = 1
+        } else {
+            page = target.text()
+        }
+        console.log('page: ', page)
+        load_icons(page)
+    }
+})
+
+$(".icon-selection").on({
+    click: e=> {
+        let img = $(e.target).attr("data-img")
+        $(".icon-selection").removeClass("selected")
+        $(e.target).addClass("selected")
+    }
+})
+
+</script>
