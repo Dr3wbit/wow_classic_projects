@@ -211,8 +211,6 @@ function calculateData() {
 }
 
 
-
-
 function materialsTooltip() {
     $(".materials-name, .material-image").on({
         mouseenter: e => {
@@ -227,58 +225,6 @@ function materialsTooltip() {
         }
     });
 }
-
-
-// function materialsTooltip() {
-//     $(".results").on({
-//         mouseenter: e => {
-//
-//             clearTooltip()
-//             tooltip_v2(e)
-//
-//
-//             const closestMat = $( e.target ).closest('.materials-list-item').find('.materials-name')
-//             let matName = closestMat.text()
-//
-//             if ((closestMat.hasClass('underlined')) || (matName=='Gold' || matName=='Silver')) {
-//                 return false
-//             } else {
-//                 $(".results").find('.materials-name').removeClass('underlined')
-//                 closestMat.addClass('underlined')
-// 				$("#tooltip").children().remove()
-// 				$("#tooltip").hide()
-//                 const thisMat = allMaterials[utilities.sanitize(matName)]
-//
-// 				const rarity = thisMat.rarity
-// 				const tooltipElems = [{class: `title ${rarity}`, text: matName}]
-//                 if (thisMat.bop) {
-//                     tooltipElems.push({class:'bop', text: "Binds when picked up"})
-//                 }
-//                 if (thisMat.unique) {
-//                     tooltipElems.push({class: 'unique', text: "Unique",})
-//                 }
-// 				if (thisMat.req){
-//                     tooltipElems.push({class: 'requiredLevel', text: `Requires Level ${thisMat.req}`})
-//                 }
-//                 if (thisMat.use) {
-//                     tooltipElems.push({class: 'use', text: `Use: ${thisMat.use}`})
-//                 }
-//                 if (thisMat.description) {
-//                     tooltipElems.push({class: 'description', text:`"${thisMat.description}"`})
-//                 }
-//
-// 				utilities.bigdaddytooltip(closestMat, tooltipElems)
-//             }
-//         },
-//         mouseleave: e => {
-//             clearTooltip()
-//             $(".results").find('.materials-name').removeClass('underlined')
-//             $("#tooltip").hide()
-//             $("#tooltip").children().remove()
-//
-//         }
-//     })
-// }
 
 function showEnchantEffect() {
     $('.enchantHolder').on({

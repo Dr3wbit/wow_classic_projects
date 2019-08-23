@@ -10,9 +10,6 @@ NAUGHTY_WORDS = ["nigger", "faggot", "shit", "fuck", "fag", "nlgger", "nigg3r", 
 def savedspec_limit(sender, instance, **kwargs):
 	user = User.objects.get(email=instance.user.email)
 
-	print('kwargs: ', kwargs)
-	print('instance: ', instance)
-
 	if user.spec_set.count() >= instance.user.max_lists:
 		raise PermissionDenied("Username: {} can only save {} specs".format(instance.user.email, instance.user.max_lists))
 

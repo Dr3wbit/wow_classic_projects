@@ -1,4 +1,4 @@
-const allMaterials = {
+const new_materials = {
 	'2772': {
 		n: 'Iron Ore',
 		q: 1,

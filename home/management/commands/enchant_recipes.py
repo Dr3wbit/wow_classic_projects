@@ -9,6 +9,7 @@ class Command(BaseCommand):
 
 	def add_arguments(self, parser):
 		parser.add_argument("-b", "--basic", action='store_true', help='Attempts to add basic information')
+		parser.add_argument("-i", "--images", action='store_true', help='Attempts to add basic information')
 
 	def handle(self, *args, **options):
 		basic = options['basic']
@@ -16,6 +17,7 @@ class Command(BaseCommand):
 		ALL_ENCHANTS = self.get_item_list(os.path.abspath('dumps/enchants.js'))
 		NEW_ENCHANT_FORMAT = {}
 		ALL_ENCHANTING_MATERIALS = {}
+		ALL_ENCHANT_IMAGES = {}
 
 		for slot, recipes in ALL_ENCHANTS.items():
 			NEW_ENCHANT_FORMAT[slot] = recipes
@@ -25,9 +27,8 @@ class Command(BaseCommand):
 				materials = recipe['materials']
 				NEW_ENCHANT_FORMAT[slot][recipe_name]['materials'] = {}
 
-				print('recipe_name: ', recipe_name)
-
 				for material,amount in materials.items():
+					ALL_ENCHANT_IMAGES[material] = {}
 
 					mat_name = self.titlecase(material)
 					print('mat_name: ', mat_name)
@@ -40,6 +41,8 @@ class Command(BaseCommand):
 					else:
 						item = Item.objects.get(name=mat_name)
 						ix = str(item.ix)
+						ALL_ENCHANT_IMAGES[material] = item.img
+
 						ALL_ENCHANTING_MATERIALS[ix] = {}
 
 						ALL_ENCHANTING_MATERIALS[ix] = self.get_item_attributes(item)
@@ -57,6 +60,13 @@ class Command(BaseCommand):
 		if not os.path.exists(path):
 			with open(path, 'w+') as f:
 				json.dump(ALL_ENCHANTING_MATERIALS, f, cls=DjangoJSONEncoder, indent=4)
+
+		path = os.path.abspath('dumps/enchant_material_images.js')
+		if not os.path.exists(path):
+			with open(path, 'w+') as f:
+				json.dump(ALL_ENCHANT_IMAGES, f, cls=DjangoJSONEncoder, indent=4)
+
+
 
 	def get_item_list(self, path):
 		all_items = ''

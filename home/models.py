@@ -261,7 +261,7 @@ class WoWClass(models.Model):
 	)
 
 	name = models.CharField(max_length=10, choices=CLASS_CHOICES, unique=True)
-	img = models.CharField(max_length=30)
+	img = models.CharField(max_length=50)
 
 	def __str__(self):
 		return self.name
