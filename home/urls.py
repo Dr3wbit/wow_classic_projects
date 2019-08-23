@@ -36,10 +36,4 @@ urlpatterns = [
     path('ajax/flag_list/', views.flag_list, name='flag_list'),
     path('ajax/icon_list/', views.icon_list, name='icon_list'),
     path('ajax/update_icon/', views.update_icon, name='update_icon'),
-
-    # path('ajax/search_query/', views.search_query, name='search_query'),
-    # path('ajax/save_list/', views.save_list, name='save_list'),
-    # re_path(r'^test/', views.TalentsRedirectView.as_view(), name='talents_redirect'),
-    # re_path(r'^test/(?P<class>[a-z]{5,12})/', views.TalentsRedirectView.as_view(), name='talents_redirect'),
-    # path('ajax/talent_builder/', views.talent_builder, name='talent_builder'),
 ]

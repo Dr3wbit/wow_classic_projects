@@ -56,6 +56,7 @@ def update_icon(request):
 def icon_list(request):
 	context = {}
 	context['info'] = {}
+
 	def has_next(page_number, max_pages):
 		if page_number < max_pages:
 			return True
@@ -73,11 +74,12 @@ def icon_list(request):
 
 		return list(set(ALL_IMAGES))
 
-	PER_PAGE = 50
+	PER_PAGE = int(request.GET.get('results_per_page', 50))
 	ALL_IMAGES = get_all_images("tools/scraping/py/image_list.txt")
 	max_pages = round(len(ALL_IMAGES)/PER_PAGE)
 
 	page_number = int(request.GET.get('page', 1))
+
 	context['info']['page_number'] = page_number
 
 	queue = request.GET.get('queue', None)
@@ -125,6 +127,8 @@ def icon_list(request):
 
 # model = Article
 
+def error_404_view(request, exception):
+    return render(request,'404.html')
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
