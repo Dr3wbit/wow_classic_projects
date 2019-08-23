@@ -199,6 +199,7 @@ div.modal-footer {
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     position: relative;
+    cursor: pointer;
 }
 
 .edit-image {
@@ -208,7 +209,7 @@ div.modal-footer {
     right: -2px;
     bottom: -5px;
     padding: 0;
-    color: #f00000 !important;
+    color: #0056b3 !important;
     cursor: pointer;
 }
 
@@ -221,6 +222,8 @@ div.modal-footer {
   -o-transition: all 0.1s ease-in;
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
+  border: 1px solid #0056b3;
+
 }
 
 .icon-selection {
