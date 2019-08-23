@@ -1,20 +1,19 @@
 {% load static %}
 {% load has_voted sanitize from custom_filters %}
+{% with "images/icons/large/" as image_prefix %}
 
 {% if specs %}
 {% for spec in specs %}
 {% if spec.visible %}
-
 	<div class="col-12 saved-list-item" {% if request.user.is_staff %}data-ix="{{spec.id}}" data-uid="{{spec.user.uid}}"{% endif %}>
 		<div class="feedItem row mt-5">
 			<div class="col">
 				<div class="listImage"
-					style="background-image: url('static/images/icons/large/mini_spec/{{ spec.wow_class.name|sanitize }}.png')">
+					style="background-image: url('{% static image_prefix|add:'mini_spec/'|add:spec.wow_class.name|sanitize|add:'.png' %}')">
+
 					<div class="listIcon">
-						{% with "images/icons/large/class/"|add:spec.wow_class.name|sanitize|add:".jpg" as class_image %}
 						<img class="class-icon" src="{% static "images/icon_border_2.png" %}"
-							style="background-image: url('{% static class_image %}');">
-						{% endwith %}
+							style="background-image: url('{% static image_prefix|add:'class/'|add:spec.img %}');">
 					</div>
 					<a style=" position : absolute; height: 125px; width: 180px;"
 						href="{% url 'talent_builder' spec.id %}?{{spec.hash}}"></a>
@@ -141,7 +140,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 {% endif %}
 {% endfor %}
 {% endif %}
@@ -155,10 +154,12 @@
 		<div class="feedItem row mt-5">
 			<div class="col">
 				<div class="listImage"
-					style="background-image: url('static/images/icons/large/mini_spec/profession_tool_image.png')">
+					style="background-image: url('{% static image_prefix|add:'mini_spec/profession_tool_image.png' %}')">
+
 					<div class="listIcon">
 						<img class="class-icon" src="{% static "images/icon_border_2.png" %}"
-						style="background-image: url('static/images/icons/large/inv_misc_book_09.jpg')">
+						style="background-image: url('{% static image_prefix|add:cl.img %}')">
+
 					</div>
 					<a style=" position : absolute; height: 125px; width: 180px;"
 						href="{% url 'consume_builder' cl.id %}?{{cl.hash}}"></a>
@@ -279,7 +280,7 @@
 {% endif %}
 {% endfor %}
 {% endif %}
-
+{% endwith %}
 {% if request.user.is_staff %}
 <script>
 

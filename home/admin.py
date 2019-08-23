@@ -78,6 +78,7 @@ class SpecApprovalForm(forms.ModelForm):
 
 		fields = ['user', 'name', 'description', 'visible']
 		widgets = {'visible': forms.Select(choices=STATUS_CHOICES)}
+		initial = {'visible': "-------"}
 
 	def save(self, *args, **kwargs):
 		data_dict = self.data.dict()

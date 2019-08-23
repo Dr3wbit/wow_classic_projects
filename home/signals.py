@@ -9,11 +9,23 @@ NAUGHTY_WORDS = ["nigger", "faggot", "shit", "fuck", "fag", "nlgger", "nigg3r", 
 @receiver(pre_save, sender=Spec, weak=False)
 def savedspec_limit(sender, instance, **kwargs):
 	user = User.objects.get(email=instance.user.email)
+
+	print('\ndir(instance.updated): ', dir(instance.updated))
+	print('\ninstance.get_previous_by_updated: ', instance.get_previous_by_updated())
+
+	print('\ndir(instance.get_previous_by_updated): ', dir(instance.get_previous_by_updated))
+	# print('kwargs: ', kwargs)
+	signal = kwargs.get('signal')
+
+	print('\ndir instance', dir(instance))
+
 	if user.spec_set.count() >= instance.user.max_lists:
 		raise PermissionDenied("Username: {} can only save {} specs".format(instance.user.email, instance.user.max_lists))
 
-	naughty_words = [x.lower() for x in NAUGHTY_WORDS]
+	if instance.img == 'samwise':
+		instance.img = "class/"+instance.wow_class.name.lower()
 
+	naughty_words = [x.lower() for x in NAUGHTY_WORDS]
 	reggie = r"({})".format("|".join(naughty_words))
 	description = instance.description.lower().strip().split()
 	description = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in description])
@@ -47,6 +59,13 @@ def consumelist_limit(sender, instance, **kwargs):
 	if user.consumelist_set.count() > instance.user.max_lists:
 		raise PermissionDenied("Username: {} can only save {} consume lists".format(instance.user.email, instance.user.max_lists))
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
+	if instance.img == 'samwise':
+		instance.img = 'inv_misc_book_09'
+
+	print('kwargs: ', kwargs)
+
+	signal = kwargs.get('signal')
+	print(dir(signal))
 
 	naughty_words = [x.lower() for x in NAUGHTY_WORDS]
 	reggie = r"({})".format("|".join(naughty_words))

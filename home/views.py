@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
-from django.views.generic import RedirectView, TemplateView
+from django.views.generic import ListView, RedirectView, TemplateView
 from django.core.cache import cache
 from django.db.models import Count, Q, Avg
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
@@ -9,10 +9,122 @@ from home.forms import ContactForm, SpecForm, ConsumeListForm
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint fails
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
+from django.core.paginator import Paginator
 
 from itertools import chain
 from operator import attrgetter
-import re, datetime, secrets
+import re, datetime, secrets, os
+
+
+def update_icon(request):
+	data = {}
+	status_code = 200
+
+	img = request.POST.get("img", None)
+	id = request.user.queue
+
+	data['id'] = id
+	data['img'] = img
+
+
+	if not img or not id:
+		status_code = 400
+
+	else:
+		data['queue_type'] = request.user.queue_type
+		if request.user.queue_type == 1:
+			saved_list = Spec.objects.filter(id=id, user=request.user).first()
+		else:
+			saved_list = ConsumeList.objects.filter(id=id, user=request.user).first()
+
+		if saved_list:
+			saved_list.img = img+".jpg"
+			saved_list.save()
+			data['message'] = "{} updated to use icon: {}".format(saved_list.name, img)
+
+		else:
+			status_code = 400
+
+	if status_code == 400:
+		data['message'] = 'Unable to update icon for saved list'
+
+	response = JsonResponse(data)
+	response.status_code = status_code
+
+	return response
+
+def icon_list(request):
+	context = {}
+	context['info'] = {}
+	def has_next(page_number, max_pages):
+		if page_number < max_pages:
+			return True
+		else:
+			return False
+
+	def has_previous(page_number):
+		return True if page_number > 1 else False
+
+	def get_all_images(path):
+		ALL_IMAGES = []
+		with open(os.path.abspath(path), 'r+') as f:
+			for line in f:
+				ALL_IMAGES.append(line.strip())
+
+		return list(set(ALL_IMAGES))
+
+	PER_PAGE = 50
+	ALL_IMAGES = get_all_images("tools/scraping/py/image_list.txt")
+	max_pages = round(len(ALL_IMAGES)/PER_PAGE)
+
+	page_number = int(request.GET.get('page', 1))
+	context['info']['page_number'] = page_number
+
+	queue = request.GET.get('queue', None)
+	id = request.GET.get('ix', None)
+
+	if id and queue:
+		request.user.queue = int(id)
+		context['info']['id'] = int(id)
+
+		request.user.queue_type = int(queue)
+		request.user.save()
+
+
+	START = page_number*PER_PAGE if page_number != 1 else 1
+	STOP = START+PER_PAGE
+
+	context['images'] = ALL_IMAGES[START:STOP]
+
+	context['info']['num_pages'] = max_pages
+	context['info']['plus_one'] = has_next(page_number+1, max_pages)
+	context['info']['plus_two'] = has_next(page_number+2, max_pages)
+	context['info']['plus_three'] = has_next(page_number+3, max_pages)
+
+	context['info']['has_next'] = has_next(page_number, max_pages)
+	context['info']['has_previous'] = has_previous(page_number)
+
+	return render(request, 'icon_list.html', {'context': context})
+
+
+
+	def create_image_list(self, dir):
+		regex = re.compile("([\w\_]+).jpg")
+		file_list = []
+		for _root, _dirs, files in os.walk(dir):
+			for name in files:
+				match = regex.search(name)
+				if match:
+					file_name = match.group(1)
+					file_list.append(file_name)
+		with open(os.path.abspath("image_list.txt"), 'a+') as f:
+			for name in set(file_list):
+				f.write(name+"\n")
+
+		return file_list
+
+# model = Article
+
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
