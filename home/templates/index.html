@@ -202,13 +202,11 @@ $(document).ready(function() {
          click: e => {
              // e.preventDefault()
              let sortBySelection = $(e.target).text()
-             console.log($(e.target))
              $('#sorting').text(sortBySelection)
-             console.log($(e.target).text())
              let sort_order = $("#sorting_order")
              sort_order.removeClass("hidden").removeClass("untouchable")
+             $('#sorting').addClass("removeCarrat")
              sort_order.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-             // add sorting function here
              yeet_cannon()
 
          }
@@ -275,13 +273,14 @@ $(document).ready(function() {
          var sorting;
          if (!($("#sorting_order").hasClass("hidden"))) {
              let sort_text = $("#sorting").text()
-             sorting = ($("#sorting_order").hasClass("glyphicon-triangle-top")) ? `+${sort_text}` : `-${sort_text}`
+             sorting = ($("#sorting_order").find("span.glyphicon").hasClass("glyphicon-triangle-top")) ? `+${sort_text}` : `-${sort_text}`
+             console.log('sorting: ', sorting)
          }
 
          var tags = $.map($(".filter-selected"), x => x.innerText)
 
          if (Boolean(sorting)) {
-             $predata['sorting'] = sorting.toString()
+             $predata['sorting'] = sorting.toString().toLowerCase()
          }
          if (words.length > 0) {
              $predata['query'] = words

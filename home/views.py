@@ -857,7 +857,8 @@ def yeet_cannon(request):
 		specs = Spec.objects.filter(Q(tags__name__in=tags) | Q(wow_class__name__in=tags))
 
 		# print('specs.count: ', specs.count)
-		consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__profession__name__in=tags))
+		consume_lists = ConsumeList.objects.filter(Q(tags__name__in=tags) | Q(consume__item__profession__name__in=tags))
+		# consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__profession__name__in=tags))
 
 
 	if query:
@@ -876,6 +877,9 @@ def yeet_cannon(request):
 		query_consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
 		query_specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
 
+		print('query_specs.count: ', query_specs.count())
+		print('query_consume_lists.count: ', query_consume_lists.count())
+
 		if specs:
 			specs = specs.union(query_specs)
 		else:
@@ -887,28 +891,50 @@ def yeet_cannon(request):
 			consume_lists = query_consume_lists
 
 
-	sorting = False
-	print("SORTING IS MANUALLY SET TO FALSE #YEET_CANNON")
+	# print("SORTING IS MANUALLY SET TO FALSE #YEET_CANNON")
 	if sorting:
+		sorting = sorting[0]
+
+		sorting = list(sorting)
+		sign = sorting.pop(0)
+		sign = '' if sign == '+' else sign
+		sorting = ''.join(sorting)
+		reverse = True if sign=="-" else False
+		if not specs and not consume_lists:
+			specs = Spec.objects.all()
+			consume_lists = ConsumeList.objects.all()
+
+		if sorting == 'rating':
+			how_order = '{}avg_rating'.format(sign)
+
+			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by('{}avg_rating'.format(sign))
+			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by('{}avg_rating'.format(sign))
+
+		elif sorting == 'created':
+			specs = specs.distinct().order_by('{}created'.format(sign))
+			consume_lists = consume_lists.distinct().order_by('{}created'.format(sign))
+
 		# combining specs and consume lists
-		if combined:
-			#created, ascending(oldest):
-			# context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'))
-
-			#created, descending(newest):
-			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=reverse)
-
-			#top rated (filters out saved lists with 0 ratings):
-			specs = specs.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
-			consume_lists = consume_lists.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
-
-			context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('rating'), reverse=True)
-
-		# individual sorting
-		else:
-			# top rated
-			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
-			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
+		# if combined:
+		# 	#created, ascending(oldest):
+		# 	# context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'))
+		#
+		# 	#created, descending(newest):
+		# 	context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=reverse)
+		#
+		# 	#top rated (filters out saved lists with 0 ratings):
+		# 	specs = specs.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
+		# 	consume_lists = consume_lists.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
+		#
+		# 	context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('rating'), reverse=True)
+		#
+		# # individual sorting
+		# madeup = False
+		# if madeup:
+		# 	# top rated
+		#
+		# 	specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
+		# 	consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
 
 			# context['result_list'] = list(chain(specs, consume_lists))
 
@@ -918,8 +944,8 @@ def yeet_cannon(request):
 
 
 	else:
-		context['specs'] = specs.distinct()
-		context['consume_lists'] = consume_lists.distinct()
+		context['specs'] = specs
+		context['consume_lists'] = consume_lists
 	# context['specs'] = Spec.objects.all() if not specs else specs
 	# context['consume_lists'] = ConsumeList.objects.all() if not consume_lists else consume_lists
 

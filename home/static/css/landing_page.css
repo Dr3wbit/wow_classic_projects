@@ -193,6 +193,10 @@ a:hover{
     box-shadow: none;
 }
 
+.removeCarrat:after {
+    content: none;
+}
+
 .sortby-dropdown {
     width: 140px;
     min-width: unset;
