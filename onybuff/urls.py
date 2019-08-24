@@ -18,6 +18,7 @@ from django.urls import include, path, re_path
 from django.conf import settings
 from home.models import Spec, ConsumeList
 from home.admin import admin_site
+from home import views
 
 admin.site = admin_site
 admin.autodiscover()
@@ -27,6 +28,7 @@ urlpatterns = [
 	path('', include('home.urls')),
 	path('admin/', admin.site.urls),
 	path('authorize/', include('social_django.urls', namespace='social')),
+	path('', views.handler404),
 ]
 
 handler404 = 'home.views.handler404'

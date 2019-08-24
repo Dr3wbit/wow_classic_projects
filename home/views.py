@@ -19,12 +19,14 @@ import re, datetime, secrets, os, json, requests, random
 
 def handler500(request):
 	context = {}
-	phrases = ["Did you find what you were looking for?", "You seem lost...", "Oopsy whoops, we made a fucksy wucksy!!!"]
+	phrases = ["Did you find what you were looking for?", "You seem lost...", "Oopsy whoops, we made a fucksy wucksy!!!", "Hello?"]
+	print(500)
 
 	if settings.GIF_API:
-
-		search_term = 'lost'
-		r = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s" % (search_term, settings.GIF_API, 20))
+		search_terms = ['lost', 'shrug', 'always sunny']
+		search = random.choice(search_terms)
+		start_pos = random.randint(1, 50)
+		r = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s&locale=%s&pos=%s" % (search, settings.GIF_API, 20, 'en_US', start_pos))
 		if r.status_code == 200:
 			content = json.loads(r.content)
 			if content:
@@ -49,10 +51,15 @@ def handler500(request):
 
 def handler404(request, exception):
 	context = {}
+	phrases = ["Did you find what you were looking for?", "You seem lost...", "Oopsy whoops, we made a fucksy wucksy!!!", "Hello?"]
+	print(404)
+
 	if settings.GIF_API:
-		search_term = 'shrug'
+		search_terms = ['lost', 'shrug', 'always sunny']
+		search = random.choice(search_terms)
 		start_pos = random.randint(1, 50)
-		r = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s&locale=%s&pos=s%&ar_range=s%&media_filter=s%" % (search_term, settings.GIF_API, 20, 'en_US', start_pos, 'wide', 'basic'))
+		r = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s&locale=%s&pos=%s" % (search, settings.GIF_API, 20, 'en_US', start_pos))
+
 		if r.status_code == 200:
 			content = json.loads(r.content)
 			if content:
@@ -66,6 +73,7 @@ def handler404(request, exception):
 					gif_dimensions = medium_gif[0]['dims']
 
 					if gif_url and gif_dimensions:
+						context['phrase'] = random.choice(phrases)
 						context['gif_url'] = gif_url
 						context['gif_width'] = gif_dimensions[0]
 						context['gif_height'] = gif_dimensions[0]
