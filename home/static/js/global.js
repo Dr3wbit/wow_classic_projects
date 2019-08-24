@@ -51,7 +51,6 @@ function global_event_handlers() {
         click: e => {
             let bool = $('.saved').hasClass('side-min')
             let windowWidth = window.innerWidth
-            // console.log(windowWidth)
             if (window.innerWidth <= 992) {
                 $('.mainBody').css({ 'padding-left': '15px' })
                 if (bool) {
@@ -679,7 +678,7 @@ function bigdaddytooltip(e, name, ...args) {
 
 	var ench_img_name = name;
 	if (ENCHANT_IMAGES) {
-		ench_img_name = ENCHANT_IMAGES[name]
+		ench_img_name = (ENCHANT_IMAGES[name]) ? ENCHANT_IMAGES[name] : name
 	}
 
 	var image_name = static_url+`images/icons/large/${ench_img_name}.jpg`
