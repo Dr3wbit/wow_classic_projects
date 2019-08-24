@@ -70,7 +70,6 @@
     </script>
     <script src="{% static "js/material_images.js" %}"></script>
     <script src="{% static "js/global.js" %}"></script>
-    <p>{{request.user.is_superuser}}</p>
     {% if request.user.is_superuser is False or not request.user.context_menu %}
     <script>
     // prevent right context menu on main content
