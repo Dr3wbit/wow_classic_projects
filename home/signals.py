@@ -14,8 +14,7 @@ def savedspec_limit(sender, instance, **kwargs):
 		raise PermissionDenied("Username: {} can only save {} specs".format(instance.user.email, instance.user.max_lists))
 
 	if instance.img == 'samwise':
-		instance.img = "class/"+instance.wow_class.name.lower()
-
+		instance.img = "class/"+instance.wow_class.name.lower()+".jpg"
 
 
 @receiver(post_save, sender=Spec, weak=False)
@@ -81,7 +80,7 @@ def consumelist_limit(sender, instance, **kwargs):
 		raise PermissionDenied("Username: {} can only save {} consume lists".format(instance.user.email, instance.user.max_lists))
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
 	if instance.img == 'samwise':
-		instance.img = 'inv_misc_book_09'
+		instance.img = 'inv_misc_book_09.jpg'
 
 
 @receiver(post_init, sender=Profession)
