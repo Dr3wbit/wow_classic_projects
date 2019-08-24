@@ -487,7 +487,7 @@ class Rating(models.Model):
 
 class SavedList(models.Model):
 
-	name = models.CharField(max_length=30, default='')
+	name = models.CharField(max_length=50, default='')
 	user = models.ForeignKey('User', on_delete=models.CASCADE)
 	hash = models.CharField(max_length=100, default='')
 	description = models.CharField(default='couple line of text...', max_length=2000)
@@ -498,7 +498,7 @@ class SavedList(models.Model):
 	tags = models.ManyToManyField('Tag', related_name="%(class)s_tags_related", related_query_name="%(class)s_tags")
 	flagged = models.BooleanField(default=False)
 	visible = models.BooleanField(default=True)
-	img = models.CharField(max_length=30, default='samwise')
+	img = models.CharField(max_length=50, default='samwise')
 
 	def __str__(self):
 		return("{}, last updated:{}, rating:{}, created by:{}".format(self.name, self.updated, self.rating, self.user.email))
