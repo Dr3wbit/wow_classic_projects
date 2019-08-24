@@ -182,7 +182,7 @@ class UserAdmin(DjangoUserAdmin):
 		(None, {'fields': ('email', 'password')}),
 		(_('Personal info'), {'fields': ('first_name', 'last_name')}),
 		(_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'context_menu',
-									   'groups', 'user_permissions')}),
+									   'max_lists', 'groups', 'user_permissions')}),
 		(_('Important dates'), {'fields': ('last_login', 'date_joined')}),
 	)
 	readonly_fields = ('date_joined',)
