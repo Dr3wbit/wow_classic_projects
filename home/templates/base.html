@@ -72,7 +72,6 @@
     <script src="{% static "js/global.js" %}"></script>
     {% if request.user.is_superuser is False or not request.user.context_menu %}
     <script>
-    // prevent right context menu on main content
     $('.mainContent, .mainBody').on({
         contextmenu: e => {
             e.preventDefault()

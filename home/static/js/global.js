@@ -12,7 +12,9 @@ function build_consume_list(url, ix) {
 			$("#totals_container").html(data);
 		},
 		complete: function(data) {
-			update_url(path, search)
+			if (document.location.href.toString().includes('profession_tool')) {
+				update_url(path, search)
+			}
 			if (id) {
 				info_display(id, 'pt')
 			}
@@ -30,7 +32,6 @@ function info_display(id, caller) {
 		dataType: 'html',
 		success: function (data) {
 			$("#saved_list_info").html(data);
-			// update_url('', search)
 		}
 	});
 }
@@ -90,7 +91,7 @@ function global_event_handlers() {
     $(".spec-list-item").on({
         click: e => {
             var list_name = $(e.target).attr('name');
-            var wow_class = ($(e.target).attr('data-wowclass')) ? $(e.target).attr('data-wowclass') : ''
+            var wow_class = ( $(e.target).closest($(".spec-list-item")).attr("data-wowclass") ) ? $(e.target).closest($(".spec-list-item")).attr("data-wowclass") : ''
 			let href = $(e.target).attr("href")
 			let id = $(e.target).attr('data-ix')
 			let tempurl = new URL(href = href, base = document.location.origin)
@@ -648,10 +649,6 @@ function combatText(e, t){
 	let notificationContainer = create_element('div', "floating-container", `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`, text, uniqueID)
 
 	document.body.appendChild(notificationContainer)
-
-	// $( e.target ).append(notificationContainer)
-	// console.log('target: ', $( e.target ))
-	// console.log('position: ', $( e.pageX ), $(e.pageY))
 
 	setTimeout(() => { $(`#${uniqueID}`).remove() }, 2900);
 }
