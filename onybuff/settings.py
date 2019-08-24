@@ -21,8 +21,9 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = bool(int(os.environ['DJANGO_DEBUG']))
+#DEBUG = bool(int(os.environ['DJANGO_DEBUG']))
 DEV = False
+DEBUG = bool(int(os.environ['DJANGO_DEBUG']))
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', '13.59.19.192']
