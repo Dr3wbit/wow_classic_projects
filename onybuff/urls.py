@@ -28,7 +28,6 @@ urlpatterns = [
 	path('', include('home.urls')),
 	path('admin/', admin.site.urls),
 	path('authorize/', include('social_django.urls', namespace='social')),
-	path('', views.handler404),
 ]
 
 handler404 = 'home.views.handler404'
