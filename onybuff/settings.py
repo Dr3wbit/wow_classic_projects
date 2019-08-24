@@ -20,7 +20,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 DEV = False
 
 #SECURE_SSL_REDIRECT = True
@@ -175,6 +175,7 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 # 	os.path.join(BASE_DIR, "static"),
 # )
 
+GIF_API = os.environ['TENOR_API_KEY']
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 # SOCIAL_AUTH_REDIRECT_IS_HTTPS = True

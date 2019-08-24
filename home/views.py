@@ -10,11 +10,66 @@ from django.db.utils import IntegrityError # use this in try except when unique_
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
+from django.conf import settings
 
 from itertools import chain
 from operator import attrgetter
-import re, datetime, secrets, os
+import re, datetime, secrets, os, json, requests, random
 
+
+def handler500(request):
+	context = {}
+	if settings.GIF_API:
+
+		search_term = 'shrug'
+		r = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s" % (search_term, settings.GIF_API, 20))
+		if r.status_code == 200:
+			content = json.loads(r.content)
+			if content:
+				gifs = content['results']
+				gif = random.choice(gifs)
+
+				medium_gif = [v for x in gif['media'] for k,v in x.items() if k == 'mediumgif']
+
+				if medium_gif:
+					gif_url = medium_gif[0]['url']
+					gif_dimensions = medium_gif[0]['dims']
+
+					if gif_url and gif_dimensions:
+						context['gif_url'] = gif_url
+						context['gif_width'] = gif_dimensions[0]
+						context['gif_height'] = gif_dimensions[0]
+
+	response = render(request, "error500.html", context=context)
+	response.status_code = 500
+	return response
+
+def handler404(request, exception):
+	context = {}
+	if settings.GIF_API:
+		search_term = 'shrug'
+		start_pos = random.randint(1, 50)
+		r = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s&locale=%s&pos=s%&ar_range=s%&media_filter=s%" % (search_term, settings.GIF_API, 20, 'en_US', start_pos, 'wide', 'basic'))
+		if r.status_code == 200:
+			content = json.loads(r.content)
+			if content:
+				gifs = content['results']
+				gif = random.choice(gifs)
+
+				medium_gif = [v for x in gif['media'] for k,v in x.items() if k == 'mediumgif']
+
+				if medium_gif:
+					gif_url = medium_gif[0]['url']
+					gif_dimensions = medium_gif[0]['dims']
+
+					if gif_url and gif_dimensions:
+						context['gif_url'] = gif_url
+						context['gif_width'] = gif_dimensions[0]
+						context['gif_height'] = gif_dimensions[0]
+
+	response = render(request,'error404.html', context=context)
+	response.status_code = 404
+	return response
 
 def update_icon(request):
 	data = {}
@@ -125,10 +180,6 @@ def icon_list(request):
 
 		return file_list
 
-# model = Article
-
-def error_404_view(request, exception):
-    return render(request,'404.html')
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"

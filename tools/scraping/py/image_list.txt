@@ -23,7 +23,6 @@ inv_weapon_bow_03
 inv_sword_42
 inv_axe_01
 inv_misc_desecrated_mailbracer
-leatherworking
 inv_misc_gear_03
 inv_helmet_08
 inv_misc_head_dwarf_01
@@ -88,7 +87,6 @@ inv_staff_30
 ability_mount_undeadhorse
 inv_bracer_05
 inv_misc_spyglass_01
-druid
 inv_offhand_naxxramas_03
 inv_boots_chain_10
 inv_misc_bag_16
@@ -106,7 +104,6 @@ inv_pants_cloth_09
 inv_misc_dust_04
 inv_misc_monsterclaw_01
 inv_weapon_halberd_ahnqiraj
-engineering
 inv_chest_cloth_17
 inv_scarab_crystal
 spell_nature_nullifydisease
@@ -482,7 +479,6 @@ inv_misc_food_50
 inv_misc_gem_crystal_01
 inv_misc_pipe_01
 inv_bannerpvp_01
-first_aid
 inv_jewelry_necklace_04
 inv_sword_33
 inv_misc_desecrated_clothbelt
@@ -493,7 +489,6 @@ inv_chest_cloth_40
 inv_valentinescandysack
 inv_jewelry_ring_16
 inv_misc_dust_06
-shaman
 inv_mace_1h_stratholme_d_01
 inv_chest_leather_08
 inv_shield_03
@@ -562,7 +557,6 @@ inv_sword_31
 inv_chest_cloth_56
 inv_misc_monsterscales_13
 inv_helmet_70
-blacksmithing
 inv_sword_41
 inv_throwingknife_01
 inv_misc_enggizmos_12
@@ -684,7 +678,6 @@ inv_misc_idol_01
 inv_potion_45
 inv_weapon_crossbow_02
 inv_mace_11
-rogue
 inv_jewelry_necklace_10
 inv_misc_bone_dwarfskull_01
 spell_nature_nullifypoison
@@ -758,7 +751,6 @@ inv_gauntlets_20
 inv_jewelry_talisman_14
 inv_jewelry_ring_40
 inv_battery_01
-warrior
 inv_chest_plate10
 inv_misc_desecrated_plategloves
 inv_rosebouquet01
@@ -838,7 +830,6 @@ inv_gauntlets_16
 inv_drink_milk_05
 inv_misc_throwingball_01
 inv_misc_bag_11
-hunter
 inv_jewelry_ring_24
 inv_belt_10
 inv_potion_105
@@ -873,7 +864,6 @@ inv_misc_gem_pearl_02
 inv_misc_gem_emerald_01
 inv_chest_cloth_42
 inv_jewelry_ring_06
-cooking
 inv_crate_01
 inv_letter_12
 inv_bijou_green
@@ -900,10 +890,8 @@ inv_enchant_shardbrilliantlarge
 inv_weapon_shortblade_08
 inv_shoulder_17
 inv_spear_07
-mage
 inv_musket_01
 inv_misc_gem_topaz_03
-paladin
 inv_misc_dust_03
 inv_misc_head_tiger_01
 inv_pick_01
@@ -966,7 +954,6 @@ inv_sword_36
 inv_jewelry_ring_41
 inv_misc_gem_sapphire_03
 inv_pants_08
-mining
 inv_holiday_christmas_present_02
 ability_mount_blackpanther
 inv_shield_02
@@ -1007,7 +994,6 @@ inv_gizmo_rocketboot_destroyed_02
 inv_hammer_06
 inv_jewelry_ring_31
 inv_misc_symbolofkings_01
-priest
 inv_misc_flute_01
 inv_chest_cloth_35
 inv_chest_chain_09
@@ -1023,7 +1009,6 @@ inv_misc_herb_13
 inv_scarab_gold
 inv_hammer_09
 inv_misc_armorkit_08
-enchanting
 spell_shadow_creepingplague
 inv_relics_libramoftruth
 inv_misc_gear_06
@@ -1335,7 +1320,6 @@ inv_fabric_mageweave_03
 inv_jewelry_necklace_08
 inv_chest_cloth_24
 inv_hammer_05
-tailoring
 inv_misc_note_06
 inv_mace_08
 inv_misc_head_orc_02
@@ -1426,7 +1410,6 @@ inv_ore_mithril_02
 inv_misc_gem_pearl_05
 inv_misc_shell_02
 inv_helmet_46
-skinning
 inv_potion_57
 inv_misc_armorkit_15
 inv_boots_plate_06
@@ -1604,7 +1587,6 @@ inv_battery_02
 inv_helmet_68
 inv_misc_food_53
 inv_chest_cloth_12
-poisons
 inv_misc_food_72
 inv_weapon_crossbow_08
 inv_misc_monsterclaw_03
@@ -1665,7 +1647,6 @@ inv_belt_14
 inv_chest_leather_04
 inv_misc_gem_bloodstone_03
 inv_misc_leatherscrap_03
-alchemy
 inv_boots_cloth_03
 inv_misc_gem_01
 inv_misc_pocketwatch_01
@@ -1754,7 +1735,6 @@ inv_gauntlets_14
 inv_shoulder_30
 inv_pants_leather_12
 inv_pants_14
-warlock
 inv_boots_chain_06
 inv_jewelry_ring_04
 inv_misc_monsterscales_08
@@ -1888,7 +1868,6 @@ inv_misc_token_argentdawn2
 inv_drink_19
 inv_misc_wrench_01
 inv_potion_36
-herbalism
 inv_misc_armorkit_01
 inv_misc_gem_bloodstone_01
 ability_whirlwind
@@ -1953,7 +1932,6 @@ inv_weapon_crossbow_03
 inv_shoulder_06
 inv_misc_ear_human_02
 inv_shirt_09
-fishing
 spell_shadow_demonbreath
 inv_enchant_shardbrilliantsmall
 inv_misc_pelt_boar_ruin_02

@@ -29,7 +29,8 @@ urlpatterns = [
 	path('authorize/', include('social_django.urls', namespace='social')),
 ]
 
-handler404 = 'home.views.error_404_view'
+handler404 = 'home.views.handler404'
+handler500 = 'home.views.handler500'
 
 if settings.DEV:
 	import debug_toolbar
