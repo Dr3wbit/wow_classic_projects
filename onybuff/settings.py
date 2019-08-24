@@ -20,7 +20,8 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
+DEBUG = bool(int(os.environ['DJANGO_DEBUG']))
 DEV = False
 
 #SECURE_SSL_REDIRECT = True
