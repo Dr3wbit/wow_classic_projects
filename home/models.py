@@ -24,6 +24,8 @@ class User(AbstractUser):
 	queue = models.PositiveSmallIntegerField(default=0)
 	queue_type = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(3)], help_text="1 for Specs, 2 for CLs")
 
+	context_menu = models.BooleanField(default=True)
+
 	objects = UserManager()
 
 	USERNAME_FIELD = 'email'
