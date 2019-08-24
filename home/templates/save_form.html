@@ -289,11 +289,8 @@ function append_list_item(data) {
     }
 
    setTimeout(()=>{
-       console.log($(".selected.spec-list-item"))
     $(".selected.spec-list-item").removeClass("selected")
-    console.log($(".progress-bar-striped.progress-bar-animated.spec-list-item"))
     $(".progress-bar-striped.progress-bar-animated.spec-list-item").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
-    console.log($(".selected.spec-list-item"))
     $(".selected.spec-list-item").click()
     }, 5000)
 
