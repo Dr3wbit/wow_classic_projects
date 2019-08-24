@@ -142,7 +142,8 @@ $(".saved-list-form").on({
 
         // console.log($myForm.serialize())
         var $myForm = $(".saved-list-form")
-        var $thisURL = $myForm.attr('data-url') || window.location.href
+        // var $thisURL = $myForm.attr('data-url') || window.location.href
+        var $thisURL = window.location.href
         var $formData = $myForm.serialize()
 
         console.log("DATA: ", $formData, $thisURL, $myForm)
@@ -157,7 +158,6 @@ $(".saved-list-form").on({
 })
 
 function savedListSuccess(data, textStatus, jqXHR){
-    console.log("DATA : ",data)
     if (data.created) {
         append_list_item(data)
     }
@@ -180,12 +180,9 @@ function append_list_item(data) {
     let path = document.location.pathname
     let re = /^([^/]*\/[^/]*\/).*$/g;
     let filtered_path = re.exec(path)
-    console.log('PATH : ', filtered_path)
-    console.log(document.location)
     let wow_class = data.wow_class
     let name = data.name
     let icon = (wow_class) ? `class/${wow_class}.jpg` : `inv_misc_book_09.jpg`
-    console.log('THE DATA :  ', data)
     let spec_cont = $("<div/>", {
         class: "spec-container",
     })
