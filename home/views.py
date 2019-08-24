@@ -30,20 +30,19 @@ def handler500(request):
 		if r.status_code == 200:
 			content = json.loads(r.content)
 			if content:
-				gifs = content['results']
-				gif = random.choice(gifs)
+				if 'results' in content.keys():
+					gifs = content['results']
+					gif = random.choice(gifs)
+					medium_gif = [v for x in gif['media'] for k,v in x.items() if k == 'mediumgif']
+					if medium_gif:
+						gif_url = medium_gif[0]['url']
+						gif_dimensions = medium_gif[0]['dims']
 
-				medium_gif = [v for x in gif['media'] for k,v in x.items() if k == 'mediumgif']
-
-				if medium_gif:
-					gif_url = medium_gif[0]['url']
-					gif_dimensions = medium_gif[0]['dims']
-
-					if gif_url and gif_dimensions:
-						context['phrase'] = random.choice(phrases)
-						context['gif_url'] = gif_url
-						context['gif_width'] = gif_dimensions[0]
-						context['gif_height'] = gif_dimensions[0]
+						if gif_url and gif_dimensions:
+							context['phrase'] = random.choice(phrases)
+							context['gif_url'] = gif_url
+							context['gif_width'] = gif_dimensions[0]
+							context['gif_height'] = gif_dimensions[0]
 
 	response = render(request, "error500.html", context=context)
 	response.status_code = 500
@@ -63,20 +62,22 @@ def handler404(request, exception):
 		if r.status_code == 200:
 			content = json.loads(r.content)
 			if content:
-				gifs = content['results']
-				gif = random.choice(gifs)
+				if 'results' in content.keys():
 
-				medium_gif = [v for x in gif['media'] for k,v in x.items() if k == 'mediumgif']
+					gifs = content['results']
+					gif = random.choice(gifs)
 
-				if medium_gif:
-					gif_url = medium_gif[0]['url']
-					gif_dimensions = medium_gif[0]['dims']
+					medium_gif = [v for x in gif['media'] for k,v in x.items() if k == 'mediumgif']
 
-					if gif_url and gif_dimensions:
-						context['phrase'] = random.choice(phrases)
-						context['gif_url'] = gif_url
-						context['gif_width'] = gif_dimensions[0]
-						context['gif_height'] = gif_dimensions[0]
+					if medium_gif:
+						gif_url = medium_gif[0]['url']
+						gif_dimensions = medium_gif[0]['dims']
+
+						if gif_url and gif_dimensions:
+							context['phrase'] = random.choice(phrases)
+							context['gif_url'] = gif_url
+							context['gif_width'] = gif_dimensions[0]
+							context['gif_height'] = gif_dimensions[0]
 
 	response = render(request,'error404.html', context=context)
 	response.status_code = 404
