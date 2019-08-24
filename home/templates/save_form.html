@@ -142,7 +142,7 @@ $(".saved-list-form").on({
 
         // console.log($myForm.serialize())
         var $myForm = $(".saved-list-form")
-        var $thisURL = $myForm.attr('data-url') || window.location.href
+        var $thisURL = $myForm.attr('data-url')+"/" || window.location.href
         var $formData = $myForm.serialize()
 
         console.log("DATA: ", $formData, $thisURL, $myForm)
