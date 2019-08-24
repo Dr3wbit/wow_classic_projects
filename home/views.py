@@ -19,9 +19,11 @@ import re, datetime, secrets, os, json, requests, random
 
 def handler500(request):
 	context = {}
+	phrases = ["Did you find what you were looking for?", "You seem lost...", "Oopsy whoops, we made a fucksy wucksy!!!"]
+
 	if settings.GIF_API:
 
-		search_term = 'shrug'
+		search_term = 'lost'
 		r = requests.get("https://api.tenor.com/v1/search?q=%s&key=%s&limit=%s" % (search_term, settings.GIF_API, 20))
 		if r.status_code == 200:
 			content = json.loads(r.content)
@@ -36,6 +38,7 @@ def handler500(request):
 					gif_dimensions = medium_gif[0]['dims']
 
 					if gif_url and gif_dimensions:
+						context['phrase'] = random.choice(phrases)
 						context['gif_url'] = gif_url
 						context['gif_width'] = gif_dimensions[0]
 						context['gif_height'] = gif_dimensions[0]
