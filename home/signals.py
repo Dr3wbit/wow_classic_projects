@@ -29,9 +29,6 @@ def spec_profanity_filter(sender, instance, created, **kwargs):
 		for word in description:
 			if re.search(reggie, word):
 				match = True
-		if match:
-			instance.flagged = True
-			instance.visible = False
 
 		else:
 			title = instance.name.lower().strip().split()
@@ -40,10 +37,13 @@ def spec_profanity_filter(sender, instance, created, **kwargs):
 			for word in title:
 				if re.search(reggie, word):
 					match = True
-					instance.flagged = True
-					instance.visible = False
 
 
+		if match:
+			instance.flagged = True
+			instance.visible = False
+			instance.save()
+			
 	# if (any(x for x in NAUGHTY_WORDS if x in instance.description) or any()):
 
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
