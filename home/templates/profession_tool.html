@@ -127,7 +127,9 @@ function build_recipe_list(prof, spec_name = '') {
             } else {
                 let p = document.location.pathname
                 var ix = p.toString().replace("\/profession_tool", '').replace("/", '')
-                path = (Boolean(ix)) ? `/profession_tool/${prof}/${ix}` : `/profession_tool/${prof}`
+
+                path = (!(isNaN(parseInt(ix)))) ? `/profession_tool/${prof}/${ix}` : `/profession_tool/${prof}`
+
             }
             update_url(path, document.location.search)
         }
@@ -135,7 +137,6 @@ function build_recipe_list(prof, spec_name = '') {
 }
 
 function update_url(path='', search='') {
-
     var url = new URL(document.location.origin.toString())
 
     if (Boolean(path)) {

@@ -29,7 +29,7 @@
 						</button>
 					</div>
 					{% else %}
-					<div class="spec-list-item" name="{{spec.name}}" style="position:relative;">{{spec.name}}
+					<div class="spec-list-item" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name|sanitize}}" style="position:relative;">{{spec.name}}
 
 						<a href="{% url 'talent_builder' spec.id %}?{{spec.hash}}">
 							<span style="left: 0; top: 0; position: absolute; width: 80%; height: 100%;"></span>
@@ -142,7 +142,6 @@
 	$("#save_icon_button").on({
 		click: e=> {
 			e.preventDefault()
-			console.log("#save_icon_button submit")
 			var img = $(".icon-selection.selected").attr("data-img")
 			if (img) {
 				update_icon(img)

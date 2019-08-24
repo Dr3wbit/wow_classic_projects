@@ -625,7 +625,7 @@ function pointSpender(talent, e, tree, targetTal) {
 				const child_talent = $(`img.talent[name="${item}"]`)
 				let n = child_talent.closest('.talent-container').find('.spentPoints').text()
 				if (can_unspec && n > 0) {
-					console.log('you must unspec ' + item)
+					console.log('Hey idiot, you gotta unspec ' + item + ' first')
 					test_arr.push(false)
 					return
 				}
