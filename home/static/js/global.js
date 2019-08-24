@@ -684,7 +684,10 @@ function bigdaddytooltip(e, name, ...args) {
 	var elems = args[0]
 	// let image_name = static_url+`images/icons/medium/materials/${thisObj.name}.jpg`
 
-	let ench_img_name = (ENCHANT_IMAGES[name]) ? ENCHANT_IMAGES[name] : name
+	var ench_img_name = name;
+	if (ENCHANT_IMAGES) {
+		ench_img_name = ENCHANT_IMAGES[name]
+	}
 
 	var image_name = static_url+`images/icons/large/${ench_img_name}.jpg`
 	var border_image = static_url+"images/icon_border_2.png"
