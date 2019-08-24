@@ -14,7 +14,7 @@ def savedspec_limit(sender, instance, **kwargs):
 		raise PermissionDenied("Username: {} can only save {} specs".format(instance.user.email, instance.user.max_lists))
 
 	if instance.img == 'samwise':
-		instance.img = instance.wow_class.name.lower()+".jpg"
+		instance.img = "class/"+instance.wow_class.name.lower()+".jpg"
 
 
 @receiver(post_save, sender=Spec, weak=False)

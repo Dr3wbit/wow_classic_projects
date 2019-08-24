@@ -15,7 +15,7 @@
 				{% for spec in user.spec_set.all %}
 				<div class="spec-container">
 
-				<div class="saved-list-icon" style="background-image: url('{% static image_prefix|add:'class/'|add:spec.img %}');" data-ix="{{spec.id}}"></div>
+				<div class="saved-list-icon" style="background-image: url('{% static image_prefix|add:spec.img %}');" data-ix="{{spec.id}}"></div>
 				<div class="info-container">
 					<div class="spec-info">
 						<span class="{{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
