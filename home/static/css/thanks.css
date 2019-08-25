@@ -4,13 +4,14 @@
     background-size: cover;
     border: 1px rgba(0, 0, 0, 0.5);
     text-align: left;
+    background-color: transparent !important;
+
 }
 
-#thanks.jumbotron {
-    background-color: #171b1f;
+/* #thanks {
     border-radius: 2px;
     color: rgba(240, 255, 255, 1);
-}
+} */
 
 .fancy {
     font-family: "Snell Roundhand", cursive;

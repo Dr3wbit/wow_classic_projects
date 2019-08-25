@@ -284,30 +284,40 @@
 {% if request.user.is_staff %}
 <script>
 
-$(".flag-item").on({
-	click: e=> {
-		var $data = {}
-		if ($(e.target).attr("data-wowclass")) {
-			$data['wow_class'] = $(e.target).attr("data-wowclass")
-		// }
-		// $data['uid']= ($(e.target).attr('data-uid')) ? $(e.target).attr('data-uid') : $(e.target).parent().attr('data-uid')
- 		// $data['ix'] = ($(e.target).attr('data-ix')) ? $(e.target).attr('data-ix') : $(e.target).parent().attr('data-ix')
-		}
+$(document).ready(function() {
+    index_helper_handlers()
 
-		$data['uid']= $(e.target).attr('data-uid')
-		$data['ix'] = $(e.target).attr('data-ix')
+ });
 
-		console.log('data: ', $data)
+ function index_helper_handlers() {
+	 star_handler()
+	 $(".flag-item").on({
+	 	click: e=> {
+	 		var $data = {}
+	 		if ($(e.target).attr("data-wowclass")) {
+	 			$data['wow_class'] = $(e.target).attr("data-wowclass")
+	 		// }
+	 		// $data['uid']= ($(e.target).attr('data-uid')) ? $(e.target).attr('data-uid') : $(e.target).parent().attr('data-uid')
+	  		// $data['ix'] = ($(e.target).attr('data-ix')) ? $(e.target).attr('data-ix') : $(e.target).parent().attr('data-ix')
+	 		}
 
-		$.ajax({
-			method: "POST",
-			url: '/ajax/flag_list/',
-			data: $data,
-			success: flag_success,
-			error: flag_error,
-		})
-	}
-})
+	 		$data['uid']= $(e.target).attr('data-uid')
+	 		$data['ix'] = $(e.target).attr('data-ix')
+
+	 		console.log('data: ', $data)
+
+	 		$.ajax({
+	 			method: "POST",
+	 			url: '/ajax/flag_list/',
+	 			data: $data,
+	 			success: flag_success,
+	 			error: flag_error,
+	 		})
+	 	}
+	 })
+ }
+
+
 
 function flag_success(data, textStatus, jqXHR) {
 	let uid = data.uid.toString()

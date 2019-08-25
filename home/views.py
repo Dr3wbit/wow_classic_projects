@@ -850,6 +850,7 @@ def delete_rating(request):
 		spec = request.POST.get('spec', False)
 		type_of = 'spec' if spec else 'consume_list'
 		data = {}
+		saved_list = ''
 		if (request.user.is_authenticated and id):
 			user = request.user
 

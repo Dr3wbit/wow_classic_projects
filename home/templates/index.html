@@ -109,7 +109,6 @@ $(document).ready(function() {
  function index_handlers() {
      $("#test_form").on({
          submit: e => {
-             console.log("#test_form submit")
              e.preventDefault()
              // e.stopPropagation()
          }
@@ -117,14 +116,12 @@ $(document).ready(function() {
 
      $('.filter-dropdown-container').on({
          click: e => {
-             console.log(".filter-dropdown-container click")
              e.stopPropagation()
          }
      });
      $('.filter-box').on({
          click: e => {
              e.stopPropagation()
-             console.log(".filter-box click")
              var target = $(e.target)
              // add target[0].innerText   to an array to be sent with apply filters
              if (target.hasClass('filter-selected')) {
@@ -134,33 +131,16 @@ $(document).ready(function() {
              }
          }
      });
-     // $("#search_bar_button").on({
-     //     submit: e=> {
-     //         e.preventDefault()
-     //         e.stopImmediatePropagation()
-     //
-     //         console.log('#search_bar_button submit')
-     //         search_daddy()
-     //     },
-     //     click: e=> {
-     //         e.preventDefault()
-     //         e.stopImmediatePropagation()
-     //         console.log('#search_bar_button click')
-     //         search_daddy()
-     //     }
-     // });
 
      $("#search_bar").on({
          search: e=> {
              e.stopImmediatePropagation()
-             console.log('#search_bar search')
              yeet_cannon()
          }
      });
 
      $("#apply-filters, #search_bar_button").on({
          click: e => {
-             console.log('#apply-filters click')
              e.preventDefault()
 
              yeet_cannon()
@@ -182,8 +162,6 @@ $(document).ready(function() {
 
      $('#reset-filters').on({
          click: e => {
-             console.log('#reset-filters click')
-
              e.preventDefault()
              e.stopImmediatePropagation()
              $('.filter-selected').removeClass('filter-selected')
@@ -214,7 +192,6 @@ $(document).ready(function() {
 
      $("#sorting_order").on({
          click: e=> {
-             console.log('#sorting_order')
              let sort_order = $(e.target).find("span.glyphicon")
              if (sort_order.hasClass("glyphicon-triangle-bottom")) {
                  sort_order.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
@@ -225,6 +202,9 @@ $(document).ready(function() {
          }
      })
 
+ }
+
+ function star_handler() {
      $(".glyphicon-star-empty").on({
          mouseenter: e => {
              var target = $(e.target)
@@ -259,9 +239,7 @@ $(document).ready(function() {
              rate_saved_list(data)
          }
      });
-
  }
-
 
 
      function yeet_cannon() {
@@ -274,7 +252,6 @@ $(document).ready(function() {
          if (!($("#sorting_order").hasClass("hidden"))) {
              let sort_text = $("#sorting").text()
              sorting = ($("#sorting_order").find("span.glyphicon").hasClass("glyphicon-triangle-top")) ? `+${sort_text}` : `-${sort_text}`
-             console.log('sorting: ', sorting)
          }
 
          var tags = $.map($(".filter-selected"), x => x.innerText)
@@ -292,7 +269,6 @@ $(document).ready(function() {
 
          var $data = $.param($predata, true)
 
-         // console.log("typeof(data): ", typeof($data))
 
          $.ajax({
              method: "GET",
@@ -306,37 +282,6 @@ $(document).ready(function() {
      function yeet_cannon_success(data) {
          $("#saved_list_container").html(data)
      }
-
-    // function search_daddy() {
-    //     var separator = /(?:\s|\,|\.)/
-    //     var search_string = $("#search_bar").val()
-    //     var words = search_string.split(separator).filter(Boolean)
-    //
-    //     var $data = $.param({ 'query': words }, true)
-    //     // var $data = {'query': words }
-    //     if (words.length == 0) {
-    //         return false
-    //     }
-    //
-    //     $.ajax({
-    //         method: "GET",
-    //         url: '/ajax/search_query/',
-    //         data: $data,
-    //         dataType: 'html',
-    //         success: search_query_success,
-    //         error: search_query_error,
-    //     });
-    // }
-
-    // function search_query_success(data) {
-    //     $("#saved_list_container").html(data)
-    //     // console.log('data: ', data)
-    // }
-    //
-    // function search_query_error(data) {
-    //     notifyUser(data.message)
-    // }
-
 
     function rate_saved_list(d) {
         var spec = (d.wow_class) ? 1 : 0
@@ -391,7 +336,7 @@ $(document).ready(function() {
 
             var container = target.closest($(".ratings-container"))
             var id = container.attr("data-id")
-            var wow_class = (container.attr("data-wowclass").length) ? container.attr("data-wowclass") : ''
+            var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : ''
 
             var data = {
                 wow_class: wow_class,
