@@ -105,18 +105,21 @@ function profession_tool_handlers() {
     });
 }
 
-function build_recipe_list(prof, spec_name = '') {
+function build_recipe_list(prof, spec_name = '', page=1) {
     var current_prof = $(".prof-filter.selected")
     $.ajax({
+        type: "POST",
         url: `/profession_tool/${prof}`,
         data: {
             'prof': prof,
+            'page': page
         },
-        dataType: 'html',
-
+        // dataType: 'html',
         success: function (data) {
-            let selected = $("button.prof-filter.selected").attr("id");
-            if (selected != prof) {
+            let selected = $(".prof-filter.selected").attr("id");
+            let current_page = $("span.current-page").text()
+
+            if ((selected != prof) || (current_page != page)) {
                 $("#recipe_list").html(data);
                 $(".prof-filter").removeClass('selected');
                 $(`#${prof}`).addClass('selected');
