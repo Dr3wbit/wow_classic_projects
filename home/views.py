@@ -539,33 +539,35 @@ class ConsumeToolTemplate(TemplateView):
 			all_recipes = []
 
 
-		if all_recipes.count() > 50:
-			# pagination
-			context['pagination'] = {}
-			PER_PAGE = int(request.GET.get('results_per_page', 30))
-			max_pages = round(all_recipes.count()/PER_PAGE)
+		if all_recipes:
 
-			context['pagination']['rangen'] = range(1, max_pages+1)
+			if all_recipes.count() > 50:
+				# pagination
+				context['pagination'] = {}
+				PER_PAGE = int(request.GET.get('results_per_page', 30))
+				max_pages = round(all_recipes.count()/PER_PAGE)
 
-			page_number = int(request.GET.get('page', 1))
+				context['pagination']['rangen'] = range(1, max_pages+1)
 
-			context['pagination']['page_number'] = page_number
+				page_number = int(request.GET.get('page', 1))
 
-			START = ((page_number-1)*PER_PAGE) + 1
-			STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
+				context['pagination']['page_number'] = page_number
 
-			context['pagination']['current_page'] = page_number
-			context['pagination']['num_pages'] = max_pages
-			context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
-			context['pagination']['plus_two'] = self.has_next(page_number+2, max_pages)
-			context['pagination']['plus_three'] = self.has_next(page_number+3, max_pages)
-			context['pagination']['has_next'] = self.has_next(page_number, max_pages)
-			context['pagination']['has_previous'] = self.has_previous(page_number)
-			# pagination end
-			context["recipes"] = all_recipes[START:STOP]
+				START = ((page_number-1)*PER_PAGE) + 1
+				STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
 
-		else:
-			context["recipes"] = all_recipes
+				context['pagination']['current_page'] = page_number
+				context['pagination']['num_pages'] = max_pages
+				context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
+				context['pagination']['plus_two'] = self.has_next(page_number+2, max_pages)
+				context['pagination']['plus_three'] = self.has_next(page_number+3, max_pages)
+				context['pagination']['has_next'] = self.has_next(page_number, max_pages)
+				context['pagination']['has_previous'] = self.has_previous(page_number)
+				# pagination end
+				context["recipes"] = all_recipes[START:STOP]
+
+			else:
+				context["recipes"] = all_recipes
 
 		qs = request.META.get('QUERY_STRING', None)
 
@@ -673,33 +675,36 @@ class ConsumeToolTemplate(TemplateView):
 			else:
 				all_recipes = []
 
-			if all_recipes.count() > 50:
-				# pagination
-				context['pagination'] = {}
-				PER_PAGE = int(request.POST.get('results_per_page', 30))
-				max_pages = round(all_recipes.count()/PER_PAGE)
 
-				context['pagination']['rangen'] = range(1, max_pages+1)
+			if all_recipes:
 
-				page_number = int(request.POST.get('page', 1))
+				if all_recipes.count() > 50:
+					# pagination
+					context['pagination'] = {}
+					PER_PAGE = int(request.POST.get('results_per_page', 30))
+					max_pages = round(all_recipes.count()/PER_PAGE)
 
-				context['pagination']['page_number'] = page_number
+					context['pagination']['rangen'] = range(1, max_pages+1)
 
-				START = ((page_number-1)*PER_PAGE) + 1
-				STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
+					page_number = int(request.POST.get('page', 1))
 
-				context['pagination']['current_page'] = page_number
-				context['pagination']['num_pages'] = max_pages
-				context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
-				context['pagination']['plus_two'] = self.has_next(page_number+2, max_pages)
-				context['pagination']['plus_three'] = self.has_next(page_number+3, max_pages)
-				context['pagination']['has_next'] = self.has_next(page_number, max_pages)
-				context['pagination']['has_previous'] = self.has_previous(page_number)
-				# pagination end
-				context["recipes"] = all_recipes[START:STOP]
+					context['pagination']['page_number'] = page_number
 
-			else:
-				context["recipes"] = all_recipes
+					START = ((page_number-1)*PER_PAGE) + 1
+					STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
+
+					context['pagination']['current_page'] = page_number
+					context['pagination']['num_pages'] = max_pages
+					context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
+					context['pagination']['plus_two'] = self.has_next(page_number+2, max_pages)
+					context['pagination']['plus_three'] = self.has_next(page_number+3, max_pages)
+					context['pagination']['has_next'] = self.has_next(page_number, max_pages)
+					context['pagination']['has_previous'] = self.has_previous(page_number)
+					# pagination end
+					context["recipes"] = all_recipes[START:STOP]
+
+				else:
+					context["recipes"] = all_recipes
 
 			# context["recipes"] = recipes
 			qs = request.META.get('QUERY_STRING', None)
