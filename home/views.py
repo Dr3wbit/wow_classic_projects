@@ -530,15 +530,43 @@ class ConsumeToolTemplate(TemplateView):
 		context["selected"] = prof
 
 		if prof=='other':
-			recipes = Crafted.objects.filter(profession=None).order_by('item')
+			all_recipes = Crafted.objects.filter(profession=None).order_by('item')
 			# context["recipes"] = Crafted.objects.filter(prof=None)
 		elif prof:
-			recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
+			all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
 
 		else:
-			recipes = []
+			all_recipes = []
 
-		context["recipes"] = recipes
+
+		if all_recipes.count() > 50:
+			# pagination
+			context['pagination'] = {}
+			PER_PAGE = int(request.GET.get('results_per_page', 30))
+			max_pages = round(all_recipes.count()/PER_PAGE)
+
+			context['pagination']['rangen'] = range(1, max_pages+1)
+
+			page_number = int(request.GET.get('page', 1))
+
+			context['pagination']['page_number'] = page_number
+
+			START = ((page_number-1)*PER_PAGE) + 1
+			STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
+
+			context['pagination']['current_page'] = page_number
+			context['pagination']['num_pages'] = max_pages
+			context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
+			context['pagination']['plus_two'] = self.has_next(page_number+2, max_pages)
+			context['pagination']['plus_three'] = self.has_next(page_number+3, max_pages)
+			context['pagination']['has_next'] = self.has_next(page_number, max_pages)
+			context['pagination']['has_previous'] = self.has_previous(page_number)
+			# pagination end
+			context["recipes"] = all_recipes[START:STOP]
+
+		else:
+			context["recipes"] = all_recipes
+
 		qs = request.META.get('QUERY_STRING', None)
 
 		if data.keys() and qs:
@@ -657,12 +685,9 @@ class ConsumeToolTemplate(TemplateView):
 
 				context['pagination']['page_number'] = page_number
 
-
 				START = ((page_number-1)*PER_PAGE) + 1
 				STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
 
-				print('start: ', START)
-				print('stop: ', STOP)
 				context['pagination']['current_page'] = page_number
 				context['pagination']['num_pages'] = max_pages
 				context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
