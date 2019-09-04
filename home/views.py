@@ -11,10 +11,11 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.conf import settings
+from django.template.loader import render_to_string
 
 from itertools import chain
 from operator import attrgetter
-import re, datetime, secrets, os, json, requests, random
+import math, re, datetime, secrets, os, json, requests, random
 
 
 def handler500(request):
@@ -169,12 +170,10 @@ def icon_list(request):
 	context['info']['plus_one'] = has_next(page_number+1, max_pages)
 	context['info']['plus_two'] = has_next(page_number+2, max_pages)
 	context['info']['plus_three'] = has_next(page_number+3, max_pages)
-
 	context['info']['has_next'] = has_next(page_number, max_pages)
 	context['info']['has_previous'] = has_previous(page_number)
 
 	return render(request, 'icon_list.html', {'context': context})
-
 
 
 	def create_image_list(self, dir):
@@ -596,6 +595,110 @@ class ConsumeToolTemplate(TemplateView):
 			else:
 				response = HttpResponseRedirect('profession_tool')
 		else:
+			context = {}
+
+
+			context["form"] = self.form_class()
+			context["professions"] = [
+				"engineering", "alchemy", "blacksmithing", "cooking",
+				"tailoring", "other", "leatherworking", "enchanting", "first_aid",
+				"skinning", "mining", "herbalism", "fishing"
+			]
+
+			id,cl = False,False
+
+			if 'id' in request.session:
+				id = request.session['id']
+				del request.session['id']
+
+			elif 'id' in self.kwargs.keys():
+				id = self.kwargs.get('id')
+
+			if id:
+				cl = ConsumeList.objects.filter(id=id).first()
+
+			if cl:
+				context['ix'] = id
+				context["consume_list"] = cl
+				context['materials'] = get_materials(context["consume_list"])
+				context['consumes'] = {}
+
+				for consume in cl.consumes.all():
+					prof_name = sanitize(consume.item.profession.name) if consume.item.profession else 'other'
+					if prof_name not in context['consumes'].keys():
+						context['consumes'][prof_name] = {}
+					context['consumes'][prof_name][consume.name] = consume.amount
+
+			data = dict(request.POST)
+
+			prof = self.kwargs.get("prof", None)
+			context["recipes"] = {}
+			context["selected"] = prof
+
+
+			if prof=='other':
+				all_recipes = Crafted.objects.filter(profession=None).order_by('item')
+				# context["recipes"] = Crafted.objects.filter(prof=None)
+			elif prof:
+				all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
+
+			else:
+				all_recipes = []
+
+			if all_recipes.count() > 50:
+				# pagination
+				context['pagination'] = {}
+				PER_PAGE = int(request.POST.get('results_per_page', 30))
+				max_pages = round(all_recipes.count()/PER_PAGE)
+
+				context['pagination']['rangen'] = range(1, max_pages+1)
+
+				page_number = int(request.POST.get('page', 1))
+
+				context['pagination']['page_number'] = page_number
+
+
+				START = ((page_number-1)*PER_PAGE) + 1
+				STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
+
+				print('start: ', START)
+				print('stop: ', STOP)
+				context['pagination']['current_page'] = page_number
+				context['pagination']['num_pages'] = max_pages
+				context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
+				context['pagination']['plus_two'] = self.has_next(page_number+2, max_pages)
+				context['pagination']['plus_three'] = self.has_next(page_number+3, max_pages)
+				context['pagination']['has_next'] = self.has_next(page_number, max_pages)
+				context['pagination']['has_previous'] = self.has_previous(page_number)
+				# pagination end
+				context["recipes"] = all_recipes[START:STOP]
+
+			else:
+				context["recipes"] = all_recipes
+
+			# context["recipes"] = recipes
+			qs = request.META.get('QUERY_STRING', None)
+
+			if data.keys() and qs:
+				# context['consumes'] = {}
+				context['materials'] = {}
+				cl = ConsumeList.objects.filter(hash=qs).first()
+				if cl:
+					context['consume_list'] = cl
+					context['materials'] = get_materials(cl)
+
+
+			if request.is_ajax():
+				if 'prof' in data.keys():
+					response = render(request, "recipe_helper.html", context=context)
+				else:
+					response = render(request, "consume_helper.html", context=context)
+			else:
+				context["whole_page"] = True
+				response = render(request, "profession_tool.html", context=context)
+
+			return response
+
 			print('save failed, redirecting to previous page...')
 			response = HttpResponseRedirect('profession_tool')
 
@@ -646,6 +749,15 @@ class ConsumeToolTemplate(TemplateView):
 				my_consumes[prof_name][item_name] = int(quantity)
 
 		return my_consumes
+
+	def has_next(self, page_number, max_pages):
+		if page_number < max_pages:
+			return True
+		else:
+			return False
+
+	def has_previous(self, page_number):
+		return True if page_number > 1 else False
 
 
 	def save_list(self, request, cleaned_data):
@@ -1134,9 +1246,10 @@ def yeet_cannon(request):
 
 
 def savedlist_info(request):
-	id = request.GET.get("id", None)
+	print('test estsetestssets')
+	id = request.POST.get("id", None)
 	print('id: ', id)
-	caller = request.GET.get("caller", None)
+	caller = request.POST.get("caller", None)
 	context = {}
 	if id:
 		if caller == 'tc':
@@ -1150,7 +1263,8 @@ def savedlist_info(request):
 				context['consume_list'] = saved_list
 				context['materials'] = get_materials(saved_list)
 
-		return render(request, "info_display.html", context=context)
+		html = render_to_string("info_display.html", context)
+		return HttpResponse(html)
 
 def get_materials(cl):
 	materials = {}

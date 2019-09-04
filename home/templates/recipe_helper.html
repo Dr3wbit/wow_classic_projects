@@ -43,6 +43,27 @@
     </div>
     {% endfor %}
     {% endif %}
+    {% if pagination %}
+    <div class="pagination">
+        <span class="step-links">
+            <div>
+                {% if pagination.has_previous %}
+                <a class="change-page" href="" >&laquo;</a>
+                {% endif %}
+                {% for page in pagination.rangen %}
+                {% if page == pagination.page_number %}
+                <span class="current-page"><a class="change-page">{{page}}</a></span>
+                {% else %}
+                <a class="change-page" href="">{{page}}</a>
+                {% endif %}
+                {% endfor %}
+                {% if pagination.has_next %}
+                <a class="change-page" href="" >&raquo;</a>
+                {% endif %}
+            </div>
+        </span>
+    </div>
+    {% endif %}
 
     {% if selected %}
     <script src="{% static "js/professions/"|add:selected|add:"/recipes.js" %}"></script>
@@ -165,6 +186,25 @@ function recipe_helper_handlers() {
             move_tooltip(e, true)
         },
     });
-
+    $(".change-page").on({
+        click: e=> {
+            e.preventDefault()
+            let target = $(e.target)
+            var page = 1
+            if (target.text() == "»") {
+                page = parseInt($("span.current-page").text()) + 1
+            } else if (target.text() == "last »") {
+                page = $("span.last-page").text()
+            } else if (target.text() == "previous"){
+                page = parseInt($("span.current-page").text()) - 1
+            } else if (target.text() == "«"){
+                page = parseInt($("span.current-page").text()) - 1
+            } else {
+                page = target.text()
+            }
+            let selected = $(".prof-filter.selected").attr("id");
+            build_recipe_list(selected, '', page)
+        }
+    })
 }
     </script>

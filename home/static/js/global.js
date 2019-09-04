@@ -24,12 +24,13 @@ function build_consume_list(url, ix) {
 
 function info_display(id, caller) {
 	$.ajax({
+		type: "POST",
 		url: "/ajax/savedlist_info/",
 		data: {
 			'id':id,
 			'caller': caller
 		},
-		dataType: 'html',
+		// dataType: 'html',
 		success: function (data) {
 			$("#saved_list_info").html(data);
 		}
@@ -370,7 +371,7 @@ function ez_tooltip(e, staticK=false) {
 		// var _procs = looseJsonParse(data.procs)
 		var procs = create_element('div', 'use q2', 'clear: both; font-size: 13px')
 		data.procs.forEach(function(x) {
-			procs.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `Chance on Hit: ${x}`))
+			procs.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `${x}`))
 		})
 		tooltip.appendChild(procs)
 	}
