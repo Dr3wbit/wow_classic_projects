@@ -9,7 +9,7 @@ from home.forms import ContactForm, SpecForm, ConsumeListForm
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint fails
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
-from django.core.paginator import Paginator
+# from django.core.paginator import Paginator
 from django.conf import settings
 from django.template.loader import render_to_string
 
@@ -490,6 +490,23 @@ class ConsumeBuilderRedirectView(RedirectView):
 class ConsumeToolTemplate(TemplateView):
 	form_class = ConsumeListForm
 
+	def paginator(self, num_recipes, page_number, items_per_page):
+
+		pagination = {}
+		max_pages = round(num_recipes/items_per_page)
+		pagination['rangen'] = range(1, max_pages+1)
+		pagination['page_number'] = page_number
+		pagination['START'] = ((page_number - 1)*items_per_page)
+		pagination['STOP'] = pagination['START']+items_per_page if page_number != max_pages else num_recipes
+		pagination['current_page'] = page_number
+		pagination['num_pages'] = max_pages
+		pagination['plus_one'] = self.has_next(page_number+1, max_pages)
+		pagination['plus_two'] = self.has_next(page_number+2, max_pages)
+		pagination['plus_three'] = self.has_next(page_number+3, max_pages)
+		pagination['has_next'] = self.has_next(page_number, max_pages)
+		pagination['has_previous'] = self.has_previous(page_number)
+		return pagination
+
 	def get(self, request, *args, **kwargs):
 		context = {}
 		context["form"] = self.form_class()
@@ -542,28 +559,18 @@ class ConsumeToolTemplate(TemplateView):
 		if all_recipes:
 
 			if all_recipes.count() > 50:
+
 				# pagination
-				context['pagination'] = {}
-				PER_PAGE = int(request.GET.get('results_per_page', 30))
-				max_pages = round(all_recipes.count()/PER_PAGE)
-
-				context['pagination']['rangen'] = range(1, max_pages+1)
-
+				num_recipes = all_recipes.count()
+				items_per_page = int(request.GET.get('results_per_page', 30))
 				page_number = int(request.GET.get('page', 1))
 
-				context['pagination']['page_number'] = page_number
+				context['pagination'] = {}
+				context['pagination'] = self.paginator(num_recipes, page_number, items_per_page)
 
-				START = ((page_number-1)*PER_PAGE) + 1
-				STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
+				START = context['pagination']['START']
+				STOP = context['pagination']['STOP']
 
-				context['pagination']['current_page'] = page_number
-				context['pagination']['num_pages'] = max_pages
-				context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
-				context['pagination']['plus_two'] = self.has_next(page_number+2, max_pages)
-				context['pagination']['plus_three'] = self.has_next(page_number+3, max_pages)
-				context['pagination']['has_next'] = self.has_next(page_number, max_pages)
-				context['pagination']['has_previous'] = self.has_previous(page_number)
-				# pagination end
 				context["recipes"] = all_recipes[START:STOP]
 
 			else:
@@ -680,29 +687,17 @@ class ConsumeToolTemplate(TemplateView):
 
 				if all_recipes.count() > 50:
 					# pagination
-					context['pagination'] = {}
-					PER_PAGE = int(request.POST.get('results_per_page', 30))
-					max_pages = round(all_recipes.count()/PER_PAGE)
-
-					context['pagination']['rangen'] = range(1, max_pages+1)
-
+					items_per_page = int(request.POST.get('results_per_page', 30))
 					page_number = int(request.POST.get('page', 1))
+					num_recipes = all_recipes.count()
 
-					context['pagination']['page_number'] = page_number
+					context['pagination'] = {}
+					context['pagination'] = self.paginator(num_recipes, page_number, items_per_page)
 
-					START = ((page_number-1)*PER_PAGE) + 1
-					STOP = START+PER_PAGE if page_number != max_pages else all_recipes.count()
+					START = context['pagination']['START']
+					STOP = context['pagination']['STOP']
 
-					context['pagination']['current_page'] = page_number
-					context['pagination']['num_pages'] = max_pages
-					context['pagination']['plus_one'] = self.has_next(page_number+1, max_pages)
-					context['pagination']['plus_two'] = self.has_next(page_number+2, max_pages)
-					context['pagination']['plus_three'] = self.has_next(page_number+3, max_pages)
-					context['pagination']['has_next'] = self.has_next(page_number, max_pages)
-					context['pagination']['has_previous'] = self.has_previous(page_number)
-					# pagination end
 					context["recipes"] = all_recipes[START:STOP]
-
 				else:
 					context["recipes"] = all_recipes
 
