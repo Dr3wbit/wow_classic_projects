@@ -10,15 +10,6 @@ from django.utils.translation import ugettext_lazy as _
 from home.models import User
 
 
-QUALITY = {
-	"junk": "rgba(157,157,157,1)",
-	"common": "rgba(240,255,255,0.95)",
-	"uncommon":"rgba(30,255,0,0.95)",
-	"rare":"rgba(0, 112, 221, 1)",
-	"epic": "rgba(163, 53, 238, 1)",
-	"legendary": "rgba(255, 128, 0, 0.95)",
-}
-
 class OnybuffAdminSite(admin.AdminSite):
 	# Text to put at the end of each page's <title>.
 	site_title = 'ONYBUFF'

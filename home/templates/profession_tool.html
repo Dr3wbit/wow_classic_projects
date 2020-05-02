@@ -3,6 +3,8 @@
 
 {% load static %}
 {% block extra_head %}
+{% csrf_token %}
+<!-- bumbum -->
 <link rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
 <script>
 var ALL_RECIPES = {}
