@@ -12,6 +12,8 @@
 
 <script src="{% static "js/landing_page.js" %}"></script>
 
+<script type="text/javascript" src="{% static "js/list.min.js" %}"></script>
+
 {% endblock extra_head %}
 
 {% block title_splash %}
@@ -513,25 +515,39 @@
                             Changelog
                         </h5>
                         <div class="card-body text-light">
-                            <p class="card-text text-left">7/16/2019</p>
-                            <ul class="card-text text-left">
+                            <p class="card-text text-left">05/02/2020</p>
+                            <ul class="card-text text-left" style="list-style-type:disc;">
+                                <li> Implemented item data requests via AJAX </li>
+                                <li> Rewrote recipe list rendering to use vanilla JS </li>
+                                <li> Implemented basic fuzzy-search </li>
+                            </ul>
+                            <p class="card-text text-left">03/03/2020</p>
+                            <ul class="card-text text-left" style="list-style-type:disc;">
+                                <li><a href="https://cdn.discordapp.com/attachments/421900327336411140/684525496800641045/unknown.png"> Rank 14 </a></li>
+                            </ul>
+                            <p class="card-text text-left">02/29/2020</p>
+                            <ul class="card-text text-left" style="list-style-type:disc;">
+                                <li><a href="https://www.reddit.com/r/classicwow/comments/fb6vze/this_horde_premade_on_heartseekerus_kept_us/"> made it on reddit</a></li>
+                            </ul>
+                            <p class="card-text text-left">07/16/2019</p>
+                            <ul class="card-text text-left" style="list-style-type:disc;">
                                 <li> API page created </li>
                                 <li> Rating System Implemented </li>
                             </ul>
-                            <p class="card-text text-left">7/14/2019</p>
-                            <ul class="card-text text-left">
+                            <p class="card-text text-left">07/14/2019</p>
+                            <ul class="card-text text-left" style="list-style-type:disc;">
                                 <li>
                                     Implemented ability to save and view saved consume lists
                                 </li>
                             </ul>
-                            <p class="card-text text-left">7/1/2019</p>
+                            <p class="card-text text-left">07/1/2019</p>
                             <ul class="card-text text-left">
                                 <li>
                                     Django migration
                                 </li>
                             </ul>
-                            <p class="card-text text-left">4/29/2019</p>
-                            <ul class="card-text text-left">
+                            <p class="card-text text-left">04/29/2019</p>
+                            <ul class="card-text text-left" style="list-style-type:disc;">
                                 <li>
                                     Added Specs and Guides Section.
                                 </li>
@@ -545,8 +561,8 @@
                                     Changed overall site style and design.
                                 </li>
                             </ul>
-                            <p class="card-text text-left">1/5/2019</p>
-                            <ul class="card-text text-left">
+                            <p class="card-text text-left">01/5/2019</p>
+                            <ul class="card-text text-left" style="list-style-type:disc;">
                                 <li>
                                     Initial Launch with consume tool and enchant tool.
                                 </li>
@@ -566,10 +582,10 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-8">
-        <table class="table table-sm table-striped table-dark table-hover" style="margin:auto; overflow-y: scroll;">
+        <table id="profession-table" class="table table-sm table-striped table-dark table-hover" style="margin:auto; overflow-y: scroll;">
             <thead>
                 <tr>
-                    <th></th>
+                    <th><input class="fuzzy-search" /></th>
                     <th>
                         <button id="prof_loader" type="button" class="btn btn-warning">Load</button>
 
@@ -585,7 +601,7 @@
                     <th scope="col">materials</th>
                 </tr>
             </thead>
-            <tbody id="tbody123">
+            <tbody id="tbody123" class="list">
 
             </tbody>
         </table>
@@ -593,65 +609,6 @@
     </div>
 
 
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-8">
-    <table class="table table-sm table-striped table-dark table-hover" style="margin:auto; overflow-y: scroll;">
-        <thead>
-            <tr>
-                <th scope="col">recipe</th>
-                <th scope="col">materials</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% with "images/icons/large/" as image_prefix %}
-            {% for recipe in recipes %}
-            <tr>
-                <td style="text-align: left;">
-                    <span class="recipe-container q{{recipe.quality}}"
-                        data-q="{{recipe.quality}}" data-n="{{recipe.name}}" data-img="{{recipe.img}}"
-                        {% if recipe.item.bop %}data-bop="{{recipe.item.bop}}"{% endif %}
-                        {% if recipe.item.use %}data-use="{{recipe.item.use}}"{% endif %}
-                        {% if recipe.item.slot %}data-slot="{{recipe.item.slot}}"{% endif %}
-                        {% if recipe.item.proficiency %}data-proficiency="{{recipe.item.proficiency}}"{% endif %}
-                        {% if recipe.item.stats %}data-stats="{{recipe.item.stats}}"{% endif %}
-                        {% if recipe.item.armor %}data-armor="{{recipe.item.armor}}"{% endif %}
-                        {% if recipe.item.description %}data-description="{{recipe.item.description}}"{% endif %}
-                        {% if recipe.item.requirements %}data-requirements="{{recipe.item.requirements}}"{% endif %}
-                        {% if recipe.item.speed %}data-speed="{{recipe.item.speed}}"{% endif %}
-                        {% if recipe.item.resists %}data-resists="{{recipe.item.resists}}"{% endif %}
-                        {% if recipe.item.durability %}data-durability="{{recipe.item.durability}}"{% endif %}
-                        {% if recipe.item.procs.exists %}data-procs="[{% for proc in recipe.item.procs.all %}{{proc.t}},{% endfor %}]"{% endif %}
-                        {% if recipe.item.equips.exists %}data-equips="[{% for equip in recipe.item.equips.all %}{{equip.t}},{% endfor %}]"{% endif %}
-                        {% if recipe.item.dps %}data-dps="{{recipe.item.dps}}"{% endif %}
-                        >
-                        <img name="{{recipe.name}}" data-img="{{recipe.img}}" class="icon-medium recipe-image" src="{% static "images/icon_border_2.png" %}"
-                            style="background-image: url({% static image_prefix|add:recipe.img|add:".jpg" %});">
-                        <span class="consume-name" name="{{recipe.name}}">{{recipe.name}}</span>
-                    </span>
-                </td>
-                <td class="reagant-list">
-                    {% for mat in recipe.materials.all %}
-                    <img name="{{mat.name}}" class="icon-medium" src="{% static "images/icon_border_2.png" %}"
-                        style="background-image: url({% static "images/icons/medium/materials/"|add:mat.name|add:".jpg" %});">
-                        {% if mat.amount > 1 %}
-                        <span class="count-container">
-                            <div class="material-count">{% widthratio mat.amount 1 1 %}</div>
-                            <div class="material-count" style="color: black; bottom: 1px; z-index: 4;">{% widthratio mat.amount 1 1 %}</div>
-                            <div class="material-count" style="color: rgba(0,0,0,.9); bottom: 3px; z-index: 4;">{% widthratio mat.amount 1 1 %}</div>
-                            <div class="material-count" style="color: black; right: 3px; z-index: 4;">{% widthratio mat.amount 1 1 %}</div>
-                        </span>
-                        {% endif %}
-                    {% endfor %}
-                </td>
-
-            </tr>
-            {% endfor %}
-            {% endwith %}
-        </tbody>
-    </table>
-</div>
-</div>
     {% endblock mainbody %}
 
     {% block footer %}
@@ -660,12 +617,14 @@
     {% endblock footer %}
 
 {% block javascript %}
+
+
+
 <script>
 
 var coords = {'x':0, 'y':0}
 var previous_ix = 0
 var prev_queries_keys = Object.keys(localStorage)
-console.log(prev_queries_keys)
 
 $("#prof_loader").on({
     click: e=> {
@@ -675,11 +634,17 @@ $("#prof_loader").on({
                 'prof': 'Enchanting',
             },
             dataType: 'json',
-
-            success: prof_receiver
+            success: prof_receiver,
+            complete: init_list_searching
         });
     }
 })
+
+function init_list_searching(response) {
+    var monkeyList = new List('profession-table', {
+      valueNames: ['consume-name'],
+    });
+}
 
 function empty_tooltip() {
     var tooltip_container = document.getElementById("tooltip_container")
@@ -768,7 +733,7 @@ function prof_receiver(data) {
 
     data.forEach(function (recipe) {
         var tablerow = create_element('tr')
-        var td = create_element('td', '', "text-align: left;")
+        var td = create_element('td', 'recipe', "text-align: left;")
         var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`)
 
         var image_name = static_url+`images/icons/large/${recipe.img}.jpg`
@@ -817,72 +782,6 @@ function prof_receiver(data) {
     })
 }
 
-
-function API_create_tooltip_jquery(data) {
-    // console.log('returned data: ', data)
-    const tooltip_container = $("#tooltip_container")
-
-    const image_name = data.img
-
-    // delete data.img
-
-    const tooltip = $('<div/>', {
-        class: 'tooltip-container',
-        id: 'tooltip',
-        style: "float: right;"
-    })
-
-    // for (let [key, val] of Object.entries(data)) {
-    //     // tooltip.append($('<div/>', {
-    //     //     class: `${key}`,
-    //     //     text: ''
-    //     // }))
-    //     console.log('name: ', name)
-    //     console.log('val: ', val)
-    // }
-
-    const image = (image_name) ? $('<img/>', {
-        class: 'icon-medium',
-        src: "http://127.0.0.1:8000/static/images/icon_border_2.png",
-        style: `margin-top: 5px; pointer-events: none; float: left; background-image: url(http://127.0.0.1:8000/static/${image_name})`
-    }) : null
-
-    tooltip.append($('<div/>', {
-        class: `title q${data.quality}`,
-        text: `${data.name}`,
-    }))
-
-    const bop = (data.bop) ? $('<div/>', {
-        class: 'bop',
-        text: "Binds when picked up"
-    }) : null
-
-    const unique = (data.unique) ? $('<div/>', {
-        class: 'unique',
-        text: "Unique"
-    }) : null
-
-    const req_lvl = (data.required_level) ? $('<div/>', {
-        class: 'required_level',
-        text: `Requires Level ${data.required_level}`
-    }) : null
-
-    const use = (data.use) ? $('<div/>', {
-        class: 'use',
-        text: `Use: ${data.use}`
-    }) : null
-
-    const description = (data.description) ? $('<div/>', {
-        class: 'description',
-        text: `${data.description}`,
-    }) : null
-
-    tooltip.append(bop, unique, req_lvl, use, description)
-
-    tooltip_container.append(image, tooltip)
-
-    tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; visibility: visible;`)
-}
 
 function API_create_tooltip(data) {
 
@@ -1070,16 +969,10 @@ function API_create_tooltip(data) {
 		itemset.bonuses.forEach(function(bonus) {
 			itemset_elem.appendChild(create_element('div', 'q0', '', `${bonus}\n`))
 		})
-
 		tooltip.appendChild(itemset_elem)
-
 	}
-
 	tooltip_container.appendChild(tooltip)
 	tooltip_container.style.cssText = `left: ${coords.x}px; top: ${coords.y}px; white-space: pre-wrap`
-
-
-
     // tooltip_container.attr("style", `left: ${coords.x}px; top: ${coords.y}px; visibility: visible;`)
 }
 
@@ -1286,5 +1179,4 @@ function ez_tooltip(e) {
 {% endif %}
 
 </script>
-<script src="{% static "js/utilities.js" %}"></script>
 {% endblock javascript %}
