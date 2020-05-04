@@ -617,16 +617,12 @@
     {% endblock footer %}
 
 {% block javascript %}
-
-
-
 <script>
 
 var coords = {'x':0, 'y':0}
 var previous_ix = 0
 // var prev_query_keys = Object.keys(localStorage)
 var prev_query_keys = Object.keys(all_items)
-
 
 $("#prof_loader").on({
     click: e=> {
@@ -725,9 +721,11 @@ function add_item_query(data) {
 
     if (!prev_query_keys.includes(ix)) {
         all_items[ix] = item
-        localStorage.setItem(ix, JSON.stringify(item));
+        if (storageAvailable('localStorage')) {
+            localStorage.setItem(ix, JSON.stringify(item));
+        }
         prev_query_keys.push(ix)
-        console.log(`added ${ix} to previous queries in local storage`)
+        console.log(`added ${ix}`)
     }
 }
 // create_element(tag, class_name, style, text, id)

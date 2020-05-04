@@ -636,7 +636,6 @@ function tooltip_v2(e, staticK=false, which=0) {
 }
 
 
-
 function combatText(e, t){
 	let color = null
 	var text = t

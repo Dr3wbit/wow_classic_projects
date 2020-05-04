@@ -9,14 +9,6 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-131655338-1');
-
-        var all_items = {}
-        var keys = Object.keys(localStorage)
-
-        keys.forEach(function(ix) {
-            all_items[ix] = JSON.parse(localStorage.getItem(ix))
-        })
-
     </script>
 
     <meta charset="UTF-8">
@@ -68,6 +60,15 @@
     </footer>
     {% endblock footer %}
 
+    <script>
+        var all_items = {}
+        if (storageAvailable('localStorage')) {
+            var keys = Object.keys(localStorage)
+            keys.forEach(function(ix) {
+                all_items[ix] = JSON.parse(localStorage.getItem(ix))
+            })
+        }
+    </script>
     {% block javascript %}
     {% endblock javascript %}
     <div id="tooltip_container">
