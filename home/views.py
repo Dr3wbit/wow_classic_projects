@@ -35,7 +35,7 @@ def prof_loader(request):
 		for ind,recipe in zip(range(recipes.count()), recipes.all()):
 			data.append({'name':recipe.name, 'ix':recipe.item.ix,
 						'step':recipe.step, 'quality':recipe.item.quality,
-						'img':recipe.item.img, 'mats':[]})
+						'img':recipe.item.img, 'mats':[], 'skillups':recipe.skillup})
 
 			for mat in recipe.materials.all():
 				data[-1]['mats'].append({'name':mat.name, 'ix': mat.item.ix,
