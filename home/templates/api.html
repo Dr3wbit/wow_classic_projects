@@ -508,6 +508,34 @@
 
                 </div>
 
+                <div class="row">
+                    <!-- <div class="col-3"></div> -->
+                    <!-- <div class="col-8"> -->
+                    <table id="profession-table" class="table table-sm table-striped table-dark table-hover" style="margin:auto; overflow-y: scroll;">
+                        <thead>
+                            <tr>
+                                <th><input class="fuzzy-search" /></th>
+                                <th>
+                                    <button id="prof_loader" type="button" class="btn btn-warning">Load</button>
+
+                                    <!-- <button class="btn btn-sm float-left" title="Load"
+                    					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
+                    					<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    				</button> -->
+                                </th>
+
+                            </tr>
+                            <tr>
+                                <th class="sort" data-sort="consume-name" scope="col">recipe</th>
+                                <th scope="col">materials</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody123" class="list">
+
+                        </tbody>
+                    </table>
+                <!-- </div> -->
+            </div>
 
                 <div class="pt-4">
                     <div class="card mb-3 bg-transparent border-light text-center">
@@ -579,34 +607,7 @@
 
     {% load titlecase from custom_filters %}
 
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-8">
-        <table id="profession-table" class="table table-sm table-striped table-dark table-hover" style="margin:auto; overflow-y: scroll;">
-            <thead>
-                <tr>
-                    <th><input class="fuzzy-search" /></th>
-                    <th>
-                        <button id="prof_loader" type="button" class="btn btn-warning">Load</button>
 
-                        <!-- <button class="btn btn-sm float-left" title="Load"
-        					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
-        					<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-        				</button> -->
-                    </th>
-
-                </tr>
-                <tr>
-                    <th scope="col">recipe</th>
-                    <th scope="col">materials</th>
-                </tr>
-            </thead>
-            <tbody id="tbody123" class="list">
-
-            </tbody>
-        </table>
-    </div>
-    </div>
 
 
     {% endblock mainbody %}
