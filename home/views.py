@@ -18,6 +18,38 @@ from operator import attrgetter
 import math, re, datetime, secrets, os, json, requests, random
 
 
+def prof_loader(request):
+	data = {}
+	status_code = 200
+
+	prof = request.GET.get("prof", None)
+	id = request.user.queue
+
+	data = []
+
+	if not prof:
+		status_code = 400
+	else:
+		recipes = Crafted.objects.filter(profession__name=prof)
+
+		for ind,recipe in zip(range(recipes.count()), recipes.all()):
+			data.append({'name':recipe.name, 'ix':recipe.item.ix,
+						'step':recipe.step, 'quality':recipe.item.quality,
+						'img':recipe.item.img, 'mats':[]})
+
+			for mat in recipe.materials.all():
+				data[-1]['mats'].append({'name':mat.name, 'ix': mat.item.ix,
+				'step':mat.amount, 'quality': mat.quality, 'img': mat.img})
+
+	if status_code == 400:
+		data['message'] = 'An error occurred'
+
+	response = JsonResponse(data, safe=False)
+	response.status_code = status_code
+
+	return response
+
+
 def handler500(request):
 	context = {}
 	phrases = ["Did you find what you were looking for?", "You seem lost...", "Oopsy whoops, we made a fucksy wucksy!!!", "Hello?"]
@@ -93,7 +125,6 @@ def update_icon(request):
 
 	data['id'] = id
 	data['img'] = img
-
 
 	if not img or not id:
 		status_code = 400
@@ -203,7 +234,7 @@ class APIView(TemplateView):
 		if request.user.groups.filter(name='admins').exists():
 
 			context = {}
-			context['recipes'] = Crafted.objects.filter(profession__name='Blacksmithing')
+			context['recipes'] = Crafted.objects.filter(profession__name='Enchanting')
 			context['consume_lists'] = ConsumeList.objects.all()
 			context['rangen'] = range(5)
 			context['specs'] = {}
@@ -487,6 +518,7 @@ class ConsumeBuilderRedirectView(RedirectView):
 
 		return self.url
 
+## Also known as the ProfessionTool
 class ConsumeToolTemplate(TemplateView):
 	form_class = ConsumeListForm
 
@@ -540,7 +572,6 @@ class ConsumeToolTemplate(TemplateView):
 					context['consumes'][prof_name] = {}
 				context['consumes'][prof_name][consume.name] = consume.amount
 
-		data = dict(request.GET)
 
 		prof = self.kwargs.get("prof", None)
 		context["recipes"] = {}
@@ -577,6 +608,7 @@ class ConsumeToolTemplate(TemplateView):
 				context["recipes"] = all_recipes
 
 		qs = request.META.get('QUERY_STRING', None)
+		data = dict(request.GET)
 
 		if data.keys() and qs:
 			# context['consumes'] = {}
@@ -666,7 +698,6 @@ class ConsumeToolTemplate(TemplateView):
 						context['consumes'][prof_name] = {}
 					context['consumes'][prof_name][consume.name] = consume.amount
 
-			data = dict(request.POST)
 
 			prof = self.kwargs.get("prof", None)
 			context["recipes"] = {}
@@ -704,6 +735,8 @@ class ConsumeToolTemplate(TemplateView):
 			# context["recipes"] = recipes
 			qs = request.META.get('QUERY_STRING', None)
 
+			data = dict(request.POST)
+
 			if data.keys() and qs:
 				# context['consumes'] = {}
 				context['materials'] = {}
@@ -733,7 +766,7 @@ class ConsumeToolTemplate(TemplateView):
 	## with the addition of all items/recipes, no longer a viable method
 	## of generating meaningful CL hashes; decommissioned
 	#####################################################################
-	def consume_list_builder(self, query_str):
+	def old_consume_list_builder(self, query_str):
 
 		print('query_str: ', query_str)
 		qd = QueryDict(query_str).dict()
@@ -865,37 +898,6 @@ class ConsumeToolTemplate(TemplateView):
 		return data
 		# return JsonResponse(data)
 
-	# def url_builder(self, user, consume_list, spent):
-	# 	stringy_boy = 'iX={}'.format(uuid.uuid4().hex[:6].upper())
-	#
-	#
-	#
-	# 	rle_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-	# 	prof_str = {
-	# 		'Alchemy': 'AL', 'Blacksmithing':'BS', 'Cooking':'CK', 'Engineering':'EN',
-	# 		'Enchanting': 'EC', 'First Aid':'FA', 'Fishing':'FI', 'Leatherworking': 'LW', 'Other':'OT',
-	# 		'Tailoring': 'TL', 'Skinning':'SK'
-	# 		}
-	# 	translator = {}
-	# 	translator['professions'] = prof_str
-	#
-	# 	for prof_name,crafted_list in spent.items():
-	# 		stringy_boy = ''.join([stringy_boy, "&{}=".format(translator['professions'][prof_name])])
-	# 		if prof_name == 'other':
-	# 			prof = None
-	# 		else:
-	# 			prof = Profession.objects.get(name=prof_name)
-	#
-	# 		all_crafted = Crafted.objects.filter(profession=prof, end_game=True)
-	# 		translator[prof_name] = {}
-	#
-	# 		for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
-	# 			translator[prof_name][crafted.name] = k
-	#
-	# 		for i,v in crafted_list.items():
-	# 			stringy_boy = ''.join([stringy_boy, translator[prof_name][i], str(v)])
-	#
-	# 	return(stringy_boy)
 
 class EnchantToolView(TemplateView):
 	template_name = "enchant_tool.html"
@@ -1070,25 +1072,25 @@ def load_spec(request):
 # def save_consume_list(request):
 # 	pass
 
-def ajax_tooltip(request):
+def get_item_info(request):
 	data = {}
-	# static = request.GET.get('static', None)
-	which = request.GET.get('which', 0)
-	name = request.GET.get('name', None)
-	data['name'] = name
-	static = request.GET.get('static', False)
+	ix = request.GET.get('ix', None)
+	data['ix'] = ix
+	# name = request.GET.get('name', None)
+	# data['name'] = name
+	# static = request.GET.get('static', False)
+	item = ''
 
-	if int(which) == 0:
-		items = Item.objects.filter(name=name)
+	if ix:
+		items = Item.objects.filter(ix=ix)
 		if items:
 			item = items.first()
 		else:
 			item = Item.objects.get(name='samwise', ix=69420)
 
-		if not static:
-			data['image_name'] = item.img
-
+		data['image_name'] = item.img
 		data['quality'] = item.quality
+		data['name'] = item.name
 		if item.bop:
 			data['bop'] = item.bop
 
@@ -1105,6 +1107,9 @@ def ajax_tooltip(request):
 			data['damage'] = []
 			for dmg in item.damage.all():
 				data['damage'].append(str(dmg))
+
+			if data['damage'] == []:
+				del data['damage']
 
 		if item.speed:
 			data['speed'] = item.speed
@@ -1129,10 +1134,17 @@ def ajax_tooltip(request):
 			for equip in item.equips.all():
 				data['equips'].append(equip.t)
 
+			if data['equips'] == []:
+				del data['equips']
+
 		if item.procs:
 			data['procs'] = []
 			for proc in item.procs.all():
 				data['procs'].append(proc.t)
+
+			if data['procs'] == []:
+				del data['procs']
+
 
 		if item.use:
 			data['use'] = item.use.t
@@ -1140,11 +1152,8 @@ def ajax_tooltip(request):
 		if item.description:
 			data['description'] = item.description
 
-	elif which == 1:
-		talents = Talent.objects.filter(name=name)
-		pass
 
-	response = JsonResponse(data)
+	response = JsonResponse(data, safe=False)
 	return response
 
 def yeet_cannon(request):

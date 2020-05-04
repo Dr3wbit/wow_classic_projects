@@ -1,5 +1,5 @@
 $(document).ready(global_event_handlers());
-
+var recipes = {}
 function build_consume_list(url, ix) {
 	var id = ix;
 	var search = url.search
@@ -39,6 +39,7 @@ function info_display(id, caller) {
 
 
 function global_event_handlers() {
+
 
     if (window.innerWidth <= 992) {
         $('.mainBody').css({ 'padding-left': '15px' })
@@ -633,7 +634,6 @@ function tooltip_v2(e, staticK=false, which=0) {
 	bigdaddytooltip(e, name, tooltipElems)
 	$('#tooltip_container').css({'visibility':'visible'})
 }
-
 
 
 function combatText(e, t){

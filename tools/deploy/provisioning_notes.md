@@ -93,7 +93,11 @@ $ cd /etc/logrotate.d/$SITENAME
 $ sed -i "s/SITENAME/$SITENAME/g" logrotate.template.conf
 ```
 #### setup virtualenv:
-
+```
+$ pip install virtualenv
+$ cd ~/$SITENAME
+$ python3.6 -m venv venv
+```
 #### import existing data into database (optional)
 ```
 (venv) $ python manage.py loaddata datadump.json --exclude=contenttypes --exclude=auth --exclude=home.ConsumeList --exclude=home.Spec --exclude=home.Rating --exclude=home.TreeAllotted --exclude=home.Consume

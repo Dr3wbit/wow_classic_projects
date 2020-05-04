@@ -60,10 +60,18 @@
     </footer>
     {% endblock footer %}
 
+    <script>
+        var all_items = {}
+        if (storageAvailable('localStorage')) {
+            var keys = Object.keys(localStorage)
+            keys.forEach(function(ix) {
+                all_items[ix] = JSON.parse(localStorage.getItem(ix))
+            })
+        }
+    </script>
     {% block javascript %}
     {% endblock javascript %}
     <div id="tooltip_container">
-        <!-- <div id="tooltip" style="visibility: hidden;"></div> -->
     </div>
     <script>
         var static_url = "{% get_static_prefix %}";
