@@ -645,9 +645,27 @@ function init_list_searching(response) {
 }
 
 function empty_tooltip() {
+
     var tooltip_container = document.getElementById("tooltip_container")
-    for (let i = 0; i < tooltip_container.children.length; i++) {
-        tooltip_container.children[i].remove()
+
+    while (tooltip_container.firstChild) {
+        tooltip_container.removeChild(tooltip_container.firstChild);
+    }
+    //
+    // console.log('empty tooltip: ', tooltip_container.children.length)
+    // for (let i = 0; i < tooltip_container.children.length; i++) {
+    //     tooltip_container.children[i].remove()
+    // }
+
+
+}
+
+function remove_children(node) {
+    for (let i = 0; i < node.children.length; i++) {
+        node.children.forEach(function(child) {
+
+        })
+        node.children[i].remove()
     }
 }
 
@@ -666,27 +684,33 @@ function unhide_tooltip() {
 }
 
 function add_mousemove(e) {
+
     var target = e.target
     target.addEventListener('mousemove', update_tooltip_coords)
 }
 
 function update_tooltip_coords(e) {
+
     coords.x = coords.x + e.movementX
     coords.y = coords.y + e.movementY
     position_tooltip(coords.x, coords.y)
 }
 
 function position_tooltip(x, y) {
+
     var tooltip_container = document.getElementById("tooltip_container")
     tooltip_container.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible;`
 }
 
 function mouseleave_cleanup(e) {
-    e.target.removeEventListener('mousemove', update_tooltip_coords)
+
     empty_tooltip()
+    e.target.removeEventListener('mousemove', update_tooltip_coords)
+    // empty_tooltip()
 }
 
 function tooltip_init(e) {
+
     empty_tooltip()
     add_mousemove(e)
     var target = e.target
@@ -736,8 +760,8 @@ function prof_receiver(data) {
     data.forEach(function (recipe) {
         var tablerow = create_element('tr')
         var td = create_element('td', 'recipe', "text-align: left;")
-        var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`)
 
+        var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`)
         var image_name = static_url+`images/icons/large/${recipe.img}.jpg`
         var recipe_img_el = create_element('img', 'icon-medium recipe-image', `background-image: url(${image_name});`)
         recipe_img_el.src = static_url+"images/icon_border_2.png"
@@ -790,6 +814,7 @@ function API_create_tooltip(data) {
 	var tooltip_container = document.getElementById("tooltip_container")
 	var tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
 
+    console.log('data: ', data)
 	if (data.img) {
 		let image_name = static_url+`images/icons/large/${data.img}.jpg`
 		style = `pointer-events: none; float: left; background-image: url(${image_name})`

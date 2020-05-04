@@ -1088,7 +1088,7 @@ def get_item_info(request):
 		else:
 			item = Item.objects.get(name='samwise', ix=69420)
 
-		data['image_name'] = item.img
+		data['img'] = item.img
 		data['quality'] = item.quality
 		data['name'] = item.name
 		if item.bop:
