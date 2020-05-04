@@ -624,7 +624,9 @@
 
 var coords = {'x':0, 'y':0}
 var previous_ix = 0
-var prev_queries_keys = Object.keys(localStorage)
+// var prev_query_keys = Object.keys(localStorage)
+var prev_query_keys = Object.keys(all_items)
+
 
 $("#prof_loader").on({
     click: e=> {
@@ -697,8 +699,9 @@ function tooltip_init(e) {
     coords.x = e.pageX
     coords.y = e.pageY
 
-    if (prev_queries_keys.includes(ix)) {
-        var data = JSON.parse(localStorage.getItem(ix))
+    if (prev_query_keys.includes(ix)) {
+        var data = all_items[ix]
+
         API_create_tooltip(data)
         update_tooltip_coords(e)
     } else {
@@ -720,9 +723,10 @@ function add_item_query(data) {
     var ix = data.responseJSON.ix
     var item = data.responseJSON
 
-    if (!prev_queries_keys.includes(ix)) {
+    if (!prev_query_keys.includes(ix)) {
+        all_items[ix] = item
         localStorage.setItem(ix, JSON.stringify(item));
-        prev_queries_keys.push(ix)
+        prev_query_keys.push(ix)
         console.log(`added ${ix} to previous queries in local storage`)
     }
 }
