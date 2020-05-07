@@ -61,7 +61,7 @@
 					{% has_voted spec.id request.user.email 1 as voted %}
 
 						{% if not request.user.is_authenticated or request.user == spec.user or voted %}
-						<div class="star-box" data-rating="{{spec.rating}}">
+						<div class="star-box rating" data-rating="{{spec.rating}}">
 							{% widthratio spec.rating 1 20 as width %}
 							<div class="star-limiter" style="width:{{width|default:0}}%">
 								<div class="longbar">
@@ -126,7 +126,7 @@
 					anonymous
 					{% endif %}
 					on
-					{{spec.updated}}
+					<span class="created" data-created="{{spec.updated|date:"U"}}">{{spec.updated}}</span>
 					{% endif %}
 
 					{% if request.user.is_staff %}
@@ -205,7 +205,7 @@
 						{% endif %}
 					</span>
 					{% if not request.user.is_authenticated or voted or request.user == cl.user %}
-						<div class="star-box" data-rating="{{cl.rating}}">
+						<div class="star-box rating" data-rating="{{cl.rating}}">
 							{% widthratio cl.rating 1 20 as width %}
 							<div class="star-limiter" style="width:{{width|default:0}}%">
 								<div class="longbar">
@@ -263,7 +263,7 @@
 					anonymous
 					{% endif %}
 					on
-					{{cl.updated}}
+					<span class="created" data-created="{{cl.updated|date:"U"}}">{{cl.updated}}</span>
 					{% endif %}
 					{% if request.user.is_staff %}
 					<button class="btn btn-sm float-right flag-item" aria-label="Flag" title="Flag"

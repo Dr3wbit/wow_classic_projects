@@ -58,14 +58,14 @@
                         </div>
                     </div>
                     <div class="dropdown show d-inline-block">
-                        <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="sorting"
+                        <a class="btn btn-sm btn-dark dropdown-toggle" role="button" id="sorting"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sort
                         </a>
                         <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
-                            <a class="dropdown-item sorting-item" href="#">Rating</a>
+                            <a class="dropdown-item sorting-item" data-sort="data-rating">Rating</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item sorting-item" href="#">Created</a>
+                            <a class="dropdown-item sorting-item" data-sort="data-created">Created</a>
                             <!-- <div class="dropdown-divider"></div> -->
                             <!-- <a class="dropdown-item sorting-item" href="#">Updated</a> -->
                         </div>
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
  });
 
-var monkeyList = '';
+var monkeyList;
 
  function init_list_searcher() {
     monkeyList = new List('saved_list_container', {
@@ -119,7 +119,8 @@ var monkeyList = '';
            'wowclass',
            'tags',
            'feed-desc',
-           { data: ['rating'] },
+           {attr: 'data-rating', name: 'rating'},
+           {attr: 'data-created', name: 'created'},
        ],
      });
  }
@@ -139,6 +140,7 @@ var monkeyList = '';
              e.stopPropagation()
          }
      });
+
      $('.filter-box').on({
          click: e => {
              e.stopPropagation()
@@ -154,8 +156,68 @@ var monkeyList = '';
      $('#search_bar').on('keyup', function() {
          var searchString = $(this).val();
          monkeyList.search(searchString);
+     });
+
+
+     $('.sorting-item').on('click', function() {
+         var sortBySelection = $(this).text()
+         $('#sorting').text(sortBySelection)
+         var sortingOrder = $("#sorting_order")
+         sortingOrder.removeClass("hidden").removeClass("untouchable")
+         $('#sorting').addClass("removeCarrat")
+         sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+         // sortBySelection = "data-"+sortBySelection
+         // console.log('sortBySelection: ', sortBySelection)
+
+         monkeyList.sort(sortBySelection.toLowerCase(), {order: 'desc'});
+     });
+
+     $("#sorting_order").on('click', function() {
+         var glyph_triangle = $(this).find("span.glyphicon")
+         var sort_order;
+         var sortBySelection = $('#sorting').text().toLowerCase()
+
+         if (glyph_triangle.hasClass("glyphicon-triangle-bottom")) {
+             sort_order = 'asc'
+             glyph_triangle.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
+         } else {
+             sort_order = 'desc'
+             glyph_triangle.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+         }
+
+         monkeyList.sort(sortBySelection, {order: sort_order});
+
 
      });
+
+     //old
+     // $("#sorting_order").on({
+     //     click: e=> {
+     //         let sort_order = $(e.target).find("span.glyphicon")
+     //         if (sort_order.hasClass("glyphicon-triangle-bottom")) {
+     //             sort_order.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
+     //         } else {
+     //             sort_order.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+     //         }
+     //         yeet_cannon()
+     //     }
+     // })
+
+     //old
+     // $('.sorting-item').on({
+     //     click: e => {
+     //         // e.preventDefault()
+     //         let sortBySelection = $(e.target).text()
+     //         $('#sorting').text(sortBySelection)
+     //         let sort_order = $("#sorting_order")
+     //         sort_order.removeClass("hidden").removeClass("untouchable")
+     //         $('#sorting').addClass("removeCarrat")
+     //
+     //         sort_order.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+     //         yeet_cannon()
+     //
+     //     }
+     // });
 
      // old
      // $("#search_bar").on({
@@ -201,33 +263,6 @@ var monkeyList = '';
              e.preventDefault()
          }
      });
-
-     $('.sorting-item').on({
-         click: e => {
-             // e.preventDefault()
-             let sortBySelection = $(e.target).text()
-             $('#sorting').text(sortBySelection)
-             let sort_order = $("#sorting_order")
-             sort_order.removeClass("hidden").removeClass("untouchable")
-             $('#sorting').addClass("removeCarrat")
-             sort_order.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-             yeet_cannon()
-
-         }
-     });
-
-     $("#sorting_order").on({
-         click: e=> {
-             let sort_order = $(e.target).find("span.glyphicon")
-             if (sort_order.hasClass("glyphicon-triangle-bottom")) {
-                 sort_order.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
-             } else {
-                 sort_order.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-             }
-             yeet_cannon()
-         }
-     })
-
  }
 
  function star_handler() {
