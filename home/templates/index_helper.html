@@ -26,7 +26,7 @@
 			</div>
 				<div class="row feed-content">
 					<div class="col-8 feedTitle">
-						<a href="{% url 'talent_builder' spec.id %}?{{spec.hash}}">{{spec.name}}</a>
+						<a href="{% url 'talent_builder' spec.id %}?{{spec.hash}}"><span class='name'>{{spec.name}}</span></a>
 					</div>
 					<div class="col-4">
 
@@ -42,7 +42,7 @@
 						style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
 					</hr>
 				</div>
-				<div class="row feed-content">
+				<div class="row tags feed-content">
 					{% for tag in spec.tags.all %}
 					<div class="feed-tag">{{tag.name}}</div>
 					{% endfor %}
@@ -51,7 +51,7 @@
 			</div>
 		<div class="col-12 row feed-footer">
 			<div class="col-md-4 col-12">
-				<span class="{{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
+				<span class="wowclass {{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
 				<span
 					class="">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
 			</div>
@@ -61,7 +61,7 @@
 					{% has_voted spec.id request.user.email 1 as voted %}
 
 						{% if not request.user.is_authenticated or request.user == spec.user or voted %}
-						<div class="star-box">
+						<div class="star-box" data-rating="{{spec.rating}}">
 							{% widthratio spec.rating 1 20 as width %}
 							<div class="star-limiter" style="width:{{width|default:0}}%">
 								<div class="longbar">
@@ -170,7 +170,7 @@
 			<div class="row feed-header"></div>
 			<div class="row feed-content">
 					<div class="col-8 feedTitle">
-						<a href="{% url 'consume_builder' cl.id %}?{{cl.hash}}">{{cl.name}}</a>
+						<a href="{% url 'consume_builder' cl.id %}?{{cl.hash}}"><span class="name">{{cl.name}}</span></a>
 					</div>
 					<div class="col-4"></div>
 			</div>
@@ -184,7 +184,7 @@
 					style="border-bottom: 1px solid white; width: 100%; margin-top:0; margin-bottom:0;">
 				</hr>
 			</div>
-			<div class="row feed-content">
+			<div class="row tags feed-content">
 				{% for tag in cl.tags.all %}
 				<div class="feed-tag">{{tag.name}}</div>
 				{% endfor %}
@@ -205,7 +205,7 @@
 						{% endif %}
 					</span>
 					{% if not request.user.is_authenticated or voted or request.user == cl.user %}
-						<div class="star-box">
+						<div class="star-box" data-rating="{{cl.rating}}">
 							{% widthratio cl.rating 1 20 as width %}
 							<div class="star-limiter" style="width:{{width|default:0}}%">
 								<div class="longbar">

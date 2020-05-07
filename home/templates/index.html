@@ -75,8 +75,8 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-8 col-md-7">
-                    <input id="search_bar" class="form-control form-control-sm" type="search" placeholder="Search Keywords" size="30" aria-label="Search">
-                    <button class="btn btn-sm btn-outline-warning" type="submit">Search</button>
+                    <input id="search_bar" class="fuzzy-search" placeholder="Search Keywords" size="30" aria-label="Search">
+                    <!-- <button class="btn btn-sm btn-outline-warning" type="submit">Search</button> -->
                 </div>
             </form>
         </div>
@@ -84,7 +84,10 @@
     <div class="row content-container mt-4">
         <div class="applied-filter-container mx-auto col-12"></div>
         <div id="saved_list_container" class="mx-auto">
+            <!-- <input class="fuzzy-search" /> -->
+            <div class="list">
             {% include "index_helper.html" %}
+            </div>
         </div>
 
     </div>
@@ -99,6 +102,7 @@
 {% endblock footer %}
 
 {% block javascript %}
+<script type="text/javascript" src="{% static "js/list.min.js" %}"></script>
 <script>
 
 $(document).ready(function() {
@@ -106,7 +110,23 @@ $(document).ready(function() {
 
  });
 
+var monkeyList = '';
+
+ function init_list_searcher() {
+    monkeyList = new List('saved_list_container', {
+       valueNames: [
+           'name',
+           'wowclass',
+           'tags',
+           'feed-desc',
+           { data: ['rating'] },
+       ],
+     });
+ }
+
  function index_handlers() {
+     init_list_searcher()
+
      $("#test_form").on({
          submit: e => {
              e.preventDefault()
@@ -123,7 +143,6 @@ $(document).ready(function() {
          click: e => {
              e.stopPropagation()
              var target = $(e.target)
-             // add target[0].innerText   to an array to be sent with apply filters
              if (target.hasClass('filter-selected')) {
                  target.removeClass('filter-selected')
              } else {
@@ -132,12 +151,19 @@ $(document).ready(function() {
          }
      });
 
-     $("#search_bar").on({
-         search: e=> {
-             e.stopImmediatePropagation()
-             yeet_cannon()
-         }
+     $('#search_bar').on('keyup', function() {
+         var searchString = $(this).val();
+         monkeyList.search(searchString);
+
      });
+
+     // old
+     // $("#search_bar").on({
+     //     search: e=> {
+     //         e.stopImmediatePropagation()
+     //         yeet_cannon()
+     //     }
+     // });
 
      $("#apply-filters, #search_bar_button").on({
          click: e => {
@@ -242,130 +268,130 @@ $(document).ready(function() {
  }
 
 
-     function yeet_cannon() {
-         var separator = /(?:\s|\,|\.)/
-         var search_string = $("#search_bar").val()
-         var words = search_string.split(separator).filter(Boolean).filter(word => word.length < 21)
-         var $predata = {};
+ function yeet_cannon() {
+     var separator = /(?:\s|\,|\.)/
+     var search_string = $("#search_bar").val()
+     var words = search_string.split(separator).filter(Boolean).filter(word => word.length < 21)
+     var $predata = {};
 
-         var sorting;
-         if (!($("#sorting_order").hasClass("hidden"))) {
-             let sort_text = $("#sorting").text()
-             sorting = ($("#sorting_order").find("span.glyphicon").hasClass("glyphicon-triangle-top")) ? `+${sort_text}` : `-${sort_text}`
-         }
-
-         var tags = $.map($(".filter-selected"), x => x.innerText)
-
-         if (Boolean(sorting)) {
-             $predata['sorting'] = sorting.toString().toLowerCase()
-         }
-         if (words.length > 0) {
-             $predata['query'] = words
-         }
-
-         if (tags.length > 0) {
-              $predata['tags'] = tags
-         }
-
-         var $data = $.param($predata, true)
-
-
-         $.ajax({
-             method: "GET",
-             url: '/ajax/yeet_cannon/',
-             data: $data,
-             dataType: 'html',
-             success: yeet_cannon_success,
-         });
+     var sorting;
+     if (!($("#sorting_order").hasClass("hidden"))) {
+         let sort_text = $("#sorting").text()
+         sorting = ($("#sorting_order").find("span.glyphicon").hasClass("glyphicon-triangle-top")) ? `+${sort_text}` : `-${sort_text}`
      }
 
-     function yeet_cannon_success(data) {
-         $("#saved_list_container").html(data)
+     var tags = $.map($(".filter-selected"), x => x.innerText)
+
+     if (Boolean(sorting)) {
+         $predata['sorting'] = sorting.toString().toLowerCase()
+     }
+     if (words.length > 0) {
+         $predata['query'] = words
      }
 
-    function rate_saved_list(d) {
-        var spec = (d.wow_class) ? 1 : 0
-        var rating = d.rating
-        var id = d.id
-        $.ajax({
-            method: "POST",
-            url: '/ajax/save_rating/',
-            data: {
-                'value': rating,
-                'id': id,
-                'spec': spec,
-            },
-            dataType: 'json',
-            success: update_rating,
-            error: rating_error,
-        });
-    }
+     if (tags.length > 0) {
+          $predata['tags'] = tags
+     }
 
-    function update_rating(data) {
-        //
-        var ratings_container;
-        if (data.wow_class) {
-            ratings_container = $(`div.ratings-container[data-id='${data.id}'][data-wowclass="${data.wow_class}"]`)
-        } else {
-            ratings_container = $(`div.ratings-container[data-id='${data.id}']`)
+     var $data = $.param($predata, true)
+
+
+     $.ajax({
+         method: "GET",
+         url: '/ajax/yeet_cannon/',
+         data: $data,
+         dataType: 'html',
+         success: yeet_cannon_success,
+     });
+ }
+
+function yeet_cannon_success(data) {
+     $("#saved_list_container").html(data)
+ }
+
+function rate_saved_list(d) {
+    var spec = (d.wow_class) ? 1 : 0
+    var rating = d.rating
+    var id = d.id
+    $.ajax({
+        method: "POST",
+        url: '/ajax/save_rating/',
+        data: {
+            'value': rating,
+            'id': id,
+            'spec': spec,
+        },
+        dataType: 'json',
+        success: update_rating,
+        error: rating_error,
+    });
+}
+
+function update_rating(data) {
+    //
+    var ratings_container;
+    if (data.wow_class) {
+        ratings_container = $(`div.ratings-container[data-id='${data.id}'][data-wowclass="${data.wow_class}"]`)
+    } else {
+        ratings_container = $(`div.ratings-container[data-id='${data.id}']`)
+    }
+    let width = data.average_rating*20
+
+    var star_limiter = ratings_container.find("div.star-limiter")
+    star_limiter.css('width', `${width}%`)
+
+    var stars = ratings_container.find($(".glyphicon"))
+    stars.unbind()
+    stars.removeClass("glyphicon-star-empty").addClass("glyphicon-star")
+    ratings_container.find("div.star-box").removeClass("rating-vote")
+    ratings_container.find("div.star-bg").removeClass("rating-vote")
+    ratings_container.find($(".ratings-count")).text(`(${data.num_ratings})`)
+
+}
+
+function rating_error(data) {
+    notifyUser(data.message)
+}
+
+{% if request.user.is_staff %}
+
+$("a.remove-rating").on({
+    click: e => {
+        e.preventDefault()
+        var target = $(e.target)
+
+        var container = target.closest($(".ratings-container"))
+        var id = container.attr("data-id")
+        var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : ''
+
+        var data = {
+            wow_class: wow_class,
+            id: id,
         }
-        let width = data.average_rating*20
-
-        var star_limiter = ratings_container.find("div.star-limiter")
-        star_limiter.css('width', `${width}%`)
-
-        var stars = ratings_container.find($(".glyphicon"))
-        stars.unbind()
-        stars.removeClass("glyphicon-star-empty").addClass("glyphicon-star")
-        ratings_container.find("div.star-box").removeClass("rating-vote")
-        ratings_container.find("div.star-bg").removeClass("rating-vote")
-        ratings_container.find($(".ratings-count")).text(`(${data.num_ratings})`)
+        delete_rating(data)
 
     }
+})
 
-    function rating_error(data) {
-        notifyUser(data.message)
-    }
+function delete_rating(d) {
+    var spec = (d.wow_class) ? true : false
+    var id = d.id
+    $.ajax({
+        method: "POST",
+        url: '/ajax/delete_rating/',
+        data: {
+            'id': id,
+            'spec': spec,
+        },
+        dataType: 'json',
+        success: delete_rating_success
+    });
+}
 
-    {% if request.user.is_staff %}
-
-    $("a.remove-rating").on({
-        click: e => {
-            e.preventDefault()
-            var target = $(e.target)
-
-            var container = target.closest($(".ratings-container"))
-            var id = container.attr("data-id")
-            var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : ''
-
-            var data = {
-                wow_class: wow_class,
-                id: id,
-            }
-            delete_rating(data)
-
-        }
-    })
-
-    function delete_rating(d) {
-        var spec = (d.wow_class) ? true : false
-        var id = d.id
-        $.ajax({
-            method: "POST",
-            url: '/ajax/delete_rating/',
-            data: {
-                'id': id,
-                'spec': spec,
-            },
-            dataType: 'json',
-            success: delete_rating_success
-        });
-    }
-
-    function delete_rating_success(data) {
-        notifyUser(data.message)
-    }
-    {% endif %}
+function delete_rating_success(data) {
+    notifyUser(data.message)
+}
+{% endif %}
 
 
 </script>

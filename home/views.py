@@ -1175,7 +1175,7 @@ def yeet_cannon(request):
 	consume_lists = ''
 	if tags:
 		# NOTE: and(&&):
-		print('tags: ', tags)
+		# print('tags: ', tags)
 		# specs = set(specs.filter(tags__name__in=tags).filter(wow_class__name__in=tags))
 		# consume_lists = set(consume_lists.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
 
@@ -1222,6 +1222,7 @@ def yeet_cannon(request):
 		sorting = sorting[0]
 
 		sorting = list(sorting)
+		print(sorting)
 		sign = sorting.pop(0)
 		sign = '' if sign == '+' else sign
 		sorting = ''.join(sorting)
@@ -1233,8 +1234,8 @@ def yeet_cannon(request):
 		if sorting == 'rating':
 			how_order = '{}avg_rating'.format(sign)
 
-			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by('{}avg_rating'.format(sign))
-			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by('{}avg_rating'.format(sign))
+			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by(how_order)
+			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by(how_order)
 
 		elif sorting == 'created':
 			specs = specs.distinct().order_by('{}created'.format(sign))
