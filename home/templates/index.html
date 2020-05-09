@@ -27,7 +27,7 @@
                             <div class="filter-dropdown-container container row">
                                 <div class="col-4">
                                     <div class="filter-category-title">Classes</div>
-                                    <div name="classes" class="filter-container custom-scroll-bar">
+                                    <div name="wowclass" class="filter-container custom-scroll-bar">
                                         {% for class in wowclasses %}
                                         <div name="{{class.name}}" class="filter-box">{{class.name}}</div>
                                         {%endfor%}
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="filter-category-title">Professions</div>
-                                    <div name="professions" class="filter-container custom-scroll-bar">
+                                    <div name="profession" class="filter-container custom-scroll-bar">
                                         {% for profession in wowprofessions %}
                                         <div name="{{profession.name}}" class="filter-box">{{profession.name}}</div>
                                         {%endfor%}
@@ -50,8 +50,8 @@
                                     </div>
                                 </div>
                                 <div class="col-12 justify-content-around mt-2">
-                                    <button class="btn btn-sm btn-dark" id="reset-filters" type="button">Reset</button>
-                                    <button class="btn btn-sm btn-dark" id="apply-filters" type="button">Apply Filters</button>
+                                    <button class="btn btn-sm btn-dark" id="reset_filters" type="button">Reset</button>
+                                    <!-- <button class="btn btn-sm btn-dark" id="apply_filters" type="button">Apply Filters</button> -->
                                 </div>
 
                             </div>
@@ -125,9 +125,27 @@ var monkeyList;
      });
  }
 
+function reset_filters() {
+    monkeyList.filter()
+}
+
+// hacky function to allow list.js to store an array of tags as values
+function tag_list_corrector(listObj) {
+    listObj.items.forEach(function(item) {
+        item._values.tags = []
+
+        var elem = item.elm
+        var tags = $(elem).find("div.tags > div.feed-tag")
+        tags.each(function(index) {
+            item._values.tags.push($(this).text())
+        })
+
+    })
+}
+
  function index_handlers() {
      init_list_searcher()
-
+     tag_list_corrector(monkeyList)
      $("#test_form").on({
          submit: e => {
              e.preventDefault()
@@ -141,17 +159,76 @@ var monkeyList;
          }
      });
 
-     $('.filter-box').on({
-         click: e => {
-             e.stopPropagation()
-             var target = $(e.target)
-             if (target.hasClass('filter-selected')) {
-                 target.removeClass('filter-selected')
-             } else {
-                 target.addClass('filter-selected')
-             }
-         }
-     });
+     $('.filter-box').on('click', function() {
+        var target = $(this),
+            val = target.attr('name');
+
+        target.toggleClass('filter-selected');
+
+        // if (target.hasClass('filter-selected')) {
+        //     target.removeClass('filter-selected')
+        // } else {
+        //      target.addClass('filter-selected')
+        // }
+        console.log(monkeyList)
+        console.log('matching items: ', monkeyList.matchingItems)
+
+        var filterList = {};
+        $(".filter-selected").each(function(index) {
+            var category = $(this).closest(".filter-container").attr("name"),
+                name = $(this).attr("name");
+
+            if (!Object.keys(filterList).includes(category)) {
+                filterList[category] = []
+            }
+
+            filterList[category].push(name)
+        });
+
+        console.log('filterList: ', filterList)
+
+        // monkeyList.filter(function(item) {
+        //     var truth = false
+        //     Object.keys(filterList).forEach(function(category) {
+        //         if (filterList[category].includes(item.values()[category])) {
+        //             truth = true
+        //             return
+        //         } else {
+        //             return
+        //         }
+        //     });
+        //     return truth
+        // });
+
+        //new
+        monkeyList.filter(function(item) {
+            var truth = false
+            Object.keys(filterList).forEach(function(category) {
+                var itemArr = Array.isArray(item.values()[category]) ? item.values()[category] : [item.values()[category]]
+                itemArr.forEach(function(val) {
+                    if (filterList[category].includes(val)) {
+                        truth = true
+                        return
+                    } else {
+                        return
+                    }
+                })
+
+            });
+            return truth
+        });
+
+        console.log('matching items: ', monkeyList.matchingItems)
+
+
+        if (monkeyList.matchingItems.length <= 0) {
+            reset_filters()
+            $('.no-result').hide()
+        }
+    });
+
+
+
 
      $('#search_bar').on('keyup', function() {
          var searchString = $(this).val();
@@ -166,9 +243,6 @@ var monkeyList;
          sortingOrder.removeClass("hidden").removeClass("untouchable")
          $('#sorting').addClass("removeCarrat")
          sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-         // sortBySelection = "data-"+sortBySelection
-         // console.log('sortBySelection: ', sortBySelection)
-
          monkeyList.sort(sortBySelection.toLowerCase(), {order: 'desc'});
      });
 
@@ -176,7 +250,6 @@ var monkeyList;
          var glyph_triangle = $(this).find("span.glyphicon")
          var sort_order;
          var sortBySelection = $('#sorting').text().toLowerCase()
-
          if (glyph_triangle.hasClass("glyphicon-triangle-bottom")) {
              sort_order = 'asc'
              glyph_triangle.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
@@ -184,10 +257,7 @@ var monkeyList;
              sort_order = 'desc'
              glyph_triangle.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
          }
-
          monkeyList.sort(sortBySelection, {order: sort_order});
-
-
      });
 
      //old
@@ -227,42 +297,57 @@ var monkeyList;
      //     }
      // });
 
-     $("#apply-filters, #search_bar_button").on({
+     // $("#apply_filters, #search_bar_button").on({
+     //     click: e => {
+     //         e.preventDefault()
+     //
+     //         yeet_cannon()
+     //
+     //         $('.dropdown-menu').removeClass('show')
+     //
+     //         let tags = $.map($(".filter-selected"), x => x.innerText).join(", ")
+     //
+     //         // let filterArray = []
+     //         // let selectedFilters = $('.filter-selected')
+     //         // for (const filter of selectedFilters) {
+     //         //     filterArray.push(filter.innerText)
+     //         // }
+     //         // let displayFilters = filterArray.toString().replace(/,/g, ', ')
+     //
+     //         $('.applied-filter-container').text(`Applied Filters: ${tags}`)
+     //     }
+     // });
+
+     $('#reset_filters').on({
          click: e => {
-             e.preventDefault()
-
-             yeet_cannon()
-
-             $('.dropdown-menu').removeClass('show')
-
-             let tags = $.map($(".filter-selected"), x => x.innerText).join(", ")
-
-             // let filterArray = []
-             // let selectedFilters = $('.filter-selected')
-             // for (const filter of selectedFilters) {
-             //     filterArray.push(filter.innerText)
-             // }
-             // let displayFilters = filterArray.toString().replace(/,/g, ', ')
-
-             $('.applied-filter-container').text(`Applied Filters: ${tags}`)
-         }
-     });
-
-     $('#reset-filters').on({
-         click: e => {
-             e.preventDefault()
-             e.stopImmediatePropagation()
              $('.filter-selected').removeClass('filter-selected')
+             reset_filters()
 
              let tags = $.map($(".filter-selected"), x => x.innerText)
 
-             yeet_cannon()
              $('.applied-filter-container').text(tags)
          },
          submit: e => {
              e.preventDefault()
          }
      });
+
+     //old
+     // $('#reset_filters').on({
+     //     click: e => {
+     //         e.preventDefault()
+     //         e.stopImmediatePropagation()
+     //         $('.filter-selected').removeClass('filter-selected')
+     //
+     //         let tags = $.map($(".filter-selected"), x => x.innerText)
+     //
+     //         yeet_cannon()
+     //         $('.applied-filter-container').text(tags)
+     //     },
+     //     submit: e => {
+     //         e.preventDefault()
+     //     }
+     // });
  }
 
  function star_handler() {

@@ -152,6 +152,28 @@ def update_icon(request):
 
 	return response
 
+# class Pagination:
+#
+# 	def __init__(self, total_items, per_page):
+# 		self.total_items = total_items
+# 		self.per_page = per_page
+# 		self.page_number = 0
+# 		self.max_pages = round(self.total_items/self.per_page)
+#
+# 	def has_next(self, page_number, max_pages):
+# 		if self.page_number < self.max_pages:
+# 			return True
+# 		else:
+# 			return False
+#
+# 	def has_previous(self, page_number):
+# 		return True if self.page_number > 1 else False
+#
+# 	def plus_n(self, max_pages, n):
+# 		return self.has_next(self.page_number+self.n, self.max_pages)
+
+
+
 def icon_list(request):
 	context = {}
 	context['info'] = {}
