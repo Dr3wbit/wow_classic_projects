@@ -30,10 +30,12 @@ urlpatterns = [
     path('ajax/savedlist_info/', views.savedlist_info, name='savedlist_info'),
     path('ajax/prof_loader/', views.prof_loader, name='prof_loader'),
     path('ajax/get_item_info/', views.get_item_info, name='get_item_info'),
-    path('ajax/yeet_cannon/', views.yeet_cannon, name='yeet_cannon'),
+    path('ajax/query_saved_lists/', views.query_saved_lists, name='query_saved_lists'),
     path('ajax/flag_list/', views.flag_list, name='flag_list'),
     path('ajax/icon_list/', views.icon_list, name='icon_list'),
     path('ajax/update_icon/', views.update_icon, name='update_icon'),
     path('ajax/user_info/', views.user_info, name='user_info'),
+    path('ajax/saved_lists/', views.get_saved_lists, name='saved_lists'),
+
 
 ]

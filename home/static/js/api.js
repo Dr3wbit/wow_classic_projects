@@ -112,12 +112,12 @@ function tooltip_init(e) {
             data: data,
             dataType: 'json',
             success: API_create_tooltip,
-            complete: add_item_query,
+            complete: save_item_query,
         })
     }
 }
 
-function add_item_query(data) {
+function save_item_query(data) {
 
     var ix = data.responseJSON.ix
     var item = data.responseJSON

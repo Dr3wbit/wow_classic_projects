@@ -1,17 +1,52 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse, HttpResponse
 from django.db.models import Count, Q, Avg
-from home.models import Crafted, ConsumeList, Rating, Spec
+from home.models import Crafted, ConsumeList, Profession, Rating, Spec, Tag, WoWClass
+from itertools import chain
+from operator import attrgetter
+
+def get_saved_lists(request):
+    data = {}
+    user = request.user
+    specs = Spec.objects.exclude(visible=False)
+    consume_lists = ConsumeList.objects.exclude(visible=False)
+    all_lists = sorted(chain(specs, consume_lists), key=attrgetter('created'))
+    data['saved_lists'] = []
+    for list_item in all_lists:
+
+        list_info = {}
+        list_info['id'] = list_item.id
+        list_info['img'] = list_item.img
+        list_info['description'] = list_item.description
+        list_info['name'] = list_item.name
+        list_info['rating'] = list_item.rating
+        list_info['created'] = list_item.created
+        list_info['private'] = list_item.private
+        list_info['hash'] = list_item.hash
+
+        list_info['tags'] = []
+        for tag in list_item.tags.all():
+            list_info['tags'].append(tag.name)
+
+        if hasattr(list_item, 'wow_class'):
+            list_info['wow_class'] = list_item.wow_class.name
+
+        data['saved_lists'].append(list_info)
+
+
+    response = JsonResponse(data, safe=False)
+    return response
+
 
 
 def user_info(request):
     data = {}
-    data['anon'] = True
+    data['auth'] = False
     data['staff'] = False
     data['super'] = False
 
     if request.user.is_authenticated:
-        data['anon'] = False
+        data['auth'] = True
 
         if request.user.is_staff:
             data['staff'] = True
@@ -194,9 +229,7 @@ def prof_loader(request):
 	return response
 
 def savedlist_info(request):
-	print('test estsetestssets')
 	id = request.POST.get("id", None)
-	print('id: ', id)
 	caller = request.POST.get("caller", None)
 	context = {}
 	if id:
@@ -214,7 +247,7 @@ def savedlist_info(request):
 		html = render_to_string("info_display.html", context)
 		return HttpResponse(html)
 
-def yeet_cannon(request):
+def query_saved_lists(request):
 
 	context = {}
 	context['rangen'] = range(5)
@@ -238,9 +271,9 @@ def yeet_cannon(request):
 		# consume_lists = set(consume_lists.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
 
 		# NOTE: or(||):
+        # filtering specs in the database by tag name
 		specs = Spec.objects.filter(Q(tags__name__in=tags) | Q(wow_class__name__in=tags))
 
-		# print('specs.count: ', specs.count)
 		consume_lists = ConsumeList.objects.filter(Q(tags__name__in=tags) | Q(consume__item__profession__name__in=tags))
 		# consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__profession__name__in=tags))
 
@@ -307,7 +340,7 @@ def yeet_cannon(request):
 		# 	#created, descending(newest):
 		# 	context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=reverse)
 		#
-		# 	#top rated (filters out saved lists with 0 ratings):
+		# 	#top rated (excludes any saved list not yet rated):
 		# 	specs = specs.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
 		# 	consume_lists = consume_lists.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
 		#

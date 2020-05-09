@@ -1,2 +1,2 @@
-from .ajax_calls import *
+from .ajax_views import *
 from .template_views import *
