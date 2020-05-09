@@ -509,7 +509,7 @@ class SavedList(models.Model):
 
 	@property
 	def rating(self):
-		return self.ratings.aggregate(Avg('value'))['value__avg']
+		return self.ratings.aggregate(Avg('value'))['value__avg'] or 0
 
 	def has_voted(self, email):
 		return self.ratings.filter(user__email=email).exists()

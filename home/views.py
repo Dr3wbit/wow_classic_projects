@@ -152,6 +152,28 @@ def update_icon(request):
 
 	return response
 
+# class Pagination:
+#
+# 	def __init__(self, total_items, per_page):
+# 		self.total_items = total_items
+# 		self.per_page = per_page
+# 		self.page_number = 0
+# 		self.max_pages = round(self.total_items/self.per_page)
+#
+# 	def has_next(self, page_number, max_pages):
+# 		if self.page_number < self.max_pages:
+# 			return True
+# 		else:
+# 			return False
+#
+# 	def has_previous(self, page_number):
+# 		return True if self.page_number > 1 else False
+#
+# 	def plus_n(self, max_pages, n):
+# 		return self.has_next(self.page_number+self.n, self.max_pages)
+
+
+
 def icon_list(request):
 	context = {}
 	context['info'] = {}
@@ -1175,7 +1197,7 @@ def yeet_cannon(request):
 	consume_lists = ''
 	if tags:
 		# NOTE: and(&&):
-		print('tags: ', tags)
+		# print('tags: ', tags)
 		# specs = set(specs.filter(tags__name__in=tags).filter(wow_class__name__in=tags))
 		# consume_lists = set(consume_lists.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
 
@@ -1222,6 +1244,7 @@ def yeet_cannon(request):
 		sorting = sorting[0]
 
 		sorting = list(sorting)
+		print(sorting)
 		sign = sorting.pop(0)
 		sign = '' if sign == '+' else sign
 		sorting = ''.join(sorting)
@@ -1233,8 +1256,8 @@ def yeet_cannon(request):
 		if sorting == 'rating':
 			how_order = '{}avg_rating'.format(sign)
 
-			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by('{}avg_rating'.format(sign))
-			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by('{}avg_rating'.format(sign))
+			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by(how_order)
+			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by(how_order)
 
 		elif sorting == 'created':
 			specs = specs.distinct().order_by('{}created'.format(sign))
