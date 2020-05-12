@@ -139,11 +139,18 @@ function prof_receiver(data) {
     console.log('data: ', data)
     data.forEach(function (recipe) {
         var tablerow = create_element('tr')
+        tbody.appendChild(tablerow)
+
         var td = create_element('td', 'recipe', "text-align: left;")
+        tablerow.appendChild(td)
 
         var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`)
+        td.appendChild(recipe_container)
+
         var image_name = static_url+`images/icons/large/${recipe.img}.jpg`
         var recipe_img_el = create_element('img', 'icon-medium recipe-image', `background-image: url(${image_name});`)
+        recipe_container.appendChild(recipe_img_el)
+
         recipe_img_el.src = static_url+"images/icon_border_2.png"
         recipe_img_el.addEventListener("mouseover", tooltip_init)
         recipe_img_el.addEventListener("mouseleave", mouseleave_cleanup)
@@ -153,21 +160,22 @@ function prof_receiver(data) {
         recipe_container.setAttributeNode(ix)
 
         var recipe_name_el = create_element('span', 'consume-name', 'margin-left: 5px;', recipe.name)
+        recipe_container.appendChild(recipe_name_el)
 
         recipe_name_el.addEventListener("mouseover", tooltip_init)
         recipe_name_el.addEventListener("mouseleave", mouseleave_cleanup)
 
-        recipe_container.appendChild(recipe_img_el)
-        recipe_container.appendChild(recipe_name_el)
-        td.appendChild(recipe_container)
-        tablerow.appendChild(td)
-
         var mats_td = create_element('td', 'reagant-list')
+        tablerow.appendChild(mats_td)
 
         recipe.mats.forEach(function (mat) {
             var mat_container = create_element('div', 'data-container', 'display: inline-block;')
+            mats_td.appendChild(mat_container)
+
             var mat_image_name = static_url+`images/icons/large/${mat.img}.jpg`
             var mat_img = create_element('img', 'icon-medium', `background-image: url(${mat_image_name});`)
+            mat_container.appendChild(mat_img)
+
             mat_img.addEventListener("mouseover", tooltip_init)
             mat_img.addEventListener("mouseleave", mouseleave_cleanup)
 
@@ -176,10 +184,11 @@ function prof_receiver(data) {
             mat_ix.value = mat.ix
             mat_container.setAttributeNode(mat_ix)
             mat_img.src = static_url+"images/icon_border_2.png"
-            mat_container.appendChild(mat_img)
 
             if (mat.step > 1) {
                 var count_container = create_element('span', 'count-container')
+                mat_container.appendChild(count_container)
+
                 var div1 = create_element('span', 'material-count', '', mat.step)
                 var div2 = create_element('span', 'material-count', 'color:black; bottom:1px; z-index:4;', mat.step)
                 var div3 = create_element('span', 'material-count', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', mat.step)
@@ -189,13 +198,12 @@ function prof_receiver(data) {
                 count_container.appendChild(div3)
                 count_container.appendChild(div4)
 
-                mat_container.appendChild(count_container)
             }
 
-            mats_td.appendChild(mat_container)
 
         })
         var skillup_td = create_element('td', 'skillup')
+        tablerow.appendChild(skillup_td)
 
         var grey = create_element('span', 'grey-skillup', 'color: #808080; font-weight: bold; margin-left: 5px;', recipe.skillups.grey)
         var green = create_element('span', 'green-skillup', 'color: #40BF40; font-weight: bold; margin-left: 5px;', recipe.skillups.green)
@@ -206,14 +214,92 @@ function prof_receiver(data) {
         skillup_td.appendChild(grey)
 
 
-        tablerow.appendChild(mats_td)
-        tablerow.appendChild(skillup_td)
-
-        tbody.appendChild(tablerow)
-
-
     })
 }
+
+// old reliable
+// function prof_receiver(data) {
+//     var tbody = document.getElementById("tbody123")
+//     var table = tbody.closest("table")
+//
+//     console.log('data: ', data)
+//     data.forEach(function (recipe) {
+//         var tablerow = create_element('tr')
+//         var td = create_element('td', 'recipe', "text-align: left;")
+//
+//         var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`)
+//         var image_name = static_url+`images/icons/large/${recipe.img}.jpg`
+//         var recipe_img_el = create_element('img', 'icon-medium recipe-image', `background-image: url(${image_name});`)
+//         recipe_img_el.src = static_url+"images/icon_border_2.png"
+//         recipe_img_el.addEventListener("mouseover", tooltip_init)
+//         recipe_img_el.addEventListener("mouseleave", mouseleave_cleanup)
+//
+//         var ix = document.createAttribute("data-ix");
+//         ix.value = recipe.ix
+//         recipe_container.setAttributeNode(ix)
+//
+//         var recipe_name_el = create_element('span', 'consume-name', 'margin-left: 5px;', recipe.name)
+//
+//         recipe_name_el.addEventListener("mouseover", tooltip_init)
+//         recipe_name_el.addEventListener("mouseleave", mouseleave_cleanup)
+//
+//         recipe_container.appendChild(recipe_img_el)
+//         recipe_container.appendChild(recipe_name_el)
+//         td.appendChild(recipe_container)
+//         tablerow.appendChild(td)
+//
+//         var mats_td = create_element('td', 'reagant-list')
+//
+//         recipe.mats.forEach(function (mat) {
+//             var mat_container = create_element('div', 'data-container', 'display: inline-block;')
+//             var mat_image_name = static_url+`images/icons/large/${mat.img}.jpg`
+//             var mat_img = create_element('img', 'icon-medium', `background-image: url(${mat_image_name});`)
+//             mat_img.addEventListener("mouseover", tooltip_init)
+//             mat_img.addEventListener("mouseleave", mouseleave_cleanup)
+//
+//
+//             var mat_ix = document.createAttribute("data-ix");
+//             mat_ix.value = mat.ix
+//             mat_container.setAttributeNode(mat_ix)
+//             mat_img.src = static_url+"images/icon_border_2.png"
+//             mat_container.appendChild(mat_img)
+//
+//             if (mat.step > 1) {
+//                 var count_container = create_element('span', 'count-container')
+//                 var div1 = create_element('span', 'material-count', '', mat.step)
+//                 var div2 = create_element('span', 'material-count', 'color:black; bottom:1px; z-index:4;', mat.step)
+//                 var div3 = create_element('span', 'material-count', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', mat.step)
+//                 var div4 = create_element('span', 'material-count', 'color:black; right:2px; z-index:4;', mat.step)
+//                 count_container.appendChild(div1)
+//                 count_container.appendChild(div2)
+//                 count_container.appendChild(div3)
+//                 count_container.appendChild(div4)
+//
+//                 mat_container.appendChild(count_container)
+//             }
+//
+//             mats_td.appendChild(mat_container)
+//
+//         })
+//         var skillup_td = create_element('td', 'skillup')
+//
+//         var grey = create_element('span', 'grey-skillup', 'color: #808080; font-weight: bold; margin-left: 5px;', recipe.skillups.grey)
+//         var green = create_element('span', 'green-skillup', 'color: #40BF40; font-weight: bold; margin-left: 5px;', recipe.skillups.green)
+//         var yellow = create_element('span', 'yellow-skillup', 'color: #FF0; font-weight: bold; margin-left: 5px;', recipe.skillups.yellow)
+//
+//         skillup_td.appendChild(yellow)
+//         skillup_td.appendChild(green)
+//         skillup_td.appendChild(grey)
+//
+//
+//         tablerow.appendChild(mats_td)
+//         tablerow.appendChild(skillup_td)
+//
+//         tbody.appendChild(tablerow)
+//
+//
+//     })
+// }
 
 
 function API_create_tooltip(data) {

@@ -56,7 +56,7 @@ tfoot {
     border: 1px solid grey;
 }
 
-.listImage {
+.list-image {
     height: 125px;
     width: 180px;
     background-size: contain;
@@ -68,21 +68,21 @@ tfoot {
     box-shadow: 0 0 7px 1px black;
 }
 
-.listImage:hover {
+.list-image:hover {
     -webkit-box-shadow: 0 0 7px 4px #ffc107;
     -moz-box-shadow: 0 0 7px 4px #ffc107;
     box-shadow: 0 0 7px 4px #ffc107;
     cursor: pointer;
 }
 
-.listIcon{
+.list-icon{
     position: absolute;
     top: -15px;
     left: 50%;
     margin-left: -21px;
 }
 
-.feedItem {
+.feed-item {
     background-color: #272727;
     text-align: left;
     margin-left: auto;
@@ -104,7 +104,7 @@ tfoot {
     font-size: 80%;
 }
 
-.feedTitle{
+.feed-title{
     font-size: 220%;
 }
 
@@ -234,4 +234,29 @@ a:hover{
     overflow-y:scroll;
     max-height: 160px;
 
+}
+
+.ratings-count{
+    position: relative;
+    bottom: 2px;
+    color: azure;
+    font-size: 14px;
+}
+
+.ratings-count.cl{
+    right: 20px;
+    float: right;
+}
+
+.ratings-count.spec{
+    left: 50px;
+}
+
+.flag-item{
+    /* font-size: 14px; */
+    /* margin: 0 2px 0 1px; */
+    padding: 0 3px 0 3px;
+    color: #3d7e9a;
+    border: 0;
+    background-color: transparent;
 }

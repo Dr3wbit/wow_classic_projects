@@ -1,39 +1,41 @@
 $(document).ready(function() {
-    index_handlers()
+    indexHandlers()
  });
 
  var monkeyList;
  var user = {auth:false, staff: false, super:false};
 
- function get_user_info() {
+ function getUserInfo() {
      var data = {}
      $.ajax({
          method: "GET",
          url: '/ajax/user_info/',
          data: data,
          dataType: 'json',
-         success: set_user_type,
+         success: setUserType,
      });
  }
- function get_saved_lists() {
+
+ function getSavedLists() {
      var data = {}
      $.ajax({
          method: "GET",
          url: '/ajax/saved_lists/',
          data: data,
          dataType: 'json',
-         success: bomberman64,
+         success: savedListBuilder,
+         complete: initListObj,
      });
  }
 
- function set_user_type(data) {
+ function setUserType(data) {
      user.auth = data.auth
      user.staff = data.staff
      user.super = data.super
      console.log(user)
  }
 
- function init_list_obj() {
+ function initListObj(response) {
     monkeyList = new List('saved_list_container', {
        valueNames: [
            'name',
@@ -44,6 +46,8 @@ $(document).ready(function() {
            {attr: 'data-created', name: 'created'},
        ],
      });
+     console.log('monkeyList: ', monkeyList)
+     tagListCorrector(monkeyList)
  }
 
 function reset_filters() {
@@ -51,7 +55,7 @@ function reset_filters() {
 }
 
 // hacky function to allow list.js to store an array of tags as values
-function tag_list_corrector(listObj) {
+function tagListCorrector(listObj) {
     listObj.items.forEach(function(item) {
         item._values.tags = []
 
@@ -64,16 +68,15 @@ function tag_list_corrector(listObj) {
     })
 }
 
- function index_handlers() {
-     init_list_obj()
-     get_user_info()
-     tag_list_corrector(monkeyList)
-     get_saved_lists()
-     $("#test_form").on({
-         submit: e => {
-             e.preventDefault()
-         }
-     });
+ function indexHandlers() {
+     getUserInfo()
+     getSavedLists()
+     // $("#test_form").on({
+     //     submit: e => {
+     //         e.preventDefault()
+     //     }
+     // });
+
 
      $('.filter-dropdown-container').on({
          click: e => {
@@ -99,6 +102,7 @@ function tag_list_corrector(listObj) {
             filterList[category].push(name)
         });
 
+        console.log('monkeyList: ', monkeyList)
         console.log('filterList: ', filterList)
 
         monkeyList.filter(function(item) {
@@ -118,7 +122,6 @@ function tag_list_corrector(listObj) {
             return truth
         });
 
-        console.log('matching items: ', monkeyList.matchingItems)
 
         if (monkeyList.matchingItems.length <= 0) {
             reset_filters()
@@ -170,141 +173,121 @@ function tag_list_corrector(listObj) {
          }
      });
 
-     if (user.auth) {
-         star_handler()
-
-         if (user.staff || user.super) {
-             $(".flag-item").on({
-        	 	click: e=> {
-        	 		var $data = {}
-        	 		if ($(e.target).attr("data-wowclass")) {
-        	 			$data['wow_class'] = $(e.target).attr("data-wowclass")
-        	 		}
-
-        	 		$data['uid']= $(e.target).attr('data-uid')
-        	 		$data['ix'] = $(e.target).attr('data-ix')
-
-        	 		console.log('data: ', $data)
-
-        	 		$.ajax({
-        	 			method: "POST",
-        	 			url: '/ajax/flag_list/',
-        	 			data: $data,
-        	 			success: flag_success,
-        	 			error: flag_error,
-        	 		})
-        	 	}
-        	 })
-
-             $("a.remove-rating").on({
-                 click: e => {
-                     e.preventDefault()
-                     var target = $(e.target)
-
-                     var container = target.closest($(".ratings-container"))
-                     var id = container.attr("data-id")
-                     var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : ''
-
-                     var data = {
-                         wow_class: wow_class,
-                         id: id,
-                     }
-                     delete_rating(data)
-
-                 }
-             })
-
-             function delete_rating(d) {
-                 var spec = (d.wow_class) ? true : false
-                 var id = d.id
-                 $.ajax({
-                     method: "POST",
-                     url: '/ajax/delete_rating/',
-                     data: {
-                         'id': id,
-                         'spec': spec,
-                     },
-                     dataType: 'json',
-                     success: delete_rating_success
-                 });
-             }
-
-             function delete_rating_success(data) {
-                 notifyUser(data.message)
-             }
-
-             function flag_success(data, textStatus, jqXHR) {
-             	let uid = data.uid.toString()
-             	let ix = data.ix.toString()
-
-             	let list_item = $(`.saved-list-item[data-ix='${ix}'][data-uid='${uid}']`);
-
-             	list_item.hide(800, function () {
-             		$(this).remove()
-             	})
-
-             	let message = data.message.toString() // <--------------- NOTE: HERE
-             	notifyUser(message)
-             	console.log('\n**success**\n')
-             	console.log(data.message.toString())
-             	console.log('data: ', data)
-             	console.log('status: ', textStatus)
-             	console.log(jqXHR)
-             	// $myForm.reset(); // reset form data
-             }
-
-             function flag_error(jqXHR, textStatus, errorThrown) {
-             	notifyUser(errorThrown)
-             	console.log('\n**error**\n')
-             	console.log(jqXHR)
-             	console.log(textStatus)
-             	console.log(errorThrown)
-             }
-
-         }
-     }
-
  }
 
- function star_handler() {
-     $(".glyphicon-star-empty").on({
-         mouseenter: e => {
-             var target = $(e.target)
-             var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
-             var index = empty_stars.index(target) + 1
-             for (var i = 0; i < index; i++) {
-                 $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
-             }
-         },
-         mouseleave: e => {
-             let target = $(e.target)
-             let longbar = target.closest($("div.longbar"))
-             let stars = longbar.find($(".glyphicon"))
-             stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
-         },
-         mousedown: e => {
-             // need some sort of confirmation here
-
-             var target = $(e.target)
-             let longbar = target.closest($("div.longbar"))
-             let stars = longbar.find($(".glyphicon"))
-             stars.unbind()
-             var rating = longbar.find($(".glyphicon-star")).length
-             var container = target.closest($(".ratings-container"))
-             var id = container.attr("data-id")
-             var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : 0
-             var data = {
-                 wow_class: wow_class,
-                 id: id,
-                 rating: rating
-             }
-             rate_saved_list(data)
-         }
+ function deleteRating(d) {
+     var data = {
+         id: d.id,
+         wow_class: d.wow_class
+     }
+     $.ajax({
+         method: "POST",
+         url: '/ajax/delete_rating/',
+         data: data,
+         dataType: 'json',
+         success: deleteRatingSuccess,
+         complete: deleteRatingComplete
      });
  }
 
+function deleteRatingComplete(response) {
+    var data = response.responseJSON
+    var container = $(`.saved-list-item[data-ix='${data.ix}'][data-uid='${data.uid}']`);
+    var stars = container.find($('div.star-bg > div.longbar > span.glyphicon-star, div.star-limiter > div.longbar > span.glyphicon-star'))
+    stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
 
-function rate_saved_list(d) {
+    stars.bind({
+        'mouseenter': star.mouseenter,
+        'mouseleave': star.mouseleave,
+        'mousedown': star.mousedown
+    });
+
+    var starLimiter = container.find($('div.star-limiter'))
+    starLimiter.css('width', `${data.average_rating}%`)
+    var ratingsCount = container.find($("span.ratings-count"))
+    ratingsCount.remove('a')
+    ratingsCount.text(`(${data.num_ratings})`)
+}
+
+ function deleteRatingSuccess(data) {
+     notifyUser(data.message)
+ }
+
+ function flagSuccess(data, textStatus, jqXHR) {
+    let uid = data.uid.toString()
+    let ix = data.ix.toString()
+
+    let list_item = $(`.saved-list-item[data-ix='${ix}'][data-uid='${uid}']`);
+
+    list_item.hide(800, function () {
+        $(this).remove()
+    })
+
+    let message = data.message.toString() // <--------------- NOTE: HERE
+    notifyUser(message)
+    console.log('\n**success**\n')
+    console.log(data.message.toString())
+    console.log('data: ', data)
+    console.log('status: ', textStatus)
+    console.log(jqXHR)
+    // $myForm.reset(); // reset form data
+ }
+
+ function flagError(jqXHR, textStatus, errorThrown) {
+    notifyUser(errorThrown)
+    console.log('\n**error**\n')
+    console.log(jqXHR)
+    console.log(textStatus)
+    console.log(errorThrown)
+ }
+
+function flagHandlers() {
+    $(".flag-item").on({
+       click: e=> {
+           var target = $(e.target)
+           var container = target.closest($(".saved-list-item"))
+
+           var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : '',
+               id = container.attr("data-ix"),
+               uid = container.attr("data-uid");
+
+           var data = {
+               wow_class: wow_class,
+               id: id,
+               uid: uid
+           }
+
+           $.ajax({
+               method: "POST",
+               url: '/ajax/flag_list/',
+               data: data,
+               success: flagSuccess,
+               error: flagError,
+           })
+       }
+   });
+
+    $("a.remove-rating").on({
+        click: ratingRemover
+    });
+}
+
+function ratingRemover(e) {
+    e.preventDefault()
+    var target = $(e.target)
+    var container = target.closest($(".saved-list-item"))
+    // var container = target.closest($(".ratings-container"))
+    var id = container.attr("data-ix")
+    var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : ''
+
+    var data = {
+        wow_class: wow_class,
+        id: id,
+    }
+    deleteRating(data)
+}
+
+function rateSavedList(d) {
     var spec = (d.wow_class) ? 1 : 0
     var rating = d.rating
     var id = d.id
@@ -317,118 +300,293 @@ function rate_saved_list(d) {
             'spec': spec,
         },
         dataType: 'json',
-        success: update_rating,
-        error: rating_error,
+        success: updateRating,
+        error: ratingError,
+        complete: ratingSubmitted
     });
 }
 
-function update_rating(data) {
-    //
-    var ratings_container;
+function ratingSubmitted(response) {
+    var msg = response.responseJSON.message
+    notifyUser(msg)
+}
+
+function updateRating(data) {
+
+    var container;
     if (data.wow_class) {
-        ratings_container = $(`div.ratings-container[data-id='${data.id}'][data-wowclass="${data.wow_class}"]`)
+        container = $(`div.saved-list-item[data-ix='${data.id}'][data-wowclass="${data.wow_class}"]`)
     } else {
-        ratings_container = $(`div.ratings-container[data-id='${data.id}']`)
+        container = $(`div.saved-list-item[data-ix='${data.id}']`)
     }
     let width = data.average_rating*20
 
-    var star_limiter = ratings_container.find("div.star-limiter")
+    var star_limiter = container.find("div.star-limiter")
     star_limiter.css('width', `${width}%`)
 
-    var stars = ratings_container.find($(".glyphicon"))
+    var stars = container.find($(".glyphicon"))
     stars.unbind()
     stars.removeClass("glyphicon-star-empty").addClass("glyphicon-star")
-    ratings_container.find("div.star-box").removeClass("rating-vote")
-    ratings_container.find("div.star-bg").removeClass("rating-vote")
-    ratings_container.find($(".ratings-count")).text(`(${data.num_ratings})`)
+    container.find("div.star-box").removeClass("rating-vote")
+    container.find("div.star-bg").removeClass("rating-vote")
+    var ratingsCount = container.find($("span.ratings-count"))
 
+    if (user.super || user.staff) {
+        ratingsCount.text('')
+        var ratingRemoverLink = create_element('a', "remove-rating", '', `(${data.num_ratings})`)
+        ratingRemoverLink.href = ''
+        ratingRemoverLink.addEventListener('click', ratingRemover)
+        ratingsCount.append(ratingRemoverLink)
+    } else {
+        ratingsCount.text(`(${data.num_ratings})`)
+    }
 }
 
-function rating_error(data) {
+function ratingError(data) {
     notifyUser(data.message)
 }
 
+function starHandler() {
 
-function bomberman64(data) {
-    var list_container = document.getElementById("saved_list_container")
+    $(".glyphicon-star-empty").on({
+        mouseenter: star.mouseenter,
+        mouseleave: star.mouseleave,
+        mousedown: star.mousedown
+    });
+}
 
-    console.log('data: ', data)
-    return
+var star = {
+    'mouseenter': function(e) {
+        var target = $(e.target)
+        var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
+        var index = empty_stars.index(target) + 1
+        for (var i = 0; i < index; i++) {
+            $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
+        }
+    },
+    'mouseleave': function(e) {
+        let target = $(e.target)
+        let longbar = target.closest($("div.longbar"))
+        let stars = longbar.find($(".glyphicon"))
+        stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
+    },
+    'mousedown': function(e) {
+        var target = $(e.target)
+        let longbar = target.closest($("div.longbar"))
+        let stars = longbar.find($(".glyphicon"))
+        stars.unbind()
+        var rating = longbar.find($(".glyphicon-star")).length
+        var container = target.closest($(".saved-list-item"))
+        var id = container.attr("data-ix")
+        var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : 0
+        var data = {
+            wow_class: wow_class,
+            id: id,
+            rating: rating
+        }
+        rateSavedList(data)
+    }
+}
 
-    data.forEach(function (recipe) {
-        var tablerow = create_element('tr')
-        var td = create_element('td', 'recipe', "text-align: left;")
+function savedListBuilder(data) {
+    var imagePrefix = static_url+'images/icons/large/'
+    var savedListContainer = document.getElementById("saved_list_container")
+    var listContainer = document.getElementById("list_object")
 
-        var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`)
-        var image_name = static_url+`images/icons/large/${recipe.img}.jpg`
-        var recipe_img_el = create_element('img', 'icon-medium recipe-image', `background-image: url(${image_name});`)
-        recipe_img_el.src = static_url+"images/icon_border_2.png"
-        recipe_img_el.addEventListener("mouseover", tooltip_init)
-        recipe_img_el.addEventListener("mouseleave", mouseleave_cleanup)
+    var iconBorderPath = static_url+'images/icon_border_2.png'
 
-        var ix = document.createAttribute("data-ix");
-        ix.value = recipe.ix
-        recipe_container.setAttributeNode(ix)
+    data.saved_lists.forEach(function (savedList) {
+        var hasWoWClass = (savedList.wow_class) ? true : false
+        var savedListType = (hasWoWClass) ? 'spec' : 'cl'
+        var savedListURL = (hasWoWClass) ? `/tc/${savedList.id}?${savedList.hash}` : `/pt/${savedList.id}?${savedList.hash}`
 
-        var recipe_name_el = create_element('span', 'consume-name', 'margin-left: 5px;', recipe.name)
+        var listItem = create_element('div', 'col-12 saved-list-item')
+        listContainer.appendChild(listItem)
 
-        recipe_name_el.addEventListener("mouseover", tooltip_init)
-        recipe_name_el.addEventListener("mouseleave", mouseleave_cleanup)
+        var dataUID = document.createAttribute("data-uid");
+        dataUID.value = savedList.uid
+        listItem.setAttributeNode(dataUID)
 
-        recipe_container.appendChild(recipe_img_el)
-        recipe_container.appendChild(recipe_name_el)
-        td.appendChild(recipe_container)
-        tablerow.appendChild(td)
+        var dataIX = document.createAttribute("data-ix");
+        dataIX.value = savedList.ix
+        listItem.setAttributeNode(dataIX)
 
-        var mats_td = create_element('td', 'reagant-list')
+        if (hasWoWClass) {
+            var wowClass = document.createAttribute("data-wowclass");
+            wowClass.value = savedList.wow_class
+            listItem.setAttributeNode(wowClass)
+        }
 
-        recipe.mats.forEach(function (mat) {
-            var mat_container = create_element('div', 'data-container', 'display: inline-block;')
-            var mat_image_name = static_url+`images/icons/large/${mat.img}.jpg`
-            var mat_img = create_element('img', 'icon-medium', `background-image: url(${mat_image_name});`)
-            mat_img.addEventListener("mouseover", tooltip_init)
-            mat_img.addEventListener("mouseleave", mouseleave_cleanup)
+        var feedItem = create_element('div', 'feed-item row mt-5')
+        listItem.appendChild(feedItem)
 
+        var col = create_element('div', 'col')
+        feedItem.appendChild(col)
 
-            var mat_ix = document.createAttribute("data-ix");
-            mat_ix.value = mat.ix
-            mat_container.setAttributeNode(mat_ix)
-            mat_img.src = static_url+"images/icon_border_2.png"
-            mat_container.appendChild(mat_img)
+        var imageSuffix = (hasWoWClass) ? (savedList.wow_class).toLowerCase() : 'profession_tool_image'
+        var imagePath = `${imagePrefix}mini_spec/${imageSuffix}.png`
+        var imageStyle = `background-image: url('${imagePath}')`
 
-            if (mat.step > 1) {
-                var count_container = create_element('span', 'count-container')
-                var div1 = create_element('span', 'material-count', '', mat.step)
-                var div2 = create_element('span', 'material-count', 'color:black; bottom:1px; z-index:4;', mat.step)
-                var div3 = create_element('span', 'material-count', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', mat.step)
-                var div4 = create_element('span', 'material-count', 'color:black; right:2px; z-index:4;', mat.step)
-                count_container.appendChild(div1)
-                count_container.appendChild(div2)
-                count_container.appendChild(div3)
-                count_container.appendChild(div4)
+        var listImageContainer = create_element('div', 'list-image', imageStyle)
+        col.appendChild(listImageContainer)
 
-                mat_container.appendChild(count_container)
-            }
+        var listIconContainer = create_element('div', 'list-icon untouchable')
+        listImageContainer.appendChild(listIconContainer)
 
-            mats_td.appendChild(mat_container)
+        var listIconStyle = `background-image: url('${imagePrefix}${savedList.img}')`
+        var listIcon = create_element('img', 'class-icon', listIconStyle)
+        listIcon.src = iconBorderPath
+        listIconContainer.appendChild(listIcon)
 
+        var iconLink = create_element('a', '', 'position:absolute; height:125px; width:180px;')
+        iconLink.href = savedListURL
+        listImageContainer.appendChild(iconLink)
+
+        var row = create_element('div', 'row')
+        col.appendChild(row)
+
+        var descTitleTagsContainer = create_element('div', 'col-md-8 col-12')
+        feedItem.appendChild(descTitleTagsContainer)
+
+        var fakeHeader = create_element('div', 'row feed-header')
+        descTitleTagsContainer.appendChild(fakeHeader)
+
+        var titleContainer = create_element('div', 'row feed-content')
+        descTitleTagsContainer.appendChild(titleContainer)
+
+        feedTitle = create_element('div', 'col-8 feed-title')
+        titleContainer.appendChild(feedTitle)
+
+        var col4 = create_element('div', 'col-4')
+        titleContainer.appendChild(col4)
+
+        var titleLink = create_element('a')
+        titleLink.href = savedListURL
+        feedTitle.appendChild(titleLink)
+
+        var titleSpan = create_element('span', 'name', '', savedList.name)
+        titleLink.appendChild(titleSpan)
+
+        var descriptionCont = create_element('div', 'row feed-content')
+        descTitleTagsContainer.appendChild(descriptionCont)
+
+        var feedDescription = create_element('div', 'col-12 feed-desc', '', savedList.description)
+        descriptionCont.appendChild(feedDescription)
+
+        var dividerElem = create_element('div', 'row feed-content')
+        descTitleTagsContainer.appendChild(dividerElem)
+
+        var lineElement = create_element('hr', 'm-2', 'border-bottom:1px solid white; width:100%; margin-top:0; margin-bottom:0;')
+        dividerElem.appendChild(lineElement)
+
+        var tagsContainer = create_element('div', 'row tags feed-content')
+        descTitleTagsContainer.appendChild(tagsContainer)
+
+        savedList.tags.forEach(function(tag) {
+            var tagElem = create_element('div', 'feed-tag', '', tag)
+            tagsContainer.appendChild(tagElem)
         })
-        var skillup_td = create_element('td', 'skillup')
 
-        var grey = create_element('span', 'grey-skillup', 'color: #808080; font-weight: bold; margin-left: 5px;', recipe.skillups.grey)
-        var green = create_element('span', 'green-skillup', 'color: #40BF40; font-weight: bold; margin-left: 5px;', recipe.skillups.green)
-        var yellow = create_element('span', 'yellow-skillup', 'color: #FF0; font-weight: bold; margin-left: 5px;', recipe.skillups.yellow)
+        var emptyRow = create_element('div', 'row feed-content')
+        descTitleTagsContainer.appendChild(emptyRow)
 
-        skillup_td.appendChild(yellow)
-        skillup_td.appendChild(green)
-        skillup_td.appendChild(grey)
+        var feedFooter = create_element('div', 'col-12 row feed-footer')
+        feedItem.appendChild(feedFooter)
 
+        var wowClassFooter = create_element('div', 'col-md-4 col-12')
+        var ratingContainer = create_element('div', 'col-md-3 col-12')
+        var dateCreatedContainer = create_element('div', 'col-md-5 col-12 text-left')
 
-        tablerow.appendChild(mats_td)
-        tablerow.appendChild(skillup_td)
+        feedFooter.appendChild(wowClassFooter)
+        feedFooter.appendChild(ratingContainer)
+        feedFooter.appendChild(dateCreatedContainer)
 
-        tbody.appendChild(tablerow)
+        if (hasWoWClass) {
+            var wowClassName = create_element('span', `wowclass ${savedList.wow_class.toLowerCase()}`, '', savedList.wow_class)
+            var talentPoints = create_element('span', '', '', savedList.spec)
+
+            wowClassFooter.appendChild(wowClassName)
+            wowClassFooter.appendChild(talentPoints)
+        }
+
+        var ratingContainerJr = create_element('div', 'ratings-container mx-auto')
+        ratingContainer.appendChild(ratingContainerJr)
+
+        var starBoxRating = create_element('div', 'star-box rating')
+        var starBoxBackground = create_element('div', 'star-bg rating-vote')
+        var ratingsCount = create_element('span', `ratings-count ${savedListType}`)
+
+        ratingContainerJr.append(starBoxRating)
+        ratingContainerJr.append(starBoxBackground)
+        ratingContainerJr.append(ratingsCount)
+
+        var dataRating = document.createAttribute("data-rating");
+        dataRating.value = savedList.rating
+        starBoxRating.setAttributeNode(dataRating)
+
+        var width = (savedList.can_vote) ? 0 : savedList.rating*20
+        var starLimiter = create_element('div', 'star-limiter', `width: ${width}%`)
+        starBoxRating.appendChild(starLimiter)
+
+        var longBar = create_element('div', 'longbar')
+        starLimiter.appendChild(longBar)
+
+        var starClass = 'glyphicon glyphicon-star'
+        if (savedList.can_vote) {
+            starClass = 'glyphicon glyphicon-star-empty'
+        }
+        var starGlyphIcon = create_element('span', starClass)
+        longBar.appendChild(starGlyphIcon)
+
+        for (i=0;i<4;i++) {
+            var starGlyphDupe = starGlyphIcon.cloneNode()
+            longBar.appendChild(starGlyphDupe)
+        }
+
+        var longBarDupe = longBar.cloneNode(true)
+        starBoxBackground.appendChild(longBarDupe)
+
+        if (savedList.voted && (user.staff || user.super)) {
+            var ratingsCountElem = create_element('a', 'remove-rating', '', `(${savedList.ratings_count})`)
+            ratingsCountElem.href = ""
+        } else {
+            var ratingsCountElem = create_element('span', '', '', `(${savedList.ratings_count})`)
+        }
+
+        ratingsCount.append(ratingsCountElem)
+
+        var createdBy = create_element('span', '', '', 'Created by ')
+        dateCreatedContainer.appendChild(createdBy)
+
+        var createdByUser = create_element('a', '', '', savedList.disc_username)
+        createdByUser.href = ''
+        dateCreatedContainer.appendChild(createdByUser)
+        var dateTime = new Date(savedList.created)
+
+        var createdOn = create_element('span', 'created', '',  ` on ${dateTime.toLocaleString()}`)
+        dateCreatedContainer.appendChild(createdOn)
+
+        var dataCreated = document.createAttribute("data-created");
+        dataCreated.value = dateTime.valueOf()
+        createdOn.setAttributeNode(dataCreated)
+
+        if (user.staff || user.super) {
+            var flagButton = create_element('button', 'btn btn-sm float-right flag-item')
+            dateCreatedContainer.appendChild(flagButton)
+
+            flagButton.title = 'Flag'
+            flagButton.type = 'Button'
+
+            var spanGlyph = create_element('span', 'glyphicon glyphicon-flag untouchable')
+            flagButton.appendChild(spanGlyph)
+        }
 
 
     })
+    if (user.auth) {
+        starHandler()
+        if (user.staff || user.super) {
+            flagHandlers()
+        }
+    }
 }

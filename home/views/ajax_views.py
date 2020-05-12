@@ -1,61 +1,71 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse, HttpResponse
 from django.db.models import Count, Q, Avg
-from home.models import Crafted, ConsumeList, Profession, Rating, Spec, Tag, WoWClass
+from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Tag, WoWClass
 from itertools import chain
 from operator import attrgetter
 
+def set_pagination(request):
+	pass
+
 def get_saved_lists(request):
-    data = {}
-    user = request.user
-    specs = Spec.objects.exclude(visible=False)
-    consume_lists = ConsumeList.objects.exclude(visible=False)
-    all_lists = sorted(chain(specs, consume_lists), key=attrgetter('created'))
-    data['saved_lists'] = []
-    for list_item in all_lists:
+	data = {}
+	specs = Spec.objects.exclude(visible=False)
+	consume_lists = ConsumeList.objects.exclude(visible=False)
+	all_lists = sorted(chain(specs, consume_lists), key=attrgetter('created'))
+	data['saved_lists'] = []
+	for list_item in all_lists:
 
-        list_info = {}
-        list_info['id'] = list_item.id
-        list_info['img'] = list_item.img
-        list_info['description'] = list_item.description
-        list_info['name'] = list_item.name
-        list_info['rating'] = list_item.rating
-        list_info['created'] = list_item.created
-        list_info['private'] = list_item.private
-        list_info['hash'] = list_item.hash
+		list_info = {}
+		list_info['ix'] = list_item.id
+		list_info['uid'] = list_item.user.uid
+		list_info['img'] = list_item.img
+		list_info['description'] = list_item.description
+		list_info['name'] = list_item.name
+		list_info['rating'] = list_item.rating
+		list_info['created'] = list_item.created
+		list_info['private'] = list_item.private
+		list_info['hash'] = list_item.hash
+		list_info['disc_username'] = list_item.user.disc_username
+		list_info['voted'] = list_item.has_voted(request.user.email)
 
-        list_info['tags'] = []
-        for tag in list_item.tags.all():
-            list_info['tags'].append(tag.name)
+		list_info['can_vote'] = True if (request.user.is_authenticated and ((not list_item.has_voted(request.user.email)) and (list_item.user != request.user))) else False
+		list_info['ratings_count'] = list_item.ratings.count()
 
-        if hasattr(list_item, 'wow_class'):
-            list_info['wow_class'] = list_item.wow_class.name
+		list_info['tags'] = []
+		for tag in list_item.tags.all():
+			list_info['tags'].append(tag.name)
 
-        data['saved_lists'].append(list_info)
+		if hasattr(list_item, 'wow_class'):
+			list_info['wow_class'] = list_item.wow_class.name
+			list_info['spec'] = '({}/{}/{})'.format(list_item.treeallotted_set.all()[0].invested, list_item.treeallotted_set.all()[1].invested, list_item.treeallotted_set.all()[2].invested)
+
+		data['saved_lists'].append(list_info)
 
 
-    response = JsonResponse(data, safe=False)
-    return response
+	response = JsonResponse(data, safe=False)
+	return response
 
 
 
 def user_info(request):
-    data = {}
-    data['auth'] = False
-    data['staff'] = False
-    data['super'] = False
+	data = {}
+	data['auth'] = False
+	data['staff'] = False
+	data['super'] = False
 
-    if request.user.is_authenticated:
-        data['auth'] = True
+	if request.user.is_authenticated:
+		data['auth'] = True
+		data['uid'] = request.user.uid
 
-        if request.user.is_staff:
-            data['staff'] = True
+		if request.user.is_staff:
+			data['staff'] = True
 
-        if request.user.is_superuser:
-            data['super'] = True
+		if request.user.is_superuser:
+			data['super'] = True
 
-    response = JsonResponse(data)
-    return response
+	response = JsonResponse(data)
+	return response
 
 
 def update_icon(request):
@@ -271,7 +281,7 @@ def query_saved_lists(request):
 		# consume_lists = set(consume_lists.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
 
 		# NOTE: or(||):
-        # filtering specs in the database by tag name
+		# filtering specs in the database by tag name
 		specs = Spec.objects.filter(Q(tags__name__in=tags) | Q(wow_class__name__in=tags))
 
 		consume_lists = ConsumeList.objects.filter(Q(tags__name__in=tags) | Q(consume__item__profession__name__in=tags))
@@ -371,28 +381,26 @@ def query_saved_lists(request):
 	return response
 
 def delete_rating(request):
+	data = {}
+	status_code = 200
 
-	if (request.user.is_staff and request.user.is_superuser):
+	if (request.user.is_staff or request.user.is_superuser):
 
 		id = request.POST.get('id', None)
-		spec = request.POST.get('spec', False)
-		type_of = 'spec' if spec else 'consume_list'
-		data = {}
+		wow_class = request.POST.get('wow_class', None)
+		data['ix'] = id
 		saved_list = ''
 		if (request.user.is_authenticated and id):
-			user = request.user
 
-			if spec:
-				if Spec.objects.filter(id=id).exists():
-					saved_list = Spec.objects.get(id=id)
+			if wow_class:
+				data['wow_class'] = wow_class
+				saved_list = Spec.objects.filter(id=id).first()
 			else:
-				if ConsumeList.objects.filter(id=id).exists():
-					saved_list = ConsumeList.objects.get(id=id)
+				saved_list = ConsumeList.objects.filter(id=id).first()
 
 			if saved_list:
-
-
-				rating = saved_list.ratings.filter(user=user).first()
+				data['uid'] = saved_list.user.uid
+				rating = saved_list.ratings.filter(user=request.user).first()
 				rating_value = rating.value
 				rating.delete()
 
@@ -402,13 +410,19 @@ def delete_rating(request):
 				data['message'] = "User: {} successfully deleted your {} star rating for {}".format(str(request.user), rating_value, saved_list.name)
 		else:
 			data['success'] = False
+			status_code = 406
 			data['message'] = 'No id found or user is not authenticated'
 
 	else:
+		status_code = 403
+		print('not a super user')
 		data['success'] = False
 		data['message'] = 'Insufficient permissions'
 
-	return JsonResponse(data)
+	response = JsonResponse(data)
+	response.status_code = status_code
+
+	return response
 
 
 
