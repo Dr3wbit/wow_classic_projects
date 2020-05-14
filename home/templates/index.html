@@ -17,9 +17,10 @@
     <div class="row selection-header sticky-top">
         <div class="col">
             <form id="test_form" class="form-inline row selection-header">
-                <div class="d-none d-md-inline-block col-xl-4 col-md-5">
+                <div class="d-none d-md-inline-block col-xl-4 col-md-6">
                     <div class="dropdown show d-inline-block">
-                        <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="dropdownFilterLink"
+                        <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownFilterLink"
+                            style="border-bottom: 1px solid white;"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filters
                         </a>
@@ -57,48 +58,56 @@
                         </div>
                     </div>
                     <div class="dropdown show d-inline-block">
-                        <a class="btn btn-sm btn-dark dropdown-toggle" role="button" id="sorting"
+                        <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" style="border-bottom: 1px solid white;"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sort
                         </a>
                         <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
-                            <a class="dropdown-item sorting-item" data-sort="data-rating">Rating</a>
+                            <a class="dropdown-item sorting-item" data-sort="data-rating"><span>Rating</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item sorting-item" data-sort="data-created">Created</a>
+                            <a class="dropdown-item sorting-item" data-sort="data-created"><span>Created</span></a>
                         </div>
                         <a id="sorting_order" class="btn btn-sm untouchable hidden">
                             <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
                         </a>
                     </div>
+                    <div class="dropdown show d-inline-block">
+                        <a id="paginator" class="btn btn-sm dropdown-toggle" role="button"
+                            style="border-bottom: 1px solid white;"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span>Show</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="show">
+                            <a class="dropdown-item items-per-page">5</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item items-per-page">10</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item items-per-page">25</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-xl-8 col-md-7">
+                    <div class="pagination col-2" style="top:15px;">
+                        <div id="pagination_container">
+                            <a class="page-nav prev-page" href="" >&laquo;</a>
+                            <a class="page-nav next-page" href="" >&raquo;</a>
+                        </div>
+                    </div>
                     <input id="search_bar" class="fuzzy-search" placeholder="Search Keywords" size="30" aria-label="Search">
                 </div>
             </form>
         </div>
     </div>
+
     <div class="row content-container mt-4">
         <div class="applied-filter-container mx-auto col-12"></div>
         <div id="saved_list_container" class="mx-auto list">
-            <div class="pagination">
-                <span class="step-links">
-                    <div>
-                        <a class="change-page" href="" >&laquo;</a>
-                        <span class="current-page"><a class="change-page">1</a></span>
-                        <a class="change-page" href="">2</a>
-                        <a class="change-page" href="" >&raquo;</a>
-                    </div>
-                </span>
-            </div>
-
             <div id="list_object" class="list">
             </div>
             {% comment %}
             {% include "index_helper.html" %}
             {% endcomment %}
-
         </div>
-
     </div>
 </div>
 </div>
@@ -113,27 +122,5 @@
 {% block javascript %}
 <script type="text/javascript" src="{% static "js/list.min.js" %}"></script>
 <script type="text/javascript" src="{% static "js/index.js" %}"></script>
-<script>
 
-$(".change-page").on({
-    click: e=> {
-        e.preventDefault()
-        let target = $(e.target)
-        var page = 1
-        if (target.text() == "»") {
-            page = parseInt($("span.current-page").text()) + 1
-        } else if (target.text() == "last »") {
-            page = $("span.last-page").text()
-        } else if (target.text() == "previous"){
-            page = parseInt($("span.current-page").text()) - 1
-        } else if (target.text() == "«"){
-            page = parseInt($("span.current-page").text()) - 1
-        } else {
-            page = target.text()
-        }
-        let selected = $(".prof-filter.selected").attr("id");
-        // build_recipe_list(selected, '', page)
-    }
-})
-</script>
 {% endblock javascript %}

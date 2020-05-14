@@ -130,11 +130,11 @@ a:hover{
     word-wrap: break-word;
 }
 
-.sorting-item{
+.dropdown-item{
     color: #5985ba!important;
 }
 
-.sorting-item:hover{
+.dropdown-item:hover{
     color: #ffc107!important;
     background-color: #222222;
 }
@@ -150,7 +150,6 @@ a:hover{
     width: 500px;
     text-align: center;
 }
-
 
 .filter-category-title{
  color: white;
@@ -184,7 +183,7 @@ a:hover{
 }
 
 #sorting{
-    width: 140px;
+    /* width: 140px; */
     margin: 5px;
     border-radius: 2px 2px 1px 1px;
 }
@@ -223,7 +222,7 @@ a:hover{
 }
 
 #dropdownFilterLink{
-    margin: 5px;
+    /* margin: 5px; */
 }
 
 #dropdownFilterLink:focus{
@@ -259,4 +258,15 @@ a:hover{
     color: #3d7e9a;
     border: 0;
     background-color: transparent;
+}
+
+.page-nav {
+    margin: 2px;
+}
+
+.page-nav.active {
+    margin: 2px;
+    pointer-events: none;
+    cursor: default;
+    color: azure;
 }

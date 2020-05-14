@@ -3,7 +3,9 @@ $(document).ready(function() {
  });
 
  var monkeyList;
- var user = {auth:false, staff: false, super:false};
+ var user = {auth:false, staff: false, super:false},
+     i = 1,
+     currentPage = 1;
 
  function getUserInfo() {
      var data = {}
@@ -15,6 +17,7 @@ $(document).ready(function() {
          success: setUserType,
      });
  }
+
 
  function getSavedLists() {
      var data = {}
@@ -32,25 +35,88 @@ $(document).ready(function() {
      user.auth = data.auth
      user.staff = data.staff
      user.super = data.super
-     console.log(user)
  }
 
  function initListObj(response) {
-    monkeyList = new List('saved_list_container', {
-       valueNames: [
-           'name',
-           'wowclass',
-           'tags',
-           'feed-desc',
-           {attr: 'data-rating', name: 'rating'},
-           {attr: 'data-created', name: 'created'},
-       ],
-     });
-     console.log('monkeyList: ', monkeyList)
-     tagListCorrector(monkeyList)
+
+     // var page = 3
+     var listOptions = {
+         valueNames: [
+             'name',
+             'wowclass',
+             'tags',
+             'feed-desc',
+             { attr: 'data-rating', name: 'rating' },
+             { attr: 'data-created', name: 'created' },
+         ],
+    };
+
+
+    monkeyList = new List('saved_list_container', listOptions);
+    tagListCorrector(monkeyList)
+
+    paginate.init(3, monkeyList, document.getElementById('pagination_container'))
  }
 
-function reset_filters() {
+var paginate = {
+
+    init: function(per=5, listObj=monkeyList, parentElem, options) {
+
+        // TODO: store per-page preference in localStorage
+        var paginationCont = parentElem,
+            pages = Math.ceil(listObj.items.length/per),
+            self = this,
+            x;
+
+        for (var n = 0; n < pages; n++) {
+            x = n+1
+
+            var nextPageBtn = document.querySelector('a.page-nav.next-page')
+            var pageLink = create_element('a', 'page-nav', '', x)
+            pageLink.href = ""
+
+            if (x == 1) {
+                pageLink.classList.add('active')
+            }
+
+            pageLink.addEventListener('click', function(e) {
+                e.preventDefault()
+                self.changePage(e, listObj)
+            });
+            nextPageBtn.insertAdjacentElement('beforebegin', pageLink)
+        }
+
+        this.update(listObj, per)
+    },
+    update: function(listObj, per=5, options) {
+        listObj.page = per
+        listObj.pagination = true
+        listObj.update()
+    },
+    changePage: function(e, listObj) {
+        // e.preventDefault()
+        document.getElementsByClassName('page-nav active')[0].classList.remove('active')
+        e.target.classList.add('active')
+        var n = ((parseInt(e.target.innerText) - 1) * listObj.page ) + 1
+        listObj.show(n, listObj.page)
+    },
+
+    reset: function(listObj) {
+        listObj.i = 1
+        var pageNumberNavs = document.getElementsByClassName('page-nav')
+        var n = pageNumberNavs.length-1
+        for (var i = 1; i < n; i++) {
+            var elem = pageNumberNavs[1]
+            if ((i != 0) || (i != (n-1))) {
+                elem.remove()
+            }
+        }
+
+    }
+}
+
+
+function resetFilters() {
     monkeyList.filter()
 }
 
@@ -102,9 +168,6 @@ function tagListCorrector(listObj) {
             filterList[category].push(name)
         });
 
-        console.log('monkeyList: ', monkeyList)
-        console.log('filterList: ', filterList)
-
         monkeyList.filter(function(item) {
             var truth = false
             Object.keys(filterList).forEach(function(category) {
@@ -124,7 +187,7 @@ function tagListCorrector(listObj) {
 
 
         if (monkeyList.matchingItems.length <= 0) {
-            reset_filters()
+            resetFilters()
             $('.no-result').hide()
         }
     });
@@ -134,6 +197,14 @@ function tagListCorrector(listObj) {
          monkeyList.search(searchString);
      });
 
+     $('.items-per-page').on('click', function(e) {
+         var x = parseInt(this.innerText)
+         paginate.reset(monkeyList)
+         paginate.init(x)
+
+         console.log('monkeyList: ', monkeyList)
+
+     })
 
      $('.sorting-item').on('click', function() {
          var sortBySelection = $(this).text()
@@ -142,7 +213,10 @@ function tagListCorrector(listObj) {
          sortingOrder.removeClass("hidden").removeClass("untouchable")
          $('#sorting').addClass("removeCarrat")
          sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+
          monkeyList.sort(sortBySelection.toLowerCase(), {order: 'desc'});
+
+
      });
 
      $("#sorting_order").on('click', function() {
@@ -157,12 +231,13 @@ function tagListCorrector(listObj) {
              glyph_triangle.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
          }
          monkeyList.sort(sortBySelection, {order: sort_order});
+
      });
 
      $('#reset_filters').on({
          click: e => {
              $('.filter-selected').removeClass('filter-selected')
-             reset_filters()
+             resetFilters()
 
              let tags = $.map($(".filter-selected"), x => x.innerText)
 
@@ -347,7 +422,6 @@ function ratingError(data) {
 }
 
 function starHandler() {
-
     $(".glyphicon-star-empty").on({
         mouseenter: star.mouseenter,
         mouseleave: star.mouseleave,
@@ -356,7 +430,7 @@ function starHandler() {
 }
 
 var star = {
-    'mouseenter': function(e) {
+    mouseenter: function(e) {
         var target = $(e.target)
         var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
         var index = empty_stars.index(target) + 1
@@ -364,13 +438,13 @@ var star = {
             $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
         }
     },
-    'mouseleave': function(e) {
+    mouseleave: function(e) {
         let target = $(e.target)
         let longbar = target.closest($("div.longbar"))
         let stars = longbar.find($(".glyphicon"))
         stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
     },
-    'mousedown': function(e) {
+    mousedown: function(e) {
         var target = $(e.target)
         let longbar = target.closest($("div.longbar"))
         let stars = longbar.find($(".glyphicon"))
@@ -398,7 +472,7 @@ function savedListBuilder(data) {
     data.saved_lists.forEach(function (savedList) {
         var hasWoWClass = (savedList.wow_class) ? true : false
         var savedListType = (hasWoWClass) ? 'spec' : 'cl'
-        var savedListURL = (hasWoWClass) ? `/tc/${savedList.id}?${savedList.hash}` : `/pt/${savedList.id}?${savedList.hash}`
+        var savedListURL = (hasWoWClass) ? `/tc/${savedList.ix}?${savedList.hash}` : `/pt/${savedList.ix}?${savedList.hash}`
 
         var listItem = create_element('div', 'col-12 saved-list-item')
         listContainer.appendChild(listItem)
@@ -560,6 +634,10 @@ function savedListBuilder(data) {
 
         var createdByUser = create_element('a', '', '', savedList.disc_username)
         createdByUser.href = ''
+        createdByUser.addEventListener('click', function(e) {
+            e.preventDefault()
+        })
+
         dateCreatedContainer.appendChild(createdByUser)
         var dateTime = new Date(savedList.created)
 
