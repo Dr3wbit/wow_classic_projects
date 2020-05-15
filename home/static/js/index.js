@@ -57,11 +57,14 @@ $(document).ready(function() {
 
     monkeyList.on('filterComplete', function() {
         paginate.postFilter();
-    })
- }
+    });
+
+    monkeyList.on('searchComplete', function() {
+        paginate.postFilter();
+    });
+}
 
 var paginate = {
-
     list: '',
     container: '',
     perPage: '',
@@ -73,10 +76,10 @@ var paginate = {
         this.perPage = itemsPerPage
         this.list.pagination = true
 
-        this.updatePaginator()
+        this.updateVars()
         this.writePageNavs()
     },
-    updatePaginator: function(options={}) {
+    updateVars: function(options={}) {
         for (let [key, val] of Object.entries(options)) {
             this[key] = val
         }
@@ -122,15 +125,21 @@ var paginate = {
             });
             this.container.appendChild(nextPageLink)
         }
-
     },
 
     changePage: function(e, options={}) {
-        document.getElementsByClassName('page-nav active')[0].classList.remove('active')
         currentPage = (options['nextPage']) ? currentPage + 1 : (options['prevPage']) ? currentPage - 1 : parseInt(e.target.innerText)
+
+        if (currentPage < 1) {
+            currentPage = 1
+            return false
+        } else if (currentPage > this.pages) {
+            currentPage = this.pages
+            return false
+        }
+        document.getElementsByClassName('page-nav active')[0].classList.remove('active')
         var pageNumberNavs = document.querySelectorAll('a.page-nav:not(.prev-page):not(.next-page)')
         pageNumberNavs[currentPage-1].classList.add('active')
-
         var start = ( (currentPage - 1) * this.list.page ) + 1
         this.list.show(start, this.list.page)
 
@@ -147,7 +156,7 @@ var paginate = {
         this.writePageNavs()
     },
     postFilter: function(options={}) {
-        paginate.updatePaginator()
+        paginate.updateVars()
         paginate.resetPageNavs()
     }
 }
@@ -230,7 +239,7 @@ function tagListCorrector(listObj) {
 
      $('.items-per-page').on('click', function(e) {
          var itemsPerPage = parseInt(this.innerText)
-         paginate.updatePaginator({perPage: itemsPerPage})
+         paginate.updateVars({perPage: itemsPerPage})
          paginate.resetPageNavs()
      })
 
