@@ -27,7 +27,7 @@ def get_saved_lists(request):
 		list_info['private'] = list_item.private
 		list_info['hash'] = list_item.hash
 		list_info['disc_username'] = list_item.user.disc_username
-		list_info['voted'] = list_item.has_voted(request.user.email)
+		list_info['voted'] = (list_item.has_voted(request.user.email)) if hasattr(request.user, 'email') else False
 
 		list_info['can_vote'] = True if (request.user.is_authenticated and ((not list_item.has_voted(request.user.email)) and (list_item.user != request.user))) else False
 		list_info['ratings_count'] = list_item.ratings.count()

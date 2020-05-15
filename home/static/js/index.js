@@ -2,10 +2,10 @@ $(document).ready(function() {
     indexHandlers()
  });
 
- var monkeyList;
  var user = {auth:false, staff: false, super:false},
      i = 1,
-     currentPage = 1;
+     currentPage = 1,
+     monkeyList;
 
  function getUserInfo() {
      var data = {}
@@ -26,7 +26,7 @@ $(document).ready(function() {
          url: '/ajax/saved_lists/',
          data: data,
          dataType: 'json',
-         success: savedListBuilder,
+         success: loadSavedLists,
          complete: initListObj,
      });
  }
@@ -51,67 +51,104 @@ $(document).ready(function() {
          ],
     };
 
-
     monkeyList = new List('saved_list_container', listOptions);
     tagListCorrector(monkeyList)
-
     paginate.init(3, monkeyList, document.getElementById('pagination_container'))
+
+    monkeyList.on('filterComplete', function() {
+        paginate.postFilter();
+    })
  }
 
 var paginate = {
 
-    init: function(per=5, listObj=monkeyList, parentElem, options) {
-
+    list: '',
+    container: '',
+    perPage: '',
+    pages: '',
+    init: function(itemsPerPage=5, listObj=monkeyList, container, options={}) {
         // TODO: store per-page preference in localStorage
-        var paginationCont = parentElem,
-            pages = Math.ceil(listObj.items.length/per),
-            self = this,
-            x;
+        this.list = listObj
+        this.container = container
+        this.perPage = itemsPerPage
+        this.list.pagination = true
 
-        for (var n = 0; n < pages; n++) {
-            x = n+1
+        this.updatePaginator()
+        this.writePageNavs()
+    },
+    updatePaginator: function(options={}) {
+        for (let [key, val] of Object.entries(options)) {
+            this[key] = val
+        }
+        this.list.page = this.perPage
+        this.pages = Math.ceil(this.list.matchingItems.length/this.perPage)
+        this.list.update()
+    },
+    writePageNavs: function(options={}) {
+        var self = this
+        for (var n = 0; n < this.pages; n++) {
+            var x = n + 1,
+                pageLink = create_element('a', 'page-nav', '', x);
 
-            var nextPageBtn = document.querySelector('a.page-nav.next-page')
-            var pageLink = create_element('a', 'page-nav', '', x)
             pageLink.href = ""
 
-            if (x == 1) {
+            if (x == currentPage) {
                 pageLink.classList.add('active')
             }
-
             pageLink.addEventListener('click', function(e) {
                 e.preventDefault()
-                self.changePage(e, listObj)
+                self.changePage(e)
             });
-            nextPageBtn.insertAdjacentElement('beforebegin', pageLink)
+            this.container.appendChild(pageLink)
         }
 
-        this.update(listObj, per)
+        if (document.getElementsByClassName('page-nav prev-page').length == 0) {
+            var prevPageLink = create_element('a', 'page-nav prev-page', '', "«"); //"&laquo;"
+            prevPageLink.href = ""
+            prevPageLink.addEventListener('click', function(e) {
+                e.preventDefault()
+                self.changePage(e, {prevPage: true})
+            });
+            this.container.insertBefore(prevPageLink, this.container.firstElementChild)
+        }
+
+
+        if (document.getElementsByClassName('page-nav next-page').length ==0 ) {
+            var nextPageLink = create_element('a', 'page-nav next-page', '', "»"); //"&raquo;"
+            nextPageLink.href = ""
+            nextPageLink.addEventListener('click', function(e) {
+                e.preventDefault()
+                self.changePage(e, {nextPage: true})
+            });
+            this.container.appendChild(nextPageLink)
+        }
+
     },
-    update: function(listObj, per=5, options) {
-        listObj.page = per
-        listObj.pagination = true
-        listObj.update()
-    },
-    changePage: function(e, listObj) {
-        // e.preventDefault()
+
+    changePage: function(e, options={}) {
         document.getElementsByClassName('page-nav active')[0].classList.remove('active')
-        e.target.classList.add('active')
-        var n = ((parseInt(e.target.innerText) - 1) * listObj.page ) + 1
-        listObj.show(n, listObj.page)
+        currentPage = (options['nextPage']) ? currentPage + 1 : (options['prevPage']) ? currentPage - 1 : parseInt(e.target.innerText)
+        var pageNumberNavs = document.querySelectorAll('a.page-nav:not(.prev-page):not(.next-page)')
+        pageNumberNavs[currentPage-1].classList.add('active')
+
+        var start = ( (currentPage - 1) * this.list.page ) + 1
+        this.list.show(start, this.list.page)
+
     },
-
-    reset: function(listObj) {
-        listObj.i = 1
-        var pageNumberNavs = document.getElementsByClassName('page-nav')
-        var n = pageNumberNavs.length-1
-        for (var i = 1; i < n; i++) {
-            var elem = pageNumberNavs[1]
-            if ((i != 0) || (i != (n-1))) {
-                elem.remove()
-            }
+    removePageNavs: function(options={}) {
+        this.list.i = 1
+        var pageNavs = document.querySelectorAll('a.page-nav')
+        for (var i = 0; i < pageNavs.length; i++) {
+            pageNavs[i].remove()
         }
-
+    },
+    resetPageNavs: function(options={}) { //for convenience
+        this.removePageNavs()
+        this.writePageNavs()
+    },
+    postFilter: function(options={}) {
+        paginate.updatePaginator()
+        paginate.resetPageNavs()
     }
 }
 
@@ -137,12 +174,6 @@ function tagListCorrector(listObj) {
  function indexHandlers() {
      getUserInfo()
      getSavedLists()
-     // $("#test_form").on({
-     //     submit: e => {
-     //         e.preventDefault()
-     //     }
-     // });
-
 
      $('.filter-dropdown-container').on({
          click: e => {
@@ -198,12 +229,9 @@ function tagListCorrector(listObj) {
      });
 
      $('.items-per-page').on('click', function(e) {
-         var x = parseInt(this.innerText)
-         paginate.reset(monkeyList)
-         paginate.init(x)
-
-         console.log('monkeyList: ', monkeyList)
-
+         var itemsPerPage = parseInt(this.innerText)
+         paginate.updatePaginator({perPage: itemsPerPage})
+         paginate.resetPageNavs()
      })
 
      $('.sorting-item').on('click', function() {
@@ -213,9 +241,7 @@ function tagListCorrector(listObj) {
          sortingOrder.removeClass("hidden").removeClass("untouchable")
          $('#sorting').addClass("removeCarrat")
          sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-
          monkeyList.sort(sortBySelection.toLowerCase(), {order: 'desc'});
-
 
      });
 
@@ -298,14 +324,13 @@ function deleteRatingComplete(response) {
         $(this).remove()
     })
 
-    let message = data.message.toString() // <--------------- NOTE: HERE
+    let message = data.message.toString()
     notifyUser(message)
     console.log('\n**success**\n')
     console.log(data.message.toString())
     console.log('data: ', data)
     console.log('status: ', textStatus)
     console.log(jqXHR)
-    // $myForm.reset(); // reset form data
  }
 
  function flagError(jqXHR, textStatus, errorThrown) {
@@ -351,7 +376,6 @@ function ratingRemover(e) {
     e.preventDefault()
     var target = $(e.target)
     var container = target.closest($(".saved-list-item"))
-    // var container = target.closest($(".ratings-container"))
     var id = container.attr("data-ix")
     var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : ''
 
@@ -462,7 +486,7 @@ var star = {
     }
 }
 
-function savedListBuilder(data) {
+function loadSavedLists(data) {
     var imagePrefix = static_url+'images/icons/large/'
     var savedListContainer = document.getElementById("saved_list_container")
     var listContainer = document.getElementById("list_object")
