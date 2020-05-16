@@ -17,9 +17,10 @@
     <div class="row selection-header sticky-top">
         <div class="col">
             <form id="test_form" class="form-inline row selection-header">
-                <div class="d-none d-md-inline-block col-xl-4 col-md-5">
+                <div class="d-none d-md-inline-block col-xl-4 col-md-6">
                     <div class="dropdown show d-inline-block">
-                        <a class="btn btn-sm btn-dark dropdown-toggle" href="#" role="button" id="dropdownFilterLink"
+                        <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownFilterLink"
+                            style="border-bottom: 1px solid white;"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filters
                         </a>
@@ -51,45 +52,60 @@
                                 </div>
                                 <div class="col-12 justify-content-around mt-2">
                                     <button class="btn btn-sm btn-dark" id="reset_filters" type="button">Reset</button>
-                                    <!-- <button class="btn btn-sm btn-dark" id="apply_filters" type="button">Apply Filters</button> -->
                                 </div>
 
                             </div>
                         </div>
                     </div>
                     <div class="dropdown show d-inline-block">
-                        <a class="btn btn-sm btn-dark dropdown-toggle" role="button" id="sorting"
+                        <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" style="border-bottom: 1px solid white;"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sort
                         </a>
                         <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
-                            <a class="dropdown-item sorting-item" data-sort="data-rating">Rating</a>
+                            <a class="dropdown-item sorting-item" data-sort="data-rating"><span>Rating</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item sorting-item" data-sort="data-created">Created</a>
-                            <!-- <div class="dropdown-divider"></div> -->
-                            <!-- <a class="dropdown-item sorting-item" href="#">Updated</a> -->
+                            <a class="dropdown-item sorting-item" data-sort="data-created"><span>Created</span></a>
                         </div>
                         <a id="sorting_order" class="btn btn-sm untouchable hidden">
                             <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
                         </a>
                     </div>
+                    <div class="dropdown show d-inline-block">
+                        <a id="paginator" class="btn btn-sm dropdown-toggle" role="button"
+                            style="border-bottom: 1px solid white;"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span>Show</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="show">
+                            <a class="dropdown-item items-per-page">5</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item items-per-page">10</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item items-per-page">25</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-xl-8 col-md-7">
+                    <div class="pagination col-2" style="top:15px;">
+                        <div id="pagination_container">
+                        </div>
+                    </div>
                     <input id="search_bar" class="fuzzy-search" placeholder="Search Keywords" size="30" aria-label="Search">
-                    <!-- <button class="btn btn-sm btn-outline-warning" type="submit">Search</button> -->
                 </div>
             </form>
         </div>
     </div>
+
     <div class="row content-container mt-4">
         <div class="applied-filter-container mx-auto col-12"></div>
-        <div id="saved_list_container" class="mx-auto">
-            <!-- <input class="fuzzy-search" /> -->
-            <div class="list">
-            {% include "index_helper.html" %}
+        <div id="saved_list_container" class="mx-auto list">
+            <div id="list_object" class="list">
             </div>
+            {% comment %}
+            {% include "index_helper.html" %}
+            {% endcomment %}
         </div>
-
     </div>
 </div>
 </div>
@@ -103,416 +119,6 @@
 
 {% block javascript %}
 <script type="text/javascript" src="{% static "js/list.min.js" %}"></script>
-<script>
+<script type="text/javascript" src="{% static "js/index.js" %}"></script>
 
-$(document).ready(function() {
-    index_handlers()
-
- });
-
-var monkeyList;
-
- function init_list_searcher() {
-    monkeyList = new List('saved_list_container', {
-       valueNames: [
-           'name',
-           'wowclass',
-           'tags',
-           'feed-desc',
-           {attr: 'data-rating', name: 'rating'},
-           {attr: 'data-created', name: 'created'},
-       ],
-     });
- }
-
-function reset_filters() {
-    monkeyList.filter()
-}
-
-// hacky function to allow list.js to store an array of tags as values
-function tag_list_corrector(listObj) {
-    listObj.items.forEach(function(item) {
-        item._values.tags = []
-
-        var elem = item.elm
-        var tags = $(elem).find("div.tags > div.feed-tag")
-        tags.each(function(index) {
-            item._values.tags.push($(this).text())
-        })
-
-    })
-}
-
- function index_handlers() {
-     init_list_searcher()
-     tag_list_corrector(monkeyList)
-     $("#test_form").on({
-         submit: e => {
-             e.preventDefault()
-             // e.stopPropagation()
-         }
-     });
-
-     $('.filter-dropdown-container').on({
-         click: e => {
-             e.stopPropagation()
-         }
-     });
-
-     $('.filter-box').on('click', function() {
-        var target = $(this),
-            val = target.attr('name');
-
-        target.toggleClass('filter-selected');
-
-        // if (target.hasClass('filter-selected')) {
-        //     target.removeClass('filter-selected')
-        // } else {
-        //      target.addClass('filter-selected')
-        // }
-        console.log(monkeyList)
-        console.log('matching items: ', monkeyList.matchingItems)
-
-        var filterList = {};
-        $(".filter-selected").each(function(index) {
-            var category = $(this).closest(".filter-container").attr("name"),
-                name = $(this).attr("name");
-
-            if (!Object.keys(filterList).includes(category)) {
-                filterList[category] = []
-            }
-
-            filterList[category].push(name)
-        });
-
-        console.log('filterList: ', filterList)
-
-        // monkeyList.filter(function(item) {
-        //     var truth = false
-        //     Object.keys(filterList).forEach(function(category) {
-        //         if (filterList[category].includes(item.values()[category])) {
-        //             truth = true
-        //             return
-        //         } else {
-        //             return
-        //         }
-        //     });
-        //     return truth
-        // });
-
-        //new
-        monkeyList.filter(function(item) {
-            var truth = false
-            Object.keys(filterList).forEach(function(category) {
-                var itemArr = Array.isArray(item.values()[category]) ? item.values()[category] : [item.values()[category]]
-                itemArr.forEach(function(val) {
-                    if (filterList[category].includes(val)) {
-                        truth = true
-                        return
-                    } else {
-                        return
-                    }
-                })
-
-            });
-            return truth
-        });
-
-        console.log('matching items: ', monkeyList.matchingItems)
-
-
-        if (monkeyList.matchingItems.length <= 0) {
-            reset_filters()
-            $('.no-result').hide()
-        }
-    });
-
-
-
-
-     $('#search_bar').on('keyup', function() {
-         var searchString = $(this).val();
-         monkeyList.search(searchString);
-     });
-
-
-     $('.sorting-item').on('click', function() {
-         var sortBySelection = $(this).text()
-         $('#sorting').text(sortBySelection)
-         var sortingOrder = $("#sorting_order")
-         sortingOrder.removeClass("hidden").removeClass("untouchable")
-         $('#sorting').addClass("removeCarrat")
-         sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-         monkeyList.sort(sortBySelection.toLowerCase(), {order: 'desc'});
-     });
-
-     $("#sorting_order").on('click', function() {
-         var glyph_triangle = $(this).find("span.glyphicon")
-         var sort_order;
-         var sortBySelection = $('#sorting').text().toLowerCase()
-         if (glyph_triangle.hasClass("glyphicon-triangle-bottom")) {
-             sort_order = 'asc'
-             glyph_triangle.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
-         } else {
-             sort_order = 'desc'
-             glyph_triangle.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-         }
-         monkeyList.sort(sortBySelection, {order: sort_order});
-     });
-
-     //old
-     // $("#sorting_order").on({
-     //     click: e=> {
-     //         let sort_order = $(e.target).find("span.glyphicon")
-     //         if (sort_order.hasClass("glyphicon-triangle-bottom")) {
-     //             sort_order.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
-     //         } else {
-     //             sort_order.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-     //         }
-     //         yeet_cannon()
-     //     }
-     // })
-
-     //old
-     // $('.sorting-item').on({
-     //     click: e => {
-     //         // e.preventDefault()
-     //         let sortBySelection = $(e.target).text()
-     //         $('#sorting').text(sortBySelection)
-     //         let sort_order = $("#sorting_order")
-     //         sort_order.removeClass("hidden").removeClass("untouchable")
-     //         $('#sorting').addClass("removeCarrat")
-     //
-     //         sort_order.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-     //         yeet_cannon()
-     //
-     //     }
-     // });
-
-     // old
-     // $("#search_bar").on({
-     //     search: e=> {
-     //         e.stopImmediatePropagation()
-     //         yeet_cannon()
-     //     }
-     // });
-
-     // $("#apply_filters, #search_bar_button").on({
-     //     click: e => {
-     //         e.preventDefault()
-     //
-     //         yeet_cannon()
-     //
-     //         $('.dropdown-menu').removeClass('show')
-     //
-     //         let tags = $.map($(".filter-selected"), x => x.innerText).join(", ")
-     //
-     //         // let filterArray = []
-     //         // let selectedFilters = $('.filter-selected')
-     //         // for (const filter of selectedFilters) {
-     //         //     filterArray.push(filter.innerText)
-     //         // }
-     //         // let displayFilters = filterArray.toString().replace(/,/g, ', ')
-     //
-     //         $('.applied-filter-container').text(`Applied Filters: ${tags}`)
-     //     }
-     // });
-
-     $('#reset_filters').on({
-         click: e => {
-             $('.filter-selected').removeClass('filter-selected')
-             reset_filters()
-
-             let tags = $.map($(".filter-selected"), x => x.innerText)
-
-             $('.applied-filter-container').text(tags)
-         },
-         submit: e => {
-             e.preventDefault()
-         }
-     });
-
-     //old
-     // $('#reset_filters').on({
-     //     click: e => {
-     //         e.preventDefault()
-     //         e.stopImmediatePropagation()
-     //         $('.filter-selected').removeClass('filter-selected')
-     //
-     //         let tags = $.map($(".filter-selected"), x => x.innerText)
-     //
-     //         yeet_cannon()
-     //         $('.applied-filter-container').text(tags)
-     //     },
-     //     submit: e => {
-     //         e.preventDefault()
-     //     }
-     // });
- }
-
- function star_handler() {
-     $(".glyphicon-star-empty").on({
-         mouseenter: e => {
-             var target = $(e.target)
-             var empty_stars = target.closest($("div.longbar")).find($(".glyphicon-star-empty"))
-             var index = empty_stars.index(target) + 1
-             for (var i = 0; i < index; i++) {
-                 $(empty_stars[i]).removeClass("glyphicon-star-empty").addClass("glyphicon-star gold")
-             }
-         },
-         mouseleave: e => {
-             let target = $(e.target)
-             let longbar = target.closest($("div.longbar"))
-             let stars = longbar.find($(".glyphicon"))
-             stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
-         },
-         mousedown: e => {
-             // need some sort of confirmation here
-
-             var target = $(e.target)
-             let longbar = target.closest($("div.longbar"))
-             let stars = longbar.find($(".glyphicon"))
-             stars.unbind()
-             var rating = longbar.find($(".glyphicon-star")).length
-             var container = target.closest($(".ratings-container"))
-             var id = container.attr("data-id")
-             var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : 0
-             var data = {
-                 wow_class: wow_class,
-                 id: id,
-                 rating: rating
-             }
-             rate_saved_list(data)
-         }
-     });
- }
-
-
- function yeet_cannon() {
-     var separator = /(?:\s|\,|\.)/
-     var search_string = $("#search_bar").val()
-     var words = search_string.split(separator).filter(Boolean).filter(word => word.length < 21)
-     var $predata = {};
-
-     var sorting;
-     if (!($("#sorting_order").hasClass("hidden"))) {
-         let sort_text = $("#sorting").text()
-         sorting = ($("#sorting_order").find("span.glyphicon").hasClass("glyphicon-triangle-top")) ? `+${sort_text}` : `-${sort_text}`
-     }
-
-     var tags = $.map($(".filter-selected"), x => x.innerText)
-
-     if (Boolean(sorting)) {
-         $predata['sorting'] = sorting.toString().toLowerCase()
-     }
-     if (words.length > 0) {
-         $predata['query'] = words
-     }
-
-     if (tags.length > 0) {
-          $predata['tags'] = tags
-     }
-
-     var $data = $.param($predata, true)
-
-
-     $.ajax({
-         method: "GET",
-         url: '/ajax/yeet_cannon/',
-         data: $data,
-         dataType: 'html',
-         success: yeet_cannon_success,
-     });
- }
-
-function yeet_cannon_success(data) {
-     $("#saved_list_container").html(data)
- }
-
-function rate_saved_list(d) {
-    var spec = (d.wow_class) ? 1 : 0
-    var rating = d.rating
-    var id = d.id
-    $.ajax({
-        method: "POST",
-        url: '/ajax/save_rating/',
-        data: {
-            'value': rating,
-            'id': id,
-            'spec': spec,
-        },
-        dataType: 'json',
-        success: update_rating,
-        error: rating_error,
-    });
-}
-
-function update_rating(data) {
-    //
-    var ratings_container;
-    if (data.wow_class) {
-        ratings_container = $(`div.ratings-container[data-id='${data.id}'][data-wowclass="${data.wow_class}"]`)
-    } else {
-        ratings_container = $(`div.ratings-container[data-id='${data.id}']`)
-    }
-    let width = data.average_rating*20
-
-    var star_limiter = ratings_container.find("div.star-limiter")
-    star_limiter.css('width', `${width}%`)
-
-    var stars = ratings_container.find($(".glyphicon"))
-    stars.unbind()
-    stars.removeClass("glyphicon-star-empty").addClass("glyphicon-star")
-    ratings_container.find("div.star-box").removeClass("rating-vote")
-    ratings_container.find("div.star-bg").removeClass("rating-vote")
-    ratings_container.find($(".ratings-count")).text(`(${data.num_ratings})`)
-
-}
-
-function rating_error(data) {
-    notifyUser(data.message)
-}
-
-{% if request.user.is_staff %}
-
-$("a.remove-rating").on({
-    click: e => {
-        e.preventDefault()
-        var target = $(e.target)
-
-        var container = target.closest($(".ratings-container"))
-        var id = container.attr("data-id")
-        var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : ''
-
-        var data = {
-            wow_class: wow_class,
-            id: id,
-        }
-        delete_rating(data)
-
-    }
-})
-
-function delete_rating(d) {
-    var spec = (d.wow_class) ? true : false
-    var id = d.id
-    $.ajax({
-        method: "POST",
-        url: '/ajax/delete_rating/',
-        data: {
-            'id': id,
-            'spec': spec,
-        },
-        dataType: 'json',
-        success: delete_rating_success
-    });
-}
-
-function delete_rating_success(data) {
-    notifyUser(data.message)
-}
-{% endif %}
-
-
-</script>
 {% endblock javascript %}

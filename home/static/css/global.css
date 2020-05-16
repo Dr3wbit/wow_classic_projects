@@ -803,9 +803,9 @@ a#discord-login:hover{
 .login-dropdown {
     background: #18191c;
     border-radius: 3px;
-    max-width: 220px;
-    padding: 8px 8px 8px 8px;
-    width: 100vw;
+    /* max-width: 220px; */
+    padding: 8px 16px 8px 8px;
+    /* width: 100vw; */
     z-index: 9999;
     left: unset;
     right: 0;

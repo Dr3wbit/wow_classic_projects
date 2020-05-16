@@ -78,7 +78,7 @@
     </script>
     <script src="{% static "js/material_images.js" %}"></script>
     <script src="{% static "js/global.js" %}"></script>
-    {% if request.user.is_superuser is False or not request.user.context_menu %}
+    {% if not request.user.context_menu %}
     <script>
     $('.mainContent, .mainBody').on({
         contextmenu: e => {

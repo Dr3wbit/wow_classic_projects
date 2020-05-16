@@ -45,23 +45,21 @@
     {% endif %}
     {% if pagination %}
     <div class="pagination">
-        <span class="step-links">
-            <div>
-                {% if pagination.has_previous %}
-                <a class="change-page" href="" >&laquo;</a>
-                {% endif %}
-                {% for page in pagination.rangen %}
-                {% if page == pagination.page_number %}
-                <span class="current-page"><a class="change-page">{{page}}</a></span>
-                {% else %}
-                <a class="change-page" href="">{{page}}</a>
-                {% endif %}
-                {% endfor %}
-                {% if pagination.has_next %}
-                <a class="change-page" href="" >&raquo;</a>
-                {% endif %}
-            </div>
-        </span>
+        <div>
+        {% if pagination.has_previous %}
+        <a class="change-page" href="" >&laquo;</a>
+        {% endif %}
+        {% for page in pagination.rangen %}
+        {% if page == pagination.page_number %}
+        <span class="current-page"><a class="change-page">{{page}}</a></span>
+        {% else %}
+        <a class="change-page" href="">{{page}}</a>
+        {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <a class="change-page" href="" >&raquo;</a>
+        {% endif %}
+        </div>
     </div>
     {% endif %}
 
