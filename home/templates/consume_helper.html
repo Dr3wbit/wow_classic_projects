@@ -60,7 +60,10 @@
         </div>
         {% endfor %}
     </div>
+    <div id="test_element">
+    </div>
 </div>
+
 {{consumes|json_script:"hello-data"}}
 
 {% for prof in consume_list.profs_used.1 %}
@@ -78,86 +81,44 @@ if (!MATERIALS) {
 if (!ITEMSETS) {
     var ITEMSETS = {}
 }
-// var OLD_RECIPES = Object.assign({}, ALL_RECIPES)
+
 ALL_RECIPES = Object.assign(ALL_RECIPES, RECIPES)
 ALL_MATERIALS = Object.assign(ALL_MATERIALS, MATERIALS)
 ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, ITEMSETS)
+
 </script>
 {% endfor %}
 
 <script>
 
-$(document).ready(function() {
-    consume_helper_handlers()
-})
+    try {
+        consume_helper_handlers()
+    } catch (error) {
+          console.error(error);
+          // expected output: ReferenceError: nonExistentFunction is not defined
+          // Note - error messages will vary depending on browser
+    }
+    
+    var intersectionConfig = {
+        // If the image gets within 50px in the Y axis, start the download.
+        rootMargin: '50px 0px',
+        threshold: 0.1
+    };
 
-var my_consume_list = JSON.parse(document.getElementById('hello-data').textContent)
-if (!my_consume_list) {
-    my_consume_list = {}
-}
+    var testElem = document.getElementById('test_element');
+    elementObserver = new IntersectionObserver(showElement, intersectionConfig);
+    elementObserver.observe(testElem);
 
-function consume_helper_handlers() {
+    function showElement(entries, observer) {
+        for (var i = 0; i < entries.length; i++) {
+            var io = entries[i];
+            if (io.isIntersecting && io.intersectionRatio > 0) {
 
-    $(".consume-name, .material-name, .consume-image, .material-image").on({
-        mouseenter: e => {
-            clear_tooltip(e)
-            ez_tooltip( e )
-        },
-        mouseleave: e => {
-            $("#tooltip_container").hide()
-        },
-        mousemove: e => {
-            move_tooltip( e )
+                var item = io.target;
+                observer.unobserve(io.target);
+            }
         }
-    });
-
-
-    $(".materials-list").on({
-        'shown.bs.collapse': e => {
-            let id = $( e.target ).attr("id")
-            $(`span.consume-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
-        },
-        'hidden.bs.collapse': e => {
-            let id = $( e.target ).attr("id")
-            $(`span.consume-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
-        },
-    });
-
-    $(".sub-button").on({
-        click: e=> {
-            var multiple = (e.shiftKey) ? -(5) : -(1)
-            var data_container = $(e.target).closest(".data-container")
-            let prof = data_container.attr("data-prof")
-            let ix = data_container.attr("data-ix")
-            var recipe = ALL_RECIPES[ix]
-            var step = recipe.step
-            var name = recipe.n
-            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-            update_consume_list(name, multiple, step, prof)
-            multiple = consume_calculator(current_amount, multiple, step)
-            add_consume(recipe, multiple, step, ix)
-            combatText(e, multiple*step)
-        }
-    });
-
-    $(".add-button").on({
-        click: e=> {
-            var multiple = (e.shiftKey) ? 5 : 1
-            var data_container = $(e.target).closest(".data-container")
-            let prof = data_container.attr("data-prof")
-
-            let ix = data_container.attr("data-ix")
-            var recipe = ALL_RECIPES[ix]
-            var step = recipe.step
-            var name = recipe.n
-            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-            multiple = consume_calculator(current_amount, multiple, step)
-            update_consume_list(name, multiple, step, prof)
-            add_consume(recipe, multiple, step)
-            combatText(e, multiple*step)
-        }
-    });
-}
+    }
 
 
 </script>

@@ -1,4 +1,7 @@
-$(document).ready(global_event_handlers());
+$(document).ready(function() {
+	global_event_handlers()
+});
+
 var recipes = {}
 function build_consume_list(url, ix) {
 	var id = ix;

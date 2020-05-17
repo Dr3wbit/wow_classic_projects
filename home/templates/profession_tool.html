@@ -4,12 +4,14 @@
 {% load static %}
 {% block extra_head %}
 {% csrf_token %}
-<!-- bumbum -->
 <link rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/info_display.css" %}">
+
 <script>
-var ALL_RECIPES = {}
-var ALL_MATERIALS = {}
-var ALL_ITEMSETS = {}
+// necessary due to how this is rendered with django sub-templating
+var ALL_RECIPES = {},
+	ALL_MATERIALS = {},
+	ALL_ITEMSETS = {};
 </script>
 {% endblock extra_head %}
 
@@ -78,81 +80,5 @@ var ALL_ITEMSETS = {}
 
 {% block javascript %}
 <script src="{% static "js/profession_tool.js" %}"></script>
-
-
-<script>
-
-$(document).ready(function() {
-
-    if (performance.navigation.type === 1) {
-        my_consume_list = {}
-        $(".prof-filter").removeClass('selected');
-        $("#consumes").empty()
-        $("#materials").empty()
-        $("#saved_list_info").empty()
-        $("#recipe_list").empty()
-        update_url()
-    }
-    profession_tool_handlers()
- });
-
-
-function profession_tool_handlers() {
-    $(".prof-filter").on({
-        click: e => {
-            e.preventDefault()
-            var prof = $(e.target)[0].id;
-            build_recipe_list(prof);
-        }
-    });
-}
-
-function build_recipe_list(prof, spec_name = '', page=1) {
-    var current_prof = $(".prof-filter.selected")
-    $.ajax({
-        type: "POST",
-        url: `/profession_tool/${prof}`,
-        data: {
-            'prof': prof,
-            'page': page
-        },
-        // dataType: 'html',
-        success: function (data) {
-            let selected = $(".prof-filter.selected").attr("id");
-            let current_page = $("span.current-page").text()
-
-            if ((selected != prof) || (current_page != page)) {
-                $("#recipe_list").html(data);
-                $(".prof-filter").removeClass('selected');
-                $(`#${prof}`).addClass('selected');
-            }
-            var path = document.location.pathname
-            if (current_prof.length) {
-                path = document.location.pathname.toString().replace(current_prof.attr('id'), prof)
-            } else {
-                let p = document.location.pathname
-                var ix = p.toString().replace("\/profession_tool", '').replace("/", '')
-
-                path = (!(isNaN(parseInt(ix)))) ? `/profession_tool/${prof}/${ix}` : `/profession_tool/${prof}`
-
-            }
-            update_url(path, document.location.search)
-        }
-    });
-}
-
-function update_url(path='', search='') {
-    var url = new URL(document.location.origin.toString())
-
-    if (Boolean(path)) {
-        url.pathname = path
-    } else {
-        url.pathname = "/profession_tool"
-    }
-    url.search = search
-
-    history.replaceState(null, null, url)
-}
-
-</script>
+<script src="{% static "js/save_form.js" %}"></script>
 {% endblock javascript %}

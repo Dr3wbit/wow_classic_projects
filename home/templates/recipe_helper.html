@@ -67,8 +67,18 @@
     <script src="{% static "js/professions/"|add:selected|add:"/recipes.js" %}"></script>
     <script src="{% static "js/professions/"|add:selected|add:"/materials.js" %}"></script>
     <script src="{% static "js/professions/"|add:selected|add:"/itemsets.js" %}"></script>
-    {% endif %}
+
     <script>
+    // var recipe_helper;
+    // 
+    // document.addEventListener('readystatechange', (event) => {
+    //     console.log(`recipe_helper readystate: ${document.readyState}\n`);
+    //     if (HANDLERS.recipeHelper) {
+    //         console.log('and recipeHelper')
+    //         HANDLERS.consumeHelper()
+    //     }
+    // });
+
     if (!RECIPES) {
         var RECIPES = {}
     }
@@ -78,131 +88,15 @@
     if (!ITEMSETS) {
         var ITEMSETS = {}
     }
-
+    // var OLD_RECIPES = Object.assign({}, ALL_RECIPES)
     ALL_RECIPES = Object.assign(ALL_RECIPES, RECIPES)
     ALL_MATERIALS = Object.assign(ALL_MATERIALS, MATERIALS)
     ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, ITEMSETS)
 
-    // ALL_MATERIALS = (Boolean(ALL_MATERIALS) && Boolean(MATERIALS)) ? Object.assign(ALL_MATERIALS, MATERIALS) : (Boolean(MATERIALS)) ? Object.assign({}, MATERIALS) : {}
-    // ALL_ITEMSETS = (Boolean(ALL_ITEMSETS) && Boolean(ITEMSETS)) ? Object.assign(ALL_ITEMSETS, ITEMSETS) : (Boolean(ITEMSETS)) ? Object.assign({}, ITEMSETS) : {}
+    // if (HANDLERS.recipeHelper) {
+    //     HANDLERS.consumeHelper()
+    // }
 
-    $(document).ready(function() {
-
-        $(".recipe-name").unbind()
-        $(".recipe-image").unbind()
-        $(".reagent-list-container").unbind()
-        $(".prof-item-recipe").unbind()
-        recipe_helper_handlers()
-    })
-
-    function update_consume_list(name, amount=1, step=1, prof) {
-
-        var prof = (!prof) ? $("a.prof-filter.selected").attr("id") : prof
-
-        if (!my_consume_list[prof]) {
-            my_consume_list[prof] = {}
-        }
-        // let step = (allConsumes[name].step) ? allConsumes[name].step : 1
-        if (!my_consume_list[prof][name]) {
-            my_consume_list[prof][name] = amount*step
-        }
-        else {
-            my_consume_list[prof][name] += amount*step
-        }
-        if (my_consume_list[prof][name] <= 0) {
-            delete my_consume_list[prof][name]
-
-        }
-        if (Object.keys(my_consume_list[prof]) == 0 ) {
-            delete my_consume_list[prof]
-        }
-
-    }
-
-function recipe_helper_handlers() {
-    $(".recipe-name").on({
-        mouseenter: e => {
-            clear_tooltip()
-            ez_tooltip( e )
-        },
-        mouseleave: e => {
-            $("#tooltip_container").hide()
-        },
-        mousemove: e => {
-            move_tooltip( e )
-        },
-    })
-    $(".recipe-image").on({
-        mouseenter: e => {
-            clear_tooltip()
-            ez_tooltip( e, true)
-        },
-        mouseleave: e => {
-            $("#tooltip_container").hide()
-        },
-        mousemove: e => {
-            move_tooltip(e, true)
-        },
-    })
-
-    $(".prof-item-recipe").on({
-        mousedown: e => {
-            e.stopImmediatePropagation()
-            var multiple = 1
-            var ix = $(e.target).closest(".data-container").attr("data-ix")
-            var recipe = ALL_RECIPES[ix]
-
-            var name = recipe.n
-            var step = recipe.step
-
-            if (e.shiftKey) {
-                multiple = 5
-            }
-
-            if (e.which === 3) {
-                multiple = multiple*(-1)
-            }
-
-            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-            multiple = consume_calculator(current_amount, multiple, step)
-            update_consume_list(name, multiple, step)
-            add_consume(recipe, multiple, step, ix)
-            combatText(e, multiple*step)
-
-        }
-    })
-
-    $(".reagent-list-container").on({
-       mouseenter: e => {
-            clear_tooltip(e)
-            ez_tooltip(e, true)
-        },
-        mouseleave: e => {
-            $("#tooltip_container").hide()
-        },
-        mousemove: e => {
-            move_tooltip(e, true)
-        },
-    });
-    $(".change-page").on({
-        click: e=> {
-            e.preventDefault()
-            let target = $(e.target)
-            var page = 1
-            if (target.text() == "»") {
-                page = parseInt($("span.current-page").text()) + 1
-            } else if (target.text() == "last »") {
-                page = $("span.last-page").text()
-            } else if (target.text() == "previous"){
-                page = parseInt($("span.current-page").text()) - 1
-            } else if (target.text() == "«"){
-                page = parseInt($("span.current-page").text()) - 1
-            } else {
-                page = target.text()
-            }
-            let selected = $(".prof-filter.selected").attr("id");
-            build_recipe_list(selected, '', page)
-        }
-    })
-}
     </script>
+
+    {% endif %}

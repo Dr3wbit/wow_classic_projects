@@ -18,7 +18,6 @@ $(document).ready(function() {
      });
  }
 
-
  function getSavedLists() {
      var data = {}
      $.ajax({
