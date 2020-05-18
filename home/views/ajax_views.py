@@ -5,6 +5,45 @@ from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Ta
 from itertools import chain
 from operator import attrgetter
 
+def recipe_list_builder(request):
+
+	data = {}
+	prof = request.GET.get('prof', None)
+	data['prof'] = prof
+
+	all_recipes = {}
+	recipe_list = {}
+
+	if prof == 'other':
+		all_recipes = Crafted.objects.filter(profession=None).order_by('item')
+
+	elif prof:
+		all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
+	else:
+		all_recipes = {}
+
+	for recipe in all_recipes:
+		ix = recipe.item.ix
+		recipe_list[ix] = {}
+		recipe_list[ix]['name'] = recipe.item.name
+		recipe_list[ix]['quality'] = recipe.item.quality
+		recipe_list[ix]['img'] = recipe.item.img
+		recipe_list[ix]['step'] = recipe.step
+		recipe_list[ix]['mats'] = {}
+		for mat in recipe.materials.all():
+			matIX = mat.item.ix
+			recipe_list[ix]['mats'][matIX] = {}
+			recipe_list[ix]['mats'][matIX]['name'] = mat.name
+			recipe_list[ix]['mats'][matIX]['quality'] = mat.quality
+			recipe_list[ix]['mats'][matIX]['img'] = mat.img
+			recipe_list[ix]['mats'][matIX]['step'] = mat.amount
+
+	data['recipes'] = recipe_list
+
+	response = JsonResponse(data, safe=False)
+	return response
+
+
 def set_pagination(request):
 	pass
 
@@ -581,3 +620,15 @@ def get_item_info(request):
 
 	response = JsonResponse(data, safe=False)
 	return response
+
+def titlecase(s):
+	word_exceptions = ['of', 'the']
+	a = s.replace('_', ' ')
+	word_list = a.split()
+
+	for i,word in enumerate(word_list):
+		if word not in word_exceptions:
+			word_list[i] = word.title()
+
+	c = ' '.join(word_list)
+	return(c)

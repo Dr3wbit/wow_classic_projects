@@ -1,4 +1,4 @@
-var MATERIALS = {
+var miningMATERIALS = {
     "3576": {
         "n": "Tin Bar",
         "q": 1,
@@ -80,3 +80,4 @@ var MATERIALS = {
         "img": "spell_fire_flamebolt"
     }
 }
+updateRecipeObj(ALL_MATERIALS, miningMATERIALS)

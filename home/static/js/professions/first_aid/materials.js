@@ -1,4 +1,4 @@
-var MATERIALS = {
+var faMATERIALS = {
     "2589": {
         "n": "Linen Cloth",
         "q": 1,
@@ -40,3 +40,4 @@ var MATERIALS = {
         "img": "inv_misc_organ_04"
     }
 }
+updateRecipeObj(ALL_MATERIALS, faMATERIALS)

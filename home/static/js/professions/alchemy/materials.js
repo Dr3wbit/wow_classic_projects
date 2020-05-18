@@ -1,4 +1,4 @@
-var MATERIALS = {
+var alchMATERIALS = {
     "2447": {
         "n": "Peacebloom",
         "q": 1,
@@ -359,3 +359,5 @@ var MATERIALS = {
         "img": "spell_nature_earthbind"
     }
 }
+
+updateRecipeObj(ALL_MATERIALS, alchMATERIALS)

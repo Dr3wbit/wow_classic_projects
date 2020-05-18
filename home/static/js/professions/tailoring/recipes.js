@@ -1,4 +1,4 @@
-var RECIPES = {
+var tailorRECIPES = {
     "2568": {
         "n": "Brown Linen Vest",
         "q": 1,
@@ -4532,3 +4532,4 @@ var RECIPES = {
         "itemset": "421"
     }
 }
+updateRecipeObj(ALL_RECIPES, tailorRECIPES)

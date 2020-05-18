@@ -17,19 +17,202 @@ window.addEventListener('load', function(e) {
 	consume_helper_handlers();
 });
 
-document.addEventListener('readystatechange', (event) => {
-    console.log('ready state changed');
-});
+var ALL_RECIPES = {},
+	ALL_MATERIALS = {},
+	ALL_ITEMSETS = {},
+	PROF_DATA = {};
+
+// document.addEventListener('readystatechange', (event) => {
+//     console.log('ready state changed');
+// });
+
+var thisScript = document.currentScript;
+
+function updateRecipeObj(all={}, profRecipes) {
+
+	all = Object.assign(all, profRecipes)
+}
 
 function profession_tool_handlers() {
-	
+	var selected = document.querySelectorAll('a.prof-filter.selected')
+
 	$(".prof-filter").on({
 		click: e => {
 			e.preventDefault()
 			var prof = $(e.target)[0].id;
-			build_recipe_list(prof);
+			getRecipeList(prof);
 		}
 	});
+
+	//old
+	// $(".prof-filter").on({
+	// 	click: e => {
+	// 		e.preventDefault()
+	// 		var prof = $(e.target)[0].id;
+	// 		build_recipe_list(prof);
+	// 	}
+	// });
+}
+
+
+function getRecipeList(prof) {
+
+	var selected = document.querySelectorAll('a.prof-filter.selected')
+	// var scriptURL = static_url+`js/professions/${selected}/recipes.js`
+	if (selected.length) {
+		if (selected[0].id == prof) {
+			return false
+		}
+	}
+
+	if (Object.keys(PROF_DATA).includes(prof)) {
+		updateSelectedProf(prof)
+		emptyRecipeList();
+		buildRecipeList(PROF_DATA[prof]);
+		return false
+	}
+
+	var data = {'prof': prof}
+
+	$.ajax({
+		method: "GET",
+		url: `/ajax/build_recipe_list/`,
+		data: data,
+		dataType: 'json',
+		success: function(data) {
+			updateSelectedProf(data.prof)
+			PROF_DATA[data.prof] = data.recipes
+			emptyRecipeList();
+			buildRecipeList(data.recipes);
+		},
+		complete: updateRecipeScript
+	});
+}
+
+function updateSelectedProf(prof) {
+	var prevSelected = document.querySelectorAll('a.prof-filter.selected')
+	if (prevSelected.length) {
+		prevSelected[0].classList.remove('selected')
+	}
+	var selected = document.getElementById(`${prof}`)
+	selected.classList.add('selected')
+}
+
+function loadError(oError) {
+	throw new URIError("The script " + oError.target.src + " didn't load correctly.");
+}
+
+function updateRecipeScript(response) {
+
+	// console.log(updateRecipeScript)
+	var data = response.responseJSON
+	var prof = data.prof
+
+	var selected = document.getElementById(`${prof}`)
+	selected.classList.add('selected')
+
+	var scriptURL = static_url+`js/professions/${selected.id}/recipes.js`
+	var newScript = document.createElement("script");
+
+	// newScript.async = true
+
+	newScript.onerror = loadError;
+	newScript.onload = scriptLoaded;
+
+	thisScript.parentNode.insertBefore(newScript, thisScript);
+	newScript.src = scriptURL;
+}
+
+function emptyRecipeList() {
+	var recipeList = document.getElementById('recipe_list')
+	while (recipeList.firstChild) {
+  		recipeList.removeChild(recipeList.firstChild);
+	}
+}
+
+function scriptLoaded(e) {
+	console.log('scriptLoaded e:', e)
+	console.log('ALL_RECIPES: ', ALL_RECIPES)
+}
+
+//create_element(tag, class_name, style, text, dataAttrs={})
+function buildRecipeList(recipes) {
+
+	var recipeList = document.getElementById("recipe_list")
+	var iconBorderPath = static_url+'images/icon_border_2.png'
+	var imagePrefix = static_url+'images/icons/large/'
+
+	for (let [ix, recipe] of Object.entries(recipes)) {
+
+		var row = create_element('div', 'row') // t0
+		recipeList.appendChild(row)
+
+		var dataContainer = create_element('div', 'prof-item-recipe data-container col', '', '', {'ix':ix}) // t1
+		dataContainer.name = recipe.name
+		row.appendChild(dataContainer)
+
+		var recipeContainer = create_element('div', `recipe-container q${recipe.quality}`) // t2
+		dataContainer.appendChild(recipeContainer)
+
+		var imagePath = `${imagePrefix}${recipe.img}`
+		var recipeImage = create_element('img', 'icon-medium recipe-image', `background-image: url('${imagePath}.jpg')`) // t3
+		recipeImage.src = iconBorderPath
+		recipeContainer.appendChild(recipeImage)
+
+		if (recipe.step > 1) {
+
+			var stepContainer = create_element('span', 'count-container') // t3
+
+			var div1 = create_element('span', 'step-amount', '', `${recipe.step}`) // t4
+			var div2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', recipe.step) // t4
+			var div3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', recipe.step) // t4
+			var div4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', recipe.step) // t4
+
+			stepContainer.appendChild(div1)
+			stepContainer.appendChild(div2)
+			stepContainer.appendChild(div3)
+			stepContainer.appendChild(div4)
+
+			recipeContainer.appendChild(stepContainer)
+		}
+
+		var recipeName = create_element('span', 'recipe-name', '', recipe.name) // t3
+		recipeContainer.appendChild(recipeName)
+
+		var reagantList = create_element('div', 'reagent-list d-none d-md-block') // t1
+		row.appendChild(reagantList)
+
+		for (let [matIX, mat] of Object.entries(recipe.mats)) {
+			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.quality}}`, '', '', {ix: matIX}) // t2
+			matDataContainer.name = mat.name
+
+			reagantList.appendChild(matDataContainer)
+
+			var imagePath = `${imagePrefix}${mat.img}`
+			var matImage = create_element('img', 'icon-medium', `background-image: url('${imagePath}.jpg')`) // t3
+			matImage.src = iconBorderPath
+
+			matDataContainer.appendChild(matImage)
+
+			if (mat.step > 1) {
+				var countContainer = create_element('span', 'count-container')
+
+				var amountDiv1 = create_element('span', 'step-amount', '', mat.step) // t4
+				var amountDiv2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', mat.step) // t4
+				var amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', mat.step) // t4
+				var amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', mat.step) // t4
+
+				countContainer.appendChild(amountDiv1)
+				countContainer.appendChild(amountDiv2)
+				countContainer.appendChild(amountDiv3)
+				countContainer.appendChild(amountDiv4)
+
+				matDataContainer.appendChild(countContainer)
+			}
+		}
+
+	}
+	var paginationContainer = create_element('div', 'pagination')
 }
 
 function build_recipe_list(prof, spec_name = '', page = 1) {

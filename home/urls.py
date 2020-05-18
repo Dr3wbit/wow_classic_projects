@@ -36,6 +36,6 @@ urlpatterns = [
     path('ajax/update_icon/', views.update_icon, name='update_icon'),
     path('ajax/user_info/', views.user_info, name='user_info'),
     path('ajax/saved_lists/', views.get_saved_lists, name='saved_lists'),
-
+    path('ajax/build_recipe_list/', views.recipe_list_builder, name='recipe_list_builder'),
 
 ]

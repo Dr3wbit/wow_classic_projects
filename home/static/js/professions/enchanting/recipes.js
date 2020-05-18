@@ -1,4 +1,4 @@
-var RECIPES = {
+var enchRECIPES = {
     "6218": {
         "n": "Runed Copper Rod",
         "q": 1,
@@ -301,3 +301,5 @@ var RECIPES = {
         }
     }
 }
+
+updateRecipeObj(ALL_RECIPES, enchRECIPES)

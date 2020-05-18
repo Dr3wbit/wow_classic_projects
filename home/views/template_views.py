@@ -553,7 +553,6 @@ class ConsumeToolTemplate(TemplateView):
 		else:
 			context = {}
 
-
 			context["form"] = self.form_class()
 			context["professions"] = [
 				"engineering", "alchemy", "blacksmithing", "cooking",
@@ -596,7 +595,6 @@ class ConsumeToolTemplate(TemplateView):
 				# context["recipes"] = Crafted.objects.filter(prof=None)
 			elif prof:
 				all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
-
 			else:
 				all_recipes = []
 
@@ -648,6 +646,7 @@ class ConsumeToolTemplate(TemplateView):
 			response = HttpResponseRedirect('profession_tool')
 
 		return response
+
 
 	#####################################################################
 	## with the addition of all items/recipes, no longer a viable method

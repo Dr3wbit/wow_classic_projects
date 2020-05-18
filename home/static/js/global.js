@@ -220,12 +220,14 @@ function ez_tooltip(e, staticK=false) {
     var data_container = target.closest(".data-container")[0].dataset
 	var data = (ALL_RECIPES[data_container.ix]) ? ALL_RECIPES[data_container.ix] : ALL_MATERIALS[data_container.ix]
 	const tooltip_container = document.getElementById("tooltip_container")
-	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
+	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;")
+	tooltip.id = 'tooltip'
 
 	if (data.img && !staticK) {
 		let image_name = static_url+`images/icons/large/${data.img}.jpg`
 		style = `pointer-events: none; float: left; background-image: url(${image_name})`
-		var img = create_element('img', 'icon-medium', style, '', "tooltip_img")
+		var img = create_element('img', 'icon-medium', style)
+		img.id = "tooltip_img"
 		img.src = static_url+"images/icon_border_2.png"
 		tooltip_container.appendChild(img)
 	}
@@ -464,12 +466,8 @@ function get_dimensions(elem) {
 	console.log('offsetWidth:', elem.offsetWidth)
 }
 
-function create_element(tag, class_name, style, text, id) {
+function create_element(tag, class_name, style, text, dataAttrs={}) {
 	var elem = document.createElement(`${tag}`)
-	if (id) {
-		elem.id = id
-	}
-
 	if (class_name) {
 		elem.className = class_name
 	}
@@ -482,6 +480,21 @@ function create_element(tag, class_name, style, text, id) {
 		var content = document.createTextNode(`${text}`);
 		elem.appendChild(content)
 	}
+
+	// if (attrs) {
+	// 	for (let [key, val] of Object.entries(attrs)) {
+    //         elem[key] = val
+    //     }
+	// }
+
+	if (dataAttrs) {
+		for (let [key, val] of Object.entries(dataAttrs)) {
+			var dataItem = document.createAttribute(`data-${key}`);
+			dataItem.value = val
+			elem.setAttributeNode(dataItem)
+        }
+	}
+
 	return elem
 }
 
@@ -650,7 +663,8 @@ function combatText(e, t){
 	}
 	let timeStamp = $.now();
 	let uniqueID = `${e.pageX}${e.pageY}${timeStamp}`
-	let notificationContainer = create_element('div', "floating-container", `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`, text, uniqueID)
+	let notificationContainer = create_element('div', "floating-container", `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`, text)
+	notificationContainer.id = uniqueID
 
 	document.body.appendChild(notificationContainer)
 

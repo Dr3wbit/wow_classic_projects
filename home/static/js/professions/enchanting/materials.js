@@ -1,4 +1,4 @@
-var MATERIALS = {
+var enchMATERIALS = {
     "10938": {
         "n": "Lesser Magic Essence",
         "q": 2,
@@ -197,3 +197,5 @@ var MATERIALS = {
         "img": "inv_misc_herb_19"
     }
 }
+
+updateRecipeObj(ALL_MATERIALS, enchMATERIALS)

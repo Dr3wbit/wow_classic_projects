@@ -1,4 +1,4 @@
-var MATERIALS = {
+var tailorMATERIALS = {
     "2996": {
         "n": "Bolt of Linen Cloth",
         "q": 1,
@@ -503,3 +503,4 @@ var MATERIALS = {
         "img": "spell_magic_featherfall"
     }
 }
+updateRecipeObj(ALL_MATERIALS, tailorMATERIALS)

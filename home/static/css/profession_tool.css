@@ -249,3 +249,9 @@
 /* .adjustment-button:hover {
     cursor: pointer;
 } */
+
+.count-container {
+    position: relative;
+    right: 3px;
+    top: 15px;
+}

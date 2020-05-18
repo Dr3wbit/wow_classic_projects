@@ -7,12 +7,6 @@
 <link rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/info_display.css" %}">
 
-<script>
-// necessary due to how this is rendered with django sub-templating
-var ALL_RECIPES = {},
-	ALL_MATERIALS = {},
-	ALL_ITEMSETS = {};
-</script>
 {% endblock extra_head %}
 
 {% block mainbody %}
@@ -51,9 +45,11 @@ var ALL_RECIPES = {},
 
     <div class="row">
         <div id="recipe_list" class="col pageColumn custom-scroll-bar">
+			{% comment %}
             {% if whole_page %}
             {% include "recipe_helper.html" %}
             {% endif %}
+			{% endcomment %}
         </div>
         <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
             {% if whole_page %}

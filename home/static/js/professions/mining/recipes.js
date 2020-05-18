@@ -1,4 +1,4 @@
-var RECIPES = {
+var miningRECIPES = {
     "2841": {
         "n": "Bronze Bar",
         "q": 1,
@@ -104,3 +104,4 @@ var RECIPES = {
         }
     }
 }
+updateRecipeObj(ALL_RECIPES, miningRECIPES)

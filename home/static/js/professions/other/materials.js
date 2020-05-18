@@ -1,4 +1,4 @@
-var MATERIALS = {
+var otherMATERIALS = {
     "8392": {
         "n": "Blasted Boar Lung",
         "q": 1,
@@ -768,3 +768,4 @@ var MATERIALS = {
         "bop": true
     }
 }
+updateRecipeObj(ALL_MATERIALS, otherMATERIALS)

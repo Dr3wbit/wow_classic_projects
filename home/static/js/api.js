@@ -305,12 +305,14 @@ function prof_receiver(data) {
 function API_create_tooltip(data) {
 
 	var tooltip_container = document.getElementById("tooltip_container")
-	var tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;", '', 'tooltip')
+	var tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;")
+    tooltip.id = 'tooltip'
 
 	if (data.img) {
 		let image_name = static_url+`images/icons/large/${data.img}.jpg`
 		style = `pointer-events: none; float: left; background-image: url(${image_name})`
-		var img = create_element('img', 'icon-medium', style, '', "tooltip_img")
+		var img = create_element('img', 'icon-medium', style)
+        img.id = 'tooltip_img'
 		img.src = static_url+"images/icon_border_2.png"
 		tooltip_container.appendChild(img)
 	}

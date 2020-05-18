@@ -1,4 +1,4 @@
-var MATERIALS = {
+var bsMATERIALS = {
     "2835": {
         "n": "Rough Stone",
         "q": 1,
@@ -568,3 +568,5 @@ var MATERIALS = {
         "img": "inv_misc_herb_03"
     }
 }
+
+updateRecipeObj(ALL_MATERIALS, bsMATERIALS)

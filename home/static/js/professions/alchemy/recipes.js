@@ -1,4 +1,4 @@
-var RECIPES = {
+var alchRECIPES = {
     "118": {
         "n": "Minor Healing Potion",
         "q": 1,
@@ -1529,3 +1529,5 @@ var RECIPES = {
         }
     }
 }
+
+updateRecipeObj(ALL_RECIPES, alchRECIPES)

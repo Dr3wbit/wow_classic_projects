@@ -1,1 +1,2 @@
-var RECIPES = {}
+var skinRECIPES = {}
+updateRecipeObj(ALL_RECIPES, skinRECIPES)

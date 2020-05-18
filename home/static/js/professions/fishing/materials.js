@@ -1,1 +1,2 @@
-var MATERIALS = {}
+var fishMATERIALS = {}
+updateRecipeObj(ALL_MATERIALS, fishMATERIALS)

@@ -1,4 +1,4 @@
-var MATERIALS = {
+var cookMATERIALS = {
     "2665": {
         "n": "Stormwind Seasoning Herbs",
         "q": 1,
@@ -509,3 +509,5 @@ var MATERIALS = {
         "use": "Restores 0 health and 0 mana over 21 sec. Must remain seated while eating."
     }
 }
+
+updateRecipeObj(ALL_MATERIALS, cookMATERIALS)

@@ -1,4 +1,4 @@
-var RECIPES = {
+var engRECIPES = {
     "4358": {
         "n": "Rough Dynamite",
         "q": 1,
@@ -2781,3 +2781,5 @@ var RECIPES = {
         }
     }
 }
+
+updateRecipeObj(ALL_RECIPES, engRECIPES)

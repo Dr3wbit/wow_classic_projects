@@ -1,4 +1,4 @@
-var MATERIALS = {
+var lwMATERIALS = {
     "2318": {
         "n": "Light Leather",
         "q": 1,
@@ -683,3 +683,5 @@ var MATERIALS = {
         "use": "Absorbs 1500 to 2501 fire damage. Lasts 1 hr. (cooldown 3 min)"
     }
 }
+
+updateRecipeObj(ALL_MATERIALS, lwMATERIALS)

@@ -1,4 +1,4 @@
-var RECIPES = {
+var cookRECIPES = {
     "1017": {
         "n": "Seasoned Wolf Kabob",
         "q": 1,
@@ -1070,3 +1070,5 @@ var RECIPES = {
         "materials": {}
     }
 }
+
+updateRecipeObj(ALL_RECIPES, cookRECIPES)

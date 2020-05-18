@@ -1,4 +1,4 @@
-var RECIPES = {
+var faRECIPES = {
     "1251": {
         "n": "Linen Bandage",
         "q": 1,
@@ -185,3 +185,5 @@ var RECIPES = {
         }
     }
 }
+
+updateRecipeObj(ALL_RECIPES, faRECIPES)

@@ -1,4 +1,4 @@
-var MATERIALS = {
+var engMATERIALS = {
     "4357": {
         "n": "Rough Blasting Powder",
         "q": 1,
@@ -732,3 +732,4 @@ var MATERIALS = {
         "use": "Throw me!"
     }
 }
+updateRecipeObj(ALL_MATERIALS, engMATERIALS)

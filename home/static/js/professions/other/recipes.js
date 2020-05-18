@@ -1,4 +1,4 @@
-var RECIPES = {
+var othRECIPES = {
     "8412": {
         "n": "Ground Scorpok Assay",
         "q": 1,
@@ -1017,3 +1017,4 @@ var RECIPES = {
         }
     }
 }
+updateRecipeObj(ALL_RECIPES, othRECIPES)

@@ -1,4 +1,4 @@
-var RECIPES = {
+var lwRECIPES = {
     "2304": {
         "n": "Light Armor Kit",
         "q": 1,
@@ -4895,3 +4895,5 @@ var RECIPES = {
         }
     }
 }
+
+updateRecipeObj(ALL_RECIPES, lwRECIPES)

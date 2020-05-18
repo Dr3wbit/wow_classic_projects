@@ -1,4 +1,4 @@
-var RECIPES = {
+var bsRECIPES = {
     "2862": {
         "n": "Rough Sharpening Stone",
         "q": 1,
@@ -5355,3 +5355,5 @@ var RECIPES = {
         }
     }
 }
+
+updateRecipeObj(ALL_RECIPES, bsRECIPES)
