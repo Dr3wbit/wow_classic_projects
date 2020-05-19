@@ -12,30 +12,18 @@ $(document).ready(function() {
 	profession_tool_handlers()
 });
 
-window.addEventListener('load', function(e) {
-	recipe_helper_handlers();
-	consume_helper_handlers();
-});
+// window.addEventListener('load', function(e) {
+// 	recipe_helper_handlers();
+// 	consume_helper_handlers();
+// });
 
 var ALL_RECIPES = {},
 	ALL_MATERIALS = {},
 	ALL_ITEMSETS = {},
 	PROF_DATA = {};
 
-// document.addEventListener('readystatechange', (event) => {
-//     console.log('ready state changed');
-// });
-
-var thisScript = document.currentScript;
-
-function updateRecipeObj(all={}, profRecipes) {
-
-	all = Object.assign(all, profRecipes)
-}
 
 function profession_tool_handlers() {
-	var selected = document.querySelectorAll('a.prof-filter.selected')
-
 	$(".prof-filter").on({
 		click: e => {
 			e.preventDefault()
@@ -54,7 +42,6 @@ function profession_tool_handlers() {
 	// });
 }
 
-
 function getRecipeList(prof) {
 
 	var selected = document.querySelectorAll('a.prof-filter.selected')
@@ -65,28 +52,13 @@ function getRecipeList(prof) {
 		}
 	}
 
-	if (Object.keys(PROF_DATA).includes(prof)) {
-		updateSelectedProf(prof)
-		emptyRecipeList();
-		buildRecipeList(PROF_DATA[prof]);
-		return false
+	updateSelectedProf(prof);
+	emptyRecipeList();
+	if (!Object.keys(ALL_RECIPES).includes(prof)) {
+		addScript(prof)
+	} else {
+		buildRecipeList(ALL_RECIPES[prof])
 	}
-
-	var data = {'prof': prof}
-
-	$.ajax({
-		method: "GET",
-		url: `/ajax/build_recipe_list/`,
-		data: data,
-		dataType: 'json',
-		success: function(data) {
-			updateSelectedProf(data.prof)
-			PROF_DATA[data.prof] = data.recipes
-			emptyRecipeList();
-			buildRecipeList(data.recipes);
-		},
-		complete: updateRecipeScript
-	});
 }
 
 function updateSelectedProf(prof) {
@@ -102,26 +74,38 @@ function loadError(oError) {
 	throw new URIError("The script " + oError.target.src + " didn't load correctly.");
 }
 
-function updateRecipeScript(response) {
+function addScript(prof, type) {
 
-	// console.log(updateRecipeScript)
-	var data = response.responseJSON
-	var prof = data.prof
-
-	var selected = document.getElementById(`${prof}`)
-	selected.classList.add('selected')
-
-	var scriptURL = static_url+`js/professions/${selected.id}/recipes.js`
 	var newScript = document.createElement("script");
 
-	// newScript.async = true
-
 	newScript.onerror = loadError;
-	newScript.onload = scriptLoaded;
+	newScript.onload = function() {
+		scriptLoaded(prof);
+	}
 
-	thisScript.parentNode.insertBefore(newScript, thisScript);
-	newScript.src = scriptURL;
+	document.body.appendChild(newScript);
+	newScript.src = static_url+`js/professions/${prof}.js`
+
 }
+
+// old
+// function addRecipeScript(response) {
+//
+// 	// console.log(addRecipeScript)
+// 	var data = response.responseJSON
+// 	var prof = data.prof
+//
+// 	var scriptURL = static_url+`js/professions/${selected.id}/recipes.js`
+// 	var newScript = document.createElement("script");
+//
+// 	// newScript.async = true
+//
+// 	newScript.onerror = loadError;
+// 	newScript.onload = scriptLoaded;
+//
+// 	thisScript.parentNode.insertBefore(newScript, thisScript);
+// 	newScript.src = scriptURL;
+// }
 
 function emptyRecipeList() {
 	var recipeList = document.getElementById('recipe_list')
@@ -130,14 +114,24 @@ function emptyRecipeList() {
 	}
 }
 
-function scriptLoaded(e) {
-	console.log('scriptLoaded e:', e)
+function scriptLoaded(prof) {
+	// buildRecipeList(prof)
+	// console.log('recipes: ', recipes)
+	// ALL_RECIPES =
+
+	ALL_RECIPES[prof] = recipes
+	ALL_MATERIALS = Object.assign(ALL_MATERIALS, materials)
+	ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, itemsets)
+
 	console.log('ALL_RECIPES: ', ALL_RECIPES)
+	console.log('ALL_MATERIALS: ', ALL_MATERIALS)
+
+	buildRecipeList(recipes)
+
 }
 
 //create_element(tag, class_name, style, text, dataAttrs={})
 function buildRecipeList(recipes) {
-
 	var recipeList = document.getElementById("recipe_list")
 	var iconBorderPath = static_url+'images/icon_border_2.png'
 	var imagePrefix = static_url+'images/icons/large/'
@@ -148,10 +142,10 @@ function buildRecipeList(recipes) {
 		recipeList.appendChild(row)
 
 		var dataContainer = create_element('div', 'prof-item-recipe data-container col', '', '', {'ix':ix}) // t1
-		dataContainer.name = recipe.name
+		dataContainer.name = recipe.n
 		row.appendChild(dataContainer)
 
-		var recipeContainer = create_element('div', `recipe-container q${recipe.quality}`) // t2
+		var recipeContainer = create_element('div', `recipe-container q${recipe.q}`) // t2
 		dataContainer.appendChild(recipeContainer)
 
 		var imagePath = `${imagePrefix}${recipe.img}`
@@ -176,15 +170,16 @@ function buildRecipeList(recipes) {
 			recipeContainer.appendChild(stepContainer)
 		}
 
-		var recipeName = create_element('span', 'recipe-name', '', recipe.name) // t3
-		recipeContainer.appendChild(recipeName)
+		var recipeNameSpan = create_element('span', 'recipe-name', '', recipe.n) // t3
+		recipeContainer.appendChild(recipeNameSpan)
 
 		var reagantList = create_element('div', 'reagent-list d-none d-md-block') // t1
 		row.appendChild(reagantList)
 
-		for (let [matIX, mat] of Object.entries(recipe.mats)) {
-			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.quality}}`, '', '', {ix: matIX}) // t2
-			matDataContainer.name = mat.name
+		for (let [matIX, step] of Object.entries(recipe.materials)) {
+			var mat = ALL_MATERIALS[matIX]
+			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}}`, '', '', {ix: matIX}) // t2
+			matDataContainer.name = mat.n
 
 			reagantList.appendChild(matDataContainer)
 
@@ -194,13 +189,13 @@ function buildRecipeList(recipes) {
 
 			matDataContainer.appendChild(matImage)
 
-			if (mat.step > 1) {
+			if (step > 1) {
 				var countContainer = create_element('span', 'count-container')
 
-				var amountDiv1 = create_element('span', 'step-amount', '', mat.step) // t4
-				var amountDiv2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', mat.step) // t4
-				var amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', mat.step) // t4
-				var amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', mat.step) // t4
+				var amountDiv1 = create_element('span', 'step-amount', '', step) // t4
+				var amountDiv2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', step) // t4
+				var amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', step) // t4
+				var amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', step) // t4
 
 				countContainer.appendChild(amountDiv1)
 				countContainer.appendChild(amountDiv2)
