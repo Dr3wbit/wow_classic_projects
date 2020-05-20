@@ -1529,7 +1529,6 @@ var recipes = {
         }
     }
 };
-
 var materials = {
     "2447": {
         "n": "Peacebloom",
@@ -1891,3 +1890,4 @@ var materials = {
         "img": "spell_nature_earthbind"
     }
 }
+var itemsets = {}

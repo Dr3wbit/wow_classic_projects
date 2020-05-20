@@ -6,10 +6,10 @@ $(document).ready(function() {
 		$("#consumes").empty()
 		$("#materials").empty()
 		$("#saved_list_info").empty()
-		$("#recipe_list").empty()
+		$("#list_container").empty()
 		update_url()
 	}
-	profession_tool_handlers()
+	professionToolHandlers()
 });
 
 // window.addEventListener('load', function(e) {
@@ -20,26 +20,187 @@ $(document).ready(function() {
 var ALL_RECIPES = {},
 	ALL_MATERIALS = {},
 	ALL_ITEMSETS = {},
-	PROF_DATA = {};
+	PROF_DATA = {},
+	monkeyList;
 
+function initListObj() {
 
-function profession_tool_handlers() {
+	// var page = 3
+	var listOptions = {
+		valueNames: [
+            'recipe-name',
+			// {attr: 'data-ix', name: 'data-container'},
+			{attr: 'data-level', name: 'level'},
+			{attr: 'data-quality', name: 'rarity'},
+		],
+	};
+
+	monkeyList = new List('recipe_list', listOptions);
+
+	// tagListCorrector(monkeyList)
+	// paginate.init(3, monkeyList, document.getElementById('pagination_container'))
+	//
+	// monkeyList.on('filterComplete', function() {
+	//     paginate.postFilter();
+	// });
+	//
+	// monkeyList.on('searchComplete', function() {
+	//     paginate.postFilter();
+	// });
+	console.log(monkeyList)
+	listObjHandlers()
+}
+
+function listObjUnhandlers() {
+	$('.sorting-item').unbind()
+	$('#sorting_order').unbind()
+	$('#sorting').removeClass('remove-carrat')
+	$('#sorting_order').addClass('hidden').addClass('untouchable')
+	$('#current_sort').text('Sort')
+}
+function listObjHandlers() {
+
+	$('.sorting-item').on('click', function() {
+		var sortBySelection = $(this).text()
+		$('#current_sort').text(sortBySelection)
+		var sortingOrder = $("#sorting_order")
+		sortingOrder.removeClass('hidden').removeClass('untouchable')
+		$('#sorting').addClass("remove-carrat")
+		sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+		monkeyList.sort(sortBySelection.toLowerCase(), {
+			order: 'desc'
+		});
+		console.log(monkeyList)
+
+	});
+
+	$('#sorting_order').on('click', function() {
+		var glyph_triangle = $(this).find("span.glyphicon")
+		var sort_order;
+		var sortBySelection = $('#current_sort').text().toLowerCase()
+		if (glyph_triangle.hasClass("glyphicon-triangle-bottom")) {
+			sort_order = 'asc'
+			glyph_triangle.removeClass("glyphicon-triangle-bottom").addClass("glyphicon-triangle-top")
+		} else {
+			sort_order = 'desc'
+			glyph_triangle.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+		}
+		monkeyList.sort(sortBySelection, {
+			order: sort_order
+		});
+
+	});
+
+	$('#search_bar').on('keyup', function() {
+		var searchString = $(this).val();
+		monkeyList.search(searchString);
+	});
+}
+
+function professionToolHandlers() {
 	$(".prof-filter").on({
 		click: e => {
+			listObjUnhandlers()
 			e.preventDefault()
 			var prof = $(e.target)[0].id;
 			getRecipeList(prof);
 		}
 	});
+}
 
-	//old
-	// $(".prof-filter").on({
-	// 	click: e => {
-	// 		e.preventDefault()
-	// 		var prof = $(e.target)[0].id;
-	// 		build_recipe_list(prof);
-	// 	}
-	// });
+function recipeUnhandlers() {
+	$(".recipe-name").unbind()
+	$(".recipe-image").unbind()
+	$(".reagent-list-container").unbind()
+	$(".prof-item-recipe").unbind()
+}
+function recipeHandlers() {
+	recipeUnhandlers()
+	$(".recipe-name").on({
+		mouseenter: e => {
+			clear_tooltip()
+			ez_tooltip(e)
+		},
+		mouseleave: e => {
+			$("#tooltip_container").hide()
+		},
+		mousemove: e => {
+			move_tooltip(e)
+		},
+	})
+
+	$(".recipe-image").on({
+		mouseenter: e => {
+			clear_tooltip()
+			ez_tooltip(e, true)
+		},
+		mouseleave: e => {
+			$("#tooltip_container").hide()
+		},
+		mousemove: e => {
+			move_tooltip(e, true)
+		},
+	})
+
+	$(".prof-item-recipe").on({
+		mousedown: e => {
+			// e.stopImmediatePropagation()
+			var multiple = 1
+			var ix = $(e.target).closest(".data-container").attr("data-ix")
+			var recipe = ALL_RECIPES[ix]
+
+			var name = recipe.n
+			var step = recipe.step
+
+			if (e.shiftKey) {
+				multiple = 5
+			}
+
+			if (e.which === 3) {
+				multiple = multiple * (-1)
+			}
+
+			var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+			multiple = consume_calculator(current_amount, multiple, step)
+			update_consume_list(name, multiple, step)
+			add_consume(recipe, multiple, step, ix)
+			combatText(e, multiple * step)
+
+		}
+	})
+
+	$(".reagent-list-container").on({
+		mouseenter: e => {
+			clear_tooltip(e)
+			ez_tooltip(e, true)
+		},
+		mouseleave: e => {
+			$("#tooltip_container").hide()
+		},
+		mousemove: e => {
+			move_tooltip(e, true)
+		},
+	});
+	$(".change-page").on({
+		click: e => {
+			e.preventDefault()
+			let target = $(e.target)
+			var page = 1
+			if (target.text() == "»") {
+				page = parseInt($("span.current-page").text()) + 1
+			} else if (target.text() == "last »") {
+				page = $("span.last-page").text()
+			} else if (target.text() == "previous") {
+				page = parseInt($("span.current-page").text()) - 1
+			} else if (target.text() == "«") {
+				page = parseInt($("span.current-page").text()) - 1
+			} else {
+				page = target.text()
+			}
+			let selected = $(".prof-filter.selected").attr("id");
+			build_recipe_list(selected, '', page)
+		}
+	})
 }
 
 function getRecipeList(prof) {
@@ -59,6 +220,8 @@ function getRecipeList(prof) {
 	} else {
 		buildRecipeList(ALL_RECIPES[prof])
 	}
+
+	window.setTimeout(initListObj, 500)
 }
 
 function updateSelectedProf(prof) {
@@ -77,54 +240,29 @@ function loadError(oError) {
 function addScript(prof, type) {
 
 	var newScript = document.createElement("script");
-
 	newScript.onerror = loadError;
 	newScript.onload = function() {
 		scriptLoaded(prof);
 	}
 
 	document.body.appendChild(newScript);
-	newScript.src = static_url+`js/professions/${prof}.js`
+	newScript.src = static_url + `js/professions/${prof}.js`
 
 }
 
-// old
-// function addRecipeScript(response) {
-//
-// 	// console.log(addRecipeScript)
-// 	var data = response.responseJSON
-// 	var prof = data.prof
-//
-// 	var scriptURL = static_url+`js/professions/${selected.id}/recipes.js`
-// 	var newScript = document.createElement("script");
-//
-// 	// newScript.async = true
-//
-// 	newScript.onerror = loadError;
-// 	newScript.onload = scriptLoaded;
-//
-// 	thisScript.parentNode.insertBefore(newScript, thisScript);
-// 	newScript.src = scriptURL;
-// }
-
 function emptyRecipeList() {
-	var recipeList = document.getElementById('recipe_list')
+	var recipeList = document.getElementById('list_container')
 	while (recipeList.firstChild) {
-  		recipeList.removeChild(recipeList.firstChild);
+		recipeList.removeChild(recipeList.firstChild);
 	}
 }
 
 function scriptLoaded(prof) {
-	// buildRecipeList(prof)
-	// console.log('recipes: ', recipes)
-	// ALL_RECIPES =
 
+	ALL_RECIPES = Object.assign(ALL_RECIPES, recipes)
 	ALL_RECIPES[prof] = recipes
 	ALL_MATERIALS = Object.assign(ALL_MATERIALS, materials)
 	ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, itemsets)
-
-	console.log('ALL_RECIPES: ', ALL_RECIPES)
-	console.log('ALL_MATERIALS: ', ALL_MATERIALS)
 
 	buildRecipeList(recipes)
 
@@ -132,16 +270,18 @@ function scriptLoaded(prof) {
 
 //create_element(tag, class_name, style, text, dataAttrs={})
 function buildRecipeList(recipes) {
-	var recipeList = document.getElementById("recipe_list")
-	var iconBorderPath = static_url+'images/icon_border_2.png'
-	var imagePrefix = static_url+'images/icons/large/'
+	var recipeList = document.getElementById('list_container')
+	var iconBorderPath = static_url + 'images/icon_border_2.png'
+	var imagePrefix = static_url + 'images/icons/large/'
 
 	for (let [ix, recipe] of Object.entries(recipes)) {
 
 		var row = create_element('div', 'row') // t0
 		recipeList.appendChild(row)
 
-		var dataContainer = create_element('div', 'prof-item-recipe data-container col', '', '', {'ix':ix}) // t1
+		var levelReq = (recipe.requirements) ? recipe.requirements.level : 1
+
+		var dataContainer = create_element('div', 'prof-item-recipe data-container rarity level col', '', '', {'ix': ix, 'quality': recipe.q, 'level': levelReq}) // t1
 		dataContainer.name = recipe.n
 		row.appendChild(dataContainer)
 
@@ -178,7 +318,9 @@ function buildRecipeList(recipes) {
 
 		for (let [matIX, step] of Object.entries(recipe.materials)) {
 			var mat = ALL_MATERIALS[matIX]
-			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}}`, '', '', {ix: matIX}) // t2
+			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}}`, '', '', {
+				ix: matIX
+			}) // t2
 			matDataContainer.name = mat.n
 
 			reagantList.appendChild(matDataContainer)
@@ -208,41 +350,43 @@ function buildRecipeList(recipes) {
 
 	}
 	var paginationContainer = create_element('div', 'pagination')
+	recipeHandlers()
 }
 
-function build_recipe_list(prof, spec_name = '', page = 1) {
-	var current_prof = $(".prof-filter.selected")
-	$.ajax({
-		type: "POST",
-		url: `/profession_tool/${prof}`,
-		data: {
-			'prof': prof,
-			'page': page
-		},
-		// dataType: 'html',
-		success: function(data) {
-			let selected = $(".prof-filter.selected").attr("id");
-			let current_page = $("span.current-page").text()
-
-			if ((selected != prof) || (current_page != page)) {
-				$("#recipe_list").html(data);
-				$(".prof-filter").removeClass('selected');
-				$(`#${prof}`).addClass('selected');
-			}
-			var path = document.location.pathname
-			if (current_prof.length) {
-				path = document.location.pathname.toString().replace(current_prof.attr('id'), prof)
-			} else {
-				let p = document.location.pathname
-				var ix = p.toString().replace("\/profession_tool", '').replace("/", '')
-
-				path = (!(isNaN(parseInt(ix)))) ? `/profession_tool/${prof}/${ix}` : `/profession_tool/${prof}`
-			}
-			update_url(path, document.location.search)
-		},
-		complete: recipe_helper_handlers
-	});
-}
+// old
+// function build_recipe_list(prof, spec_name = '', page = 1) {
+// 	var current_prof = $(".prof-filter.selected")
+// 	$.ajax({
+// 		type: "POST",
+// 		url: `/profession_tool/${prof}`,
+// 		data: {
+// 			'prof': prof,
+// 			'page': page
+// 		},
+// 		// dataType: 'html',
+// 		success: function(data) {
+// 			let selected = $(".prof-filter.selected").attr("id");
+// 			let current_page = $("span.current-page").text()
+//
+// 			if ((selected != prof) || (current_page != page)) {
+// 				$("#recipe_list").html(data);
+// 				$(".prof-filter").removeClass('selected');
+// 				$(`#${prof}`).addClass('selected');
+// 			}
+// 			var path = document.location.pathname
+// 			if (current_prof.length) {
+// 				path = document.location.pathname.toString().replace(current_prof.attr('id'), prof)
+// 			} else {
+// 				let p = document.location.pathname
+// 				var ix = p.toString().replace("\/profession_tool", '').replace("/", '')
+//
+// 				path = (!(isNaN(parseInt(ix)))) ? `/profession_tool/${prof}/${ix}` : `/profession_tool/${prof}`
+// 			}
+// 			update_url(path, document.location.search)
+// 		},
+// 		complete: recipe_helper_handlers
+// 	});
+// }
 
 function update_url(path = '', search = '') {
 	var url = new URL(document.location.origin.toString())
@@ -592,112 +736,99 @@ function update_consume_list(name, amount = 1, step = 1, prof) {
 
 }
 
-function recipe_helper_handlers() {
-	if (!RECIPES) {
-		var RECIPES = {}
-	}
-	if (!MATERIALS) {
-		var MATERIALS = {}
-	}
-	if (!ITEMSETS) {
-		var ITEMSETS = {}
-	}
-
-	ALL_RECIPES = Object.assign(ALL_RECIPES, RECIPES)
-	ALL_MATERIALS = Object.assign(ALL_MATERIALS, MATERIALS)
-	ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, ITEMSETS)
-
-
-	$(".recipe-name").unbind()
-	$(".recipe-image").unbind()
-	$(".reagent-list-container").unbind()
-	$(".prof-item-recipe").unbind()
-
-	$(".recipe-name").on({
-		mouseenter: e => {
-			clear_tooltip()
-			ez_tooltip(e)
-		},
-		mouseleave: e => {
-			$("#tooltip_container").hide()
-		},
-		mousemove: e => {
-			move_tooltip(e)
-		},
-	})
-	$(".recipe-image").on({
-		mouseenter: e => {
-			clear_tooltip()
-			ez_tooltip(e, true)
-		},
-		mouseleave: e => {
-			$("#tooltip_container").hide()
-		},
-		mousemove: e => {
-			move_tooltip(e, true)
-		},
-	})
-
-	$(".prof-item-recipe").on({
-		mousedown: e => {
-			e.stopImmediatePropagation()
-			var multiple = 1
-			var ix = $(e.target).closest(".data-container").attr("data-ix")
-			var recipe = ALL_RECIPES[ix]
-
-			var name = recipe.n
-			var step = recipe.step
-
-			if (e.shiftKey) {
-				multiple = 5
-			}
-
-			if (e.which === 3) {
-				multiple = multiple * (-1)
-			}
-
-			var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-			multiple = consume_calculator(current_amount, multiple, step)
-			update_consume_list(name, multiple, step)
-			add_consume(recipe, multiple, step, ix)
-			combatText(e, multiple * step)
-
-		}
-	})
-
-	$(".reagent-list-container").on({
-		mouseenter: e => {
-			clear_tooltip(e)
-			ez_tooltip(e, true)
-		},
-		mouseleave: e => {
-			$("#tooltip_container").hide()
-		},
-		mousemove: e => {
-			move_tooltip(e, true)
-		},
-	});
-	$(".change-page").on({
-		click: e => {
-			e.preventDefault()
-			let target = $(e.target)
-			var page = 1
-			if (target.text() == "»") {
-				page = parseInt($("span.current-page").text()) + 1
-			} else if (target.text() == "last »") {
-				page = $("span.last-page").text()
-			} else if (target.text() == "previous") {
-				page = parseInt($("span.current-page").text()) - 1
-			} else if (target.text() == "«") {
-				page = parseInt($("span.current-page").text()) - 1
-			} else {
-				page = target.text()
-			}
-			let selected = $(".prof-filter.selected").attr("id");
-			build_recipe_list(selected, '', page)
-		}
-	})
-}
+//old
+// function recipe_helper_handlers() {
+//
+// 	$(".recipe-name").unbind()
+// 	$(".recipe-image").unbind()
+// 	$(".reagent-list-container").unbind()
+// 	$(".prof-item-recipe").unbind()
+//
+// 	$(".recipe-name").on({
+// 		mouseenter: e => {
+// 			clear_tooltip()
+// 			ez_tooltip(e)
+// 		},
+// 		mouseleave: e => {
+// 			$("#tooltip_container").hide()
+// 		},
+// 		mousemove: e => {
+// 			move_tooltip(e)
+// 		},
+// 	})
+// 	$(".recipe-image").on({
+// 		mouseenter: e => {
+// 			clear_tooltip()
+// 			ez_tooltip(e, true)
+// 		},
+// 		mouseleave: e => {
+// 			$("#tooltip_container").hide()
+// 		},
+// 		mousemove: e => {
+// 			move_tooltip(e, true)
+// 		},
+// 	})
+//
+// 	$(".prof-item-recipe").on({
+// 		mousedown: e => {
+// 			e.stopImmediatePropagation()
+// 			var multiple = 1
+// 			var ix = $(e.target).closest(".data-container").attr("data-ix")
+// 			var recipe = ALL_RECIPES[ix]
+//
+// 			var name = recipe.n
+// 			var step = recipe.step
+//
+// 			if (e.shiftKey) {
+// 				multiple = 5
+// 			}
+//
+// 			if (e.which === 3) {
+// 				multiple = multiple * (-1)
+// 			}
+//
+// 			var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+// 			multiple = consume_calculator(current_amount, multiple, step)
+// 			update_consume_list(name, multiple, step)
+// 			add_consume(recipe, multiple, step, ix)
+// 			combatText(e, multiple * step)
+//
+// 		}
+// 	})
+//
+// 	$(".reagent-list-container").on({
+// 		mouseenter: e => {
+// 			clear_tooltip(e)
+// 			ez_tooltip(e, true)
+// 		},
+// 		mouseleave: e => {
+// 			$("#tooltip_container").hide()
+// 		},
+// 		mousemove: e => {
+// 			move_tooltip(e, true)
+// 		},
+// 	});
+// 	$(".change-page").on({
+// 		click: e => {
+// 			e.preventDefault()
+// 			let target = $(e.target)
+// 			var page = 1
+// 			if (target.text() == "»") {
+// 				page = parseInt($("span.current-page").text()) + 1
+// 			} else if (target.text() == "last »") {
+// 				page = $("span.last-page").text()
+// 			} else if (target.text() == "previous") {
+// 				page = parseInt($("span.current-page").text()) - 1
+// 			} else if (target.text() == "«") {
+// 				page = parseInt($("span.current-page").text()) - 1
+// 			} else {
+// 				page = target.text()
+// 			}
+// 			let selected = $(".prof-filter.selected").attr("id");
+// 			build_recipe_list(selected, '', page)
+// 		}
+// 	})
+// }
 // end js from recipe_helper.html
 
 
@@ -709,7 +840,7 @@ function consume_helper_handlers() {
 
 	my_consume_list = JSON.parse(document.getElementById('hello-data').textContent)
 	if (!my_consume_list) {
-	    my_consume_list = {}
+		my_consume_list = {}
 	}
 
 
@@ -719,83 +850,83 @@ function consume_helper_handlers() {
 	$(".material-name").unbind()
 
 
-    $(".consume-name, .material-name, .consume-image, .material-image").on({
-        mouseenter: e => {
-            clear_tooltip(e)
-            ez_tooltip( e )
-        },
-        mouseleave: e => {
-            $("#tooltip_container").hide()
-        },
-        mousemove: e => {
-            move_tooltip( e )
-        }
-    });
+	$(".consume-name, .material-name, .consume-image, .material-image").on({
+		mouseenter: e => {
+			clear_tooltip(e)
+			ez_tooltip(e)
+		},
+		mouseleave: e => {
+			$("#tooltip_container").hide()
+		},
+		mousemove: e => {
+			move_tooltip(e)
+		}
+	});
 
 
-    $(".materials-list").on({
-        'shown.bs.collapse': e => {
-            let id = $( e.target ).attr("id")
-            $(`span.consume-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
-        },
-        'hidden.bs.collapse': e => {
-            let id = $( e.target ).attr("id")
-            $(`span.consume-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
-        },
-    });
+	$(".materials-list").on({
+		'shown.bs.collapse': e => {
+			let id = $(e.target).attr("id")
+			$(`span.consume-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-bottom')
+		},
+		'hidden.bs.collapse': e => {
+			let id = $(e.target).attr("id")
+			$(`span.consume-container[href="#${id}"]`).find('span.glyphicon').removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-right')
+		},
+	});
 
-    $(".sub-button").on({
-        click: e=> {
-            var multiple = (e.shiftKey) ? -(5) : -(1)
-            var data_container = $(e.target).closest(".data-container")
-            let prof = data_container.attr("data-prof")
-            let ix = data_container.attr("data-ix")
-            var recipe = ALL_RECIPES[ix]
-            var step = recipe.step
-            var name = recipe.n
-            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-            update_consume_list(name, multiple, step, prof)
-            multiple = consume_calculator(current_amount, multiple, step)
-            add_consume(recipe, multiple, step, ix)
-            combatText(e, multiple*step)
-        }
-    });
+	$(".sub-button").on({
+		click: e => {
+			var multiple = (e.shiftKey) ? -(5) : -(1)
+			var data_container = $(e.target).closest(".data-container")
+			let prof = data_container.attr("data-prof")
+			let ix = data_container.attr("data-ix")
+			var recipe = ALL_RECIPES[ix]
+			var step = recipe.step
+			var name = recipe.n
+			var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+			update_consume_list(name, multiple, step, prof)
+			multiple = consume_calculator(current_amount, multiple, step)
+			add_consume(recipe, multiple, step, ix)
+			combatText(e, multiple * step)
+		}
+	});
 
-    $(".add-button").on({
-        click: e=> {
-            var multiple = (e.shiftKey) ? 5 : 1
-            var data_container = $(e.target).closest(".data-container")
-            let prof = data_container.attr("data-prof")
+	$(".add-button").on({
+		click: e => {
+			var multiple = (e.shiftKey) ? 5 : 1
+			var data_container = $(e.target).closest(".data-container")
+			let prof = data_container.attr("data-prof")
 
-            let ix = data_container.attr("data-ix")
-            var recipe = ALL_RECIPES[ix]
-            var step = recipe.step
-            var name = recipe.n
-            var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
-            multiple = consume_calculator(current_amount, multiple, step)
-            update_consume_list(name, multiple, step, prof)
-            add_consume(recipe, multiple, step)
-            combatText(e, multiple*step)
-        }
-    });
+			let ix = data_container.attr("data-ix")
+			var recipe = ALL_RECIPES[ix]
+			var step = recipe.step
+			var name = recipe.n
+			var current_amount = ($(`span.consume-container[name="${name}"]`).length) ? parseInt($(`span.consume-container[name="${name}"]`).find($('span.amount')).text()) : 0
+			multiple = consume_calculator(current_amount, multiple, step)
+			update_consume_list(name, multiple, step, prof)
+			add_consume(recipe, multiple, step)
+			combatText(e, multiple * step)
+		}
+	});
 }
 // end consume_helper js
 
 
 function updateItemLists() {
 
-		if (!RECIPES) {
-			var RECIPES = {}
-		}
-		if (!MATERIALS) {
-			var MATERIALS = {}
-		}
-		if (!ITEMSETS) {
-			var ITEMSETS = {}
-		}
+	if (!RECIPES) {
+		var RECIPES = {}
+	}
+	if (!MATERIALS) {
+		var MATERIALS = {}
+	}
+	if (!ITEMSETS) {
+		var ITEMSETS = {}
+	}
 
 
-		ALL_RECIPES = Object.assign(ALL_RECIPES, RECIPES)
-		ALL_MATERIALS = Object.assign(ALL_MATERIALS, MATERIALS)
-		ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, ITEMSETS)
+	ALL_RECIPES = Object.assign(ALL_RECIPES, RECIPES)
+	ALL_MATERIALS = Object.assign(ALL_MATERIALS, MATERIALS)
+	ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, ITEMSETS)
 }

@@ -247,7 +247,7 @@ function tagListCorrector(listObj) {
          $('#sorting').text(sortBySelection)
          var sortingOrder = $("#sorting_order")
          sortingOrder.removeClass("hidden").removeClass("untouchable")
-         $('#sorting').addClass("removeCarrat")
+         $('#sorting').addClass("remove-carrat")
          sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
          monkeyList.sort(sortBySelection.toLowerCase(), {order: 'desc'});
 

@@ -14,7 +14,7 @@
 <div class="mainBody container">
     <div class="row selection-header sticky-top">
         <div class="col">
-            <form id="test_form" class="form-inline row selection-header">
+            <form class="form-inline row selection-header">
                 <div class="d-none d-md-inline-block col-xl-4 col-md-6">
                     <div class="dropdown show d-inline-block">
                         <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownFilterLink"
@@ -118,5 +118,5 @@
 {% block javascript %}
 
 <script type="text/javascript" src="{% static "js/list.min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/index.js" %}"></script>
+<script src="{% static "js/index.js" %}"></script>
 {% endblock javascript %}
