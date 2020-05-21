@@ -58,7 +58,7 @@
 						{% endif %}{% endfor %}
 					</div>
 					{% if "profession_tool" in request.path %}
-					<div class="spec-list-item" href="{% url 'consume_helper' consume_list.id %}?{{consume_list.hash}}"
+					<div class="spec-list-item" href="{% url 'consume_helper' %}?{{consume_list.hash}}"
 						data-ix="{{consume_list.id}}" name="{{consume_list.name}}" style="position: relative;">{{consume_list.name}}
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 							value="{{consume_list.name}}" type="button">
@@ -67,7 +67,7 @@
 					</div>
 					{% else %}
 					<div class="spec-list-item" name="{{consume_list.name}}" style="position:relative;">{{consume_list.name}}
-						<a href="{% url 'consume_builder' consume_list.id %}?{{consume_list.hash}}">
+						<a href="{% url 'consume_builder' %}?{{consume_list.hash}}">
 							<span style="left: 0; position: absolute; width: 80%; height: 100%;"></span>
 						</a>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"

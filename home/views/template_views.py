@@ -392,16 +392,31 @@ class ConsumeBuilderRedirectView(RedirectView):
 
 	def get_redirect_url(self, *args, **kwargs):
 
+		print(dir(self.request))
+		print(self.request.GET)
+
+		qd = list((self.request.GET).keys())[0]
+		print('qs: ', qd)
+
 		new_url = "{}://{}/profession_tool".format(self.request.scheme, self.request.get_host())
 
 		if 'id' in self.request.session:
 			del self.request.session['id']
 
 		id = kwargs['id']
-		self.request.session['id'] = id
-		cl = ConsumeList.objects.get(id=id)
-		qs = cl.hash
-		self.url = new_url+"/{}?{}".format(id, qs)
+		# if id:
+			# new_url = new_url+"/{}".format(id)
+
+		cl = ConsumeList.objects.filter(id=id).first()
+		if cl:
+			self.request.session['id'] = id
+			cl = ConsumeList.objects.get(id=id)
+			qs = cl.hash
+
+		else:
+			qs = qd
+
+		self.url = new_url+"?{}".format(qs)
 
 		return self.url
 

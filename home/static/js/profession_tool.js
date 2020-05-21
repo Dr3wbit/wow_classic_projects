@@ -1,14 +1,14 @@
 $(document).ready(function() {
 	console.log('init')
-	if (performance.navigation.type === 1) {
-		my_consume_list = {}
-		$(".prof-filter").removeClass('selected');
-		$("#consumes").empty()
-		$("#materials").empty()
-		$("#saved_list_info").empty()
-		$("#list_container").empty()
-		update_url()
-	}
+	// if (performance.navigation.type === 1) {
+	// 	my_consume_list = {}
+	// 	$(".prof-filter").removeClass('selected');
+	// 	$("#consumes").empty()
+	// 	$("#materials").empty()
+	// 	$("#saved_list_info").empty()
+	// 	$("#list_container").empty()
+	// 	update_url()
+	// }
 	professionToolHandlers()
 });
 
@@ -29,35 +29,34 @@ function initListObj() {
 	var listOptions = {
 		valueNames: [
             'recipe-name',
-			// {attr: 'data-ix', name: 'data-container'},
 			{attr: 'data-level', name: 'level'},
 			{attr: 'data-quality', name: 'rarity'},
 		],
 	};
 
 	monkeyList = new List('recipe_list', listOptions);
-
-	// tagListCorrector(monkeyList)
-	// paginate.init(3, monkeyList, document.getElementById('pagination_container'))
-	//
-	// monkeyList.on('filterComplete', function() {
-	//     paginate.postFilter();
-	// });
-	//
-	// monkeyList.on('searchComplete', function() {
-	//     paginate.postFilter();
-	// });
-	console.log(monkeyList)
 	listObjHandlers()
 }
 
-function listObjUnhandlers() {
-	$('.sorting-item').unbind()
-	$('#sorting_order').unbind()
-	$('#sorting').removeClass('remove-carrat')
-	$('#sorting_order').addClass('hidden').addClass('untouchable')
-	$('#current_sort').text('Sort')
+window.onpopstate = function(event) {
+  alert(`location: ${document.location}, state: ${JSON.stringify(event.state)}`)
 }
+
+function updateURL(prof='', search='') {
+	// var url = new URL(document.location.origin.toString())
+	var path = "/profession_tool"
+	if (Boolean(prof)) {
+		path += "/"+prof
+	}
+
+	if (Boolean(search)) {
+		path += "?"+search
+	}
+	// url.search = search
+	// history.replaceState(null, null, url)
+	history.pushState(null, prof, path)
+}
+
 function listObjHandlers() {
 
 	$('.sorting-item').on('click', function() {
@@ -70,8 +69,6 @@ function listObjHandlers() {
 		monkeyList.sort(sortBySelection.toLowerCase(), {
 			order: 'desc'
 		});
-		console.log(monkeyList)
-
 	});
 
 	$('#sorting_order').on('click', function() {
@@ -98,22 +95,20 @@ function listObjHandlers() {
 }
 
 function professionToolHandlers() {
+	var url = new URL(document.location.origin.toString())
+	console.log(document.location.pathname)
+
 	$(".prof-filter").on({
 		click: e => {
 			listObjUnhandlers()
 			e.preventDefault()
 			var prof = $(e.target)[0].id;
 			getRecipeList(prof);
+			updateURL(prof, '')
 		}
 	});
 }
 
-function recipeUnhandlers() {
-	$(".recipe-name").unbind()
-	$(".recipe-image").unbind()
-	$(".reagent-list-container").unbind()
-	$(".prof-item-recipe").unbind()
-}
 function recipeHandlers() {
 	recipeUnhandlers()
 	$(".recipe-name").on({
@@ -270,11 +265,18 @@ function scriptLoaded(prof) {
 
 //create_element(tag, class_name, style, text, dataAttrs={})
 function buildRecipeList(recipes) {
+	var config = {
+    	// If the image gets within 50px in the Y axis, start the download.
+		// TODO: adjust and make dependent on screensize
+    	rootMargin: '200px 0px',
+    	threshold: 0.1
+	};
 	var recipeList = document.getElementById('list_container')
 	var iconBorderPath = static_url + 'images/icon_border_2.png'
 	var imagePrefix = static_url + 'images/icons/large/'
-
+	var index = 0
 	for (let [ix, recipe] of Object.entries(recipes)) {
+
 
 		var row = create_element('div', 'row') // t0
 		recipeList.appendChild(row)
@@ -289,11 +291,22 @@ function buildRecipeList(recipes) {
 		dataContainer.appendChild(recipeContainer)
 
 		var imagePath = `${imagePrefix}${recipe.img}`
-		var recipeImage = create_element('img', 'icon-medium recipe-image', `background-image: url('${imagePath}.jpg')`) // t3
-		recipeImage.src = iconBorderPath
+
+
+		var recipeImage;
+		if (index < 15) {
+			recipeImage = create_element('img', 'icon-medium recipe-image', `background-image: url('${imagePath}.jpg')`) // t3
+			recipeImage.src = iconBorderPath
+		} else {
+			var recipeImage = create_element('img', 'icon-medium recipe-image', '', '', {'src':iconBorderPath, 'bgimage':imagePath}) // t3
+			imgObserver = new IntersectionObserver(showImage, config);
+			imgObserver.observe(recipeImage);
+		}
+
 		recipeContainer.appendChild(recipeImage)
 
 		if (recipe.step > 1) {
+
 
 			var stepContainer = create_element('span', 'count-container') // t3
 
@@ -317,6 +330,8 @@ function buildRecipeList(recipes) {
 		row.appendChild(reagantList)
 
 		for (let [matIX, step] of Object.entries(recipe.materials)) {
+
+
 			var mat = ALL_MATERIALS[matIX]
 			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}}`, '', '', {
 				ix: matIX
@@ -326,8 +341,16 @@ function buildRecipeList(recipes) {
 			reagantList.appendChild(matDataContainer)
 
 			var imagePath = `${imagePrefix}${mat.img}`
-			var matImage = create_element('img', 'icon-medium', `background-image: url('${imagePath}.jpg')`) // t3
-			matImage.src = iconBorderPath
+			var matImage;
+
+			if (index < 15) {
+				matImage = create_element('img', 'icon-medium', `background-image: url('${imagePath}.jpg')`) // t3
+				matImage.src = iconBorderPath
+			} else {
+				matImage = create_element('img', 'icon-medium recipe-image', '', '', {'src':iconBorderPath, 'bgimage':imagePath}) // t3
+				matImgObserver = new IntersectionObserver(showImage, config);
+				matImgObserver.observe(matImage);
+			}
 
 			matDataContainer.appendChild(matImage)
 
@@ -348,9 +371,65 @@ function buildRecipeList(recipes) {
 			}
 		}
 
+		index++
+
 	}
 	var paginationContainer = create_element('div', 'pagination')
 	recipeHandlers()
+}
+
+function showImage(entries, observer) {
+
+	for (var i = 0; i < entries.length; i++) {
+
+		var io = entries[i];
+
+		if (io.isIntersecting && io.intersectionRatio > 0) {
+
+			var image = io.target,
+				src = image.getAttribute("data-src"),
+				bg = image.getAttribute("data-bgimage"),
+				srcSet = image.getAttribute("data-srcset");
+
+			if (srcSet) {
+
+				image.setAttribute("srcset", srcSet);
+
+			}
+
+			if (src) {
+
+				image.setAttribute("src", src);
+
+			}
+
+			if (bg) {
+				image.style.backgroundImage = `url('${bg}.jpg')`
+				// image.setAttribute("src", src);
+
+			}
+
+			// Stop watching and load the image
+			observer.unobserve(io.target);
+
+		}
+
+	}
+}
+
+function listObjUnhandlers() {
+	$('.sorting-item').unbind()
+	$('#sorting_order').unbind()
+	$('#sorting').removeClass('remove-carrat')
+	$('#sorting_order').addClass('hidden').addClass('untouchable')
+	$('#current_sort').text('Sort')
+}
+
+function recipeUnhandlers() {
+	$(".recipe-name").unbind()
+	$(".recipe-image").unbind()
+	$(".reagent-list-container").unbind()
+	$(".prof-item-recipe").unbind()
 }
 
 // old
