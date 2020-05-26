@@ -109,18 +109,6 @@
     width: 100%
 }
 
-.icon-medium {
-    width: 42px;
-    height: 42px;
-    border: 1px black ridge;
-    border-radius: 5px;
-    background-size: 36px 36px;
-    background-position: left 1px top 1px;
-    background-repeat: no-repeat;
-    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-}
-
-
 .recipe-name:hover {
     text-decoration: solid underline;
 }
@@ -200,17 +188,6 @@
     margin-left: 10px;
     margin-right: -10px;
     min-width: 262px;
-}
-
-.icon-medium {
-    width: 42px;
-    height: 42px;
-    border: 1px black ridge;
-    border-radius: 5px;
-    background-size: 36px 36px;
-    background-position: left 1px top 1px;
-    background-repeat: no-repeat;
-    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .reagent-list {

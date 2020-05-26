@@ -16,7 +16,7 @@ class ConsumeListForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Tag.objects.all(), to_field_name="name", required=False)
     class Meta:
         model = ConsumeList
-        fields = ['name', 'description', 'private', 'tags']
+        fields = ['name', 'description', 'private', 'tags', 'hash']
         widgets = {
             'description': forms.Textarea(attrs={'cols': 60, 'rows': 20}),
         }

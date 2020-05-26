@@ -37,5 +37,6 @@ urlpatterns = [
     path('ajax/user_info/', views.user_info, name='user_info'),
     path('ajax/saved_lists/', views.get_saved_lists, name='saved_lists'),
     path('ajax/build_recipe_list/', views.recipe_list_builder, name='recipe_list_builder'),
+    path('ajax/consume_list_builder/', views.consume_list_builder, name='consume_list_builder'),
 
 ]

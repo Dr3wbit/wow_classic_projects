@@ -6,24 +6,21 @@ function save_form_handlers() {
 
     $(".saved-list-form").on({
     	submit: e => {
+            e.preventDefault()
     		if (window.location.pathname.includes("talent_calc")) {
     			update_tree_inputs()
     		} else {
-    			if (Object.keys(my_consume_list) < 1) {
+    			if (Object.keys(MY_CONSUME_LIST) < 1) {
     				alert('cant save empty list idiot')
     				return false
     			} else {
     				update_consume_inputs()
     			}
     		}
-    		e.preventDefault()
-
     		var violations = oversized_words()
 
     		if (violations.length) {
-
     			//NOTE DO A MESSAGE
-
     			var message = (violations.length > 1) ? `Unable to save list, the following ${violations.length} words are too long:\n` : `Unable to save list, the following word is too long:\n`
 
     			message += violations.join('\n')
@@ -53,7 +50,7 @@ function save_form_handlers() {
 function update_consume_inputs() {
 
 	var all_consumes = $("#all_consumes")
-	for (let [profname, v] of Object.entries(my_consume_list)) {
+	for (let [profname, v] of Object.entries(MY_CONSUME_LIST)) {
 		for (let [crafted, amount] of Object.entries(v)) {
 			all_consumes.append($('<input/>', {
 				name: "spent",
@@ -94,6 +91,11 @@ function savedListSuccess(data, textStatus, jqXHR) {
 	console.log(data)
 	console.log(textStatus)
 	console.log(jqXHR)
+    if (data.hash) {
+        var hash = `?${data.hash}`
+        updateURL('', hash)
+    }
+
 }
 
 function savedListError(jqXHR, textStatus, errorThrown) {
@@ -197,8 +199,6 @@ function append_list_item(data) {
 			} else {
 				let prof_elem = $('a.prof-filter.selected')
 				let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}` : `/profession_tool/${id}`
-				console.log('path: ', path)
-				console.log('url: ', url)
 				url.pathname = path
 				build_consume_list(url, id)
 			}

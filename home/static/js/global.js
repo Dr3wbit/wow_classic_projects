@@ -2,7 +2,46 @@ $(document).ready(function() {
 	global_event_handlers()
 });
 
-var recipes = {}
+
+function getItemInfo(ix, completeCallback=getItemInfoComplete) {
+    var data = {}
+	var ret = true
+    data['ix'] = ix
+    $.ajax({
+        method: "GET",
+        url: '/ajax/get_item_info/',
+        data: data,
+        dataType: 'json',
+        success: function(data) {
+			saveItemQuery(data)
+		},
+        complete: function(response) {
+			completeCallback(response)
+		}
+    });
+
+}
+
+function getItemInfoComplete(response) {
+	console.log('item info: ', response.responseJSON)
+}
+
+function saveItemQuery(data) {
+	var prev_query_keys = Object.keys(STORAGE_ITEMS)
+	var item = data
+    var ix = item.ix
+
+    if (!prev_query_keys.includes(ix)) {
+        STORAGE_ITEMS[ix] = item
+        if (storageAvailable('localStorage')) {
+            localStorage.setItem(ix, JSON.stringify(item));
+        }
+        prev_query_keys.push(ix)
+        console.log(`added ${ix}`)
+    }
+}
+
+// var recipes = {}
 function build_consume_list(url, ix=0) {
 	var id = ix
 	// var search = url.search
@@ -15,6 +54,7 @@ function build_consume_list(url, ix=0) {
 			$("#totals_container").html(data);
 		},
 		complete: function(data) {
+			consumeHandlers();
 			// if (document.location.href.toString().includes('profession_tool')) {
 			//
 			// 	update_url(path, search)
@@ -103,8 +143,10 @@ function global_event_handlers() {
 
             if (wow_class) {
 				// url.pathname = `talent_calc/${wow_class}`
+				var id = $(e.target).attr('data-ix')
                 update_class(wow_class, id)
             } else {
+
 				var prof_elem = $('a.prof-filter.selected')
 				var path = "/profession_tool"
 
@@ -113,11 +155,12 @@ function global_event_handlers() {
 				}
 
 				tempurl.pathname = path
+				getConsumeList(tempurl)
 
 				// path += tempurl.search
 				// let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
 
-                build_consume_list(tempurl, id)
+                build_consume_list(tempurl)
 				history.pushState(null, null, tempurl)
             }
 
@@ -251,9 +294,17 @@ function looseJsonParse(obj){
 
 // NEW
 function ez_tooltip(e, staticK=false) {
+	var ALL_PROFS = ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'first_aid', 'leatherworking', 'mining', 'other', 'skinning'];
+
     var target = $(e.target)
     var data_container = target.closest(".data-container")[0].dataset
-	var data = (ALL_RECIPES[data_container.ix]) ? ALL_RECIPES[data_container.ix] : ALL_MATERIALS[data_container.ix]
+	var ix = data_container.ix
+	var data = (ALL_ITEMS[ix]) ? ALL_ITEMS[ix] : (STORAGE_ITEMS[ix]) ? STORAGE_ITEMS[ix] : ALL_RECIPES[ix]
+	while (!data) {
+		getItemInfo(ix)
+		data = STORAGE_ITEMS[ix]
+		return
+	}
 	const tooltip_container = document.getElementById("tooltip_container")
 	const tooltip = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;")
 	tooltip.id = 'tooltip'

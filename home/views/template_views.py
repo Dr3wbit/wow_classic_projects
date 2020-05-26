@@ -11,13 +11,10 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 # from django.core.paginator import Paginator
 from django.conf import settings
-from django.template.loader import render_to_string
 
 from itertools import chain
 from operator import attrgetter
 import math, re, datetime, secrets, os, json, requests, random
-
-
 
 
 def handler500(request):
@@ -392,9 +389,6 @@ class ConsumeBuilderRedirectView(RedirectView):
 
 	def get_redirect_url(self, *args, **kwargs):
 
-		print(dir(self.request))
-		print(self.request.GET)
-
 		qd = list((self.request.GET).keys())[0]
 		print('qs: ', qd)
 
@@ -599,11 +593,9 @@ class ConsumeToolTemplate(TemplateView):
 						context['consumes'][prof_name] = {}
 					context['consumes'][prof_name][consume.name] = consume.amount
 
-
 			prof = self.kwargs.get("prof", None)
 			context["recipes"] = {}
 			context["selected"] = prof
-
 
 			if prof=='other':
 				all_recipes = Crafted.objects.filter(profession=None).order_by('item')
@@ -857,6 +849,25 @@ class DeniedView(TemplateView):
 	template_name = "denied.html"
 
 
+
+def build_consume_list(cl):
+	consume_list = {}
+	for consume in cl.consumes.all():
+		consume_list[consume.ix] = {}
+		consume_list[consume.ix]['n'] = consume.name
+		consume_list[consume.ix]['q'] = consume.quality
+		consume_list[consume.ix]['img'] = consume.img
+		consume_list[consume.ix]['amount'] = consume.amount
+
+		consume_list[consume.ix]['mats'] = {}
+		for mat in consume.mats:
+			consume_list[consume.ix]['mats'][mat.item.ix] = {}
+			consume_list[consume.ix]['mats'][mat.item.ix]['amount'] = mat.amount*consume.amount
+			consume_list[consume.ix]['mats'][mat.item.ix]['n'] = mat.name
+			consume_list[consume.ix]['mats'][mat.item.ix]['q'] = mat.quality
+			consume_list[consume.ix]['mats'][mat.item.ix]['img'] = mat.img
+
+	return consume_list
 
 
 def get_materials(cl):

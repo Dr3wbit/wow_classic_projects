@@ -4,6 +4,53 @@ from django.db.models import Count, Q, Avg
 from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Tag, WoWClass
 from itertools import chain
 from operator import attrgetter
+from django.template.loader import render_to_string
+
+def consume_list_builder(request):
+	data = {}
+
+	hash = request.GET.get('hash', None)
+	qs = request.META.get('QUERY_STRING', None)
+
+	hash = hash.replace("?", "")
+
+	if hash:
+
+		cl = ConsumeList.objects.filter(hash=hash)
+		consume_list = {}
+		if cl:
+			cl = cl.first()
+
+			for consume in cl.consumes.all():
+				consume_list[consume.ix] = get_item_info('', consume.ix)
+				consume_list[consume.ix]['amount'] = consume.amount
+
+				consume_list[consume.ix]['materials'] = {}
+				for mat in consume.mats:
+					consume_list[consume.ix]['materials'][mat.item.ix] = {}
+					consume_list[consume.ix]['materials'][mat.item.ix]['amount'] = mat.amount*consume.amount
+					consume_list[consume.ix]['materials'][mat.item.ix]['step'] = mat.amount
+					consume_list[consume.ix]['materials'][mat.item.ix]['n'] = mat.name
+					consume_list[consume.ix]['materials'][mat.item.ix]['q'] = mat.quality
+					consume_list[consume.ix]['materials'][mat.item.ix]['img'] = mat.img
+
+
+	if consume_list:
+		data['consume_list'] = consume_list
+
+	response = JsonResponse(data, safe=False)
+	return response
+
+def get_basic_item_info(item):
+	info = {}
+	info['n'] = item.name
+	info['q'] = item.quality
+	info['img'] = item.img
+	if item.step:
+		info['step'] = item.step
+
+	return info
+
 
 def recipe_list_builder(request):
 
@@ -296,6 +343,21 @@ def savedlist_info(request):
 		html = render_to_string("info_display.html", context)
 		return HttpResponse(html)
 
+def get_materials(cl):
+	materials = {}
+	for consume in cl.consumes.all():
+		for mat in consume.mats:
+			if mat.name not in materials.keys():
+				materials[mat.name] = {}
+				materials[mat.name]['value'] = 0
+				materials[mat.name]['quality'] = mat.quality
+				materials[mat.name]['img'] = mat.img
+				materials[mat.name]['ix'] = mat.item.ix
+
+			materials[mat.name]['value'] += int(consume.amount * mat.amount)
+
+	return materials
+
 def query_saved_lists(request):
 
 	context = {}
@@ -537,25 +599,34 @@ def load_spec(request):
 
 	return JsonResponse(data)
 
-def get_item_info(request):
+def get_item_info(request, ix=None):
 	data = {}
-	ix = request.GET.get('ix', None)
-	data['ix'] = ix
-	# name = request.GET.get('name', None)
-	# data['name'] = name
-	# static = request.GET.get('static', False)
+	if not ix:
+		ix = request.GET.get('ix', None)
+
 	item = ''
 
 	if ix:
-		items = Item.objects.filter(ix=ix)
-		if items:
-			item = items.first()
+		data['ix'] = ix
+		itemQS = Item.objects.filter(ix=ix)
+		if itemQS:
+			item = itemQS.first()
+			if item:
+				recipeQS = Crafted.objects.filter(item=item)
+				if recipeQS:
+					recipe = recipeQS.first()
+					data['materials'] = {}
+					for mat in recipe.materials.all():
+						matIX = mat.item.ix
+						data['materials'][matIX] = mat.amount
+
 		else:
 			item = Item.objects.get(name='samwise', ix=69420)
 
 		data['img'] = item.img
-		data['quality'] = item.quality
-		data['name'] = item.name
+		data['q'] = item.quality
+		data['n'] = item.name
+		data['step'] = item.step
 		if item.bop:
 			data['bop'] = item.bop
 
@@ -617,9 +688,12 @@ def get_item_info(request):
 		if item.description:
 			data['description'] = item.description
 
+	if request:
+		response = JsonResponse(data, safe=False)
+		return response
 
-	response = JsonResponse(data, safe=False)
-	return response
+	else:
+		return data
 
 def titlecase(s):
 	word_exceptions = ['of', 'the']

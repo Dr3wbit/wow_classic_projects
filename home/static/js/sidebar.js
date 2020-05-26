@@ -1,3 +1,7 @@
+$(document).ready(function() {
+	sidebar_handlers()
+});
+
 function sidebar_handlers() {
 	$(".saved-list-icon").on({
 		click: e=> {

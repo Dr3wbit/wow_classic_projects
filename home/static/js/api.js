@@ -1,7 +1,7 @@
 var coords = {'x':0, 'y':0}
 var previous_ix = 0
 // var prev_query_keys = Object.keys(localStorage)
-var prev_query_keys = Object.keys(all_items)
+var prev_query_keys = Object.keys(STORAGE_ITEMS)
 
 $("#prof_loader").on({
     click: e=> {
@@ -104,31 +104,7 @@ function tooltip_init(e) {
         API_create_tooltip(data)
         update_tooltip_coords(e)
     } else {
-        var data = {}
-        data['ix'] = ix
-        $.ajax({
-            method: "GET",
-            url: '/ajax/get_item_info/',
-            data: data,
-            dataType: 'json',
-            success: API_create_tooltip,
-            complete: save_item_query,
-        })
-    }
-}
-
-function save_item_query(data) {
-
-    var ix = data.responseJSON.ix
-    var item = data.responseJSON
-
-    if (!prev_query_keys.includes(ix)) {
-        all_items[ix] = item
-        if (storageAvailable('localStorage')) {
-            localStorage.setItem(ix, JSON.stringify(item));
-        }
-        prev_query_keys.push(ix)
-        console.log(`added ${ix}`)
+        getItemInfo(ix, API_create_tooltip)
     }
 }
 
@@ -317,7 +293,7 @@ function API_create_tooltip(data) {
 		tooltip_container.appendChild(img)
 	}
 
-	var title = create_element('div', `title q${data.quality}`, 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.name}`)
+	var title = create_element('div', `title q${data.q}`, 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
 	tooltip.appendChild(title)
 
 	if ((data.slot && data.q > 1) || (data.bop)) {

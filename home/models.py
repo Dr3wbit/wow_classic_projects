@@ -203,6 +203,10 @@ class Crafted(models.Model):
 	def img(self):
 		return self.item.img
 
+	@property
+	def ix(self):
+		return self.item.ix
+
 	def __str__(self):
 		return self.item.__str__()
 
@@ -575,6 +579,9 @@ class Consume(models.Model):
 	def img(self):
 		return self.item.img
 
+	@property
+	def ix(self):
+		return self.item.item.ix
 
 class Zone(models.Model):
 	REACTION_CHOICES = {

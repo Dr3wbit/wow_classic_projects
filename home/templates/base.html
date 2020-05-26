@@ -63,11 +63,11 @@
     <script src="{% static "js/global.js" %}"></script>
     <script src="{% static "js/sidebar.js" %}"></script>
     <script>
-        var all_items = {}
+        var STORAGE_ITEMS = {}
         if (storageAvailable('localStorage')) {
             var keys = Object.keys(localStorage)
             keys.forEach(function(ix) {
-                all_items[ix] = JSON.parse(localStorage.getItem(ix))
+                STORAGE_ITEMS[ix] = JSON.parse(localStorage.getItem(ix))
             })
         }
     </script>
