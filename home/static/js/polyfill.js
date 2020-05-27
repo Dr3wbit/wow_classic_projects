@@ -32,6 +32,26 @@ if (!String.prototype.startsWith) {
     });
 }
 
+// node.remove()
+(function (arr) {
+  arr.forEach(function (item) {
+    if (item.hasOwnProperty('remove')) {
+      return;
+    }
+    Object.defineProperty(item, 'remove', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function remove() {
+        if (this.parentNode === null) {
+          return;
+        }
+        this.parentNode.removeChild(this);
+      }
+    });
+  });
+})([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
+
 if (!Array.prototype.flat) {
 	Array.prototype.flat = function () {
 		var depth = arguments[0];
@@ -156,6 +176,7 @@ if (typeof DOMTokenList !== "function") (function(window){
         );
     }
 })(window);
+
 // 3. Patch in unsupported methods in DOMTokenList
 (function(DOMTokenListProto, testClass){
     if (!DOMTokenListProto.item) DOMTokenListProto.item = function(i){

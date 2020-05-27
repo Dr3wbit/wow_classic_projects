@@ -75,9 +75,19 @@
             </div>
         </div>
         <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
+            <div class="row">
+                <div id="consumes" class="col-12">
+                </div>
+                <span id="separator" class="col-12">Totals</span>
+                <div id="materials" class="col-12">
+                </div>
+            </div>
+            {% comment %}
             {% if whole_page %}
             {% include "consume_helper.html" %}
             {% endif %}
+            {% endcomment %}
+
         </div>
     </div>
 

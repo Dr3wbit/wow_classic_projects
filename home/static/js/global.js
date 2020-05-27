@@ -160,7 +160,7 @@ function global_event_handlers() {
 				// path += tempurl.search
 				// let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
 
-                build_consume_list(tempurl)
+                // build_consume_list(tempurl)
 				history.pushState(null, null, tempurl)
             }
 
@@ -575,7 +575,7 @@ function create_element(tag, class_name, style, text, dataAttrs={}) {
 
 	if (dataAttrs) {
 		for (let [key, val] of Object.entries(dataAttrs)) {
-			var dataItem = document.createAttribute(`data-${key}`);
+			var dataItem = document.createAttribute(`${key}`);
 			dataItem.value = val
 			elem.setAttributeNode(dataItem)
         }

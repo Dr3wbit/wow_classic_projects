@@ -18,25 +18,38 @@ def consume_list_builder(request):
 
 		cl = ConsumeList.objects.filter(hash=hash)
 		consume_list = {}
+		material_list = {}
 		if cl:
 			cl = cl.first()
 
 			for consume in cl.consumes.all():
 				consume_list[consume.ix] = get_item_info('', consume.ix)
-				consume_list[consume.ix]['amount'] = consume.amount
+				consume_list[consume.ix]['amount'] = consume.amount/consume_list[consume.ix]['step']
+
 
 				consume_list[consume.ix]['materials'] = {}
 				for mat in consume.mats:
-					consume_list[consume.ix]['materials'][mat.item.ix] = {}
-					consume_list[consume.ix]['materials'][mat.item.ix]['amount'] = mat.amount*consume.amount
-					consume_list[consume.ix]['materials'][mat.item.ix]['step'] = mat.amount
-					consume_list[consume.ix]['materials'][mat.item.ix]['n'] = mat.name
-					consume_list[consume.ix]['materials'][mat.item.ix]['q'] = mat.quality
-					consume_list[consume.ix]['materials'][mat.item.ix]['img'] = mat.img
+					consume_list[consume.ix]['materials'][mat.item.ix] = mat.amount
+
+					material_list[mat.item.ix] = {}
+					material_list[mat.item.ix]['step'] = mat.amount
+					material_list[mat.item.ix]['n'] = mat.name
+					material_list[mat.item.ix]['q'] = mat.quality
+					material_list[mat.item.ix]['img'] = mat.img
+
+					# consume_list[consume.ix]['materials'][mat.item.ix]['amount'] = mat.amount*consume.amount
+					# consume_list[consume.ix]['materials'][mat.item.ix]['step'] = mat.amount
+					# consume_list[consume.ix]['materials'][mat.item.ix]['n'] = mat.name
+					# consume_list[consume.ix]['materials'][mat.item.ix]['q'] = mat.quality
+					# consume_list[consume.ix]['materials'][mat.item.ix]['img'] = mat.img
+
 
 
 	if consume_list:
 		data['consume_list'] = consume_list
+
+	if material_list:
+		data['material_list'] = material_list
 
 	response = JsonResponse(data, safe=False)
 	return response
@@ -615,6 +628,7 @@ def get_item_info(request, ix=None):
 				recipeQS = Crafted.objects.filter(item=item)
 				if recipeQS:
 					recipe = recipeQS.first()
+					data['step'] = recipe.step
 					data['materials'] = {}
 					for mat in recipe.materials.all():
 						matIX = mat.item.ix
@@ -626,7 +640,7 @@ def get_item_info(request, ix=None):
 		data['img'] = item.img
 		data['q'] = item.quality
 		data['n'] = item.name
-		data['step'] = item.step
+
 		if item.bop:
 			data['bop'] = item.bop
 

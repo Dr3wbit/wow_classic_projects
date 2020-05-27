@@ -716,29 +716,20 @@ class ConsumeToolTemplate(TemplateView):
 		private = cleaned_data['private']
 		tags = request.POST.getlist('tags')
 		name = request.POST.get('name', None)
-		spnt = request.POST.getlist('spent')
+		spent = request.POST.getlist('spent')
 		description = request.POST.get('description')
 		data = dict(request.POST)
-		data['spent'] = []
-		spent = {}
+		consumes = {}
 
-		for x in spnt:
+		for x in spent:
 			y = x.split(',')
-			a = y[0]
-			b = y[1]
 
-			cr = Crafted.objects.get(item__name=a)
-			if cr.profession:
-				prof_name = cr.profession.name
-			else:
-				prof_name = 'other'
+			ix = y[0]
+			amount = y[1]
+			consumes[ix] = amount
 
-			if prof_name not in spent.keys():
-				spent[prof_name] = {}
-			spent[prof_name][a] = b
 
 		data['name'] = name
-		data['spent'] = spent
 
 		user = request.user
 
@@ -766,26 +757,17 @@ class ConsumeToolTemplate(TemplateView):
 				c_list.tags.add(t)
 				c_list.save()
 
-		for p,v in spent.items():
-			v = {a:b for a,b in v.items() if b}
 
-			# if p == 'other':
-			# 	prof = None
-			# else:
-			# 	prof = Profession.objects.get(name=p)
-			#
-			for x,y in v.items():
+		for ix,amount in consumes.items():
+			crafted = Crafted.objects.get(item__ix=ix)
+			c,cons_created = Consume.objects.update_or_create(
+				amount=amount, consume_list=c_list, item=crafted,
+				defaults={'amount':amount, 'consume_list':c_list, 'item':crafted}
+			)
+			if cons_created:
+				c_list.consumes.add(c)
 
-				# item = Item.objects.get(name=x)
-				crafted = Crafted.objects.get(item__name=x)
-				c,cons_created = Consume.objects.update_or_create(
-					amount=y, consume_list=c_list, item=crafted,
-					defaults={'amount':y, 'consume_list':c_list, 'item':crafted}
-				)
-				if cons_created:
-					c_list.consumes.add(c)
-
-				c_list.save()
+			c_list.save()
 
 
 		return data

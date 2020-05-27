@@ -49,17 +49,18 @@ function save_form_handlers() {
 
 function update_consume_inputs() {
 
-	var all_consumes = $("#all_consumes")
-	for (let [profname, v] of Object.entries(MY_CONSUME_LIST)) {
-		for (let [crafted, amount] of Object.entries(v)) {
-			all_consumes.append($('<input/>', {
-				name: "spent",
-				value: `${crafted},${amount}`,
-				type: 'hidden'
-			}))
-		}
-	}
+    var MY_MATERIALS = MY_CONSUME_LIST.MATERIALS
+    delete MY_CONSUME_LIST.MATERIALS
 
+	var all_consumes = $("#all_consumes")
+    for (let [consume, amount] of Object.entries(MY_CONSUME_LIST)) {
+        all_consumes.append($('<input/>', {
+            name: "spent",
+            value: `${consume},${amount}`,
+            type: 'hidden'
+        }))
+    }
+    MY_CONSUME_LIST.MATERIALS = MY_MATERIALS
 }
 
 function oversized_words(max_length = 20) {
