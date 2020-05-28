@@ -63,6 +63,7 @@
     <script src="{% static "js/global.js" %}"></script>
     <script src="{% static "js/sidebar.js" %}"></script>
     <script>
+        var static_url = "{% get_static_prefix %}";
         var STORAGE_ITEMS = {}
         if (storageAvailable('localStorage')) {
             var keys = Object.keys(localStorage)
@@ -77,10 +78,6 @@
 
     <div id="tooltip_container">
     </div>
-    <script>
-        var static_url = "{% get_static_prefix %}";
-    </script>
-
     {% if not request.user.context_menu %}
     <script>
     $('.mainContent, .mainBody').on({

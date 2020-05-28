@@ -1,0 +1,250 @@
+var tooltip = {
+    coords: {x:'', y:''},
+    tooltipContainer: '',
+    init: function(e) {
+        tooltip.tooltipContainer = document.getElementById("tooltip_container")
+        tooltip.empty()
+        tooltip.addMousemove(e)
+        var target = e.target
+        var dataContainer = target.closest('div.data-container')
+        var ix = dataContainer.getAttribute("data-ix")
+        tooltip.coords.x = e.pageX
+        tooltip.coords.y = e.pageY
+
+        if (Object.keys(STORAGE_ITEMS).includes(ix)) {
+            var data = STORAGE_ITEMS[ix]
+
+            tooltip.create(data)
+            tooltip.updateCoords(e)
+        } else {
+            getItemInfo(ix, tooltip.create)
+        }
+    },
+    empty: function() {
+        while (this.tooltipContainer.firstChild) {
+            this.tooltipContainer.removeChild(this.tooltipContainer.firstChild);
+        }
+    },
+    hide: function() {
+        for (let i = 0; i < this.tooltipContainer.children.length; i++) {
+            this.tooltipContainer.children[i].hidden = true
+        }
+    },
+    addMousemove: function(e) {
+        e.target.addEventListener('mousemove', tooltip.updateCoords)
+    },
+    updateCoords: function(e) {
+        tooltip.coords.x = tooltip.coords.x + e.movementX
+        tooltip.coords.y = tooltip.coords.y + e.movementY
+        tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
+    },
+    setPosition: function(x=this.coords.x, y=this.coords.y) {
+        tooltip.tooltipContainer.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible;`
+    },
+    mouseleaveCleanup: function(e) {
+        tooltip.empty()
+        e.target.removeEventListener('mousemove', tooltip.updateCoords)
+    },
+    create: function(response) {
+
+    	var container = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;")
+        container.id = 'tooltip'
+
+        var data = (response.responseJSON) ? response.responseJSON : response
+        // console.log('data: ', data)
+        // var data = (ALL_ITEMS[ix]) ? ALL_ITEMS[ix] : (STORAGE_ITEMS[ix]) ? STORAGE_ITEMS[ix] : ALL_RECIPES[ix]
+    	// while (!data) {
+    	// 	getItemInfo(ix)
+    	// 	data = STORAGE_ITEMS[ix]
+    	// 	return
+    	// }
+
+    	if (data.img) {
+    		let image_name = static_url+`images/icons/large/${data.img}.jpg`
+    		style = `pointer-events: none; float: left; background-image: url(${image_name})`
+    		var img = create_element('img', 'icon-medium', style)
+            img.id = 'tooltip_img'
+    		img.src = static_url+"images/icon_border_2.png"
+    		tooltip.tooltipContainer.appendChild(img)
+    	}
+
+    	var title = create_element('div', `title q${data.q}`, 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
+    	container.appendChild(title)
+
+    	if ((data.slot && data.q > 1) || (data.bop)) {
+    		var bop_text = (data.bop) ? "Binds when picked up" : "Binds when equipped"
+    		var bop_elem = create_element('div', 'bop', '', `${bop_text}`)
+    		container.appendChild(bop_elem)
+    	}
+
+    	if (data.quest_item) {
+    		var quest_item = create_element('div', 'unique', 'padding-right: 5px; margin-right: 5px;', "Quest Item")
+    		container.appendChild(quest_item)
+    	}
+
+    	if (data.unique) {
+    		var unique = create_element('div', 'unique', 'padding-right: 5px; margin-right: 5px;', "Unique")
+    		container.appendChild(unique)
+    	}
+
+    	if (data.slot) {
+    		var slot_text = (data.slot == 'Bag') ? `${data.slots} Slot Bag` : data.slot
+    		var slot = create_element('div', 'slot', 'float:left; margin-right: 5px; padding-right: 5px;', `${slot_text}\n`)
+    		container.appendChild(slot)
+    	}
+
+    	if (data.proficiency) {
+    		var proficiency = create_element('div', 'proficiency', 'float: right; clear: right;', `${data.proficiency}`)
+    		container.appendChild(proficiency)
+    	}
+
+    	if (data.damage) {
+    		var damage_text = ""
+    		data.damage.forEach(function(x) {
+    			damage_text += `${x}\n`
+    		})
+    		var damage = create_element('div', 'damage', 'float: left; clear:left; margin-right: 10px; padding-right: 10px', damage_text)
+    		container.appendChild(damage)
+    	}
+
+    	if (data.speed) {
+    		var speed = create_element('div', 'speed', 'float: right; clear: right; margin-left: 10px; padding-left: 10px', `Speed ${data.speed}`)
+    		container.appendChild(speed)
+    	}
+
+    	if (data.dps) {
+    		var dps = create_element('div', 'dps', 'clear: both;', `(${data.dps} damage per second)`)
+    		container.appendChild(dps)
+
+    	}
+
+    	if (data.armor) {
+    		var armor = create_element('div', 'armor', 'clear: both;', `${data.armor} Armor`)
+    		container.appendChild(armor)
+    	}
+
+    	if (data.stats) {
+    		var stat_text = ""
+    		// var _stats = looseJsonParse(data.stats)
+    		for (let [key, val] of Object.entries(data.stats)) {
+    			let some_text = `${val} ${key}\n`
+
+    			if (key!='Block') {
+    				some_text = "+"+some_text
+    			}
+    			stat_text += some_text
+    		}
+    		var stats = create_element('div', 'stats', "float: left; clear: both", `${stat_text}`)
+    		container.appendChild(stats)
+
+    	}
+
+    	if (data.resists) {
+    		var resist_text = ""
+    		// var _resists = looseJsonParse(data.resists)
+    		for (let [key, val] of Object.entries(data.resists)) {
+    			resist_text += `+${val} ${key} Resist\n`
+    		}
+    		var resists = create_element('div', 'resists', "float: left; clear: both", `${resist_text}`)
+    		container.appendChild(resists)
+    	}
+
+
+    	if (data.durability) {
+    		var durability = create_element('div', 'durability', 'clear: both;', `Durability ${data.durability} / ${data.durability}`)
+    		container.appendChild(durability)
+    	}
+
+    	if (data.requirements) {
+    		// var _requirements = looseJsonParse(data.requirements)
+    		var requirements = create_element('div', 'requirements', 'clear: both;')
+
+    		for (let [key, val] of Object.entries(data.requirements)) {
+    			if (key == "level") {
+    				requirements.appendChild(create_element('div', 'required_level', '', `Required Level: ${val}`))
+    			} else if (key == "class") {
+    				var class_reqs = create_element('div', 'class_text', '', "Classes: ")
+
+    				let first_class_name = val.shift()
+    				let class_span = create_element('span', `${first_class_name.toLowerCase()}`, '', `${first_class_name}`)
+
+    				class_reqs.appendChild(class_span)
+
+    				val.forEach(function(class_name) {
+    					class_reqs.appendChild(create_element('span', '', '', ', '))
+
+    					class_reqs.appendChild(create_element('span', `${class_name.toLowerCase()}`, '', `${class_name}`))
+    				})
+
+    				val.unshift(first_class_name)
+
+    			requirements.appendChild(class_reqs)
+    			} else if (key == "rank") {
+    				let rank_req = create_element('div', 'required_rank', '', `Requires ${val}`)
+    				requirements.appendChild(rank_req)
+    			} else if (key=='profession') {
+    				for (let [k, v] of Object.entries(val)) {
+    					var req_text = "Requires "+titleCase(k)
+    					if (ALL_PROFS.includes(k.toString())) {
+    						req_text += ` (${v})`
+    					}
+    					let prof_req = create_element('div', 'required_prof', '', req_text)
+    					requirements.appendChild(prof_req)
+    				}
+    			}
+    		}
+    		requirements.appendChild(create_element('div', '', 'clear: both;'))
+    		container.appendChild(requirements)
+    	}
+
+    	if (data.equips) {
+    		// var _equips = looseJsonParse(data.equips)
+    		var equips = create_element('div', 'use q2', 'clear: both; font-size: 13px')
+
+    		data.equips.forEach(function(x) {
+    			equips.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `${x}`))
+    		})
+
+    		container.appendChild(equips)
+
+    	}
+
+    	if (data.procs) {
+    		// var _procs = looseJsonParse(data.procs)
+    		var procs = create_element('div', 'use q2', 'clear: both; font-size: 13px')
+    		data.procs.forEach(function(x) {
+    			procs.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `${x}`))
+    		})
+    		container.appendChild(procs)
+    	}
+
+
+    	if (data.use) {
+    		var use = create_element('div', 'use q2', 'clear: both; font-size: 13px', `Use: ${data.use}`)
+    		container.appendChild(use)
+    	}
+
+    	if (data.description) {
+    		var description = create_element('div', 'description', 'clear: both;', `"${data.description}"`)
+    		container.appendChild(description)
+    	}
+
+    	if (data.itemset) {
+    		var itemset = ALL_ITEMSETS[data.itemset]
+    		// let num_items =
+    		var itemset_text = `${itemset.n} (0/${itemset.items.length})`
+    		var itemset_elem = create_element('div', 'description', 'clear: both;', `\n${itemset_text}`)
+    		itemset.items.forEach(function(name) {
+    			itemset_elem.appendChild(create_element('div', 'q0', 'text-indent: 8px;', `${name}\n`))
+    		})
+    		itemset_elem.appendChild(create_element('div', '', '', `\n`))
+    		itemset.bonuses.forEach(function(bonus) {
+    			itemset_elem.appendChild(create_element('div', 'q0', '', `${bonus}\n`))
+    		})
+    		container.appendChild(itemset_elem)
+    	}
+    	tooltip.tooltipContainer.appendChild(container)
+    	tooltip.tooltipContainer.style.cssText = `left: ${tooltip.coords.x}px; top: ${tooltip.coords.y}px; white-space: pre-wrap`
+        // this.tooltipContainer.attr("style", `left: ${coords.x}px; top: ${coords.y}px; visibility: visible;`)
+    }
+}
