@@ -9,8 +9,8 @@ var tooltip = {
         tooltip.coords.x = e.pageX
         tooltip.coords.y = e.pageY
 
-        if (Object.keys(ALL_ITEMS).includes(ix)) {
-            var data = ALL_ITEMS[ix]
+        if (Object.keys(consumeList.ALL_ITEMS).includes(ix)) {
+            var data = consumeList.ALL_ITEMS[ix]
             tooltip.create(data)
             tooltip.updateCoords(e)
         } else {
@@ -220,7 +220,7 @@ var tooltip = {
     	}
 
     	if (data.itemset) {
-    		var itemset = ALL_ITEMSETS[data.itemset]
+    		var itemset = consumeList.ALL_ITEMSETS[data.itemset]
     		// let num_items =
     		var itemset_text = `${itemset.n} (0/${itemset.items.length})`
     		var itemset_elem = create_element('div', 'description', 'clear: both;', `\n${itemset_text}`)

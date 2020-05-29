@@ -1,7 +1,3 @@
-// document.addEventListener('ready', function() {
-// 	console.log('init')
-// 	professionToolHandlers();
-// });
 
 $(document).ready(function() {
 	console.log('init')
@@ -12,11 +8,9 @@ window.addEventListener('load', function(e) {
 	const ALL_PROFS = ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'first_aid', 'leatherworking', 'mining', 'other', 'skinning'];
 
 	// figure out which profession(if any) is in the url
-	var selected = ALL_PROFS.filter(substring => document.location.pathname.includes(substring))
-
-	if (selected.length) {
-		//simulate click on respective profession
-		$(`#${selected[0]}.prof-filter`).trigger("click")
+	var selectedProfession = ALL_PROFS.filter(substring => document.location.pathname.includes(substring))
+	if (selectedProfession.length) { // simulate click on said profession
+		$(`#${selectedProfession[0]}.prof-filter`).trigger("click")
 	}
 
 	// var matchedhref = checkLocalHashes()
@@ -26,36 +20,19 @@ window.addEventListener('load', function(e) {
 
 	consumeHandlers();
 	recipeHandlers()
-
 });
 
-function getHash(href) {
-	var myURL = new URL(href=href, base=document.location)
-	return myURL.search
-}
-
-function checkLocalHashes() {
-	var savedListElems = document.querySelectorAll('div.spec-list-item[href]')
-	var hashes = Array.from(savedListElems, x => getHash(x.getAttribute('href')))
-	var index = hashes.findIndex(substring => document.location.href.includes(substring))
-	return index
-}
-
-var ALL_RECIPES = {},
-	ALL_ITEMS = {},
-	ALL_ITEMSETS = {},
-	PROF_DATA = {},
-	// MY_CONSUME_LIST = {MATERIALS:{}},
-	monkeyList;
-
 var consumeList = {
+	ALL_RECIPES: {},
+	ALL_ITEMS: {},
+	ALL_ITEMSETS: {},
+	PROF_DATA: {},
+	monkeyList: '',
 	CONSUMES: {MATERIALS:{}},
 	combine: '',
 	update: {
-
 		item: function(ix, amount=1, step=1) {
-
-			var recipe = ALL_ITEMS[ix]
+			var recipe = consumeList.ALL_ITEMS[ix]
 			consumeList.add.item(consumeList.CONSUMES, ix, amount, step, 'consumes')
 
 			for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
@@ -63,17 +40,15 @@ var consumeList = {
 				consumeList.add.item(consumeList.CONSUMES.MATERIALS, matIX, amount, materialStep, 'materials')
 			}
 		},
-
 		container: function(ix, parent) {
 
 			var parentElem;
-
 			if (parent == 'consumes') {
 				parentElem = document.getElementById('consumes')
 				var dataContainer = parentElem.querySelector(`div.consume-list-item.data-container[data-ix="${ix}"]`)
 				dataContainer.querySelector('span.consume-container > span.amount').innerText = consumeList.CONSUMES[ix]
 
-				var recipe = ALL_ITEMS[ix]
+				var recipe = consumeList.ALL_ITEMS[ix]
 				var materialsList = dataContainer.querySelector('div.materials-list')
 
 				for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
@@ -90,9 +65,8 @@ var consumeList = {
 	},
 	addExisting: function(data) {
 		var recipes = data.consume_list
-
-		ALL_ITEMS = Object.assign(ALL_ITEMS, recipes)
-		ALL_ITEMS = Object.assign(ALL_ITEMS, data.material_list)
+		consumeList.ALL_ITEMS = Object.assign(consumeList.ALL_ITEMS, recipes)
+		consumeList.ALL_ITEMS = Object.assign(consumeList.ALL_ITEMS, data.material_list)
 
 		for (let [ix, consume] of Object.entries(recipes)) {
 			consumeList.update.item(ix, consume.amount, consume.step)
@@ -115,12 +89,12 @@ var consumeList = {
 		},
 		toPage: function(ix, parent) {
 			var parentElem;
-			var iconBorderPath = static_url + 'images/icon_border_2.png'
-			var imagePrefix = static_url + 'images/icons/large/'
+			var iconBorderPath = static_url + 'images/icon_border_2.png',
+				imagePrefix = static_url + 'images/icons/large/';
 
 			//create_element(tag, class_name, style, text, dataAttrs={})
 			if (parent == 'consumes') {
-				var recipe = ALL_ITEMS[ix]
+				var recipe = consumeList.ALL_ITEMS[ix]
 				parentElem = document.getElementById('consumes')
 				var dataContainer = create_element('div', 'consume-list-item data-container', '', '', {'data-ix': ix}),
 					expandButton = create_element('span', 'consume-container collapsed', '', '', {'data-toggle': 'collapse', 'href': `#${sanitize(recipe.n)}_collapse`, 'role':'button'}),
@@ -131,10 +105,9 @@ var consumeList = {
 				var consumeImage = create_element('img', 'consume-image icon-small', `background-image: url('${imagePath}.jpg')`)
 				consumeImage.src = iconBorderPath
 
-				var consumeName = create_element('span', `consume-name q${recipe.q}`, '', recipe.n)
-
-				var consumeAmount = create_element('span', 'amount', '', consumeList.CONSUMES[ix])
-				var materialCollapse = create_element('div', 'materials-list collapse')
+				var consumeName = create_element('span', `consume-name q${recipe.q}`, '', recipe.n),
+					consumeAmount = create_element('span', 'amount', '', consumeList.CONSUMES[ix]),
+					materialCollapse = create_element('div', 'materials-list collapse');
 
 
 				materialCollapse.id = sanitize(recipe.n)+"_collapse"
@@ -163,18 +136,18 @@ var consumeList = {
 				dataContainer.appendChild(materialCollapse)
 
 				for (let [matIX, matStep] of Object.entries(recipe.materials)) {
-					var materialAmount = (consumeList.CONSUMES[ix]/recipe.step)*matStep
-					var material = ALL_ITEMS[matIX]
-					var materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX})
-					var materialContainer = create_element('span', 'material-container')
+					var materialAmount = (consumeList.CONSUMES[ix]/recipe.step)*matStep,
+						material = consumeList.ALL_ITEMS[matIX],
+						materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX}),
+						materialContainer = create_element('span', 'material-container');
 
 					var imagePath = `${imagePrefix}${material.img}`
 					var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
 					materialImage.src = static_url+'images/icons/small/icon_border.png'
 
 
-					var materialName = create_element('span', `material-name q${material.q}`, '', material.n)
-					var materialAmountSpan = create_element('span', 'amount', '', materialAmount)
+					var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
+						materialAmountSpan = create_element('span', 'amount', '', materialAmount);
 
 					materialCollapse.appendChild(materialListItem)
 					materialListItem.appendChild(materialContainer)
@@ -185,11 +158,11 @@ var consumeList = {
 					materialContainer.appendChild(document.createTextNode(']'))
 				}
 
-				var addSubtractContainer = create_element('div', 'add-subtract-button-container')
-				var addButton = create_element('button', 'btn btn-sm adjustment-button add-button', 'background-color:transparent; padding:1px;')
-				var glyphiconPlus = create_element('span', 'glyphicon glyphicon-plus untouchable', 'color:azure; font-size:12px;')
-				var subtractButton = create_element('button', 'btn btn-sm adjustment-button sub-button', 'background-color:transparent; padding:1px; padding-right:2px;')
-				var glyphiconMinus = create_element('span', 'glyphicon glyphicon-minus untouchable', 'color:azure; font-size:12px;')
+				var addSubtractContainer = create_element('div', 'add-subtract-button-container'),
+					addButton = create_element('button', 'btn btn-sm adjustment-button add-button', 'background-color:transparent; padding:1px;'),
+					glyphiconPlus = create_element('span', 'glyphicon glyphicon-plus untouchable', 'color:azure; font-size:12px;'),
+					subtractButton = create_element('button', 'btn btn-sm adjustment-button sub-button', 'background-color:transparent; padding:1px; padding-right:2px;'),
+					glyphiconMinus = create_element('span', 'glyphicon glyphicon-minus untouchable', 'color:azure; font-size:12px;')
 
 				dataContainer.appendChild(addSubtractContainer)
 				addSubtractContainer.appendChild(addButton)
@@ -198,16 +171,17 @@ var consumeList = {
 				subtractButton.appendChild(glyphiconMinus)
 
 			} else {
-				var material = ALL_ITEMS[ix]
 				parentElem = document.getElementById('materials')
-				var dataContainer = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': ix})
-				var materialContainer = create_element('span', 'material-container')
+
+				var material = consumeList.ALL_ITEMS[ix],
+					dataContainer = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': ix}),
+					materialContainer = create_element('span', 'material-container');
 				var imagePath = `${imagePrefix}${material.img}`
 				var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
 
 				materialImage.src = static_url+'images/icons/small/icon_border.png'
-				var materialName = create_element('span', `material-name q${material.q}`, '', material.n)
-				var amountSpan = create_element('span', 'amount', '', consumeList.CONSUMES.MATERIALS[ix])
+				var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
+					amountSpan = create_element('span', 'amount', '', consumeList.CONSUMES.MATERIALS[ix]);
 
 				parentElem.appendChild(dataContainer)
 				dataContainer.appendChild(materialContainer)
@@ -237,7 +211,6 @@ var consumeList = {
 
 function getItemInfo(ix, completeCallback=getItemInfoComplete) {
     var data = {}
-	var ret = true
     data['ix'] = ix
     $.ajax({
         method: "GET",
@@ -268,18 +241,18 @@ function saveItemQuery(data) {
             localStorage.setItem(ix, JSON.stringify(item));
         }
         prev_query_keys.push(ix)
-        console.log(`added ${ix}`)
+        console.log(`added ${ix} to localStorage`)
     }
 }
 
 function getConsumeList(url) {
-	var d = {}
-	d['hash'] = url.search
+	var data = {}
+	data['hash'] = url.search
 
 	$.ajax({
 		method: "GET",
 		url: '/ajax/consume_list_builder/',
-		data: d,
+		data: data,
 		dataType: 'json',
 		success: consumeList.addExisting,
 		complete: consumeList.build
@@ -288,7 +261,6 @@ function getConsumeList(url) {
 
 function initListObj() {
 
-	// var page = 3
 	var listOptions = {
 		valueNames: [
             'recipe-name',
@@ -297,12 +269,11 @@ function initListObj() {
 		],
 	};
 
-	monkeyList = new List('recipe_list', listOptions);
+	consumeList.monkeyList = new List('recipe_list', listOptions);
 	listObjHandlers()
 }
 
 function updateURL(prof='', search='') {
-	// var url = new URL(document.location.origin.toString())
 	var path = "/profession_tool"
 	if (Boolean(prof)) {
 		path += "/"+prof
@@ -311,8 +282,7 @@ function updateURL(prof='', search='') {
 	if (Boolean(search)) {
 		path += search
 	}
-	// url.search = search
-	// history.replaceState(null, null, url)
+
 	history.pushState(null, prof, path)
 }
 
@@ -325,7 +295,7 @@ function listObjHandlers() {
 		sortingOrder.removeClass('hidden').removeClass('untouchable')
 		$('#sorting').addClass("remove-carrat")
 		sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-		monkeyList.sort(sortBySelection.toLowerCase(), {
+		consumeList.monkeyList.sort(sortBySelection.toLowerCase(), {
 			order: 'desc'
 		});
 	});
@@ -341,7 +311,7 @@ function listObjHandlers() {
 			sort_order = 'desc'
 			glyph_triangle.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
 		}
-		monkeyList.sort(sortBySelection, {
+		consumeList.monkeyList.sort(sortBySelection, {
 			order: sort_order
 		});
 
@@ -349,7 +319,7 @@ function listObjHandlers() {
 
 	$('#search_bar').on('keyup', function() {
 		var searchString = $(this).val();
-		monkeyList.search(searchString);
+		consumeList.monkeyList.search(searchString);
 	});
 }
 
@@ -377,7 +347,6 @@ function professionToolHandlers() {
 }
 
 function recipeHandlers() {
-	// recipeUnhandlers()
 
 	var recipeList = document.getElementById('recipe_list')
 
@@ -395,7 +364,7 @@ function recipeHandlers() {
 			var multiple = (e.shiftKey) ? 5 : 1
 			multiple = (e.which === 3) ? multiple * (-1) : multiple
 			var ix = $(e.target).closest(".data-container").attr("data-ix")
-			var step = ALL_ITEMS[ix].step
+			var step = consumeList.ALL_ITEMS[ix].step
 			consumeList.update.item(ix, multiple, step)
 			combatText(e, multiple * step)
 		}
@@ -444,7 +413,7 @@ function consumeHandlers() {
 			var multiple = (e.shiftKey) ? 5 : 1
 			var dataContainer = $(e.target).closest(".data-container")
 			var ix = dataContainer.attr("data-ix")
-			var step = ALL_ITEMS[ix].step
+			var step = consumeList.ALL_ITEMS[ix].step
 
 			if (e.target.matches('.sub-button')) {
 				multiple = multiple * (-1)
@@ -474,10 +443,10 @@ function consumeHandlers() {
 
 function getRecipeList(prof) {
 
-	if (!Object.keys(ALL_RECIPES).includes(prof)) {
+	if (!Object.keys(consumeList.ALL_RECIPES).includes(prof)) {
 		addScript(prof)
 	} else {
-		buildRecipeList(ALL_RECIPES[prof])
+		buildRecipeList(consumeList.ALL_RECIPES[prof])
 	}
 
 }
@@ -517,48 +486,42 @@ function emptyRecipeList() {
 
 function scriptLoaded(prof) {
 
-	ALL_ITEMS = Object.assign(ALL_ITEMS, materials)
-	ALL_ITEMS = Object.assign(ALL_ITEMS, recipes)
+	consumeList.ALL_ITEMS = Object.assign(consumeList.ALL_ITEMS, materials)
+	consumeList.ALL_ITEMS = Object.assign(consumeList.ALL_ITEMS, recipes)
 
-	ALL_RECIPES[prof] = recipes
-	ALL_ITEMSETS = Object.assign(ALL_ITEMSETS, itemsets)
+	consumeList.ALL_RECIPES[prof] = recipes
+	consumeList.ALL_ITEMSETS = Object.assign(consumeList.ALL_ITEMSETS, itemsets)
 
 	buildRecipeList(recipes)
-
 }
 
 
-//create_element(tag, class_name, style, text, dataAttrs={})
 function buildRecipeList(recipes) {
 	var config = {
-    	// If the image gets within 50px in the Y axis, start the download.
+    	// If the image gets within 200px in the Y axis, start the download.
 		// TODO: adjust and make dependent on screensize
     	rootMargin: '200px 0px',
     	threshold: 0.1
 	};
-	var recipeList = document.getElementById('list_container')
-	var iconBorderPath = static_url + 'images/icon_border_2.png'
-	var imagePrefix = static_url + 'images/icons/large/'
-	var index = 0
+	var recipeList = document.getElementById('list_container'),
+		iconBorderPath = static_url + 'images/icon_border_2.png',
+		imagePrefix = static_url + 'images/icons/large/',
+		index = 0;
+
 	for (let [ix, recipe] of Object.entries(recipes)) {
 
 
 		var row = create_element('div', 'row') // t0
-		recipeList.appendChild(row)
-
 		var levelReq = (recipe.requirements) ? recipe.requirements.level : 1
-
 		var dataContainer = create_element('div', 'col recipe-container data-container rarity level', '', '', {'data-ix': ix, 'data-quality': recipe.q, 'data-level': levelReq}) // t1
 		dataContainer.name = recipe.n
+
+		recipeList.appendChild(row)
 		row.appendChild(dataContainer)
 
-		// var recipeContainer = create_element('div', `recipe-container`) // t2
-		// dataContainer.appendChild(recipeContainer)
+		var imagePath = `${imagePrefix}${recipe.img}`,
+			recipeImage;
 
-
-		var imagePath = `${imagePrefix}${recipe.img}`
-
-		var recipeImage;
 		if (index < 15) {
 			recipeImage = create_element('img', 'icon-medium recipe-image', `background-image: url('${imagePath}.jpg')`) // t3
 			recipeImage.src = iconBorderPath
@@ -568,48 +531,39 @@ function buildRecipeList(recipes) {
 			imgObserver.observe(recipeImage);
 		}
 
-		// recipeContainer.appendChild(recipeImage)
 		dataContainer.appendChild(recipeImage)
 
-
 		if (recipe.step > 1) {
-
-
-			var stepContainer = create_element('span', 'count-container') // t3
-
-			var div1 = create_element('span', 'step-amount', '', `${recipe.step}`) // t4
-			var div2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', recipe.step) // t4
-			var div3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', recipe.step) // t4
-			var div4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', recipe.step) // t4
+			var stepContainer = create_element('span', 'count-container'),
+				div1 = create_element('span', 'step-amount', '', `${recipe.step}`),
+				div2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', recipe.step),
+				div3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', recipe.step),
+				div4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', recipe.step);
 
 			stepContainer.appendChild(div1)
 			stepContainer.appendChild(div2)
 			stepContainer.appendChild(div3)
 			stepContainer.appendChild(div4)
-
-			// recipeContainer.appendChild(stepContainer)
 			dataContainer.appendChild(stepContainer)
 
 		}
 
-		var recipeNameSpan = create_element('span', `recipe-name q${recipe.q}`, '', recipe.n) // t3
-		//recipeContainer.appendChild(recipeNameSpan)
-		dataContainer.appendChild(recipeNameSpan)
+		var recipeNameSpan = create_element('span', `recipe-name q${recipe.q}`, '', recipe.n)
+		var reagantList = create_element('div', 'reagent-list d-none d-md-block')
 
-		var reagantList = create_element('div', 'reagent-list d-none d-md-block') // t1
+		dataContainer.appendChild(recipeNameSpan)
 		row.appendChild(reagantList)
 
 		for (let [matIX, step] of Object.entries(recipe.materials)) {
 
-
-			var mat = ALL_ITEMS[matIX]
+			var mat = consumeList.ALL_ITEMS[matIX]
 			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}`, '', '', {'data-ix': matIX}) // t2
 			matDataContainer.name = mat.n
 
 			reagantList.appendChild(matDataContainer)
 
-			var imagePath = `${imagePrefix}${mat.img}`
-			var matImage;
+			var imagePath = `${imagePrefix}${mat.img}`,
+				matImage;
 
 			if (index < 15) {
 				matImage = create_element('img', 'icon-medium material-image', `background-image: url('${imagePath}.jpg')`) // t3
@@ -623,24 +577,23 @@ function buildRecipeList(recipes) {
 			matDataContainer.appendChild(matImage)
 
 			if (step > 1) {
-				var countContainer = create_element('span', 'count-container')
-
-				var amountDiv1 = create_element('span', 'step-amount', '', step) // t4
-				var amountDiv2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', step) // t4
-				var amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', step) // t4
-				var amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', step) // t4
+				var countContainer = create_element('span', 'count-container'),
+					amountDiv1 = create_element('span', 'step-amount', '', step),
+					amountDiv2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', step),
+					amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', step),
+					amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', step);
 
 				countContainer.appendChild(amountDiv1)
 				countContainer.appendChild(amountDiv2)
 				countContainer.appendChild(amountDiv3)
 				countContainer.appendChild(amountDiv4)
-
 				matDataContainer.appendChild(countContainer)
 			}
 		}
 		index++
 
 	}
+
 	var paginationContainer = create_element('div', 'pagination')
 	initListObj()
 }
@@ -707,5 +660,16 @@ function addSavedList(name) {
 	}), deleteBtn)
 
 	$(".savedListsContainer").append(savedList)
+}
 
+function getHash(href) {
+	var myURL = new URL(href=href, base=document.location)
+	return myURL.search
+}
+
+function checkLocalHashes() {
+	var savedListElems = document.querySelectorAll('div.spec-list-item[href]')
+	var hashes = Array.from(savedListElems, x => getHash(x.getAttribute('href')))
+	var index = hashes.findIndex(substring => document.location.href.includes(substring))
+	return index
 }
