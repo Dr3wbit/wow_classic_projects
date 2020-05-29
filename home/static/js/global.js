@@ -3,43 +3,7 @@ $(document).ready(function() {
 });
 
 
-function getItemInfo(ix, completeCallback=getItemInfoComplete) {
-    var data = {}
-	var ret = true
-    data['ix'] = ix
-    $.ajax({
-        method: "GET",
-        url: '/ajax/get_item_info/',
-        data: data,
-        dataType: 'json',
-        success: function(data) {
-			saveItemQuery(data)
-		},
-        complete: function(response) {
-			completeCallback(response)
-		}
-    });
 
-}
-
-function getItemInfoComplete(response) {
-	console.log('item info: ', response.responseJSON)
-}
-
-function saveItemQuery(data) {
-	var prev_query_keys = Object.keys(STORAGE_ITEMS)
-	var item = data
-    var ix = item.ix
-
-    if (!prev_query_keys.includes(ix)) {
-        STORAGE_ITEMS[ix] = item
-        if (storageAvailable('localStorage')) {
-            localStorage.setItem(ix, JSON.stringify(item));
-        }
-        prev_query_keys.push(ix)
-        console.log(`added ${ix}`)
-    }
-}
 
 // var recipes = {}
 function build_consume_list(url, ix=0) {

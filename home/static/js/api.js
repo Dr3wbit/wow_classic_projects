@@ -39,7 +39,7 @@ function createTable(data) {
         var td = create_element('td', 'recipe', "text-align: left;")
         tablerow.appendChild(td)
 
-        var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`)
+        var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`, '', {'data-ix': recipe.ix})
         td.appendChild(recipe_container)
 
         var image_name = static_url+`images/icons/large/${recipe.img}.jpg`
@@ -49,10 +49,6 @@ function createTable(data) {
         recipe_img_el.src = static_url+"images/icon_border_2.png"
         recipe_img_el.addEventListener("mouseover", tooltip.init)
         recipe_img_el.addEventListener("mouseleave", tooltip.mouseleaveCleanup)
-
-        var ix = document.createAttribute("data-ix");
-        ix.value = recipe.ix
-        recipe_container.setAttributeNode(ix)
 
         var recipe_name_el = create_element('span', 'consume-name', 'margin-left: 5px;', recipe.name)
         recipe_container.appendChild(recipe_name_el)
@@ -64,7 +60,7 @@ function createTable(data) {
         tablerow.appendChild(mats_td)
 
         recipe.mats.forEach(function (mat) {
-            var mat_container = create_element('div', 'data-container', 'display: inline-block;')
+            var mat_container = create_element('div', 'data-container', 'display: inline-block;', '', {'data-ix': mat.ix})
             mats_td.appendChild(mat_container)
 
             var mat_image_name = static_url+`images/icons/large/${mat.img}.jpg`
@@ -74,10 +70,6 @@ function createTable(data) {
             mat_img.addEventListener("mouseover", tooltip.init)
             mat_img.addEventListener("mouseleave", tooltip.mouseleaveCleanup)
 
-
-            var mat_ix = document.createAttribute("data-ix");
-            mat_ix.value = mat.ix
-            mat_container.setAttributeNode(mat_ix)
             mat_img.src = static_url+"images/icon_border_2.png"
 
             if (mat.step > 1) {

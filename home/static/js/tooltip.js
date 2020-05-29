@@ -1,19 +1,16 @@
 var tooltip = {
     coords: {x:'', y:''},
-    tooltipContainer: '',
+    tooltipContainer: document.getElementById("tooltip_container"),
     init: function(e) {
-        tooltip.tooltipContainer = document.getElementById("tooltip_container")
         tooltip.empty()
         tooltip.addMousemove(e)
-        var target = e.target
-        var dataContainer = target.closest('div.data-container')
+        var dataContainer = e.target.closest('div.data-container')
         var ix = dataContainer.getAttribute("data-ix")
         tooltip.coords.x = e.pageX
         tooltip.coords.y = e.pageY
 
-        if (Object.keys(STORAGE_ITEMS).includes(ix)) {
-            var data = STORAGE_ITEMS[ix]
-
+        if (Object.keys(ALL_ITEMS).includes(ix)) {
+            var data = ALL_ITEMS[ix]
             tooltip.create(data)
             tooltip.updateCoords(e)
         } else {
@@ -51,13 +48,6 @@ var tooltip = {
         container.id = 'tooltip'
 
         var data = (response.responseJSON) ? response.responseJSON : response
-        // console.log('data: ', data)
-        // var data = (ALL_ITEMS[ix]) ? ALL_ITEMS[ix] : (STORAGE_ITEMS[ix]) ? STORAGE_ITEMS[ix] : ALL_RECIPES[ix]
-    	// while (!data) {
-    	// 	getItemInfo(ix)
-    	// 	data = STORAGE_ITEMS[ix]
-    	// 	return
-    	// }
 
     	if (data.img) {
     		let image_name = static_url+`images/icons/large/${data.img}.jpg`
