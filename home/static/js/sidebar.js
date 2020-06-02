@@ -33,6 +33,7 @@ function sidebar_handlers() {
 			}
 		}
 	})
+	
 }
 
 function load_icons(page=1, ix=null, queue=null) {

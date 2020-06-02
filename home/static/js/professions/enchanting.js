@@ -120,6 +120,7 @@ var recipes = {
         "q": 3,
         "img": "inv_misc_gem_bloodstone_01",
         "slot": "Trinket",
+        "armor": 150,
         "durability": 150,
         "resists": {
             "Fire": 7,
@@ -500,4 +501,3 @@ var materials = {
         "img": "inv_misc_herb_19"
     }
 }
-var itemsets = {}

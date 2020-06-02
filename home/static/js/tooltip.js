@@ -9,8 +9,8 @@ var tooltip = {
         tooltip.coords.x = e.pageX
         tooltip.coords.y = e.pageY
 
-        if (Object.keys(consumeList.ALL_ITEMS).includes(ix)) {
-            var data = consumeList.ALL_ITEMS[ix]
+        if (Object.keys(professionTool.ALL_ITEMS).includes(ix)) {
+            var data = professionTool.ALL_ITEMS[ix]
             tooltip.create(data)
             tooltip.updateCoords(e)
         } else {
@@ -162,7 +162,6 @@ var tooltip = {
 
     				val.forEach(function(class_name) {
     					class_reqs.appendChild(create_element('span', '', '', ', '))
-
     					class_reqs.appendChild(create_element('span', `${class_name.toLowerCase()}`, '', `${class_name}`))
     				})
 
@@ -175,7 +174,7 @@ var tooltip = {
     			} else if (key=='profession') {
     				for (let [k, v] of Object.entries(val)) {
     					var req_text = "Requires "+titleCase(k)
-    					if (ALL_PROFS.includes(k.toString())) {
+    					if (professionTool.ALL_PROFS.includes(k.toString())) {
     						req_text += ` (${v})`
     					}
     					let prof_req = create_element('div', 'required_prof', '', req_text)
@@ -220,7 +219,7 @@ var tooltip = {
     	}
 
     	if (data.itemset) {
-    		var itemset = consumeList.ALL_ITEMSETS[data.itemset]
+    		var itemset = professionTool.ALL_ITEMSETS[data.itemset]
     		// let num_items =
     		var itemset_text = `${itemset.n} (0/${itemset.items.length})`
     		var itemset_elem = create_element('div', 'description', 'clear: both;', `\n${itemset_text}`)

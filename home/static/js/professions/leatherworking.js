@@ -1,66 +1,11 @@
 var recipes = {
-    "2304": {
-        "n": "Light Armor Kit",
-        "q": 1,
-        "img": "inv_misc_armorkit_17",
-        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 8.",
-        "step": 1,
-        "materials": {
-            "2318": 1
-        }
-    },
-    "2313": {
-        "n": "Medium Armor Kit",
-        "q": 1,
-        "img": "inv_misc_armorkit_15",
-        "requirements": {
-            "level": 5
-        },
-        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 16.",
-        "step": 1,
-        "materials": {
-            "2320": 1,
-            "2319": 4
-        }
-    },
-    "2302": {
-        "n": "Handstitched Leather Boots",
-        "q": 1,
-        "img": "inv_boots_04",
-        "slot": "Feet",
-        "proficiency": "Leather",
-        "durability": 25,
-        "requirements": {
-            "level": 3
-        },
-        "step": 1,
-        "materials": {
-            "2320": 1,
-            "2318": 2
-        }
-    },
-    "2303": {
-        "n": "Handstitched Leather Pants",
-        "q": 1,
-        "img": "inv_pants_wolf",
-        "slot": "Legs",
-        "proficiency": "Leather",
-        "durability": 40,
-        "requirements": {
-            "level": 5
-        },
-        "step": 1,
-        "materials": {
-            "2320": 1,
-            "2318": 4
-        }
-    },
     "2307": {
         "n": "Fine Leather Boots",
         "q": 1,
         "img": "inv_boots_06",
         "slot": "Feet",
         "proficiency": "Leather",
+        "armor": 49,
         "durability": 35,
         "requirements": {
             "level": 13
@@ -77,6 +22,7 @@ var recipes = {
         "img": "inv_misc_cape_10",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 14,
         "durability": 14,
         "stats": {
             "Stamina": 2
@@ -96,6 +42,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Leather",
+        "armor": 48,
         "durability": 30,
         "stats": {
             "Spirit": 2,
@@ -116,6 +63,7 @@ var recipes = {
         "img": "inv_helmet_48",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 12,
         "durability": 12,
         "requirements": {
             "level": 8
@@ -132,6 +80,7 @@ var recipes = {
         "img": "inv_chest_wolf",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 62,
         "durability": 60,
         "requirements": {
             "level": 8
@@ -149,6 +98,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 43,
         "durability": 20,
         "stats": {
             "Spirit": 2,
@@ -170,6 +120,7 @@ var recipes = {
         "img": "inv_chest_leather_10",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 80,
         "durability": 75,
         "requirements": {
             "level": 19
@@ -187,6 +138,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Leather",
+        "armor": 51,
         "durability": 35,
         "requirements": {
             "level": 15
@@ -204,6 +156,7 @@ var recipes = {
         "img": "inv_misc_cape_10",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 17,
         "durability": 17,
         "requirements": {
             "level": 17
@@ -221,6 +174,7 @@ var recipes = {
         "img": "inv_chest_leather_03",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 78,
         "durability": 70,
         "stats": {
             "Agility": 6
@@ -244,12 +198,71 @@ var recipes = {
             "2318": 4
         }
     },
+    "2313": {
+        "n": "Medium Armor Kit",
+        "q": 1,
+        "img": "inv_misc_armorkit_15",
+        "requirements": {
+            "level": 5
+        },
+        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 16.",
+        "step": 1,
+        "materials": {
+            "2320": 1,
+            "2319": 4
+        }
+    },
+    "2304": {
+        "n": "Light Armor Kit",
+        "q": 1,
+        "img": "inv_misc_armorkit_17",
+        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 8.",
+        "step": 1,
+        "materials": {
+            "2318": 1
+        }
+    },
+    "2302": {
+        "n": "Handstitched Leather Boots",
+        "q": 1,
+        "img": "inv_boots_04",
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "armor": 31,
+        "durability": 25,
+        "requirements": {
+            "level": 3
+        },
+        "step": 1,
+        "materials": {
+            "2320": 1,
+            "2318": 2
+        }
+    },
+    "2303": {
+        "n": "Handstitched Leather Pants",
+        "q": 1,
+        "img": "inv_pants_wolf",
+        "slot": "Legs",
+        "proficiency": "Leather",
+        "armor": 46,
+        "durability": 40,
+        "requirements": {
+            "level": 5
+        },
+        "step": 1,
+        "materials": {
+            "2320": 1,
+            "2318": 4
+        }
+    },
     "3719": {
         "n": "Hillman's Cloak",
         "q": 1,
         "img": "inv_misc_cape_07",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 20,
         "durability": 20,
         "requirements": {
             "level": 25
@@ -257,20 +270,6 @@ var recipes = {
         "step": 1,
         "materials": {
             "2321": 2,
-            "4234": 5
-        }
-    },
-    "4265": {
-        "n": "Heavy Armor Kit",
-        "q": 1,
-        "img": "inv_misc_armorkit_16",
-        "requirements": {
-            "level": 20
-        },
-        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 24. Only usable on items level 15 and above.",
-        "step": 1,
-        "materials": {
-            "2321": 1,
             "4234": 5
         }
     },
@@ -319,6 +318,7 @@ var recipes = {
         "img": "inv_belt_04",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 29,
         "durability": 20,
         "requirements": {
             "level": 5
@@ -335,6 +335,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 39,
         "durability": 20,
         "requirements": {
             "level": 8
@@ -351,6 +352,7 @@ var recipes = {
         "img": "inv_pants_02",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 61,
         "durability": 45,
         "stats": {
             "Spirit": 3,
@@ -372,6 +374,7 @@ var recipes = {
         "img": "inv_chest_leather_09",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 73,
         "durability": 65,
         "stats": {
             "Agility": 4,
@@ -393,6 +396,7 @@ var recipes = {
         "img": "inv_chest_leather_10",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 78,
         "durability": 70,
         "stats": {
             "Spirit": 4,
@@ -414,6 +418,7 @@ var recipes = {
         "img": "inv_belt_04",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 38,
         "durability": 20,
         "requirements": {
             "level": 11
@@ -430,6 +435,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 57,
         "durability": 30,
         "stats": {
             "Spirit": 5,
@@ -450,6 +456,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 54,
         "durability": 30,
         "requirements": {
             "level": 21
@@ -471,6 +478,7 @@ var recipes = {
         "img": "inv_belt_03",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 48,
         "durability": 30,
         "stats": {
             "Agility": 4,
@@ -493,6 +501,7 @@ var recipes = {
         "img": "inv_belt_06",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 48,
         "durability": 30,
         "stats": {
             "Spirit": 4,
@@ -514,6 +523,7 @@ var recipes = {
         "img": "inv_shoulder_08",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 65,
         "durability": 50,
         "stats": {
             "Spirit": 4,
@@ -535,6 +545,7 @@ var recipes = {
         "img": "inv_shoulder_12",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 68,
         "durability": 50,
         "stats": {
             "Agility": 7
@@ -556,6 +567,7 @@ var recipes = {
         "img": "inv_gauntlets_24",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 61,
         "durability": 35,
         "stats": {
             "Spirit": 6,
@@ -580,6 +592,7 @@ var recipes = {
         "img": "inv_chest_leather_08",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 95,
         "durability": 85,
         "stats": {
             "Spirit": 8,
@@ -601,6 +614,7 @@ var recipes = {
         "img": "inv_chest_leather_08",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 102,
         "durability": 85,
         "stats": {
             "Spirit": 9,
@@ -623,6 +637,7 @@ var recipes = {
         "img": "inv_belt_17",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 54,
         "durability": 30,
         "stats": {
             "Spirit": 6,
@@ -646,6 +661,7 @@ var recipes = {
         "img": "inv_belt_03",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 56,
         "durability": 30,
         "stats": {
             "Spirit": 6,
@@ -668,6 +684,7 @@ var recipes = {
         "img": "inv_bracer_12",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 45,
         "durability": 30,
         "stats": {
             "Spirit": 5,
@@ -690,6 +707,7 @@ var recipes = {
         "img": "inv_bracer_10",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 48,
         "durability": 30,
         "stats": {
             "Spirit": 6,
@@ -711,6 +729,7 @@ var recipes = {
         "img": "inv_belt_01",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 65,
         "durability": 35,
         "stats": {
             "Spirit": 6,
@@ -735,6 +754,7 @@ var recipes = {
         "img": "inv_belt_09",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 62,
         "durability": 30,
         "stats": {
             "Strength": 11
@@ -762,12 +782,27 @@ var recipes = {
             "4234": 6
         }
     },
+    "4265": {
+        "n": "Heavy Armor Kit",
+        "q": 1,
+        "img": "inv_misc_armorkit_16",
+        "requirements": {
+            "level": 20
+        },
+        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 24. Only usable on items level 15 and above.",
+        "step": 1,
+        "materials": {
+            "2321": 1,
+            "4234": 5
+        }
+    },
     "4455": {
         "n": "Raptor Hide Harness",
         "q": 2,
         "img": "inv_chest_leather_04",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 98,
         "durability": 85,
         "stats": {
             "Stamina": 13
@@ -788,6 +823,7 @@ var recipes = {
         "img": "inv_belt_02",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 55,
         "durability": 30,
         "stats": {
             "Stamina": 6,
@@ -809,6 +845,7 @@ var recipes = {
         "img": "inv_chest_leather_04",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 101,
         "durability": 85,
         "requirements": {
             "level": 33
@@ -826,6 +863,7 @@ var recipes = {
         "img": "inv_belt_02",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 42,
         "durability": 20,
         "stats": {
             "Agility": 3,
@@ -847,6 +885,7 @@ var recipes = {
         "img": "inv_chest_chain_12",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 100,
         "durability": 85,
         "stats": {
             "Stamina": 8,
@@ -869,6 +908,7 @@ var recipes = {
         "img": "inv_bracer_05",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 47,
         "durability": 30,
         "stats": {
             "Stamina": 6,
@@ -891,6 +931,7 @@ var recipes = {
         "img": "inv_chest_wolf",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 45,
         "durability": 50,
         "requirements": {
             "level": 3
@@ -907,6 +948,7 @@ var recipes = {
         "img": "inv_pants_02",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 69,
         "durability": 55,
         "stats": {
             "Spirit": 4,
@@ -928,6 +970,7 @@ var recipes = {
         "img": "inv_pants_09",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 72,
         "durability": 55,
         "stats": {
             "Agility": 8
@@ -948,6 +991,7 @@ var recipes = {
         "img": "inv_pants_02",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 85,
         "durability": 65,
         "stats": {
             "Spirit": 8,
@@ -969,6 +1013,7 @@ var recipes = {
         "img": "inv_pants_12",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 87,
         "durability": 65,
         "stats": {
             "Spirit": 7,
@@ -991,6 +1036,7 @@ var recipes = {
         "img": "inv_shoulder_08",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 76,
         "durability": 50,
         "stats": {
             "Spirit": 5,
@@ -1013,6 +1059,7 @@ var recipes = {
         "img": "inv_misc_cape_03",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 24,
         "durability": 24,
         "stats": {
             "Spirit": 6,
@@ -1034,6 +1081,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 63,
         "durability": 30,
         "requirements": {
             "level": 33
@@ -1051,6 +1099,7 @@ var recipes = {
         "img": "inv_misc_monsterscales_03",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 16,
         "durability": 16,
         "stats": {
             "Agility": 2,
@@ -1072,6 +1121,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 49,
         "durability": 25,
         "stats": {
             "Agility": 3,
@@ -1093,6 +1143,7 @@ var recipes = {
         "img": "inv_belt_09",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 51,
         "durability": 30,
         "stats": {
             "Spirit": 3,
@@ -1115,6 +1166,7 @@ var recipes = {
         "img": "inv_chest_leather_09",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 74,
         "durability": 65,
         "stats": {
             "Spirit": 4,
@@ -1137,6 +1189,7 @@ var recipes = {
         "img": "inv_helmet_48",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 8,
         "durability": 8,
         "requirements": {
             "level": 4
@@ -1153,6 +1206,7 @@ var recipes = {
         "img": "inv_bracer_08",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 21,
         "durability": 18,
         "requirements": {
             "level": 4
@@ -1199,6 +1253,7 @@ var recipes = {
         "img": "inv_pants_02",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 51,
         "durability": 40,
         "stats": {
             "Stamina": 1
@@ -1218,6 +1273,7 @@ var recipes = {
         "img": "inv_bracer_04",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 28,
         "durability": 20,
         "requirements": {
             "level": 9
@@ -1234,6 +1290,7 @@ var recipes = {
         "img": "inv_pants_02",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 66,
         "durability": 50,
         "stats": {
             "Spirit": 3,
@@ -1255,6 +1312,7 @@ var recipes = {
         "img": "inv_misc_monsterscales_03",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 17,
         "durability": 17,
         "stats": {
             "Stamina": 3
@@ -1275,6 +1333,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 52,
         "durability": 25,
         "requirements": {
             "level": 19
@@ -1289,73 +1348,13 @@ var recipes = {
             "7287": 6
         }
     },
-    "7348": {
-        "n": "Fletcher's Gloves",
-        "q": 2,
-        "img": "inv_gauntlets_05",
-        "slot": "Hands",
-        "proficiency": "Leather",
-        "durability": 30,
-        "requirements": {
-            "level": 20
-        },
-        "equips": [
-            "Equip: Improves your chance to get a critical strike with missile weapons by 1%.",
-            "Equip: Decreases your chance to parry an attack by 1%."
-        ],
-        "step": 1,
-        "materials": {
-            "5116": 4,
-            "2319": 8,
-            "2321": 2
-        }
-    },
-    "7349": {
-        "n": "Herbalist's Gloves",
-        "q": 2,
-        "img": "inv_gauntlets_18",
-        "slot": "Hands",
-        "proficiency": "Leather",
-        "durability": 30,
-        "requirements": {
-            "level": 22
-        },
-        "equips": [
-            "Equip: Herbalism +5."
-        ],
-        "step": 1,
-        "materials": {
-            "2321": 2,
-            "3356": 4,
-            "2319": 8
-        }
-    },
-    "7352": {
-        "n": "Earthen Leather Shoulders",
-        "q": 2,
-        "img": "inv_shoulder_06",
-        "slot": "Shoulder",
-        "proficiency": "Leather",
-        "durability": 50,
-        "stats": {
-            "Stamina": 7
-        },
-        "requirements": {
-            "level": 22
-        },
-        "step": 1,
-        "materials": {
-            "2321": 2,
-            "7067": 1,
-            "2319": 6
-        }
-    },
     "7358": {
         "n": "Pilferer's Gloves",
         "q": 2,
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 56,
         "durability": 30,
         "stats": {
             "Agility": 8
@@ -1376,6 +1375,7 @@ var recipes = {
         "img": "inv_gauntlets_23",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 57,
         "durability": 30,
         "requirements": {
             "level": 24
@@ -1433,6 +1433,7 @@ var recipes = {
         "img": "inv_pants_07",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 86,
         "durability": 65,
         "stats": {
             "Agility": 13
@@ -1453,6 +1454,7 @@ var recipes = {
         "img": "inv_chest_leather_03",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 102,
         "durability": 85,
         "stats": {
             "Agility": 14
@@ -1473,6 +1475,7 @@ var recipes = {
         "img": "inv_chest_chain_09",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 102,
         "durability": 85,
         "stats": {
             "Spirit": 11
@@ -1496,6 +1499,7 @@ var recipes = {
         "img": "inv_misc_cape_04",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 24,
         "durability": 24,
         "requirements": {
             "level": 31
@@ -1517,6 +1521,7 @@ var recipes = {
         "img": "inv_bracer_07",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 46,
         "durability": 30,
         "stats": {
             "Agility": 8
@@ -1537,6 +1542,7 @@ var recipes = {
         "img": "inv_belt_06",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 61,
         "durability": 30,
         "stats": {
             "Agility": 8,
@@ -1559,6 +1565,7 @@ var recipes = {
         "img": "inv_boots_07",
         "slot": "Feet",
         "proficiency": "Leather",
+        "armor": 76,
         "durability": 45,
         "stats": {
             "Agility": 11,
@@ -1581,6 +1588,7 @@ var recipes = {
         "img": "inv_boots_08",
         "slot": "Feet",
         "proficiency": "Leather",
+        "armor": 76,
         "durability": 45,
         "stats": {
             "Spirit": 10
@@ -1616,80 +1624,47 @@ var recipes = {
             "8169": 1
         }
     },
-    "8173": {
-        "n": "Thick Armor Kit",
-        "q": 1,
-        "img": "inv_misc_armorkit_07",
+    "7348": {
+        "n": "Fletcher's Gloves",
+        "q": 2,
+        "img": "inv_gauntlets_05",
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "armor": 53,
+        "durability": 30,
         "requirements": {
-            "level": 30
+            "level": 20
         },
-        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 32. Only usable on items level 25 and above.",
+        "equips": [
+            "Equip: Improves your chance to get a critical strike with missile weapons by 1%.",
+            "Equip: Decreases your chance to parry an attack by 1%."
+        ],
         "step": 1,
         "materials": {
-            "4291": 1,
-            "4304": 5
+            "5116": 4,
+            "2319": 8,
+            "2321": 2
         }
     },
-    "8175": {
-        "n": "Nightscape Tunic",
+    "7352": {
+        "n": "Earthen Leather Shoulders",
         "q": 2,
-        "img": "inv_chest_leather_03",
-        "slot": "Chest",
+        "img": "inv_shoulder_06",
+        "slot": "Shoulder",
         "proficiency": "Leather",
-        "durability": 85,
-        "stats": {
-            "Agility": 15,
-            "Stamina": 6
-        },
-        "requirements": {
-            "level": 36
-        },
-        "step": 1,
-        "materials": {
-            "4291": 2,
-            "4304": 7
-        }
-    },
-    "8176": {
-        "n": "Nightscape Headband",
-        "q": 2,
-        "img": "inv_belt_24",
-        "slot": "Head",
-        "proficiency": "Leather",
+        "armor": 67,
         "durability": 50,
         "stats": {
-            "Agility": 12,
-            "Stamina": 11
+            "Stamina": 7
         },
         "requirements": {
-            "level": 36
+            "level": 22
         },
         "step": 1,
         "materials": {
-            "4291": 2,
-            "4304": 5
-        }
-    },
-    "8185": {
-        "n": "Turtle Scale Leggings",
-        "q": 2,
-        "img": "inv_pants_02",
-        "slot": "Legs",
-        "proficiency": "Mail",
-        "durability": 75,
-        "stats": {
-            "Spirit": 11,
-            "Stamina": 11,
-            "Intellect": 10
-        },
-        "requirements": {
-            "level": 42
-        },
-        "step": 1,
-        "materials": {
-            "8343": 1,
-            "8167": 28,
-            "4304": 14
+            "2321": 2,
+            "7067": 1,
+            "2319": 6
         }
     },
     "8187": {
@@ -2340,12 +2315,69 @@ var recipes = {
             "4304": 40
         }
     },
+    "8173": {
+        "n": "Thick Armor Kit",
+        "q": 1,
+        "img": "inv_misc_armorkit_07",
+        "requirements": {
+            "level": 30
+        },
+        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 32. Only usable on items level 25 and above.",
+        "step": 1,
+        "materials": {
+            "4291": 1,
+            "4304": 5
+        }
+    },
+    "8175": {
+        "n": "Nightscape Tunic",
+        "q": 2,
+        "img": "inv_chest_leather_03",
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "durability": 85,
+        "stats": {
+            "Agility": 15,
+            "Stamina": 6
+        },
+        "requirements": {
+            "level": 36
+        },
+        "step": 1,
+        "materials": {
+            "4291": 2,
+            "4304": 7
+        }
+    },
+    "8185": {
+        "n": "Turtle Scale Leggings",
+        "q": 2,
+        "img": "inv_pants_02",
+        "slot": "Legs",
+        "proficiency": "Mail",
+        "durability": 75,
+        "stats": {
+            "Spirit": 11,
+            "Stamina": 11,
+            "Intellect": 10
+        },
+        "requirements": {
+            "level": 42
+        },
+        "step": 1,
+        "materials": {
+            "8343": 1,
+            "8167": 28,
+            "4304": 14
+        }
+    },
     "15046": {
         "n": "Green Dragonscale Leggings",
         "q": 3,
         "img": "inv_pants_05",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 282,
         "durability": 90,
         "stats": {
             "Spirit": 22,
@@ -2371,6 +2403,7 @@ var recipes = {
         "img": "inv_shoulder_18",
         "slot": "Shoulder",
         "proficiency": "Mail",
+        "armor": 262,
         "durability": 70,
         "stats": {
             "Spirit": 6,
@@ -2398,6 +2431,7 @@ var recipes = {
         "img": "inv_pants_06",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 204,
         "durability": 65,
         "resists": {
             "Fire": 20
@@ -2420,6 +2454,7 @@ var recipes = {
         "img": "inv_pants_09",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 138,
         "durability": 75,
         "requirements": {
             "level": 50
@@ -2443,6 +2478,7 @@ var recipes = {
         "img": "inv_shoulder_06",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 117,
         "durability": 60,
         "stats": {
             "Spirit": 8,
@@ -2466,6 +2502,7 @@ var recipes = {
         "img": "inv_chest_chain_06",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 311,
         "durability": 120,
         "stats": {
             "Spirit": 21,
@@ -2491,6 +2528,7 @@ var recipes = {
         "img": "inv_chest_chain_06",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 360,
         "durability": 120,
         "resists": {
             "Fire": 12
@@ -2514,6 +2552,7 @@ var recipes = {
         "img": "inv_chest_plate06",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 344,
         "durability": 120,
         "stats": {
             "Stamina": 8
@@ -2542,6 +2581,7 @@ var recipes = {
         "img": "inv_shoulder_01",
         "slot": "Shoulder",
         "proficiency": "Mail",
+        "armor": 266,
         "durability": 70,
         "stats": {
             "Stamina": 9
@@ -2571,6 +2611,7 @@ var recipes = {
         "img": "inv_pants_03",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 320,
         "durability": 90,
         "stats": {
             "Stamina": 8
@@ -2600,6 +2641,7 @@ var recipes = {
         "img": "inv_chest_leather_07",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 268,
         "durability": 85,
         "resists": {
             "Fire": 20
@@ -2622,6 +2664,7 @@ var recipes = {
         "img": "inv_shoulder_13",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 167,
         "durability": 50,
         "resists": {
             "Fire": 18
@@ -2644,6 +2687,7 @@ var recipes = {
         "img": "inv_chest_leather_08",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 163,
         "durability": 100,
         "requirements": {
             "level": 52
@@ -2668,6 +2712,7 @@ var recipes = {
         "img": "inv_shoulder_05",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 126,
         "durability": 60,
         "stats": {
             "Stamina": 12
@@ -2695,6 +2740,7 @@ var recipes = {
         "img": "inv_chest_plate07",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 169,
         "durability": 100,
         "stats": {
             "Spirit": 25,
@@ -2724,6 +2770,7 @@ var recipes = {
         "img": "inv_pants_05",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 142,
         "durability": 75,
         "stats": {
             "Spirit": 25,
@@ -2752,6 +2799,7 @@ var recipes = {
         "img": "inv_shoulder_18",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 117,
         "durability": 60,
         "stats": {
             "Spirit": 13,
@@ -2779,6 +2827,7 @@ var recipes = {
         "img": "inv_pants_wolf",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 148,
         "durability": 75,
         "stats": {
             "Stamina": 12
@@ -2805,6 +2854,7 @@ var recipes = {
         "img": "inv_gauntlets_26",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 103,
         "durability": 35,
         "stats": {
             "Stamina": 9
@@ -2830,6 +2880,7 @@ var recipes = {
         "img": "inv_chest_leather_04",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 158,
         "durability": 100,
         "stats": {
             "Stamina": 27,
@@ -2851,6 +2902,7 @@ var recipes = {
         "img": "inv_pants_wolf",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 142,
         "durability": 75,
         "stats": {
             "Stamina": 12,
@@ -2872,6 +2924,7 @@ var recipes = {
         "img": "inv_chest_leather_06",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 165,
         "durability": 100,
         "stats": {
             "Spirit": 28,
@@ -2896,6 +2949,7 @@ var recipes = {
         "img": "inv_chest_chain_10",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 158,
         "durability": 85,
         "resists": {
             "Frost": 18,
@@ -2918,6 +2972,7 @@ var recipes = {
         "img": "inv_pants_01",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 129,
         "durability": 65,
         "resists": {
             "Frost": 17,
@@ -2939,6 +2994,7 @@ var recipes = {
         "img": "inv_gauntlets_16",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 95,
         "durability": 30,
         "resists": {
             "Frost": 13,
@@ -2954,88 +3010,13 @@ var recipes = {
             "8170": 6
         }
     },
-    "15564": {
-        "n": "Rugged Armor Kit",
-        "q": 1,
-        "img": "inv_misc_armorkit_09",
-        "requirements": {
-            "level": 40
-        },
-        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 40. Only usable on items level 35 and above.",
-        "step": 1,
-        "materials": {
-            "8170": 5
-        }
-    },
-    "15072": {
-        "n": "Chimeric Leggings",
-        "q": 2,
-        "img": "inv_pants_02",
-        "slot": "Legs",
-        "proficiency": "Leather",
-        "durability": 65,
-        "resists": {
-            "Arcane": 16,
-            "Nature": 16
-        },
-        "requirements": {
-            "level": 51
-        },
-        "step": 1,
-        "materials": {
-            "14341": 1,
-            "15423": 8,
-            "8170": 8
-        }
-    },
-    "15073": {
-        "n": "Chimeric Boots",
-        "q": 2,
-        "img": "inv_boots_07",
-        "slot": "Feet",
-        "proficiency": "Leather",
-        "durability": 45,
-        "resists": {
-            "Arcane": 12,
-            "Nature": 12
-        },
-        "requirements": {
-            "level": 50
-        },
-        "step": 1,
-        "materials": {
-            "14341": 1,
-            "15423": 8,
-            "8170": 4
-        }
-    },
-    "15074": {
-        "n": "Chimeric Gloves",
-        "q": 2,
-        "img": "inv_gauntlets_23",
-        "slot": "Hands",
-        "proficiency": "Leather",
-        "durability": 30,
-        "resists": {
-            "Arcane": 11,
-            "Nature": 12
-        },
-        "requirements": {
-            "level": 48
-        },
-        "step": 1,
-        "materials": {
-            "15423": 6,
-            "8170": 6,
-            "14341": 1
-        }
-    },
     "15075": {
         "n": "Chimeric Vest",
         "q": 2,
         "img": "inv_chest_leather_07",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 150,
         "durability": 85,
         "resists": {
             "Arcane": 16,
@@ -3057,6 +3038,7 @@ var recipes = {
         "img": "inv_chest_chain_15",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 288,
         "durability": 100,
         "stats": {
             "Spirit": 15,
@@ -3078,6 +3060,7 @@ var recipes = {
         "img": "inv_bracer_09",
         "slot": "Wrist",
         "proficiency": "Mail",
+        "armor": 122,
         "durability": 35,
         "stats": {
             "Spirit": 8,
@@ -3099,6 +3082,7 @@ var recipes = {
         "img": "inv_gauntlets_24",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 186,
         "durability": 35,
         "stats": {
             "Spirit": 12,
@@ -3120,6 +3104,7 @@ var recipes = {
         "img": "inv_pants_12",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 269,
         "durability": 75,
         "stats": {
             "Spirit": 20,
@@ -3141,6 +3126,7 @@ var recipes = {
         "img": "inv_helmet_20",
         "slot": "Head",
         "proficiency": "Mail",
+        "armor": 258,
         "durability": 60,
         "stats": {
             "Spirit": 13,
@@ -3163,6 +3149,7 @@ var recipes = {
         "img": "inv_shoulder_07",
         "slot": "Shoulder",
         "proficiency": "Mail",
+        "armor": 245,
         "durability": 60,
         "stats": {
             "Spirit": 13,
@@ -3185,6 +3172,7 @@ var recipes = {
         "img": "inv_belt_03",
         "slot": "Waist",
         "proficiency": "Mail",
+        "armor": 170,
         "durability": 35,
         "stats": {
             "Spirit": 12,
@@ -3206,6 +3194,7 @@ var recipes = {
         "img": "inv_gauntlets_31",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 86,
         "durability": 30,
         "stats": {
             "Agility": 12,
@@ -3227,6 +3216,7 @@ var recipes = {
         "img": "inv_chest_plate06",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 156,
         "durability": 85,
         "stats": {
             "Agility": 25,
@@ -3250,6 +3240,7 @@ var recipes = {
         "img": "inv_misc_bandage_13",
         "slot": "Head",
         "proficiency": "Leather",
+        "armor": 118,
         "durability": 50,
         "stats": {
             "Agility": 16,
@@ -3271,6 +3262,7 @@ var recipes = {
         "img": "inv_pants_12",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 131,
         "durability": 65,
         "stats": {
             "Agility": 20,
@@ -3293,6 +3285,7 @@ var recipes = {
         "img": "inv_belt_03",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 87,
         "durability": 30,
         "stats": {
             "Agility": 14,
@@ -3314,6 +3307,7 @@ var recipes = {
         "img": "inv_chest_leather_07",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 158,
         "durability": 85,
         "stats": {
             "Spirit": 13,
@@ -3337,6 +3331,7 @@ var recipes = {
         "img": "inv_gauntlets_31",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 88,
         "durability": 30,
         "stats": {
             "Spirit": 14,
@@ -3358,6 +3353,7 @@ var recipes = {
         "img": "inv_bracer_11",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 63,
         "durability": 30,
         "stats": {
             "Spirit": 10,
@@ -3380,6 +3376,7 @@ var recipes = {
         "img": "inv_belt_23",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 82,
         "durability": 30,
         "stats": {
             "Spirit": 9,
@@ -3401,6 +3398,7 @@ var recipes = {
         "img": "inv_misc_bandage_11",
         "slot": "Head",
         "proficiency": "Leather",
+        "armor": 122,
         "durability": 50,
         "stats": {
             "Spirit": 12,
@@ -3422,6 +3420,7 @@ var recipes = {
         "img": "inv_pants_02",
         "slot": "Legs",
         "proficiency": "Leather",
+        "armor": 135,
         "durability": 65,
         "stats": {
             "Spirit": 20,
@@ -3444,6 +3443,7 @@ var recipes = {
         "img": "inv_shoulder_15",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 119,
         "durability": 50,
         "stats": {
             "Spirit": 10,
@@ -3467,6 +3467,7 @@ var recipes = {
         "img": "inv_misc_cape_05",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 43,
         "durability": 43,
         "stats": {
             "Stamina": 7
@@ -3503,6 +3504,7 @@ var recipes = {
         "img": "inv_boots_07",
         "slot": "Feet",
         "proficiency": "Leather",
+        "armor": 126,
         "durability": 60,
         "stats": {
             "Agility": 13,
@@ -3528,6 +3530,7 @@ var recipes = {
         "img": "inv_helmet_08",
         "slot": "Head",
         "proficiency": "Leather",
+        "armor": 150,
         "durability": 70,
         "stats": {
             "Stamina": 16
@@ -3555,6 +3558,7 @@ var recipes = {
         "img": "inv_boots_plate_09",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 270,
         "durability": 70,
         "stats": {
             "Stamina": 10
@@ -3578,39 +3582,61 @@ var recipes = {
         },
         "itemset": "489"
     },
-    "18251": {
-        "n": "Core Armor Kit",
-        "q": 3,
-        "img": "inv_misc_armorkit_05",
+    "15564": {
+        "n": "Rugged Armor Kit",
+        "q": 1,
+        "img": "inv_misc_armorkit_09",
         "requirements": {
-            "level": 50
+            "level": 40
         },
-        "use": "Permanently increase the defense value of an item worn on the chest, legs, hands or feet by 3. Only usable on items level 45 and above.",
+        "use": "Permanently increase the armor value of an item worn on the chest, legs, hands or feet by 40. Only usable on items level 35 and above.",
         "step": 1,
         "materials": {
-            "14341": 2,
-            "17012": 3
+            "8170": 5
         }
     },
-    "17721": {
-        "n": "Gloves of the Greatfather",
+    "15072": {
+        "n": "Chimeric Leggings",
         "q": 2,
-        "img": "inv_gauntlets_21",
-        "slot": "Hands",
+        "img": "inv_pants_02",
+        "slot": "Legs",
         "proficiency": "Leather",
-        "durability": 30,
-        "requirements": {
-            "level": 33
+        "armor": 127,
+        "durability": 65,
+        "resists": {
+            "Arcane": 16,
+            "Nature": 16
         },
-        "equips": [
-            "Equip: Increases damage done by Nature spells and effects by up to 10.",
-            "Equip: Increases healing done by spells and effects by up to 18."
-        ],
+        "requirements": {
+            "level": 51
+        },
         "step": 1,
         "materials": {
-            "4291": 1,
-            "7067": 4,
-            "4234": 8
+            "14341": 1,
+            "15423": 8,
+            "8170": 8
+        }
+    },
+    "15074": {
+        "n": "Chimeric Gloves",
+        "q": 2,
+        "img": "inv_gauntlets_23",
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "armor": 87,
+        "durability": 30,
+        "resists": {
+            "Arcane": 11,
+            "Nature": 12
+        },
+        "requirements": {
+            "level": 48
+        },
+        "step": 1,
+        "materials": {
+            "15423": 6,
+            "8170": 6,
+            "14341": 1
         }
     },
     "18238": {
@@ -3619,6 +3645,7 @@ var recipes = {
         "img": "inv_gauntlets_32",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 76,
         "durability": 35,
         "stats": {
             "Stamina": 6
@@ -3645,6 +3672,7 @@ var recipes = {
         "img": "inv_belt_26",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 98,
         "durability": 35,
         "stats": {
             "Stamina": 9,
@@ -3667,6 +3695,7 @@ var recipes = {
         "img": "inv_boots_08",
         "slot": "Feet",
         "proficiency": "Leather",
+        "armor": 120,
         "durability": 50,
         "stats": {
             "Agility": 23,
@@ -3690,6 +3719,7 @@ var recipes = {
         "img": "inv_bracer_05",
         "slot": "Wrist",
         "proficiency": "Mail",
+        "armor": 160,
         "durability": 40,
         "stats": {
             "Stamina": 7
@@ -3715,6 +3745,7 @@ var recipes = {
         "img": "inv_misc_cape_02",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 48,
         "durability": 48,
         "stats": {
             "Stamina": 10
@@ -3745,6 +3776,7 @@ var recipes = {
         "img": "inv_misc_cape_01",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 48,
         "durability": 48,
         "stats": {
             "Stamina": 8,
@@ -3772,6 +3804,7 @@ var recipes = {
         "img": "inv_misc_cape_20",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 48,
         "durability": 48,
         "stats": {
             "Agility": 17,
@@ -3799,6 +3832,7 @@ var recipes = {
         "img": "inv_bracer_15",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 47,
         "durability": 35,
         "stats": {
             "Spirit": 4,
@@ -3823,6 +3857,7 @@ var recipes = {
         "img": "inv_belt_09",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 93,
         "durability": 35,
         "stats": {
             "Stamina": 9,
@@ -3846,6 +3881,7 @@ var recipes = {
         "img": "inv_gauntlets_26",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 112,
         "durability": 35,
         "stats": {
             "Stamina": 10,
@@ -3869,6 +3905,7 @@ var recipes = {
         "img": "inv_boots_cloth_08",
         "slot": "Feet",
         "proficiency": "Leather",
+        "armor": 114,
         "durability": 50,
         "stats": {
             "Stamina": 18
@@ -3894,6 +3931,7 @@ var recipes = {
         "img": "inv_shoulder_26",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 134,
         "durability": 60,
         "stats": {
             "Stamina": 22
@@ -3919,6 +3957,7 @@ var recipes = {
         "img": "inv_gauntlets_22",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 279,
         "durability": 50,
         "resists": {
             "Fire": 5,
@@ -3950,6 +3989,7 @@ var recipes = {
         "img": "inv_belt_24",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 118,
         "durability": 40,
         "stats": {
             "Intellect": 16
@@ -3978,6 +4018,7 @@ var recipes = {
         "img": "inv_belt_13",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 118,
         "durability": 40,
         "stats": {
             "Agility": 28,
@@ -3998,31 +4039,41 @@ var recipes = {
             "17011": 7
         }
     },
-    "19685": {
-        "n": "Primal Batskin Jerkin",
+    "18251": {
+        "n": "Core Armor Kit",
         "q": 3,
-        "img": "inv_chest_leather_03",
-        "slot": "Chest",
-        "proficiency": "Leather",
-        "durability": 100,
-        "stats": {
-            "Agility": 32,
-            "Stamina": 6
-        },
+        "img": "inv_misc_armorkit_05",
         "requirements": {
-            "level": 60
+            "level": 50
+        },
+        "use": "Permanently increase the defense value of an item worn on the chest, legs, hands or feet by 3. Only usable on items level 45 and above.",
+        "step": 1,
+        "materials": {
+            "14341": 2,
+            "17012": 3
+        }
+    },
+    "17721": {
+        "n": "Gloves of the Greatfather",
+        "q": 2,
+        "img": "inv_gauntlets_21",
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "armor": 66,
+        "durability": 30,
+        "requirements": {
+            "level": 33
         },
         "equips": [
-            "Equip: Improves your chance to hit by 1%."
+            "Equip: Increases damage done by Nature spells and effects by up to 10.",
+            "Equip: Increases healing done by spells and effects by up to 18."
         ],
         "step": 1,
         "materials": {
-            "15407": 5,
-            "19767": 14,
-            "14341": 4,
-            "12803": 4
-        },
-        "itemset": "441"
+            "4291": 1,
+            "7067": 4,
+            "4234": 8
+        }
     },
     "19686": {
         "n": "Primal Batskin Gloves",
@@ -4030,6 +4081,7 @@ var recipes = {
         "img": "inv_gauntlets_31",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 113,
         "durability": 35,
         "stats": {
             "Agility": 10,
@@ -4056,6 +4108,7 @@ var recipes = {
         "img": "inv_bracer_07",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 79,
         "durability": 35,
         "stats": {
             "Agility": 14,
@@ -4082,6 +4135,7 @@ var recipes = {
         "img": "inv_chest_leather_07",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 181,
         "durability": 100,
         "stats": {
             "Spirit": 13,
@@ -4107,6 +4161,7 @@ var recipes = {
         "img": "inv_shoulder_23",
         "slot": "Shoulder",
         "proficiency": "Leather",
+        "armor": 136,
         "durability": 60,
         "stats": {
             "Spirit": 10,
@@ -4132,6 +4187,7 @@ var recipes = {
         "img": "inv_pants_mail_15",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 310,
         "durability": 90,
         "stats": {
             "Spirit": 19,
@@ -4158,6 +4214,7 @@ var recipes = {
         "img": "inv_gauntlets_12",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 208,
         "durability": 40,
         "stats": {
             "Spirit": 18,
@@ -4184,6 +4241,7 @@ var recipes = {
         "img": "inv_chest_plate08",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 434,
         "durability": 140,
         "stats": {
             "Agility": 15,
@@ -4214,6 +4272,7 @@ var recipes = {
         "img": "inv_bracer_12",
         "slot": "Wrist",
         "proficiency": "Mail",
+        "armor": 220,
         "durability": 40,
         "stats": {
             "Stamina": 7
@@ -4237,6 +4296,7 @@ var recipes = {
         "img": "inv_gauntlets_11",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 308,
         "durability": 40,
         "stats": {
             "Stamina": 9
@@ -4261,6 +4321,7 @@ var recipes = {
         "img": "inv_chest_plate07",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 485,
         "durability": 120,
         "stats": {
             "Stamina": 13
@@ -4285,6 +4346,7 @@ var recipes = {
         "img": "inv_chest_leather_02",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 365,
         "durability": 120,
         "stats": {
             "Agility": 16,
@@ -4311,6 +4373,7 @@ var recipes = {
         "img": "inv_gauntlets_11",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 228,
         "durability": 40,
         "stats": {
             "Agility": 12,
@@ -4337,6 +4400,7 @@ var recipes = {
         "img": "inv_bracer_05",
         "slot": "Wrist",
         "proficiency": "Mail",
+        "armor": 160,
         "durability": 40,
         "stats": {
             "Agility": 9,
@@ -4362,6 +4426,7 @@ var recipes = {
         "img": "inv_chest_cloth_45",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 78,
         "durability": 70,
         "stats": {
             "Agility": 3,
@@ -4384,6 +4449,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 109,
         "durability": 35,
         "requirements": {
             "level": 57
@@ -4402,12 +4468,255 @@ var recipes = {
         },
         "itemset": "142"
     },
+    "19685": {
+        "n": "Primal Batskin Jerkin",
+        "q": 3,
+        "img": "inv_chest_leather_03",
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "armor": 181,
+        "durability": 100,
+        "stats": {
+            "Agility": 32,
+            "Stamina": 6
+        },
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: Improves your chance to hit by 1%."
+        ],
+        "step": 1,
+        "materials": {
+            "15407": 5,
+            "19767": 14,
+            "14341": 4,
+            "12803": 4
+        },
+        "itemset": "441"
+    },
+    "22661": {
+        "n": "Polar Tunic",
+        "q": 4,
+        "img": "inv_chest_cloth_08",
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "armor": 234,
+        "durability": 120,
+        "stats": {
+            "Agility": 18,
+            "Stamina": 26
+        },
+        "resists": {
+            "Frost": 40
+        },
+        "requirements": {
+            "level": 60
+        },
+        "step": 1,
+        "materials": {
+            "14227": 4,
+            "15407": 4,
+            "7080": 2,
+            "12810": 16,
+            "22682": 7
+        }
+    },
+    "22663": {
+        "n": "Polar Bracers",
+        "q": 4,
+        "img": "inv_bracer_07",
+        "slot": "Wrist",
+        "proficiency": "Leather",
+        "armor": 102,
+        "durability": 40,
+        "stats": {
+            "Agility": 12,
+            "Stamina": 20
+        },
+        "resists": {
+            "Frost": 20
+        },
+        "requirements": {
+            "level": 60
+        },
+        "step": 1,
+        "materials": {
+            "14227": 4,
+            "15407": 2,
+            "7080": 2,
+            "12810": 12,
+            "22682": 4
+        }
+    },
+    "22664": {
+        "n": "Icy Scale Breastplate",
+        "q": 4,
+        "img": "inv_chest_plate09",
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "armor": 506,
+        "durability": 140,
+        "stats": {
+            "Stamina": 24
+        },
+        "resists": {
+            "Frost": 40
+        },
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: +40 Attack Power."
+        ],
+        "step": 1,
+        "materials": {
+            "14227": 4,
+            "15407": 4,
+            "7080": 2,
+            "15408": 24,
+            "22682": 7
+        }
+    },
+    "22665": {
+        "n": "Icy Scale Bracers",
+        "q": 4,
+        "img": "inv_bracer_07",
+        "slot": "Wrist",
+        "proficiency": "Mail",
+        "armor": 221,
+        "durability": 50,
+        "stats": {
+            "Stamina": 17
+        },
+        "resists": {
+            "Frost": 20
+        },
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: +32 Attack Power."
+        ],
+        "step": 1,
+        "materials": {
+            "15407": 2,
+            "7080": 2,
+            "15408": 16,
+            "22682": 4,
+            "14227": 4
+        }
+    },
+    "22666": {
+        "n": "Icy Scale Gauntlets",
+        "q": 4,
+        "img": "inv_gauntlets_28",
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "armor": 316,
+        "durability": 50,
+        "stats": {
+            "Stamina": 22
+        },
+        "resists": {
+            "Frost": 30
+        },
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: +22 Attack Power."
+        ],
+        "step": 1,
+        "materials": {
+            "14227": 4,
+            "15407": 3,
+            "7080": 2,
+            "15408": 16,
+            "22682": 5
+        }
+    },
+    "22759": {
+        "n": "Bramblewood Helm",
+        "q": 3,
+        "img": "inv_helmet_58",
+        "slot": "Head",
+        "proficiency": "Leather",
+        "armor": 156,
+        "durability": 60,
+        "stats": {
+            "Stamina": 20
+        },
+        "resists": {
+            "Nature": 30
+        },
+        "requirements": {
+            "level": 60
+        },
+        "step": 1,
+        "materials": {
+            "12803": 2,
+            "19726": 2,
+            "12810": 12,
+            "15407": 2
+        }
+    },
+    "22760": {
+        "n": "Bramblewood Boots",
+        "q": 3,
+        "img": "inv_boots_cloth_04",
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "armor": 132,
+        "durability": 50,
+        "stats": {
+            "Stamina": 12
+        },
+        "resists": {
+            "Nature": 25
+        },
+        "requirements": {
+            "level": 60
+        },
+        "step": 1,
+        "materials": {
+            "15407": 2,
+            "12803": 2,
+            "18512": 2,
+            "12810": 6
+        }
+    },
+    "22761": {
+        "n": "Bramblewood Belt",
+        "q": 3,
+        "img": "inv_belt_17",
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "armor": 108,
+        "durability": 35,
+        "stats": {
+            "Stamina": 14
+        },
+        "resists": {
+            "Nature": 15
+        },
+        "requirements": {
+            "level": 60
+        },
+        "step": 1,
+        "materials": {
+            "15407": 1,
+            "12803": 2,
+            "12810": 4
+        }
+    },
     "2300": {
         "n": "Embossed Leather Vest",
         "q": 2,
         "img": "inv_chest_leather_09",
         "slot": "Chest",
         "proficiency": "Leather",
+        "armor": 62,
         "durability": 60,
         "stats": {
             "Stamina": 2
@@ -4436,6 +4745,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 58,
         "durability": 30,
         "stats": {
             "Spirit": 4,
@@ -4450,28 +4760,6 @@ var recipes = {
             "2321": 1,
             "5637": 2,
             "4234": 6
-        }
-    },
-    "5781": {
-        "n": "Murloc Scale Breastplate",
-        "q": 2,
-        "img": "inv_chest_chain_12",
-        "slot": "Chest",
-        "proficiency": "Leather",
-        "durability": 70,
-        "stats": {
-            "Agility": 3,
-            "Strength": 5
-        },
-        "requirements": {
-            "level": 14
-        },
-        "step": 1,
-        "materials": {
-            "4231": 1,
-            "5784": 12,
-            "2321": 1,
-            "2318": 8
         }
     },
     "5081": {
@@ -4493,6 +4781,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 52,
         "durability": 25,
         "stats": {
             "Spirit": 4,
@@ -4514,6 +4803,7 @@ var recipes = {
         "img": "inv_bracer_06",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 47,
         "durability": 30,
         "stats": {
             "Spirit": 8
@@ -4570,211 +4860,26 @@ var recipes = {
             "4304": 12
         }
     },
-    "22661": {
-        "n": "Polar Tunic",
-        "q": 4,
-        "img": "inv_chest_cloth_08",
-        "slot": "Chest",
-        "proficiency": "Leather",
-        "durability": 120,
-        "stats": {
-            "Agility": 18,
-            "Stamina": 26
-        },
-        "resists": {
-            "Frost": 40
-        },
-        "requirements": {
-            "level": 60
-        },
-        "step": 1,
-        "materials": {
-            "14227": 4,
-            "15407": 4,
-            "7080": 2,
-            "12810": 16,
-            "22682": 7
-        }
-    },
-    "22663": {
-        "n": "Polar Bracers",
-        "q": 4,
-        "img": "inv_bracer_07",
-        "slot": "Wrist",
-        "proficiency": "Leather",
-        "durability": 40,
-        "stats": {
-            "Agility": 12,
-            "Stamina": 20
-        },
-        "resists": {
-            "Frost": 20
-        },
-        "requirements": {
-            "level": 60
-        },
-        "step": 1,
-        "materials": {
-            "14227": 4,
-            "15407": 2,
-            "7080": 2,
-            "12810": 12,
-            "22682": 4
-        }
-    },
-    "22664": {
-        "n": "Icy Scale Breastplate",
-        "q": 4,
-        "img": "inv_chest_plate09",
-        "slot": "Chest",
-        "proficiency": "Mail",
-        "durability": 140,
-        "stats": {
-            "Stamina": 24
-        },
-        "resists": {
-            "Frost": 40
-        },
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: +40 Attack Power."
-        ],
-        "step": 1,
-        "materials": {
-            "14227": 4,
-            "15407": 4,
-            "7080": 2,
-            "15408": 24,
-            "22682": 7
-        }
-    },
-    "22665": {
-        "n": "Icy Scale Bracers",
-        "q": 4,
-        "img": "inv_bracer_07",
-        "slot": "Wrist",
-        "proficiency": "Mail",
-        "durability": 50,
-        "stats": {
-            "Stamina": 17
-        },
-        "resists": {
-            "Frost": 20
-        },
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: +32 Attack Power."
-        ],
-        "step": 1,
-        "materials": {
-            "15407": 2,
-            "7080": 2,
-            "15408": 16,
-            "22682": 4,
-            "14227": 4
-        }
-    },
-    "22666": {
-        "n": "Icy Scale Gauntlets",
-        "q": 4,
-        "img": "inv_gauntlets_28",
-        "slot": "Hands",
-        "proficiency": "Mail",
-        "durability": 50,
-        "stats": {
-            "Stamina": 22
-        },
-        "resists": {
-            "Frost": 30
-        },
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: +22 Attack Power."
-        ],
-        "step": 1,
-        "materials": {
-            "14227": 4,
-            "15407": 3,
-            "7080": 2,
-            "15408": 16,
-            "22682": 5
-        }
-    },
-    "22759": {
-        "n": "Bramblewood Helm",
-        "q": 3,
-        "img": "inv_helmet_58",
-        "slot": "Head",
-        "proficiency": "Leather",
-        "durability": 60,
-        "stats": {
-            "Stamina": 20
-        },
-        "resists": {
-            "Nature": 30
-        },
-        "requirements": {
-            "level": 60
-        },
-        "step": 1,
-        "materials": {
-            "12803": 2,
-            "19726": 2,
-            "12810": 12,
-            "15407": 2
-        }
-    },
-    "22760": {
-        "n": "Bramblewood Boots",
-        "q": 3,
-        "img": "inv_boots_cloth_04",
+    "15071": {
+        "n": "Frostsaber Boots",
+        "q": 2,
+        "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Leather",
-        "durability": 50,
-        "stats": {
-            "Stamina": 12
-        },
+        "armor": 99,
+        "durability": 45,
         "resists": {
-            "Nature": 25
+            "Frost": 12,
+            "Shadow": 12
         },
         "requirements": {
-            "level": 60
+            "level": 50
         },
         "step": 1,
         "materials": {
-            "15407": 2,
-            "12803": 2,
-            "18512": 2,
-            "12810": 6
-        }
-    },
-    "22761": {
-        "n": "Bramblewood Belt",
-        "q": 3,
-        "img": "inv_belt_17",
-        "slot": "Waist",
-        "proficiency": "Leather",
-        "durability": 35,
-        "stats": {
-            "Stamina": 14
-        },
-        "resists": {
-            "Nature": 15
-        },
-        "requirements": {
-            "level": 60
-        },
-        "step": 1,
-        "materials": {
-            "15407": 1,
-            "12803": 2,
-            "12810": 4
+            "14341": 1,
+            "15422": 6,
+            "8170": 4
         }
     },
     "15048": {
@@ -4783,6 +4888,7 @@ var recipes = {
         "img": "inv_chest_chain_04",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 338,
         "durability": 120,
         "stats": {
             "Spirit": 8,
@@ -4803,33 +4909,13 @@ var recipes = {
         },
         "itemset": "491"
     },
-    "15071": {
-        "n": "Frostsaber Boots",
-        "q": 2,
-        "img": "inv_boots_05",
-        "slot": "Feet",
-        "proficiency": "Leather",
-        "durability": 45,
-        "resists": {
-            "Frost": 12,
-            "Shadow": 12
-        },
-        "requirements": {
-            "level": 50
-        },
-        "step": 1,
-        "materials": {
-            "14341": 1,
-            "15422": 6,
-            "8170": 4
-        }
-    },
     "15084": {
         "n": "Wicked Leather Bracers",
         "q": 2,
         "img": "inv_bracer_07",
         "slot": "Wrist",
         "proficiency": "Leather",
+        "armor": 61,
         "durability": 30,
         "stats": {
             "Agility": 11,
@@ -4851,6 +4937,7 @@ var recipes = {
         "img": "inv_belt_32",
         "slot": "Waist",
         "proficiency": "Leather",
+        "armor": 223,
         "durability": 40,
         "stats": {
             "Stamina": 15
@@ -4874,6 +4961,7 @@ var recipes = {
         "img": "inv_gauntlets_06",
         "slot": "Hands",
         "proficiency": "Leather",
+        "armor": 146,
         "durability": 40,
         "stats": {
             "Agility": 18,
@@ -4893,6 +4981,198 @@ var recipes = {
             "12810": 12,
             "22682": 5
         }
+    },
+    "7349": {
+        "n": "Herbalist's Gloves",
+        "q": 2,
+        "img": "inv_gauntlets_18",
+        "slot": "Hands",
+        "proficiency": "Leather",
+        "armor": 55,
+        "durability": 30,
+        "requirements": {
+            "level": 22
+        },
+        "equips": [
+            "Equip: Herbalism +5."
+        ],
+        "step": 1,
+        "materials": {
+            "2321": 2,
+            "3356": 4,
+            "2319": 8
+        }
+    },
+    "8176": {
+        "n": "Nightscape Headband",
+        "q": 2,
+        "img": "inv_belt_24",
+        "slot": "Head",
+        "proficiency": "Leather",
+        "durability": 50,
+        "stats": {
+            "Agility": 12,
+            "Stamina": 11
+        },
+        "requirements": {
+            "level": 36
+        },
+        "step": 1,
+        "materials": {
+            "4291": 2,
+            "4304": 5
+        }
+    },
+    "15073": {
+        "n": "Chimeric Boots",
+        "q": 2,
+        "img": "inv_boots_07",
+        "slot": "Feet",
+        "proficiency": "Leather",
+        "armor": 99,
+        "durability": 45,
+        "resists": {
+            "Arcane": 12,
+            "Nature": 12
+        },
+        "requirements": {
+            "level": 50
+        },
+        "step": 1,
+        "materials": {
+            "14341": 1,
+            "15423": 8,
+            "8170": 4
+        }
+    },
+    "5781": {
+        "n": "Murloc Scale Breastplate",
+        "q": 2,
+        "img": "inv_chest_chain_12",
+        "slot": "Chest",
+        "proficiency": "Leather",
+        "armor": 76,
+        "durability": 70,
+        "stats": {
+            "Agility": 3,
+            "Strength": 5
+        },
+        "requirements": {
+            "level": 14
+        },
+        "step": 1,
+        "materials": {
+            "4231": 1,
+            "5784": 12,
+            "2321": 1,
+            "2318": 8
+        }
+    }
+}
+var itemsets = {
+    "490": {
+        "n": "Green Dragon Mail",
+        "items": [
+            "Green Dragonscale Breastplate",
+            "Green Dragonscale Gauntlets",
+            "Green Dragonscale Leggings"
+        ],
+        "bonuses": [
+            "(2) Set: Restores 3 mana per 5 sec.",
+            "(3) Set: Allows 15% of your Mana regeneration to continue while casting."
+        ]
+    },
+    "491": {
+        "n": "Blue Dragon Mail",
+        "items": [
+            "Blue Dragonscale Breastplate",
+            "Blue Dragonscale Leggings",
+            "Blue Dragonscale Shoulders"
+        ],
+        "bonuses": [
+            "(2) Set: +4 All Resistances.",
+            "(3) Set: Increases damage and healing done by magical spells and effects by up to 28."
+        ]
+    },
+    "141": {
+        "n": "Volcanic Armor",
+        "items": [
+            "Volcanic Breastplate",
+            "Volcanic Leggings",
+            "Volcanic Shoulders"
+        ],
+        "bonuses": [
+            "(3) Set: 5% chance of dealing 15 to 26 Fire damage on a successful melee attack."
+        ]
+    },
+    "142": {
+        "n": "Stormshroud Armor",
+        "items": [
+            "Stormshroud Armor",
+            "Stormshroud Gloves",
+            "Stormshroud Pants",
+            "Stormshroud Shoulders"
+        ],
+        "bonuses": [
+            "(2) Set: 5% chance of dealing 15 to 26 Nature damage on a successful melee attack.",
+            "(3) Set: 2% chance on melee attack of restoring 1 energy.",
+            "(4) Set: +14 Attack Power."
+        ]
+    },
+    "144": {
+        "n": "Ironfeather Armor",
+        "items": [
+            "Ironfeather Breastplate",
+            "Ironfeather Shoulders"
+        ],
+        "bonuses": [
+            "(2) Set: Increases damage and healing done by magical spells and effects by up to 20."
+        ]
+    },
+    "489": {
+        "n": "Black Dragon Mail",
+        "items": [
+            "Black Dragonscale Boots",
+            "Black Dragonscale Breastplate",
+            "Black Dragonscale Leggings",
+            "Black Dragonscale Shoulders"
+        ],
+        "bonuses": [
+            "(2) Set: Improves your chance to hit by 1%.",
+            "(3) Set: Improves your chance to get a critical strike by 2%.",
+            "(4) Set: +10 Fire Resistance."
+        ]
+    },
+    "143": {
+        "n": "Devilsaur Armor",
+        "items": [
+            "Devilsaur Gauntlets",
+            "Devilsaur Leggings"
+        ],
+        "bonuses": [
+            "(2) Set: Improves your chance to hit by 2%."
+        ]
+    },
+    "441": {
+        "n": "Primal Batskin",
+        "items": [
+            "Primal Batskin Bracers",
+            "Primal Batskin Gloves",
+            "Primal Batskin Jerkin"
+        ],
+        "bonuses": [
+            "(3) Set: Minor increase to running and swimming speed."
+        ]
+    },
+    "442": {
+        "n": "Blood Tiger Harness",
+        "items": [
+            "Blood Tiger Breastplate",
+            "Blood Tiger Shoulders"
+        ],
+        "bonuses": [
+            "(2) Set: Improves your chance to get a critical strike with spells by 1%."
+        ]
     }
 }
 var materials = {
@@ -5578,111 +5858,5 @@ var materials = {
             "level": 60
         },
         "use": "Absorbs 1500 to 2501 fire damage. Lasts 1 hr. (cooldown 3 min)"
-    }
-}
-var itemsets = {
-    "490": {
-        "n": "Green Dragon Mail",
-        "items": [
-            "Green Dragonscale Breastplate",
-            "Green Dragonscale Gauntlets",
-            "Green Dragonscale Leggings"
-        ],
-        "bonuses": [
-            "(2) Set: Restores 3 mana per 5 sec.",
-            "(3) Set: Allows 15% of your Mana regeneration to continue while casting."
-        ]
-    },
-    "491": {
-        "n": "Blue Dragon Mail",
-        "items": [
-            "Blue Dragonscale Breastplate",
-            "Blue Dragonscale Leggings",
-            "Blue Dragonscale Shoulders"
-        ],
-        "bonuses": [
-            "(2) Set: +4 All Resistances.",
-            "(3) Set: Increases damage and healing done by magical spells and effects by up to 28."
-        ]
-    },
-    "141": {
-        "n": "Volcanic Armor",
-        "items": [
-            "Volcanic Breastplate",
-            "Volcanic Leggings",
-            "Volcanic Shoulders"
-        ],
-        "bonuses": [
-            "(3) Set: 5% chance of dealing 15 to 26 Fire damage on a successful melee attack."
-        ]
-    },
-    "142": {
-        "n": "Stormshroud Armor",
-        "items": [
-            "Stormshroud Armor",
-            "Stormshroud Gloves",
-            "Stormshroud Pants",
-            "Stormshroud Shoulders"
-        ],
-        "bonuses": [
-            "(2) Set: 5% chance of dealing 15 to 26 Nature damage on a successful melee attack.",
-            "(3) Set: 2% chance on melee attack of restoring 1 energy.",
-            "(4) Set: +14 Attack Power."
-        ]
-    },
-    "144": {
-        "n": "Ironfeather Armor",
-        "items": [
-            "Ironfeather Breastplate",
-            "Ironfeather Shoulders"
-        ],
-        "bonuses": [
-            "(2) Set: Increases damage and healing done by magical spells and effects by up to 20."
-        ]
-    },
-    "489": {
-        "n": "Black Dragon Mail",
-        "items": [
-            "Black Dragonscale Boots",
-            "Black Dragonscale Breastplate",
-            "Black Dragonscale Leggings",
-            "Black Dragonscale Shoulders"
-        ],
-        "bonuses": [
-            "(2) Set: Improves your chance to hit by 1%.",
-            "(3) Set: Improves your chance to get a critical strike by 2%.",
-            "(4) Set: +10 Fire Resistance."
-        ]
-    },
-    "143": {
-        "n": "Devilsaur Armor",
-        "items": [
-            "Devilsaur Gauntlets",
-            "Devilsaur Leggings"
-        ],
-        "bonuses": [
-            "(2) Set: Improves your chance to hit by 2%."
-        ]
-    },
-    "441": {
-        "n": "Primal Batskin",
-        "items": [
-            "Primal Batskin Bracers",
-            "Primal Batskin Gloves",
-            "Primal Batskin Jerkin"
-        ],
-        "bonuses": [
-            "(3) Set: Minor increase to running and swimming speed."
-        ]
-    },
-    "442": {
-        "n": "Blood Tiger Harness",
-        "items": [
-            "Blood Tiger Breastplate",
-            "Blood Tiger Shoulders"
-        ],
-        "bonuses": [
-            "(2) Set: Improves your chance to get a critical strike with spells by 1%."
-        ]
     }
 }

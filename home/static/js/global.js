@@ -2,10 +2,6 @@ $(document).ready(function() {
 	global_event_handlers()
 });
 
-
-
-
-// var recipes = {}
 function build_consume_list(url, ix=0) {
 	var id = ix
 	// var search = url.search
@@ -98,64 +94,54 @@ function global_event_handlers() {
         }
     });
 
-	//new
-	$(".spec-list-item").on({
-        click: e => {
-            var list_name = $(e.target).attr('name');
-            var wow_class = ( $(e.target).closest($(".spec-list-item")).attr("data-wowclass") ) ? $(e.target).closest($(".spec-list-item")).attr("data-wowclass") : ''
-			var tempurl = new URL(href=$(e.target).attr("href"), base=document.location)
+	var savedConsumeLists = document.getElementById('saved_consume_lists')
 
-            if (wow_class) {
-				// url.pathname = `talent_calc/${wow_class}`
-				var id = $(e.target).attr('data-ix')
-                update_class(wow_class, id)
-            } else {
+	savedConsumeLists.addEventListener('click', function(e) {
+		if (e.target.matches('.saved-list-link')) {
+			if (e.metaKey || e.target.matches('.external')) { // allow opening in new tab
+				return
+			}
 
-				var prof_elem = $('a.prof-filter.selected')
-				var path = "/profession_tool"
+			e.preventDefault()
+			var parent = e.target.closest('div.spec-list-item')
+			var currentSelection = document.querySelector('div.spec-list-item.selected')
+			if (parent == currentSelection) {
+				return
+			}
 
-				if (prof_elem.length){
-					path += "/"+prof_elem.attr('id')
-				}
+			var link = e.target.href
+			var tempurl = new URL(href=link, base=document.location)
+			var path = "/profession_tool"
+			var prof_elem = $('a.prof-filter.selected')
 
-				tempurl.pathname = path
-				getConsumeList(tempurl)
+			if (prof_elem.length){
+				path += "/"+prof_elem.attr('id')
+			}
 
-				// path += tempurl.search
-				// let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
+			tempurl.pathname = path
+			professionTool.remove.all()
+			getConsumeList(tempurl)
+			history.pushState(null, null, tempurl)
+			return
+		}
 
-                // build_consume_list(tempurl)
-				history.pushState(null, null, tempurl)
-            }
+		if (e.target.matches('.trashcan')) {
+			var data = {}
+			var parent = e.target.closest('div.spec-list-item')
+			var link = parent.querySelector('a.saved-list-link').href
+			var hash = new URL(href=link).search
+			data['hash'] = hash
+			data['name'] = parent.name
+			$.ajax({
+                method: "POST",
+                url: '/ajax/delete_list/',
+                data: data,
+                success: trashCanSuccess,
+                error: trashCanError,
+            })
+		}
+	});
 
-        }
-    });
-
-	//old
-    // $(".spec-list-item").on({
-    //     click: e => {
-    //         var list_name = $(e.target).attr('name');
-    //         var wow_class = ( $(e.target).closest($(".spec-list-item")).attr("data-wowclass") ) ? $(e.target).closest($(".spec-list-item")).attr("data-wowclass") : ''
-	// 		let href = $(e.target).attr("href")
-	// 		let id = $(e.target).attr('data-ix')
-	// 		let tempurl = new URL(href = href, base = document.location.origin)
-	// 		let search = tempurl.search
-	// 		let url = new URL(document.location.origin.toString())
-	// 		url.search = search
-    //         if (wow_class) {
-	// 				// url.pathname = `talent_calc/${wow_class}`
-    //            	update_class(wow_class, id)
-    //         } else {
-	// 			let prof_elem = $('a.prof-filter.selected')
-	// 			let path = (prof_elem.length) ? `/profession_tool/${prof_elem.attr('id')}/${id}`: `/profession_tool/${id}`
-	//
-	// 			url.pathname = path
-    //             build_consume_list(url, id)
-	// 			history.pushState(null, null, path)
-    //         }
-	//
-    //     }
-    // });
 
     $(".trashcan").on({
         click: e => {

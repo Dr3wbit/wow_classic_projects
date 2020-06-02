@@ -1,18 +1,388 @@
 var recipes = {
-    "4358": {
-        "n": "Rough Dynamite",
+    "4394": {
+        "n": "Big Iron Bomb",
         "q": 1,
-        "img": "inv_misc_bomb_06",
+        "img": "inv_misc_bomb_01",
         "requirements": {
             "profession": {
-                "engineering": 1
+                "engineering": 190
             }
         },
-        "use": "Inflicts 26 to 35 Fire damage in a 5 yard radius. (cooldown 1 min)",
+        "use": "Inflicts 149 to 202 Fire damage and stuns targets in a 5 yard radius for 3 sec. Any damage will break the effect. (cooldown 1 min)",
         "step": 2,
         "materials": {
-            "4357": 2,
-            "2589": 1
+            "4404": 1,
+            "4377": 3,
+            "3575": 3
+        }
+    },
+    "4357": {
+        "n": "Rough Blasting Powder",
+        "q": 1,
+        "img": "inv_misc_dust_01",
+        "step": 1,
+        "materials": {
+            "2835": 1
+        }
+    },
+    "4359": {
+        "n": "Handful of Copper Bolts",
+        "q": 1,
+        "img": "inv_misc_gear_06",
+        "step": 1,
+        "materials": {
+            "2840": 1
+        }
+    },
+    "4361": {
+        "n": "Copper Tube",
+        "q": 1,
+        "img": "inv_gizmo_pipe_02",
+        "step": 1,
+        "materials": {
+            "2880": 1,
+            "2840": 2
+        }
+    },
+    "4362": {
+        "n": "Rough Boomstick",
+        "q": 2,
+        "img": "inv_weapon_rifle_03",
+        "slot": "Ranged",
+        "proficiency": "Gun",
+        "speed": "2.30",
+        "durability": 35,
+        "requirements": {
+            "level": 5
+        },
+        "damage": [
+            "6  -  13 Damage"
+        ],
+        "dps": "4.1",
+        "step": 1,
+        "materials": {
+            "4399": 1,
+            "4359": 1,
+            "4361": 1
+        }
+    },
+    "4363": {
+        "n": "Copper Modulator",
+        "q": 1,
+        "img": "inv_gizmo_03",
+        "step": 1,
+        "materials": {
+            "2589": 2,
+            "2840": 1,
+            "4359": 2
+        }
+    },
+    "4364": {
+        "n": "Coarse Blasting Powder",
+        "q": 1,
+        "img": "inv_misc_dust_02",
+        "step": 1,
+        "materials": {
+            "2836": 1
+        }
+    },
+    "4368": {
+        "n": "Flying Tiger Goggles",
+        "q": 2,
+        "img": "inv_helmet_47",
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "armor": 27,
+        "durability": 35,
+        "stats": {
+            "Spirit": 4,
+            "Stamina": 4
+        },
+        "requirements": {
+            "profession": {
+                "engineering": 100
+            }
+        },
+        "step": 1,
+        "materials": {
+            "818": 2,
+            "2318": 6
+        }
+    },
+    "4369": {
+        "n": "Deadly Blunderbuss",
+        "q": 2,
+        "img": "inv_weapon_rifle_07",
+        "slot": "Ranged",
+        "proficiency": "Gun",
+        "speed": "2.60",
+        "durability": 50,
+        "requirements": {
+            "level": 16
+        },
+        "damage": [
+            "15  -  28 Damage"
+        ],
+        "dps": "8.3",
+        "step": 1,
+        "materials": {
+            "2319": 2,
+            "4399": 1,
+            "4359": 4,
+            "4361": 2
+        }
+    },
+    "4371": {
+        "n": "Bronze Tube",
+        "q": 1,
+        "img": "inv_gizmo_pipe_01",
+        "step": 1,
+        "materials": {
+            "2880": 1,
+            "2841": 2
+        }
+    },
+    "4372": {
+        "n": "Lovingly Crafted Boomstick",
+        "q": 2,
+        "img": "inv_weapon_rifle_07",
+        "slot": "Ranged",
+        "proficiency": "Gun",
+        "speed": "1.80",
+        "durability": 55,
+        "requirements": {
+            "level": 19
+        },
+        "damage": [
+            "12  -  23 Damage"
+        ],
+        "dps": "9.7",
+        "step": 1,
+        "materials": {
+            "1206": 3,
+            "4400": 1,
+            "4359": 2,
+            "4371": 2
+        }
+    },
+    "4373": {
+        "n": "Shadow Goggles",
+        "q": 2,
+        "img": "inv_helmet_47",
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "armor": 31,
+        "durability": 40,
+        "stats": {
+            "Spirit": 6,
+            "Intellect": 5
+        },
+        "requirements": {
+            "profession": {
+                "engineering": 120
+            }
+        },
+        "step": 1,
+        "materials": {
+            "1210": 2,
+            "2319": 4
+        }
+    },
+    "4377": {
+        "n": "Heavy Blasting Powder",
+        "q": 1,
+        "img": "inv_misc_dust_06",
+        "step": 1,
+        "materials": {
+            "2838": 1
+        }
+    },
+    "4379": {
+        "n": "Silver-plated Shotgun",
+        "q": 2,
+        "img": "inv_weapon_rifle_07",
+        "slot": "Ranged",
+        "proficiency": "Gun",
+        "speed": "2.70",
+        "durability": 60,
+        "requirements": {
+            "level": 21
+        },
+        "damage": [
+            "19  -  37 Damage"
+        ],
+        "dps": "10.4",
+        "step": 1,
+        "materials": {
+            "4400": 1,
+            "4375": 2,
+            "4371": 2,
+            "2842": 3
+        }
+    },
+    "4382": {
+        "n": "Bronze Framework",
+        "q": 1,
+        "img": "inv_gizmo_bronzeframework_01",
+        "step": 1,
+        "materials": {
+            "2592": 1,
+            "2319": 1,
+            "2841": 2
+        }
+    },
+    "4383": {
+        "n": "Moonsight Rifle",
+        "q": 2,
+        "img": "inv_weapon_rifle_06",
+        "slot": "Ranged",
+        "proficiency": "Gun",
+        "speed": "1.70",
+        "durability": 65,
+        "requirements": {
+            "level": 24
+        },
+        "damage": [
+            "14  -  26 Damage"
+        ],
+        "dps": "11.8",
+        "step": 1,
+        "materials": {
+            "1705": 2,
+            "4400": 1,
+            "4375": 3,
+            "4371": 3
+        }
+    },
+    "4385": {
+        "n": "Green Tinted Goggles",
+        "q": 2,
+        "img": "inv_helmet_47",
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "armor": 35,
+        "durability": 45,
+        "stats": {
+            "Spirit": 7,
+            "Stamina": 8
+        },
+        "requirements": {
+            "profession": {
+                "engineering": 150
+            }
+        },
+        "step": 1,
+        "materials": {
+            "4368": 1,
+            "1206": 2,
+            "2319": 4
+        }
+    },
+    "4387": {
+        "n": "Iron Strut",
+        "q": 1,
+        "img": "inv_spear_05",
+        "step": 1,
+        "materials": {
+            "3575": 2
+        }
+    },
+    "4389": {
+        "n": "Gyrochronatom",
+        "q": 1,
+        "img": "inv_misc_pocketwatch_02",
+        "step": 1,
+        "materials": {
+            "10558": 1,
+            "3575": 1
+        }
+    },
+    "4393": {
+        "n": "Craftsman's Monocle",
+        "q": 2,
+        "img": "inv_helmet_44",
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "armor": 40,
+        "durability": 45,
+        "stats": {
+            "Intellect": 15
+        },
+        "requirements": {
+            "level": 32,
+            "profession": {
+                "engineering": 185
+            }
+        },
+        "step": 1,
+        "materials": {
+            "3864": 2,
+            "4234": 6
+        }
+    },
+    "4396": {
+        "n": "Mechanical Dragonling",
+        "q": 1,
+        "img": "inv_misc_head_dragon_01",
+        "slot": "Trinket",
+        "requirements": {
+            "level": 30,
+            "profession": {
+                "engineering": 200
+            }
+        },
+        "use": "Activates your Mechanical Dragonling to fight for you for 1 min. It requires an hour to cool down before it can be used again. (cooldown 1 hr)",
+        "unique": true,
+        "step": 1,
+        "materials": {
+            "7191": 1,
+            "3864": 2,
+            "4389": 4,
+            "4387": 4,
+            "4382": 1
+        }
+    },
+    "4397": {
+        "n": "Gnomish Cloaking Device",
+        "q": 1,
+        "img": "inv_gizmo_01",
+        "slot": "Trinket",
+        "requirements": {
+            "profession": {
+                "engineering": 200
+            }
+        },
+        "use": "Gives invisibility for 10 sec. It can only be used every 60 minutes. (cooldown 1 hr)",
+        "step": 1,
+        "materials": {
+            "4389": 4,
+            "7191": 1,
+            "3864": 2,
+            "1705": 2,
+            "1529": 2
+        }
+    },
+    "4401": {
+        "n": "Mechanical Squirrel Box",
+        "q": 1,
+        "img": "inv_crate_01",
+        "use": "Creates a Mechanical Squirrel that follows you around. Right Click to summon and dismiss your Squirrel.",
+        "bop": true,
+        "step": 1,
+        "materials": {
+            "4363": 1,
+            "774": 2,
+            "2840": 1,
+            "4359": 1
+        }
+    },
+    "4404": {
+        "n": "Silver Contact",
+        "q": 1,
+        "img": "inv_ingot_04",
+        "step": 5,
+        "materials": {
+            "2842": 1
         }
     },
     "4360": {
@@ -31,6 +401,23 @@ var recipes = {
             "4357": 2,
             "4359": 1,
             "2840": 1
+        }
+    },
+    "4395": {
+        "n": "Goblin Land Mine",
+        "q": 1,
+        "img": "inv_shield_08",
+        "requirements": {
+            "profession": {
+                "engineering": 195
+            }
+        },
+        "use": "Places the Goblin Land Mine on the ground. It will explode for 394 to 507 fire damage the next time a hostile creature passes near it. The mine has a duration of 1 min. (cooldown 1 min)",
+        "step": 1,
+        "materials": {
+            "4377": 3,
+            "4389": 1,
+            "3575": 2
         }
     },
     "4365": {
@@ -285,40 +672,6 @@ var recipes = {
             "4389": 1
         }
     },
-    "4394": {
-        "n": "Big Iron Bomb",
-        "q": 1,
-        "img": "inv_misc_bomb_01",
-        "requirements": {
-            "profession": {
-                "engineering": 190
-            }
-        },
-        "use": "Inflicts 149 to 202 Fire damage and stuns targets in a 5 yard radius for 3 sec. Any damage will break the effect. (cooldown 1 min)",
-        "step": 2,
-        "materials": {
-            "4404": 1,
-            "4377": 3,
-            "3575": 3
-        }
-    },
-    "4395": {
-        "n": "Goblin Land Mine",
-        "q": 1,
-        "img": "inv_shield_08",
-        "requirements": {
-            "profession": {
-                "engineering": 195
-            }
-        },
-        "use": "Places the Goblin Land Mine on the ground. It will explode for 394 to 507 fire damage the next time a hostile creature passes near it. The mine has a duration of 1 min. (cooldown 1 min)",
-        "step": 1,
-        "materials": {
-            "4377": 3,
-            "4389": 1,
-            "3575": 2
-        }
-    },
     "4398": {
         "n": "Large Seaforium Charge",
         "q": 1,
@@ -334,24 +687,6 @@ var recipes = {
             "159": 1,
             "4234": 2,
             "10505": 2
-        }
-    },
-    "4403": {
-        "n": "Portable Bronze Mortar",
-        "q": 1,
-        "img": "inv_musket_01",
-        "requirements": {
-            "profession": {
-                "engineering": 165
-            }
-        },
-        "use": "Inflicts 85 to 116 Fire damage and stuns targets in a 5 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)\n8 charges",
-        "step": 1,
-        "materials": {
-            "2319": 4,
-            "4377": 4,
-            "4387": 1,
-            "4371": 4
         }
     },
     "4405": {
@@ -398,369 +733,25 @@ var recipes = {
             "4371": 1
         }
     },
-    "4357": {
-        "n": "Rough Blasting Powder",
+    "6219": {
+        "n": "Arclight Spanner",
         "q": 1,
-        "img": "inv_misc_dust_01",
-        "step": 1,
-        "materials": {
-            "2835": 1
-        }
-    },
-    "4359": {
-        "n": "Handful of Copper Bolts",
-        "q": 1,
-        "img": "inv_misc_gear_06",
-        "step": 1,
-        "materials": {
-            "2840": 1
-        }
-    },
-    "4361": {
-        "n": "Copper Tube",
-        "q": 1,
-        "img": "inv_gizmo_pipe_02",
-        "step": 1,
-        "materials": {
-            "2880": 1,
-            "2840": 2
-        }
-    },
-    "4362": {
-        "n": "Rough Boomstick",
-        "q": 2,
-        "img": "inv_weapon_rifle_03",
-        "slot": "Ranged",
-        "proficiency": "Gun",
-        "speed": "2.30",
-        "durability": 35,
+        "img": "inv_misc_wrench_01",
+        "slot": "Main Hand",
+        "proficiency": "Miscellaneous",
+        "speed": "2.40",
         "requirements": {
-            "level": 5
+            "profession": {
+                "engineering": 50
+            }
         },
         "damage": [
-            "6  -  13 Damage"
+            "5  -  8 Damage"
         ],
-        "dps": "4.1",
+        "dps": "2.7",
         "step": 1,
         "materials": {
-            "4399": 1,
-            "4359": 1,
-            "4361": 1
-        }
-    },
-    "4363": {
-        "n": "Copper Modulator",
-        "q": 1,
-        "img": "inv_gizmo_03",
-        "step": 1,
-        "materials": {
-            "2589": 2,
-            "2840": 1,
-            "4359": 2
-        }
-    },
-    "4364": {
-        "n": "Coarse Blasting Powder",
-        "q": 1,
-        "img": "inv_misc_dust_02",
-        "step": 1,
-        "materials": {
-            "2836": 1
-        }
-    },
-    "4368": {
-        "n": "Flying Tiger Goggles",
-        "q": 2,
-        "img": "inv_helmet_47",
-        "slot": "Head",
-        "proficiency": "Cloth",
-        "durability": 35,
-        "stats": {
-            "Spirit": 4,
-            "Stamina": 4
-        },
-        "requirements": {
-            "profession": {
-                "engineering": 100
-            }
-        },
-        "step": 1,
-        "materials": {
-            "818": 2,
-            "2318": 6
-        }
-    },
-    "4369": {
-        "n": "Deadly Blunderbuss",
-        "q": 2,
-        "img": "inv_weapon_rifle_07",
-        "slot": "Ranged",
-        "proficiency": "Gun",
-        "speed": "2.60",
-        "durability": 50,
-        "requirements": {
-            "level": 16
-        },
-        "damage": [
-            "15  -  28 Damage"
-        ],
-        "dps": "8.3",
-        "step": 1,
-        "materials": {
-            "2319": 2,
-            "4399": 1,
-            "4359": 4,
-            "4361": 2
-        }
-    },
-    "4371": {
-        "n": "Bronze Tube",
-        "q": 1,
-        "img": "inv_gizmo_pipe_01",
-        "step": 1,
-        "materials": {
-            "2880": 1,
-            "2841": 2
-        }
-    },
-    "4372": {
-        "n": "Lovingly Crafted Boomstick",
-        "q": 2,
-        "img": "inv_weapon_rifle_07",
-        "slot": "Ranged",
-        "proficiency": "Gun",
-        "speed": "1.80",
-        "durability": 55,
-        "requirements": {
-            "level": 19
-        },
-        "damage": [
-            "12  -  23 Damage"
-        ],
-        "dps": "9.7",
-        "step": 1,
-        "materials": {
-            "1206": 3,
-            "4400": 1,
-            "4359": 2,
-            "4371": 2
-        }
-    },
-    "4373": {
-        "n": "Shadow Goggles",
-        "q": 2,
-        "img": "inv_helmet_47",
-        "slot": "Head",
-        "proficiency": "Cloth",
-        "durability": 40,
-        "stats": {
-            "Spirit": 6,
-            "Intellect": 5
-        },
-        "requirements": {
-            "profession": {
-                "engineering": 120
-            }
-        },
-        "step": 1,
-        "materials": {
-            "1210": 2,
-            "2319": 4
-        }
-    },
-    "4377": {
-        "n": "Heavy Blasting Powder",
-        "q": 1,
-        "img": "inv_misc_dust_06",
-        "step": 1,
-        "materials": {
-            "2838": 1
-        }
-    },
-    "4379": {
-        "n": "Silver-plated Shotgun",
-        "q": 2,
-        "img": "inv_weapon_rifle_07",
-        "slot": "Ranged",
-        "proficiency": "Gun",
-        "speed": "2.70",
-        "durability": 60,
-        "requirements": {
-            "level": 21
-        },
-        "damage": [
-            "19  -  37 Damage"
-        ],
-        "dps": "10.4",
-        "step": 1,
-        "materials": {
-            "4400": 1,
-            "4375": 2,
-            "4371": 2,
-            "2842": 3
-        }
-    },
-    "4382": {
-        "n": "Bronze Framework",
-        "q": 1,
-        "img": "inv_gizmo_bronzeframework_01",
-        "step": 1,
-        "materials": {
-            "2592": 1,
-            "2319": 1,
-            "2841": 2
-        }
-    },
-    "4383": {
-        "n": "Moonsight Rifle",
-        "q": 2,
-        "img": "inv_weapon_rifle_06",
-        "slot": "Ranged",
-        "proficiency": "Gun",
-        "speed": "1.70",
-        "durability": 65,
-        "requirements": {
-            "level": 24
-        },
-        "damage": [
-            "14  -  26 Damage"
-        ],
-        "dps": "11.8",
-        "step": 1,
-        "materials": {
-            "1705": 2,
-            "4400": 1,
-            "4375": 3,
-            "4371": 3
-        }
-    },
-    "4385": {
-        "n": "Green Tinted Goggles",
-        "q": 2,
-        "img": "inv_helmet_47",
-        "slot": "Head",
-        "proficiency": "Cloth",
-        "durability": 45,
-        "stats": {
-            "Spirit": 7,
-            "Stamina": 8
-        },
-        "requirements": {
-            "profession": {
-                "engineering": 150
-            }
-        },
-        "step": 1,
-        "materials": {
-            "4368": 1,
-            "1206": 2,
-            "2319": 4
-        }
-    },
-    "4387": {
-        "n": "Iron Strut",
-        "q": 1,
-        "img": "inv_spear_05",
-        "step": 1,
-        "materials": {
-            "3575": 2
-        }
-    },
-    "4389": {
-        "n": "Gyrochronatom",
-        "q": 1,
-        "img": "inv_misc_pocketwatch_02",
-        "step": 1,
-        "materials": {
-            "10558": 1,
-            "3575": 1
-        }
-    },
-    "4393": {
-        "n": "Craftsman's Monocle",
-        "q": 2,
-        "img": "inv_helmet_44",
-        "slot": "Head",
-        "proficiency": "Cloth",
-        "durability": 45,
-        "stats": {
-            "Intellect": 15
-        },
-        "requirements": {
-            "level": 32,
-            "profession": {
-                "engineering": 185
-            }
-        },
-        "step": 1,
-        "materials": {
-            "3864": 2,
-            "4234": 6
-        }
-    },
-    "4396": {
-        "n": "Mechanical Dragonling",
-        "q": 1,
-        "img": "inv_misc_head_dragon_01",
-        "slot": "Trinket",
-        "requirements": {
-            "level": 30,
-            "profession": {
-                "engineering": 200
-            }
-        },
-        "use": "Activates your Mechanical Dragonling to fight for you for 1 min. It requires an hour to cool down before it can be used again. (cooldown 1 hr)",
-        "unique": true,
-        "step": 1,
-        "materials": {
-            "7191": 1,
-            "3864": 2,
-            "4389": 4,
-            "4387": 4,
-            "4382": 1
-        }
-    },
-    "4397": {
-        "n": "Gnomish Cloaking Device",
-        "q": 1,
-        "img": "inv_gizmo_01",
-        "slot": "Trinket",
-        "requirements": {
-            "profession": {
-                "engineering": 200
-            }
-        },
-        "use": "Gives invisibility for 10 sec. It can only be used every 60 minutes. (cooldown 1 hr)",
-        "step": 1,
-        "materials": {
-            "4389": 4,
-            "7191": 1,
-            "3864": 2,
-            "1705": 2,
-            "1529": 2
-        }
-    },
-    "4401": {
-        "n": "Mechanical Squirrel Box",
-        "q": 1,
-        "img": "inv_crate_01",
-        "use": "Creates a Mechanical Squirrel that follows you around. Right Click to summon and dismiss your Squirrel.",
-        "bop": true,
-        "step": 1,
-        "materials": {
-            "4363": 1,
-            "774": 2,
-            "2840": 1,
-            "4359": 1
-        }
-    },
-    "4404": {
-        "n": "Silver Contact",
-        "q": 1,
-        "img": "inv_ingot_04",
-        "step": 5,
-        "materials": {
-            "2842": 1
+            "2840": 6
         }
     },
     "4852": {
@@ -789,58 +780,6 @@ var recipes = {
             "4375": 2,
             "4371": 2,
             "1206": 1
-        }
-    },
-    "6219": {
-        "n": "Arclight Spanner",
-        "q": 1,
-        "img": "inv_misc_wrench_01",
-        "slot": "Main Hand",
-        "proficiency": "Miscellaneous",
-        "speed": "2.40",
-        "requirements": {
-            "profession": {
-                "engineering": 50
-            }
-        },
-        "damage": [
-            "5  -  8 Damage"
-        ],
-        "dps": "2.7",
-        "step": 1,
-        "materials": {
-            "2840": 6
-        }
-    },
-    "6533": {
-        "n": "Aquadynamic Fish Attractor",
-        "q": 1,
-        "img": "inv_misc_food_26",
-        "requirements": {
-            "profession": {
-                "fishing": 100
-            }
-        },
-        "use": "When applied to your fishing pole, increases Fishing by 100 for 5 minutes.",
-        "step": 3,
-        "materials": {
-            "4364": 1,
-            "6530": 1,
-            "2841": 2
-        }
-    },
-    "6714": {
-        "n": "Ez-Thro Dynamite",
-        "q": 1,
-        "img": "inv_misc_bomb_06",
-        "requirements": {
-            "level": 10
-        },
-        "use": "The dynamite for Non-Engineers that nearly always gets to the target! Inflicts 51 to 70 Fire damage in a 5 yard radius. (cooldown 1 min)",
-        "step": 1,
-        "materials": {
-            "2592": 1,
-            "4364": 4
         }
     },
     "6712": {
@@ -881,6 +820,7 @@ var recipes = {
         "img": "inv_gizmo_rocketboot_01",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 41,
         "durability": 35,
         "use": "These dangerous looking boots significantly increase your run speed for 20 sec. They are prone to explode however, so use with caution. (cooldown 5 min)",
         "step": 1,
@@ -890,6 +830,37 @@ var recipes = {
             "4234": 4,
             "10559": 2,
             "10026": 1
+        }
+    },
+    "6533": {
+        "n": "Aquadynamic Fish Attractor",
+        "q": 1,
+        "img": "inv_misc_food_26",
+        "requirements": {
+            "profession": {
+                "fishing": 100
+            }
+        },
+        "use": "When applied to your fishing pole, increases Fishing by 100 for 5 minutes.",
+        "step": 3,
+        "materials": {
+            "4364": 1,
+            "6530": 1,
+            "2841": 2
+        }
+    },
+    "6714": {
+        "n": "Ez-Thro Dynamite",
+        "q": 1,
+        "img": "inv_misc_bomb_06",
+        "requirements": {
+            "level": 10
+        },
+        "use": "The dynamite for Non-Engineers that nearly always gets to the target! Inflicts 51 to 70 Fire damage in a 5 yard radius. (cooldown 1 min)",
+        "step": 1,
+        "materials": {
+            "2592": 1,
+            "4364": 4
         }
     },
     "7506": {
@@ -987,121 +958,6 @@ var recipes = {
             "4234": 1
         }
     },
-    "10507": {
-        "n": "Solid Dynamite",
-        "q": 1,
-        "img": "inv_misc_bomb_06",
-        "requirements": {
-            "profession": {
-                "engineering": 175
-            }
-        },
-        "use": "Inflicts 213 to 288 Fire damage in a 5 yard radius. (cooldown 1 min)",
-        "step": 2,
-        "materials": {
-            "10505": 1,
-            "4306": 1
-        }
-    },
-    "10514": {
-        "n": "Mithril Frag Bomb",
-        "q": 1,
-        "img": "inv_misc_bomb_02",
-        "requirements": {
-            "profession": {
-                "engineering": 205
-            }
-        },
-        "use": "Inflicts 149 to 202 Fire damage and stuns targets in a 8 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)",
-        "step": 3,
-        "materials": {
-            "10561": 1,
-            "10505": 1,
-            "10560": 1
-        }
-    },
-    "10546": {
-        "n": "Deadly Scope",
-        "q": 1,
-        "img": "inv_misc_spyglass_02",
-        "requirements": {
-            "level": 30
-        },
-        "use": "Attaches a permanent scope to a bow or gun that increases its damage by 5.",
-        "step": 1,
-        "materials": {
-            "4304": 2,
-            "7909": 2,
-            "10559": 1
-        }
-    },
-    "10548": {
-        "n": "Sniper Scope",
-        "q": 1,
-        "img": "inv_misc_spyglass_02",
-        "requirements": {
-            "level": 40
-        },
-        "use": "Attaches a permanent scope to a bow or gun that increases its damage by 7.",
-        "step": 1,
-        "materials": {
-            "6037": 2,
-            "7910": 1,
-            "10559": 1
-        }
-    },
-    "10562": {
-        "n": "Hi-Explosive Bomb",
-        "q": 1,
-        "img": "inv_misc_bomb_07",
-        "requirements": {
-            "profession": {
-                "engineering": 235
-            }
-        },
-        "use": "Inflicts 255 to 346 Fire damage and stuns targets in a 3 yard radius for 3 sec. Any damage will break the effect. (cooldown 1 min)",
-        "step": 4,
-        "materials": {
-            "10505": 2,
-            "10560": 1,
-            "10561": 2
-        }
-    },
-    "10586": {
-        "n": "The Big One",
-        "q": 1,
-        "img": "inv_misc_bomb_04",
-        "requirements": {
-            "profession": {
-                "engineering": 225
-            }
-        },
-        "use": "Inflicts 340 to 461 Fire damage and stuns targets for 5 sec in a 10 yard radius. Any damage will break the effect. (cooldown 1 min)",
-        "step": 2,
-        "materials": {
-            "10560": 1,
-            "10507": 6,
-            "9061": 1,
-            "10561": 1
-        }
-    },
-    "10646": {
-        "n": "Goblin Sapper Charge",
-        "q": 1,
-        "img": "spell_fire_selfdestruct",
-        "requirements": {
-            "profession": {
-                "engineering": 205
-            }
-        },
-        "use": "Explodes when triggered dealing 450 to 751 Fire damage to all enemies nearby and 375 to 626 damage to you. (cooldown 5 min)",
-        "step": 1,
-        "materials": {
-            "10560": 1,
-            "10505": 3,
-            "4338": 1
-        }
-    },
     "10498": {
         "n": "Gyromatic Micro-Adjustor",
         "q": 1,
@@ -1117,6 +973,7 @@ var recipes = {
         "img": "inv_helmet_47",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 38,
         "durability": 45,
         "stats": {
             "Spirit": 9,
@@ -1139,6 +996,7 @@ var recipes = {
         "img": "inv_helmet_47",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 44,
         "durability": 45,
         "resists": {
             "Fire": 17
@@ -1162,6 +1020,7 @@ var recipes = {
         "img": "inv_helmet_47",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 47,
         "durability": 45,
         "requirements": {
             "profession": {
@@ -1184,6 +1043,7 @@ var recipes = {
         "img": "inv_helmet_47",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 46,
         "durability": 45,
         "requirements": {
             "profession": {
@@ -1205,6 +1065,7 @@ var recipes = {
         "img": "inv_helmet_47",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 49,
         "durability": 45,
         "stats": {
             "Spirit": 13,
@@ -1227,6 +1088,7 @@ var recipes = {
         "img": "inv_helmet_44",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 57,
         "durability": 50,
         "stats": {
             "Random": 1,
@@ -1252,6 +1114,7 @@ var recipes = {
         "img": "inv_helmet_49",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 49,
         "durability": 45,
         "stats": {
             "Stamina": 15
@@ -1361,6 +1224,7 @@ var recipes = {
         "img": "inv_misc_cape_11",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 30,
         "durability": 30,
         "stats": {
             "Agility": 8
@@ -1385,6 +1249,7 @@ var recipes = {
         "img": "inv_helmet_25",
         "slot": "Head",
         "proficiency": "Mail",
+        "armor": 190,
         "durability": 60,
         "stats": {
             "Stamina": 15
@@ -1411,6 +1276,7 @@ var recipes = {
         "img": "inv_helmet_60",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 44,
         "durability": 45,
         "resists": {
             "Fire": 15
@@ -1435,6 +1301,7 @@ var recipes = {
         "img": "inv_helmet_47",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 45,
         "durability": 45,
         "stats": {
             "Spirit": 9,
@@ -1564,6 +1431,7 @@ var recipes = {
         "img": "inv_helmet_49",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 50,
         "durability": 45,
         "stats": {
             "Stamina": 15
@@ -1580,22 +1448,6 @@ var recipes = {
             "3860": 4,
             "9061": 4,
             "10543": 1
-        }
-    },
-    "10644": {
-        "n": "Recipe: Goblin Rocket Fuel",
-        "q": 1,
-        "img": "inv_scroll_03",
-        "requirements": {
-            "profession": {
-                "alchemy": 210
-            }
-        },
-        "use": "Teaches you how to make Goblin Rocket Fuel.",
-        "step": 1,
-        "materials": {
-            "10647": 1,
-            "10648": 1
         }
     },
     "10645": {
@@ -1615,86 +1467,135 @@ var recipes = {
             "7972": 4
         }
     },
-    "11590": {
-        "n": "Mechanical Repair Kit",
+    "10507": {
+        "n": "Solid Dynamite",
         "q": 1,
-        "img": "inv_gizmo_03",
+        "img": "inv_misc_bomb_06",
         "requirements": {
             "profession": {
-                "engineering": 200
+                "engineering": 175
             }
         },
-        "use": "Restores 700 health to a friendly mechanical target (cooldown 2 min)",
-        "step": 1,
+        "use": "Inflicts 213 to 288 Fire damage in a 5 yard radius. (cooldown 1 min)",
+        "step": 2,
         "materials": {
             "10505": 1,
-            "4338": 1,
-            "3860": 1
+            "4306": 1
         }
     },
-    "10716": {
-        "n": "Gnomish Shrink Ray",
+    "10644": {
+        "n": "Recipe: Goblin Rocket Fuel",
         "q": 1,
-        "img": "inv_gizmo_09",
-        "slot": "Trinket",
+        "img": "inv_scroll_03",
+        "requirements": {
+            "profession": {
+                "alchemy": 210
+            }
+        },
+        "use": "Teaches you how to make Goblin Rocket Fuel.",
+        "step": 1,
+        "materials": {
+            "10647": 1,
+            "10648": 1
+        }
+    },
+    "10514": {
+        "n": "Mithril Frag Bomb",
+        "q": 1,
+        "img": "inv_misc_bomb_02",
         "requirements": {
             "profession": {
                 "engineering": 205
             }
         },
-        "use": "Shrinks the target reducing their attack power by 250. Thats what it usually does anyway..... (cooldown 5 min)",
-        "step": 1,
+        "use": "Inflicts 149 to 202 Fire damage and stuns targets in a 8 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)",
+        "step": 3,
         "materials": {
-            "1529": 2,
-            "8151": 4,
-            "3860": 4,
-            "10560": 1,
-            "10559": 1
+            "10561": 1,
+            "10505": 1,
+            "10560": 1
         }
     },
-    "10720": {
-        "n": "Gnomish Net-o-Matic Projector",
+    "10546": {
+        "n": "Deadly Scope",
         "q": 1,
-        "img": "inv_misc_net_01",
-        "slot": "Trinket",
+        "img": "inv_misc_spyglass_02",
         "requirements": {
-            "profession": {
-                "engineering": 210
-            }
+            "level": 30
         },
-        "use": "Captures the target in a net for 10 sec. The net has a lot of hooks however and sometimes gets caught in the user's clothing when fired...... (cooldown 10 min)",
+        "use": "Attaches a permanent scope to a bow or gun that increases its damage by 5.",
         "step": 1,
         "materials": {
-            "3860": 4,
-            "10505": 2,
-            "4337": 4,
-            "10285": 2,
+            "4304": 2,
+            "7909": 2,
             "10559": 1
         }
     },
-    "10721": {
-        "n": "Gnomish Harm Prevention Belt",
-        "q": 2,
-        "img": "inv_belt_06",
-        "slot": "Waist",
-        "proficiency": "Leather",
-        "durability": 30,
-        "stats": {
-            "Stamina": 6
-        },
+    "10548": {
+        "n": "Sniper Scope",
+        "q": 1,
+        "img": "inv_misc_spyglass_02",
         "requirements": {
-            "profession": {
-                "engineering": 215
-            }
+            "level": 40
         },
-        "use": "A shield of force protects you from the next 500 damage done over the next 10 min. WARNING: Force Field may overload when struck temporarily removing the wearer from this dimension. (cooldown 1 hr)",
+        "use": "Attaches a permanent scope to a bow or gun that increases its damage by 7.",
         "step": 1,
         "materials": {
-            "7909": 2,
-            "10560": 1,
             "6037": 2,
-            "3860": 4,
-            "7387": 1
+            "7910": 1,
+            "10559": 1
+        }
+    },
+    "10562": {
+        "n": "Hi-Explosive Bomb",
+        "q": 1,
+        "img": "inv_misc_bomb_07",
+        "requirements": {
+            "profession": {
+                "engineering": 235
+            }
+        },
+        "use": "Inflicts 255 to 346 Fire damage and stuns targets in a 3 yard radius for 3 sec. Any damage will break the effect. (cooldown 1 min)",
+        "step": 4,
+        "materials": {
+            "10505": 2,
+            "10560": 1,
+            "10561": 2
+        }
+    },
+    "10586": {
+        "n": "The Big One",
+        "q": 1,
+        "img": "inv_misc_bomb_04",
+        "requirements": {
+            "profession": {
+                "engineering": 225
+            }
+        },
+        "use": "Inflicts 340 to 461 Fire damage and stuns targets for 5 sec in a 10 yard radius. Any damage will break the effect. (cooldown 1 min)",
+        "step": 2,
+        "materials": {
+            "10560": 1,
+            "10507": 6,
+            "9061": 1,
+            "10561": 1
+        }
+    },
+    "10646": {
+        "n": "Goblin Sapper Charge",
+        "q": 1,
+        "img": "spell_fire_selfdestruct",
+        "requirements": {
+            "profession": {
+                "engineering": 205
+            }
+        },
+        "use": "Explodes when triggered dealing 450 to 751 Fire damage to all enemies nearby and 375 to 626 damage to you. (cooldown 5 min)",
+        "step": 1,
+        "materials": {
+            "10560": 1,
+            "10505": 3,
+            "4338": 1
         }
     },
     "10724": {
@@ -1703,6 +1604,7 @@ var recipes = {
         "img": "inv_boots_02",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 41,
         "durability": 35,
         "requirements": {
             "profession": {
@@ -1747,6 +1649,7 @@ var recipes = {
         "img": "inv_helmet_49",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 50,
         "durability": 45,
         "stats": {
             "Spirit": 14
@@ -1811,77 +1714,67 @@ var recipes = {
             "7075": 1
         }
     },
-    "15993": {
-        "n": "Thorium Grenade",
+    "11590": {
+        "n": "Mechanical Repair Kit",
         "q": 1,
-        "img": "inv_misc_bomb_08",
+        "img": "inv_gizmo_03",
         "requirements": {
             "profession": {
-                "engineering": 260
+                "engineering": 200
             }
         },
-        "use": "Inflicts 300 to 501 Fire damage and stuns targets for 3 sec in a 3 yard radius. Any damage will break the effect. (cooldown 1 min)",
-        "step": 3,
-        "materials": {
-            "14047": 3,
-            "15992": 3,
-            "12359": 3,
-            "15994": 1
-        }
-    },
-    "16005": {
-        "n": "Dark Iron Bomb",
-        "q": 1,
-        "img": "inv_misc_bomb_05",
-        "requirements": {
-            "profession": {
-                "engineering": 285
-            }
-        },
-        "use": "Inflicts 225 to 676 Fire damage and stuns targets in a 5 yard radius for 4 sec. Any damage will break the effect. (cooldown 1 min)",
-        "step": 3,
-        "materials": {
-            "11371": 1,
-            "15994": 2,
-            "14047": 3,
-            "15992": 3
-        }
-    },
-    "16023": {
-        "n": "Masterwork Target Dummy",
-        "q": 1,
-        "img": "inv_crate_02",
-        "requirements": {
-            "profession": {
-                "engineering": 275
-            }
-        },
-        "use": "Drops a target dummy on the ground that attracts nearby monsters to attack it. Lasts for 15 seconds or until killed. (cooldown 2 min)",
+        "use": "Restores 700 health to a friendly mechanical target (cooldown 2 min)",
         "step": 1,
         "materials": {
-            "14047": 4,
-            "8170": 2,
-            "6037": 1,
-            "15994": 2,
-            "16000": 1,
-            "10561": 1
+            "10505": 1,
+            "4338": 1,
+            "3860": 1
         }
     },
-    "16040": {
-        "n": "Arcane Bomb",
+    "10716": {
+        "n": "Gnomish Shrink Ray",
         "q": 1,
-        "img": "spell_shadow_mindbomb",
+        "img": "inv_gizmo_09",
+        "slot": "Trinket",
         "requirements": {
             "profession": {
-                "engineering": 300
+                "engineering": 205
             }
         },
-        "use": "Drains 675 to 1126 mana from those in the blast radius and does 50% of the mana drained in damage to the target. Also Silences targets in the blast for 5 sec. (cooldown 1 min)",
-        "step": 3,
+        "use": "Shrinks the target reducing their attack power by 250. Thats what it usually does anyway..... (cooldown 5 min)",
+        "step": 1,
         "materials": {
-            "14047": 1,
-            "12359": 3,
-            "16006": 1
+            "1529": 2,
+            "8151": 4,
+            "3860": 4,
+            "10560": 1,
+            "10559": 1
+        }
+    },
+    "10721": {
+        "n": "Gnomish Harm Prevention Belt",
+        "q": 2,
+        "img": "inv_belt_06",
+        "slot": "Waist",
+        "proficiency": "Leather",
+        "armor": 66,
+        "durability": 30,
+        "stats": {
+            "Stamina": 6
+        },
+        "requirements": {
+            "profession": {
+                "engineering": 215
+            }
+        },
+        "use": "A shield of force protects you from the next 500 damage done over the next 10 min. WARNING: Force Field may overload when struck temporarily removing the wearer from this dimension. (cooldown 1 hr)",
+        "step": 1,
+        "materials": {
+            "7909": 2,
+            "10560": 1,
+            "6037": 2,
+            "3860": 4,
+            "7387": 1
         }
     },
     "15846": {
@@ -1982,6 +1875,7 @@ var recipes = {
         "img": "inv_helmet_47",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 57,
         "durability": 45,
         "requirements": {
             "profession": {
@@ -2079,6 +1973,7 @@ var recipes = {
         "img": "inv_helmet_47",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 61,
         "durability": 45,
         "stats": {
             "Spirit": 17,
@@ -2135,138 +2030,77 @@ var recipes = {
             "10576": 1
         }
     },
-    "18232": {
-        "n": "Field Repair Bot 74A",
+    "15993": {
+        "n": "Thorium Grenade",
         "q": 1,
-        "img": "inv_egg_05",
+        "img": "inv_misc_bomb_08",
+        "requirements": {
+            "profession": {
+                "engineering": 260
+            }
+        },
+        "use": "Inflicts 300 to 501 Fire damage and stuns targets for 3 sec in a 3 yard radius. Any damage will break the effect. (cooldown 1 min)",
+        "step": 3,
+        "materials": {
+            "14047": 3,
+            "15992": 3,
+            "12359": 3,
+            "15994": 1
+        }
+    },
+    "16005": {
+        "n": "Dark Iron Bomb",
+        "q": 1,
+        "img": "inv_misc_bomb_05",
+        "requirements": {
+            "profession": {
+                "engineering": 285
+            }
+        },
+        "use": "Inflicts 225 to 676 Fire damage and stuns targets in a 5 yard radius for 4 sec. Any damage will break the effect. (cooldown 1 min)",
+        "step": 3,
+        "materials": {
+            "11371": 1,
+            "15994": 2,
+            "14047": 3,
+            "15992": 3
+        }
+    },
+    "16023": {
+        "n": "Masterwork Target Dummy",
+        "q": 1,
+        "img": "inv_crate_02",
+        "requirements": {
+            "profession": {
+                "engineering": 275
+            }
+        },
+        "use": "Drops a target dummy on the ground that attracts nearby monsters to attack it. Lasts for 15 seconds or until killed. (cooldown 2 min)",
+        "step": 1,
+        "materials": {
+            "14047": 4,
+            "8170": 2,
+            "6037": 1,
+            "15994": 2,
+            "16000": 1,
+            "10561": 1
+        }
+    },
+    "16040": {
+        "n": "Arcane Bomb",
+        "q": 1,
+        "img": "spell_shadow_mindbomb",
         "requirements": {
             "profession": {
                 "engineering": 300
             }
         },
-        "use": "Unfolds into a Field Repair Bot that can repair damaged items and purchase unwanted goods. After 10 minutes its internal motor fails.",
-        "step": 1,
+        "use": "Drains 675 to 1126 mana from those in the blast radius and does 50% of the mana drained in damage to the target. Also Silences targets in the blast for 5 sec. (cooldown 1 min)",
+        "step": 3,
         "materials": {
-            "7068": 1,
-            "7067": 2,
-            "7191": 1,
-            "8170": 4,
-            "12359": 12
-        }
-    },
-    "18283": {
-        "n": "Biznicks 247x128 Accurascope",
-        "q": 3,
-        "img": "inv_misc_spyglass_02",
-        "requirements": {
-            "level": 50
-        },
-        "use": "Attaches a permanent scope to a bow or gun that increases its chance to hit by 3%.",
-        "step": 1,
-        "materials": {
-            "16000": 1,
-            "11371": 6,
-            "16006": 4,
-            "7076": 2,
-            "17011": 2
-        }
-    },
-    "18588": {
-        "n": "Ez-Thro Dynamite II",
-        "q": 1,
-        "img": "inv_misc_bomb_03",
-        "requirements": {
-            "level": 30
-        },
-        "use": "Inflicts 213 to 288 Fire damage in a 5 yard radius (Assuming that it gets to the target, some restrictions may apply.) (cooldown 1 min)",
-        "description": "The dynamite for Non-Engineers that rarely* blows up in your hand with over twice the blasting power of standard EZ-Thro.",
-        "step": 1,
-        "materials": {
-            "4338": 2,
-            "10505": 1
-        }
-    },
-    "18594": {
-        "n": "Powerful Seaforium Charge",
-        "q": 1,
-        "img": "spell_shadow_detectinvisibility",
-        "requirements": {
-            "profession": {
-                "engineering": 275
-            }
-        },
-        "use": "Blasts open nearly any locked door.",
-        "step": 1,
-        "materials": {
-            "15994": 2,
-            "159": 1,
-            "8170": 2,
-            "15992": 3
-        }
-    },
-    "18637": {
-        "n": "Major Recombobulator",
-        "q": 2,
-        "img": "inv_misc_enggizmos_09",
-        "slot": "Trinket",
-        "requirements": {
-            "profession": {
-                "engineering": 275
-            }
-        },
-        "use": "Dispels Polymorph effects on a friendly target. Also restores 375 to 626 health and mana. (cooldown 5 min)\n10 charges",
-        "step": 1,
-        "materials": {
-            "14047": 2,
-            "18631": 1,
-            "16000": 2
-        }
-    },
-    "18641": {
-        "n": "Dense Dynamite",
-        "q": 1,
-        "img": "inv_misc_bomb_06",
-        "requirements": {
-            "profession": {
-                "engineering": 250
-            }
-        },
-        "use": "Inflicts 340 to 461 Fire damage in a 5 yard radius. (cooldown 1 min)",
-        "step": 2,
-        "materials": {
-            "14047": 3,
-            "15992": 2
-        }
-    },
-    "18645": {
-        "n": "Alarm-O-Bot",
-        "q": 1,
-        "img": "inv_misc_enggizmos_13",
-        "requirements": {
-            "profession": {
-                "engineering": 265
-            }
-        },
-        "use": "Summons an Alarm-O-Bot for 10 minutes that occasionally sends out a pulse that detects nearby stealthy or invisible enemies. (cooldown 10 min)",
-        "step": 1,
-        "materials": {
-            "7910": 1,
-            "8170": 4,
-            "15994": 2,
-            "12359": 4,
-            "7191": 1
-        }
-    },
-    "19026": {
-        "n": "Snake Bloom Firework",
-        "q": 1,
-        "img": "spell_holy_holybolt",
-        "use": "Shoots a firework into the air that bursts in a yellow pattern.",
-        "step": 4,
-        "materials": {
-            "14047": 2,
-            "15992": 2,
-            "8150": 1
+            "14047": 1,
+            "12359": 3,
+            "16006": 1
         }
     },
     "18168": {
@@ -2275,6 +2109,7 @@ var recipes = {
         "img": "spell_arcane_portaldarnassus",
         "slot": "Off Hand",
         "proficiency": "Shield",
+        "armor": 2548,
         "durability": 120,
         "stats": {
             "Block": 44,
@@ -2497,6 +2332,214 @@ var recipes = {
             "3860": 12
         }
     },
+    "18232": {
+        "n": "Field Repair Bot 74A",
+        "q": 1,
+        "img": "inv_egg_05",
+        "requirements": {
+            "profession": {
+                "engineering": 300
+            }
+        },
+        "use": "Unfolds into a Field Repair Bot that can repair damaged items and purchase unwanted goods. After 10 minutes its internal motor fails.",
+        "step": 1,
+        "materials": {
+            "7068": 1,
+            "7067": 2,
+            "7191": 1,
+            "8170": 4,
+            "12359": 12
+        }
+    },
+    "18283": {
+        "n": "Biznicks 247x128 Accurascope",
+        "q": 3,
+        "img": "inv_misc_spyglass_02",
+        "requirements": {
+            "level": 50
+        },
+        "use": "Attaches a permanent scope to a bow or gun that increases its chance to hit by 3%.",
+        "step": 1,
+        "materials": {
+            "16000": 1,
+            "11371": 6,
+            "16006": 4,
+            "7076": 2,
+            "17011": 2
+        }
+    },
+    "18588": {
+        "n": "Ez-Thro Dynamite II",
+        "q": 1,
+        "img": "inv_misc_bomb_03",
+        "requirements": {
+            "level": 30
+        },
+        "use": "Inflicts 213 to 288 Fire damage in a 5 yard radius (Assuming that it gets to the target, some restrictions may apply.) (cooldown 1 min)",
+        "description": "The dynamite for Non-Engineers that rarely* blows up in your hand with over twice the blasting power of standard EZ-Thro.",
+        "step": 1,
+        "materials": {
+            "4338": 2,
+            "10505": 1
+        }
+    },
+    "18594": {
+        "n": "Powerful Seaforium Charge",
+        "q": 1,
+        "img": "spell_shadow_detectinvisibility",
+        "requirements": {
+            "profession": {
+                "engineering": 275
+            }
+        },
+        "use": "Blasts open nearly any locked door.",
+        "step": 1,
+        "materials": {
+            "15994": 2,
+            "159": 1,
+            "8170": 2,
+            "15992": 3
+        }
+    },
+    "18637": {
+        "n": "Major Recombobulator",
+        "q": 2,
+        "img": "inv_misc_enggizmos_09",
+        "slot": "Trinket",
+        "requirements": {
+            "profession": {
+                "engineering": 275
+            }
+        },
+        "use": "Dispels Polymorph effects on a friendly target. Also restores 375 to 626 health and mana. (cooldown 5 min)\n10 charges",
+        "step": 1,
+        "materials": {
+            "14047": 2,
+            "18631": 1,
+            "16000": 2
+        }
+    },
+    "18641": {
+        "n": "Dense Dynamite",
+        "q": 1,
+        "img": "inv_misc_bomb_06",
+        "requirements": {
+            "profession": {
+                "engineering": 250
+            }
+        },
+        "use": "Inflicts 340 to 461 Fire damage in a 5 yard radius. (cooldown 1 min)",
+        "step": 2,
+        "materials": {
+            "14047": 3,
+            "15992": 2
+        }
+    },
+    "18645": {
+        "n": "Alarm-O-Bot",
+        "q": 1,
+        "img": "inv_misc_enggizmos_13",
+        "requirements": {
+            "profession": {
+                "engineering": 265
+            }
+        },
+        "use": "Summons an Alarm-O-Bot for 10 minutes that occasionally sends out a pulse that detects nearby stealthy or invisible enemies. (cooldown 10 min)",
+        "step": 1,
+        "materials": {
+            "7910": 1,
+            "8170": 4,
+            "15994": 2,
+            "12359": 4,
+            "7191": 1
+        }
+    },
+    "19026": {
+        "n": "Snake Bloom Firework",
+        "q": 1,
+        "img": "spell_holy_holybolt",
+        "use": "Shoots a firework into the air that bursts in a yellow pattern.",
+        "step": 4,
+        "materials": {
+            "14047": 2,
+            "15992": 2,
+            "8150": 1
+        }
+    },
+    "19998": {
+        "n": "Bloodvine Lens",
+        "q": 3,
+        "img": "inv_helmet_44",
+        "slot": "Head",
+        "proficiency": "Leather",
+        "armor": 147,
+        "durability": 60,
+        "stats": {
+            "Stamina": 12
+        },
+        "requirements": {
+            "level": 60,
+            "profession": {
+                "engineering": 300
+            }
+        },
+        "equips": [
+            "Equip: Improves your chance to get a critical strike by 2%.",
+            "Equip: Slightly increases your stealth detection."
+        ],
+        "step": 1,
+        "materials": {
+            "12810": 4,
+            "12804": 8,
+            "16006": 1,
+            "19774": 5,
+            "19726": 5
+        }
+    },
+    "19999": {
+        "n": "Bloodvine Goggles",
+        "q": 3,
+        "img": "inv_helmet_47",
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "armor": 75,
+        "durability": 50,
+        "requirements": {
+            "level": 60,
+            "profession": {
+                "engineering": 300
+            }
+        },
+        "equips": [
+            "Equip: Restores 9 mana per 5 sec.",
+            "Equip: Improves your chance to hit with spells by 2%.",
+            "Equip: Improves your chance to get a critical strike with spells by 1%."
+        ],
+        "step": 1,
+        "materials": {
+            "12810": 4,
+            "12804": 8,
+            "16006": 2,
+            "19774": 5,
+            "19726": 4
+        }
+    },
+    "21277": {
+        "n": "Tranquil Mechanical Yeti",
+        "q": 1,
+        "img": "ability_hunter_pet_gorilla",
+        "use": "Right Click to summon and dismiss your Tranquil Mechanical Yeti.",
+        "bop": true,
+        "unique": true,
+        "step": 1,
+        "materials": {
+            "15407": 1,
+            "10558": 1,
+            "18631": 2,
+            "7079": 2,
+            "15994": 4
+        }
+    },
     "21557": {
         "n": "Small Red Rocket",
         "q": 1,
@@ -2633,78 +2676,6 @@ var recipes = {
             "8170": 1
         }
     },
-    "19998": {
-        "n": "Bloodvine Lens",
-        "q": 3,
-        "img": "inv_helmet_44",
-        "slot": "Head",
-        "proficiency": "Leather",
-        "durability": 60,
-        "stats": {
-            "Stamina": 12
-        },
-        "requirements": {
-            "level": 60,
-            "profession": {
-                "engineering": 300
-            }
-        },
-        "equips": [
-            "Equip: Improves your chance to get a critical strike by 2%.",
-            "Equip: Slightly increases your stealth detection."
-        ],
-        "step": 1,
-        "materials": {
-            "12810": 4,
-            "12804": 8,
-            "16006": 1,
-            "19774": 5,
-            "19726": 5
-        }
-    },
-    "19999": {
-        "n": "Bloodvine Goggles",
-        "q": 3,
-        "img": "inv_helmet_47",
-        "slot": "Head",
-        "proficiency": "Cloth",
-        "durability": 50,
-        "requirements": {
-            "level": 60,
-            "profession": {
-                "engineering": 300
-            }
-        },
-        "equips": [
-            "Equip: Restores 9 mana per 5 sec.",
-            "Equip: Improves your chance to hit with spells by 2%.",
-            "Equip: Improves your chance to get a critical strike with spells by 1%."
-        ],
-        "step": 1,
-        "materials": {
-            "12810": 4,
-            "12804": 8,
-            "16006": 2,
-            "19774": 5,
-            "19726": 4
-        }
-    },
-    "21277": {
-        "n": "Tranquil Mechanical Yeti",
-        "q": 1,
-        "img": "ability_hunter_pet_gorilla",
-        "use": "Right Click to summon and dismiss your Tranquil Mechanical Yeti.",
-        "bop": true,
-        "unique": true,
-        "step": 1,
-        "materials": {
-            "15407": 1,
-            "10558": 1,
-            "18631": 2,
-            "7079": 2,
-            "15994": 4
-        }
-    },
     "21716": {
         "n": "Large Green Rocket Cluster",
         "q": 1,
@@ -2737,15 +2708,6 @@ var recipes = {
             "2841": 2
         }
     },
-    "10505": {
-        "n": "Solid Blasting Powder",
-        "q": 1,
-        "img": "inv_misc_powder_black",
-        "step": 1,
-        "materials": {
-            "7912": 2
-        }
-    },
     "10713": {
         "n": "Plans: Inlaid Mithril Cylinder",
         "q": 1,
@@ -2760,6 +2722,31 @@ var recipes = {
         "materials": {
             "10647": 1,
             "10648": 1
+        }
+    },
+    "10505": {
+        "n": "Solid Blasting Powder",
+        "q": 1,
+        "img": "inv_misc_powder_black",
+        "step": 1,
+        "materials": {
+            "7912": 2
+        }
+    },
+    "4358": {
+        "n": "Rough Dynamite",
+        "q": 1,
+        "img": "inv_misc_bomb_06",
+        "requirements": {
+            "profession": {
+                "engineering": 1
+            }
+        },
+        "use": "Inflicts 26 to 35 Fire damage in a 5 yard radius. (cooldown 1 min)",
+        "step": 2,
+        "materials": {
+            "4357": 2,
+            "2589": 1
         }
     },
     "17716": {
@@ -2778,6 +2765,44 @@ var recipes = {
             "17202": 4,
             "4389": 4,
             "3860": 8
+        }
+    },
+    "4403": {
+        "n": "Portable Bronze Mortar",
+        "q": 1,
+        "img": "inv_musket_01",
+        "requirements": {
+            "profession": {
+                "engineering": 165
+            }
+        },
+        "use": "Inflicts 85 to 116 Fire damage and stuns targets in a 5 yard radius for 2 sec. Any damage will break the effect. (cooldown 1 min)\n8 charges",
+        "step": 1,
+        "materials": {
+            "2319": 4,
+            "4377": 4,
+            "4387": 1,
+            "4371": 4
+        }
+    },
+    "10720": {
+        "n": "Gnomish Net-o-Matic Projector",
+        "q": 1,
+        "img": "inv_misc_net_01",
+        "slot": "Trinket",
+        "requirements": {
+            "profession": {
+                "engineering": 210
+            }
+        },
+        "use": "Captures the target in a net for 10 sec. The net has a lot of hooks however and sometimes gets caught in the user's clothing when fired...... (cooldown 10 min)",
+        "step": 1,
+        "materials": {
+            "3860": 4,
+            "10505": 2,
+            "4337": 4,
+            "10285": 2,
+            "10559": 1
         }
     }
 }
@@ -3515,4 +3540,3 @@ var materials = {
         "use": "Throw me!"
     }
 }
-var itemsets = {}

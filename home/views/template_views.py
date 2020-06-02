@@ -437,7 +437,15 @@ class ConsumeToolTemplate(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
-		context["form"] = self.form_class()
+
+		context['form'] = self.form_class()
+
+		# context["form"] = self.form_class()
+
+		# form = self.form_class()
+		# if form.is_valid():
+			# context["form"] = self.form_class()
+
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
@@ -527,132 +535,145 @@ class ConsumeToolTemplate(TemplateView):
 		return response
 
 	def post(self, request, *args, **kwargs):
-		form = self.form_class(request.POST)
-		context = {}
-		context['form'] = form
-		if form.is_valid():
-			if request.is_ajax():
-				try:
-					form_data = self.save_list(request, form.cleaned_data)
-					name = form_data['name']
-					created = form_data['created']
-					update_or_create = 'created' if created else 'updated'
-					message = "Successfully {} list: {}".format(update_or_create, name)
-					data = {
-						'name': name,
-						'spent': form_data['spent'],
-						'hash': form_data['hash'],
-						'created': created,
-						'message': message,
-						'id': form_data['id']
-					}
-					response = JsonResponse(data)
-				except IntegrityError as e:
-					name = request.POST.get('name', None)
-					message = "User {} already has consume list with name: {}".format(request.user.email, name)
-					data = {
-						'name': name,
-						'message': message
-					}
-					response = JsonResponse(data)
-					response.status_code = 400
 
-			else:
-				response = HttpResponseRedirect('profession_tool')
-		else:
+		if request.method == 'POST':
+			form = self.form_class(request.POST)
 			context = {}
 
-			context["form"] = self.form_class()
-			context["professions"] = [
-				"engineering", "alchemy", "blacksmithing", "cooking",
-				"tailoring", "other", "leatherworking", "enchanting", "first_aid",
-				"skinning", "mining", "herbalism", "fishing"
-			]
-
-			id,cl = False,False
-
-			if 'id' in request.session:
-				id = request.session['id']
-				del request.session['id']
-
-			elif 'id' in self.kwargs.keys():
-				id = self.kwargs.get('id')
-
-			if id:
-				cl = ConsumeList.objects.filter(id=id).first()
-
-			if cl:
-				context['ix'] = id
-				context["consume_list"] = cl
-				context['materials'] = get_materials(context["consume_list"])
-				context['consumes'] = {}
-
-				for consume in cl.consumes.all():
-					prof_name = sanitize(consume.item.profession.name) if consume.item.profession else 'other'
-					if prof_name not in context['consumes'].keys():
-						context['consumes'][prof_name] = {}
-					context['consumes'][prof_name][consume.name] = consume.amount
-
-			prof = self.kwargs.get("prof", None)
-			context["recipes"] = {}
-			context["selected"] = prof
-
-			if prof=='other':
-				all_recipes = Crafted.objects.filter(profession=None).order_by('item')
-				# context["recipes"] = Crafted.objects.filter(prof=None)
-			elif prof:
-				all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
-			else:
-				all_recipes = []
+			if form.is_valid():
+				context['form'] = form
+				if request.is_ajax():
+					try:
+						form_data = self.save_list(request, form.cleaned_data)
 
 
-			if all_recipes:
+						name = form_data['name']
+						created = form_data['created']
+						update_or_create = 'created' if created else 'updated'
+						message = "Successfully {} list: {}".format(update_or_create, name)
+						data = {
+							'name': name,
+							'spent': form_data['spent'],
+							'hash': form_data['hash'],
+							'created': created,
+							'message': message,
+							'id': form_data['id']
+						}
+						consume_list = ConsumeList.objects.filter(id=form_data['id'], hash=form_data['hash'])
+						if consume_list:
+							consume_list = consume_list.first()
+							data['img'] = consume_list.img
+							profs_used = consume_list.profs_used[0]
 
-				if all_recipes.count() > 50:
-					# pagination
-					items_per_page = int(request.POST.get('results_per_page', 30))
-					page_number = int(request.POST.get('page', 1))
-					num_recipes = all_recipes.count()
+							data['profs'] = profs_used
 
-					context['pagination'] = {}
-					context['pagination'] = self.paginator(num_recipes, page_number, items_per_page)
+						response = JsonResponse(data)
+					except IntegrityError as e:
+						name = request.POST.get('name', None)
+						message = "User {} already has consume list with name: {}".format(request.user.email, name)
+						data = {
+							'name': name,
+							'message': message
+						}
+						response = JsonResponse(data)
+						response.status_code = 400
 
-					START = context['pagination']['START']
-					STOP = context['pagination']['STOP']
-
-					context["recipes"] = all_recipes[START:STOP]
 				else:
-					context["recipes"] = all_recipes
+					response = HttpResponseRedirect('profession_tool')
+			else:
+				context = {}
 
-			# context["recipes"] = recipes
-			qs = request.META.get('QUERY_STRING', None)
+				context["form"] = self.form_class()
+				context["professions"] = [
+					"engineering", "alchemy", "blacksmithing", "cooking",
+					"tailoring", "other", "leatherworking", "enchanting", "first_aid",
+					"skinning", "mining", "herbalism", "fishing"
+				]
 
-			data = dict(request.POST)
+				id,cl = False,False
 
-			if data.keys() and qs:
-				# context['consumes'] = {}
-				context['materials'] = {}
-				cl = ConsumeList.objects.filter(hash=qs).first()
+				if 'id' in request.session:
+					id = request.session['id']
+					del request.session['id']
+
+				elif 'id' in self.kwargs.keys():
+					id = self.kwargs.get('id')
+
+				if id:
+					cl = ConsumeList.objects.filter(id=id).first()
+
 				if cl:
-					context['consume_list'] = cl
-					context['materials'] = get_materials(cl)
+					context['ix'] = id
+					context["consume_list"] = cl
+					context['materials'] = get_materials(context["consume_list"])
+					context['consumes'] = {}
 
+					for consume in cl.consumes.all():
+						prof_name = sanitize(consume.item.profession.name) if consume.item.profession else 'other'
+						if prof_name not in context['consumes'].keys():
+							context['consumes'][prof_name] = {}
+						context['consumes'][prof_name][consume.name] = consume.amount
 
-			if request.is_ajax():
-				if 'prof' in data.keys():
-					response = render(request, "recipe_helper.html", context=context)
+				prof = self.kwargs.get("prof", None)
+				context["recipes"] = {}
+				context["selected"] = prof
+
+				if prof=='other':
+					all_recipes = Crafted.objects.filter(profession=None).order_by('item')
+					# context["recipes"] = Crafted.objects.filter(prof=None)
+				elif prof:
+					all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
 				else:
-					response = render(request, "consume_helper.html", context=context)
-			else:
-				context["whole_page"] = True
-				response = render(request, "profession_tool.html", context=context)
+					all_recipes = []
+
+
+				if all_recipes:
+
+					if all_recipes.count() > 50:
+						# pagination
+						items_per_page = int(request.POST.get('results_per_page', 30))
+						page_number = int(request.POST.get('page', 1))
+						num_recipes = all_recipes.count()
+
+						context['pagination'] = {}
+						context['pagination'] = self.paginator(num_recipes, page_number, items_per_page)
+
+						START = context['pagination']['START']
+						STOP = context['pagination']['STOP']
+
+						context["recipes"] = all_recipes[START:STOP]
+					else:
+						context["recipes"] = all_recipes
+
+				# context["recipes"] = recipes
+				qs = request.META.get('QUERY_STRING', None)
+
+				data = dict(request.POST)
+
+				if data.keys() and qs:
+					# context['consumes'] = {}
+					context['materials'] = {}
+					cl = ConsumeList.objects.filter(hash=qs).first()
+					if cl:
+						context['consume_list'] = cl
+						context['materials'] = get_materials(cl)
+
+
+				if request.is_ajax():
+					if 'prof' in data.keys():
+						response = render(request, "recipe_helper.html", context=context)
+					else:
+						response = render(request, "consume_helper.html", context=context)
+				else:
+					context["whole_page"] = True
+					response = render(request, "profession_tool.html", context=context)
+
+				return response
+
+				print('save failed, redirecting to previous page...')
+				response = HttpResponseRedirect('profession_tool')
 
 			return response
-
-			print('save failed, redirecting to previous page...')
-			response = HttpResponseRedirect('profession_tool')
-
-		return response
 
 
 	#####################################################################

@@ -30,7 +30,6 @@
 					</div>
 					{% else %}
 					<div class="spec-list-item" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name|sanitize}}" style="position:relative;">{{spec.name}}
-
 						<a href="{% url 'talent_builder' spec.id %}?{{spec.hash}}">
 							<span style="left: 0; top: 0; position: absolute; width: 80%; height: 100%;"></span>
 						</a>
@@ -57,25 +56,21 @@
 						<span>{{shorthand}}{% else %}, {{shorthand}}</span>
 						{% endif %}{% endfor %}
 					</div>
-					{% if "profession_tool" in request.path %}
-					<div class="spec-list-item" href="{% url 'consume_helper' %}?{{consume_list.hash}}"
-						data-ix="{{consume_list.id}}" name="{{consume_list.name}}" style="position: relative;">{{consume_list.name}}
+					<div class="spec-list-item" name="{{consume_list.name}}">{{consume_list.name}}
+						<span class="saved-list-name">
+							{% if "profession_tool" in request.path %}
+							<a class="saved-list-link" href="{% url 'consume_helper' %}?{{consume_list.hash}}">
+							</a>
+							{% else %}
+							<a class="saved-list-link external" href="{% url 'consume_builder' %}?{{consume_list.hash}}">
+							</a>
+							{% endif %}
+						</span>
 						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 							value="{{consume_list.name}}" type="button">
 							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
 						</button>
 					</div>
-					{% else %}
-					<div class="spec-list-item" name="{{consume_list.name}}" style="position:relative;">{{consume_list.name}}
-						<a href="{% url 'consume_builder' %}?{{consume_list.hash}}">
-							<span style="left: 0; position: absolute; width: 80%; height: 100%;"></span>
-						</a>
-						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
-							value="{{consume_list.name}}" type="button">
-							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
-						</button>
-					</div>
-					{% endif %}
 				</div>
 				</div>
 				{% endfor %}

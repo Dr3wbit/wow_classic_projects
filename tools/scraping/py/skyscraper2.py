@@ -51,7 +51,7 @@ def main():
 			upper_items = upper_table.text.split("\n")
 
 			css_class_name = upper_table.find_element(By.TAG_NAME, 'b').get_attribute("class")
-			infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[1].find_element(By.TAG_NAME, 'ul')
+			# infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[3].find_element(By.TAG_NAME, 'ul')
 
 			ALL_ITEMS[I] = {}
 			ALL_ITEMS[I]['i'] = int(ix)
@@ -68,11 +68,12 @@ def main():
 			if image_name not in const.ALL_IMAGES:
 				const.ALL_IMAGES.append(ALL_ITEMS[I]['image_name'])
 
-			ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
+			# ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
 
-			moneybox = infobox.find_elements(By.TAG_NAME, 'li')
-			if len(moneybox) > 1:
-				ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
+			# moneybox = infobox.find_elements(By.TAG_NAME, 'li')
+
+			# if len(moneybox) > 1:
+			# 	ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
 
 			if any(x for x in upper_items if x in const.BOP):
 				ALL_ITEMS[I]['bop'] = True
@@ -144,10 +145,10 @@ def main():
 			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
 			ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table, I)
 
-			if check_element_exists_by_id("tab-created-by"):
-				driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
-				tab = driver.find_element(By.ID, "tab-created-by")
-				created_by(tab, I)
+			# if check_element_exists_by_id("tab-created-by"):
+			# 	driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
+			# 	tab = driver.find_element(By.ID, "tab-created-by")
+			# 	created_by(tab, I)
 
 			iStop = datetime.datetime.now()
 
@@ -157,14 +158,10 @@ def main():
 			print('{:<33} {:<8} {:>4}s'.format(nnn, iii, round((iStop - iStart).total_seconds(), 2)))
 
 
-			if 'Consumable' in infobox.text:
-				ALL_ITEMS[I]['consume'] = True
-				NEW['CONSUME'] += 1
+			# if 'Consumable' in infobox.text:
+			# 	ALL_ITEMS[I]['consume'] = True
+			# 	NEW['CONSUME'] += 1
 
-			if check_element_exists_by_id("tab-created-by"):
-				driver.find_element(By.ID, "tabs-generic").find_element(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[contains(text(), 'Created')]]").click()
-				tab = driver.find_element(By.ID, "tab-created-by")
-				created_by(tab, I)
 
 
 		else:

@@ -5,16 +5,15 @@ $(document).ready(function() {
 });
 
 window.addEventListener('load', function(e) {
-	const ALL_PROFS = ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'first_aid', 'leatherworking', 'mining', 'other', 'skinning'];
-
 	// figure out which profession(if any) is in the url
-	var selectedProfession = ALL_PROFS.filter(substring => document.location.pathname.includes(substring))
+	var selectedProfession = professionTool.ALL_PROFS.filter(substring => document.location.pathname.includes(substring))
 	if (selectedProfession.length) { // simulate click on said profession
 		$(`#${selectedProfession[0]}.prof-filter`).trigger("click")
 	}
 
 	// var matchedhref = checkLocalHashes()
 	if (document.location.search) {
+		professionTool.remove.all()
 		getConsumeList(document.location)
 	}
 
@@ -22,22 +21,50 @@ window.addEventListener('load', function(e) {
 	recipeHandlers()
 });
 
-var consumeList = {
+
+function updateSelectedList() {
+
+	var currentSelection = document.querySelector('div.spec-list-item.selected')
+	if (currentSelection) {
+		currentSelection.classList.remove('selected')
+	}
+
+	var selectedList = checkLocalHashes()
+	if (selectedList) {
+		selectedList.classList.add('selected')
+	}
+}
+
+function getHash(href) {
+	var myURL = new URL(href=href, base=document.location)
+	return myURL.search
+}
+
+function checkLocalHashes() {
+	var savedListElems = document.querySelectorAll('div.spec-list-item')
+	var hashes = Array.from(savedListElems, x => getHash(x.querySelector('a').getAttribute('href')))
+	var index = hashes.findIndex(substring => document.location.href.includes(substring))
+	return (index) ? savedListElems[index] : false
+}
+
+var professionTool = {
+	ALL_PROFS: ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'first_aid', 'leatherworking', 'mining', 'other', 'skinning'],
 	ALL_RECIPES: {},
 	ALL_ITEMS: {},
 	ALL_ITEMSETS: {},
 	PROF_DATA: {},
 	monkeyList: '',
-	CONSUMES: {MATERIALS:{}},
+	CONSUMES: {},
+	MATERIALS: {},
 	combine: '',
 	update: {
 		item: function(ix, amount=1, step=1) {
-			var recipe = consumeList.ALL_ITEMS[ix]
-			consumeList.add.item(consumeList.CONSUMES, ix, amount, step, 'consumes')
+			var recipe = professionTool.ALL_ITEMS[ix]
+			professionTool.add.item(professionTool.CONSUMES, ix, amount, step, 'consumes')
 
 			for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
 				// var materialStep = (material.step) ? material.step : matStep.step
-				consumeList.add.item(consumeList.CONSUMES.MATERIALS, matIX, amount, materialStep, 'materials')
+				professionTool.add.item(professionTool.MATERIALS, matIX, amount, materialStep, 'materials')
 			}
 		},
 		container: function(ix, parent) {
@@ -46,44 +73,43 @@ var consumeList = {
 			if (parent == 'consumes') {
 				parentElem = document.getElementById('consumes')
 				var dataContainer = parentElem.querySelector(`div.consume-list-item.data-container[data-ix="${ix}"]`)
-				dataContainer.querySelector('span.consume-container > span.amount').innerText = consumeList.CONSUMES[ix]
+				dataContainer.querySelector('span.consume-container > span.amount').innerText = professionTool.CONSUMES[ix]
 
-				var recipe = consumeList.ALL_ITEMS[ix]
+				var recipe = professionTool.ALL_ITEMS[ix]
 				var materialsList = dataContainer.querySelector('div.materials-list')
 
 				for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
-					// var materialStep = (mat.step) ? mat.step : mat
 					var materialElem = materialsList.querySelector(`div.data-container.materials-list-item[data-ix="${matIX}"] > span.material-container > span.amount`)
-					materialElem.innerText = (consumeList.CONSUMES[ix]/recipe.step)*materialStep
+					materialElem.innerText = (professionTool.CONSUMES[ix]/recipe.step)*materialStep
 				}
-
 			} else {
 				parentElem = document.getElementById('materials')
-				parentElem.querySelector(`div.materials-list-item.data-container[data-ix="${ix}"] > span.material-container > span.amount`).innerText = consumeList.CONSUMES.MATERIALS[ix]
+				parentElem.querySelector(`div.materials-list-item.data-container[data-ix="${ix}"] > span.material-container > span.amount`).innerText = professionTool.MATERIALS[ix]
 			}
 		},
 	},
-	addExisting: function(data) {
-		var recipes = data.consume_list
-		consumeList.ALL_ITEMS = Object.assign(consumeList.ALL_ITEMS, recipes)
-		consumeList.ALL_ITEMS = Object.assign(consumeList.ALL_ITEMS, data.material_list)
+	addExisting: function(d) {
 
-		for (let [ix, consume] of Object.entries(recipes)) {
-			consumeList.update.item(ix, consume.amount, consume.step)
+		var data = (d.responseJSON) ? d.responseJSON : d
+		professionTool.ALL_ITEMS = Object.assign(professionTool.ALL_ITEMS, data.consume_list)
+		professionTool.ALL_ITEMS = Object.assign(professionTool.ALL_ITEMS, data.material_list)
+
+		for (let [ix, consume] of Object.entries(data.consume_list)) {
+			professionTool.update.item(ix, consume.amount, consume.step)
 		}
 	},
 	add: {
 		item: function(itemObj, ix, amount=1, step=1, parent) {
 			if (!itemObj[ix]) {
 				itemObj[ix] = amount * step
-				consumeList.add.toPage(ix, parent)
+				professionTool.add.toPage(ix, parent)
 			} else {
 				itemObj[ix] += amount * step
-				consumeList.update.container(ix, parent)
+				professionTool.update.container(ix, parent)
 			}
 
 			if (itemObj[ix] <= 0) {
-				consumeList.remove(ix, parent)
+				professionTool.remove.item(ix, parent)
 				delete itemObj[ix]
 			}
 		},
@@ -94,7 +120,7 @@ var consumeList = {
 
 			//create_element(tag, class_name, style, text, dataAttrs={})
 			if (parent == 'consumes') {
-				var recipe = consumeList.ALL_ITEMS[ix]
+				var recipe = professionTool.ALL_ITEMS[ix]
 				parentElem = document.getElementById('consumes')
 				var dataContainer = create_element('div', 'consume-list-item data-container', '', '', {'data-ix': ix}),
 					expandButton = create_element('span', 'consume-container collapsed', '', '', {'data-toggle': 'collapse', 'href': `#${sanitize(recipe.n)}_collapse`, 'role':'button'}),
@@ -106,7 +132,7 @@ var consumeList = {
 				consumeImage.src = iconBorderPath
 
 				var consumeName = create_element('span', `consume-name q${recipe.q}`, '', recipe.n),
-					consumeAmount = create_element('span', 'amount', '', consumeList.CONSUMES[ix]),
+					consumeAmount = create_element('span', 'amount', '', professionTool.CONSUMES[ix]),
 					materialCollapse = create_element('div', 'materials-list collapse');
 
 
@@ -136,8 +162,8 @@ var consumeList = {
 				dataContainer.appendChild(materialCollapse)
 
 				for (let [matIX, matStep] of Object.entries(recipe.materials)) {
-					var materialAmount = (consumeList.CONSUMES[ix]/recipe.step)*matStep,
-						material = consumeList.ALL_ITEMS[matIX],
+					var materialAmount = (professionTool.CONSUMES[ix]/recipe.step)*matStep,
+						material = professionTool.ALL_ITEMS[matIX],
 						materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX}),
 						materialContainer = create_element('span', 'material-container');
 
@@ -173,7 +199,7 @@ var consumeList = {
 			} else {
 				parentElem = document.getElementById('materials')
 
-				var material = consumeList.ALL_ITEMS[ix],
+				var material = professionTool.ALL_ITEMS[ix],
 					dataContainer = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': ix}),
 					materialContainer = create_element('span', 'material-container');
 				var imagePath = `${imagePrefix}${material.img}`
@@ -181,7 +207,7 @@ var consumeList = {
 
 				materialImage.src = static_url+'images/icons/small/icon_border.png'
 				var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
-					amountSpan = create_element('span', 'amount', '', consumeList.CONSUMES.MATERIALS[ix]);
+					amountSpan = create_element('span', 'amount', '', professionTool.MATERIALS[ix]);
 
 				parentElem.appendChild(dataContainer)
 				dataContainer.appendChild(materialContainer)
@@ -200,12 +226,19 @@ var consumeList = {
 		// 	addConsumeToPage(ix, consume, num_added=1, step=1)
 		// }
 	},
-	remove: function(ix, parent) {
-		var parentElem = document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']`)
-		while (parentElem.firstChild) {
-			parentElem.removeChild(parentElem.firstChild);
+	remove: {
+		item: function(ix, parent) {
+			var parentElem = document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']`)
+			while (parentElem.firstChild) {
+				parentElem.removeChild(parentElem.firstChild);
+			}
+			parentElem.remove()
+		},
+		all: function() {
+			for (let [ix, amount] of Object.entries(professionTool.CONSUMES)) {
+				professionTool.update.item(ix, amount*-1)
+			}
 		}
-		parentElem.remove()
 	}
 }
 
@@ -222,7 +255,8 @@ function getItemInfo(ix, completeCallback=getItemInfoComplete) {
 		},
         complete: function(response) {
 			completeCallback(response)
-		}
+		},
+		error: notFoundError
 	});
 }
 
@@ -254,9 +288,19 @@ function getConsumeList(url) {
 		url: '/ajax/consume_list_builder/',
 		data: data,
 		dataType: 'json',
-		success: consumeList.addExisting,
-		complete: consumeList.build
+		success: professionTool.addExisting,
+		complete: updateSelectedList,
+		error: notFoundError,
 	});
+}
+
+
+function notFoundError(jqXHR, textStatus, errorThrown) {
+	notifyUser(errorThrown)
+	console.log('\n**error**\n')
+	console.log(jqXHR)
+	console.log(textStatus)
+	console.log(errorThrown)
 }
 
 function initListObj() {
@@ -269,20 +313,14 @@ function initListObj() {
 		],
 	};
 
-	consumeList.monkeyList = new List('recipe_list', listOptions);
+	professionTool.monkeyList = new List('recipe_list', listOptions);
 	listObjHandlers()
 }
 
 function updateURL(prof='', search='') {
 	var path = "/profession_tool"
-	if (Boolean(prof)) {
-		path += "/"+prof
-	}
-
-	if (Boolean(search)) {
-		path += search
-	}
-
+	path = (Boolean(prof)) ? path + "/" + prof : path
+	path = (Boolean(search)) ? path + search : path
 	history.pushState(null, prof, path)
 }
 
@@ -295,7 +333,7 @@ function listObjHandlers() {
 		sortingOrder.removeClass('hidden').removeClass('untouchable')
 		$('#sorting').addClass("remove-carrat")
 		sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
-		consumeList.monkeyList.sort(sortBySelection.toLowerCase(), {
+		professionTool.monkeyList.sort(sortBySelection.toLowerCase(), {
 			order: 'desc'
 		});
 	});
@@ -311,7 +349,7 @@ function listObjHandlers() {
 			sort_order = 'desc'
 			glyph_triangle.removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
 		}
-		consumeList.monkeyList.sort(sortBySelection, {
+		professionTool.monkeyList.sort(sortBySelection, {
 			order: sort_order
 		});
 
@@ -319,7 +357,7 @@ function listObjHandlers() {
 
 	$('#search_bar').on('keyup', function() {
 		var searchString = $(this).val();
-		consumeList.monkeyList.search(searchString);
+		professionTool.monkeyList.search(searchString);
 	});
 }
 
@@ -364,9 +402,13 @@ function recipeHandlers() {
 			var multiple = (e.shiftKey) ? 5 : 1
 			multiple = (e.which === 3) ? multiple * (-1) : multiple
 			var ix = $(e.target).closest(".data-container").attr("data-ix")
-			var step = consumeList.ALL_ITEMS[ix].step
-			consumeList.update.item(ix, multiple, step)
-			combatText(e, multiple * step)
+			var step = professionTool.ALL_ITEMS[ix].step
+
+			var amount = step * multiple
+			amount = ((amount + professionTool.CONSUMES[ix]) >= 0) ? (amount) : (professionTool.CONSUMES[ix] * -1)
+			professionTool.update.item(ix, multiple, step)
+
+			combatText(e, amount)
 		}
 		return
 	})
@@ -413,14 +455,18 @@ function consumeHandlers() {
 			var multiple = (e.shiftKey) ? 5 : 1
 			var dataContainer = $(e.target).closest(".data-container")
 			var ix = dataContainer.attr("data-ix")
-			var step = consumeList.ALL_ITEMS[ix].step
+			var step = professionTool.ALL_ITEMS[ix].step
 
 			if (e.target.matches('.sub-button')) {
 				multiple = multiple * (-1)
 			}
+			var amount = step*multiple
+			amount = ((amount + professionTool.CONSUMES[ix]) >= 0) ? (amount) : (professionTool.CONSUMES[ix] * -1)
 
-			consumeList.update.item(ix, multiple, step)
-			combatText(e, multiple * step)
+			professionTool.update.item(ix, multiple, step)
+
+			console.log('amount: ', amount)
+			combatText(e, amount)
 			return
 		}
 		return
@@ -443,10 +489,10 @@ function consumeHandlers() {
 
 function getRecipeList(prof) {
 
-	if (!Object.keys(consumeList.ALL_RECIPES).includes(prof)) {
+	if (!Object.keys(professionTool.ALL_RECIPES).includes(prof)) {
 		addScript(prof)
 	} else {
-		buildRecipeList(consumeList.ALL_RECIPES[prof])
+		buildRecipeList(professionTool.ALL_RECIPES[prof])
 	}
 
 }
@@ -486,11 +532,11 @@ function emptyRecipeList() {
 
 function scriptLoaded(prof) {
 
-	consumeList.ALL_ITEMS = Object.assign(consumeList.ALL_ITEMS, materials)
-	consumeList.ALL_ITEMS = Object.assign(consumeList.ALL_ITEMS, recipes)
+	professionTool.ALL_ITEMS = Object.assign(professionTool.ALL_ITEMS, materials)
+	professionTool.ALL_ITEMS = Object.assign(professionTool.ALL_ITEMS, recipes)
 
-	consumeList.ALL_RECIPES[prof] = recipes
-	consumeList.ALL_ITEMSETS = Object.assign(consumeList.ALL_ITEMSETS, itemsets)
+	professionTool.ALL_RECIPES[prof] = recipes
+	professionTool.ALL_ITEMSETS = Object.assign(professionTool.ALL_ITEMSETS, itemsets)
 
 	buildRecipeList(recipes)
 }
@@ -556,7 +602,7 @@ function buildRecipeList(recipes) {
 
 		for (let [matIX, step] of Object.entries(recipe.materials)) {
 
-			var mat = consumeList.ALL_ITEMS[matIX]
+			var mat = professionTool.ALL_ITEMS[matIX]
 			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}`, '', '', {'data-ix': matIX}) // t2
 			matDataContainer.name = mat.n
 
@@ -633,43 +679,4 @@ function listObjUnhandlers() {
 	$('#sorting').removeClass('remove-carrat')
 	$('#sorting_order').addClass('hidden').addClass('untouchable')
 	$('#current_sort').text('Sort')
-}
-
-function addSavedList(name) {
-
-	let deleteBtn = $('<a/>', {
-		class: "btn btn-sm float-right trashcan",
-		title: "Delete",
-	}).on('click', function() {
-		removeSavedList(name)
-	})
-
-	deleteBtn.append($('<span/>', {
-		class: "glyphicon glyphicon-trash",
-		style: "color: azure;"
-	}))
-
-	let savedList = $('<div/>', {
-		class: 'saved-list',
-		name: name
-	})
-
-	savedList.append($('<span/>', {
-		class: 'saved-list-name',
-		text: name,
-	}), deleteBtn)
-
-	$(".savedListsContainer").append(savedList)
-}
-
-function getHash(href) {
-	var myURL = new URL(href=href, base=document.location)
-	return myURL.search
-}
-
-function checkLocalHashes() {
-	var savedListElems = document.querySelectorAll('div.spec-list-item[href]')
-	var hashes = Array.from(savedListElems, x => getHash(x.getAttribute('href')))
-	var index = hashes.findIndex(substring => document.location.href.includes(substring))
-	return index
 }

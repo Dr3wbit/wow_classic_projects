@@ -8,17 +8,18 @@ from django.template.loader import render_to_string
 
 def consume_list_builder(request):
 	data = {}
-
+	status_code = 200
 	hash = request.GET.get('hash', None)
 	qs = request.META.get('QUERY_STRING', None)
 
 	hash = hash.replace("?", "")
+	consume_list = {}
+	material_list = {}
 
 	if hash:
 
 		cl = ConsumeList.objects.filter(hash=hash)
-		consume_list = {}
-		material_list = {}
+
 		if cl:
 			cl = cl.first()
 
@@ -31,27 +32,18 @@ def consume_list_builder(request):
 				for mat in consume.mats:
 					consume_list[consume.ix]['materials'][mat.item.ix] = mat.amount
 
-					material_list[mat.item.ix] = {}
-					material_list[mat.item.ix]['step'] = mat.amount
-					material_list[mat.item.ix]['n'] = mat.name
-					material_list[mat.item.ix]['q'] = mat.quality
-					material_list[mat.item.ix]['img'] = mat.img
-
-					# consume_list[consume.ix]['materials'][mat.item.ix]['amount'] = mat.amount*consume.amount
-					# consume_list[consume.ix]['materials'][mat.item.ix]['step'] = mat.amount
-					# consume_list[consume.ix]['materials'][mat.item.ix]['n'] = mat.name
-					# consume_list[consume.ix]['materials'][mat.item.ix]['q'] = mat.quality
-					# consume_list[consume.ix]['materials'][mat.item.ix]['img'] = mat.img
+					material_list[mat.item.ix] = get_item_info('', mat.item.ix)
+					material_list[mat.item.ix]['per'] = mat.amount
 
 
-
-	if consume_list:
-		data['consume_list'] = consume_list
-
-	if material_list:
-		data['material_list'] = material_list
+	data['consume_list'] = consume_list
+	data['material_list'] = material_list
 
 	response = JsonResponse(data, safe=False)
+
+	if not consume_list:
+		response.status_code = 404
+
 	return response
 
 def get_basic_item_info(item):
@@ -614,6 +606,7 @@ def load_spec(request):
 
 def get_item_info(request, ix=None):
 	data = {}
+	status_code = 200
 	if not ix:
 		ix = request.GET.get('ix', None)
 
@@ -635,7 +628,9 @@ def get_item_info(request, ix=None):
 						data['materials'][matIX] = mat.amount
 
 		else:
+			status_code = 404
 			item = Item.objects.get(name='samwise', ix=69420)
+
 
 		data['img'] = item.img
 		data['q'] = item.quality
@@ -667,6 +662,9 @@ def get_item_info(request, ix=None):
 		if item.damage and item.speed:
 			data['dps'] = item.dps
 
+		if item.armor:
+			data['armor'] = item.armor
+			
 		if item.stats:
 			data['stats'] = item.stats
 
@@ -704,6 +702,7 @@ def get_item_info(request, ix=None):
 
 	if request:
 		response = JsonResponse(data, safe=False)
+		response.status_code = status_code
 		return response
 
 	else:

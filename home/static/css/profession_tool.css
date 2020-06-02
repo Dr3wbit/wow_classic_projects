@@ -109,12 +109,19 @@
     width: 100%
 }
 
+.recipe-name {
+    /* text-indent: 4px; */
+    padding-left: 4px;
+}
+
 .recipe-name:hover {
     text-decoration: solid underline;
 }
 /* .recipe-container:hover > span {
     text-decoration: solid underline;
 } */
+
+
 
 #recipe_list {
     overflow-y: scroll;
@@ -236,3 +243,7 @@
 .remove-carrat:after {
     content: none;
 }
+
+/* .list-link {
+    pointer-events: none;
+} */

@@ -5,6 +5,7 @@ var recipes = {
         "img": "inv_shirt_05",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 15,
         "durability": 45,
         "requirements": {
             "level": 3
@@ -21,6 +22,7 @@ var recipes = {
         "img": "inv_boots_09",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 16,
         "durability": 25,
         "requirements": {
             "level": 8
@@ -38,6 +40,7 @@ var recipes = {
         "img": "inv_misc_cape_14",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 6,
         "durability": 6,
         "step": 1,
         "materials": {
@@ -51,6 +54,7 @@ var recipes = {
         "img": "inv_chest_cloth_18",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 19,
         "durability": 45,
         "stats": {
             "Intellect": 1
@@ -107,6 +111,7 @@ var recipes = {
         "img": "inv_chest_fur",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 26,
         "durability": 50,
         "stats": {
             "Spirit": 2,
@@ -140,6 +145,7 @@ var recipes = {
         "img": "inv_misc_cape_07",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 11,
         "durability": 11,
         "requirements": {
             "level": 7
@@ -156,6 +162,7 @@ var recipes = {
         "img": "inv_chest_cloth_39",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 29,
         "durability": 55,
         "requirements": {
             "level": 12
@@ -173,6 +180,7 @@ var recipes = {
         "img": "inv_boots_09",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 22,
         "durability": 30,
         "stats": {
             "Spirit": 2,
@@ -195,6 +203,7 @@ var recipes = {
         "img": "inv_misc_cape_10",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 14,
         "durability": 14,
         "requirements": {
             "level": 11
@@ -211,6 +220,7 @@ var recipes = {
         "img": "inv_chest_cloth_13",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 35,
         "durability": 60,
         "stats": {
             "Stamina": 4,
@@ -333,6 +343,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 11,
         "durability": 16,
         "requirements": {
             "level": 5
@@ -349,6 +360,7 @@ var recipes = {
         "img": "inv_bracer_12",
         "slot": "Wrist",
         "proficiency": "Cloth",
+        "armor": 9,
         "durability": 16,
         "requirements": {
             "level": 7
@@ -366,6 +378,7 @@ var recipes = {
         "img": "inv_pants_07",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 23,
         "durability": 40,
         "stats": {
             "Spirit": 2,
@@ -386,6 +399,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 19,
         "durability": 20,
         "stats": {
             "Spirit": 2,
@@ -406,6 +420,7 @@ var recipes = {
         "img": "inv_misc_cape_14",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 17,
         "durability": 17,
         "stats": {
             "Spirit": 4
@@ -426,6 +441,7 @@ var recipes = {
         "img": "inv_boots_09",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 20,
         "durability": 25,
         "stats": {
             "Stamina": 2,
@@ -447,6 +463,7 @@ var recipes = {
         "img": "inv_boots_09",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 23,
         "durability": 30,
         "stats": {
             "Spirit": 5
@@ -468,6 +485,7 @@ var recipes = {
         "img": "inv_shoulder_06",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 26,
         "durability": 35,
         "requirements": {
             "level": 17
@@ -484,6 +502,7 @@ var recipes = {
         "img": "inv_shoulder_09",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 27,
         "durability": 40,
         "requirements": {
             "level": 19
@@ -501,6 +520,7 @@ var recipes = {
         "img": "inv_pants_01",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 31,
         "durability": 45,
         "stats": {
             "Spirit": 6,
@@ -521,6 +541,7 @@ var recipes = {
         "img": "inv_pants_06",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 34,
         "durability": 50,
         "stats": {
             "Intellect": 4
@@ -544,6 +565,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 25,
         "durability": 25,
         "stats": {
             "Spirit": 7
@@ -564,6 +586,7 @@ var recipes = {
         "img": "inv_gauntlets_17",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 26,
         "durability": 25,
         "stats": {
             "Spirit": 3
@@ -588,6 +611,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 29,
         "durability": 40,
         "stats": {
             "Spirit": 7,
@@ -611,6 +635,7 @@ var recipes = {
         "img": "inv_boots_03",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 29,
         "durability": 35,
         "stats": {
             "Spirit": 7,
@@ -626,57 +651,13 @@ var recipes = {
             "2321": 2
         }
     },
-    "4323": {
-        "n": "Shadow Hood",
-        "q": 2,
-        "img": "inv_helmet_27",
-        "slot": "Head",
-        "proficiency": "Cloth",
-        "durability": 45,
-        "stats": {
-            "Intellect": 11
-        },
-        "requirements": {
-            "level": 29
-        },
-        "equips": [
-            "Equip: Increases damage done by Shadow spells and effects by up to 7."
-        ],
-        "step": 1,
-        "materials": {
-            "3824": 1,
-            "4291": 1,
-            "4305": 4
-        }
-    },
-    "4324": {
-        "n": "Azure Silk Vest",
-        "q": 2,
-        "img": "inv_chest_cloth_37",
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "durability": 70,
-        "stats": {
-            "Intellect": 9
-        },
-        "requirements": {
-            "level": 25
-        },
-        "equips": [
-            "Equip: Increases damage done by Frost spells and effects by up to 7."
-        ],
-        "step": 1,
-        "materials": {
-            "4305": 5,
-            "6260": 4
-        }
-    },
     "4325": {
         "n": "Boots of the Enchanter",
         "q": 2,
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 32,
         "durability": 35,
         "stats": {
             "Spirit": 8,
@@ -698,6 +679,7 @@ var recipes = {
         "img": "inv_misc_cape_02",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 24,
         "durability": 24,
         "stats": {
             "Spirit": 6,
@@ -719,6 +701,7 @@ var recipes = {
         "img": "inv_misc_cape_04",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 29,
         "durability": 29,
         "stats": {
             "Spirit": 6
@@ -743,6 +726,7 @@ var recipes = {
         "img": "inv_belt_25",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 27,
         "durability": 25,
         "stats": {
             "Intellect": 8
@@ -764,6 +748,7 @@ var recipes = {
         "img": "inv_belt_06",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 30,
         "durability": 25,
         "stats": {
             "Spirit": 4
@@ -801,6 +786,7 @@ var recipes = {
         "img": "inv_gauntlets_19",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 24,
         "durability": 25,
         "requirements": {
             "level": 20
@@ -891,6 +877,7 @@ var recipes = {
         "img": "inv_pants_06",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 16,
         "durability": 35,
         "requirements": {
             "level": 5
@@ -912,12 +899,60 @@ var recipes = {
             "2996": 1
         }
     },
+    "4323": {
+        "n": "Shadow Hood",
+        "q": 2,
+        "img": "inv_helmet_27",
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "armor": 37,
+        "durability": 45,
+        "stats": {
+            "Intellect": 11
+        },
+        "requirements": {
+            "level": 29
+        },
+        "equips": [
+            "Equip: Increases damage done by Shadow spells and effects by up to 7."
+        ],
+        "step": 1,
+        "materials": {
+            "3824": 1,
+            "4291": 1,
+            "4305": 4
+        }
+    },
+    "4324": {
+        "n": "Azure Silk Vest",
+        "q": 2,
+        "img": "inv_chest_cloth_37",
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "armor": 43,
+        "durability": 70,
+        "stats": {
+            "Intellect": 9
+        },
+        "requirements": {
+            "level": 25
+        },
+        "equips": [
+            "Equip: Increases damage done by Frost spells and effects by up to 7."
+        ],
+        "step": 1,
+        "materials": {
+            "4305": 5,
+            "6260": 4
+        }
+    },
     "5542": {
         "n": "Pearl-clasped Cloak",
         "q": 2,
         "img": "inv_misc_cape_11",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 16,
         "durability": 16,
         "stats": {
             "Intellect": 3
@@ -991,6 +1026,7 @@ var recipes = {
         "img": "inv_chest_cloth_17",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 41,
         "durability": 70,
         "stats": {
             "Spirit": 5,
@@ -1012,6 +1048,7 @@ var recipes = {
         "img": "inv_chest_cloth_29",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 43,
         "durability": 70,
         "stats": {
             "Spirit": 7,
@@ -1033,6 +1070,7 @@ var recipes = {
         "img": "inv_chest_cloth_21",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 19,
         "durability": 45,
         "stats": {
             "Spirit": 1
@@ -1052,6 +1090,7 @@ var recipes = {
         "img": "inv_chest_cloth_40",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 23,
         "durability": 50,
         "stats": {
             "Spirit": 2
@@ -1072,6 +1111,7 @@ var recipes = {
         "img": "inv_chest_cloth_37",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 23,
         "durability": 50,
         "stats": {
             "Spirit": 2
@@ -1092,6 +1132,7 @@ var recipes = {
         "img": "inv_chest_cloth_04",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 19,
         "durability": 45,
         "stats": {
             "Intellect": 1
@@ -1112,6 +1153,7 @@ var recipes = {
         "img": "inv_chest_cloth_23",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 26,
         "durability": 50,
         "stats": {
             "Spirit": 3
@@ -1132,6 +1174,7 @@ var recipes = {
         "img": "inv_shirt_13",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 34,
         "durability": 60,
         "stats": {
             "Stamina": 4,
@@ -1153,6 +1196,7 @@ var recipes = {
         "img": "inv_chest_cloth_24",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 37,
         "durability": 65,
         "stats": {
             "Spirit": 7,
@@ -1201,6 +1245,7 @@ var recipes = {
         "img": "inv_shirt_12",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 34,
         "durability": 60,
         "requirements": {
             "level": 17
@@ -1242,6 +1287,7 @@ var recipes = {
         "img": "inv_belt_05",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 9,
         "durability": 16,
         "requirements": {
             "level": 4
@@ -1258,6 +1304,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 15,
         "durability": 15,
         "requirements": {
             "class": [
@@ -1282,6 +1329,7 @@ var recipes = {
         "img": "inv_pants_08",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 36,
         "durability": 50,
         "stats": {
             "Intellect": 6
@@ -1305,6 +1353,7 @@ var recipes = {
         "img": "inv_gauntlets_22",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 26,
         "durability": 25,
         "stats": {
             "Spirit": 5
@@ -1329,6 +1378,7 @@ var recipes = {
         "img": "inv_helmet_29",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 33,
         "durability": 45,
         "requirements": {
             "level": 24
@@ -1346,6 +1396,7 @@ var recipes = {
         "img": "inv_gauntlets_16",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 27,
         "durability": 25,
         "stats": {
             "Intellect": 3
@@ -1370,6 +1421,7 @@ var recipes = {
         "img": "inv_misc_bandana_01",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 34,
         "durability": 45,
         "requirements": {
             "level": 27
@@ -1386,6 +1438,7 @@ var recipes = {
         "img": "inv_shirt_04",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 46,
         "durability": 70,
         "stats": {
             "Spirit": 10,
@@ -1407,6 +1460,7 @@ var recipes = {
         "img": "inv_belt_22",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 26,
         "durability": 25,
         "stats": {
             "Intellect": 5
@@ -1432,6 +1486,7 @@ var recipes = {
         "img": "inv_chest_cloth_14",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 23,
         "durability": 23,
         "stats": {
             "Spirit": 3
@@ -1455,6 +1510,7 @@ var recipes = {
         "img": "inv_chest_cloth_02",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 55,
         "durability": 80,
         "stats": {
             "Spirit": 8,
@@ -1483,6 +1539,7 @@ var recipes = {
         "img": "inv_belt_04",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 26,
         "durability": 25,
         "stats": {
             "Spirit": 6,
@@ -1505,6 +1562,7 @@ var recipes = {
         "img": "inv_chest_cloth_16",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 24,
         "durability": 24,
         "stats": {
             "Stamina": 3
@@ -1529,6 +1587,7 @@ var recipes = {
         "img": "inv_shoulder_18",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 36,
         "durability": 45,
         "stats": {
             "Intellect": 11
@@ -1548,6 +1607,7 @@ var recipes = {
         "img": "inv_shirt_04",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 46,
         "durability": 70,
         "requirements": {
             "level": 32
@@ -1565,6 +1625,7 @@ var recipes = {
         "img": "inv_shoulder_23",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 38,
         "durability": 45,
         "stats": {
             "Spirit": 7,
@@ -1587,6 +1648,7 @@ var recipes = {
         "img": "inv_shoulder_27",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 38,
         "durability": 45,
         "stats": {
             "Stamina": 5
@@ -1611,6 +1673,7 @@ var recipes = {
         "img": "inv_belt_24",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 29,
         "durability": 25,
         "stats": {
             "Spirit": 8,
@@ -1634,6 +1697,7 @@ var recipes = {
         "img": "inv_pants_06",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 43,
         "durability": 55,
         "requirements": {
             "level": 34
@@ -1651,6 +1715,7 @@ var recipes = {
         "img": "inv_chest_cloth_25",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 54,
         "durability": 70,
         "stats": {
             "Spirit": 6,
@@ -1674,6 +1739,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 35,
         "durability": 25,
         "stats": {
             "Intellect": 6
@@ -1700,6 +1766,7 @@ var recipes = {
         "img": "inv_chest_cloth_06",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 45,
         "durability": 70,
         "stats": {
             "Intellect": 13
@@ -1720,6 +1787,7 @@ var recipes = {
         "img": "inv_chest_leather_03",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 54,
         "durability": 70,
         "stats": {
             "Spirit": 12,
@@ -1740,6 +1808,7 @@ var recipes = {
         "img": "inv_pants_09",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 47,
         "durability": 55,
         "stats": {
             "Spirit": 14,
@@ -1760,6 +1829,7 @@ var recipes = {
         "img": "inv_pants_11",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 48,
         "durability": 55,
         "stats": {
             "Stamina": 6
@@ -1783,6 +1853,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 35,
         "durability": 25,
         "requirements": {
             "level": 38
@@ -1802,6 +1873,7 @@ var recipes = {
         "img": "inv_chest_cloth_38",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 57,
         "durability": 70,
         "stats": {
             "Spirit": 7
@@ -1819,79 +1891,13 @@ var recipes = {
             "4339": 3
         }
     },
-    "10008": {
-        "n": "White Bandit Mask",
-        "q": 2,
-        "img": "inv_misc_cape_11",
-        "slot": "Head",
-        "proficiency": "Cloth",
-        "durability": 45,
-        "stats": {
-            "Agility": 11,
-            "Strength": 11
-        },
-        "requirements": {
-            "level": 38
-        },
-        "step": 1,
-        "materials": {
-            "8343": 1,
-            "2324": 1,
-            "4339": 1
-        }
-    },
-    "10009": {
-        "n": "Red Mageweave Pants",
-        "q": 2,
-        "img": "inv_pants_06",
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "durability": 55,
-        "stats": {
-            "Intellect": 12
-        },
-        "requirements": {
-            "level": 38
-        },
-        "equips": [
-            "Equip: Increases damage and healing done by magical spells and effects by up to 14."
-        ],
-        "step": 1,
-        "materials": {
-            "8343": 1,
-            "2604": 2,
-            "4339": 3
-        }
-    },
-    "10018": {
-        "n": "Red Mageweave Gloves",
-        "q": 2,
-        "img": "inv_gauntlets_19",
-        "slot": "Hands",
-        "proficiency": "Cloth",
-        "durability": 25,
-        "stats": {
-            "Intellect": 10
-        },
-        "requirements": {
-            "level": 40
-        },
-        "equips": [
-            "Equip: Increases damage and healing done by magical spells and effects by up to 11."
-        ],
-        "step": 1,
-        "materials": {
-            "4339": 3,
-            "8343": 2,
-            "2604": 2
-        }
-    },
     "10019": {
         "n": "Dreamweave Gloves",
         "q": 3,
         "img": "inv_gauntlets_18",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 41,
         "durability": 30,
         "stats": {
             "Spirit": 7,
@@ -1917,6 +1923,7 @@ var recipes = {
         "img": "inv_chest_cloth_42",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 65,
         "durability": 80,
         "stats": {
             "Spirit": 14,
@@ -1942,6 +1949,7 @@ var recipes = {
         "img": "inv_gauntlets_09",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 37,
         "durability": 25,
         "stats": {
             "Intellect": 5
@@ -1965,6 +1973,7 @@ var recipes = {
         "img": "inv_misc_bandana_01",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 49,
         "durability": 45,
         "stats": {
             "Spirit": 13,
@@ -1985,6 +1994,7 @@ var recipes = {
         "img": "inv_helmet_27",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 52,
         "durability": 45,
         "stats": {
             "Intellect": 10
@@ -2008,6 +2018,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 41,
         "durability": 35,
         "stats": {
             "Spirit": 11,
@@ -2029,6 +2040,7 @@ var recipes = {
         "img": "inv_shoulder_25",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 45,
         "durability": 45,
         "stats": {
             "Spirit": 10,
@@ -2049,6 +2061,7 @@ var recipes = {
         "img": "inv_shoulder_25",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 46,
         "durability": 45,
         "stats": {
             "Stamina": 7
@@ -2072,6 +2085,7 @@ var recipes = {
         "img": "inv_shoulder_23",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 46,
         "durability": 45,
         "stats": {
             "Intellect": 15
@@ -2092,6 +2106,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 43,
         "durability": 35,
         "stats": {
             "Spirit": 10
@@ -2116,6 +2131,7 @@ var recipes = {
         "img": "inv_misc_bandana_03",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 51,
         "durability": 45,
         "stats": {
             "Intellect": 20
@@ -2147,6 +2163,7 @@ var recipes = {
         "img": "inv_pants_01",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 39,
         "durability": 55,
         "requirements": {
             "level": 30
@@ -2163,6 +2180,7 @@ var recipes = {
         "img": "inv_shirt_black_01",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 44,
         "durability": 70,
         "requirements": {
             "level": 30
@@ -2182,6 +2200,7 @@ var recipes = {
         "img": "inv_chest_cloth_04",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 44,
         "durability": 70,
         "requirements": {
             "level": 30
@@ -2199,6 +2218,7 @@ var recipes = {
         "img": "inv_crown_01",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 58,
         "durability": 50,
         "stats": {
             "Spirit": 12,
@@ -2226,6 +2246,7 @@ var recipes = {
         "img": "inv_chest_cloth_25",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 59,
         "durability": 70,
         "requirements": {
             "level": 40
@@ -2246,6 +2267,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 44,
         "durability": 35,
         "requirements": {
             "level": 44
@@ -2267,6 +2289,7 @@ var recipes = {
         "img": "inv_pants_11",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 12,
         "durability": 30,
         "requirements": {
             "level": 2
@@ -2283,6 +2306,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 11,
         "durability": 20,
         "requirements": {
             "level": 4
@@ -2300,6 +2324,7 @@ var recipes = {
         "img": "inv_pants_11",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 23,
         "durability": 40,
         "requirements": {
             "level": 10
@@ -2316,6 +2341,7 @@ var recipes = {
         "img": "inv_pants_02",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 33,
         "durability": 50,
         "stats": {
             "Spirit": 5,
@@ -2405,12 +2431,59 @@ var recipes = {
             "6261": 1
         }
     },
+    "10008": {
+        "n": "White Bandit Mask",
+        "q": 2,
+        "img": "inv_misc_cape_11",
+        "slot": "Head",
+        "proficiency": "Cloth",
+        "armor": 46,
+        "durability": 45,
+        "stats": {
+            "Agility": 11,
+            "Strength": 11
+        },
+        "requirements": {
+            "level": 38
+        },
+        "step": 1,
+        "materials": {
+            "8343": 1,
+            "2324": 1,
+            "4339": 1
+        }
+    },
+    "10018": {
+        "n": "Red Mageweave Gloves",
+        "q": 2,
+        "img": "inv_gauntlets_19",
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "armor": 37,
+        "durability": 25,
+        "stats": {
+            "Intellect": 10
+        },
+        "requirements": {
+            "level": 40
+        },
+        "equips": [
+            "Equip: Increases damage and healing done by magical spells and effects by up to 11."
+        ],
+        "step": 1,
+        "materials": {
+            "4339": 3,
+            "8343": 2,
+            "2604": 2
+        }
+    },
     "13856": {
         "n": "Runecloth Belt",
         "q": 2,
         "img": "inv_belt_15",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 37,
         "durability": 25,
         "stats": {
             "Spirit": 8,
@@ -2431,6 +2504,7 @@ var recipes = {
         "img": "inv_chest_cloth_04",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 68,
         "durability": 70,
         "stats": {
             "Spirit": 17,
@@ -2452,6 +2526,7 @@ var recipes = {
         "img": "inv_chest_cloth_04",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 68,
         "durability": 70,
         "stats": {
             "Spirit": 11,
@@ -2473,6 +2548,7 @@ var recipes = {
         "img": "inv_misc_cape_10",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 34,
         "durability": 34,
         "stats": {
             "Spirit": 9,
@@ -2494,6 +2570,7 @@ var recipes = {
         "img": "inv_gauntlets_25",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 45,
         "durability": 25,
         "stats": {
             "Spirit": 9,
@@ -2518,6 +2595,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 50,
         "durability": 35,
         "stats": {
             "Spirit": 14,
@@ -2540,6 +2618,7 @@ var recipes = {
         "img": "inv_pants_09",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 65,
         "durability": 55,
         "stats": {
             "Spirit": 20,
@@ -2561,6 +2640,7 @@ var recipes = {
         "img": "inv_misc_bandana_03",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 62,
         "durability": 45,
         "stats": {
             "Spirit": 13,
@@ -2582,6 +2662,7 @@ var recipes = {
         "img": "inv_shoulder_21",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 59,
         "durability": 45,
         "stats": {
             "Spirit": 10,
@@ -2604,6 +2685,7 @@ var recipes = {
         "img": "inv_chest_cloth_03",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 66,
         "durability": 70,
         "stats": {
             "Spirit": 11
@@ -2627,6 +2709,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 43,
         "durability": 25,
         "stats": {
             "Intellect": 6
@@ -2650,6 +2733,7 @@ var recipes = {
         "img": "inv_pants_08",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 63,
         "durability": 55,
         "stats": {
             "Spirit": 12
@@ -2664,75 +2748,6 @@ var recipes = {
         "materials": {
             "14341": 1,
             "7080": 1,
-            "14048": 6
-        }
-    },
-    "14043": {
-        "n": "Cindercloth Gloves",
-        "q": 2,
-        "img": "inv_gauntlets_05",
-        "slot": "Hands",
-        "proficiency": "Cloth",
-        "durability": 25,
-        "stats": {
-            "Spirit": 11
-        },
-        "requirements": {
-            "level": 49
-        },
-        "equips": [
-            "Equip: Increases damage done by Fire spells and effects by up to 17."
-        ],
-        "step": 1,
-        "materials": {
-            "14341": 1,
-            "7077": 3,
-            "14048": 4
-        }
-    },
-    "14044": {
-        "n": "Cindercloth Cloak",
-        "q": 2,
-        "img": "inv_misc_cape_18",
-        "slot": "Back",
-        "proficiency": "Cloth",
-        "durability": 36,
-        "stats": {
-            "Intellect": 8
-        },
-        "requirements": {
-            "level": 50
-        },
-        "equips": [
-            "Equip: Increases damage done by Fire spells and effects by up to 13."
-        ],
-        "step": 1,
-        "materials": {
-            "14341": 1,
-            "7078": 1,
-            "14048": 5
-        }
-    },
-    "14045": {
-        "n": "Cindercloth Pants",
-        "q": 2,
-        "img": "inv_pants_06",
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "durability": 55,
-        "stats": {
-            "Intellect": 12
-        },
-        "requirements": {
-            "level": 51
-        },
-        "equips": [
-            "Equip: Increases damage done by Fire spells and effects by up to 26."
-        ],
-        "step": 1,
-        "materials": {
-            "14341": 1,
-            "7078": 1,
             "14048": 6
         }
     },
@@ -2764,6 +2779,7 @@ var recipes = {
         "img": "inv_chest_cloth_26",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 70,
         "durability": 70,
         "resists": {
             "Frost": 16,
@@ -2785,6 +2801,7 @@ var recipes = {
         "img": "inv_gauntlets_21",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 44,
         "durability": 25,
         "resists": {
             "Frost": 12,
@@ -2806,6 +2823,7 @@ var recipes = {
         "img": "inv_misc_cape_11",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 36,
         "durability": 36,
         "resists": {
             "Frost": 7,
@@ -2830,6 +2848,7 @@ var recipes = {
         "img": "inv_pants_09",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 66,
         "durability": 55,
         "resists": {
             "Frost": 17,
@@ -2852,6 +2871,7 @@ var recipes = {
         "img": "inv_chest_cloth_09",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 79,
         "durability": 70,
         "stats": {
             "Stamina": 7
@@ -2876,6 +2896,7 @@ var recipes = {
         "img": "inv_pants_06",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 62,
         "durability": 55,
         "stats": {
             "Intellect": 12
@@ -2899,6 +2920,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 51,
         "durability": 35,
         "stats": {
             "Spirit": 12
@@ -2923,6 +2945,7 @@ var recipes = {
         "img": "inv_shoulder_23",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 60,
         "durability": 45,
         "stats": {
             "Spirit": 5
@@ -2948,6 +2971,7 @@ var recipes = {
         "img": "inv_chest_cloth_46",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 77,
         "durability": 70,
         "resists": {
             "Fire": 18,
@@ -2969,6 +2993,7 @@ var recipes = {
         "img": "inv_helmet_63",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 64,
         "durability": 45,
         "resists": {
             "Fire": 18,
@@ -2991,6 +3016,7 @@ var recipes = {
         "img": "inv_pants_09",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 62,
         "durability": 55,
         "resists": {
             "Fire": 16,
@@ -3012,6 +3038,7 @@ var recipes = {
         "img": "inv_misc_cape_18",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 39,
         "durability": 39,
         "stats": {
             "Stamina": 7
@@ -3038,6 +3065,7 @@ var recipes = {
         "img": "inv_chest_cloth_49",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 81,
         "durability": 80,
         "stats": {
             "Intellect": 12
@@ -3064,6 +3092,7 @@ var recipes = {
         "img": "inv_pants_13",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 72,
         "durability": 65,
         "stats": {
             "Spirit": 21,
@@ -3086,6 +3115,7 @@ var recipes = {
         "img": "inv_chest_cloth_08",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 85,
         "durability": 80,
         "stats": {
             "Spirit": 19,
@@ -3108,6 +3138,7 @@ var recipes = {
         "img": "inv_shoulder_02",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 65,
         "durability": 50,
         "stats": {
             "Spirit": 11,
@@ -3130,6 +3161,7 @@ var recipes = {
         "img": "inv_misc_bandana_01",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 71,
         "durability": 50,
         "stats": {
             "Spirit": 15,
@@ -3154,6 +3186,7 @@ var recipes = {
         "img": "inv_shirt_08",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 71,
         "durability": 70,
         "stats": {
             "Intellect": 9
@@ -3178,6 +3211,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 44,
         "durability": 25,
         "stats": {
             "Intellect": 8
@@ -3202,6 +3236,7 @@ var recipes = {
         "img": "inv_belt_16",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 39,
         "durability": 25,
         "stats": {
             "Intellect": 8
@@ -3226,6 +3261,7 @@ var recipes = {
         "img": "inv_pants_01",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 66,
         "durability": 55,
         "stats": {
             "Intellect": 12
@@ -3249,6 +3285,7 @@ var recipes = {
         "img": "inv_gauntlets_06",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 60,
         "durability": 35,
         "stats": {
             "Spirit": 8,
@@ -3282,6 +3319,7 @@ var recipes = {
         "img": "inv_chest_cloth_38",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 96,
         "durability": 100,
         "stats": {
             "Intellect": 12
@@ -3314,6 +3352,7 @@ var recipes = {
         "img": "inv_chest_cloth_51",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 96,
         "durability": 100,
         "stats": {
             "Stamina": 14
@@ -3345,6 +3384,7 @@ var recipes = {
         "img": "inv_chest_cloth_31",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 96,
         "durability": 100,
         "stats": {
             "Stamina": 14
@@ -3408,12 +3448,61 @@ var recipes = {
             "14256": 2
         }
     },
+    "14043": {
+        "n": "Cindercloth Gloves",
+        "q": 2,
+        "img": "inv_gauntlets_05",
+        "slot": "Hands",
+        "proficiency": "Cloth",
+        "armor": 44,
+        "durability": 25,
+        "stats": {
+            "Spirit": 11
+        },
+        "requirements": {
+            "level": 49
+        },
+        "equips": [
+            "Equip: Increases damage done by Fire spells and effects by up to 17."
+        ],
+        "step": 1,
+        "materials": {
+            "14341": 1,
+            "7077": 3,
+            "14048": 4
+        }
+    },
+    "14045": {
+        "n": "Cindercloth Pants",
+        "q": 2,
+        "img": "inv_pants_06",
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "armor": 63,
+        "durability": 55,
+        "stats": {
+            "Intellect": 12
+        },
+        "requirements": {
+            "level": 51
+        },
+        "equips": [
+            "Equip: Increases damage done by Fire spells and effects by up to 26."
+        ],
+        "step": 1,
+        "materials": {
+            "14341": 1,
+            "7078": 1,
+            "14048": 6
+        }
+    },
     "15802": {
         "n": "Mooncloth Boots",
         "q": 3,
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 55,
         "durability": 40,
         "stats": {
             "Spirit": 13,
@@ -3437,6 +3526,7 @@ var recipes = {
         "img": "inv_gauntlets_26",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 60,
         "durability": 35,
         "stats": {
             "Stamina": 10,
@@ -3468,6 +3558,7 @@ var recipes = {
         "img": "inv_shoulder_23",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 71,
         "durability": 60,
         "stats": {
             "Spirit": 10,
@@ -3489,42 +3580,13 @@ var recipes = {
             "14048": 12
         }
     },
-    "18258": {
-        "n": "Gordok Ogre Suit",
-        "q": 2,
-        "img": "inv_chest_chain_14",
-        "requirements": {
-            "level": 55
-        },
-        "use": "Disguise yourself as one of the Gordok ogres, and maybe even fool a particular captain in the process! The suit will only hold together for 10 min.",
-        "unique": true,
-        "description": "It lifts AND supports!",
-        "step": 1,
-        "materials": {
-            "14341": 1,
-            "18240": 1,
-            "8170": 4,
-            "14048": 2
-        }
-    },
-    "17723": {
-        "n": "Green Holiday Shirt",
-        "q": 1,
-        "img": "inv_shirt_green_01",
-        "slot": "Shirt",
-        "step": 1,
-        "materials": {
-            "4291": 1,
-            "2605": 4,
-            "4305": 5
-        }
-    },
     "18263": {
         "n": "Flarecore Wraps",
         "q": 4,
         "img": "inv_bracer_09",
         "slot": "Wrist",
         "proficiency": "Cloth",
+        "armor": 43,
         "durability": 35,
         "stats": {
             "Intellect": 8
@@ -3553,6 +3615,7 @@ var recipes = {
         "img": "inv_belt_31",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 54,
         "durability": 35,
         "stats": {
             "Stamina": 10,
@@ -3581,6 +3644,7 @@ var recipes = {
         "img": "inv_gauntlets_19",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 55,
         "durability": 30,
         "stats": {
             "Stamina": 9
@@ -3606,6 +3670,7 @@ var recipes = {
         "img": "inv_gauntlets_19",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 55,
         "durability": 30,
         "stats": {
             "Intellect": 9
@@ -3630,6 +3695,7 @@ var recipes = {
         "img": "inv_gauntlets_17",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 55,
         "durability": 30,
         "stats": {
             "Spirit": 15,
@@ -3653,6 +3719,7 @@ var recipes = {
         "img": "inv_misc_cape_06",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 214,
         "durability": 214,
         "requirements": {
             "level": 57
@@ -3674,6 +3741,7 @@ var recipes = {
         "img": "inv_belt_09",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 46,
         "durability": 30,
         "stats": {
             "Intellect": 21
@@ -3698,6 +3766,7 @@ var recipes = {
         "img": "inv_shoulder_19",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 68,
         "durability": 50,
         "stats": {
             "Intellect": 21
@@ -3722,6 +3791,7 @@ var recipes = {
         "img": "inv_boots_cloth_03",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 57,
         "durability": 40,
         "stats": {
             "Spirit": 7,
@@ -3748,6 +3818,7 @@ var recipes = {
         "img": "inv_shoulder_13",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 68,
         "durability": 50,
         "stats": {
             "Spirit": 8,
@@ -3772,6 +3843,7 @@ var recipes = {
         "img": "inv_chest_cloth_18",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 102,
         "durability": 100,
         "stats": {
             "Stamina": 35
@@ -3800,6 +3872,7 @@ var recipes = {
         "img": "inv_pants_06",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 94,
         "durability": 75,
         "stats": {
             "Stamina": 21
@@ -3822,59 +3895,23 @@ var recipes = {
             "14342": 8
         }
     },
-    "19683": {
-        "n": "Bloodvine Leggings",
-        "q": 3,
-        "img": "inv_pants_cloth_14",
-        "slot": "Legs",
-        "proficiency": "Cloth",
-        "durability": 65,
-        "stats": {
-            "Intellect": 6
-        },
+    "18258": {
+        "n": "Gordok Ogre Suit",
+        "q": 2,
+        "img": "inv_chest_chain_14",
         "requirements": {
-            "level": 60
+            "level": 55
         },
-        "equips": [
-            "Equip: Increases damage and healing done by magical spells and effects by up to 37.",
-            "Equip: Improves your chance to hit with spells by 1%."
-        ],
+        "use": "Disguise yourself as one of the Gordok ogres, and maybe even fool a particular captain in the process! The suit will only hold together for 10 min.",
+        "unique": true,
+        "description": "It lifts AND supports!",
         "step": 1,
         "materials": {
-            "14227": 2,
-            "14048": 4,
-            "12804": 4,
-            "19726": 4,
-            "14342": 4
-        },
-        "itemset": "421"
-    },
-    "19684": {
-        "n": "Bloodvine Boots",
-        "q": 3,
-        "img": "inv_boots_cloth_02",
-        "slot": "Feet",
-        "proficiency": "Cloth",
-        "durability": 40,
-        "stats": {
-            "Intellect": 16
-        },
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: Increases damage and healing done by magical spells and effects by up to 19.",
-            "Equip: Improves your chance to hit with spells by 1%."
-        ],
-        "step": 1,
-        "materials": {
-            "14227": 4,
-            "14048": 4,
-            "12810": 4,
-            "19726": 3,
-            "14342": 3
-        },
-        "itemset": "421"
+            "14341": 1,
+            "18240": 1,
+            "8170": 4,
+            "14048": 2
+        }
     },
     "20537": {
         "n": "Runed Stygian Boots",
@@ -3882,6 +3919,7 @@ var recipes = {
         "img": "inv_boots_05",
         "slot": "Feet",
         "proficiency": "Cloth",
+        "armor": 61,
         "durability": 40,
         "stats": {
             "Stamina": 8
@@ -3910,6 +3948,7 @@ var recipes = {
         "img": "inv_pants_cloth_05",
         "slot": "Legs",
         "proficiency": "Cloth",
+        "armor": 78,
         "durability": 65,
         "stats": {
             "Stamina": 13
@@ -3937,6 +3976,7 @@ var recipes = {
         "img": "inv_belt_14",
         "slot": "Waist",
         "proficiency": "Cloth",
+        "armor": 50,
         "durability": 30,
         "stats": {
             "Stamina": 10
@@ -4043,39 +4083,33 @@ var recipes = {
             "2604": 2
         }
     },
-    "4322": {
-        "n": "Enchanter's Cowl",
-        "q": 2,
-        "img": "inv_helmet_31",
-        "slot": "Head",
+    "19683": {
+        "n": "Bloodvine Leggings",
+        "q": 3,
+        "img": "inv_pants_cloth_14",
+        "slot": "Legs",
         "proficiency": "Cloth",
-        "durability": 45,
+        "armor": 80,
+        "durability": 65,
         "stats": {
-            "Spirit": 6,
-            "Intellect": 10
+            "Intellect": 6
         },
         "requirements": {
-            "level": 28
+            "level": 60
         },
+        "equips": [
+            "Equip: Increases damage and healing done by magical spells and effects by up to 37.",
+            "Equip: Improves your chance to hit with spells by 1%."
+        ],
         "step": 1,
         "materials": {
-            "4337": 2,
-            "2321": 2,
-            "4305": 3
-        }
-    },
-    "6786": {
-        "n": "Simple Dress",
-        "q": 1,
-        "img": "inv_shirt_12",
-        "slot": "Chest",
-        "step": 1,
-        "materials": {
-            "2320": 1,
-            "2996": 2,
-            "2324": 1,
-            "6260": 1
-        }
+            "14227": 2,
+            "14048": 4,
+            "12804": 4,
+            "19726": 4,
+            "14342": 4
+        },
+        "itemset": "421"
     },
     "22246": {
         "n": "Enchanted Mageweave Pouch",
@@ -4151,6 +4185,7 @@ var recipes = {
         "img": "inv_chest_cloth_08",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 121,
         "durability": 100,
         "stats": {
             "Stamina": 26
@@ -4178,6 +4213,7 @@ var recipes = {
         "img": "inv_gauntlets_06",
         "slot": "Hands",
         "proficiency": "Cloth",
+        "armor": 76,
         "durability": 35,
         "stats": {
             "Stamina": 22
@@ -4205,6 +4241,7 @@ var recipes = {
         "img": "inv_bracer_07",
         "slot": "Wrist",
         "proficiency": "Cloth",
+        "armor": 53,
         "durability": 35,
         "stats": {
             "Stamina": 20
@@ -4232,6 +4269,7 @@ var recipes = {
         "img": "inv_misc_cape_16",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 61,
         "durability": 61,
         "stats": {
             "Stamina": 18
@@ -4256,6 +4294,7 @@ var recipes = {
         "img": "inv_misc_cape_17",
         "slot": "Back",
         "proficiency": "Cloth",
+        "armor": 49,
         "durability": 49,
         "stats": {
             "Stamina": 6
@@ -4280,6 +4319,7 @@ var recipes = {
         "img": "inv_chest_plate07",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 98,
         "durability": 80,
         "stats": {
             "Stamina": 15
@@ -4307,6 +4347,7 @@ var recipes = {
         "img": "inv_crown_01",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 80,
         "durability": 50,
         "stats": {
             "Stamina": 10
@@ -4334,6 +4375,7 @@ var recipes = {
         "img": "inv_shoulder_18",
         "slot": "Shoulder",
         "proficiency": "Cloth",
+        "armor": 74,
         "durability": 50,
         "stats": {
             "Stamina": 18
@@ -4354,24 +4396,39 @@ var recipes = {
             "14048": 2
         }
     },
-    "10001": {
-        "n": "Black Mageweave Robe",
+    "4322": {
+        "n": "Enchanter's Cowl",
         "q": 2,
-        "img": "inv_chest_cloth_13",
-        "slot": "Chest",
+        "img": "inv_helmet_31",
+        "slot": "Head",
         "proficiency": "Cloth",
-        "durability": 70,
+        "armor": 37,
+        "durability": 45,
         "stats": {
-            "Spirit": 14,
-            "Intellect": 8
+            "Spirit": 6,
+            "Intellect": 10
         },
         "requirements": {
-            "level": 37
+            "level": 28
         },
         "step": 1,
         "materials": {
-            "8343": 1,
-            "4339": 3
+            "4337": 2,
+            "2321": 2,
+            "4305": 3
+        }
+    },
+    "6786": {
+        "n": "Simple Dress",
+        "q": 1,
+        "img": "inv_shirt_12",
+        "slot": "Chest",
+        "step": 1,
+        "materials": {
+            "2320": 1,
+            "2996": 2,
+            "2324": 1,
+            "6260": 1
         }
     },
     "10007": {
@@ -4380,6 +4437,7 @@ var recipes = {
         "img": "inv_shirt_09",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 57,
         "durability": 70,
         "stats": {
             "Intellect": 18
@@ -4400,6 +4458,7 @@ var recipes = {
         "img": "inv_helmet_29",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 51,
         "durability": 45,
         "requirements": {
             "level": 43
@@ -4412,35 +4471,13 @@ var recipes = {
             "4339": 3
         }
     },
-    "13869": {
-        "n": "Frostweave Tunic",
-        "q": 2,
-        "img": "inv_chest_cloth_08",
-        "slot": "Chest",
-        "proficiency": "Cloth",
-        "durability": 70,
-        "stats": {
-            "Intellect": 11
-        },
-        "requirements": {
-            "level": 46
-        },
-        "equips": [
-            "Equip: Increases damage done by Frost spells and effects by up to 24."
-        ],
-        "step": 1,
-        "materials": {
-            "14341": 1,
-            "7079": 2,
-            "14048": 5
-        }
-    },
     "14042": {
         "n": "Cindercloth Vest",
         "q": 2,
         "img": "inv_chest_cloth_07",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 68,
         "durability": 70,
         "stats": {
             "Spirit": 11
@@ -4464,6 +4501,7 @@ var recipes = {
         "img": "inv_helmet_34",
         "slot": "Head",
         "proficiency": "Cloth",
+        "armor": 61,
         "durability": 45,
         "stats": {
             "Intellect": 10
@@ -4487,6 +4525,7 @@ var recipes = {
         "img": "inv_chest_cloth_04",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 87,
         "durability": 80,
         "stats": {
             "Spirit": 12,
@@ -4510,6 +4549,7 @@ var recipes = {
         "img": "inv_chest_cloth_07",
         "slot": "Chest",
         "proficiency": "Cloth",
+        "armor": 92,
         "durability": 80,
         "stats": {
             "Intellect": 13
@@ -4530,6 +4570,152 @@ var recipes = {
             "14342": 3
         },
         "itemset": "421"
+    },
+    "10009": {
+        "n": "Red Mageweave Pants",
+        "q": 2,
+        "img": "inv_pants_06",
+        "slot": "Legs",
+        "proficiency": "Cloth",
+        "armor": 49,
+        "durability": 55,
+        "stats": {
+            "Intellect": 12
+        },
+        "requirements": {
+            "level": 38
+        },
+        "equips": [
+            "Equip: Increases damage and healing done by magical spells and effects by up to 14."
+        ],
+        "step": 1,
+        "materials": {
+            "8343": 1,
+            "2604": 2,
+            "4339": 3
+        }
+    },
+    "14044": {
+        "n": "Cindercloth Cloak",
+        "q": 2,
+        "img": "inv_misc_cape_18",
+        "slot": "Back",
+        "proficiency": "Cloth",
+        "armor": 36,
+        "durability": 36,
+        "stats": {
+            "Intellect": 8
+        },
+        "requirements": {
+            "level": 50
+        },
+        "equips": [
+            "Equip: Increases damage done by Fire spells and effects by up to 13."
+        ],
+        "step": 1,
+        "materials": {
+            "14341": 1,
+            "7078": 1,
+            "14048": 5
+        }
+    },
+    "17723": {
+        "n": "Green Holiday Shirt",
+        "q": 1,
+        "img": "inv_shirt_green_01",
+        "slot": "Shirt",
+        "step": 1,
+        "materials": {
+            "4291": 1,
+            "2605": 4,
+            "4305": 5
+        }
+    },
+    "19684": {
+        "n": "Bloodvine Boots",
+        "q": 3,
+        "img": "inv_boots_cloth_02",
+        "slot": "Feet",
+        "proficiency": "Cloth",
+        "armor": 63,
+        "durability": 40,
+        "stats": {
+            "Intellect": 16
+        },
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: Increases damage and healing done by magical spells and effects by up to 19.",
+            "Equip: Improves your chance to hit with spells by 1%."
+        ],
+        "step": 1,
+        "materials": {
+            "14227": 4,
+            "14048": 4,
+            "12810": 4,
+            "19726": 3,
+            "14342": 3
+        },
+        "itemset": "421"
+    },
+    "10001": {
+        "n": "Black Mageweave Robe",
+        "q": 2,
+        "img": "inv_chest_cloth_13",
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "armor": 55,
+        "durability": 70,
+        "stats": {
+            "Spirit": 14,
+            "Intellect": 8
+        },
+        "requirements": {
+            "level": 37
+        },
+        "step": 1,
+        "materials": {
+            "8343": 1,
+            "4339": 3
+        }
+    },
+    "13869": {
+        "n": "Frostweave Tunic",
+        "q": 2,
+        "img": "inv_chest_cloth_08",
+        "slot": "Chest",
+        "proficiency": "Cloth",
+        "armor": 66,
+        "durability": 70,
+        "stats": {
+            "Intellect": 11
+        },
+        "requirements": {
+            "level": 46
+        },
+        "equips": [
+            "Equip: Increases damage done by Frost spells and effects by up to 24."
+        ],
+        "step": 1,
+        "materials": {
+            "14341": 1,
+            "7079": 2,
+            "14048": 5
+        }
+    }
+}
+var itemsets = {
+    "421": {
+        "n": "Bloodvine Garb",
+        "items": [
+            "Bloodvine Boots",
+            "Bloodvine Leggings",
+            "Bloodvine Vest"
+        ],
+        "bonuses": [
+            "(3) Set: Improves your chance to get a critical strike with spells by 2%."
+        ]
     }
 }
 var materials = {
@@ -5035,18 +5221,5 @@ var materials = {
         "n": "Long Elegant Feather",
         "q": 1,
         "img": "spell_magic_featherfall"
-    }
-}
-var itemsets = {
-    "421": {
-        "n": "Bloodvine Garb",
-        "items": [
-            "Bloodvine Boots",
-            "Bloodvine Leggings",
-            "Bloodvine Vest"
-        ],
-        "bonuses": [
-            "(3) Set: Improves your chance to get a critical strike with spells by 2%."
-        ]
     }
 }

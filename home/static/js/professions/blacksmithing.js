@@ -1,27 +1,4 @@
 var recipes = {
-    "2862": {
-        "n": "Rough Sharpening Stone",
-        "q": 1,
-        "img": "inv_stone_sharpeningstone_01",
-        "use": "Increase sharp weapon damage by 2 for 30 minutes.",
-        "step": 1,
-        "materials": {
-            "2835": 1
-        }
-    },
-    "2863": {
-        "n": "Coarse Sharpening Stone",
-        "q": 1,
-        "img": "inv_stone_sharpeningstone_02",
-        "requirements": {
-            "level": 5
-        },
-        "use": "Increase sharp weapon damage by 3 for 30 minutes.",
-        "step": 1,
-        "materials": {
-            "2836": 1
-        }
-    },
     "2844": {
         "n": "Copper Mace",
         "q": 1,
@@ -160,6 +137,7 @@ var recipes = {
         "img": "inv_belt_02",
         "slot": "Waist",
         "proficiency": "Mail",
+        "armor": 61,
         "durability": 20,
         "requirements": {
             "level": 6
@@ -175,6 +153,7 @@ var recipes = {
         "img": "inv_pants_03",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 83,
         "durability": 45,
         "requirements": {
             "level": 4
@@ -190,6 +169,7 @@ var recipes = {
         "img": "inv_bracer_03",
         "slot": "Wrist",
         "proficiency": "Mail",
+        "armor": 35,
         "durability": 20,
         "requirements": {
             "level": 2
@@ -205,6 +185,7 @@ var recipes = {
         "img": "inv_bracer_03",
         "slot": "Wrist",
         "proficiency": "Mail",
+        "armor": 68,
         "durability": 30,
         "requirements": {
             "level": 14
@@ -221,6 +202,7 @@ var recipes = {
         "img": "inv_chest_plate03",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 162,
         "durability": 80,
         "stats": {
             "Stamina": 3,
@@ -242,6 +224,7 @@ var recipes = {
         "img": "inv_pants_03",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 149,
         "durability": 65,
         "stats": {
             "Spirit": 4,
@@ -255,121 +238,27 @@ var recipes = {
             "2841": 6
         }
     },
-    "2871": {
-        "n": "Heavy Sharpening Stone",
+    "2862": {
+        "n": "Rough Sharpening Stone",
         "q": 1,
-        "img": "inv_stone_sharpeningstone_03",
-        "requirements": {
-            "level": 15
-        },
-        "use": "Increase sharp weapon damage by 4 for 30 minutes.",
+        "img": "inv_stone_sharpeningstone_01",
+        "use": "Increase sharp weapon damage by 2 for 30 minutes.",
         "step": 1,
         "materials": {
-            "2838": 1
+            "2835": 1
         }
     },
-    "3239": {
-        "n": "Rough Weightstone",
+    "2863": {
+        "n": "Coarse Sharpening Stone",
         "q": 1,
-        "img": "inv_stone_weightstone_01",
-        "use": "Increase the damage of a blunt weapon by 2 for 30 minutes.",
-        "step": 1,
-        "materials": {
-            "2835": 1,
-            "2589": 1
-        }
-    },
-    "3240": {
-        "n": "Coarse Weightstone",
-        "q": 1,
-        "img": "inv_stone_weightstone_02",
+        "img": "inv_stone_sharpeningstone_02",
         "requirements": {
             "level": 5
         },
-        "use": "Increase the damage of a blunt weapon by 3 for 30 minutes.",
+        "use": "Increase sharp weapon damage by 3 for 30 minutes.",
         "step": 1,
         "materials": {
-            "2836": 1,
-            "2592": 1
-        }
-    },
-    "3241": {
-        "n": "Heavy Weightstone",
-        "q": 1,
-        "img": "inv_stone_weightstone_03",
-        "requirements": {
-            "level": 15
-        },
-        "use": "Increase the damage of a blunt weapon by 4 for 30 minutes.",
-        "step": 1,
-        "materials": {
-            "2838": 1,
-            "2592": 1
-        }
-    },
-    "2868": {
-        "n": "Patterned Bronze Bracers",
-        "q": 2,
-        "img": "inv_bracer_07",
-        "slot": "Wrist",
-        "proficiency": "Mail",
-        "durability": 30,
-        "stats": {
-            "Strength": 5
-        },
-        "requirements": {
-            "level": 20
-        },
-        "step": 1,
-        "materials": {
-            "3478": 2,
-            "2841": 5
-        }
-    },
-    "2869": {
-        "n": "Silvered Bronze Breastplate",
-        "q": 2,
-        "img": "inv_chest_chain_09",
-        "slot": "Chest",
-        "proficiency": "Mail",
-        "durability": 95,
-        "stats": {
-            "Spirit": 4,
-            "Stamina": 5,
-            "Strength": 5
-        },
-        "requirements": {
-            "level": 21
-        },
-        "step": 1,
-        "materials": {
-            "3478": 2,
-            "2842": 2,
-            "2841": 10,
-            "1705": 1
-        }
-    },
-    "2870": {
-        "n": "Shining Silver Breastplate",
-        "q": 3,
-        "img": "inv_chest_plate15",
-        "slot": "Chest",
-        "proficiency": "Mail",
-        "durability": 120,
-        "stats": {
-            "Stamina": 6,
-            "Strength": 14
-        },
-        "requirements": {
-            "level": 24
-        },
-        "step": 1,
-        "materials": {
-            "5500": 2,
-            "2842": 4,
-            "2841": 20,
-            "1705": 2,
-            "1206": 2
+            "2836": 1
         }
     },
     "3469": {
@@ -378,6 +267,7 @@ var recipes = {
         "img": "inv_boots_01",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 65,
         "durability": 30,
         "requirements": {
             "level": 4
@@ -402,6 +292,7 @@ var recipes = {
         "img": "inv_chest_chain",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 108,
         "durability": 65,
         "stats": {
             "Strength": 1
@@ -422,6 +313,7 @@ var recipes = {
         "img": "inv_gauntlets_04",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 73,
         "durability": 20,
         "requirements": {
             "level": 7
@@ -438,6 +330,7 @@ var recipes = {
         "img": "inv_pants_03",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 113,
         "durability": 50,
         "stats": {
             "Stamina": 2,
@@ -459,6 +352,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 90,
         "durability": 25,
         "stats": {
             "Random": 1
@@ -488,6 +382,7 @@ var recipes = {
         "img": "inv_shoulder_09",
         "slot": "Shoulder",
         "proficiency": "Mail",
+        "armor": 137,
         "durability": 55,
         "stats": {
             "Spirit": 3,
@@ -510,6 +405,7 @@ var recipes = {
         "img": "inv_boots_01",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 128,
         "durability": 45,
         "stats": {
             "Spirit": 3,
@@ -532,6 +428,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 118,
         "durability": 35,
         "stats": {
             "Spirit": 3,
@@ -554,6 +451,7 @@ var recipes = {
         "img": "inv_boots_01",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 134,
         "durability": 50,
         "stats": {
             "Stamina": 7,
@@ -576,6 +474,7 @@ var recipes = {
         "img": "inv_gauntlets_05",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 124,
         "durability": 35,
         "stats": {
             "Stamina": 6,
@@ -772,6 +671,7 @@ var recipes = {
         "img": "inv_bracer_06",
         "slot": "Wrist",
         "proficiency": "Mail",
+        "armor": 86,
         "durability": 35,
         "requirements": {
             "level": 28
@@ -782,67 +682,100 @@ var recipes = {
             "3575": 6
         }
     },
-    "3837": {
-        "n": "Golden Scale Coif",
-        "q": 2,
-        "img": "inv_helmet_36",
-        "slot": "Head",
-        "proficiency": "Mail",
-        "durability": 60,
-        "stats": {
-            "Spirit": 10,
-            "Strength": 10
-        },
+    "2871": {
+        "n": "Heavy Sharpening Stone",
+        "q": 1,
+        "img": "inv_stone_sharpeningstone_03",
         "requirements": {
-            "level": 33
+            "level": 15
         },
+        "use": "Increase sharp weapon damage by 4 for 30 minutes.",
         "step": 1,
         "materials": {
-            "3577": 2,
-            "3859": 8,
-            "3486": 2
+            "2838": 1
         }
     },
-    "3840": {
-        "n": "Green Iron Shoulders",
-        "q": 2,
-        "img": "inv_shoulder_09",
-        "slot": "Shoulder",
+    "2870": {
+        "n": "Shining Silver Breastplate",
+        "q": 3,
+        "img": "inv_chest_plate15",
+        "slot": "Chest",
         "proficiency": "Mail",
-        "durability": 60,
+        "armor": 214,
+        "durability": 120,
         "stats": {
-            "Stamina": 7,
-            "Strength": 4
+            "Stamina": 6,
+            "Strength": 14
         },
         "requirements": {
-            "level": 27
+            "level": 24
         },
         "step": 1,
         "materials": {
-            "2605": 1,
-            "3486": 1,
-            "3575": 7
+            "5500": 2,
+            "2842": 4,
+            "2841": 20,
+            "1705": 2,
+            "1206": 2
         }
     },
-    "3841": {
-        "n": "Golden Scale Shoulders",
+    "3239": {
+        "n": "Rough Weightstone",
+        "q": 1,
+        "img": "inv_stone_weightstone_01",
+        "use": "Increase the damage of a blunt weapon by 2 for 30 minutes.",
+        "step": 1,
+        "materials": {
+            "2835": 1,
+            "2589": 1
+        }
+    },
+    "3240": {
+        "n": "Coarse Weightstone",
+        "q": 1,
+        "img": "inv_stone_weightstone_02",
+        "requirements": {
+            "level": 5
+        },
+        "use": "Increase the damage of a blunt weapon by 3 for 30 minutes.",
+        "step": 1,
+        "materials": {
+            "2836": 1,
+            "2592": 1
+        }
+    },
+    "3241": {
+        "n": "Heavy Weightstone",
+        "q": 1,
+        "img": "inv_stone_weightstone_03",
+        "requirements": {
+            "level": 15
+        },
+        "use": "Increase the damage of a blunt weapon by 4 for 30 minutes.",
+        "step": 1,
+        "materials": {
+            "2838": 1,
+            "2592": 1
+        }
+    },
+    "2868": {
+        "n": "Patterned Bronze Bracers",
         "q": 2,
-        "img": "inv_shoulder_09",
-        "slot": "Shoulder",
+        "img": "inv_bracer_07",
+        "slot": "Wrist",
         "proficiency": "Mail",
-        "durability": 60,
+        "armor": 80,
+        "durability": 30,
         "stats": {
-            "Spirit": 6,
-            "Strength": 7
+            "Strength": 5
         },
         "requirements": {
-            "level": 30
+            "level": 20
         },
         "step": 1,
         "materials": {
-            "3486": 1,
-            "3577": 2,
-            "3859": 6
+            "3478": 2,
+            "2841": 5
         }
     },
     "3842": {
@@ -851,6 +784,7 @@ var recipes = {
         "img": "inv_pants_05",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 176,
         "durability": 75,
         "stats": {
             "Stamina": 8,
@@ -872,6 +806,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 184,
         "durability": 75,
         "stats": {
             "Spirit": 5,
@@ -893,6 +828,7 @@ var recipes = {
         "img": "inv_chest_chain",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 358,
         "durability": 120,
         "stats": {
             "Stamina": 11,
@@ -916,6 +852,7 @@ var recipes = {
         "img": "inv_chest_chain_06",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 231,
         "durability": 100,
         "stats": {
             "Spirit": 6,
@@ -938,6 +875,7 @@ var recipes = {
         "img": "inv_boots_01",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 151,
         "durability": 50,
         "stats": {
             "Stamina": 11
@@ -959,6 +897,7 @@ var recipes = {
         "img": "inv_boots_01",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 159,
         "durability": 50,
         "stats": {
             "Spirit": 8,
@@ -1202,6 +1141,89 @@ var recipes = {
             "3859": 10
         }
     },
+    "3841": {
+        "n": "Golden Scale Shoulders",
+        "q": 2,
+        "img": "inv_shoulder_09",
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "armor": 160,
+        "durability": 60,
+        "stats": {
+            "Spirit": 6,
+            "Strength": 7
+        },
+        "requirements": {
+            "level": 30
+        },
+        "step": 1,
+        "materials": {
+            "3486": 1,
+            "3577": 2,
+            "3859": 6
+        }
+    },
+    "3837": {
+        "n": "Golden Scale Coif",
+        "q": 2,
+        "img": "inv_helmet_36",
+        "slot": "Head",
+        "proficiency": "Mail",
+        "armor": 181,
+        "durability": 60,
+        "stats": {
+            "Spirit": 10,
+            "Strength": 10
+        },
+        "requirements": {
+            "level": 33
+        },
+        "step": 1,
+        "materials": {
+            "3577": 2,
+            "3859": 8,
+            "3486": 2
+        }
+    },
+    "6040": {
+        "n": "Golden Scale Bracers",
+        "q": 1,
+        "img": "inv_bracer_10",
+        "slot": "Wrist",
+        "proficiency": "Mail",
+        "armor": 91,
+        "durability": 35,
+        "requirements": {
+            "level": 32
+        },
+        "step": 1,
+        "materials": {
+            "3486": 2,
+            "3859": 5
+        }
+    },
+    "6214": {
+        "n": "Heavy Copper Maul",
+        "q": 1,
+        "img": "inv_hammer_18",
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": "2.80",
+        "durability": 55,
+        "requirements": {
+            "level": 11
+        },
+        "damage": [
+            "21  -  32 Damage"
+        ],
+        "dps": "9.5",
+        "step": 1,
+        "materials": {
+            "2318": 2,
+            "2880": 2,
+            "2840": 12
+        }
+    },
     "6041": {
         "n": "Steel Weapon Chain",
         "q": 1,
@@ -1252,33 +1274,6 @@ var recipes = {
             "3575": 4
         }
     },
-    "5540": {
-        "n": "Pearl-handled Dagger",
-        "q": 2,
-        "img": "inv_weapon_shortblade_05",
-        "slot": "One-hand",
-        "proficiency": "Dagger",
-        "speed": "1.70",
-        "durability": 45,
-        "stats": {
-            "Agility": 2,
-            "Stamina": 2
-        },
-        "requirements": {
-            "level": 18
-        },
-        "damage": [
-            "13  -  26 Damage"
-        ],
-        "dps": "11.5",
-        "step": 1,
-        "materials": {
-            "3478": 2,
-            "5498": 2,
-            "3466": 1,
-            "2841": 6
-        }
-    },
     "5541": {
         "n": "Iridescent Hammer",
         "q": 2,
@@ -1307,66 +1302,13 @@ var recipes = {
             "2841": 10
         }
     },
-    "6040": {
-        "n": "Golden Scale Bracers",
-        "q": 1,
-        "img": "inv_bracer_10",
-        "slot": "Wrist",
-        "proficiency": "Mail",
-        "durability": 35,
-        "requirements": {
-            "level": 32
-        },
-        "step": 1,
-        "materials": {
-            "3486": 2,
-            "3859": 5
-        }
-    },
-    "6214": {
-        "n": "Heavy Copper Maul",
-        "q": 1,
-        "img": "inv_hammer_18",
-        "slot": "Two-hand",
-        "proficiency": "Mace",
-        "speed": "2.80",
-        "durability": 55,
-        "requirements": {
-            "level": 11
-        },
-        "damage": [
-            "21  -  32 Damage"
-        ],
-        "dps": "9.5",
-        "step": 1,
-        "materials": {
-            "2318": 2,
-            "2880": 2,
-            "2840": 12
-        }
-    },
-    "6350": {
-        "n": "Rough Bronze Boots",
-        "q": 1,
-        "img": "inv_boots_01",
-        "slot": "Feet",
-        "proficiency": "Mail",
-        "durability": 40,
-        "requirements": {
-            "level": 13
-        },
-        "step": 1,
-        "materials": {
-            "3470": 6,
-            "2841": 6
-        }
-    },
     "6731": {
         "n": "Ironforge Breastplate",
         "q": 2,
         "img": "inv_chest_plate05",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 198,
         "durability": 80,
         "stats": {
             "Stamina": 3,
@@ -1414,72 +1356,13 @@ var recipes = {
             "2318": 1
         }
     },
-    "7964": {
-        "n": "Solid Sharpening Stone",
-        "q": 1,
-        "img": "inv_stone_sharpeningstone_04",
-        "requirements": {
-            "level": 25
-        },
-        "use": "Increase sharp weapon damage by 6 for 30 minutes.",
-        "step": 1,
-        "materials": {
-            "7912": 1
-        }
-    },
-    "7965": {
-        "n": "Solid Weightstone",
-        "q": 1,
-        "img": "inv_stone_weightstone_04",
-        "requirements": {
-            "level": 25
-        },
-        "use": "Increase the damage of a blunt weapon by 6 for 30 minutes.",
-        "step": 1,
-        "materials": {
-            "4306": 1,
-            "7912": 1
-        }
-    },
-    "7967": {
-        "n": "Mithril Shield Spike",
-        "q": 2,
-        "img": "inv_misc_armorkit_02",
-        "requirements": {
-            "profession": {
-                "blacksmithing": 215
-            }
-        },
-        "use": "Attaches a Mithril Spike to your shield that deals damage every time you block with it.",
-        "step": 1,
-        "materials": {
-            "6037": 2,
-            "3860": 4,
-            "7966": 4
-        }
-    },
-    "7969": {
-        "n": "Mithril Spurs",
-        "q": 2,
-        "img": "ability_rogue_sprint",
-        "requirements": {
-            "profession": {
-                "blacksmithing": 215
-            }
-        },
-        "use": "Attaches spurs to your boots that increase your mounted movement speed slightly.",
-        "step": 1,
-        "materials": {
-            "7966": 3,
-            "3860": 4
-        }
-    },
     "7913": {
         "n": "Barbaric Iron Shoulders",
         "q": 2,
         "img": "inv_shoulder_23",
         "slot": "Shoulder",
         "proficiency": "Mail",
+        "armor": 153,
         "durability": 60,
         "stats": {
             "Agility": 6,
@@ -1502,6 +1385,7 @@ var recipes = {
         "img": "inv_chest_chain_14",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 204,
         "durability": 100,
         "stats": {
             "Strength": 12
@@ -1521,6 +1405,7 @@ var recipes = {
         "img": "inv_helmet_25",
         "slot": "Head",
         "proficiency": "Mail",
+        "armor": 173,
         "durability": 60,
         "stats": {
             "Agility": 9,
@@ -1542,6 +1427,7 @@ var recipes = {
         "img": "inv_boots_plate_01",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 149,
         "durability": 50,
         "stats": {
             "Agility": 7,
@@ -1564,6 +1450,7 @@ var recipes = {
         "img": "inv_gauntlets_31",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 137,
         "durability": 35,
         "stats": {
             "Strength": 11
@@ -1584,6 +1471,7 @@ var recipes = {
         "img": "inv_shoulder_22",
         "slot": "Shoulder",
         "proficiency": "Plate",
+        "armor": 225,
         "durability": 70,
         "stats": {
             "Stamina": 12
@@ -1603,6 +1491,7 @@ var recipes = {
         "img": "inv_gauntlets_27",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 268,
         "durability": 40,
         "stats": {
             "Stamina": 8
@@ -1622,6 +1511,7 @@ var recipes = {
         "img": "inv_pants_03",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 208,
         "durability": 75,
         "stats": {
             "Spirit": 11
@@ -1643,6 +1533,7 @@ var recipes = {
         "img": "inv_pants_03",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 417,
         "durability": 85,
         "stats": {
             "Stamina": 11
@@ -1662,6 +1553,7 @@ var recipes = {
         "img": "inv_helmet_03",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 355,
         "durability": 70,
         "requirements": {
             "level": 40
@@ -1678,6 +1570,7 @@ var recipes = {
         "img": "inv_bracer_07",
         "slot": "Wrist",
         "proficiency": "Mail",
+        "armor": 106,
         "durability": 35,
         "stats": {
             "Spirit": 7,
@@ -1698,6 +1591,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 375,
         "durability": 85,
         "stats": {
             "Strength": 12
@@ -1722,6 +1616,7 @@ var recipes = {
         "img": "inv_gauntlets_31",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 268,
         "durability": 40,
         "requirements": {
             "level": 40
@@ -1743,6 +1638,7 @@ var recipes = {
         "img": "inv_shoulder_09",
         "slot": "Shoulder",
         "proficiency": "Plate",
+        "armor": 327,
         "durability": 70,
         "stats": {
             "Strength": 5
@@ -1766,6 +1662,7 @@ var recipes = {
         "img": "inv_pants_03",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 208,
         "durability": 75,
         "stats": {
             "Strength": 17
@@ -1785,6 +1682,7 @@ var recipes = {
         "img": "inv_chest_plate10",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 536,
         "durability": 115,
         "stats": {
             "Stamina": 15
@@ -1803,6 +1701,7 @@ var recipes = {
         "img": "inv_helmet_35",
         "slot": "Head",
         "proficiency": "Mail",
+        "armor": 206,
         "durability": 60,
         "stats": {
             "Spirit": 13,
@@ -1823,6 +1722,7 @@ var recipes = {
         "img": "inv_shoulder_12",
         "slot": "Shoulder",
         "proficiency": "Mail",
+        "armor": 194,
         "durability": 60,
         "stats": {
             "Spirit": 10,
@@ -1844,6 +1744,7 @@ var recipes = {
         "img": "inv_boots_plate_01",
         "slot": "Feet",
         "proficiency": "Plate",
+        "armor": 382,
         "durability": 55,
         "stats": {
             "Stamina": 12
@@ -1863,6 +1764,7 @@ var recipes = {
         "img": "inv_helmet_10",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 469,
         "durability": 70,
         "stats": {
             "Stamina": 15
@@ -1882,6 +1784,7 @@ var recipes = {
         "img": "inv_chest_plate10",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 463,
         "durability": 115,
         "requirements": {
             "level": 43
@@ -1904,6 +1807,7 @@ var recipes = {
         "img": "inv_boots_01",
         "slot": "Feet",
         "proficiency": "Plate",
+        "armor": 324,
         "durability": 55,
         "requirements": {
             "level": 44
@@ -1927,6 +1831,7 @@ var recipes = {
         "img": "inv_helmet_10",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 383,
         "durability": 70,
         "stats": {
             "Strength": 10
@@ -1951,6 +1856,7 @@ var recipes = {
         "img": "inv_gauntlets_29",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 300,
         "durability": 45,
         "stats": {
             "Stamina": 7,
@@ -2365,6 +2271,7 @@ var recipes = {
         "img": "inv_chest_plate05",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 381,
         "durability": 100,
         "requirements": {
             "level": 35
@@ -2382,6 +2289,66 @@ var recipes = {
         "step": 1,
         "materials": {
             "7912": 4
+        }
+    },
+    "7964": {
+        "n": "Solid Sharpening Stone",
+        "q": 1,
+        "img": "inv_stone_sharpeningstone_04",
+        "requirements": {
+            "level": 25
+        },
+        "use": "Increase sharp weapon damage by 6 for 30 minutes.",
+        "step": 1,
+        "materials": {
+            "7912": 1
+        }
+    },
+    "7965": {
+        "n": "Solid Weightstone",
+        "q": 1,
+        "img": "inv_stone_weightstone_04",
+        "requirements": {
+            "level": 25
+        },
+        "use": "Increase the damage of a blunt weapon by 6 for 30 minutes.",
+        "step": 1,
+        "materials": {
+            "4306": 1,
+            "7912": 1
+        }
+    },
+    "7967": {
+        "n": "Mithril Shield Spike",
+        "q": 2,
+        "img": "inv_misc_armorkit_02",
+        "requirements": {
+            "profession": {
+                "blacksmithing": 215
+            }
+        },
+        "use": "Attaches a Mithril Spike to your shield that deals damage every time you block with it.",
+        "step": 1,
+        "materials": {
+            "6037": 2,
+            "3860": 4,
+            "7966": 4
+        }
+    },
+    "7969": {
+        "n": "Mithril Spurs",
+        "q": 2,
+        "img": "ability_rogue_sprint",
+        "requirements": {
+            "profession": {
+                "blacksmithing": 215
+            }
+        },
+        "use": "Attaches spurs to your boots that increase your mounted movement speed slightly.",
+        "step": 1,
+        "materials": {
+            "7966": 3,
+            "3860": 4
         }
     },
     "9060": {
@@ -2402,6 +2369,7 @@ var recipes = {
         "img": "inv_gauntlets_29",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 146,
         "durability": 35,
         "stats": {
             "Spirit": 4,
@@ -2424,6 +2392,7 @@ var recipes = {
         "img": "inv_chest_chain",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 81,
         "durability": 60,
         "requirements": {
             "level": 2
@@ -2439,6 +2408,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 176,
         "durability": 75,
         "stats": {
             "Spirit": 6,
@@ -2453,19 +2423,6 @@ var recipes = {
             "3478": 2,
             "2842": 4,
             "2841": 12
-        }
-    },
-    "12404": {
-        "n": "Dense Sharpening Stone",
-        "q": 1,
-        "img": "inv_stone_sharpeningstone_05",
-        "requirements": {
-            "level": 35
-        },
-        "use": "Increase sharp weapon damage by 8 for 30 minutes.",
-        "step": 1,
-        "materials": {
-            "12365": 1
         }
     },
     "11128": {
@@ -2496,6 +2453,7 @@ var recipes = {
         "img": "inv_chest_plate08",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 817,
         "durability": 135,
         "stats": {
             "Stamina": 12
@@ -2519,6 +2477,7 @@ var recipes = {
         "img": "inv_shoulder_09",
         "slot": "Shoulder",
         "proficiency": "Plate",
+        "armor": 514,
         "durability": 70,
         "stats": {
             "Stamina": 10
@@ -2541,6 +2500,7 @@ var recipes = {
         "img": "inv_chest_chain_16",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 433,
         "durability": 100,
         "stats": {
             "Stamina": 13
@@ -2664,6 +2624,7 @@ var recipes = {
         "img": "inv_chest_plate08",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 480,
         "durability": 115,
         "resists": {
             "Fire": 8,
@@ -2688,6 +2649,7 @@ var recipes = {
         "img": "inv_belt_30",
         "slot": "Waist",
         "proficiency": "Plate",
+        "armor": 270,
         "durability": 40,
         "resists": {
             "Fire": 6,
@@ -2711,6 +2673,7 @@ var recipes = {
         "img": "inv_bracer_13",
         "slot": "Wrist",
         "proficiency": "Plate",
+        "armor": 214,
         "durability": 40,
         "resists": {
             "Fire": 5,
@@ -2734,6 +2697,7 @@ var recipes = {
         "img": "inv_boots_plate_08",
         "slot": "Feet",
         "proficiency": "Plate",
+        "armor": 367,
         "durability": 55,
         "resists": {
             "Fire": 7,
@@ -2758,6 +2722,7 @@ var recipes = {
         "img": "inv_helmet_23",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 434,
         "durability": 70,
         "resists": {
             "Fire": 10,
@@ -2782,6 +2747,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 499,
         "durability": 85,
         "resists": {
             "Fire": 10,
@@ -2805,6 +2771,7 @@ var recipes = {
         "img": "inv_chest_plate16",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 293,
         "durability": 100,
         "resists": {
             "Frost": 16,
@@ -2826,6 +2793,7 @@ var recipes = {
         "img": "inv_belt_11",
         "slot": "Waist",
         "proficiency": "Mail",
+        "armor": 159,
         "durability": 35,
         "resists": {
             "Frost": 12,
@@ -2846,6 +2814,7 @@ var recipes = {
         "img": "inv_crown_01",
         "slot": "Head",
         "proficiency": "Mail",
+        "armor": 258,
         "durability": 60,
         "resists": {
             "Frost": 18,
@@ -2866,6 +2835,7 @@ var recipes = {
         "img": "inv_gauntlets_26",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 192,
         "durability": 35,
         "resists": {
             "Frost": 12,
@@ -2886,6 +2856,7 @@ var recipes = {
         "img": "inv_boots_plate_03",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 215,
         "durability": 50,
         "resists": {
             "Frost": 15,
@@ -2906,6 +2877,7 @@ var recipes = {
         "img": "inv_pants_03",
         "slot": "Legs",
         "proficiency": "Mail",
+        "armor": 286,
         "durability": 75,
         "resists": {
             "Frost": 18,
@@ -2926,6 +2898,7 @@ var recipes = {
         "img": "inv_chest_plate10",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 570,
         "durability": 115,
         "stats": {
             "Stamina": 17,
@@ -2947,6 +2920,7 @@ var recipes = {
         "img": "inv_bracer_19",
         "slot": "Wrist",
         "proficiency": "Plate",
+        "armor": 225,
         "durability": 40,
         "stats": {
             "Stamina": 8,
@@ -2968,6 +2942,7 @@ var recipes = {
         "img": "inv_boots_plate_01",
         "slot": "Feet",
         "proficiency": "Plate",
+        "armor": 386,
         "durability": 55,
         "stats": {
             "Stamina": 12,
@@ -2990,6 +2965,7 @@ var recipes = {
         "img": "inv_helmet_22",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 456,
         "durability": 70,
         "stats": {
             "Stamina": 17,
@@ -3011,6 +2987,7 @@ var recipes = {
         "img": "inv_shoulder_02",
         "slot": "Shoulder",
         "proficiency": "Plate",
+        "armor": 380,
         "durability": 70,
         "stats": {
             "Stamina": 11,
@@ -3033,6 +3010,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 507,
         "durability": 85,
         "stats": {
             "Stamina": 18,
@@ -3054,6 +3032,7 @@ var recipes = {
         "img": "inv_shoulder_23",
         "slot": "Shoulder",
         "proficiency": "Plate",
+        "armor": 527,
         "durability": 70,
         "resists": {
             "Fire": 10,
@@ -3075,6 +3054,7 @@ var recipes = {
         "img": "inv_boots_plate_01",
         "slot": "Feet",
         "proficiency": "Plate",
+        "armor": 492,
         "durability": 55,
         "resists": {
             "Fire": 10,
@@ -3096,6 +3076,7 @@ var recipes = {
         "img": "inv_helmet_03",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 621,
         "durability": 70,
         "resists": {
             "Fire": 13,
@@ -3118,6 +3099,7 @@ var recipes = {
         "img": "inv_chest_plate11",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 738,
         "durability": 115,
         "resists": {
             "Fire": 15,
@@ -3139,6 +3121,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 665,
         "durability": 85,
         "resists": {
             "Fire": 14,
@@ -3160,6 +3143,7 @@ var recipes = {
         "img": "inv_chest_plate10",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 657,
         "durability": 135,
         "stats": {
             "Stamina": 26,
@@ -3187,6 +3171,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 575,
         "durability": 100,
         "stats": {
             "Stamina": 21,
@@ -3213,6 +3198,7 @@ var recipes = {
         "img": "inv_helmet_02",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 526,
         "durability": 80,
         "stats": {
             "Stamina": 25,
@@ -3233,107 +3219,17 @@ var recipes = {
             "12360": 6
         }
     },
-    "12643": {
-        "n": "Dense Weightstone",
+    "12404": {
+        "n": "Dense Sharpening Stone",
         "q": 1,
-        "img": "inv_stone_weightstone_05",
+        "img": "inv_stone_sharpeningstone_05",
         "requirements": {
             "level": 35
         },
-        "use": "Increase the damage of a blunt weapon by 8 for 30 minutes.",
+        "use": "Increase sharp weapon damage by 8 for 30 minutes.",
         "step": 1,
         "materials": {
-            "14047": 1,
             "12365": 1
-        }
-    },
-    "12645": {
-        "n": "Thorium Shield Spike",
-        "q": 2,
-        "img": "inv_misc_armorkit_20",
-        "requirements": {
-            "profession": {
-                "blacksmithing": 250
-            }
-        },
-        "use": "Attaches a Thorium Spike to your shield that deals damage every time you block with it.",
-        "step": 1,
-        "materials": {
-            "7076": 2,
-            "12644": 4,
-            "12359": 4
-        }
-    },
-    "12625": {
-        "n": "Dawnbringer Shoulders",
-        "q": 3,
-        "img": "inv_shoulder_20",
-        "slot": "Shoulder",
-        "proficiency": "Plate",
-        "durability": 80,
-        "stats": {
-            "Spirit": 10
-        },
-        "requirements": {
-            "level": 53
-        },
-        "equips": [
-            "Equip: Increases healing done by spells and effects by up to 44."
-        ],
-        "step": 1,
-        "materials": {
-            "12364": 2,
-            "12360": 4,
-            "12359": 20,
-            "7080": 2
-        }
-    },
-    "12628": {
-        "n": "Demon Forged Breastplate",
-        "q": 3,
-        "img": "inv_chest_plate06",
-        "slot": "Chest",
-        "proficiency": "Plate",
-        "durability": 135,
-        "stats": {
-            "Stamina": 12
-        },
-        "requirements": {
-            "level": 52
-        },
-        "equips": [
-            "Equip: When struck has a 3% chance of stealing 0 life from the attacker over 4 sec."
-        ],
-        "step": 1,
-        "materials": {
-            "7910": 4,
-            "12361": 4,
-            "12662": 10,
-            "12359": 40
-        }
-    },
-    "12631": {
-        "n": "Fiery Plate Gauntlets",
-        "q": 3,
-        "img": "inv_gauntlets_03",
-        "slot": "Hands",
-        "proficiency": "Plate",
-        "durability": 45,
-        "resists": {
-            "Fire": 10
-        },
-        "requirements": {
-            "level": 53
-        },
-        "equips": [
-            "Equip: Adds 4 fire damage to your weapon attack."
-        ],
-        "step": 1,
-        "materials": {
-            "7078": 2,
-            "12655": 6,
-            "12359": 20,
-            "7910": 4
         }
     },
     "12632": {
@@ -3342,6 +3238,7 @@ var recipes = {
         "img": "inv_gauntlets_30",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 218,
         "durability": 40,
         "stats": {
             "Intellect": 7
@@ -3370,6 +3267,7 @@ var recipes = {
         "img": "inv_helmet_13",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 629,
         "durability": 80,
         "stats": {
             "Spirit": 15,
@@ -3396,6 +3294,7 @@ var recipes = {
         "img": "inv_helmet_24",
         "slot": "Head",
         "proficiency": "Mail",
+        "armor": 292,
         "durability": 70,
         "stats": {
             "Spirit": 30,
@@ -3419,6 +3318,7 @@ var recipes = {
         "img": "inv_gauntlets_30",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 441,
         "durability": 55,
         "stats": {
             "Stamina": 12
@@ -3446,6 +3346,7 @@ var recipes = {
         "img": "inv_helmet_36",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 565,
         "durability": 100,
         "stats": {
             "Strength": 18
@@ -3472,6 +3373,7 @@ var recipes = {
         "img": "inv_chest_chain_07",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 554,
         "durability": 140,
         "requirements": {
             "level": 57
@@ -3919,68 +3821,85 @@ var recipes = {
             "12359": 40
         }
     },
-    "15869": {
-        "n": "Silver Skeleton Key",
-        "q": 2,
-        "img": "inv_misc_key_03",
+    "12643": {
+        "n": "Dense Weightstone",
+        "q": 1,
+        "img": "inv_stone_weightstone_05",
         "requirements": {
-            "profession": {
-                "blacksmithing": 100
-            }
+            "level": 35
         },
-        "use": "Allows opening of simple locks. The skeleton key is consumed in the process.",
-        "step": 2,
+        "use": "Increase the damage of a blunt weapon by 8 for 30 minutes.",
+        "step": 1,
         "materials": {
-            "3470": 1,
-            "2842": 1
+            "14047": 1,
+            "12365": 1
         }
     },
-    "15870": {
-        "n": "Golden Skeleton Key",
+    "12645": {
+        "n": "Thorium Shield Spike",
         "q": 2,
-        "img": "inv_misc_key_13",
+        "img": "inv_misc_armorkit_20",
         "requirements": {
             "profession": {
-                "blacksmithing": 150
+                "blacksmithing": 250
             }
         },
-        "use": "Allows opening of standard locks. The skeleton key is consumed in the process.",
-        "step": 2,
+        "use": "Attaches a Thorium Spike to your shield that deals damage every time you block with it.",
+        "step": 1,
         "materials": {
-            "3486": 1,
-            "3577": 1
+            "7076": 2,
+            "12644": 4,
+            "12359": 4
         }
     },
-    "15871": {
-        "n": "Truesilver Skeleton Key",
-        "q": 2,
-        "img": "inv_misc_key_11",
-        "requirements": {
-            "profession": {
-                "blacksmithing": 200
-            }
+    "12625": {
+        "n": "Dawnbringer Shoulders",
+        "q": 3,
+        "img": "inv_shoulder_20",
+        "slot": "Shoulder",
+        "proficiency": "Plate",
+        "armor": 455,
+        "durability": 80,
+        "stats": {
+            "Spirit": 10
         },
-        "use": "Allows opening of difficult locks. The skeleton key is consumed in the process.",
-        "step": 2,
+        "requirements": {
+            "level": 53
+        },
+        "equips": [
+            "Equip: Increases healing done by spells and effects by up to 44."
+        ],
+        "step": 1,
         "materials": {
-            "7966": 1,
-            "6037": 1
+            "12364": 2,
+            "12360": 4,
+            "12359": 20,
+            "7080": 2
         }
     },
-    "15872": {
-        "n": "Arcanite Skeleton Key",
-        "q": 2,
-        "img": "inv_misc_key_08",
-        "requirements": {
-            "profession": {
-                "blacksmithing": 275
-            }
+    "12631": {
+        "n": "Fiery Plate Gauntlets",
+        "q": 3,
+        "img": "inv_gauntlets_03",
+        "slot": "Hands",
+        "proficiency": "Plate",
+        "armor": 379,
+        "durability": 45,
+        "resists": {
+            "Fire": 10
         },
-        "use": "Allows opening of hard locks. The skeleton key is consumed in the process.",
-        "step": 2,
+        "requirements": {
+            "level": 53
+        },
+        "equips": [
+            "Equip: Adds 4 fire damage to your weapon attack."
+        ],
+        "step": 1,
         "materials": {
-            "12360": 1,
-            "12644": 1
+            "7078": 2,
+            "12655": 6,
+            "12359": 20,
+            "7910": 4
         }
     },
     "16988": {
@@ -3989,6 +3908,7 @@ var recipes = {
         "img": "inv_shoulder_23",
         "slot": "Shoulder",
         "proficiency": "Mail",
+        "armor": 299,
         "durability": 85,
         "stats": {
             "Stamina": 10,
@@ -4013,6 +3933,7 @@ var recipes = {
         "img": "inv_belt_13",
         "slot": "Waist",
         "proficiency": "Mail",
+        "armor": 214,
         "durability": 50,
         "stats": {
             "Spirit": 8,
@@ -4038,6 +3959,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 778,
         "durability": 120,
         "stats": {
             "Stamina": 14
@@ -4061,6 +3983,7 @@ var recipes = {
         "img": "inv_bracer_07",
         "slot": "Wrist",
         "proficiency": "Plate",
+        "armor": 394,
         "durability": 55,
         "stats": {
             "Stamina": 7
@@ -4195,18 +4118,68 @@ var recipes = {
             "3859": 10
         }
     },
-    "18262": {
-        "n": "Elemental Sharpening Stone",
+    "15869": {
+        "n": "Silver Skeleton Key",
         "q": 2,
-        "img": "inv_stone_02",
+        "img": "inv_misc_key_03",
         "requirements": {
-            "level": 50
+            "profession": {
+                "blacksmithing": 100
+            }
         },
-        "use": "Increase critical chance on a melee weapon by 2% for 30 minutes.",
-        "step": 1,
+        "use": "Allows opening of simple locks. The skeleton key is consumed in the process.",
+        "step": 2,
         "materials": {
-            "12365": 3,
-            "7067": 2
+            "3470": 1,
+            "2842": 1
+        }
+    },
+    "15870": {
+        "n": "Golden Skeleton Key",
+        "q": 2,
+        "img": "inv_misc_key_13",
+        "requirements": {
+            "profession": {
+                "blacksmithing": 150
+            }
+        },
+        "use": "Allows opening of standard locks. The skeleton key is consumed in the process.",
+        "step": 2,
+        "materials": {
+            "3486": 1,
+            "3577": 1
+        }
+    },
+    "15871": {
+        "n": "Truesilver Skeleton Key",
+        "q": 2,
+        "img": "inv_misc_key_11",
+        "requirements": {
+            "profession": {
+                "blacksmithing": 200
+            }
+        },
+        "use": "Allows opening of difficult locks. The skeleton key is consumed in the process.",
+        "step": 2,
+        "materials": {
+            "7966": 1,
+            "6037": 1
+        }
+    },
+    "15872": {
+        "n": "Arcanite Skeleton Key",
+        "q": 2,
+        "img": "inv_misc_key_08",
+        "requirements": {
+            "profession": {
+                "blacksmithing": 275
+            }
+        },
+        "use": "Allows opening of hard locks. The skeleton key is consumed in the process.",
+        "step": 2,
+        "materials": {
+            "12360": 1,
+            "12644": 1
         }
     },
     "19043": {
@@ -4215,6 +4188,7 @@ var recipes = {
         "img": "inv_belt_16",
         "slot": "Waist",
         "proficiency": "Mail",
+        "armor": 193,
         "durability": 40,
         "stats": {
             "Stamina": 9
@@ -4238,6 +4212,7 @@ var recipes = {
         "img": "inv_boots_chain_10",
         "slot": "Feet",
         "proficiency": "Mail",
+        "armor": 258,
         "durability": 60,
         "stats": {
             "Stamina": 23
@@ -4261,6 +4236,7 @@ var recipes = {
         "img": "inv_belt_11",
         "slot": "Waist",
         "proficiency": "Plate",
+        "armor": 341,
         "durability": 45,
         "stats": {
             "Stamina": 9,
@@ -4282,6 +4258,7 @@ var recipes = {
         "img": "inv_gauntlets_29",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 417,
         "durability": 45,
         "stats": {
             "Stamina": 10,
@@ -4303,6 +4280,7 @@ var recipes = {
         "img": "inv_helmet_22",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 758,
         "durability": 100,
         "stats": {
             "Stamina": 20
@@ -4326,6 +4304,7 @@ var recipes = {
         "img": "inv_gauntlets_22",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 495,
         "durability": 55,
         "stats": {
             "Agility": 12,
@@ -4496,12 +4475,27 @@ var recipes = {
             "17011": 4
         }
     },
+    "18262": {
+        "n": "Elemental Sharpening Stone",
+        "q": 2,
+        "img": "inv_stone_02",
+        "requirements": {
+            "level": 50
+        },
+        "use": "Increase critical chance on a melee weapon by 2% for 30 minutes.",
+        "step": 1,
+        "materials": {
+            "12365": 3,
+            "7067": 2
+        }
+    },
     "19690": {
         "n": "Bloodsoul Breastplate",
         "q": 3,
         "img": "inv_chest_chain_14",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 381,
         "durability": 120,
         "stats": {
             "Agility": 9,
@@ -4528,6 +4522,7 @@ var recipes = {
         "img": "inv_shoulder_15",
         "slot": "Shoulder",
         "proficiency": "Mail",
+        "armor": 286,
         "durability": 70,
         "stats": {
             "Agility": 24,
@@ -4551,6 +4546,7 @@ var recipes = {
         "img": "inv_gauntlets_31",
         "slot": "Hands",
         "proficiency": "Mail",
+        "armor": 238,
         "durability": 40,
         "stats": {
             "Agility": 10,
@@ -4577,6 +4573,7 @@ var recipes = {
         "img": "inv_chest_plate08",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 736,
         "durability": 135,
         "stats": {
             "Stamina": 32
@@ -4601,6 +4598,7 @@ var recipes = {
         "img": "inv_pants_plate_21",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 722,
         "durability": 100,
         "stats": {
             "Stamina": 22
@@ -4625,6 +4623,7 @@ var recipes = {
         "img": "inv_boots_chain_08",
         "slot": "Feet",
         "proficiency": "Plate",
+        "armor": 664,
         "durability": 75,
         "stats": {
             "Random": 1
@@ -4649,6 +4648,7 @@ var recipes = {
         "img": "inv_gauntlets_27",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 410,
         "durability": 45,
         "stats": {
             "Stamina": 8
@@ -4676,6 +4676,7 @@ var recipes = {
         "img": "inv_chest_plate06",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 657,
         "durability": 135,
         "stats": {
             "Stamina": 14
@@ -4702,6 +4703,7 @@ var recipes = {
         "img": "inv_helmet_10",
         "slot": "Head",
         "proficiency": "Plate",
+        "armor": 534,
         "durability": 80,
         "stats": {
             "Stamina": 13
@@ -4723,82 +4725,13 @@ var recipes = {
             "12359": 16
         }
     },
-    "2857": {
-        "n": "Runed Copper Belt",
-        "q": 1,
-        "img": "inv_belt_03",
-        "slot": "Waist",
-        "proficiency": "Mail",
-        "durability": 25,
-        "requirements": {
-            "level": 13
-        },
-        "step": 1,
-        "materials": {
-            "2840": 10
-        }
-    },
-    "2866": {
-        "n": "Rough Bronze Cuirass",
-        "q": 1,
-        "img": "inv_chest_chain_08",
-        "slot": "Chest",
-        "proficiency": "Mail",
-        "durability": 90,
-        "requirements": {
-            "level": 18
-        },
-        "step": 1,
-        "materials": {
-            "2841": 7
-        }
-    },
-    "22194": {
-        "n": "Black Grasp of the Destroyer",
-        "q": 4,
-        "img": "inv_gauntlets_31",
-        "slot": "Hands",
-        "proficiency": "Mail",
-        "durability": 50,
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: +28 Attack Power.",
-            "Equip: Improves your chance to get a critical strike by 1%.",
-            "Equip: On successful melee or ranged attack gain 8 mana and if possible drain 8 mana from the target."
-        ],
-        "step": 1,
-        "materials": {
-            "13512": 1,
-            "12810": 8,
-            "22202": 24,
-            "22203": 8
-        }
-    },
-    "3480": {
-        "n": "Rough Bronze Shoulders",
-        "q": 1,
-        "img": "inv_shoulder_05",
-        "slot": "Shoulder",
-        "proficiency": "Mail",
-        "durability": 50,
-        "requirements": {
-            "level": 17
-        },
-        "step": 1,
-        "materials": {
-            "1210": 1,
-            "2841": 5,
-            "3478": 1
-        }
-    },
     "3836": {
         "n": "Green Iron Helm",
         "q": 2,
         "img": "inv_helmet_03",
         "slot": "Head",
         "proficiency": "Mail",
+        "armor": 171,
         "durability": 60,
         "stats": {
             "Stamina": 11,
@@ -4814,122 +4747,13 @@ var recipes = {
             "3575": 12
         }
     },
-    "3851": {
-        "n": "Solid Iron Maul",
-        "q": 2,
-        "img": "inv_hammer_07",
-        "slot": "Two-hand",
-        "proficiency": "Mace",
-        "speed": "3.50",
-        "durability": 85,
-        "stats": {
-            "Stamina": 12
-        },
-        "requirements": {
-            "level": 26
-        },
-        "damage": [
-            "59  -  89 Damage"
-        ],
-        "dps": "21.1",
-        "step": 1,
-        "materials": {
-            "4234": 2,
-            "2842": 4,
-            "3486": 1,
-            "3466": 2,
-            "3575": 8
-        }
-    },
-    "6338": {
-        "n": "Silver Rod",
-        "q": 1,
-        "img": "inv_staff_01",
-        "description": "Needed by Enchanters.",
-        "step": 1,
-        "materials": {
-            "3470": 2,
-            "2842": 1
-        }
-    },
-    "7939": {
-        "n": "Truesilver Breastplate",
-        "q": 3,
-        "img": "inv_chest_plate04",
-        "slot": "Chest",
-        "proficiency": "Plate",
-        "durability": 135,
-        "stats": {
-            "Stamina": 12
-        },
-        "requirements": {
-            "level": 44
-        },
-        "equips": [
-            "Equip: When struck in combat has a 3% chance to heal you for 60 to 101. (cooldown 10 sec)"
-        ],
-        "step": 1,
-        "materials": {
-            "7966": 2,
-            "7971": 4,
-            "7910": 4,
-            "6037": 24,
-            "3860": 12
-        }
-    },
-    "22195": {
-        "n": "Light Obsidian Belt",
-        "q": 3,
-        "img": "inv_belt_16",
-        "slot": "Waist",
-        "proficiency": "Mail",
-        "durability": 40,
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: +32 Attack Power.",
-            "Equip: Improves your chance to get a critical strike by 1%.",
-            "Equip: +5 All Resistances."
-        ],
-        "step": 1,
-        "materials": {
-            "12810": 4,
-            "22202": 14
-        }
-    },
-    "22196": {
-        "n": "Thick Obsidian Breastplate",
-        "q": 4,
-        "img": "inv_chest_chain_17",
-        "slot": "Chest",
-        "proficiency": "Plate",
-        "durability": 165,
-        "stats": {
-            "Stamina": 16,
-            "Strength": 38
-        },
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: When struck by a non-periodic damage spell you have a 30% chance of getting a 6 sec spell shield that absorbs 300 to 501 of that school of damage."
-        ],
-        "step": 1,
-        "materials": {
-            "12364": 4,
-            "7076": 10,
-            "12655": 12,
-            "22202": 40,
-            "22203": 18
-        }
-    },
     "22197": {
         "n": "Heavy Obsidian Belt",
         "q": 3,
         "img": "inv_belt_16",
         "slot": "Waist",
         "proficiency": "Plate",
+        "armor": 397,
         "durability": 45,
         "stats": {
             "Strength": 25
@@ -4953,6 +4777,7 @@ var recipes = {
         "img": "inv_shield_22",
         "slot": "Off Hand",
         "proficiency": "Shield",
+        "armor": 2645,
         "durability": 120,
         "stats": {
             "Block": 48
@@ -5039,6 +4864,7 @@ var recipes = {
         "img": "inv_pants_04",
         "slot": "Legs",
         "proficiency": "Plate",
+        "armor": 598,
         "durability": 120,
         "stats": {
             "Strength": 30
@@ -5064,6 +4890,7 @@ var recipes = {
         "img": "inv_chest_chain_11",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 899,
         "durability": 165,
         "stats": {
             "Stamina": 24,
@@ -5092,6 +4919,7 @@ var recipes = {
         "img": "inv_gauntlets_28",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 562,
         "durability": 55,
         "stats": {
             "Stamina": 18,
@@ -5120,6 +4948,7 @@ var recipes = {
         "img": "inv_bracer_07",
         "slot": "Wrist",
         "proficiency": "Plate",
+        "armor": 393,
         "durability": 55,
         "stats": {
             "Stamina": 13,
@@ -5148,6 +4977,7 @@ var recipes = {
         "img": "inv_chest_plate07",
         "slot": "Chest",
         "proficiency": "Plate",
+        "armor": 726,
         "durability": 135,
         "stats": {
             "Stamina": 15
@@ -5175,6 +5005,7 @@ var recipes = {
         "img": "inv_gauntlets_29",
         "slot": "Hands",
         "proficiency": "Plate",
+        "armor": 454,
         "durability": 45,
         "stats": {
             "Stamina": 10
@@ -5201,6 +5032,7 @@ var recipes = {
         "img": "inv_belt_21",
         "slot": "Waist",
         "proficiency": "Plate",
+        "armor": 408,
         "durability": 45,
         "stats": {
             "Stamina": 12
@@ -5220,12 +5052,399 @@ var recipes = {
             "12803": 2
         }
     },
+    "2857": {
+        "n": "Runed Copper Belt",
+        "q": 1,
+        "img": "inv_belt_03",
+        "slot": "Waist",
+        "proficiency": "Mail",
+        "armor": 86,
+        "durability": 25,
+        "requirements": {
+            "level": 13
+        },
+        "step": 1,
+        "materials": {
+            "2840": 10
+        }
+    },
+    "2866": {
+        "n": "Rough Bronze Cuirass",
+        "q": 1,
+        "img": "inv_chest_chain_08",
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "armor": 168,
+        "durability": 90,
+        "requirements": {
+            "level": 18
+        },
+        "step": 1,
+        "materials": {
+            "2841": 7
+        }
+    },
+    "22194": {
+        "n": "Black Grasp of the Destroyer",
+        "q": 4,
+        "img": "inv_gauntlets_31",
+        "slot": "Hands",
+        "proficiency": "Mail",
+        "armor": 279,
+        "durability": 50,
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: +28 Attack Power.",
+            "Equip: Improves your chance to get a critical strike by 1%.",
+            "Equip: On successful melee or ranged attack gain 8 mana and if possible drain 8 mana from the target."
+        ],
+        "step": 1,
+        "materials": {
+            "13512": 1,
+            "12810": 8,
+            "22202": 24,
+            "22203": 8
+        }
+    },
+    "3480": {
+        "n": "Rough Bronze Shoulders",
+        "q": 1,
+        "img": "inv_shoulder_05",
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "armor": 124,
+        "durability": 50,
+        "requirements": {
+            "level": 17
+        },
+        "step": 1,
+        "materials": {
+            "1210": 1,
+            "2841": 5,
+            "3478": 1
+        }
+    },
+    "3851": {
+        "n": "Solid Iron Maul",
+        "q": 2,
+        "img": "inv_hammer_07",
+        "slot": "Two-hand",
+        "proficiency": "Mace",
+        "speed": "3.50",
+        "durability": 85,
+        "stats": {
+            "Stamina": 12
+        },
+        "requirements": {
+            "level": 26
+        },
+        "damage": [
+            "59  -  89 Damage"
+        ],
+        "dps": "21.1",
+        "step": 1,
+        "materials": {
+            "4234": 2,
+            "2842": 4,
+            "3486": 1,
+            "3466": 2,
+            "3575": 8
+        }
+    },
+    "6338": {
+        "n": "Silver Rod",
+        "q": 1,
+        "img": "inv_staff_01",
+        "description": "Needed by Enchanters.",
+        "step": 1,
+        "materials": {
+            "3470": 2,
+            "2842": 1
+        }
+    },
+    "7939": {
+        "n": "Truesilver Breastplate",
+        "q": 3,
+        "img": "inv_chest_plate04",
+        "slot": "Chest",
+        "proficiency": "Plate",
+        "armor": 519,
+        "durability": 135,
+        "stats": {
+            "Stamina": 12
+        },
+        "requirements": {
+            "level": 44
+        },
+        "equips": [
+            "Equip: When struck in combat has a 3% chance to heal you for 60 to 101. (cooldown 10 sec)"
+        ],
+        "step": 1,
+        "materials": {
+            "7966": 2,
+            "7971": 4,
+            "7910": 4,
+            "6037": 24,
+            "3860": 12
+        }
+    },
+    "22195": {
+        "n": "Light Obsidian Belt",
+        "q": 3,
+        "img": "inv_belt_16",
+        "slot": "Waist",
+        "proficiency": "Mail",
+        "armor": 224,
+        "durability": 40,
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: +32 Attack Power.",
+            "Equip: Improves your chance to get a critical strike by 1%.",
+            "Equip: +5 All Resistances."
+        ],
+        "step": 1,
+        "materials": {
+            "12810": 4,
+            "22202": 14
+        }
+    },
+    "22196": {
+        "n": "Thick Obsidian Breastplate",
+        "q": 4,
+        "img": "inv_chest_chain_17",
+        "slot": "Chest",
+        "proficiency": "Plate",
+        "armor": 814,
+        "durability": 165,
+        "stats": {
+            "Stamina": 16,
+            "Strength": 38
+        },
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: When struck by a non-periodic damage spell you have a 30% chance of getting a 6 sec spell shield that absorbs 300 to 501 of that school of damage."
+        ],
+        "step": 1,
+        "materials": {
+            "12364": 4,
+            "7076": 10,
+            "12655": 12,
+            "22202": 40,
+            "22203": 18
+        }
+    },
+    "3840": {
+        "n": "Green Iron Shoulders",
+        "q": 2,
+        "img": "inv_shoulder_09",
+        "slot": "Shoulder",
+        "proficiency": "Mail",
+        "armor": 153,
+        "durability": 60,
+        "stats": {
+            "Stamina": 7,
+            "Strength": 4
+        },
+        "requirements": {
+            "level": 27
+        },
+        "step": 1,
+        "materials": {
+            "2605": 1,
+            "3486": 1,
+            "3575": 7
+        }
+    },
+    "12424": {
+        "n": "Imperial Plate Belt",
+        "q": 2,
+        "img": "inv_belt_01",
+        "slot": "Waist",
+        "proficiency": "Plate",
+        "armor": 285,
+        "durability": 40,
+        "stats": {
+            "Stamina": 11,
+            "Strength": 12
+        },
+        "requirements": {
+            "level": 47
+        },
+        "step": 1,
+        "materials": {
+            "7909": 1,
+            "8170": 6,
+            "12359": 22
+        },
+        "itemset": "321"
+    },
+    "16206": {
+        "n": "Arcanite Rod",
+        "q": 1,
+        "img": "inv_staff_19",
+        "description": "Needed by Enchanters.",
+        "step": 1,
+        "materials": {
+            "12644": 1,
+            "12360": 3
+        }
+    },
+    "19695": {
+        "n": "Darksoul Shoulders",
+        "q": 3,
+        "img": "inv_shoulder_01",
+        "slot": "Shoulder",
+        "proficiency": "Plate",
+        "armor": 507,
+        "durability": 80,
+        "stats": {
+            "Stamina": 24
+        },
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: Improves your chance to hit by 1%."
+        ],
+        "step": 1,
+        "materials": {
+            "12799": 1,
+            "19774": 10,
+            "12359": 16
+        },
+        "itemset": "444"
+    },
+    "22191": {
+        "n": "Obsidian Mail Tunic",
+        "q": 4,
+        "img": "inv_chest_chain_17",
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "armor": 458,
+        "durability": 140,
+        "requirements": {
+            "level": 60
+        },
+        "equips": [
+            "Equip: Spell Damage received is reduced by 10.",
+            "Equip: Improves your chance to get a critical strike by 1%.",
+            "Equip: +76 Attack Power."
+        ],
+        "step": 1,
+        "materials": {
+            "12810": 12,
+            "22202": 36,
+            "22203": 15,
+            "12800": 4,
+            "12809": 10
+        }
+    },
+    "5540": {
+        "n": "Pearl-handled Dagger",
+        "q": 2,
+        "img": "inv_weapon_shortblade_05",
+        "slot": "One-hand",
+        "proficiency": "Dagger",
+        "speed": "1.70",
+        "durability": 45,
+        "stats": {
+            "Agility": 2,
+            "Stamina": 2
+        },
+        "requirements": {
+            "level": 18
+        },
+        "damage": [
+            "13  -  26 Damage"
+        ],
+        "dps": "11.5",
+        "step": 1,
+        "materials": {
+            "3478": 2,
+            "5498": 2,
+            "3466": 1,
+            "2841": 6
+        }
+    },
+    "6350": {
+        "n": "Rough Bronze Boots",
+        "q": 1,
+        "img": "inv_boots_01",
+        "slot": "Feet",
+        "proficiency": "Mail",
+        "armor": 106,
+        "durability": 40,
+        "requirements": {
+            "level": 13
+        },
+        "step": 1,
+        "materials": {
+            "3470": 6,
+            "2841": 6
+        }
+    },
+    "12628": {
+        "n": "Demon Forged Breastplate",
+        "q": 3,
+        "img": "inv_chest_plate06",
+        "slot": "Chest",
+        "proficiency": "Plate",
+        "armor": 597,
+        "durability": 135,
+        "stats": {
+            "Stamina": 12
+        },
+        "requirements": {
+            "level": 52
+        },
+        "equips": [
+            "Equip: When struck has a 3% chance of stealing 0 life from the attacker over 4 sec."
+        ],
+        "step": 1,
+        "materials": {
+            "7910": 4,
+            "12361": 4,
+            "12662": 10,
+            "12359": 40
+        }
+    },
+    "2869": {
+        "n": "Silvered Bronze Breastplate",
+        "q": 2,
+        "img": "inv_chest_chain_09",
+        "slot": "Chest",
+        "proficiency": "Mail",
+        "armor": 186,
+        "durability": 95,
+        "stats": {
+            "Spirit": 4,
+            "Stamina": 5,
+            "Strength": 5
+        },
+        "requirements": {
+            "level": 21
+        },
+        "step": 1,
+        "materials": {
+            "3478": 2,
+            "2842": 2,
+            "2841": 10,
+            "1705": 1
+        }
+    },
     "12624": {
         "n": "Wildthorn Mail",
         "q": 3,
         "img": "inv_chest_chain_12",
         "slot": "Chest",
         "proficiency": "Mail",
+        "armor": 322,
         "durability": 120,
         "stats": {
             "Spirit": 11,
@@ -5272,89 +5491,8 @@ var recipes = {
             "12799": 2,
             "12359": 20
         }
-    },
-    "12424": {
-        "n": "Imperial Plate Belt",
-        "q": 2,
-        "img": "inv_belt_01",
-        "slot": "Waist",
-        "proficiency": "Plate",
-        "durability": 40,
-        "stats": {
-            "Stamina": 11,
-            "Strength": 12
-        },
-        "requirements": {
-            "level": 47
-        },
-        "step": 1,
-        "materials": {
-            "7909": 1,
-            "8170": 6,
-            "12359": 22
-        },
-        "itemset": "321"
-    },
-    "16206": {
-        "n": "Arcanite Rod",
-        "q": 1,
-        "img": "inv_staff_19",
-        "description": "Needed by Enchanters.",
-        "step": 1,
-        "materials": {
-            "12644": 1,
-            "12360": 3
-        }
-    },
-    "19695": {
-        "n": "Darksoul Shoulders",
-        "q": 3,
-        "img": "inv_shoulder_01",
-        "slot": "Shoulder",
-        "proficiency": "Plate",
-        "durability": 80,
-        "stats": {
-            "Stamina": 24
-        },
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: Improves your chance to hit by 1%."
-        ],
-        "step": 1,
-        "materials": {
-            "12799": 1,
-            "19774": 10,
-            "12359": 16
-        },
-        "itemset": "444"
-    },
-    "22191": {
-        "n": "Obsidian Mail Tunic",
-        "q": 4,
-        "img": "inv_chest_chain_17",
-        "slot": "Chest",
-        "proficiency": "Mail",
-        "durability": 140,
-        "requirements": {
-            "level": 60
-        },
-        "equips": [
-            "Equip: Spell Damage received is reduced by 10.",
-            "Equip: Improves your chance to get a critical strike by 1%.",
-            "Equip: +76 Attack Power."
-        ],
-        "step": 1,
-        "materials": {
-            "12810": 12,
-            "22202": 36,
-            "22203": 15,
-            "12800": 4,
-            "12809": 10
-        }
     }
-};
+}
 var materials = {
     "2835": {
         "n": "Rough Stone",
