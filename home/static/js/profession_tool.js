@@ -4,9 +4,10 @@ $(document).ready(function() {
 	professionToolHandlers();
 });
 
+
 window.addEventListener('load', function(e) {
 	// figure out which profession(if any) is in the url
-	var selectedProfession = professionTool.ALL_PROFS.filter(substring => document.location.pathname.includes(substring))
+	var selectedProfession = professionTool.PROFS.filter(substring => document.location.pathname.includes(substring))
 	if (selectedProfession.length) { // simulate click on said profession
 		$(`#${selectedProfession[0]}.prof-filter`).trigger("click")
 	}
@@ -14,6 +15,7 @@ window.addEventListener('load', function(e) {
 	// var matchedhref = checkLocalHashes()
 	if (document.location.search) {
 		professionTool.remove.all()
+
 		getConsumeList(document.location)
 	}
 
@@ -48,18 +50,16 @@ function checkLocalHashes() {
 }
 
 var professionTool = {
-	ALL_PROFS: ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'first_aid', 'leatherworking', 'mining', 'other', 'skinning'],
-	ALL_RECIPES: {},
-	ALL_ITEMS: {},
-	ALL_ITEMSETS: {},
-	PROF_DATA: {},
+	PROFS: ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'first_aid', 'leatherworking', 'mining', 'other', 'skinning'],
+	RECIPES: {},
+	ITEMS: {},
+	ITEMSETS: {},
 	monkeyList: '',
 	CONSUMES: {},
 	MATERIALS: {},
-	combine: '',
 	update: {
 		item: function(ix, amount=1, step=1) {
-			var recipe = professionTool.ALL_ITEMS[ix]
+			var recipe = professionTool.ITEMS[ix]
 			professionTool.add.item(professionTool.CONSUMES, ix, amount, step, 'consumes')
 
 			for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
@@ -67,7 +67,7 @@ var professionTool = {
 				professionTool.add.item(professionTool.MATERIALS, matIX, amount, materialStep, 'materials')
 			}
 		},
-		container: function(ix, parent) {
+		element: function(ix, parent) {
 
 			var parentElem;
 			if (parent == 'consumes') {
@@ -75,7 +75,7 @@ var professionTool = {
 				var dataContainer = parentElem.querySelector(`div.consume-list-item.data-container[data-ix="${ix}"]`)
 				dataContainer.querySelector('span.consume-container > span.amount').innerText = professionTool.CONSUMES[ix]
 
-				var recipe = professionTool.ALL_ITEMS[ix]
+				var recipe = professionTool.ITEMS[ix]
 				var materialsList = dataContainer.querySelector('div.materials-list')
 
 				for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
@@ -87,17 +87,24 @@ var professionTool = {
 				parentElem.querySelector(`div.materials-list-item.data-container[data-ix="${ix}"] > span.material-container > span.amount`).innerText = professionTool.MATERIALS[ix]
 			}
 		},
-	},
-	addExisting: function(d) {
+		consumes: function(d) {
 
-		var data = (d.responseJSON) ? d.responseJSON : d
-		professionTool.ALL_ITEMS = Object.assign(professionTool.ALL_ITEMS, data.consume_list)
-		professionTool.ALL_ITEMS = Object.assign(professionTool.ALL_ITEMS, data.material_list)
+			var data = (d.responseJSON) ? d.responseJSON : d
+			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.consume_list)
+			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.material_list)
 
-		for (let [ix, consume] of Object.entries(data.consume_list)) {
-			professionTool.update.item(ix, consume.amount, consume.step)
+			for (let [ix, consume] of Object.entries(data.consume_list)) {
+				professionTool.update.item(ix, consume.amount, consume.step)
+			}
+			professionTool.update.listInfo(data)
+
+		},
+		listInfo: function(data) {
+			var savedListInfo = document.getElementById('saved_list_info')
+			return
 		}
 	},
+
 	add: {
 		item: function(itemObj, ix, amount=1, step=1, parent) {
 			if (!itemObj[ix]) {
@@ -105,11 +112,11 @@ var professionTool = {
 				professionTool.add.toPage(ix, parent)
 			} else {
 				itemObj[ix] += amount * step
-				professionTool.update.container(ix, parent)
+				professionTool.update.element(ix, parent)
 			}
 
 			if (itemObj[ix] <= 0) {
-				professionTool.remove.item(ix, parent)
+				professionTool.remove.element(ix, parent)
 				delete itemObj[ix]
 			}
 		},
@@ -118,9 +125,8 @@ var professionTool = {
 			var iconBorderPath = static_url + 'images/icon_border_2.png',
 				imagePrefix = static_url + 'images/icons/large/';
 
-			//create_element(tag, class_name, style, text, dataAttrs={})
 			if (parent == 'consumes') {
-				var recipe = professionTool.ALL_ITEMS[ix]
+				var recipe = professionTool.ITEMS[ix]
 				parentElem = document.getElementById('consumes')
 				var dataContainer = create_element('div', 'consume-list-item data-container', '', '', {'data-ix': ix}),
 					expandButton = create_element('span', 'consume-container collapsed', '', '', {'data-toggle': 'collapse', 'href': `#${sanitize(recipe.n)}_collapse`, 'role':'button'}),
@@ -163,7 +169,7 @@ var professionTool = {
 
 				for (let [matIX, matStep] of Object.entries(recipe.materials)) {
 					var materialAmount = (professionTool.CONSUMES[ix]/recipe.step)*matStep,
-						material = professionTool.ALL_ITEMS[matIX],
+						material = professionTool.ITEMS[matIX],
 						materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX}),
 						materialContainer = create_element('span', 'material-container');
 
@@ -199,7 +205,7 @@ var professionTool = {
 			} else {
 				parentElem = document.getElementById('materials')
 
-				var material = professionTool.ALL_ITEMS[ix],
+				var material = professionTool.ITEMS[ix],
 					dataContainer = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': ix}),
 					materialContainer = create_element('span', 'material-container');
 				var imagePath = `${imagePrefix}${material.img}`
@@ -227,7 +233,7 @@ var professionTool = {
 		// }
 	},
 	remove: {
-		item: function(ix, parent) {
+		element: function(ix, parent) {
 			var parentElem = document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']`)
 			while (parentElem.firstChild) {
 				parentElem.removeChild(parentElem.firstChild);
@@ -288,7 +294,7 @@ function getConsumeList(url) {
 		url: '/ajax/consume_list_builder/',
 		data: data,
 		dataType: 'json',
-		success: professionTool.addExisting,
+		success: professionTool.update.consumes,
 		complete: updateSelectedList,
 		error: notFoundError,
 	});
@@ -402,7 +408,7 @@ function recipeHandlers() {
 			var multiple = (e.shiftKey) ? 5 : 1
 			multiple = (e.which === 3) ? multiple * (-1) : multiple
 			var ix = $(e.target).closest(".data-container").attr("data-ix")
-			var step = professionTool.ALL_ITEMS[ix].step
+			var step = professionTool.ITEMS[ix].step
 
 			var amount = step * multiple
 			amount = ((amount + professionTool.CONSUMES[ix]) >= 0) ? (amount) : (professionTool.CONSUMES[ix] * -1)
@@ -455,7 +461,7 @@ function consumeHandlers() {
 			var multiple = (e.shiftKey) ? 5 : 1
 			var dataContainer = $(e.target).closest(".data-container")
 			var ix = dataContainer.attr("data-ix")
-			var step = professionTool.ALL_ITEMS[ix].step
+			var step = professionTool.ITEMS[ix].step
 
 			if (e.target.matches('.sub-button')) {
 				multiple = multiple * (-1)
@@ -489,10 +495,10 @@ function consumeHandlers() {
 
 function getRecipeList(prof) {
 
-	if (!Object.keys(professionTool.ALL_RECIPES).includes(prof)) {
+	if (!Object.keys(professionTool.RECIPES).includes(prof)) {
 		addScript(prof)
 	} else {
-		buildRecipeList(professionTool.ALL_RECIPES[prof])
+		buildRecipeList(professionTool.RECIPES[prof])
 	}
 
 }
@@ -532,11 +538,11 @@ function emptyRecipeList() {
 
 function scriptLoaded(prof) {
 
-	professionTool.ALL_ITEMS = Object.assign(professionTool.ALL_ITEMS, materials)
-	professionTool.ALL_ITEMS = Object.assign(professionTool.ALL_ITEMS, recipes)
+	professionTool.ITEMS = Object.assign(professionTool.ITEMS, materials)
+	professionTool.ITEMS = Object.assign(professionTool.ITEMS, recipes)
 
-	professionTool.ALL_RECIPES[prof] = recipes
-	professionTool.ALL_ITEMSETS = Object.assign(professionTool.ALL_ITEMSETS, itemsets)
+	professionTool.RECIPES[prof] = recipes
+	professionTool.ITEMSETS = Object.assign(professionTool.ITEMSETS, itemsets)
 
 	buildRecipeList(recipes)
 }
@@ -602,7 +608,7 @@ function buildRecipeList(recipes) {
 
 		for (let [matIX, step] of Object.entries(recipe.materials)) {
 
-			var mat = professionTool.ALL_ITEMS[matIX]
+			var mat = professionTool.ITEMS[matIX]
 			var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}`, '', '', {'data-ix': matIX}) // t2
 			matDataContainer.name = mat.n
 

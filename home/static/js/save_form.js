@@ -39,13 +39,10 @@ function save_form_handlers() {
             form.querySelector('#id_description').value = description
             form.querySelector('#id_name').value = name
 
-    		// var $thisURL = $myForm.attr('data-url') || window.location.href
     		var myURL = window.location.href
-    		// var $formData = $myForm.serialize()
 
             var data = serialize(form)
 
-    		// console.log("DATA: ", $formData, $thisURL, $myForm)
     		$.ajax({
     			method: "POST",
     			url: myURL,
@@ -113,6 +110,8 @@ function savedListError(jqXHR, textStatus, errorThrown) {
 	console.log(textStatus)
 	console.log(errorThrown)
 }
+
+
 //
 // function append_list_item(data) {
 //     console.log('data: ', data)

@@ -1,5 +1,6 @@
 var tooltip = {
     coords: {x:'', y:''},
+    dimensions: {w: '', h:''},
     tooltipContainer: document.getElementById("tooltip_container"),
     init: function(e) {
         tooltip.empty()
@@ -9,8 +10,8 @@ var tooltip = {
         tooltip.coords.x = e.pageX
         tooltip.coords.y = e.pageY
 
-        if (Object.keys(professionTool.ALL_ITEMS).includes(ix)) {
-            var data = professionTool.ALL_ITEMS[ix]
+        if (Object.keys(professionTool.ITEMS).includes(ix)) {
+            var data = professionTool.ITEMS[ix]
             tooltip.create(data)
             tooltip.updateCoords(e)
         } else {
@@ -21,6 +22,7 @@ var tooltip = {
         while (this.tooltipContainer.firstChild) {
             this.tooltipContainer.removeChild(this.tooltipContainer.firstChild);
         }
+        tooltip.tooltipContainer.style.cssText = `visibility: hidden;`
     },
     hide: function() {
         for (let i = 0; i < this.tooltipContainer.children.length; i++) {
@@ -36,7 +38,20 @@ var tooltip = {
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     },
     setPosition: function(x=this.coords.x, y=this.coords.y) {
-        tooltip.tooltipContainer.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible;`
+        tooltip.tooltipContainer.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible; white-space: pre-wrap`
+    },
+
+    getDimensions: function(element, msg='') {
+        var message = `offset Width:${element.offsetWidth}, Height:${element.offsetHeight}, Top:${element.offsetTop}, Left:${element.offsetLeft}`
+        console.log(msg+message)
+        message = `client  Width:${element.clientWidth}, Height:${element.clientHeight}`
+        console.log(msg+message)
+
+    },
+    checkDimensions: function() {
+        if (tooltip.tooltipContainer.offsetWidth + tooltip.coords.x > window.screen.availWidth) {
+            tooltip.coords.x -= tooltip.tooltipContainer.offsetWidth
+        }
     },
     mouseleaveCleanup: function(e) {
         tooltip.empty()
@@ -44,16 +59,20 @@ var tooltip = {
     },
     create: function(response) {
 
-    	var container = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;")
+    	// var container = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;")
+        var container = create_element('div', 'tooltip-container', 'white-space: pre-wrap;')
+
         container.id = 'tooltip'
 
         var data = (response.responseJSON) ? response.responseJSON : response
 
     	if (data.img) {
     		let image_name = static_url+`images/icons/large/${data.img}.jpg`
-    		style = `pointer-events: none; float: left; background-image: url(${image_name})`
+    		// style = `pointer-events: none; float: left; background-image: url(${image_name})`
+            style = `pointer-events: none; background-image: url(${image_name})`
+
     		var img = create_element('img', 'icon-medium', style)
-            img.id = 'tooltip_img'
+            img.id = 'tooltip_image'
     		img.src = static_url+"images/icon_border_2.png"
     		tooltip.tooltipContainer.appendChild(img)
     	}
@@ -174,7 +193,7 @@ var tooltip = {
     			} else if (key=='profession') {
     				for (let [k, v] of Object.entries(val)) {
     					var req_text = "Requires "+titleCase(k)
-    					if (professionTool.ALL_PROFS.includes(k.toString())) {
+    					if (professionTool.PROFS.includes(k.toString())) {
     						req_text += ` (${v})`
     					}
     					let prof_req = create_element('div', 'required_prof', '', req_text)
@@ -191,7 +210,8 @@ var tooltip = {
     		var equips = create_element('div', 'use q2', 'clear: both; font-size: 13px')
 
     		data.equips.forEach(function(x) {
-    			equips.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `${x}`))
+                var str = (x.startsWith('Equip:')) ? x : `Equip: ${x}`
+    			equips.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', str))
     		})
 
     		container.appendChild(equips)
@@ -219,7 +239,7 @@ var tooltip = {
     	}
 
     	if (data.itemset) {
-    		var itemset = professionTool.ALL_ITEMSETS[data.itemset]
+    		var itemset = professionTool.ITEMSETS[data.itemset]
     		// let num_items =
     		var itemset_text = `${itemset.n} (0/${itemset.items.length})`
     		var itemset_elem = create_element('div', 'description', 'clear: both;', `\n${itemset_text}`)
@@ -232,8 +252,11 @@ var tooltip = {
     		})
     		container.appendChild(itemset_elem)
     	}
+
     	tooltip.tooltipContainer.appendChild(container)
-    	tooltip.tooltipContainer.style.cssText = `left: ${tooltip.coords.x}px; top: ${tooltip.coords.y}px; white-space: pre-wrap`
-        // this.tooltipContainer.attr("style", `left: ${coords.x}px; top: ${coords.y}px; visibility: visible;`)
+
+        tooltip.checkDimensions()
+
+        tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     }
 }

@@ -22,6 +22,10 @@ def consume_list_builder(request):
 
 		if cl:
 			cl = cl.first()
+			data['name'] = cl.name
+			data['description'] = cl.description
+			data['updated'] = cl.updated
+			data['tags'] = [x.name for x in cl.tags.all()]
 
 			for consume in cl.consumes.all():
 				consume_list[consume.ix] = get_item_info('', consume.ix)
@@ -664,7 +668,7 @@ def get_item_info(request, ix=None):
 
 		if item.armor:
 			data['armor'] = item.armor
-			
+
 		if item.stats:
 			data['stats'] = item.stats
 

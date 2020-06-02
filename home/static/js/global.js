@@ -2,29 +2,6 @@ $(document).ready(function() {
 	global_event_handlers()
 });
 
-function build_consume_list(url, ix=0) {
-	var id = ix
-	// var search = url.search
-	// var path = url.pathname
-	// var url = `${path}${search}`
-	$.ajax({
-		url: url,
-		dataType: 'html',
-		success: function (data) {
-			$("#totals_container").html(data);
-		},
-		complete: function(data) {
-			consumeHandlers();
-			// if (document.location.href.toString().includes('profession_tool')) {
-			//
-			// 	update_url(path, search)
-			// }
-			if (id > 0) {
-				info_display(id, 'pt')
-			}
-		}
-	});
-}
 
 function info_display(id, caller) {
 	$.ajax({
@@ -249,7 +226,7 @@ function ez_tooltip(e, staticK=false) {
     var target = $(e.target)
     var data_container = target.closest(".data-container")[0].dataset
 	var ix = data_container.ix
-	var data = (ALL_ITEMS[ix]) ? ALL_ITEMS[ix] : (STORAGE_ITEMS[ix]) ? STORAGE_ITEMS[ix] : ALL_RECIPES[ix]
+	var data = (ITEMS[ix]) ? ITEMS[ix] : (STORAGE_ITEMS[ix]) ? STORAGE_ITEMS[ix] : ALL_RECIPES[ix]
 	while (!data) {
 		getItemInfo(ix)
 		data = STORAGE_ITEMS[ix]
@@ -430,7 +407,7 @@ function ez_tooltip(e, staticK=false) {
 	}
 
 	if (data.itemset) {
-		var itemset = ALL_ITEMSETS[data.itemset]
+		var itemset = ITEMSETS[data.itemset]
 		// let num_items =
 		var itemset_text = `${itemset.n} (0/${itemset.items.length})`
 		var itemset_elem = create_element('div', 'description', 'clear: both;', `\n${itemset_text}`)

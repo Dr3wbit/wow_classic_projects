@@ -81,22 +81,6 @@ function resetTree() {
 	})
 }
 
-// function sideNav(){
-// 	sideNav = $('.savedSpecs')
-// 	navTrigger = $('.side-nav-trigger')
-// 	icon = $('.trigger-icon')
-// 	navTrigger.on({
-// 		click: e => {
-// 			if(sideNav.hasClass('minimized')){
-// 				sideNav.removeClass('minimized')
-// 				icon.removeClass('iconSwitch')
-// 			}else{
-// 				sideNav.addClass('minimized')
-// 				icon.addClass('iconSwitch')
-// 			}
-// 		},
-// 	})
-// }
 
 function lockSpec() {
 	$('#talentLock').on({
@@ -538,7 +522,6 @@ function checkLockedTiers(tree) {
 }
 
 function pointSpender(talent, e, tree, targetTal) {
-	// const talent_name = utilities.sanitize(talent.name)
 	const talent_name = talent.name
 
 	// basically the inverse of .locked
@@ -696,7 +679,7 @@ function pointSpender(talent, e, tree, targetTal) {
 }
 
 // needs optimization
-function talentLocker(tree = '') {
+function talentLocker(tree='') {
 
 	let treeNames = []
 	if (!tree) { // defaults to all trees
@@ -745,7 +728,7 @@ function talentLocker(tree = '') {
 	})
 }
 
-function talentUnlocker(tree = '') {
+function talentUnlocker(tree='') {
 	let treeNames = []
 	if (!tree) { // defaults to all trees
 		treeNames = talentPointsSpent.treeNames
@@ -814,7 +797,7 @@ function urlBuilder() {
 	})
 
 	let matchArr = newURL.match(re)
-	for (var y = 0; y < matchArr.length; y++) {
+	for (var y=0; y < matchArr.length; y++) {
 		newURL = newURL.replace(matchArr[y], matchArr[y][0] + (matchArr[y].length).toString())
 	}
 
@@ -854,7 +837,7 @@ function urlExpander(hash) {
 
 }
 
-function preBuiltSpec(ha = '') {
+function preBuiltSpec(ha='') {
 	var hash = ha
 	if (hash.startsWith('?')) {
 		hash = hash.substring(1)
