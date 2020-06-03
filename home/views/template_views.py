@@ -293,7 +293,7 @@ class TalentCalcTemplate(TemplateView):
 
 				except IntegrityError as e:
 					name = request.POST.get('name', None)
-					message = "User {} already has consume list with name: {}".format(request.user.email, name)
+					message = "User {} already has spec with name: {}".format(request.user.email, name)
 					data = {
 						'name': name,
 						'message': message
@@ -311,17 +311,15 @@ class TalentCalcTemplate(TemplateView):
 
 
 	def save_list(self, request, cleaned_data):
-		url = request.POST.get('hash', None)
-		wow_class = request.POST.get('wow_class', None)
+		data['hash'] = request.POST.get('hash', None)
+		data['wow_class'] = request.POST.get('wow_class', None)
 		private = cleaned_data['private']
 		description = cleaned_data['description']
 		name = cleaned_data['name']
 		tags = request.POST.getlist('tags')
 		spnt = request.POST.getlist('spent')
 		data = dict(request.POST)
-		data['wow_class'] = wow_class
 		spent = {}
-		data['hash'] = url
 		for x in spnt:
 			y = x.split(',')
 			data['spent'].append(y[1])
@@ -329,11 +327,10 @@ class TalentCalcTemplate(TemplateView):
 
 		if request.user.is_authenticated:
 			user = request.user
-			if url and wow_class and name:
-				wow_class = WoWClass.objects.get(name=wow_class.title())
+			if data['hash'] and data['wow_class'] and name:
+				wow_class = WoWClass.objects.get(name=data['wow_class'].title())
 				spec,spec_created = Spec.objects.update_or_create(
-					name=name, user=user, wow_class=wow_class, private=private,
-					hash=url, description=description,
+					name=name, user=user, wow_class=wow_class,
 					defaults={'name': name, 'user':user,
 						'wow_class':wow_class, 'hash': url, 'description':description, 'private':private
 					}
@@ -755,7 +752,7 @@ class ConsumeToolTemplate(TemplateView):
 		user = request.user
 
 		c_list,cl_created = ConsumeList.objects.update_or_create(
-			name=name, user=user, private=private, description=description,
+			name=name, user=user,
 			defaults={'name': name, 'user':user,
 				'description':description, 'private':private
 			}
@@ -764,11 +761,14 @@ class ConsumeToolTemplate(TemplateView):
 		data['id'] = c_list.id
 		hash = secrets.token_hex(5)
 
-		if hash in ConsumeList.objects.all().values_list('hash', flat=True):
-			hash = secrets.token_hex(5)
+		if cl_created:
 
-		data['hash'] = hash
-		c_list.hash = hash
+			while hash in ConsumeList.objects.all().values_list('hash', flat=True):
+				hash = secrets.token_hex(5)
+
+			c_list.hash = hash
+
+		data['hash'] = c_list.hash
 
 		data['created'] = True if cl_created else False
 
