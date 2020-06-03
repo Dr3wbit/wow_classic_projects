@@ -59,7 +59,6 @@ var tooltip = {
     },
     create: function(response) {
 
-    	// var container = create_element('div', 'tooltip-container', "float: right; white-space: pre-wrap;")
         var container = create_element('div', 'tooltip-container', 'white-space: pre-wrap;')
 
         container.id = 'tooltip'
@@ -68,7 +67,6 @@ var tooltip = {
 
     	if (data.img) {
     		let image_name = static_url+`images/icons/large/${data.img}.jpg`
-    		// style = `pointer-events: none; float: left; background-image: url(${image_name})`
             style = `pointer-events: none; background-image: url(${image_name})`
 
     		var img = create_element('img', 'icon-medium', style)
@@ -134,7 +132,6 @@ var tooltip = {
 
     	if (data.stats) {
     		var stat_text = ""
-    		// var _stats = looseJsonParse(data.stats)
     		for (let [key, val] of Object.entries(data.stats)) {
     			let some_text = `${val} ${key}\n`
 
@@ -150,7 +147,6 @@ var tooltip = {
 
     	if (data.resists) {
     		var resist_text = ""
-    		// var _resists = looseJsonParse(data.resists)
     		for (let [key, val] of Object.entries(data.resists)) {
     			resist_text += `+${val} ${key} Resist\n`
     		}
@@ -165,7 +161,6 @@ var tooltip = {
     	}
 
     	if (data.requirements) {
-    		// var _requirements = looseJsonParse(data.requirements)
     		var requirements = create_element('div', 'requirements', 'clear: both;')
 
     		for (let [key, val] of Object.entries(data.requirements)) {
@@ -206,7 +201,6 @@ var tooltip = {
     	}
 
     	if (data.equips) {
-    		// var _equips = looseJsonParse(data.equips)
     		var equips = create_element('div', 'use q2', 'clear: both; font-size: 13px')
 
     		data.equips.forEach(function(x) {
@@ -219,7 +213,6 @@ var tooltip = {
     	}
 
     	if (data.procs) {
-    		// var _procs = looseJsonParse(data.procs)
     		var procs = create_element('div', 'use q2', 'clear: both; font-size: 13px')
     		data.procs.forEach(function(x) {
     			procs.appendChild(create_element('div', 'use q2', 'clear: both; font-size: 13px', `${x}`))
@@ -240,7 +233,6 @@ var tooltip = {
 
     	if (data.itemset) {
     		var itemset = professionTool.ITEMSETS[data.itemset]
-    		// let num_items =
     		var itemset_text = `${itemset.n} (0/${itemset.items.length})`
     		var itemset_elem = create_element('div', 'description', 'clear: both;', `\n${itemset_text}`)
     		itemset.items.forEach(function(name) {

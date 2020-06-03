@@ -686,3 +686,22 @@ function listObjUnhandlers() {
 	$('#sorting_order').addClass('hidden').addClass('untouchable')
 	$('#current_sort').text('Sort')
 }
+
+function combatText(e, t){
+	let color = null
+	var text = t
+	if (t >= 0) {
+		text = "+" + text
+		color = "rgba(30,255,0,0.95)"
+	} else {
+		color = "red"
+	}
+	let timeStamp = $.now();
+	let uniqueID = `${e.pageX}${e.pageY}${timeStamp}`
+	let notificationContainer = create_element('div', "floating-container", `left: ${e.pageX}px; top: ${e.pageY}px; color: ${color}`, text)
+	notificationContainer.id = uniqueID
+
+	document.body.appendChild(notificationContainer)
+
+	setTimeout(() => { $(`#${uniqueID}`).remove() }, 2900);
+}

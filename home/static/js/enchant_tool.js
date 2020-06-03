@@ -240,3 +240,11 @@ function showEnchantEffect() {
         }
     })
 }
+
+function move_tooltip(e, staticK=false) {
+	let pageY = e.pageY
+	let pageX = e.pageX+15
+	var coords = get_tooltip_pos(e, staticK)
+    const tooltip = $("#tooltip_container")
+    tooltip.attr("style", `top: ${coords.y}px; left: ${coords.x}px; visibility: visible; display:block;`)
+}
