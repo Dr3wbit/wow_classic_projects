@@ -4,7 +4,7 @@ import re
 
 profession_re = r'^profession_tool/(?P<prof>(alchemy|blacksmithing|first_aid|enchanting|engineering|cooking|skinning|mining|other|tailoring|leatherworking|riding|fishing|herbalism))'
 class_re = r'^talent_calc/(?P<class>(paladin|priest|hunter|mage|rogue|shaman|warrior|warlock|druid))'
-id_re = r'/(?P<id>[\d]+)'
+id_re = r'/?(?P<id>[\d]+)?'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('api', views.APIView.as_view(), name='api'),
@@ -12,7 +12,7 @@ urlpatterns = [
     re_path(class_re+r'$', views.TalentCalcTemplate.as_view(), name='talents'),
     re_path(class_re+id_re+r'$', views.TalentCalcTemplate.as_view(), name='talent_helper'),
     path('tc/<int:id>', views.TalentBuilderRedirectView.as_view(), name='talent_builder'),
-    path('pt/<int:id>', views.ConsumeBuilderRedirectView.as_view(), name='consume_builder'),
+    re_path(r'^pt'+id_re, views.ConsumeBuilderRedirectView.as_view(), name='consume_builder'),
     path('profession_tool', views.ConsumeToolTemplate.as_view(), name='profession_tool'),
     re_path(profession_re+r'$', views.ConsumeToolTemplate.as_view(), name='recipes'),
     re_path(r'^profession_tool'+id_re, views.ConsumeToolTemplate.as_view(), name='consume_helper'),
@@ -36,6 +36,7 @@ urlpatterns = [
     path('ajax/update_icon/', views.update_icon, name='update_icon'),
     path('ajax/user_info/', views.user_info, name='user_info'),
     path('ajax/saved_lists/', views.get_saved_lists, name='saved_lists'),
-
+    path('ajax/build_recipe_list/', views.recipe_list_builder, name='recipe_list_builder'),
+    path('ajax/consume_list_builder/', views.consume_list_builder, name='consume_list_builder'),
 
 ]

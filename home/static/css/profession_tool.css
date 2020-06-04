@@ -109,17 +109,10 @@
     width: 100%
 }
 
-.icon-medium {
-    width: 42px;
-    height: 42px;
-    border: 1px black ridge;
-    border-radius: 5px;
-    background-size: 36px 36px;
-    background-position: left 1px top 1px;
-    background-repeat: no-repeat;
-    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+.recipe-name {
+    /* text-indent: 4px; */
+    padding-left: 4px;
 }
-
 
 .recipe-name:hover {
     text-decoration: solid underline;
@@ -128,12 +121,14 @@
     text-decoration: solid underline;
 } */
 
+
+
 #recipe_list {
     overflow-y: scroll;
     text-align: left;
     height: 100%;
     border-right: 1px solid black;
-    user-select: none;
+    /* user-select: none; */
 }
 
 .material-container {
@@ -189,7 +184,7 @@
     margin-right: 0;
     z-index: auto;
 }
-.prof-item-recipe {
+.recipe-container {
     margin-top: 4px;
     cursor: pointer;
     background-color: #101010;
@@ -200,17 +195,6 @@
     margin-left: 10px;
     margin-right: -10px;
     min-width: 262px;
-}
-
-.icon-medium {
-    width: 42px;
-    height: 42px;
-    border: 1px black ridge;
-    border-radius: 5px;
-    background-size: 36px 36px;
-    background-position: left 1px top 1px;
-    background-repeat: no-repeat;
-    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .reagent-list {
@@ -248,4 +232,18 @@
 
 /* .adjustment-button:hover {
     cursor: pointer;
+} */
+
+.count-container {
+    position: relative;
+    right: 3px;
+    top: 15px;
+}
+
+.remove-carrat:after {
+    content: none;
+}
+
+/* .list-link {
+    pointer-events: none;
 } */

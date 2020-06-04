@@ -11,13 +11,10 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 # from django.core.paginator import Paginator
 from django.conf import settings
-from django.template.loader import render_to_string
 
 from itertools import chain
 from operator import attrgetter
 import math, re, datetime, secrets, os, json, requests, random
-
-
 
 
 def handler500(request):
@@ -296,7 +293,7 @@ class TalentCalcTemplate(TemplateView):
 
 				except IntegrityError as e:
 					name = request.POST.get('name', None)
-					message = "User {} already has consume list with name: {}".format(request.user.email, name)
+					message = "User {} already has spec with name: {}".format(request.user.email, name)
 					data = {
 						'name': name,
 						'message': message
@@ -314,17 +311,15 @@ class TalentCalcTemplate(TemplateView):
 
 
 	def save_list(self, request, cleaned_data):
-		url = request.POST.get('hash', None)
-		wow_class = request.POST.get('wow_class', None)
+		data['hash'] = request.POST.get('hash', None)
+		data['wow_class'] = request.POST.get('wow_class', None)
 		private = cleaned_data['private']
 		description = cleaned_data['description']
 		name = cleaned_data['name']
 		tags = request.POST.getlist('tags')
 		spnt = request.POST.getlist('spent')
 		data = dict(request.POST)
-		data['wow_class'] = wow_class
 		spent = {}
-		data['hash'] = url
 		for x in spnt:
 			y = x.split(',')
 			data['spent'].append(y[1])
@@ -332,11 +327,10 @@ class TalentCalcTemplate(TemplateView):
 
 		if request.user.is_authenticated:
 			user = request.user
-			if url and wow_class and name:
-				wow_class = WoWClass.objects.get(name=wow_class.title())
+			if data['hash'] and data['wow_class'] and name:
+				wow_class = WoWClass.objects.get(name=data['wow_class'].title())
 				spec,spec_created = Spec.objects.update_or_create(
-					name=name, user=user, wow_class=wow_class, private=private,
-					hash=url, description=description,
+					name=name, user=user, wow_class=wow_class,
 					defaults={'name': name, 'user':user,
 						'wow_class':wow_class, 'hash': url, 'description':description, 'private':private
 					}
@@ -392,16 +386,28 @@ class ConsumeBuilderRedirectView(RedirectView):
 
 	def get_redirect_url(self, *args, **kwargs):
 
+		qd = list((self.request.GET).keys())[0]
+		print('qs: ', qd)
+
 		new_url = "{}://{}/profession_tool".format(self.request.scheme, self.request.get_host())
 
 		if 'id' in self.request.session:
 			del self.request.session['id']
 
 		id = kwargs['id']
-		self.request.session['id'] = id
-		cl = ConsumeList.objects.get(id=id)
-		qs = cl.hash
-		self.url = new_url+"/{}?{}".format(id, qs)
+		# if id:
+			# new_url = new_url+"/{}".format(id)
+
+		cl = ConsumeList.objects.filter(id=id).first()
+		if cl:
+			self.request.session['id'] = id
+			cl = ConsumeList.objects.get(id=id)
+			qs = cl.hash
+
+		else:
+			qs = qd
+
+		self.url = new_url+"?{}".format(qs)
 
 		return self.url
 
@@ -428,7 +434,15 @@ class ConsumeToolTemplate(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
-		context["form"] = self.form_class()
+
+		context['form'] = self.form_class()
+
+		# context["form"] = self.form_class()
+
+		# form = self.form_class()
+		# if form.is_valid():
+			# context["form"] = self.form_class()
+
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
@@ -518,136 +532,146 @@ class ConsumeToolTemplate(TemplateView):
 		return response
 
 	def post(self, request, *args, **kwargs):
-		form = self.form_class(request.POST)
-		context = {}
-		context['form'] = form
-		if form.is_valid():
-			if request.is_ajax():
-				try:
-					form_data = self.save_list(request, form.cleaned_data)
-					name = form_data['name']
-					created = form_data['created']
-					update_or_create = 'created' if created else 'updated'
-					message = "Successfully {} list: {}".format(update_or_create, name)
-					data = {
-						'name': name,
-						'spent': form_data['spent'],
-						'hash': form_data['hash'],
-						'created': created,
-						'message': message,
-						'id': form_data['id']
-					}
-					response = JsonResponse(data)
-				except IntegrityError as e:
-					name = request.POST.get('name', None)
-					message = "User {} already has consume list with name: {}".format(request.user.email, name)
-					data = {
-						'name': name,
-						'message': message
-					}
-					response = JsonResponse(data)
-					response.status_code = 400
 
-			else:
-				response = HttpResponseRedirect('profession_tool')
-		else:
+		if request.method == 'POST':
+			form = self.form_class(request.POST)
 			context = {}
 
-
-			context["form"] = self.form_class()
-			context["professions"] = [
-				"engineering", "alchemy", "blacksmithing", "cooking",
-				"tailoring", "other", "leatherworking", "enchanting", "first_aid",
-				"skinning", "mining", "herbalism", "fishing"
-			]
-
-			id,cl = False,False
-
-			if 'id' in request.session:
-				id = request.session['id']
-				del request.session['id']
-
-			elif 'id' in self.kwargs.keys():
-				id = self.kwargs.get('id')
-
-			if id:
-				cl = ConsumeList.objects.filter(id=id).first()
-
-			if cl:
-				context['ix'] = id
-				context["consume_list"] = cl
-				context['materials'] = get_materials(context["consume_list"])
-				context['consumes'] = {}
-
-				for consume in cl.consumes.all():
-					prof_name = sanitize(consume.item.profession.name) if consume.item.profession else 'other'
-					if prof_name not in context['consumes'].keys():
-						context['consumes'][prof_name] = {}
-					context['consumes'][prof_name][consume.name] = consume.amount
+			if form.is_valid():
+				context['form'] = form
+				if request.is_ajax():
+					try:
+						form_data = self.save_list(request, form.cleaned_data)
 
 
-			prof = self.kwargs.get("prof", None)
-			context["recipes"] = {}
-			context["selected"] = prof
+						name = form_data['name']
+						created = form_data['created']
+						update_or_create = 'created' if created else 'updated'
+						message = "Successfully {} list: {}".format(update_or_create, name)
+						data = {
+							'name': name,
+							'spent': form_data['spent'],
+							'hash': form_data['hash'],
+							'created': created,
+							'message': message,
+							'id': form_data['id']
+						}
+						consume_list = ConsumeList.objects.filter(id=form_data['id'], hash=form_data['hash'])
+						if consume_list:
+							consume_list = consume_list.first()
+							data['img'] = consume_list.img
+							profs_used = consume_list.profs_used[0]
 
+							data['profs'] = profs_used
 
-			if prof=='other':
-				all_recipes = Crafted.objects.filter(profession=None).order_by('item')
-				# context["recipes"] = Crafted.objects.filter(prof=None)
-			elif prof:
-				all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
+						response = JsonResponse(data)
+					except IntegrityError as e:
+						name = request.POST.get('name', None)
+						message = "User {} already has consume list with name: {}".format(request.user.email, name)
+						data = {
+							'name': name,
+							'message': message
+						}
+						response = JsonResponse(data)
+						response.status_code = 400
 
-			else:
-				all_recipes = []
-
-
-			if all_recipes:
-
-				if all_recipes.count() > 50:
-					# pagination
-					items_per_page = int(request.POST.get('results_per_page', 30))
-					page_number = int(request.POST.get('page', 1))
-					num_recipes = all_recipes.count()
-
-					context['pagination'] = {}
-					context['pagination'] = self.paginator(num_recipes, page_number, items_per_page)
-
-					START = context['pagination']['START']
-					STOP = context['pagination']['STOP']
-
-					context["recipes"] = all_recipes[START:STOP]
 				else:
-					context["recipes"] = all_recipes
+					response = HttpResponseRedirect('profession_tool')
+			else:
+				context = {}
 
-			# context["recipes"] = recipes
-			qs = request.META.get('QUERY_STRING', None)
+				context["form"] = self.form_class()
+				context["professions"] = [
+					"engineering", "alchemy", "blacksmithing", "cooking",
+					"tailoring", "other", "leatherworking", "enchanting", "first_aid",
+					"skinning", "mining", "herbalism", "fishing"
+				]
 
-			data = dict(request.POST)
+				id,cl = False,False
 
-			if data.keys() and qs:
-				# context['consumes'] = {}
-				context['materials'] = {}
-				cl = ConsumeList.objects.filter(hash=qs).first()
+				if 'id' in request.session:
+					id = request.session['id']
+					del request.session['id']
+
+				elif 'id' in self.kwargs.keys():
+					id = self.kwargs.get('id')
+
+				if id:
+					cl = ConsumeList.objects.filter(id=id).first()
+
 				if cl:
-					context['consume_list'] = cl
-					context['materials'] = get_materials(cl)
+					context['ix'] = id
+					context["consume_list"] = cl
+					context['materials'] = get_materials(context["consume_list"])
+					context['consumes'] = {}
 
+					for consume in cl.consumes.all():
+						prof_name = sanitize(consume.item.profession.name) if consume.item.profession else 'other'
+						if prof_name not in context['consumes'].keys():
+							context['consumes'][prof_name] = {}
+						context['consumes'][prof_name][consume.name] = consume.amount
 
-			if request.is_ajax():
-				if 'prof' in data.keys():
-					response = render(request, "recipe_helper.html", context=context)
+				prof = self.kwargs.get("prof", None)
+				context["recipes"] = {}
+				context["selected"] = prof
+
+				if prof=='other':
+					all_recipes = Crafted.objects.filter(profession=None).order_by('item')
+					# context["recipes"] = Crafted.objects.filter(prof=None)
+				elif prof:
+					all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
 				else:
-					response = render(request, "consume_helper.html", context=context)
-			else:
-				context["whole_page"] = True
-				response = render(request, "profession_tool.html", context=context)
+					all_recipes = []
+
+
+				if all_recipes:
+
+					if all_recipes.count() > 50:
+						# pagination
+						items_per_page = int(request.POST.get('results_per_page', 30))
+						page_number = int(request.POST.get('page', 1))
+						num_recipes = all_recipes.count()
+
+						context['pagination'] = {}
+						context['pagination'] = self.paginator(num_recipes, page_number, items_per_page)
+
+						START = context['pagination']['START']
+						STOP = context['pagination']['STOP']
+
+						context["recipes"] = all_recipes[START:STOP]
+					else:
+						context["recipes"] = all_recipes
+
+				# context["recipes"] = recipes
+				qs = request.META.get('QUERY_STRING', None)
+
+				data = dict(request.POST)
+
+				if data.keys() and qs:
+					# context['consumes'] = {}
+					context['materials'] = {}
+					cl = ConsumeList.objects.filter(hash=qs).first()
+					if cl:
+						context['consume_list'] = cl
+						context['materials'] = get_materials(cl)
+
+
+				if request.is_ajax():
+					if 'prof' in data.keys():
+						response = render(request, "recipe_helper.html", context=context)
+					else:
+						response = render(request, "consume_helper.html", context=context)
+				else:
+					context["whole_page"] = True
+					response = render(request, "profession_tool.html", context=context)
+
+				return response
+
+				print('save failed, redirecting to previous page...')
+				response = HttpResponseRedirect('profession_tool')
 
 			return response
 
-			print('save failed, redirecting to previous page...')
-			response = HttpResponseRedirect('profession_tool')
-
-		return response
 
 	#####################################################################
 	## with the addition of all items/recipes, no longer a viable method
@@ -710,34 +734,25 @@ class ConsumeToolTemplate(TemplateView):
 		private = cleaned_data['private']
 		tags = request.POST.getlist('tags')
 		name = request.POST.get('name', None)
-		spnt = request.POST.getlist('spent')
+		spent = request.POST.getlist('spent')
 		description = request.POST.get('description')
 		data = dict(request.POST)
-		data['spent'] = []
-		spent = {}
+		consumes = {}
 
-		for x in spnt:
+		for x in spent:
 			y = x.split(',')
-			a = y[0]
-			b = y[1]
 
-			cr = Crafted.objects.get(item__name=a)
-			if cr.profession:
-				prof_name = cr.profession.name
-			else:
-				prof_name = 'other'
+			ix = y[0]
+			amount = y[1]
+			consumes[ix] = amount
 
-			if prof_name not in spent.keys():
-				spent[prof_name] = {}
-			spent[prof_name][a] = b
 
 		data['name'] = name
-		data['spent'] = spent
 
 		user = request.user
 
 		c_list,cl_created = ConsumeList.objects.update_or_create(
-			name=name, user=user, private=private, description=description,
+			name=name, user=user,
 			defaults={'name': name, 'user':user,
 				'description':description, 'private':private
 			}
@@ -746,11 +761,14 @@ class ConsumeToolTemplate(TemplateView):
 		data['id'] = c_list.id
 		hash = secrets.token_hex(5)
 
-		if hash in ConsumeList.objects.all().values_list('hash', flat=True):
-			hash = secrets.token_hex(5)
+		if cl_created:
 
-		data['hash'] = hash
-		c_list.hash = hash
+			while hash in ConsumeList.objects.all().values_list('hash', flat=True):
+				hash = secrets.token_hex(5)
+
+			c_list.hash = hash
+
+		data['hash'] = c_list.hash
 
 		data['created'] = True if cl_created else False
 
@@ -760,26 +778,17 @@ class ConsumeToolTemplate(TemplateView):
 				c_list.tags.add(t)
 				c_list.save()
 
-		for p,v in spent.items():
-			v = {a:b for a,b in v.items() if b}
 
-			# if p == 'other':
-			# 	prof = None
-			# else:
-			# 	prof = Profession.objects.get(name=p)
-			#
-			for x,y in v.items():
+		for ix,amount in consumes.items():
+			crafted = Crafted.objects.get(item__ix=ix)
+			c,cons_created = Consume.objects.update_or_create(
+				amount=amount, consume_list=c_list, item=crafted,
+				defaults={'amount':amount, 'consume_list':c_list, 'item':crafted}
+			)
+			if cons_created:
+				c_list.consumes.add(c)
 
-				# item = Item.objects.get(name=x)
-				crafted = Crafted.objects.get(item__name=x)
-				c,cons_created = Consume.objects.update_or_create(
-					amount=y, consume_list=c_list, item=crafted,
-					defaults={'amount':y, 'consume_list':c_list, 'item':crafted}
-				)
-				if cons_created:
-					c_list.consumes.add(c)
-
-				c_list.save()
+			c_list.save()
 
 
 		return data
@@ -843,6 +852,25 @@ class DeniedView(TemplateView):
 	template_name = "denied.html"
 
 
+
+def build_consume_list(cl):
+	consume_list = {}
+	for consume in cl.consumes.all():
+		consume_list[consume.ix] = {}
+		consume_list[consume.ix]['n'] = consume.name
+		consume_list[consume.ix]['q'] = consume.quality
+		consume_list[consume.ix]['img'] = consume.img
+		consume_list[consume.ix]['amount'] = consume.amount
+
+		consume_list[consume.ix]['mats'] = {}
+		for mat in consume.mats:
+			consume_list[consume.ix]['mats'][mat.item.ix] = {}
+			consume_list[consume.ix]['mats'][mat.item.ix]['amount'] = mat.amount*consume.amount
+			consume_list[consume.ix]['mats'][mat.item.ix]['n'] = mat.name
+			consume_list[consume.ix]['mats'][mat.item.ix]['q'] = mat.quality
+			consume_list[consume.ix]['mats'][mat.item.ix]['img'] = mat.img
+
+	return consume_list
 
 
 def get_materials(cl):

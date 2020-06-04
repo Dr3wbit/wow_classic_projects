@@ -560,22 +560,31 @@ ul {
     padding-bottom: 1px;
 }
 
+#tooltip_image {
+/*     margin-top: 3px; */
+    /* padding: 3px; */
+    flex: none;
+    position: relative;
+    top: 3px;
+}
+
 #tooltip {
+    flex: none;
     font-size: 100%;
     text-align: left;
     line-height: 17px;
     max-width: 320px;
-    display: block;
+/*     display: block; */
     background-color: rgba(0, 0, 30, 0.85) !important;
     color: rgba(240,255,255,0.98);
     pointer-events: none;
     user-select: none;
-    border: 1px solid #b6bbc0;
-    padding: 3px;
-    margin: 3px;
+    border: 1px solid #85888c;
+    padding: 5px;
+    margin: 5px;
     /* margin-left: 1px; */
-    margin-bottom: 2px;
-    /* padding-bottom: 2px; */
+/*     margin-bottom: 2px; */
+    padding-bottom: 2px;
     border-radius: 3px;
     box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
     text-shadow: -0.01rem -0.01rem 0.01rem black;
@@ -587,21 +596,18 @@ ul {
 }
 
 #tooltip_container {
+    display: flex;
+    flex-direction: row;
     font-size: 100%;
     text-align: left;
     position: absolute;
-    display: block;
+    /* display: block; */
     pointer-events: none;
     user-select: none;
     z-index: 500000;
     visibility: hidden;
     /* border: 1px solid red; */
     /* margin-bottom: 5px; */
-}
-
-#tooltip-image {
-    pointer-events: none;
-    user-select: none;
 }
 
 .use {
@@ -641,7 +647,6 @@ ul {
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
     pointer-events: all;
 }
-
 
 .amount {
     font-size: 12px;

@@ -192,7 +192,7 @@ a:hover{
     box-shadow: none;
 }
 
-.removeCarrat:after {
+.remove-carrat:after {
     content: none;
 }
 

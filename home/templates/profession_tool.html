@@ -4,13 +4,9 @@
 {% load static %}
 {% block extra_head %}
 {% csrf_token %}
-<!-- bumbum -->
 <link rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
-<script>
-var ALL_RECIPES = {}
-var ALL_MATERIALS = {}
-var ALL_ITEMSETS = {}
-</script>
+<link rel="stylesheet" type="text/css" href="{% static "css/info_display.css" %}">
+
 {% endblock extra_head %}
 
 {% block mainbody %}
@@ -20,7 +16,7 @@ var ALL_ITEMSETS = {}
     <div class="row prof-selection sticky-top" id="prof_selection">
 
         {% for prof in professions %}
-        <a class="prof-filter {% if prof == selected %}selected{% endif %}" id="{{prof}}"
+        <a class="prof-filter {% comment %}{% if prof == selected %}selected{% endif %}{% endcomment %} {% if prof == 'herbalism' or prof == 'fishing' or prof == 'skinning' %}disabled{% endif %}"  id="{{prof}}"
             href="{% url 'recipes' prof|default:"alchemy" %}">
             {% with "images/icons/large/professions/"|add:prof|add:".jpg" as prof_image %}
             <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}"
@@ -32,7 +28,28 @@ var ALL_ITEMSETS = {}
     {% endblock class_selection %}
     <div class="mainContent container">
     <div class="row justify-content-center prof-header">
-        <div class="col-xl-8 col-12 columnTitle">Recipes</div>
+        <div class="col-xl-8 col-12 columnTitle row">
+            <div class="col">
+                <span>Recipes</span>
+            </div>
+            <div class="col">
+                <input id="search_bar" class="fuzzy-search" placeholder="search" size="15" aria-label="Search">
+                <div class="dropdown show d-inline-block float-right">
+                    <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" style="border-bottom: 1px solid white; border-radius: 0;"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id='current_sort'>Sort</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
+                        <a class="dropdown-item sorting-item" data-sort="data-rating"><span>Level</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item sorting-item" data-sort="data-created"><span>Rarity</span></a>
+                    </div>
+                    <a id="sorting_order" class="btn btn-sm untouchable hidden">
+                        <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
         <div class="col-xl-4 col-12 columnTitle d-none d-xl-block">
         </div>
         <!-- <div class="col-lg-3 col-12 columnTitle d-none d-lg-block">Materials</div> -->
@@ -49,21 +66,36 @@ var ALL_ITEMSETS = {}
 
     <div class="row">
         <div id="recipe_list" class="col pageColumn custom-scroll-bar">
+            <div id="list_container" class="list">
+			{% comment %}
             {% if whole_page %}
             {% include "recipe_helper.html" %}
             {% endif %}
+			{% endcomment %}
+            </div>
         </div>
         <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
+            <div class="row">
+                <div id="consumes" class="col-12">
+                </div>
+                <span id="separator" class="col-12">Totals</span>
+                <div id="materials" class="col-12">
+                </div>
+            </div>
+            {% comment %}
             {% if whole_page %}
             {% include "consume_helper.html" %}
             {% endif %}
+            {% endcomment %}
         </div>
     </div>
 
     <div id="saved_list_info">
+        {% comment %}
         {% if whole_page %}
         {% include "info_display.html" %}
         {% endif %}
+        {% endcomment %}
     </div>
 </div>
 
@@ -77,82 +109,8 @@ var ALL_ITEMSETS = {}
 {% endblock mainbody %}
 
 {% block javascript %}
+<script src="{% static "js/tooltip.js" %}" defer></script>
+<script src="{% static "js/list.min.js" %}"></script>
 <script src="{% static "js/profession_tool.js" %}"></script>
-
-
-<script>
-
-$(document).ready(function() {
-
-    if (performance.navigation.type === 1) {
-        my_consume_list = {}
-        $(".prof-filter").removeClass('selected');
-        $("#consumes").empty()
-        $("#materials").empty()
-        $("#saved_list_info").empty()
-        $("#recipe_list").empty()
-        update_url()
-    }
-    profession_tool_handlers()
- });
-
-
-function profession_tool_handlers() {
-    $(".prof-filter").on({
-        click: e => {
-            e.preventDefault()
-            var prof = $(e.target)[0].id;
-            build_recipe_list(prof);
-        }
-    });
-}
-
-function build_recipe_list(prof, spec_name = '', page=1) {
-    var current_prof = $(".prof-filter.selected")
-    $.ajax({
-        type: "POST",
-        url: `/profession_tool/${prof}`,
-        data: {
-            'prof': prof,
-            'page': page
-        },
-        // dataType: 'html',
-        success: function (data) {
-            let selected = $(".prof-filter.selected").attr("id");
-            let current_page = $("span.current-page").text()
-
-            if ((selected != prof) || (current_page != page)) {
-                $("#recipe_list").html(data);
-                $(".prof-filter").removeClass('selected');
-                $(`#${prof}`).addClass('selected');
-            }
-            var path = document.location.pathname
-            if (current_prof.length) {
-                path = document.location.pathname.toString().replace(current_prof.attr('id'), prof)
-            } else {
-                let p = document.location.pathname
-                var ix = p.toString().replace("\/profession_tool", '').replace("/", '')
-
-                path = (!(isNaN(parseInt(ix)))) ? `/profession_tool/${prof}/${ix}` : `/profession_tool/${prof}`
-
-            }
-            update_url(path, document.location.search)
-        }
-    });
-}
-
-function update_url(path='', search='') {
-    var url = new URL(document.location.origin.toString())
-
-    if (Boolean(path)) {
-        url.pathname = path
-    } else {
-        url.pathname = "/profession_tool"
-    }
-    url.search = search
-
-    history.replaceState(null, null, url)
-}
-
-</script>
+<script src="{% static "js/save_form.js" %}"></script>
 {% endblock javascript %}

@@ -49,6 +49,7 @@ class Command(BaseCommand):
 		parser.add_argument("-b", "--basic", action='store_true', help='Attempts to add basic information about the items')
 		parser.add_argument("-c", "--crafted", action='store_true', help='Attempts to add consume recipes')
 		parser.add_argument("-d", "--description", action='store_true', help='Only attempts to add description text')
+		parser.add_argument("-arm", "--armor", action='store_true', help='Attempts to update armor values')
 
 		parser.add_argument("-t", "--test", action='store_true', help='Just for testing')
 		parser.add_argument("-n", "--noprof", action='store_true', help="Finding consumes that don't have a profession")
@@ -57,6 +58,7 @@ class Command(BaseCommand):
 		advanced = options['advanced']
 		basic = options['basic']
 		only_description = options['description']
+		only_armor = options['armor']
 		test = options['test']
 		crafted = options['crafted']
 		noprof = options['noprof']
@@ -64,7 +66,7 @@ class Command(BaseCommand):
 		if test:
 			self.stdout.write(self.style.SQL_KEYWORD('this') + " is a "+ self.style.SUCCESS('test'))
 
-		for x in range(5, 25):
+		for x in range(1, 25):
 			print('page: ', x)
 			ALL_ITEMS = self.get_item_list(os.path.abspath('home/management/commands/data/items/items{}.js'.format(x)))
 			for ix, valu in ALL_ITEMS.items():
@@ -209,6 +211,14 @@ class Command(BaseCommand):
 							print('{} ({}) - {}'.format(name, ix, item.description))
 
 
+					if only_armor:
+						if 'stats' in valu.keys():
+							if 'armor' in valu['stats'].keys() and int(item.armor) == 0:
+								item.armor = int(valu['stats']['armor'])
+								print('Updated armor (', valu['stats']['armor'], ') for: ', item.name, ' (', item.ix, ')')
+								item.save()
+
+
 					if advanced:
 
 						if 'stats' in valu.keys():
@@ -217,7 +227,7 @@ class Command(BaseCommand):
 								if stat == 'durability':
 									item.durability = int(v)
 								elif stat == 'armor':
-									item.durability = int(v)
+									item.armor = int(v)
 								else:
 									stats[stat.title()] = int(v)
 

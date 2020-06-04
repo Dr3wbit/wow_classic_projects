@@ -4,6 +4,104 @@ from django.db.models import Count, Q, Avg
 from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Tag, WoWClass
 from itertools import chain
 from operator import attrgetter
+from django.template.loader import render_to_string
+
+def consume_list_builder(request):
+	data = {}
+	status_code = 200
+	hash = request.GET.get('hash', None)
+	qs = request.META.get('QUERY_STRING', None)
+
+	hash = hash.replace("?", "")
+	consume_list = {}
+	material_list = {}
+	list_info = {}
+
+	if hash:
+
+		cl = ConsumeList.objects.filter(hash=hash)
+
+		if cl:
+			cl = cl.first()
+			list_info['name'] = cl.name
+			list_info['user'] = cl.user.disc_username
+			list_info['description'] = cl.description
+			list_info['updated'] = cl.updated
+			list_info['tags'] = [x.name for x in cl.tags.all()]
+
+			for consume in cl.consumes.all():
+				consume_list[consume.ix] = get_item_info('', consume.ix)
+				consume_list[consume.ix]['amount'] = consume.amount/consume_list[consume.ix]['step']
+
+
+				consume_list[consume.ix]['materials'] = {}
+				for mat in consume.mats:
+					consume_list[consume.ix]['materials'][mat.item.ix] = mat.amount
+
+					material_list[mat.item.ix] = get_item_info('', mat.item.ix)
+					material_list[mat.item.ix]['per'] = mat.amount
+
+
+	data['list_info'] = list_info
+	data['consume_list'] = consume_list
+	data['material_list'] = material_list
+
+	response = JsonResponse(data, safe=False)
+
+	if not consume_list:
+		response.status_code = 404
+
+	return response
+
+def get_basic_item_info(item):
+	info = {}
+	info['n'] = item.name
+	info['q'] = item.quality
+	info['img'] = item.img
+	if item.step:
+		info['step'] = item.step
+
+	return info
+
+
+def recipe_list_builder(request):
+
+	data = {}
+	prof = request.GET.get('prof', None)
+	data['prof'] = prof
+
+	all_recipes = {}
+	recipe_list = {}
+
+	if prof == 'other':
+		all_recipes = Crafted.objects.filter(profession=None).order_by('item')
+
+	elif prof:
+		all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
+	else:
+		all_recipes = {}
+
+	for recipe in all_recipes:
+		ix = recipe.item.ix
+		recipe_list[ix] = {}
+		recipe_list[ix]['name'] = recipe.item.name
+		recipe_list[ix]['quality'] = recipe.item.quality
+		recipe_list[ix]['img'] = recipe.item.img
+		recipe_list[ix]['step'] = recipe.step
+		recipe_list[ix]['mats'] = {}
+		for mat in recipe.materials.all():
+			matIX = mat.item.ix
+			recipe_list[ix]['mats'][matIX] = {}
+			recipe_list[ix]['mats'][matIX]['name'] = mat.name
+			recipe_list[ix]['mats'][matIX]['quality'] = mat.quality
+			recipe_list[ix]['mats'][matIX]['img'] = mat.img
+			recipe_list[ix]['mats'][matIX]['step'] = mat.amount
+
+	data['recipes'] = recipe_list
+
+	response = JsonResponse(data, safe=False)
+	return response
+
 
 def set_pagination(request):
 	pass
@@ -257,6 +355,21 @@ def savedlist_info(request):
 		html = render_to_string("info_display.html", context)
 		return HttpResponse(html)
 
+def get_materials(cl):
+	materials = {}
+	for consume in cl.consumes.all():
+		for mat in consume.mats:
+			if mat.name not in materials.keys():
+				materials[mat.name] = {}
+				materials[mat.name]['value'] = 0
+				materials[mat.name]['quality'] = mat.quality
+				materials[mat.name]['img'] = mat.img
+				materials[mat.name]['ix'] = mat.item.ix
+
+			materials[mat.name]['value'] += int(consume.amount * mat.amount)
+
+	return materials
+
 def query_saved_lists(request):
 
 	context = {}
@@ -498,25 +611,38 @@ def load_spec(request):
 
 	return JsonResponse(data)
 
-def get_item_info(request):
+def get_item_info(request, ix=None):
 	data = {}
-	ix = request.GET.get('ix', None)
-	data['ix'] = ix
-	# name = request.GET.get('name', None)
-	# data['name'] = name
-	# static = request.GET.get('static', False)
+	status_code = 200
+	if not ix:
+		ix = request.GET.get('ix', None)
+
 	item = ''
 
 	if ix:
-		items = Item.objects.filter(ix=ix)
-		if items:
-			item = items.first()
+		data['ix'] = ix
+		itemQS = Item.objects.filter(ix=ix)
+		if itemQS:
+			item = itemQS.first()
+			if item:
+				recipeQS = Crafted.objects.filter(item=item)
+				if recipeQS:
+					recipe = recipeQS.first()
+					data['step'] = recipe.step
+					data['materials'] = {}
+					for mat in recipe.materials.all():
+						matIX = mat.item.ix
+						data['materials'][matIX] = mat.amount
+
 		else:
+			status_code = 404
 			item = Item.objects.get(name='samwise', ix=69420)
 
+
 		data['img'] = item.img
-		data['quality'] = item.quality
-		data['name'] = item.name
+		data['q'] = item.quality
+		data['n'] = item.name
+
 		if item.bop:
 			data['bop'] = item.bop
 
@@ -542,6 +668,9 @@ def get_item_info(request):
 
 		if item.damage and item.speed:
 			data['dps'] = item.dps
+
+		if item.armor:
+			data['armor'] = item.armor
 
 		if item.stats:
 			data['stats'] = item.stats
@@ -578,6 +707,22 @@ def get_item_info(request):
 		if item.description:
 			data['description'] = item.description
 
+	if request:
+		response = JsonResponse(data, safe=False)
+		response.status_code = status_code
+		return response
 
-	response = JsonResponse(data, safe=False)
-	return response
+	else:
+		return data
+
+def titlecase(s):
+	word_exceptions = ['of', 'the']
+	a = s.replace('_', ' ')
+	word_list = a.split()
+
+	for i,word in enumerate(word_list):
+		if word not in word_exceptions:
+			word_list[i] = word.title()
+
+	c = ' '.join(word_list)
+	return(c)

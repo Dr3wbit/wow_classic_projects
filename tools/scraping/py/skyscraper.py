@@ -17,11 +17,10 @@ TOTAL_CALLS = dict.fromkeys(const.FN_NAMES, 0)
 driver = webdriver.Chrome(executable_path=os.path.abspath("../drivers/chromedriver"))
 iStart = datetime.datetime.now()
 
-
+start = int(input("Enter starting number from: "))
 def main():
 	# 1939
-	start = 2501
-	end = 2750
+	end = start+1000
 	BASE_URL="https://classicdb.ch/?item="
 	#item_numbers1 = ['10050', '15994', '15523']
 	#error_numbers = ['2996','2997']
@@ -85,12 +84,12 @@ def main():
 			if image_name not in const.ALL_IMAGES:
 				const.ALL_IMAGES.append(ALL_ITEMS[I]['image_name'])
 
-			infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[1].find_element(By.TAG_NAME, 'ul')
-			ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
+			# infobox = driver.find_element(By.CSS_SELECTOR, 'table.infobox').find_elements(By.TAG_NAME, 'tr')[1].find_element(By.TAG_NAME, 'ul')
+			# ALL_ITEMS[I]['ilvl'] = get_ilvl(infobox)
 
-			moneybox = infobox.find_elements(By.TAG_NAME, 'li')
-			if len(moneybox) > 1:
-				ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
+			# moneybox = infobox.find_elements(By.TAG_NAME, 'li')
+			# if len(moneybox) > 1:
+				# ALL_ITEMS[I]['sells_for'] = get_sell_price(moneybox[-1])
 
 			if any(x for x in upper_items if x in const.BOP):
 				ALL_ITEMS[I]['bop'] = True
@@ -155,14 +154,14 @@ def main():
 			lower_table = tables[1].find_element(By.XPATH, "./tbody/tr/td")
 			ALL_ITEMS[I] = get_lowboys(ALL_ITEMS[I], lower_table)
 
-			tabs = driver.find_element(By.ID, "tabs-generic").find_elements(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[not(contains(text(),'Comments'))] and div[not(contains(text(), 'Screenshots'))]]")
+			# tabs = driver.find_element(By.ID, "tabs-generic").find_elements(By.XPATH, "//div[@class='tabs-levels']/div[@class='tabs-level'][last()]/ul/li/a[div[not(contains(text(),'Comments'))] and div[not(contains(text(), 'Screenshots'))]]")
 
-			for tab in tabs:
+			# for tab in tabs:
 
 				# if tab.get_attribute('class') != 'selected':
-				tab.click()
+				# tab.click()
 
-				tab_handler(tab, I)
+				# tab_handler(tab, I)
 
 
 			iStop = datetime.datetime.now()
@@ -663,6 +662,8 @@ def extract_stats(items, item_dict):
 			item_dict['stats']['durability'] = v
 
 		elif 'Require' in item:
+			continue
+
 			# determine the type
 			if 'Level' in item:
 				v = 1
