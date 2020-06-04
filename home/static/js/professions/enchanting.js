@@ -501,3 +501,4 @@ var materials = {
         "img": "inv_misc_herb_19"
     }
 }
+var itemsets = {}

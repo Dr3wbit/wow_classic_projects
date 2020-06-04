@@ -15,6 +15,7 @@ def consume_list_builder(request):
 	hash = hash.replace("?", "")
 	consume_list = {}
 	material_list = {}
+	list_info = {}
 
 	if hash:
 
@@ -22,10 +23,11 @@ def consume_list_builder(request):
 
 		if cl:
 			cl = cl.first()
-			data['name'] = cl.name
-			data['description'] = cl.description
-			data['updated'] = cl.updated
-			data['tags'] = [x.name for x in cl.tags.all()]
+			list_info['name'] = cl.name
+			list_info['user'] = cl.user.disc_username
+			list_info['description'] = cl.description
+			list_info['updated'] = cl.updated
+			list_info['tags'] = [x.name for x in cl.tags.all()]
 
 			for consume in cl.consumes.all():
 				consume_list[consume.ix] = get_item_info('', consume.ix)
@@ -40,6 +42,7 @@ def consume_list_builder(request):
 					material_list[mat.item.ix]['per'] = mat.amount
 
 
+	data['list_info'] = list_info
 	data['consume_list'] = consume_list
 	data['material_list'] = material_list
 

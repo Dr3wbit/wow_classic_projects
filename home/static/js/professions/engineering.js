@@ -3540,3 +3540,4 @@ var materials = {
         "use": "Throw me!"
     }
 }
+var itemsets = {}

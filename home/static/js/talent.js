@@ -147,7 +147,7 @@ function resetAll() {
 
 function resetTalentTree(tree, e) {
 
-	const tree_name = utilities.titleCase(tree)
+	const tree_name = titleCase(tree)
 	let found = classData.trees.find(function (x) {
 		return x.name == tree_name
 	})
@@ -217,7 +217,7 @@ function buildClassData(refresh) {
 	let treeNames = []
 
 	selectedClass.tree_talents.forEach(function (item, index) {
-		// let n = utilities.titleCase(item.name)
+		// let n = titleCase(item.name)
 		treeNames.push(item.name)
 		talentPointsSpent[item.name] = {
 			vals: [0, 0, 0, 0, 0, 0, 0],
@@ -348,10 +348,10 @@ function mouseDownHandler(e = null, talent, tree) {
 		var targetTalent = $(e.target)
 
 		// var treeName = targetTalent.closest('div.talentTable')[0].id
-		var treeName = utilities.titleCase(targetTalent.closest('div.talentTable')[0].id)
+		var treeName = titleCase(targetTalent.closest('div.talentTable')[0].id)
 
 		// const name = targetTalent.attr('name')
-		const name = utilities.titleCase(targetTalent.attr('name'))
+		const name = titleCase(targetTalent.attr('name'))
 		const j = targetTalent.attr('data-j')
 		const k = targetTalent.attr('data-k')
 
@@ -369,7 +369,7 @@ function mouseDownHandler(e = null, talent, tree) {
 	}
 	else {
 		var talentObj = talent
-		var treeName = utilities.titleCase(tree)
+		var treeName = titleCase(tree)
 		var targetTalent = $(`img.talent[name="${talentObj.name}"]`)
 		var e = true
 	}
@@ -404,8 +404,8 @@ function updateTalentHeader() {
 
 function updateTooltip(e) {
 	const targetTalent = $(e.target)
-	const name = utilities.titleCase(targetTalent.attr('name'))
-	const tree = utilities.titleCase(targetTalent.closest('div.talentTable')[0].id)
+	const name = titleCase(targetTalent.attr('name'))
+	const tree = titleCase(targetTalent.closest('div.talentTable')[0].id)
 	const found = classData.trees.find(function (x) {
 		return x.name == tree
 	})

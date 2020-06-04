@@ -16,7 +16,7 @@ window.addEventListener('load', function(e) {
 	if (document.location.search) {
 		professionTool.remove.all()
 
-		getConsumeList(document.location)
+		professionTool.get.consumeList(document.location)
 	}
 
 	consumeHandlers();
@@ -88,7 +88,6 @@ var professionTool = {
 			}
 		},
 		consumes: function(d) {
-
 			var data = (d.responseJSON) ? d.responseJSON : d
 			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.consume_list)
 			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.material_list)
@@ -96,15 +95,86 @@ var professionTool = {
 			for (let [ix, consume] of Object.entries(data.consume_list)) {
 				professionTool.update.item(ix, consume.amount, consume.step)
 			}
-			professionTool.update.listInfo(data)
-
+			if (data.list_info) {
+				professionTool.update.listInfo(data)
+			}
 		},
 		listInfo: function(data) {
-			var savedListInfo = document.getElementById('saved_list_info')
-			return
+			var listInfoContainer = document.getElementById('saved_list_info')
+
+			professionTool.empty(listInfoContainer)
+
+			var title = create_element('h1', 'mt-5', '', data.list_info.name)
+			listInfoContainer.appendChild(title)
+
+			if (data.list_info.tags) {
+				data.list_info.tags.forEach(function(tag) {
+					var tagElem = create_element('div', 'feed-tag', '', tag)
+					listInfoContainer.appendChild(tagElem)
+				})
+			}
+
+			if (data.description) {
+				var description = create_element('h5', 'mt-3', '', data.list_info.description)
+				listInfoContainer.appendChild(description)
+			}
+
+			if (data.updated) {
+				var updateDate = create_element('div', 'mt-3', '', `Last updated: ${data.list_info.updated} by ${data.list_info.user}`)
+				listInfoContainer.appendChild(updateDate)
+			}
+
+			var craftedTable = professionTool.createTable('Crafted Items', professionTool.CONSUMES)
+
+			listInfoContainer.appendChild(craftedTable)
+
+			var materialTable = professionTool.createTable('Total Materials', professionTool.MATERIALS)
+
+			listInfoContainer.appendChild(materialTable)
+
 		}
 	},
+	createTable: function(title, items) {
+		var table = create_element('table', 'table table-sm table-dark table-hover mx-auto mt-5 text-left', 'background-color:#1C1C1C'),
+			thead = create_element('thead'),
+			tr = create_element('tr'),
+			th = create_element('th', '','','', {'colspan':3}),
+			h5 = create_element('h5', 'fix-me text-center', '', title);
 
+		table.appendChild(thead)
+		thead.appendChild(tr)
+		tr.appendChild(th)
+		th.appendChild(h5)
+
+		var tbody = create_element('tbody')
+		table.append(tbody)
+
+		for (let [ix, amount] of Object.entries(items)) {
+			var item = professionTool.ITEMS[ix]
+
+			var tRow = create_element('tr'),
+				td1 = create_element('td'),
+				td2 = create_element('td'),
+				td3 = create_element('td'),
+				img = create_element('img', 'icon-large', `background-image: url('${static_url}images/icons/large/${item.img}.jpg');`),
+				nameSpan = create_element('span', `q${item.q}`, '', item.n),
+				amountSpan = create_element('span', 'fix-me', '', amount);
+
+			img.src = static_url+'images/icon_border_2.png'
+
+			tbody.append(tRow)
+
+			td1.appendChild(img)
+			td2.appendChild(nameSpan)
+			td3.appendChild(amountSpan)
+
+			tRow.appendChild(td1)
+			tRow.appendChild(td2)
+			tRow.appendChild(td3)
+		}
+
+		return table
+	},
 	add: {
 		item: function(itemObj, ix, amount=1, step=1, parent) {
 			if (!itemObj[ix]) {
@@ -116,7 +186,11 @@ var professionTool = {
 			}
 
 			if (itemObj[ix] <= 0) {
-				professionTool.remove.element(ix, parent)
+				var parentElem =
+				professionTool.empty(document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']`), {'includeParent':true})
+
+				// professionTool.remove.element(ix, parent)
+
 				delete itemObj[ix]
 			}
 		},
@@ -225,27 +299,39 @@ var professionTool = {
 			}
 		}
 	},
-
-	build: function(response) {
-		var data = response.responseJSON
-		// for (let [ix, consume] of Object.entries(data.consume_list)) {
-		// 	addConsumeToPage(ix, consume, num_added=1, step=1)
-		// }
-	},
 	remove: {
-		element: function(ix, parent) {
-			var parentElem = document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']`)
-			while (parentElem.firstChild) {
-				parentElem.removeChild(parentElem.firstChild);
-			}
-			parentElem.remove()
-		},
 		all: function() {
 			for (let [ix, amount] of Object.entries(professionTool.CONSUMES)) {
 				professionTool.update.item(ix, amount*-1)
 			}
 		}
+	},
+	empty: function(parent, options={}) {
+
+			while (parent.firstChild) {
+				parent.removeChild(parent.firstChild);
+			}
+			if (options.includeParent) {
+				parent.remove()
+			}
+	},
+	get: {
+		consumeList: function(url) {
+			var data = {}
+			data['hash'] = url.search
+
+			$.ajax({
+				method: "GET",
+				url: '/ajax/consume_list_builder/',
+				data: data,
+				dataType: 'json',
+				success: professionTool.update.consumes,
+				complete: updateSelectedList,
+				error: notFoundError,
+			});
+		}
 	}
+
 }
 
 function getItemInfo(ix, completeCallback=getItemInfoComplete) {
@@ -283,21 +369,6 @@ function saveItemQuery(data) {
         prev_query_keys.push(ix)
         console.log(`added ${ix} to localStorage`)
     }
-}
-
-function getConsumeList(url) {
-	var data = {}
-	data['hash'] = url.search
-
-	$.ajax({
-		method: "GET",
-		url: '/ajax/consume_list_builder/',
-		data: data,
-		dataType: 'json',
-		success: professionTool.update.consumes,
-		complete: updateSelectedList,
-		error: notFoundError,
-	});
 }
 
 
@@ -380,7 +451,8 @@ function professionToolHandlers() {
 					return false
 				}
 			}
-			emptyRecipeList();
+			professionTool.empty(document.getElementById('list_container'));
+
 			listObjUnhandlers()
 
 			updateSelectedProf(prof);
@@ -527,13 +599,6 @@ function addScript(prof, type) {
 	document.body.appendChild(newScript);
 	newScript.src = static_url + `js/professions/${prof}.min.js`
 
-}
-
-function emptyRecipeList() {
-	var recipeList = document.getElementById('list_container')
-	while (recipeList.firstChild) {
-		recipeList.removeChild(recipeList.firstChild);
-	}
 }
 
 function scriptLoaded(prof) {

@@ -97,7 +97,7 @@ function global_event_handlers() {
 
 			tempurl.pathname = path
 			professionTool.remove.all()
-			getConsumeList(tempurl)
+			professionTool.get.consumeList(tempurl)
 			history.pushState(null, null, tempurl)
 			return
 		}
