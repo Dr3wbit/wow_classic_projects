@@ -51,6 +51,10 @@
         </a>
     </footer>
     {% endblock footer %}
+
+    <div id="tooltip_container">
+    </div>
+    
     <script src="{% static "js/jquery-3.4.1.min.js" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -59,7 +63,6 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="{% static "js/polyfill.js" %}"></script>
-    <script src="{% static "js/material_images.js" %}"></script>
     <script src="{% static "js/global.js" %}"></script>
     <script src="{% static "js/sidebar.js" %}"></script>
     <script>
@@ -76,8 +79,7 @@
     {% block javascript %}
     {% endblock javascript %}
 
-    <div id="tooltip_container">
-    </div>
+
     {% if not request.user.context_menu %}
     <script>
     $('.mainContent, .mainBody').on({

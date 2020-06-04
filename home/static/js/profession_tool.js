@@ -9,13 +9,13 @@ window.addEventListener('load', function(e) {
 	// figure out which profession(if any) is in the url
 	var selectedProfession = professionTool.PROFS.filter(substring => document.location.pathname.includes(substring))
 	if (selectedProfession.length) { // simulate click on said profession
-		$(`#${selectedProfession[0]}.prof-filter`).trigger("click")
+		document.querySelector(`#${selectedProfession[0]}.prof-filter`).click()
+		// $(`#${selectedProfession[0]}.prof-filter`).trigger("click")
 	}
 
 	// var matchedhref = checkLocalHashes()
 	if (document.location.search) {
 		professionTool.remove.all()
-
 		professionTool.get.consumeList(document.location)
 	}
 
@@ -51,12 +51,7 @@ function checkLocalHashes() {
 
 var professionTool = {
 	PROFS: ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'first_aid', 'leatherworking', 'mining', 'other', 'skinning'],
-	RECIPES: {},
-	ITEMS: {},
-	ITEMSETS: {},
-	monkeyList: '',
-	CONSUMES: {},
-	MATERIALS: {},
+	RECIPES: {}, ITEMS: {}, ITEMSETS: {}, monkeyList: '', CONSUMES: {}, MATERIALS: {},
 	update: {
 		item: function(ix, amount=1, step=1) {
 			var recipe = professionTool.ITEMS[ix]
@@ -156,7 +151,7 @@ var professionTool = {
 				td1 = create_element('td'),
 				td2 = create_element('td'),
 				td3 = create_element('td'),
-				img = create_element('img', 'icon-large', `background-image: url('${static_url}images/icons/large/${item.img}.jpg');`),
+				img = create_element('img', 'icon-medium', `background-image: url('${static_url}images/icons/large/${item.img}.jpg');`),
 				nameSpan = create_element('span', `q${item.q}`, '', item.n),
 				amountSpan = create_element('span', 'fix-me', '', amount);
 
@@ -394,13 +389,6 @@ function initListObj() {
 	listObjHandlers()
 }
 
-function updateURL(prof='', search='') {
-	var path = "/profession_tool"
-	path = (Boolean(prof)) ? path + "/" + prof : path
-	path = (Boolean(search)) ? path + search : path
-	history.pushState(null, prof, path)
-}
-
 function listObjHandlers() {
 
 	$('.sorting-item').on('click', function() {
@@ -439,12 +427,12 @@ function listObjHandlers() {
 }
 
 function professionToolHandlers() {
+	var profSelection = document.getElementById('prof_selection')
 
-	$(".prof-filter").on({
-		click: e => {
+	profSelection.addEventListener('click', function(e) {
+		if (e.target.matches('a.prof-filter')) {
 			e.preventDefault()
-
-			var prof = $(e.target)[0].id;
+			var prof = e.target.id
 			var currProf = document.querySelectorAll('a.prof-filter.selected')
 			if (currProf.length) {
 				if (currProf[0].id == prof) {
@@ -452,14 +440,12 @@ function professionToolHandlers() {
 				}
 			}
 			professionTool.empty(document.getElementById('list_container'));
-
 			listObjUnhandlers()
-
 			updateSelectedProf(prof);
 			getRecipeList(prof);
-			updateURL(prof, document.location.search)
+			updateURL("/profession_tool", prof, document.location.search)
 		}
-	});
+	})
 }
 
 function recipeHandlers() {
@@ -568,11 +554,12 @@ function consumeHandlers() {
 function getRecipeList(prof) {
 
 	if (!Object.keys(professionTool.RECIPES).includes(prof)) {
-		addScript(prof)
+		var src = static_url + `js/professions/${prof}.min.js`
+		addScript(prof, src, scriptLoaded, loadError)
+
 	} else {
 		buildRecipeList(professionTool.RECIPES[prof])
 	}
-
 }
 
 function updateSelectedProf(prof) {
@@ -588,18 +575,6 @@ function loadError(oError) {
 	throw new URIError("The script " + oError.target.src + " didn't load correctly.");
 }
 
-function addScript(prof, type) {
-
-	var newScript = document.createElement("script");
-	newScript.onerror = loadError;
-	newScript.onload = function() {
-		scriptLoaded(prof);
-	}
-
-	document.body.appendChild(newScript);
-	newScript.src = static_url + `js/professions/${prof}.min.js`
-
-}
 
 function scriptLoaded(prof) {
 
@@ -610,6 +585,17 @@ function scriptLoaded(prof) {
 	professionTool.ITEMSETS = Object.assign(professionTool.ITEMSETS, itemsets)
 
 	buildRecipeList(recipes)
+}
+
+function addScript(loadedVar, src, loadedCallback=scriptLoaded, errorCallback=loadError) {
+
+	var newScript = document.createElement("script");
+	newScript.onerror = errorCallback;
+	newScript.onload = function() {
+		loadedCallback(loadedVar);
+	}
+	document.body.appendChild(newScript);
+	newScript.src = src
 }
 
 

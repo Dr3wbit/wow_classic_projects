@@ -2,16 +2,164 @@
 var talentPointsSpent = {}
 var classData = {}
 
-$(document).ready(initializeApp)
+$(document).ready(function() {
 
-function initializeApp() {
-	$("#talentLock").unbind("click")
-	$("#resetTalents").unbind("click")
+	classSelectionHandler()
 
-	applyClickHandlers()
-	var refresh = (performance.navigation.type == 1) ? true : false
+	// old
+	// if (performance.navigation.type === 1) {
+	// 	var class_name;
+	// 	if ($(".class-filter.selected").length) {
+	// 		class_name = $(".class-filter.selected")[0].id;
+	// 	} else {
+	// 		class_name = 'warrior'
+	// 	}
+	// 	updateURL('/talent_calc', class_name)
+	// }
+
+	// $("#talentLock").unbind("click")
+	// $("#resetTalents").unbind("click")
+
+	// applyClickHandlers()
+	// var refresh = (performance.navigation.type == 1) ? true : false
 	buildClassData(refresh)
+	// end old
 
+})
+
+window.addEventListener('load', function(e) {
+
+	// check for wow_class and hash in URL
+	var selectedClass = talentCalc.CLASSES.filter(substring => document.location.pathname.includes(substring))
+
+	if (selectedClass.length) { // simulate click on said class
+		document.querySelector(`#${selectedClass[0]}.class-filter`).click()
+	}
+
+	if (document.location.search) {
+		// reset talent trees
+
+		// fill them in
+
+	}
+
+	// load all talent-related handlers
+
+});
+
+function classSelectionHandler() {
+
+	var classSelection = document.getElementById('class_selection')
+	classSelection.addEventListener('click', function(e) {
+		if (e.target.matches('a.class-filter')) {
+			e.preventDefault()
+			var WoWClass = e.target.id
+			if (talentCalc.selected == WoWClass) {
+				return false
+			}
+
+			// professionTool.empty(document.getElementById('list_container'));
+			// get talent architect and all talent data and add it to page as a script
+
+			talentCalc.update.classSelection(WoWClass);
+			if (Object.keys(talentCalc.CLASS_DATA).includes(WoWClass)) {
+				talentCalc.build.all(talentCalc.CLASS_DATA[WoWClass])
+			} else {
+
+			}
+			talentCalc.clear()
+
+			updateURL("/talent_calc", WoWClass, document.location.search)
+		}
+	})
+}
+
+
+
+var talentCalc = {
+	element: document.getElementById('talent_calc'),
+	CLASSES: ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warrior', 'warlock'],
+	selected: '',
+	CLASS_DATA: {},
+	reset: {
+		talent: function(tree, talentName) {
+
+		},
+		tree: function(treeName) {
+
+		},
+		all: function() {
+
+		},
+	},
+	clear: function() {
+
+	},
+	update: {
+		classSelection: function(WoWClass) {
+
+			var prevSelected = document.querySelectorAll('a.class-filter.selected')
+			if (prevSelected.length) {
+				prevSelected[0].classList.remove('selected')
+			}
+
+			talentCalc.selected = WoWClass
+
+			var selectedElem = document.getElementById(`${WoWClass}`)
+
+			selectedElem.classList.add('selected')
+		}
+	},
+	get: {
+		classData: function(WoWClass) {
+
+			if (!Object.keys(talentCalc.CLASS_DATA).includes(WoWClass)) {
+				var src = static_url + `js/wow/${WoWClass}.min.js`
+				addScript(WoWClass, src, scriptLoaded, loadError)
+
+			} else {
+				buildTalentTrees(talentCalc.CLASS_DATA[WoWClass])
+			}
+		},
+	},
+	build: {
+		all: function(data) {
+			for (let [treeName, treeData] of Object.entries(data)) {
+				var tree = talentCalc.build.talentTree(treeData, treeData.blueprints)
+				talentCalc.element.appendChild(tree)
+			}
+		},
+		talentTree: function(data, blueprints) {
+			var backgroundImage = static_url+'images/talent/'+talentCalc.selected+'/background/'+sanitize(data.n)+".jpg"
+			var talentTable = create_element('div', 'talentTable', `background-image: url('${backgroundImage}')`)
+
+		},
+		row: function(items, blueprints) {
+
+		}
+	}
+
+}
+
+function addScript(WoWClass, src, loadedCallback=scriptLoaded, errorCallback=loadError) {
+
+	var newScript = document.createElement("script");
+	newScript.onerror = errorCallback;
+	newScript.onload = function() {
+		loadedCallback(WoWClass);
+	}
+	document.body.appendChild(newScript);
+	newScript.src = src
+}
+
+function loadError(oError) {
+	throw new URIError("The script " + oError.target.src + " didn't load correctly.");
+}
+
+
+function scriptLoaded(WoWClass) {
+	talentCalc.CLASS_DATA = Object.assign(talentCalc.CLASS_DATA, classData)
+	talentCalc.build(talentCalc.CLASS_DATA[WoWClass])
 }
 
 function applyClickHandlers() {
@@ -22,6 +170,58 @@ function applyClickHandlers() {
 	resetTree()
 }
 
+function update_class(class_name, ix=0, search) {
+	var id = ix;
+	var badass_url = new URL(document.location.origin.toString())
+	badass_url.pathname = `talent_calc/${class_name}`
+	if (Boolean(id)) {
+		badass_url.pathname = `talent_calc/${class_name}/${id}`
+	}
+	if (Boolean(search)) {
+		badass_url.search = search
+	}
+
+	$.ajax({
+		url: badass_url,
+		dataType: 'html',
+		success: function (data) {
+			let selected = $("a.class-filter.selected").attr("id");
+			if (selected != class_name) {
+				$("#talent_calc").html(data);
+				$(".class-filter").removeClass('selected');
+				$(`#${class_name}`).addClass('selected');
+			}
+		},
+		complete: function (data) {
+			var data2 = {}
+			if (id) {
+				data2['id'] = id
+			}
+			if (class_name) {
+				data2['class_name'] = class_name
+				$.ajax({
+					url: '/ajax/load_spec/',
+					data: data2,
+					dataType: 'json',
+					success: function (data){
+						if (class_name) {
+							if (document.location.href.toString().includes('talent_calc')) {
+								updateURL("/talent_calc", class_name, data.hash)
+							}
+							resetAll()
+							if (data.hash) {
+								preBuiltSpec(data.hash);
+							}
+							if (id) {
+								info_display(id, 'tc')
+							}
+						}
+					}
+			   });
+			}
+		}
+	});
+}
 
 function exportSpec() {
 	$("#export").on({
@@ -318,6 +518,12 @@ function combineTalents(d) {
 }
 
 function talentHandler() {
+	$(".class-filter").on({
+	   click: e=> {
+		   var class_name = $( e.target )[0].id;
+		   update_class(class_name)
+	   }
+	});
 
 	$(".talent").on({
 		contextmenu: e => {

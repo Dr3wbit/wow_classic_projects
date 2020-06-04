@@ -120,26 +120,33 @@ function global_event_handlers() {
 	});
 
 
-    $(".trashcan").on({
-        click: e => {
-            e.stopPropagation()
-            var $data = {}
-            if ($(e.target).attr("data-wowclass")) {
-                $data['wow_class'] = $(e.target).attr("data-wowclass")
-            }
-            var $name = $(e.target).val();
-            $data['name'] = $name
-            var $thisURL = '/ajax/delete_list/'
+    // $(".trashcan").on({
+    //     click: e => {
+    //         e.stopPropagation()
+    //         var $data = {}
+    //         if ($(e.target).attr("data-wowclass")) {
+    //             $data['wow_class'] = $(e.target).attr("data-wowclass")
+    //         }
+    //         var $name = $(e.target).val();
+    //         $data['name'] = $name
+    //         var $thisURL = '/ajax/delete_list/'
+	//
+    //         $.ajax({
+    //             method: "POST",
+    //             url: $thisURL,
+    //             data: $data,
+    //             success: trashCanSuccess,
+    //             error: trashCanError,
+    //         })
+    //     }
+    // });
+}
 
-            $.ajax({
-                method: "POST",
-                url: $thisURL,
-                data: $data,
-                success: trashCanSuccess,
-                error: trashCanError,
-            })
-        }
-    });
+function updateURL(path, subPath='', search='') {
+	this.path = path
+	this.path = (Boolean(subPath)) ? path + "/" + subPath : path
+	this.path = (Boolean(search)) ? subPath + search : subPath
+	history.pushState(null, subPath, this.path)
 }
 
 //sidebar functionality

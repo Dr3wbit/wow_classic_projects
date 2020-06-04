@@ -39,7 +39,7 @@ function createTable(data) {
         var td = create_element('td', 'recipe', "text-align: left;")
         tablerow.appendChild(td)
 
-        var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`, '', {'data-ix': recipe.ix})
+        var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`, '', '', {'data-ix': recipe.ix})
         td.appendChild(recipe_container)
 
         var image_name = static_url+`images/icons/large/${recipe.img}.jpg`

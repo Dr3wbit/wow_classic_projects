@@ -54,7 +54,7 @@
   transition: all 0.1s ease-in;
 }
 
-.openSlot {
+.open-slot {
     min-width: 42px;
     height: 42px;
     margin: 8px;
@@ -240,8 +240,8 @@
     color: rgba(231, 186, 0, 1)!important;
 }
 
-#buttonCity > *:focus { 
-  outline: none; 
+#buttonCity > *:focus {
+  outline: none;
 }
 
 #specSaverPrompt, #export {
@@ -374,4 +374,3 @@ svg.icon:hover path{
 #resetTalents {
     margin-bottom: 1px;
 }
-
