@@ -35,7 +35,9 @@
 	<div class="mainContent">
 	<div class="row justify-content-center">
 		<div id="talentHeader">
-			<span id="allottedTalentPoints" class="col-3 text-left">(0/0/0)</span>
+			<span id="talent_points_spent" class="col-3 text-left">
+				(<span class='spent'>0</span>/<span class='spent'>0</span>/<span class='spent'>0</span>)
+			</span>
 			<span id="requiredLevel" class="col-3">Required level:</span>
 			<span id="pointsRemaining" class="col-3 text-right">Points Left:</span>
 			<div id="buttonCity" class="col-3 btn-group">
@@ -109,7 +111,7 @@
 	{% block javascript %}
 
 	<script src="{% static "js/utilities.js" %}"></script>
-	<script src="{% static "js/talent_data.js" %}"></script>
-	<script src="{% static "js/talent_table_data.js" %}"></script>
+	<script src="{% static "js/talents/talent_data.js" %}"></script>
+	<script src="{% static "js/talents/talent_table_data.js" %}"></script>
 	<script src="{% static "js/talent.js" %}"></script>
 	{% endblock javascript %}

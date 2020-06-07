@@ -20,7 +20,7 @@
 							<img class="talent {% if outer_ix > 0 %}grayed{% else %}{% endif %} {% if talent.1.locked %}locked{% endif %}" src="{% static "images/icon_border_2.png" %}"
 								style="background-image: url('{% static tree_image_path|add:talent.1.sanitized|add:'.jpg' %}');"
 								name="{{talent.1.name}}" data-j={{outer_ix}} data-k={{inner_ix}} {% if talent.1.unlocks %}data-unlocks="{{ talent.1.unlocks|join:"," }}"{% endif %}>
-							<div class="spentPoints {% if outer_ix > 0 %}grayed{% else %}{% endif %} {% if talent.1.locked %}locked{% endif %}">{{talent.2}}</div>
+							<div class="spent-points {% if outer_ix > 0 %}grayed{% else %}{% endif %} {% if talent.1.locked %}locked{% endif %}">{{talent.2}}</div>
 						</div>
 						{% for val in talent.0 %}
 						{% with val.0|get_digit:"1" as v %}
@@ -48,7 +48,7 @@
 					</div>
 					{% endwith %}
 					{% else %}
-					<div class="openSlot"></div>
+					<div class="open-slot"></div>
 					{% endif %}
 					{% endwith %}
 					{% endfor %}
@@ -59,14 +59,10 @@
 		<div class="talentFooter">
 			<span class="treeName" style="background-image: url('{% static 'images/talent_spells/'|add:selected|add:'/small_'|add:tree|sanitize|add:'_icon.jpg' %}');">{{tree|titlecase}}</span>
 
-			<span class="talentFooter-spentPoints">(0)</span>
+			<span class="talentFooter-spent-points">(0)</span>
 			<button type="button" class="resetTree" title="Clear" id="clear{{tree}}"></button>
 		</div>
 	</div>
 	{% endfor %}
-<script>
-$("#wow_class").val("{{selected}}")
-$("#wow_class_label").text("{{selected|title}}")
-$("#wow_class_label").attr("class", "{{selected}}")
-</script>
+
 {% endif %}

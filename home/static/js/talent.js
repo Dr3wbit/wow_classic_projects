@@ -1,30 +1,8 @@
-
 var talentPointsSpent = {}
 var classData = {}
 
 $(document).ready(function() {
-
 	classSelectionHandler()
-
-	// old
-	// if (performance.navigation.type === 1) {
-	// 	var class_name;
-	// 	if ($(".class-filter.selected").length) {
-	// 		class_name = $(".class-filter.selected")[0].id;
-	// 	} else {
-	// 		class_name = 'warrior'
-	// 	}
-	// 	updateURL('/talent_calc', class_name)
-	// }
-
-	// $("#talentLock").unbind("click")
-	// $("#resetTalents").unbind("click")
-
-	// applyClickHandlers()
-	// var refresh = (performance.navigation.type == 1) ? true : false
-	buildClassData(refresh)
-	// end old
-
 })
 
 window.addEventListener('load', function(e) {
@@ -37,13 +15,13 @@ window.addEventListener('load', function(e) {
 	}
 
 	if (document.location.search) {
-		// reset talent trees
 
-		// fill them in
+		// predefined talent spec, fill in the talents
 
 	}
 
 	// load all talent-related handlers
+	talentCalc.handlers()
 
 });
 
@@ -54,22 +32,22 @@ function classSelectionHandler() {
 		if (e.target.matches('a.class-filter')) {
 			e.preventDefault()
 			var WoWClass = e.target.id
-			if (talentCalc.selected == WoWClass) {
+			if (talentCalc.selection == WoWClass) {
 				return false
 			}
+
+			talentCalc.init()
 
 			// professionTool.empty(document.getElementById('list_container'));
 			// get talent architect and all talent data and add it to page as a script
 
-			talentCalc.update.classSelection(WoWClass);
 			if (Object.keys(talentCalc.CLASS_DATA).includes(WoWClass)) {
-				talentCalc.build.all(talentCalc.CLASS_DATA[WoWClass])
+				talentCalc.update.classSelection(WoWClass);
+				talentCalc.build.main(talentCalc.CLASS_DATA[WoWClass])
+				updateURL("/talent_calc", WoWClass, document.location.search)
 			} else {
-
+				talentCalc.get.classData(WoWClass)
 			}
-			talentCalc.clear()
-
-			updateURL("/talent_calc", WoWClass, document.location.search)
 		}
 	})
 }
@@ -77,71 +55,367 @@ function classSelectionHandler() {
 
 
 var talentCalc = {
-	element: document.getElementById('talent_calc'),
+	container: document.getElementById('talent_calc'),
+	maxLevel: 60,
 	CLASSES: ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warrior', 'warlock'],
-	selected: '',
-	CLASS_DATA: {},
+	selection: '',
+	CLASS_DATA: '',
+	imageLocationOld: true,
+	init: function() {
+		talentCalc.reset.all()
+		talentCalc.empty(talentCalc.container)
+		this.CLASS_DATA = {}
+	},
 	reset: {
 		talent: function(tree, talentName) {
 
 		},
-		tree: function(treeName) {
+		tree: function(tree) {
+			var treeElement = document.getElementById(tree)
+			talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.forEach(function(talent) {
+				talent.spent = 0
+			})
+			talentCalc.update.header()
+			talentCalc.update.footer(tree)
+
+		},
+		all: function() {
+			if (Boolean(talentCalc.CLASS_DATA)) {
+				for (let [tree, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
+					talentCalc.reset.tree(tree)
+				}
+			}
+		},
+	},
+	update: {
+		footer: function(tree) {
+			var footerSpentSpan = document.querySelector(`#${tree}.talent-table`).querySelector('div.talent-footer > span.spent')
+			footerSpentSpan.innerText = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
+			var index = Array.from(document.querySelectorAll('div.talent-footer > span.spent')).indexOf(footerSpentSpan)
+			document.querySelectorAll('#talent_points_spent > span.spent')[index].innerText = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
+
+		},
+		header: function() {
+			var requiredLevel = (talentCalc.spent() > 0) ? talentCalc.spent()+9 : ''
+			document.getElementById('requiredLevel').innerText = `Required level: ${requiredLevel}`
+			document.getElementById('pointsRemaining').innerText = `Points Left: ${51-talentCalc.spent()}`
+		},
+
+		classSelection: function(WoWClass) {
+			talentCalc.selection = WoWClass
+			var prevSelected = document.querySelectorAll('a.class-filter.selected')
+			if (prevSelected.length) {
+				prevSelected[0].classList.remove('selected')
+			}
+
+			var selectedElem = document.getElementById(`${WoWClass}`)
+			selectedElem.classList.add('selected')
+		},
+		classData: function() {
+
+			for (let [treeName, tree] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
+				talentCalc.CLASS_DATA[talentCalc.selection][treeName].talents.forEach(tal => tal.spent = 0)
+				talentCalc.CLASS_DATA[talentCalc.selection][treeName].spent = function() {
+					var total = 0;
+					talentCalc.CLASS_DATA[talentCalc.selection][treeName].talents.forEach(tal => total += tal.spent)
+					return total
+				}
+			}
+		},
+		talentTree: function(tree) {
+			var treeElem = document.getElementById(tree)
+			talentCalc.CLASS_DATA[selection][tree].talents.forEach(function(talent) {
+				if (talentCalc.canSpend(talent)) {
+
+					var talentContainer = treeElement.querySelector(`div.talent-container[data-x='${talent.x}'][data-y='${talent.y}']`)
+
+					var spentContainer = talentContainer.querySelector('div.spent-points')
+					spentContainer.innerText = talent.spent
+
+					talentContainer.querySelector('div.spent-points')
+					if (talentCalc.locked(talent, tree)) {
+						spentContainer.classList.add('locked')
+						talentContainer.querySelector('img.talent').classList.add('locked')
+
+						// add locked classList
+					}
+				}
+			})
 
 		},
 		all: function() {
 
 		},
 	},
-	clear: function() {
-
-	},
-	update: {
-		classSelection: function(WoWClass) {
-
-			var prevSelected = document.querySelectorAll('a.class-filter.selected')
-			if (prevSelected.length) {
-				prevSelected[0].classList.remove('selected')
-			}
-
-			talentCalc.selected = WoWClass
-
-			var selectedElem = document.getElementById(`${WoWClass}`)
-
-			selectedElem.classList.add('selected')
-		}
-	},
 	get: {
 		classData: function(WoWClass) {
-
-			if (!Object.keys(talentCalc.CLASS_DATA).includes(WoWClass)) {
-				var src = static_url + `js/wow/${WoWClass}.min.js`
-				addScript(WoWClass, src, scriptLoaded, loadError)
-
-			} else {
-				buildTalentTrees(talentCalc.CLASS_DATA[WoWClass])
-			}
+			var src = static_url + `js/talents/${WoWClass}.js`
+			addScript(WoWClass, src, scriptLoaded, loadError)
 		},
-	},
-	build: {
-		all: function(data) {
-			for (let [treeName, treeData] of Object.entries(data)) {
-				var tree = talentCalc.build.talentTree(treeData, treeData.blueprints)
-				talentCalc.element.appendChild(tree)
-			}
-		},
-		talentTree: function(data, blueprints) {
-			var backgroundImage = static_url+'images/talent/'+talentCalc.selected+'/background/'+sanitize(data.n)+".jpg"
-			var talentTable = create_element('div', 'talentTable', `background-image: url('${backgroundImage}')`)
-
-		},
-		row: function(items, blueprints) {
+		pointsSpent: function(tree, tier=7) {
+			// get sum of points spent for each elem array of talents where y is below the given tier
+			var filtered = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.filter(tal => tal.y < tier)
+			return talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.filter(tal => tal.y < tier).map(tal => tal.spent).reduce((total, cur) => (total+cur), 0)
 
 		}
-	}
+	},
+	build: {
+
+		main: function(data) {
+			console.log('data: ', data)
+			for (let [treeName, treeData] of Object.entries(data)) {
+				var treeElement = talentCalc.build.talentTree(treeName, treeData)
+				talentCalc.container.appendChild(treeElement)
+			}
+		},
+		talentTable: function(talents, blueprint = talentCalc.blueprint) {
+			talents.forEach(function(talent) {
+				blueprint[talent.x][talent.y] = talent
+			})
+		},
+		talentTree: function(treeName, data) {
+			var imagePathPrefix = (talentCalc.imageLocationOld) ? `${static_url}images/talent_spells/${talentCalc.selection}/${treeName}` : `${static_url}images/icons/large`
+			var backgroundImagePath = `${static_url}images/talent_spells/${talentCalc.selection}/${treeName}.jpg`
+
+			var talentTable = create_element('div', 'talent-table', `background-image: url('${backgroundImagePath}')`)
+			talentTable.id = sanitize(data.n)
+
+			var treeTitle = create_element('div', 'treeTitle col')
+
+			talentTable.appendChild(treeTitle)
+
+			var x = 0,
+				y = 0,
+				grayed = '';
+
+			data.blueprint.forEach(function(row) {
+				grayed = (y > 0) ? ' grayed' : grayed
+				var rowElem = create_element('div', 'row', '', '', {'data-y':y})
+				treeTitle.appendChild(rowElem)
+				row.forEach(function(item) {
+					if (item == 0) {
+						var slot = create_element('div', 'open-slot')
+						rowElem.appendChild(slot)
+						x++
+						return
+					} else {
+						var talent = data.talents.find(item => (item.x == x && item.y == y))
+						var locked = (talent.locked) ? ' locked' : ''
+						var dataAttrs = (talent.unlocks) ? {'data-unlocks':talent.unlocks, 'data-x':x, 'data-y':y} : {'data-x':x, 'data-y':y}
+
+						var arrowLocked = (talent.unlocks) ? ' locked' : ''
+						var slot = create_element('div', 'talent-slot')
+
+						rowElem.appendChild(slot)
+
+						var talentContainer = create_element('div', 'talent-container', '', '', dataAttrs)
+						slot.appendChild(talentContainer)
+
+						var talentImage = create_element('img', `talent${locked}${grayed}`, `background-image: url('${imagePathPrefix}/${talent.img}.jpg');`, '', dataAttrs)
+						talentImage.src = `${static_url}images/icon_border_2.png`
+
+						talentContainer.appendChild(talentImage)
+
+						var spentPoints = create_element('div', `spent-points${locked}${grayed}`, '', '0')
+						talentContainer.appendChild(spentPoints)
+
+					}
+					if (item > 1 || item.length) {
+
+						var itemArr = (item.length) ? item : Array.of(item)
+						itemArr.forEach(function(N) {
+							var arrow = create_element('div', `talentcalc-arrow ${talentCalc.arrowTypeSwitch(N)}${arrowLocked}${grayed}`, '', '', dataAttrs)
+							if (N == 7) {
+								var arrow2 = create_element('div', `talentcalc-arrow ${talentCalc.arrowTypeSwitch(N)}${arrowLocked}${grayed}`, '', '', dataAttrs)
+								arrow.appendChild(arrow2)
+							}
+							slot.appendChild(arrow)
+						})
+					}
+
+					x++
+				});
+
+				x = 0
+				y++
+			});
+
+			var talentFooter = create_element('div', 'talent-footer'),
+				style = `background-image: url('${imagePathPrefix}/small_${treeName}_icon.jpg');`;
+			var treeName = create_element('span', 'tree-name', style, data.n),
+				treeSpentSpan = create_element('span', 'spent', '', '(0)'),
+				resetTreeBtn = create_element('button', 'reset-tree', '', '', {'type':'button', 'id':`clear${treeName}`, 'title':`Clear ${data.n}`});
+
+			talentFooter.appendChild(treeName)
+			talentFooter.appendChild(treeSpentSpan)
+			talentFooter.appendChild(resetTreeBtn)
+
+			talentTable.appendChild(talentFooter)
+
+			return talentTable
+		}
+
+	},
+	empty: function(parent, options = {}) {
+
+		while (parent.firstChild) {
+			parent.removeChild(parent.firstChild);
+		}
+		if (options.includeParent) {
+			parent.remove()
+		}
+	},
+	arrowTypeSwitch: function(n) {
+		switch (n) {
+			// down; NOTE: arrow length is inverse of v (v decreases, arrow length increases)
+			default:
+				let v = n - 3
+				return `talentcalc-arrow-down down-${v}`
+				// right
+			case 6:
+				return "talentcalc-arrow right"
+				// rightdown
+			case 7:
+				return "talentcalc-arrow rightdown"
+		}
+	},
+	canSpend: function(talent, tree) {
+		var total = talentCalc.spent()
+		return ( ( total < ( talentCalc.maxLevel - 9 ) ) && (talentCalc.CLASS_DATA[talentCalc.selection][tree].spent() >= (talent.y * 5) ) && (! talentCalc.locked(talent, tree) ) && (talent.spent < talent.max) )
+	},
+
+	canUnspend: function(talent, tree) {
+		console.log('canunspend?')
+		// var maxTier = 0;
+		// talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.forEach(tal => (tal.spent > 0 && tal.y > maxTier) ? maxTier = tal.y : maxTier)  //faster version
+
+		var maxTier = this.CLASS_DATA[this.selection][tree].talents.filter(tal => tal.spent > 0).map(tal => tal.y).reduce((max, cur) => Math.max(max, cur), 0)
+
+		if (this.locked(talent, tree) || talent.spent == 0) {
+			return false
+		}
+
+		if (maxTier == talent.y) {
+			return true
+		}
+
+		var tier = maxTier
+		var decision = true
+
+		while (decision && tier > 0) {
+		    // truth1 = (talentCalc.get.pointsSpent(tree, tier) > tier*5 || (tier==1 && talentCalc.get.pointsSpent(tree, tier) >= tier*5))
+			truth = (talentCalc.get.pointsSpent(tree, tier) > tier*5)
+		    tier--
+		}
+
+		return decision
+
+	},
+	locked: function(talent, tree) {
+
+		var truth = false
+		if (talent.unlocks) {
+			var found = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(x => x.n == talent.unlocks)
+			if (found.spent != 0) {
+				truth = true
+			}
+		}
+		return truth
+	},
+	spent: function() {
+		var total = 0;
+		for (let [name, tree] of Object.entries(this.CLASS_DATA[this.selection])) {
+			total += tree.spent()
+		}
+		return total
+	},
+	handlers: function() {
+
+		this.container.addEventListener('contextmenu', function(e) {
+			e.preventDefault()
+		});
+
+		this.container.addEventListener('mousedown', function(e) {
+			if (e.target.matches('.talent')) {
+				var x = e.target.dataset.x,
+					y = e.target.dataset.y;
+
+				var tree = e.target.closest('.talent-table').id
+				var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(t => t.x == x && t.y == y)
+
+				var amount = 1
+				if (e.which === 3) {
+					amount *= -1
+
+					if (talentCalc.canUnspend(talent, tree)){
+
+						talentCalc.spend(talent, e.target, amount, tree)
+
+					}
+				} else if (e.which === 1) {
+
+					if (talentCalc.canSpend(talent, tree)) {
+						talentCalc.spend(talent, e.target, amount, tree)
+					}
+				}
+			}
+		});
+	},
+	spend: function(talent, talentElem, amount, tree) {
+		talent.spent += amount
+		var elem = talentElem.closest('div.talent-container')
+		elem.querySelector('div.spent-points').innerText = talent.spent
+		this.maxed(talent, tree, elem)
+		this.grayed(tree)
+		this.unlocked(talent, tree, elem)
+		this.update.footer(tree)
+		this.update.header()
+
+	},
+	maxed: function(talent, tree, talentElem) {
+		// var talentElem = document.getElementById(tree).querySelector(`div.talent-container[data-x='${talent.x}'][data-y='${talent.y}']`)
+		var elems = talentElem.querySelectorAll('img.talent,div.spent-points')
+
+		if (talent.spent == talent.max) {
+			elems.forEach(x => x.classList.add('max'))
+		} else {
+			elems.forEach(x => x.classList.remove('max'))
+		}
+	},
+	grayed: function(tree) {
+		var treeTable = document.getElementById(tree)
+		var treeSpent = this.CLASS_DATA[this.selection][tree].spent()
+		for (var i = 0; i < 7; i++) {
+			var row = treeTable.querySelector(`div.row[data-y='${i}']`)
+			if ( treeSpent >= i*5 ) {
+				row.querySelectorAll('.grayed').forEach(x => x.classList.remove('grayed'))
+			} else {
+				row.querySelectorAll('img.talent,div.spent-points,div.talentcalc-arrow').forEach(x => x.classList.add('grayed'))
+			}
+		}
+	},
+	// checks to see if a given talent should be unlocked
+	unlocked: function(talent, tree, talentElem) {
+		if (talent.unlocks) {
+			talent.unlocks.forEach(function(name) {
+				var unlockedTalent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(t => t.n == name)
+				var unlockedTalentContainer = document.getElementById(tree).querySelector(`div.talent-container[data-x="${unlockedTalent.x}"][data-y="${unlockedTalent.y}"]`)
+				var elems = unlockedTalentContainer.querySelectorAll('img.talent,div.spent-points')
+				var arrows = talentElem.closest('div.talent-slot').querySelectorAll(`div.talentcalc-arrow[data-unlocks="${name}"]`)
+				if (talent.spent == talent.max) {
+					elems.forEach(x => x.classList.remove('locked'))
+					arrows.forEach(arrow => arrow.classList.remove('locked'))
+				} else {
+					elems.forEach(x => x.classList.add('locked'))
+					arrows.forEach(arrow => arrow.classList.add('locked'))
+				}
+			})
+		}
+	},
 
 }
 
-function addScript(WoWClass, src, loadedCallback=scriptLoaded, errorCallback=loadError) {
+function addScript(WoWClass, src, loadedCallback = scriptLoaded, errorCallback = loadError) {
 
 	var newScript = document.createElement("script");
 	newScript.onerror = errorCallback;
@@ -159,7 +433,10 @@ function loadError(oError) {
 
 function scriptLoaded(WoWClass) {
 	talentCalc.CLASS_DATA = Object.assign(talentCalc.CLASS_DATA, classData)
-	talentCalc.build(talentCalc.CLASS_DATA[WoWClass])
+	talentCalc.update.classSelection(WoWClass);
+	talentCalc.update.classData()
+	updateURL("/talent_calc", WoWClass, document.location.search)
+	talentCalc.build.main(talentCalc.CLASS_DATA[WoWClass])
 }
 
 function applyClickHandlers() {
@@ -170,7 +447,7 @@ function applyClickHandlers() {
 	resetTree()
 }
 
-function update_class(class_name, ix=0, search) {
+function update_class(class_name, ix = 0, search) {
 	var id = ix;
 	var badass_url = new URL(document.location.origin.toString())
 	badass_url.pathname = `talent_calc/${class_name}`
@@ -184,7 +461,7 @@ function update_class(class_name, ix=0, search) {
 	$.ajax({
 		url: badass_url,
 		dataType: 'html',
-		success: function (data) {
+		success: function(data) {
 			let selected = $("a.class-filter.selected").attr("id");
 			if (selected != class_name) {
 				$("#talent_calc").html(data);
@@ -192,7 +469,7 @@ function update_class(class_name, ix=0, search) {
 				$(`#${class_name}`).addClass('selected');
 			}
 		},
-		complete: function (data) {
+		complete: function(data) {
 			var data2 = {}
 			if (id) {
 				data2['id'] = id
@@ -203,7 +480,7 @@ function update_class(class_name, ix=0, search) {
 					url: '/ajax/load_spec/',
 					data: data2,
 					dataType: 'json',
-					success: function (data){
+					success: function(data) {
 						if (class_name) {
 							if (document.location.href.toString().includes('talent_calc')) {
 								updateURL("/talent_calc", class_name, data.hash)
@@ -217,7 +494,7 @@ function update_class(class_name, ix=0, search) {
 							}
 						}
 					}
-			   });
+				});
 			}
 		}
 	});
@@ -242,9 +519,9 @@ function exportSpec() {
 			})
 
 			// not all browsers support navigator.clipboard.writeText()
-			navigator.clipboard.writeText(url.toString()).then(function () {
+			navigator.clipboard.writeText(url.toString()).then(function() {
 				/* clipboard successfully set */
-			}, function () {
+			}, function() {
 				/* clipboard write failed */
 				let tempInput = document.createElement("input")
 				tempInput.style = "position: absolute; left: -1000px; top: -1000px"
@@ -294,20 +571,23 @@ function lockSpec() {
 				talentUnlocker()
 				lockButton.removeClass("lock").addClass("unlock")
 				lockButton.attr('title', 'Unlocked')
-				lockButton.css({"color": "#3d7e9a"})
+				lockButton.css({
+					"color": "#3d7e9a"
+				})
 				params.delete('L')
 				if (talentPointsSpent.softLocked) {
 					talentLocker()
 				}
-			}
-			else if ($("#talentLock").hasClass('unlock')) {
+			} else if ($("#talentLock").hasClass('unlock')) {
 				talentLocker()
 
 				talentPointsSpent.hardLocked = true
 
 				lockButton.removeClass("unlock").addClass("lock")
 				lockButton.attr('title', 'Locked')
-				lockButton.css({"color": "rgba(231, 186, 0, 1);"})
+				lockButton.css({
+					"color": "rgba(231, 186, 0, 1);"
+				})
 			}
 
 		},
@@ -332,7 +612,7 @@ function resetAll() {
 	talentPointsSpent.hardLocked = false
 	talentPointsSpent.softLocked = false
 
-	treeNames.forEach(function (tree) {
+	treeNames.forEach(function(tree) {
 		resetTalentTree(tree)
 	})
 
@@ -348,12 +628,12 @@ function resetAll() {
 function resetTalentTree(tree, e) {
 
 	const tree_name = titleCase(tree)
-	let found = classData.trees.find(function (x) {
+	let found = classData.trees.find(function(x) {
 		return x.name == tree_name
 	})
 
-	found.data.forEach(function (dataArr, tier) {
-		dataArr.forEach(function (tal) {
+	found.data.forEach(function(dataArr, tier) {
+		dataArr.forEach(function(tal) {
 			if (tal) {
 				// let tal_name = utilities.sanitize(tal.name)
 				let tal_name = tal.name
@@ -367,7 +647,7 @@ function resetTalentTree(tree, e) {
 		})
 	})
 
-	talentPointsSpent[tree_name].vals.forEach(function (v, i) {
+	talentPointsSpent[tree_name].vals.forEach(function(v, i) {
 		talentPointsSpent[tree_name].vals[i] = 0
 	})
 
@@ -396,8 +676,7 @@ function resetTalentTree(tree, e) {
 
 	if ((talentPointsSpent.hardLocked) || (talentPointsSpent.softLocked)) {
 		talentLocker()
-	} else {
-	}
+	} else {}
 }
 
 function buildClassData(refresh) {
@@ -411,20 +690,22 @@ function buildClassData(refresh) {
 	if (!className) {
 		return
 	}
-	const selectedClass = talentData.classes.find(function (a) {
+	const selectedClass = talentData.classes.find(function(a) {
 		return a.name == className;
 	})
 	let treeNames = []
 
-	selectedClass.tree_talents.forEach(function (item, index) {
+	selectedClass.tree_talents.forEach(function(item, index) {
 		// let n = titleCase(item.name)
 		treeNames.push(item.name)
 		talentPointsSpent[item.name] = {
 			vals: [0, 0, 0, 0, 0, 0, 0],
-			total: function () { return this.vals.reduce((a, b) => a + b) },
-			highest_tier: function () {
+			total: function() {
+				return this.vals.reduce((a, b) => a + b)
+			},
+			highest_tier: function() {
 				let x = []
-				this.vals.forEach(function (item, index) {
+				this.vals.forEach(function(item, index) {
 					if (item > 0) {
 						x.push(index)
 					}
@@ -433,7 +714,7 @@ function buildClassData(refresh) {
 			}
 		}
 	})
-	talentPointsSpent.grandTotal = function () {
+	talentPointsSpent.grandTotal = function() {
 		return (this[treeNames[0]].total() + this[treeNames[1]].total() + this[treeNames[2]].total())
 	}
 
@@ -449,7 +730,9 @@ function buildClassData(refresh) {
 	const combinedTalents = combineTalents(selectedClass)
 	const finalData = mapTalentsToTableData(tableData.trees, combinedTalents)
 
-	classData = { trees: finalData }
+	classData = {
+		trees: finalData
+	}
 
 	let url = new URL(document.location)
 	if (url.search && !refresh) {
@@ -463,10 +746,10 @@ function buildClassData(refresh) {
 }
 
 function mapTalentsToTableData(trees, tal_arr) {
-	trees.forEach(function (tree, index) {
-		tree.data.forEach(function (data_arr, j) {
+	trees.forEach(function(tree, index) {
+		tree.data.forEach(function(data_arr, j) {
 			let reqTalentPoints = j * 5
-			data_arr.forEach(function (v, k) {
+			data_arr.forEach(function(v, k) {
 				if (v >= 1 || v.length > 1) { //
 					trees[index].data[j][k] = tal_arr.pop()
 					trees[index].data[j][k].invested = 0
@@ -477,11 +760,10 @@ function mapTalentsToTableData(trees, tal_arr) {
 						trees[index].data[j][k].arrows = []
 						if (v.length == 2) {
 							trees[index].data[j][k].multi = true
-							trees[index].data[j][k].unlocks.forEach(function (z, ii) {
+							trees[index].data[j][k].unlocks.forEach(function(z, ii) {
 								trees[index].data[j][k].arrows.push(arrowTypeSwitch(v[ii]))
 							})
-						}
-						else {
+						} else {
 							trees[index].data[j][k].arrows.push(arrowTypeSwitch(v))
 						}
 					}
@@ -492,26 +774,26 @@ function mapTalentsToTableData(trees, tal_arr) {
 	return trees
 }
 
-function arrowTypeSwitch(item) {
-
-	switch (item) {
-		// down, arrow length is inverse of v (v decreases, length increases)
-		default:
-			let n = 5 - item
-			return `talentcalc-arrow-down down-${n}`
-		// right
-		case 6:
-			return "talentcalc-arrow right"
-		// rightdown
-		case 7:
-			return "talentcalc-arrow rightdown"
-	}
-}
+// function arrowTypeSwitch(item) {
+//
+// 	switch (item) {
+// 		// down, arrow length is inverse of v (v decreases, length increases)
+// 		default:
+// 			let n = 5 - item
+// 			return `talentcalc-arrow-down down-${n}`
+// 		// right
+// 		case 6:
+// 			return "talentcalc-arrow right"
+// 		// rightdown
+// 		case 7:
+// 			return "talentcalc-arrow rightdown"
+// 	}
+// }
 
 function combineTalents(d) {
 	let talent_arr = []
 	data = d.tree_talents
-	data.forEach(function (item, index) {
+	data.forEach(function(item, index) {
 		talent_arr.push(item.talents)
 	})
 	return talent_arr.flat().reverse()
@@ -519,10 +801,10 @@ function combineTalents(d) {
 
 function talentHandler() {
 	$(".class-filter").on({
-	   click: e=> {
-		   var class_name = $( e.target )[0].id;
-		   update_class(class_name)
-	   }
+		click: e => {
+			var class_name = $(e.target)[0].id;
+			update_class(class_name)
+		}
 	});
 
 	$(".talent").on({
@@ -553,7 +835,6 @@ function mouseDownHandler(e = null, talent, tree) {
 		manuallyClicked = true
 		var targetTalent = $(e.target)
 
-		// var treeName = targetTalent.closest('div.talentTable')[0].id
 		var treeName = titleCase(targetTalent.closest('div.talentTable')[0].id)
 
 		// const name = targetTalent.attr('name')
@@ -561,7 +842,7 @@ function mouseDownHandler(e = null, talent, tree) {
 		const j = targetTalent.attr('data-j')
 		const k = targetTalent.attr('data-k')
 
-		const found = classData.trees.find(function (x) {
+		const found = classData.trees.find(function(x) {
 			return x.name == treeName
 		})
 		var talentObj = found.data[j][k]
@@ -572,8 +853,7 @@ function mouseDownHandler(e = null, talent, tree) {
 			// updateTooltip(e) //tooltip goes away otherwise, unsure why
 			return
 		}
-	}
-	else {
+	} else {
 		var talentObj = talent
 		var treeName = titleCase(tree)
 		var targetTalent = $(`img.talent[name="${talentObj.name}"]`)
@@ -612,7 +892,7 @@ function updateTooltip(e) {
 	const targetTalent = $(e.target)
 	const name = titleCase(targetTalent.attr('name'))
 	const tree = titleCase(targetTalent.closest('div.talentTable')[0].id)
-	const found = classData.trees.find(function (x) {
+	const found = classData.trees.find(function(x) {
 		return x.name == tree
 	})
 
@@ -678,17 +958,38 @@ function updateTooltip(e) {
 
 
 	const tooltipElems = [
-		{class: 'title', text: name},
-		{class: 'rank', text: "Rank " + talentObj.invested + "/" + talentObj.maxRank},
-		{class: 'req', text: req_text},
-		{class: 'description', text: description} ]
+		{
+			class: 'title',
+			text: name
+		},
+		{
+			class: 'rank',
+			text: "Rank " + talentObj.invested + "/" + talentObj.maxRank
+		},
+		{
+			class: 'req',
+			text: req_text
+		},
+		{
+			class: 'description',
+			text: description
+		}]
 
 	if (next_rank) {
-		tooltipElems.push({class: 'next', text: "\nNext Rank:\n"})
-		tooltipElems.push({class: 'description', text: talentCopy.description()})
+		tooltipElems.push({
+			class: 'next',
+			text: "\nNext Rank:\n"
+		})
+		tooltipElems.push({
+			class: 'description',
+			text: talentCopy.description()
+		})
 
 	} else if (!(req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn'))) {
-		tooltipElems.push({class: tooltipFooter.color, text: tooltipFooter.text})
+		tooltipElems.push({
+			class: tooltipFooter.color,
+			text: tooltipFooter.text
+		})
 	}
 
 	utilities.bigdaddytooltip(targetTalent, tooltipElems)
@@ -701,8 +1002,7 @@ function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
 	const tier_unlocked = (tier_unspeccing <= locked_tier) ? false : true
 
 	let decision = false
-	if (!tier_unlocked) {
-	}
+	if (!tier_unlocked) {}
 
 	if (((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a, b) => (a + b)) - tier_check * 5) > 0) &&
 		tier_unlocked &&
@@ -713,7 +1013,8 @@ function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
 }
 
 function checkLockedTiers(tree) {
-	let bool_arr = [], num_arr = []
+	let bool_arr = [],
+		num_arr = []
 	let tier_check = talentPointsSpent[tree].highest_tier() - 1
 	for (let k = 0; k < tier_check; k++) {
 		let y = k + 1
@@ -721,7 +1022,10 @@ function checkLockedTiers(tree) {
 		let f = talentPointsSpent[tree].vals.slice(0, y).reduce((a, b) => (a + b))
 		let sum = (f - req_points)
 		num_arr.push(sum)
-		bool_arr.push({ extrapoints: sum, tier: y }) //for debugging
+		bool_arr.push({
+			extrapoints: sum,
+			tier: y
+		}) //for debugging
 	}
 	let locked_tier = num_arr.lastIndexOf(0) + 1
 	return locked_tier
@@ -745,8 +1049,7 @@ function pointSpender(talent, e, tree, targetTal) {
 				talentLocker()
 			}
 			return
-		}
-		else if (talent.invested < talent.maxRank) {
+		} else if (talent.invested < talent.maxRank) {
 			talentPointsSpent[tree].vals[tier]++
 			talent.invested++
 
@@ -754,15 +1057,15 @@ function pointSpender(talent, e, tree, targetTal) {
 
 			let tierU = (talentPointsSpent[tree].total() < 30) ? Math.floor(talentPointsSpent[tree].total() / 5) : 6
 			let talentObjs = []
-			const found = classData.trees.find(function (x) {
+			const found = classData.trees.find(function(x) {
 				return x.name == tree
 			})
-			found.data[tierU].filter(function (t) {
+			found.data[tierU].filter(function(t) {
 				if (t) {
 					talentObjs.push(t)
 				}
 			})
-			talentObjs.forEach(function (tal) {
+			talentObjs.forEach(function(tal) {
 
 				let tal_name = tal.name
 				let t = $(`img.talent[name="${tal_name}"]`)
@@ -779,7 +1082,7 @@ function pointSpender(talent, e, tree, targetTal) {
 
 				// if talent is a pre req, unlock each parent elem
 				if (talent.unlocks) {
-					unlocks.forEach(function (n) {
+					unlocks.forEach(function(n) {
 						let par = $(`img.talent[name="${n}"]`).removeClass('locked') //unlock talent element
 						par.closest('.talent-container').find(".spentPoints").first().removeClass('locked') //unlock points spent element
 						arrowClassChanger(n, false, 'locked')
@@ -810,19 +1113,20 @@ function pointSpender(talent, e, tree, targetTal) {
 
 		if (talent.invested == talent.maxRank && unlocks) {
 			let test_arr = []
-			unlocks.forEach(function (item) {
+			unlocks.forEach(function(item) {
 				const child_talent = $(`img.talent[name="${item}"]`)
 				let n = child_talent.closest('.talent-container').find('.spentPoints').text()
 				if (can_unspec && n > 0) {
 					console.log('Hey idiot, you gotta unspec ' + item + ' first')
 					test_arr.push(false)
 					return
-				}
-				else {
+				} else {
 					test_arr.push(true)
 				}
 			})
-			if (test_arr.some(function (item) { return item == false })) {
+			if (test_arr.some(function(item) {
+					return item == false
+				})) {
 				return
 			}
 		}
@@ -845,7 +1149,7 @@ function pointSpender(talent, e, tree, targetTal) {
 			talElem.removeClass('max') //NOTE: remove max class from talent element
 			talElem.closest('.talent-container').find('.spentPoints').removeClass('max') // NOTE: remove max class from pointsSpent element
 			if (talent.unlocks) {
-				unlocks.forEach(function (n) {
+				unlocks.forEach(function(n) {
 					let par = $(`img.talent[name="${n}"]`).addClass('locked') //NOTE: locks talent element
 					par.closest('.talent-container').find(".spentPoints").first().addClass('locked') //NOTE: locks points spent element
 
@@ -857,19 +1161,19 @@ function pointSpender(talent, e, tree, targetTal) {
 
 			let talentObjs = []
 
-			let found = classData.trees.find(function (x) {
+			let found = classData.trees.find(function(x) {
 				return x.name == tree
 			})
 
-			found.data.slice(tierL).forEach(function (arr, ind) {
-				arr.filter(function (t) {
+			found.data.slice(tierL).forEach(function(arr, ind) {
+				arr.filter(function(t) {
 					if (t) {
 						talentObjs.push(t)
 					}
 				})
 			})
 
-			talentObjs.forEach(function (tal, ind) {
+			talentObjs.forEach(function(tal, ind) {
 				if (tal) {
 					let t = $(`img.talent[name="${tal.name}"]`)
 					t.addClass('grayed') //NOTE: grayed added to talent elem
@@ -885,7 +1189,7 @@ function pointSpender(talent, e, tree, targetTal) {
 }
 
 // needs optimization
-function talentLocker(tree='') {
+function talentLocker(tree = '') {
 
 	let treeNames = []
 	if (!tree) { // defaults to all trees
@@ -896,13 +1200,13 @@ function talentLocker(tree='') {
 	let talentObjs = []
 
 	// get list of talent objects with no points spent
-	treeNames.forEach(function (name) {
-		let found = classData.trees.find(function (x) {
+	treeNames.forEach(function(name) {
+		let found = classData.trees.find(function(x) {
 			return x.name == name
 		})
 
-		found.data.forEach(function (dataArr, tier) {
-			dataArr.forEach(function (tal) {
+		found.data.forEach(function(dataArr, tier) {
+			dataArr.forEach(function(tal) {
 				if (tal) {
 					if (!tal.invested) {
 						talentObjs.push(tal)
@@ -912,7 +1216,7 @@ function talentLocker(tree='') {
 		})
 	})
 
-	talentObjs.forEach(function (tal) {
+	talentObjs.forEach(function(tal) {
 		// let tal_name = utilities.sanitize(tal.name)
 		let tal_name = tal.name
 
@@ -924,7 +1228,7 @@ function talentLocker(tree='') {
 		}
 		if (tal.unlocks) {
 			let unlocks = (!Array.isArray(tal.unlocks)) ? Array(tal.unlocks) : tal.unlocks
-			unlocks.forEach(function (n) {
+			unlocks.forEach(function(n) {
 				let par = $(`img.talent[name="${n}"]`).addClass('locked')
 				par.closest('.talent-container').find(".spentPoints").first().addClass('locked')
 
@@ -934,7 +1238,7 @@ function talentLocker(tree='') {
 	})
 }
 
-function talentUnlocker(tree='') {
+function talentUnlocker(tree = '') {
 	let treeNames = []
 	if (!tree) { // defaults to all trees
 		treeNames = talentPointsSpent.treeNames
@@ -942,18 +1246,17 @@ function talentUnlocker(tree='') {
 		treeNames.push(tree)
 	}
 
-	treeNames.forEach(function (tree) {
-		let found = classData.trees.find(function (x) {
+	treeNames.forEach(function(tree) {
+		let found = classData.trees.find(function(x) {
 			return x.name == tree
 		})
 		let y = (talentPointsSpent[tree].total() < 30) ? Math.floor(talentPointsSpent[tree].total() / 5) : 6
 		let tiers = [...Array(y + 1).keys()]
-		tiers.forEach(function (i) {
-		})
+		tiers.forEach(function(i) {})
 		let tier = tiers[tiers.length - 1]
 		for (tier; tier >= 0; tier = tier - 1) {
-			found.data[tier].forEach(function (tal) {
-				if (tal) {//skips empty slots
+			found.data[tier].forEach(function(tal) {
+				if (tal) { //skips empty slots
 					// let tal_name = utilities.sanitize(tal.name)
 					let tal_name = tal.name
 
@@ -976,10 +1279,10 @@ function urlBuilder() {
 	const translationTable = getTranslationTable()
 	let myURL = ''
 	var newURL = ''
-	classData.trees.forEach(function (item, ind) {
+	classData.trees.forEach(function(item, ind) {
 		let invested = ''
-		item.data.forEach(function (dataArr) {
-			dataArr.forEach(function (x) {
+		item.data.forEach(function(dataArr) {
+			dataArr.forEach(function(x) {
 				if (x) {
 					invested = invested.concat('', x.invested)
 				}
@@ -991,7 +1294,7 @@ function urlBuilder() {
 	})
 
 	let newStrArr = myURL.split('7')
-	newStrArr.forEach(function (str, indc) {
+	newStrArr.forEach(function(str, indc) {
 
 		if (indc < 2) {
 			str = (str.length % 2 == 0) ? str.concat('', '07') : str.concat('', '7')
@@ -1003,7 +1306,7 @@ function urlBuilder() {
 	})
 
 	let matchArr = newURL.match(re)
-	for (var y=0; y < matchArr.length; y++) {
+	for (var y = 0; y < matchArr.length; y++) {
 		newURL = newURL.replace(matchArr[y], matchArr[y][0] + (matchArr[y].length).toString())
 	}
 
@@ -1030,10 +1333,10 @@ function urlExpander(hash) {
 	}
 	let newStrArr = newStr.split('Y')
 	let arr
-	newStrArr.forEach(function (item, ind) {
+	newStrArr.forEach(function(item, ind) {
 		item = (ind < 2) ? item + 'Y' : item + 'Z'
 		arr = item.split('')
-		arr.forEach(function (v, i) {
+		arr.forEach(function(v, i) {
 			arr[i] = arr[i].replace(v, reverseTable[v])
 		})
 		newStrArr[ind] = arr.join('')
@@ -1043,7 +1346,7 @@ function urlExpander(hash) {
 
 }
 
-function preBuiltSpec(ha='') {
+function preBuiltSpec(ha = '') {
 	var hash = ha
 	if (hash.startsWith('?')) {
 		hash = hash.substring(1)
@@ -1051,16 +1354,16 @@ function preBuiltSpec(ha='') {
 	var expanded = urlExpander(hash)
 	var treeName = ''
 	let hashArr = expanded.slice(0, expanded.indexOf('8')).split('7')
-	classData.trees.forEach(function (item, i) {
+	classData.trees.forEach(function(item, i) {
 		var arr = hashArr[i].split('')
 		treeName = item.name
-		item.data.forEach(function (dataArr, i2) {
-			dataArr.forEach(function (t, i3) {
+		item.data.forEach(function(dataArr, i2) {
+			dataArr.forEach(function(t, i3) {
 				if (t) {
 					if (hashArr) {
 						if (arr[0] >= 1) {
 							let newArr = [...Array(parseInt(arr.shift()))].fill(1)
-							newArr.forEach(function (item2) {
+							newArr.forEach(function(item2) {
 								mouseDownHandler(null, t, treeName)
 							})
 							return
@@ -1083,7 +1386,7 @@ function arrowClassChanger(talName, add, lockOrGray) {
 		addOrRemove = 'remove'
 	}
 	let arrows = $(`div.talentcalc-arrow[data-unlocks="${talName}"]`)
-	arrows.each(function () {
+	arrows.each(function() {
 		if (add) {
 			$(this).addClass(lockOrGray)
 		} else {
@@ -1094,12 +1397,44 @@ function arrowClassChanger(talName, add, lockOrGray) {
 
 function getTranslationTable() {
 	const translationTable = {
-		00: 'a', 01: 'b', 02: 'c', 03: 'd', 04: 'e', 05: 'f',
-		10: 'g', 11: 'h', 12: 'i', 13: 'j', 14: 'k', 15: 'l',
-		20: 'm', 21: 'n', 22: 'o', 23: 'p', 24: 'q', 25: 'r',
-		30: 's', 31: 't', 32: 'u', 33: 'v', 34: 'w', 35: 'x',
-		40: 'y', 41: 'z', 42: 'A', 43: 'B', 44: 'C', 45: 'D',
-		50: 'E', 51: 'F', 52: 'G', 53: 'H', 54: 'I', 55: 'J', 07: 'Y', 08: 'Z'
+		00: 'a',
+		01: 'b',
+		02: 'c',
+		03: 'd',
+		04: 'e',
+		05: 'f',
+		10: 'g',
+		11: 'h',
+		12: 'i',
+		13: 'j',
+		14: 'k',
+		15: 'l',
+		20: 'm',
+		21: 'n',
+		22: 'o',
+		23: 'p',
+		24: 'q',
+		25: 'r',
+		30: 's',
+		31: 't',
+		32: 'u',
+		33: 'v',
+		34: 'w',
+		35: 'x',
+		40: 'y',
+		41: 'z',
+		42: 'A',
+		43: 'B',
+		44: 'C',
+		45: 'D',
+		50: 'E',
+		51: 'F',
+		52: 'G',
+		53: 'H',
+		54: 'I',
+		55: 'J',
+		07: 'Y',
+		08: 'Z'
 	}
 	return translationTable
 }
@@ -1107,7 +1442,7 @@ function getTranslationTable() {
 function getReverseTable() {
 	let translationTable = getTranslationTable()
 	const reversedTable = {}
-	Object.values(translationTable).forEach(function (item, index) {
+	Object.values(translationTable).forEach(function(item, index) {
 		let repl = (Object.keys(translationTable)[index].length > 1) ? Object.keys(translationTable)[index] : "0" + Object.keys(translationTable)[index]
 		reversedTable[item] = repl
 	})
