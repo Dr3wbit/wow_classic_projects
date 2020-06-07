@@ -4,6 +4,8 @@ $(document).ready(function() {
 	professionToolHandlers();
 });
 
+var wait = true;
+
 
 window.addEventListener('load', function(e) {
 	// figure out which profession(if any) is in the url
@@ -443,6 +445,7 @@ function professionToolHandlers() {
 			listObjUnhandlers()
 			updateSelectedProf(prof);
 			getRecipeList(prof);
+			
 			updateURL("/profession_tool", prof, document.location.search)
 		}
 	})
@@ -456,6 +459,21 @@ function recipeHandlers() {
 		if (e.target.matches('.recipe-name, .recipe-image, .material-image')) {
 			// console.log(e.target)
 			tooltip.init(e)
+			tooltip.addMousemove(e)
+
+			var dataContainer = e.target.closest('div.data-container')
+	        var ix = dataContainer.getAttribute("data-ix")
+			var data;
+
+
+			if (Object.keys(professionTool.ITEMS).includes(ix)) {
+	            data = professionTool.ITEMS[ix]
+	            tooltip.create(data)
+	            tooltip.updateCoords(e)
+	        } else {
+	            getItemInfo(ix, tooltip.create)
+	        }
+
 			e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
 		}
 		return
@@ -506,8 +524,23 @@ function consumeHandlers() {
 	var totalsContainer = document.getElementById('totals_container')
 	totalsContainer.addEventListener('mouseover', function(e) {
 		if (e.target.matches('.consume-image, .material-image, .consume-name, .material-name')) {
-			// console.log(e.target)
+
 			tooltip.init(e)
+			tooltip.addMousemove(e)
+
+			var dataContainer = e.target.closest('div.data-container')
+	        var ix = dataContainer.getAttribute("data-ix")
+			var data;
+
+
+			if (Object.keys(professionTool.ITEMS).includes(ix)) {
+	            data = professionTool.ITEMS[ix]
+	            tooltip.create(data)
+	            tooltip.updateCoords(e)
+	        } else {
+	            getItemInfo(ix, tooltip.create)
+	        }
+
 			e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
 		}
 		return

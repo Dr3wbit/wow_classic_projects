@@ -4,19 +4,13 @@ var tooltip = {
     tooltipContainer: document.getElementById("tooltip_container"),
     init: function(e) {
         tooltip.empty()
-        tooltip.addMousemove(e)
-        var dataContainer = e.target.closest('div.data-container')
-        var ix = dataContainer.getAttribute("data-ix")
+        // tooltip.addMousemove(e)
+        // var dataContainer = e.target.closest('div.data-container')
+        // var ix = dataContainer.getAttribute("data-ix")
+
         tooltip.coords.x = e.pageX
         tooltip.coords.y = e.pageY
 
-        if (Object.keys(professionTool.ITEMS).includes(ix)) {
-            var data = professionTool.ITEMS[ix]
-            tooltip.create(data)
-            tooltip.updateCoords(e)
-        } else {
-            getItemInfo(ix, tooltip.create)
-        }
     },
     empty: function() {
         while (this.tooltipContainer.firstChild) {
@@ -42,10 +36,10 @@ var tooltip = {
     },
 
     getDimensions: function(element, msg='') {
-        var message = `offset Width:${element.offsetWidth}, Height:${element.offsetHeight}, Top:${element.offsetTop}, Left:${element.offsetLeft}`
-        console.log(msg+message)
-        message = `client  Width:${element.clientWidth}, Height:${element.clientHeight}`
-        console.log(msg+message)
+        var message = `${msg} offset Width:${element.offsetWidth}, Height:${element.offsetHeight}, Top:${element.offsetTop}, Left:${element.offsetLeft}`
+        console.log(message)
+        message = `${msg} client  Width:${element.clientWidth}, Height:${element.clientHeight}`
+        console.log(message)
 
     },
     checkDimensions: function() {
@@ -75,8 +69,50 @@ var tooltip = {
     		tooltip.tooltipContainer.appendChild(img)
     	}
 
-    	var title = create_element('div', `title q${data.q}`, 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
-    	container.appendChild(title)
+    	var title = create_element('div', 'title', 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
+        if (data.q) {
+            title.classList.add(`q${data.q}`)
+        }
+        container.appendChild(title)
+
+        if (data.spent >= 0) {
+
+            console.log('data: ')
+
+            var rank = create_element('div', 'rank', '', `Rank ${data.spent}/${data.max}`)
+            var description = create_element('div', 'description', '', data.d[data.spent])
+
+            container.appendChild(rank)
+            container.appendChild(description)
+
+            var text;
+            if (data.spent == 0) {
+                footerText = 'Click to learn'
+                textClass = 'learn'
+            } else if (data.spent == data.max) {
+                footerText = 'Right-click to unlearn'
+                textClass = 'unlearn'
+            } else {
+                if (data.max != 1) {
+                    var nextRank = create_element('div', 'next', '', 'Next Rank:')
+                    var nextDescription = create_element('div', 'description', '', `${data.d[data.spent+1]}`)
+                    container.appendChild(nextRank)
+                    container.appendChild(nextDescription)
+                }
+            }
+
+
+            var tooltipFooter = create_element('div', textClass, '', footerText)
+            container.appendChild(tooltipFooter)
+
+            // if (!Boolean(text)) {
+            //
+            //
+            // }
+
+        }
+
+
 
     	if ((data.slot && data.q > 1) || (data.bop)) {
     		var bop_text = (data.bop) ? "Binds when picked up" : "Binds when equipped"
@@ -227,7 +263,12 @@ var tooltip = {
     	}
 
     	if (data.description) {
-    		var description = create_element('div', 'description', 'clear: both;', `"${data.description}"`)
+            var descriptionText = ''
+            if (data.spent) {
+                return
+            }
+            descriptionText = `"${data.description}"`
+    		var description = create_element('div', 'description', 'clear: both;', descriptionText)
     		container.appendChild(description)
     	}
 
@@ -246,9 +287,7 @@ var tooltip = {
     	}
 
     	tooltip.tooltipContainer.appendChild(container)
-
-        tooltip.checkDimensions()
-
+        // tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     }
 }

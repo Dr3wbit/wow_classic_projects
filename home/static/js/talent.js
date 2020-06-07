@@ -285,7 +285,6 @@ var talentCalc = {
 	},
 
 	canUnspend: function(talent, tree) {
-		console.log('canunspend?')
 		// var maxTier = 0;
 		// talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.forEach(tal => (tal.spent > 0 && tal.y > maxTier) ? maxTier = tal.y : maxTier)  //faster version
 
@@ -360,6 +359,43 @@ var talentCalc = {
 				}
 			}
 		});
+
+		this.container.addEventListener('mouseover', function(e) {
+
+			if (e.target.matches('img.talent')) {
+				console.log('mouseenter: ', e)
+				tooltip.init(e)
+
+				var dataContainer = e.target.closest('div.talent-container');
+				var x = dataContainer.getAttribute('data-x'),
+					y = dataContainer.getAttribute('data-y');
+
+				var tree = e.target.closest('.talent-table').id
+
+				var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(tal => tal.x == x && tal.y == y)
+				var data = Object.assign({}, talent)
+				delete data.img
+
+				data.canSpend = talentCalc.locked(talent, tree)
+
+				// data.description = talent.d
+
+				tooltip.create(data)
+				tooltip.updateCoords(e)
+
+				// e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
+			}
+			return
+		})
+
+		// this.container.addEventListener('mouseleave', function(e) {
+		// 	if (e.target.matches('img.talent')) {
+		// 		tooltip.empty()
+		// 		// e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
+		// 	}
+		// })
+
+
 	},
 	spend: function(talent, talentElem, amount, tree) {
 		talent.spent += amount

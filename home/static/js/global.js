@@ -143,9 +143,8 @@ function global_event_handlers() {
 }
 
 function updateURL(path, subPath='', search='') {
-	this.path = path
 	this.path = (Boolean(subPath)) ? path + "/" + subPath : path
-	this.path = (Boolean(search)) ? subPath + search : subPath
+	this.path = (Boolean(search)) ? this.path + search : this.path
 	history.pushState(null, subPath, this.path)
 }
 
