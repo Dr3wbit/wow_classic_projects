@@ -22,6 +22,7 @@ window.addEventListener('load', function(e) {
 
 	// load all talent-related handlers
 	talentCalc.handlers()
+	tooltip.static = true
 
 });
 
@@ -157,6 +158,18 @@ var talentCalc = {
 			var filtered = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.filter(tal => tal.y < tier)
 			return talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.filter(tal => tal.y < tier).map(tal => tal.spent).reduce((total, cur) => (total+cur), 0)
 
+		},
+		talent: function(e) {
+			var dataContainer = e.target.closest('div.talent-container');
+			var x = dataContainer.getAttribute('data-x'),
+				y = dataContainer.getAttribute('data-y');
+
+			var tree = talentCalc.get.tree(e)
+			var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(tal => tal.x == x && tal.y == y)
+			return talent
+		},
+		tree: function(e) {
+			return e.target.closest('.talent-table').id
 		}
 	},
 	build: {
@@ -314,10 +327,12 @@ var talentCalc = {
 
 		var truth = false
 		if (talent.unlocks) {
-			var found = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(x => x.n == talent.unlocks)
-			if (found.spent != 0) {
-				truth = true
-			}
+			talent.unlocks.forEach(function(item) {
+				var found = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(x => x.n == talent.unlocks)
+				if (found.spent != 0) {
+					truth = true
+				}
+			})
 		}
 		return truth
 	},
@@ -334,51 +349,16 @@ var talentCalc = {
 			e.preventDefault()
 		});
 
-		this.container.addEventListener('mousedown', function(e) {
-			if (e.target.matches('.talent')) {
-				var x = e.target.dataset.x,
-					y = e.target.dataset.y;
-
-				var tree = e.target.closest('.talent-table').id
-				var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(t => t.x == x && t.y == y)
-
-				var amount = 1
-				if (e.which === 3) {
-					amount *= -1
-
-					if (talentCalc.canUnspend(talent, tree)){
-
-						talentCalc.spend(talent, e.target, amount, tree)
-
-					}
-				} else if (e.which === 1) {
-
-					if (talentCalc.canSpend(talent, tree)) {
-						talentCalc.spend(talent, e.target, amount, tree)
-					}
-				}
-			}
-		});
-
-		this.container.addEventListener('mouseover', function(e) {
+		this.container.addEventListener('mouseenter', function(e) {
 
 			if (e.target.matches('img.talent')) {
-				console.log('mouseenter: ', e)
 				tooltip.init(e)
 
-				var dataContainer = e.target.closest('div.talent-container');
-				var x = dataContainer.getAttribute('data-x'),
-					y = dataContainer.getAttribute('data-y');
-
-				var tree = e.target.closest('.talent-table').id
-
-				var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(tal => tal.x == x && tal.y == y)
+				var talent = talentCalc.get.talent(e)
 				var data = Object.assign({}, talent)
 				delete data.img
 
-				data.canSpend = talentCalc.locked(talent, tree)
-
-				// data.description = talent.d
+				var tree = talentCalc.get.tree(e)
 
 				tooltip.create(data)
 				tooltip.updateCoords(e)
@@ -386,7 +366,41 @@ var talentCalc = {
 				// e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
 			}
 			return
-		})
+		}, true)
+
+		this.container.addEventListener('mousedown', function(e) {
+			if (e.target.matches('img.talent')) {
+
+				var tree = talentCalc.get.tree(e)
+				var talent = talentCalc.get.talent(e)
+				var data;
+
+				var amount = 1;
+
+				if (e.which === 3 && talentCalc.canUnspend(talent, tree)) {
+					amount *= -1
+					talent = talentCalc.spend(talent, e.target, amount, tree)
+					data = Object.assign({}, talent)
+					delete data.img
+					tooltip.empty()
+					tooltip.create(data)
+					tooltip.updateCoords(e)
+				} else if (e.which === 1 && talentCalc.canSpend(talent, tree)) {
+					talent = talentCalc.spend(talent, e.target, amount, tree)
+					data = Object.assign({}, talent)
+					delete data.img
+
+					tooltip.empty()
+					tooltip.create(data)
+					tooltip.updateCoords(e)
+				} else {
+					return
+				}
+			}
+			return
+		});
+
+
 
 		// this.container.addEventListener('mouseleave', function(e) {
 		// 	if (e.target.matches('img.talent')) {
@@ -406,6 +420,7 @@ var talentCalc = {
 		this.unlocked(talent, tree, elem)
 		this.update.footer(tree)
 		this.update.header()
+		return talent
 
 	},
 	maxed: function(talent, tree, talentElem) {

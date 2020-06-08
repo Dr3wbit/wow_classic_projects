@@ -1,16 +1,22 @@
 var tooltip = {
     coords: {x:'', y:''},
     dimensions: {w: '', h:''},
+    static: false,
+    rectangle: '',
     tooltipContainer: document.getElementById("tooltip_container"),
     init: function(e) {
         tooltip.empty()
-        // tooltip.addMousemove(e)
-        // var dataContainer = e.target.closest('div.data-container')
-        // var ix = dataContainer.getAttribute("data-ix")
 
-        tooltip.coords.x = e.pageX
-        tooltip.coords.y = e.pageY
+        if (tooltip.static) {
+            var rectangle = e.target.getBoundingClientRect()
+            tooltip.rectangle = rectangle
+            tooltip.coords.x = Math.ceil(rectangle.right) - 3
+            tooltip.coords.y = Math.ceil(rectangle.top) + 7 + window.scrollY
 
+        } else {
+            tooltip.coords.x = e.pageX
+            tooltip.coords.y = e.pageY
+        }
     },
     empty: function() {
         while (this.tooltipContainer.firstChild) {
@@ -29,22 +35,31 @@ var tooltip = {
     updateCoords: function(e) {
         tooltip.coords.x = tooltip.coords.x + e.movementX
         tooltip.coords.y = tooltip.coords.y + e.movementY
+        tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     },
     setPosition: function(x=this.coords.x, y=this.coords.y) {
         tooltip.tooltipContainer.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible; white-space: pre-wrap`
     },
-
     getDimensions: function(element, msg='') {
         var message = `${msg} offset Width:${element.offsetWidth}, Height:${element.offsetHeight}, Top:${element.offsetTop}, Left:${element.offsetLeft}`
         console.log(message)
         message = `${msg} client  Width:${element.clientWidth}, Height:${element.clientHeight}`
         console.log(message)
-
     },
     checkDimensions: function() {
-        if (tooltip.tooltipContainer.offsetWidth + tooltip.coords.x > window.screen.availWidth) {
-            tooltip.coords.x -= tooltip.tooltipContainer.offsetWidth
+
+        if ((tooltip.tooltipContainer.offsetWidth + tooltip.coords.x) > window.screen.availWidth) {
+
+            if (tooltip.static) {
+                tooltip.coords.x = tooltip.rectangle.left + 3 - tooltip.tooltipContainer.offsetWidth
+            } else {
+                tooltip.coords.x -= tooltip.tooltipContainer.offsetWidth - 45
+            }
+        }
+
+        if (tooltip.tooltipContainer.offsetHeight > tooltip.rectangle.top) {
+            tooltip.coords.y = tooltip.rectangle.bottom + window.scrollY
         }
     },
     mouseleaveCleanup: function(e) {
@@ -54,9 +69,8 @@ var tooltip = {
     create: function(response) {
 
         var container = create_element('div', 'tooltip-container', 'white-space: pre-wrap;')
-
         container.id = 'tooltip'
-
+        
         var data = (response.responseJSON) ? response.responseJSON : response
 
     	if (data.img) {
@@ -77,38 +91,42 @@ var tooltip = {
 
         if (data.spent >= 0) {
 
-            console.log('data: ')
+            var descriptionText = '';
 
             var rank = create_element('div', 'rank', '', `Rank ${data.spent}/${data.max}`)
-            var description = create_element('div', 'description', '', data.d[data.spent])
-
             container.appendChild(rank)
-            container.appendChild(description)
 
             var text;
             if (data.spent == 0) {
+                descriptionText = data.d[0]
+                var description = create_element('div', 'description', '', descriptionText)
+                container.appendChild(description)
                 footerText = 'Click to learn'
                 textClass = 'learn'
-            } else if (data.spent == data.max) {
-                footerText = 'Right-click to unlearn'
-                textClass = 'unlearn'
             } else {
-                if (data.max != 1) {
-                    var nextRank = create_element('div', 'next', '', 'Next Rank:')
-                    var nextDescription = create_element('div', 'description', '', `${data.d[data.spent+1]}`)
+                descriptionText = data.d[data.spent-1]
+                var description = create_element('div', 'description', '', descriptionText)
+                container.appendChild(description)
+
+                if (data.spent == data.max) {
+                    footerText = 'Right-click to unlearn'
+                    textClass = 'unlearn'
+                }
+
+                else if (data.max != 1) {
+                    var nextRank = create_element('div', 'next', '', '\nNext Rank:')
+                    var nextDescription = create_element('div', 'description', '', `${data.d[data.spent]}`)
                     container.appendChild(nextRank)
                     container.appendChild(nextDescription)
                 }
             }
 
 
+
             var tooltipFooter = create_element('div', textClass, '', footerText)
             container.appendChild(tooltipFooter)
 
-            // if (!Boolean(text)) {
-            //
-            //
-            // }
+
 
         }
 
@@ -287,7 +305,15 @@ var tooltip = {
     	}
 
     	tooltip.tooltipContainer.appendChild(container)
-        // tooltip.checkDimensions()
+        if (tooltip.static) {
+            tooltip.coords.x = (Math.ceil(tooltip.rectangle.right) - 3) - (tooltip.tooltipContainer.offsetWidth - container.offsetWidth) + 5
+            tooltip.coords.y = Math.ceil(tooltip.rectangle.top) + 7 + window.scrollY - tooltip.tooltipContainer.offsetHeight - 5
+        } else {
+            tooltip.coords.x = tooltip.coords.x - (tooltip.tooltipContainer.offsetWidth - container.offsetWidth) + 5
+            tooltip.coords.y = tooltip.coords.y - (tooltip.tooltipContainer.offsetHeight - 5)
+
+        }
+        tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     }
 }
