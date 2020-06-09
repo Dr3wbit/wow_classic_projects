@@ -1,28 +1,21 @@
-var talentPointsSpent = {}
-var classData = {}
 
 $(document).ready(function() {
 	classSelectionHandler()
-})
-
-window.addEventListener('load', function(e) {
-
-	// check for wow_class and hash in URL
 	var selectedClass = talentCalc.CLASSES.filter(substring => document.location.pathname.includes(substring))
-
 	if (selectedClass.length) { // simulate click on said class
 		document.querySelector(`#${selectedClass[0]}.class-filter`).click()
 	}
+})
 
-	if (document.location.search) {
-
-		// predefined talent spec, fill in the talents
-
-	}
-
+window.addEventListener('load', function(e) {
+	tooltip.static = true
 	// load all talent-related handlers
 	talentCalc.handlers()
-	tooltip.static = true
+
+	if (document.location.search) {
+		// predefined talent spec, fill in the talents
+		talentCalc.preBuiltSpec(document.location.search)
+	}
 
 });
 
@@ -53,8 +46,6 @@ function classSelectionHandler() {
 	})
 }
 
-
-
 var talentCalc = {
 	container: document.getElementById('talent_calc'),
 	maxLevel: 60,
@@ -68,22 +59,25 @@ var talentCalc = {
 		this.CLASS_DATA = {}
 	},
 	reset: {
-		talent: function(tree, talentName) {
-
-		},
-		tree: function(tree) {
+		tree: function(tree, data='') {
+			var treeData = (!Boolean(data)) ? talentCalc.CLASS_DATA[talentCalc.selection][tree] : data
 			var treeElement = document.getElementById(tree)
-			talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.forEach(function(talent) {
+			treeData.talents.forEach(function(talent) {
 				talent.spent = 0
+				var talentContainer = talentCalc.get.talent.elem(tree, talent.x, talent.y)
+				var spentContainer = talentContainer.querySelector('div.spent-points')
+				spentContainer.innerText = talent.spent
+				talentCalc.maxed(talent, tree, talentContainer)
+				talentCalc.unlock(talent, tree, talentContainer)
 			})
+			talentCalc.grayed(tree)
 			talentCalc.update.header()
 			talentCalc.update.footer(tree)
-
 		},
 		all: function() {
 			if (Boolean(talentCalc.CLASS_DATA)) {
-				for (let [tree, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
-					talentCalc.reset.tree(tree)
+				for (let [treeName, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
+					talentCalc.reset.tree(treeName, data)
 				}
 			}
 		},
@@ -91,9 +85,9 @@ var talentCalc = {
 	update: {
 		footer: function(tree) {
 			var footerSpentSpan = document.querySelector(`#${tree}.talent-table`).querySelector('div.talent-footer > span.spent')
-			footerSpentSpan.innerText = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
+			footerSpentSpan.innerText = `(${talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()})`
 			var index = Array.from(document.querySelectorAll('div.talent-footer > span.spent')).indexOf(footerSpentSpan)
-			document.querySelectorAll('#talent_points_spent > span.spent')[index].innerText = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
+			document.querySelectorAll('#talent_points_spent > span.spent')[index].innerText = `${talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()}`
 
 		},
 		header: function() {
@@ -126,26 +120,20 @@ var talentCalc = {
 		talentTree: function(tree) {
 			var treeElem = document.getElementById(tree)
 			talentCalc.CLASS_DATA[selection][tree].talents.forEach(function(talent) {
-				if (talentCalc.canSpend(talent)) {
+				var talentContainer = talentCalc.get.talent.elem(tree, talent.x, talent.y)
+				var spentContainer = talentContainer.querySelector('div.spent-points')
+				spentContainer.innerText = talent.spent
 
-					var talentContainer = treeElement.querySelector(`div.talent-container[data-x='${talent.x}'][data-y='${talent.y}']`)
-
-					var spentContainer = talentContainer.querySelector('div.spent-points')
-					spentContainer.innerText = talent.spent
-
-					talentContainer.querySelector('div.spent-points')
-					if (talentCalc.locked(talent, tree)) {
-						spentContainer.classList.add('locked')
-						talentContainer.querySelector('img.talent').classList.add('locked')
-
-						// add locked classList
-					}
-				}
+				talentContainer.querySelector('div.spent-points')
+				talentCalc.unlocked(talent, tree, talentContainer)
 			})
 
 		},
 		all: function() {
-
+			for (let [treeName, tree] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
+				talentCalc.update.talentTree(treeName)
+				talentCalc.grayed(treeName)
+			}
 		},
 	},
 	get: {
@@ -159,23 +147,36 @@ var talentCalc = {
 			return talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.filter(tal => tal.y < tier).map(tal => tal.spent).reduce((total, cur) => (total+cur), 0)
 
 		},
-		talent: function(e) {
-			var dataContainer = e.target.closest('div.talent-container');
-			var x = dataContainer.getAttribute('data-x'),
-				y = dataContainer.getAttribute('data-y');
+		//gets nearest talent element
+		talent: {
+			// from event
+			obj: function(e) {
+				var dataContainer = e.target.closest('div.talent-container');
+				var x = dataContainer.getAttribute('data-x'),
+					y = dataContainer.getAttribute('data-y');
 
-			var tree = talentCalc.get.tree(e)
-			var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(tal => tal.x == x && tal.y == y)
-			return talent
+				var tree = talentCalc.get.tree(e)
+				var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(tal => tal.x == x && tal.y == y)
+				return talent
+			},
+			elem: function(tree, x, y, options={}) {
+				var elem = document.getElementById(tree).querySelector(`div.talent-container[data-x="${x}"][data-y="${y}"]`)
+				if (options.img) {
+					elem = elem.querySelector('img.talent')
+				}
+				return elem
+			},
+			byName: function(name, tree) {
+				return talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(x => x.n == name)
+			}
 		},
+		//gets (id of) nearest tree
 		tree: function(e) {
 			return e.target.closest('.talent-table').id
 		}
 	},
 	build: {
-
 		main: function(data) {
-			console.log('data: ', data)
 			for (let [treeName, treeData] of Object.entries(data)) {
 				var treeElement = talentCalc.build.talentTree(treeName, treeData)
 				talentCalc.container.appendChild(treeElement)
@@ -236,13 +237,18 @@ var talentCalc = {
 					if (item > 1 || item.length) {
 
 						var itemArr = (item.length) ? item : Array.of(item)
+						var index = 0
+
+						var dataAttrs = {'data-x':x, 'data-y':y}
 						itemArr.forEach(function(N) {
+							dataAttrs = Object.assign(dataAttrs, {'data-unlocks':talent.unlocks[index]})
 							var arrow = create_element('div', `talentcalc-arrow ${talentCalc.arrowTypeSwitch(N)}${arrowLocked}${grayed}`, '', '', dataAttrs)
 							if (N == 7) {
 								var arrow2 = create_element('div', `talentcalc-arrow ${talentCalc.arrowTypeSwitch(N)}${arrowLocked}${grayed}`, '', '', dataAttrs)
 								arrow.appendChild(arrow2)
 							}
 							slot.appendChild(arrow)
+							index++
 						})
 					}
 
@@ -294,12 +300,10 @@ var talentCalc = {
 	},
 	canSpend: function(talent, tree) {
 		var total = talentCalc.spent()
-		return ( ( total < ( talentCalc.maxLevel - 9 ) ) && (talentCalc.CLASS_DATA[talentCalc.selection][tree].spent() >= (talent.y * 5) ) && (! talentCalc.locked(talent, tree) ) && (talent.spent < talent.max) )
+		return ( ( total < ( talentCalc.maxLevel - 9 ) ) && (talentCalc.CLASS_DATA[talentCalc.selection][tree].spent() >= (talent.y * 5) ) && (talentCalc.unlocked(talent, tree) ) && (talent.spent < talent.max) )
 	},
 
 	canUnspend: function(talent, tree) {
-		// var maxTier = 0;
-		// talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.forEach(tal => (tal.spent > 0 && tal.y > maxTier) ? maxTier = tal.y : maxTier)  //faster version
 
 		var maxTier = this.CLASS_DATA[this.selection][tree].talents.filter(tal => tal.spent > 0).map(tal => tal.y).reduce((max, cur) => Math.max(max, cur), 0)
 
@@ -315,8 +319,7 @@ var talentCalc = {
 		var decision = true
 
 		while (decision && tier > 0) {
-		    // truth1 = (talentCalc.get.pointsSpent(tree, tier) > tier*5 || (tier==1 && talentCalc.get.pointsSpent(tree, tier) >= tier*5))
-			truth = (talentCalc.get.pointsSpent(tree, tier) > tier*5)
+			decision = (talentCalc.get.pointsSpent(tree, tier) > tier*5)
 		    tier--
 		}
 
@@ -324,15 +327,29 @@ var talentCalc = {
 
 	},
 	locked: function(talent, tree) {
-
 		var truth = false
 		if (talent.unlocks) {
+
 			talent.unlocks.forEach(function(item) {
-				var found = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(x => x.n == talent.unlocks)
+				// var found = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(x => x.n == item)
+				var found = talentCalc.get.talent.byName(item, tree)
+
 				if (found.spent != 0) {
 					truth = true
 				}
 			})
+		}
+		return truth
+	},
+	// checks talent has any prereq talents required and if points spent in prereq
+	unlocked: function(talent, tree) {
+		var truth = true
+		if (talent.locked) {
+			// get the talent its locked by and check i
+			var found = talentCalc.get.talent.byName(talent.locked, tree)
+			if (found.spent != found.max) {
+				truth = false
+			}
 		}
 		return truth
 	},
@@ -351,63 +368,65 @@ var talentCalc = {
 
 		this.container.addEventListener('mouseenter', function(e) {
 
-			if (e.target.matches('img.talent')) {
-				tooltip.init(e)
+			if (e.target.matches('img.talent') && e.isTrusted) {
 
-				var talent = talentCalc.get.talent(e)
+				tooltip.init(e)
+				var talent = talentCalc.get.talent.obj(e)
 				var data = Object.assign({}, talent)
 				delete data.img
 
 				var tree = talentCalc.get.tree(e)
+				data.treeName = tree
+				data.tree = Object.assign({}, talentCalc.CLASS_DATA[talentCalc.selection][tree])
+				data.tree.spent = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
 
 				tooltip.create(data)
 				tooltip.updateCoords(e)
-
-				// e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
 			}
 			return
-		}, true)
+		}, true);
+
+		this.container.addEventListener('mouseleave', function(e) {
+			if (e.target.matches('img.talent')) {
+				tooltip.empty()
+			}
+			return
+		}, true);
 
 		this.container.addEventListener('mousedown', function(e) {
 			if (e.target.matches('img.talent')) {
 
 				var tree = talentCalc.get.tree(e)
-				var talent = talentCalc.get.talent(e)
+				var talent = talentCalc.get.talent.obj(e)
 				var data;
 
 				var amount = 1;
-
+				//TODO: add shift click functionality to spend all points in selected talent
 				if (e.which === 3 && talentCalc.canUnspend(talent, tree)) {
 					amount *= -1
-					talent = talentCalc.spend(talent, e.target, amount, tree)
-					data = Object.assign({}, talent)
-					delete data.img
-					tooltip.empty()
-					tooltip.create(data)
-					tooltip.updateCoords(e)
+					talentCalc.spend(talent, e.target, amount, tree)
 				} else if (e.which === 1 && talentCalc.canSpend(talent, tree)) {
-					talent = talentCalc.spend(talent, e.target, amount, tree)
-					data = Object.assign({}, talent)
-					delete data.img
-
-					tooltip.empty()
-					tooltip.create(data)
-					tooltip.updateCoords(e)
+					talentCalc.spend(talent, e.target, amount, tree)
 				} else {
 					return
+				}
+
+				// if event was generated by user action, update url
+				if (e.isTrusted) {
+					updateURL("/talent_calc", talentCalc.selection, `?${talentCalc.URLbuilder()}`)
+					data = Object.assign({}, talent)
+					data.treeName = tree
+					data.tree = Object.assign({}, talentCalc.CLASS_DATA[talentCalc.selection][tree])
+					data.tree.spent = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
+
+					delete data.img
+					tooltip.empty()
+					tooltip.create(data)
+					tooltip.updateCoords(e)
 				}
 			}
 			return
 		});
-
-
-
-		// this.container.addEventListener('mouseleave', function(e) {
-		// 	if (e.target.matches('img.talent')) {
-		// 		tooltip.empty()
-		// 		// e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
-		// 	}
-		// })
 
 
 	},
@@ -417,16 +436,13 @@ var talentCalc = {
 		elem.querySelector('div.spent-points').innerText = talent.spent
 		this.maxed(talent, tree, elem)
 		this.grayed(tree)
-		this.unlocked(talent, tree, elem)
+		this.unlock(talent, tree, elem)
 		this.update.footer(tree)
 		this.update.header()
 		return talent
-
 	},
 	maxed: function(talent, tree, talentElem) {
-		// var talentElem = document.getElementById(tree).querySelector(`div.talent-container[data-x='${talent.x}'][data-y='${talent.y}']`)
 		var elems = talentElem.querySelectorAll('img.talent,div.spent-points')
-
 		if (talent.spent == talent.max) {
 			elems.forEach(x => x.classList.add('max'))
 		} else {
@@ -445,14 +461,19 @@ var talentCalc = {
 			}
 		}
 	},
-	// checks to see if a given talent should be unlocked
-	unlocked: function(talent, tree, talentElem) {
+	// adds or removes 'locked' class list to given talent element
+	unlock: function(talent, tree, talentElem) {
 		if (talent.unlocks) {
 			talent.unlocks.forEach(function(name) {
-				var unlockedTalent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(t => t.n == name)
-				var unlockedTalentContainer = document.getElementById(tree).querySelector(`div.talent-container[data-x="${unlockedTalent.x}"][data-y="${unlockedTalent.y}"]`)
+				var unlockedTalent = talentCalc.get.talent.byName(name, tree)
+
+				// var unlockedTalent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(t => t.n == name)
+				var unlockedTalentContainer = talentCalc.get.talent.elem(tree, unlockedTalent.x, unlockedTalent.y)
+
+				// var unlockedTalentContainer = document.getElementById(tree).querySelector(`div.talent-container[data-x="${unlockedTalent.x}"][data-y="${unlockedTalent.y}"]`)
 				var elems = unlockedTalentContainer.querySelectorAll('img.talent,div.spent-points')
 				var arrows = talentElem.closest('div.talent-slot').querySelectorAll(`div.talentcalc-arrow[data-unlocks="${name}"]`)
+
 				if (talent.spent == talent.max) {
 					elems.forEach(x => x.classList.remove('locked'))
 					arrows.forEach(arrow => arrow.classList.remove('locked'))
@@ -462,7 +483,112 @@ var talentCalc = {
 				}
 			})
 		}
+		return
 	},
+	URLbuilder: function() {
+		const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}|m{2,}|J{2,}/g //only looks for repeats of a/b/c/d/e atm
+		const translationTable = getTranslationTable()
+		var myURL = '',
+			invested = '',
+			newURL = '',
+			index = 0;
+
+		for (let [tree, data] of Object.entries(this.CLASS_DATA[this.selection])) {
+			invested = ''
+			data.talents.forEach(x => invested += x.spent.toString())
+			if (!invested.length % 2 == 0) {
+				invested += '0'
+			}
+			invested += (index < 2) ? '7' : '8'
+			myURL += invested
+			index++
+		}
+		index = 0
+
+		var strArr = myURL.split('7')
+		var bigStr = ''
+
+		strArr.forEach(function(str) {
+			if (index < 2) {
+				str += (str.length % 2 == 0) ? '07' : '7'
+			}
+			for (var i=0; i < str.length; i += 2) {
+				let subStr = str.substring(i, i + 2)
+				newURL += translationTable[parseInt(subStr)]
+			}
+			index++
+		})
+
+		let matchArr = newURL.match(re)
+		for (var y = 0; y < matchArr.length; y++) {
+			newURL = newURL.replace(matchArr[y], matchArr[y][0] + (matchArr[y].length).toString())
+		}
+
+		let shortestURL = newURL.slice(0, newURL.indexOf('Z'))
+		let url = new URL(location.origin + location.pathname)
+		let params = url.searchParams
+
+		params.set('class', this.selection)
+		url.hash = shortestURL
+		return shortestURL
+	},
+	URLexpander: function(hash) {
+		const re2 = /([a-z])\d/g
+		const reverseTable = getReverseTable()
+		if (!hash) {
+			var hash = window.location.hash
+		}
+		let newStr = hash.slice(hash.indexOf('#') + 1, hash.length)
+		let matchArr = newStr.match(re2)
+		for (var y = 0; y < matchArr.length; y++) {
+			let replStr = Array(parseInt(matchArr[y][1])).fill(matchArr[y][0]).join('')
+			newStr = newStr.replace(matchArr[y], replStr)
+		}
+		let newStrArr = newStr.split('Y')
+		let arr
+		newStrArr.forEach(function(item, ind) {
+			item = (ind < 2) ? item + 'Y' : item + 'Z'
+			arr = item.split('')
+			arr.forEach(function(v, i) {
+				arr[i] = arr[i].replace(v, reverseTable[v])
+			})
+			newStrArr[ind] = arr.join('')
+		})
+		newStr = newStrArr.join('')
+		return newStr
+
+	},
+	preBuiltSpec: function(h='') {
+		var hash = h
+		if (hash.startsWith('?')) {
+			hash = hash.substring(1)
+		}
+		var expanded = talentCalc.URLexpander(hash),
+			treeName = '',
+			index = 0;
+
+		var hashArr = expanded.slice(0, expanded.indexOf('8')).split('7')
+
+		for (let [tree, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
+			var arr = hashArr[index].split('')
+			data.talents.forEach(function(talent) {
+				var talentElem = talentCalc.get.talent.elem(tree, talent.x, talent.y, {'img': true})
+				if (arr[0] >= 1) {
+					let pointsSpent = [...Array(parseInt(arr.shift()))].fill(1)
+					pointsSpent.forEach(function(item2) {
+						talentElem.dispatchEvent(new MouseEvent('mousedown', {
+							which: 1, bubbles: true
+							})
+						)
+					})
+					return
+				} else {
+					arr.shift()
+				}
+			})
+			index++
+		}
+	}
 
 }
 
@@ -496,59 +622,6 @@ function applyClickHandlers() {
 	resetHandler()
 	lockSpec()
 	resetTree()
-}
-
-function update_class(class_name, ix = 0, search) {
-	var id = ix;
-	var badass_url = new URL(document.location.origin.toString())
-	badass_url.pathname = `talent_calc/${class_name}`
-	if (Boolean(id)) {
-		badass_url.pathname = `talent_calc/${class_name}/${id}`
-	}
-	if (Boolean(search)) {
-		badass_url.search = search
-	}
-
-	$.ajax({
-		url: badass_url,
-		dataType: 'html',
-		success: function(data) {
-			let selected = $("a.class-filter.selected").attr("id");
-			if (selected != class_name) {
-				$("#talent_calc").html(data);
-				$(".class-filter").removeClass('selected');
-				$(`#${class_name}`).addClass('selected');
-			}
-		},
-		complete: function(data) {
-			var data2 = {}
-			if (id) {
-				data2['id'] = id
-			}
-			if (class_name) {
-				data2['class_name'] = class_name
-				$.ajax({
-					url: '/ajax/load_spec/',
-					data: data2,
-					dataType: 'json',
-					success: function(data) {
-						if (class_name) {
-							if (document.location.href.toString().includes('talent_calc')) {
-								updateURL("/talent_calc", class_name, data.hash)
-							}
-							resetAll()
-							if (data.hash) {
-								preBuiltSpec(data.hash);
-							}
-							if (id) {
-								info_display(id, 'tc')
-							}
-						}
-					}
-				});
-			}
-		}
-	});
 }
 
 function exportSpec() {
@@ -609,7 +682,6 @@ function resetTree() {
 	})
 }
 
-
 function lockSpec() {
 	$('#talentLock').on({
 		click: e => {
@@ -645,7 +717,6 @@ function lockSpec() {
 	})
 }
 
-// most likely needed
 function resetHandler() {
 	$('#resetTalents').on({
 		click: e => {
@@ -730,126 +801,6 @@ function resetTalentTree(tree, e) {
 	} else {}
 }
 
-function buildClassData(refresh) {
-	talentPointsSpent = {}
-	classData = {}
-	// 	let params = myURL.searchParams
-	// let classEle =
-	// const className = $('.class-filter.selected')[0].id
-	const className = ($('.class-filter.selected').length) ? $('.class-filter.selected')[0].id : false
-
-	if (!className) {
-		return
-	}
-	const selectedClass = talentData.classes.find(function(a) {
-		return a.name == className;
-	})
-	let treeNames = []
-
-	selectedClass.tree_talents.forEach(function(item, index) {
-		// let n = titleCase(item.name)
-		treeNames.push(item.name)
-		talentPointsSpent[item.name] = {
-			vals: [0, 0, 0, 0, 0, 0, 0],
-			total: function() {
-				return this.vals.reduce((a, b) => a + b)
-			},
-			highest_tier: function() {
-				let x = []
-				this.vals.forEach(function(item, index) {
-					if (item > 0) {
-						x.push(index)
-					}
-				})
-				return Math.max(...x) + 1
-			}
-		}
-	})
-	talentPointsSpent.grandTotal = function() {
-		return (this[treeNames[0]].total() + this[treeNames[1]].total() + this[treeNames[2]].total())
-	}
-
-	// for convenience
-	talentPointsSpent.treeNames = treeNames
-	talentPointsSpent.className = className
-
-	talentPointsSpent.hardLocked = false
-	talentPointsSpent.softLocked = false
-
-
-	const tableData = tableFormat[className]
-	const combinedTalents = combineTalents(selectedClass)
-	const finalData = mapTalentsToTableData(tableData.trees, combinedTalents)
-
-	classData = {
-		trees: finalData
-	}
-
-	let url = new URL(document.location)
-	if (url.search && !refresh) {
-		try {
-			preBuiltSpec(url.search)
-		} catch (error) {
-			console.log("While building spec using hash, the following exception occurred:\n", error)
-		}
-	}
-	updateTalentHeader() //function call needed here for switching to different class
-}
-
-function mapTalentsToTableData(trees, tal_arr) {
-	trees.forEach(function(tree, index) {
-		tree.data.forEach(function(data_arr, j) {
-			let reqTalentPoints = j * 5
-			data_arr.forEach(function(v, k) {
-				if (v >= 1 || v.length > 1) { //
-					trees[index].data[j][k] = tal_arr.pop()
-					trees[index].data[j][k].invested = 0
-					trees[index].data[j][k].requiredTalentPoints = reqTalentPoints
-					trees[index].data[j][k].j = j
-					trees[index].data[j][k].k = k
-					if (trees[index].data[j][k].unlocks) {
-						trees[index].data[j][k].arrows = []
-						if (v.length == 2) {
-							trees[index].data[j][k].multi = true
-							trees[index].data[j][k].unlocks.forEach(function(z, ii) {
-								trees[index].data[j][k].arrows.push(arrowTypeSwitch(v[ii]))
-							})
-						} else {
-							trees[index].data[j][k].arrows.push(arrowTypeSwitch(v))
-						}
-					}
-				}
-			})
-		})
-	})
-	return trees
-}
-
-// function arrowTypeSwitch(item) {
-//
-// 	switch (item) {
-// 		// down, arrow length is inverse of v (v decreases, length increases)
-// 		default:
-// 			let n = 5 - item
-// 			return `talentcalc-arrow-down down-${n}`
-// 		// right
-// 		case 6:
-// 			return "talentcalc-arrow right"
-// 		// rightdown
-// 		case 7:
-// 			return "talentcalc-arrow rightdown"
-// 	}
-// }
-
-function combineTalents(d) {
-	let talent_arr = []
-	data = d.tree_talents
-	data.forEach(function(item, index) {
-		talent_arr.push(item.talents)
-	})
-	return talent_arr.flat().reverse()
-}
-
 function talentHandler() {
 	$(".class-filter").on({
 		click: e => {
@@ -878,365 +829,6 @@ function talentHandler() {
 			tooltip_v2(e, true, 1)
 		},
 	})
-}
-
-function mouseDownHandler(e = null, talent, tree) {
-	var manuallyClicked = false
-	if (e) {
-		manuallyClicked = true
-		var targetTalent = $(e.target)
-
-		var treeName = titleCase(targetTalent.closest('div.talentTable')[0].id)
-
-		// const name = targetTalent.attr('name')
-		const name = titleCase(targetTalent.attr('name'))
-		const j = targetTalent.attr('data-j')
-		const k = targetTalent.attr('data-k')
-
-		const found = classData.trees.find(function(x) {
-			return x.name == treeName
-		})
-		var talentObj = found.data[j][k]
-
-		talentObj.invested = parseInt(targetTalent.closest('.talent-container').find('.spentPoints').first().text()) // should insure points don't carry over when switching between classes
-
-		if (((talentObj.invested === talentObj.maxRank) && e.which === 1) || (talentPointsSpent.hardLocked)) {
-			// updateTooltip(e) //tooltip goes away otherwise, unsure why
-			return
-		}
-	} else {
-		var talentObj = talent
-		var treeName = titleCase(tree)
-		var targetTalent = $(`img.talent[name="${talentObj.name}"]`)
-		var e = true
-	}
-	pointSpender(talentObj, e, treeName)
-
-	targetTalent.closest(".talentTable").find(".talentFooter span.talentFooter-spentPoints").text("(" + talentPointsSpent[treeName].total() + ")")
-
-	if (manuallyClicked) {
-		let url = new URL(document.location)
-		url.search = urlBuilder()
-		history.replaceState(null, null, url)
-		// tooltip_v2(e, true, true)
-	}
-
-	updateTalentHeader()
-}
-
-function updateTalentHeader() {
-	let treeNames = talentPointsSpent.treeNames
-
-	let a = `(${talentPointsSpent[treeNames[0]].total()}/${talentPointsSpent[treeNames[1]].total()}/${talentPointsSpent[treeNames[2]].total()})`
-	$("#allottedTalentPoints").text(a)
-	$("#talents_spent").text(a)
-
-	let requiredLevel = (talentPointsSpent.grandTotal() >= 1) ? talentPointsSpent.grandTotal() + 9 : "--"
-	$("#requiredLevel").text(`Required level: ${requiredLevel}`)
-	let pointsRemaining = 51 - talentPointsSpent.grandTotal()
-	$("#pointsRemaining").text(`Points left: ${pointsRemaining}`)
-
-	return a
-}
-
-function updateTooltip(e) {
-	const targetTalent = $(e.target)
-	const name = titleCase(targetTalent.attr('name'))
-	const tree = titleCase(targetTalent.closest('div.talentTable')[0].id)
-	const found = classData.trees.find(function(x) {
-		return x.name == tree
-	})
-
-	const j = targetTalent.attr('data-j')
-	const k = targetTalent.attr('data-k')
-
-	const talentObj = found.data[j][k]
-	const talentCopy = Object.assign({}, talentObj)
-	const requiredTalentPoints = talentObj.requiredTalentPoints
-
-	let description
-	let next_rank = true
-	let req_text = ''
-	let tooltipFooter = {}
-
-	const locked = $(e.target).hasClass('locked')
-
-	if (talentObj.invested == 0) {
-		next_rank = false
-		talentCopy.invested++
-		tooltipFooter.text = 'Click to learn'
-		tooltipFooter.color = 'learn'
-		description = talentCopy.description()
-	}
-
-	if (talentObj.maxRank == 1) {
-		next_rank = false
-		talentCopy.invested = talentCopy.maxRank
-		description = talentCopy.description()
-	}
-
-	if (talentObj.invested == talentObj.maxRank) {
-		tooltipFooter.text = 'Right-click to unlearn'
-		tooltipFooter.color = 'unlearn'
-
-		next_rank = false
-		description = talentCopy.description()
-	}
-
-	if (talentObj.maxRank > 1 && talentObj.invested > 0 && next_rank) {
-		talentCopy.invested++
-		// description = talent.description() + "\n\nNext Rank:\n" + talentCopy.description()
-		description = talentObj.description()
-
-	}
-	if (talentPointsSpent[tree].total() < requiredTalentPoints) {
-		req_text = `Requires ${requiredTalentPoints} points in ${tree} Talents`
-	}
-
-	if (locked) {
-
-		// once talentData format is corrected, won't need coords, can just do named lookups
-		const testName = talentCopy.locked
-		let testEle = $(`img.talent[name="${testName}"]`)
-		let j = testEle.attr('data-j')
-		let k = testEle.attr('data-k')
-		const prereq = Object.assign({}, found.data[j][k])
-
-		const points_remaining = prereq.maxRank - prereq.invested
-		const plural = (points_remaining > 1) ? 's' : ''
-		req_text = `Requires ${points_remaining} point${plural} in ${prereq.name}\n` + req_text
-	}
-
-
-	const tooltipElems = [
-		{
-			class: 'title',
-			text: name
-		},
-		{
-			class: 'rank',
-			text: "Rank " + talentObj.invested + "/" + talentObj.maxRank
-		},
-		{
-			class: 'req',
-			text: req_text
-		},
-		{
-			class: 'description',
-			text: description
-		}]
-
-	if (next_rank) {
-		tooltipElems.push({
-			class: 'next',
-			text: "\nNext Rank:\n"
-		})
-		tooltipElems.push({
-			class: 'description',
-			text: talentCopy.description()
-		})
-
-	} else if (!(req_text || talentPointsSpent.hardLocked || (talentPointsSpent.softLocked && tooltipFooter.color == 'learn'))) {
-		tooltipElems.push({
-			class: tooltipFooter.color,
-			text: tooltipFooter.text
-		})
-	}
-
-	utilities.bigdaddytooltip(targetTalent, tooltipElems)
-}
-
-function checkIfAbleToUnspec(tree, tier_unspeccing_from) {
-	const tier_unspeccing = tier_unspeccing_from
-	const tier_check = talentPointsSpent[tree].highest_tier() - 1
-	const locked_tier = checkLockedTiers(tree)
-	const tier_unlocked = (tier_unspeccing <= locked_tier) ? false : true
-
-	let decision = false
-	if (!tier_unlocked) {}
-
-	if (((talentPointsSpent[tree].vals.slice(0, tier_check).reduce((a, b) => (a + b)) - tier_check * 5) > 0) &&
-		tier_unlocked &&
-		(talentPointsSpent[tree].vals.slice(0, tier_unspeccing).reduce((a, b) => (a + b)) - tier_unspeccing * 5) > 0) {
-		decision = true
-	}
-	return decision
-}
-
-function checkLockedTiers(tree) {
-	let bool_arr = [],
-		num_arr = []
-	let tier_check = talentPointsSpent[tree].highest_tier() - 1
-	for (let k = 0; k < tier_check; k++) {
-		let y = k + 1
-		let req_points = y * 5
-		let f = talentPointsSpent[tree].vals.slice(0, y).reduce((a, b) => (a + b))
-		let sum = (f - req_points)
-		num_arr.push(sum)
-		bool_arr.push({
-			extrapoints: sum,
-			tier: y
-		}) //for debugging
-	}
-	let locked_tier = num_arr.lastIndexOf(0) + 1
-	return locked_tier
-}
-
-function pointSpender(talent, e, tree, targetTal) {
-	const talent_name = talent.name
-
-	// basically the inverse of .locked
-	const unlocks = (!Array.isArray(talent.unlocks)) ? Array(talent.unlocks) : talent.unlocks
-	const tier = (talent.requiredTalentPoints / 5)
-	const targetTalent = $(`img.talent[name="${talent_name}"]`)
-
-	if ((talentPointsSpent[tree].total() < talent.requiredTalentPoints) || (targetTalent.hasClass('locked')) || (talentPointsSpent.hardLocked)) {
-		return
-	}
-	if (e.which === 1 || e == true) {
-		if (talentPointsSpent.grandTotal() > 50) {
-			if (!talentPointsSpent.softLocked) {
-				talentPointsSpent.softLocked = true
-				talentLocker()
-			}
-			return
-		} else if (talent.invested < talent.maxRank) {
-			talentPointsSpent[tree].vals[tier]++
-			talent.invested++
-
-			targetTalent.closest('.talent-container').find('.spentPoints').first().text(talent.invested)
-
-			let tierU = (talentPointsSpent[tree].total() < 30) ? Math.floor(talentPointsSpent[tree].total() / 5) : 6
-			let talentObjs = []
-			const found = classData.trees.find(function(x) {
-				return x.name == tree
-			})
-			found.data[tierU].filter(function(t) {
-				if (t) {
-					talentObjs.push(t)
-				}
-			})
-			talentObjs.forEach(function(tal) {
-
-				let tal_name = tal.name
-				let t = $(`img.talent[name="${tal_name}"]`)
-				t.removeClass('grayed') // ungray talent element
-				t.closest('.talent-container').find(".spentPoints").first().removeClass('grayed') // ungray spentPoints element
-				if (tal.locked) { // if talent object has locked property, also has arrows
-					arrowClassChanger(tal_name, false, 'grayed')
-				}
-			})
-			if (talent.invested == talent.maxRank) {
-				let t = $(`img.talent[name="${talent_name}"]`)
-				t.addClass('max')
-				t.closest('.talent-container').find(".spentPoints").first().addClass('max')
-
-				// if talent is a pre req, unlock each parent elem
-				if (talent.unlocks) {
-					unlocks.forEach(function(n) {
-						let par = $(`img.talent[name="${n}"]`).removeClass('locked') //unlock talent element
-						par.closest('.talent-container').find(".spentPoints").first().removeClass('locked') //unlock points spent element
-						arrowClassChanger(n, false, 'locked')
-
-					})
-				}
-			}
-			if (talentPointsSpent.grandTotal() > 50) {
-				talentPointsSpent.softLocked = true
-				talentLocker()
-				return
-			}
-			return
-		}
-	}
-
-	// right click
-	else if (e.which === 3) {
-		let can_unspec = false
-		let tier_unspeccing = tier + 1
-		if (tier_unspeccing == talentPointsSpent[tree].highest_tier()) {
-			can_unspec = true
-		}
-
-		if (tier_unspeccing < talentPointsSpent[tree].highest_tier()) {
-			can_unspec = checkIfAbleToUnspec(tree, tier_unspeccing)
-		}
-
-		if (talent.invested == talent.maxRank && unlocks) {
-			let test_arr = []
-			unlocks.forEach(function(item) {
-				const child_talent = $(`img.talent[name="${item}"]`)
-				let n = child_talent.closest('.talent-container').find('.spentPoints').text()
-				if (can_unspec && n > 0) {
-					console.log('Hey idiot, you gotta unspec ' + item + ' first')
-					test_arr.push(false)
-					return
-				} else {
-					test_arr.push(true)
-				}
-			})
-			if (test_arr.some(function(item) {
-					return item == false
-				})) {
-				return
-			}
-		}
-
-
-		if (talent.invested > 0 && can_unspec) {
-			talentPointsSpent[tree].vals[tier]--
-			talent.invested--
-
-			targetTalent.closest('.talent-container').find('.spentPoints').first().text(talent.invested)
-
-
-			if (talentPointsSpent.grandTotal() < 51 && talentPointsSpent.softLocked) {
-				talentPointsSpent.softLocked = false
-				talentUnlocker()
-			}
-
-			// begin locking/graying syntax
-			talElem = $(`img.talent[name="${talent_name}"]`)
-			talElem.removeClass('max') //NOTE: remove max class from talent element
-			talElem.closest('.talent-container').find('.spentPoints').removeClass('max') // NOTE: remove max class from pointsSpent element
-			if (talent.unlocks) {
-				unlocks.forEach(function(n) {
-					let par = $(`img.talent[name="${n}"]`).addClass('locked') //NOTE: locks talent element
-					par.closest('.talent-container').find(".spentPoints").first().addClass('locked') //NOTE: locks points spent element
-
-					arrowClassChanger(n, true, 'locked')
-				})
-			}
-
-			let tierL = Math.floor(talentPointsSpent[tree].total() / 5) + 1
-
-			let talentObjs = []
-
-			let found = classData.trees.find(function(x) {
-				return x.name == tree
-			})
-
-			found.data.slice(tierL).forEach(function(arr, ind) {
-				arr.filter(function(t) {
-					if (t) {
-						talentObjs.push(t)
-					}
-				})
-			})
-
-			talentObjs.forEach(function(tal, ind) {
-				if (tal) {
-					let t = $(`img.talent[name="${tal.name}"]`)
-					t.addClass('grayed') //NOTE: grayed added to talent elem
-					t.closest('.talent-container').find('.spentPoints').addClass('grayed') //NOTE: grayed added to pointsSpent elem
-					if (tal.locked) {
-						arrowClassChanger(tal.name, true, 'grayed')
-					}
-				}
-			})
-			return
-		}
-	}
 }
 
 // needs optimization
@@ -1321,127 +913,6 @@ function talentUnlocker(tree = '') {
 
 				}
 			})
-		}
-	})
-}
-
-function urlBuilder() {
-	const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}|m{2,}|J{2,}/g //only looks for repeats of a/b/c/d/e atm
-	const translationTable = getTranslationTable()
-	let myURL = ''
-	var newURL = ''
-	classData.trees.forEach(function(item, ind) {
-		let invested = ''
-		item.data.forEach(function(dataArr) {
-			dataArr.forEach(function(x) {
-				if (x) {
-					invested = invested.concat('', x.invested)
-				}
-			})
-		})
-		invested = (!invested.length % 2 == 0) ? invested.concat('', '0') : invested
-		invested = (ind < 2) ? invested.concat('', '7') : invested.concat('', '8')
-		myURL = myURL.concat('', invested)
-	})
-
-	let newStrArr = myURL.split('7')
-	newStrArr.forEach(function(str, indc) {
-
-		if (indc < 2) {
-			str = (str.length % 2 == 0) ? str.concat('', '07') : str.concat('', '7')
-		}
-		for (var i = 0; i < str.length; i = i + 2) {
-			let subStr = str.substring(i, i + 2)
-			newURL = newURL.concat('', translationTable[parseInt(subStr)])
-		}
-	})
-
-	let matchArr = newURL.match(re)
-	for (var y = 0; y < matchArr.length; y++) {
-		newURL = newURL.replace(matchArr[y], matchArr[y][0] + (matchArr[y].length).toString())
-	}
-
-	let shortestURL = newURL.slice(0, newURL.indexOf('Z'))
-	let url = new URL(location.origin + location.pathname)
-	let params = url.searchParams
-
-	params.set('class', $('.class-filter.selected')[0].id)
-	url.hash = shortestURL
-	return shortestURL
-}
-
-function urlExpander(hash) {
-	const re2 = /([a-z])\d/g
-	const reverseTable = getReverseTable()
-	if (!hash) {
-		var hash = window.location.hash
-	}
-	let newStr = hash.slice(hash.indexOf('#') + 1, hash.length)
-	let matchArr = newStr.match(re2)
-	for (var y = 0; y < matchArr.length; y++) {
-		let replStr = Array(parseInt(matchArr[y][1])).fill(matchArr[y][0]).join('')
-		newStr = newStr.replace(matchArr[y], replStr)
-	}
-	let newStrArr = newStr.split('Y')
-	let arr
-	newStrArr.forEach(function(item, ind) {
-		item = (ind < 2) ? item + 'Y' : item + 'Z'
-		arr = item.split('')
-		arr.forEach(function(v, i) {
-			arr[i] = arr[i].replace(v, reverseTable[v])
-		})
-		newStrArr[ind] = arr.join('')
-	})
-	newStr = newStrArr.join('')
-	return newStr
-
-}
-
-function preBuiltSpec(ha = '') {
-	var hash = ha
-	if (hash.startsWith('?')) {
-		hash = hash.substring(1)
-	}
-	var expanded = urlExpander(hash)
-	var treeName = ''
-	let hashArr = expanded.slice(0, expanded.indexOf('8')).split('7')
-	classData.trees.forEach(function(item, i) {
-		var arr = hashArr[i].split('')
-		treeName = item.name
-		item.data.forEach(function(dataArr, i2) {
-			dataArr.forEach(function(t, i3) {
-				if (t) {
-					if (hashArr) {
-						if (arr[0] >= 1) {
-							let newArr = [...Array(parseInt(arr.shift()))].fill(1)
-							newArr.forEach(function(item2) {
-								mouseDownHandler(null, t, treeName)
-							})
-							return
-						} else {
-							arr.shift()
-						}
-					}
-				}
-			})
-		})
-	})
-}
-
-function arrowClassChanger(talName, add, lockOrGray) {
-	//
-
-	let addOrRemove = 'add'
-
-	if (!add) {
-		addOrRemove = 'remove'
-	}
-	let arrows = $(`div.talentcalc-arrow[data-unlocks="${talName}"]`)
-	arrows.each(function() {
-		if (add) {
-			$(this).addClass(lockOrGray)
-		} else {
-			$(this).removeClass(lockOrGray)
 		}
 	})
 }

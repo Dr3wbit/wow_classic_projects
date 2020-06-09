@@ -66,11 +66,12 @@ var tooltip = {
         tooltip.empty()
         e.target.removeEventListener('mousemove', tooltip.updateCoords)
     },
+
     create: function(response) {
 
         var container = create_element('div', 'tooltip-container', 'white-space: pre-wrap;')
         container.id = 'tooltip'
-        
+
         var data = (response.responseJSON) ? response.responseJSON : response
 
     	if (data.img) {
@@ -91,18 +92,37 @@ var tooltip = {
 
         if (data.spent >= 0) {
 
-            var descriptionText = '';
+
+            var descriptionText = '',
+                footerText = '',
+                footerClass = '';
 
             var rank = create_element('div', 'rank', '', `Rank ${data.spent}/${data.max}`)
             container.appendChild(rank)
+            if (data.locked) {
+                var lockedText = ''
+                var lockedTalent = data.tree.talents.find(x => x.n == data.locked)
+                if (lockedTalent.spent != lockedTalent.max) {
+                    var plural = (lockedTalent.max-lockedTalent.spent > 1) ? 's' : ''
+                    lockedText = `Requires ${lockedTalent.max-lockedTalent.spent} point${plural} in ${lockedTalent.n}`
+                    var lockedReq = create_element('div', 'req', '', lockedText)
+                    container.appendChild(lockedReq)
+                }
+            }
 
-            var text;
             if (data.spent == 0) {
+                if (data.tree.spent < data.y*5) {
+                    data.tree.n
+                    var req = create_element('div', 'req', '', `Requires ${data.y*5} points spent in ${data.tree.n} Talents`)
+                    container.appendChild(req)
+                } else {
+                    footerText = 'Click to learn'
+                    footerClass = 'learn'
+                }
                 descriptionText = data.d[0]
                 var description = create_element('div', 'description', '', descriptionText)
                 container.appendChild(description)
-                footerText = 'Click to learn'
-                textClass = 'learn'
+
             } else {
                 descriptionText = data.d[data.spent-1]
                 var description = create_element('div', 'description', '', descriptionText)
@@ -110,7 +130,7 @@ var tooltip = {
 
                 if (data.spent == data.max) {
                     footerText = 'Right-click to unlearn'
-                    textClass = 'unlearn'
+                    footerClass = 'unlearn'
                 }
 
                 else if (data.max != 1) {
@@ -120,17 +140,9 @@ var tooltip = {
                     container.appendChild(nextDescription)
                 }
             }
-
-
-
-            var tooltipFooter = create_element('div', textClass, '', footerText)
+            var tooltipFooter = create_element('div', footerClass, '', footerText)
             container.appendChild(tooltipFooter)
-
-
-
         }
-
-
 
     	if ((data.slot && data.q > 1) || (data.bop)) {
     		var bop_text = (data.bop) ? "Binds when picked up" : "Binds when equipped"
