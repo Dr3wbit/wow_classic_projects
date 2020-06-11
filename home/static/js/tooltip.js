@@ -3,7 +3,7 @@ var tooltip = {
     dimensions: {w: '', h:''},
     static: false,
     rectangle: '',
-    tooltipContainer: document.getElementById("tooltip_container"),
+    dad: document.getElementById("tooltip_container"),
     init: function(e) {
         tooltip.empty()
 
@@ -19,14 +19,14 @@ var tooltip = {
         }
     },
     empty: function() {
-        while (this.tooltipContainer.firstChild) {
-            this.tooltipContainer.removeChild(this.tooltipContainer.firstChild);
+        while (this.dad.firstChild) {
+            this.dad.removeChild(this.dad.firstChild);
         }
-        tooltip.tooltipContainer.style.cssText = `visibility: hidden;`
+        tooltip.dad.style.cssText = `visibility: hidden;`
     },
     hide: function() {
-        for (let i = 0; i < this.tooltipContainer.children.length; i++) {
-            this.tooltipContainer.children[i].hidden = true
+        for (let i = 0; i < this.dad.children.length; i++) {
+            this.dad.children[i].hidden = true
         }
     },
     addMousemove: function(e) {
@@ -39,7 +39,7 @@ var tooltip = {
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     },
     setPosition: function(x=this.coords.x, y=this.coords.y) {
-        tooltip.tooltipContainer.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible; white-space: pre-wrap`
+        tooltip.dad.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible; white-space: pre-wrap`
     },
     getDimensions: function(element, msg='') {
         var message = `${msg} offset Width:${element.offsetWidth}, Height:${element.offsetHeight}, Top:${element.offsetTop}, Left:${element.offsetLeft}`
@@ -49,16 +49,16 @@ var tooltip = {
     },
     checkDimensions: function() {
 
-        if ((tooltip.tooltipContainer.offsetWidth + tooltip.coords.x) > window.screen.availWidth) {
+        if ((tooltip.dad.offsetWidth + tooltip.coords.x) > window.screen.availWidth) {
 
             if (tooltip.static) {
-                tooltip.coords.x = tooltip.rectangle.left + 3 - tooltip.tooltipContainer.offsetWidth
+                tooltip.coords.x = tooltip.rectangle.left + 3 - tooltip.dad.offsetWidth
             } else {
-                tooltip.coords.x -= tooltip.tooltipContainer.offsetWidth - 45
+                tooltip.coords.x -= tooltip.dad.offsetWidth - 45
             }
         }
 
-        if (tooltip.tooltipContainer.offsetHeight > tooltip.rectangle.top) {
+        if (tooltip.dad.offsetHeight > tooltip.rectangle.top) {
             tooltip.coords.y = tooltip.rectangle.bottom + window.scrollY
         }
     },
@@ -81,7 +81,7 @@ var tooltip = {
     		var img = create_element('img', 'icon-medium', style)
             img.id = 'tooltip_image'
     		img.src = static_url+"images/icon_border_2.png"
-    		tooltip.tooltipContainer.appendChild(img)
+    		tooltip.dad.appendChild(img)
     	}
 
     	var title = create_element('div', 'title', 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
@@ -316,13 +316,13 @@ var tooltip = {
     		container.appendChild(itemset_elem)
     	}
 
-    	tooltip.tooltipContainer.appendChild(container)
+    	tooltip.dad.appendChild(container)
         if (tooltip.static) {
-            tooltip.coords.x = (Math.ceil(tooltip.rectangle.right) - 3) - (tooltip.tooltipContainer.offsetWidth - container.offsetWidth) + 5
-            tooltip.coords.y = Math.ceil(tooltip.rectangle.top) + 7 + window.scrollY - tooltip.tooltipContainer.offsetHeight - 5
+            tooltip.coords.x = (Math.ceil(tooltip.rectangle.right) - 3) - (tooltip.dad.offsetWidth - container.offsetWidth) + 5
+            tooltip.coords.y = Math.ceil(tooltip.rectangle.top) + 7 + window.scrollY - tooltip.dad.offsetHeight - 5
         } else {
-            tooltip.coords.x = tooltip.coords.x - (tooltip.tooltipContainer.offsetWidth - container.offsetWidth) + 5
-            tooltip.coords.y = tooltip.coords.y - (tooltip.tooltipContainer.offsetHeight - 5)
+            tooltip.coords.x = tooltip.coords.x - (tooltip.dad.offsetWidth - container.offsetWidth) + 5
+            tooltip.coords.y = tooltip.coords.y - (tooltip.dad.offsetHeight - 5)
 
         }
         tooltip.checkDimensions()

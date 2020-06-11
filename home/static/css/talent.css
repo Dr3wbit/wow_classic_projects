@@ -244,7 +244,7 @@
   outline: none;
 }
 
-#specSaverPrompt, #export {
+#specSaverPrompt {
    color: #3d7e9a;
    cursor: pointer;
    -webkit-appearance: none;
@@ -257,6 +257,20 @@
     width: 100%;
     display: block;
     padding-right: 0;
+}
+
+#buttonCity > button {
+    padding: 0 3px 0 3px;
+    margin: 0 2px 0 1px;
+    font-size: 15px;
+    border: 0;
+    background-color: transparent;
+    color: #3d7e9a;
+}
+
+#copyLink {
+    margin: 0 2px 0 2px;
+    padding: 0 2px 0 2px;
 }
 
 #requiredLevel {
