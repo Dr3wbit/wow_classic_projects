@@ -97,10 +97,10 @@ var talentCalc = {
 		this.CLASS_DATA = {}
 	},
 	reset: {
-		tree: function(tree, data='') {
-			var treeData = (!Boolean(data)) ? talentCalc.CLASS_DATA[talentCalc.selection][tree] : data
+		tree: function(tree) {
+			var data = talentCalc.CLASS_DATA[talentCalc.selection][tree]
 			var treeElement = document.getElementById(tree)
-			treeData.talents.forEach(function(talent) {
+			data.talents.forEach(function(talent) {
 				talent.spent = 0
 				var talentContainer = talentCalc.get.talent.elem(tree, talent.x, talent.y)
 				var spentContainer = talentContainer.querySelector('div.spent-points')
@@ -114,8 +114,9 @@ var talentCalc = {
 		},
 		all: function() {
 			if (Boolean(talentCalc.CLASS_DATA)) {
-				for (let [treeName, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
-					talentCalc.reset.tree(treeName, data)
+
+				for (let key of Object.keys(talentCalc.CLASS_DATA[talentCalc.selection])) {
+					talentCalc.reset.tree(key)
 				}
 				updateURL("/talent_calc", talentCalc.selection)
 			}
@@ -304,11 +305,11 @@ var talentCalc = {
 
 			var talentFooter = create_element('div', 'talent-footer'),
 				style = `background-image: url('${imagePathPrefix}/small_${treeName}_icon.jpg');`;
-			var treeName = create_element('span', 'tree-name', style, data.n),
+			var treeNameElement = create_element('span', 'tree-name', style, data.n),
 				treeSpentSpan = create_element('span', 'spent', '', '(0)'),
-				resetTreeBtn = create_element('button', 'reset-tree', '', '', {'type':'button', 'id':`clear${treeName}`, 'title':`Clear ${data.n}`});
+				resetTreeBtn = create_element('button', 'reset-tree', '', '', {'type':'button', 'data-reset':treeName, 'title':`Reset ${data.n}`});
 
-			talentFooter.appendChild(treeName)
+			talentFooter.appendChild(treeNameElement)
 			talentFooter.appendChild(treeSpentSpan)
 			talentFooter.appendChild(resetTreeBtn)
 
@@ -605,6 +606,12 @@ var talentCalc = {
 			return
 		});
 
+		talentCalc.container.addEventListener('click', function(e) {
+			if (e.target.matches('button.reset-tree')) {
+				talentCalc.reset.tree(e.target.dataset.reset)
+			}
+		});
+
 
 	},
 	spend: function(talent, talentElem, amount, tree) {
@@ -739,53 +746,4 @@ function scriptLoaded(WoWClass) {
 	talentCalc.update.classData()
 	updateURL("/talent_calc", WoWClass, document.location.search)
 	talentCalc.build.main(talentCalc.CLASS_DATA[WoWClass])
-}
-
-
-function exportSpec() {
-	$("#export").on({
-		click: e => {
-			e.preventDefault()
-			e.stopImmediatePropagation()
-			if (!$("#talentLock").hasClass('lock')) {
-				$("#talentLock").trigger("click")
-			}
-			let url = new URL(document.location)
-			url.search = urlBuilder()
-
-			$('#export').popover({
-				content: url.toString(),
-				title: "Copied!",
-				container: "#export",
-				template: '<div class="popover customPopover bg-dark text-white" role="tooltip"><div class="arrow text-white"></div><h3 class="popover-header bg-dark text-white"></h3><div class="popover-body bg-dark text-white"></div></div>'
-			})
-
-			// not all browsers support navigator.clipboard.writeText()
-			navigator.clipboard.writeText(url.toString()).then(function() {
-				/* clipboard successfully set */
-			}, function() {
-				/* clipboard write failed */
-				let tempInput = document.createElement("input")
-				tempInput.style = "position: absolute; left: -1000px; top: -1000px"
-				tempInput.value = url.toString()
-				document.body.appendChild(tempInput)
-				tempInput.select()
-				document.execCommand("copy")
-				document.body.removeChild(tempInput)
-			});
-
-			$('#export').popover('toggle')
-		},
-
-		'shown.bs.popover': e => {
-			setTimeout(function a() {
-				$('#export').popover('hide')
-				$('#export').popover('disable')
-			}, 1500)
-
-		},
-		'hidden.bs.popover': e => {
-			$('#export').popover('enable')
-		},
-	})
 }
