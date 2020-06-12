@@ -1,4 +1,4 @@
-var classData = {
+var cdata = {
     "hunter": {
         "beast_mastery": {
             "n": "Beast Mastery",

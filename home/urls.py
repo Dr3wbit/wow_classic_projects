@@ -2,8 +2,9 @@ from django.urls import path, re_path
 from . import views
 import re
 
+# TODO: make class/profession based url coersion case insensitive 
 profession_re = r'^profession_tool/(?P<prof>(alchemy|blacksmithing|first_aid|enchanting|engineering|cooking|skinning|mining|other|tailoring|leatherworking|riding|fishing|herbalism))'
-class_re = r'^talent_calc/(?P<class>(paladin|priest|hunter|mage|rogue|shaman|warrior|warlock|druid))'
+class_re = r'^talent_calc/(?P<class>(paladin|priest|(H|h)unter|mage|rogue|shaman|warrior|warlock|druid))'
 id_re = r'/?(?P<id>[\d]+)?'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),

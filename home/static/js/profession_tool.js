@@ -22,7 +22,8 @@ window.addEventListener('load', function(e) {
 	}
 
 	consumeHandlers();
-	recipeHandlers()
+	recipeHandlers();
+	sidebarHandlers();
 });
 
 
@@ -445,7 +446,7 @@ function professionToolHandlers() {
 			listObjUnhandlers()
 			updateSelectedProf(prof);
 			getRecipeList(prof);
-			
+
 			updateURL("/profession_tool", prof, document.location.search)
 		}
 	})
@@ -518,6 +519,56 @@ function recipeHandlers() {
 	})
 }
 
+
+function sidebarHandlers() {
+	var savedConsumeLists = document.getElementById('saved_consume_lists')
+
+	savedConsumeLists.addEventListener('click', function(e) {
+		if (e.target.matches('.saved-list-link')) {
+			if (e.metaKey || e.target.matches('.external')) { // allow opening in new tab
+				return
+			}
+
+			e.preventDefault()
+			var parent = e.target.closest('div.spec-list-item')
+			var currentSelection = document.querySelector('div.spec-list-item.selected')
+			if (parent == currentSelection) {
+				return
+			}
+
+			var link = e.target.href
+			var tempurl = new URL(href=link, base=document.location)
+			var path = "/profession_tool"
+			var prof_elem = $('a.prof-filter.selected')
+
+			if (prof_elem.length){
+				path += "/"+prof_elem.attr('id')
+			}
+
+			tempurl.pathname = path
+			professionTool.remove.all()
+			professionTool.get.consumeList(tempurl)
+			history.pushState(null, null, tempurl)
+			return
+		}
+
+		if (e.target.matches('.trashcan')) {
+			var data = {}
+			var parent = e.target.closest('div.spec-list-item')
+			var link = parent.querySelector('a.saved-list-link').href
+			var hash = new URL(href=link).search
+			data['hash'] = hash
+			data['name'] = parent.name
+			$.ajax({
+                method: "POST",
+                url: '/ajax/delete_list/',
+                data: data,
+                success: trashCanSuccess,
+                error: trashCanError,
+            })
+		}
+	});
+}
 
 function consumeHandlers() {
 
@@ -607,7 +658,6 @@ function updateSelectedProf(prof) {
 function loadError(oError) {
 	throw new URIError("The script " + oError.target.src + " didn't load correctly.");
 }
-
 
 function scriptLoaded(prof) {
 

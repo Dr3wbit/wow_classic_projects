@@ -253,10 +253,11 @@ class TalentCalcTemplate(TemplateView):
 
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
+
 		class_name = self.kwargs.get("class", None)
 
 		if bool(class_name):
-			context["selected"] = class_name
+			context["selected"] = class_name.lower()
 			context = self.talent_architect(context)
 
 		if request.is_ajax():

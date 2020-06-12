@@ -1,4 +1,4 @@
-var classData = {
+var cdata = {
 	"druid": {
 		"balance": {
 			"n": "Balance",

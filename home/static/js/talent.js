@@ -1,22 +1,23 @@
 
 $(document).ready(function() {
 	classSelectionHandler()
-	var selectedClass = talentCalc.CLASSES.filter(substring => document.location.pathname.includes(substring))
+	tooltip.static = true
+
+	talentCalc.handlers()
+
+	var selectedClass = talentCalc.CLASSES.filter(substring => document.location.pathname.includes(substring.toLowerCase()))
 	if (selectedClass.length) { // simulate click on said class
-		document.querySelector(`#${selectedClass[0]}.class-filter`).click()
+		document.querySelector(`#${selectedClass[0].toLowerCase()}.class-filter`).click()
 	}
+
 })
 
 window.addEventListener('load', function(e) {
-	tooltip.static = true
-	// load all talent-related handlers
-	talentCalc.handlers()
-
 	if (document.location.search) {
 		// predefined talent spec, fill in the talents
 		talentCalc.build.spec(document.location.search)
+		updateSelectedList()
 	}
-
 });
 
 function classSelectionHandler() {
@@ -24,7 +25,9 @@ function classSelectionHandler() {
 	var classSelection = document.getElementById('class_selection')
 	classSelection.addEventListener('click', function(e) {
 		if (e.target.matches('a.class-filter')) {
+
 			e.preventDefault()
+
 			var WoWClass = e.target.id
 			if (talentCalc.selection == WoWClass) {
 				return false
@@ -36,10 +39,15 @@ function classSelectionHandler() {
 			if (Object.keys(talentCalc.CLASS_DATA).includes(WoWClass)) {
 				talentCalc.update.classSelection(WoWClass);
 				talentCalc.build.main(talentCalc.CLASS_DATA[WoWClass])
-				updateURL("/talent_calc", WoWClass, document.location.search)
+
 			} else {
 				talentCalc.get.classData(WoWClass)
 			}
+
+			if (e.isTrusted) {
+				updateURL("/talent_calc", WoWClass, document.location.search)
+			}
+
 		}
 	})
 }
@@ -49,7 +57,7 @@ var talentCalc = {
 	container: document.getElementById('talent_calc'),
 	CLASSES: ['druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warrior', 'warlock'],
 	selection: '',
-	CLASS_DATA: '',
+	CLASS_DATA: {},
 	translationTable: {
 		00: 'a',
 		01: 'b',
@@ -92,9 +100,10 @@ var talentCalc = {
 	},
 	imageLocationOld: true,
 	init: function() {
-		talentCalc.reset.all()
-		talentCalc.empty(talentCalc.container)
-		this.CLASS_DATA = {}
+		if (talentCalc.selection) {
+			talentCalc.reset.all()
+			talentCalc.empty(talentCalc.container)
+		}
 	},
 	reset: {
 		tree: function(tree) {
@@ -113,12 +122,9 @@ var talentCalc = {
 			talentCalc.update.footer(tree)
 		},
 		all: function() {
-			if (Boolean(talentCalc.CLASS_DATA)) {
 
-				for (let key of Object.keys(talentCalc.CLASS_DATA[talentCalc.selection])) {
-					talentCalc.reset.tree(key)
-				}
-				updateURL("/talent_calc", talentCalc.selection)
+			for (let key of Object.keys(talentCalc.CLASS_DATA[talentCalc.selection])) {
+				talentCalc.reset.tree(key)
 			}
 
 		},
@@ -138,6 +144,7 @@ var talentCalc = {
 		},
 
 		classSelection: function(WoWClass) {
+
 			talentCalc.selection = WoWClass
 			var prevSelected = document.querySelectorAll('a.class-filter.selected')
 			if (prevSelected.length) {
@@ -365,9 +372,15 @@ var talentCalc = {
 		},
 		spec: function(h='') {
 			var hash = h
+
+			if (!hash) {
+				return
+			}
+
 			if (hash.startsWith('?')) {
 				hash = hash.substring(1)
 			}
+
 			var expanded = talentCalc.hashExpander(hash),
 				treeName = '',
 				index = 0;
@@ -477,6 +490,58 @@ var talentCalc = {
 		return total
 	},
 	handlers: function() {
+
+		var savedSpecs = document.getElementById('saved_specs')
+
+		savedSpecs.addEventListener('click', function(e) {
+			if (e.target.matches('.saved-list-link')) {
+				if (e.metaKey || e.target.matches('.external')) { // allow opening in new tab
+					return
+				}
+				e.preventDefault()
+				var parent = e.target.closest('div.spec-list-item')
+				var currentSelection = document.querySelector('div.spec-list-item.selected')
+				if (parent == currentSelection) {
+					return
+				}
+
+
+
+				var url = new URL(e.target.href)
+				hash = url.search
+				history.pushState(null, null, url)
+				updateSelectedList()
+				
+				var WoWClass = talentCalc.CLASSES.filter(substring => url.pathname.includes(substring))[0]
+				document.querySelector(`#${WoWClass}.class-filter`).click()
+
+				// talentCalc.update.classSelection(WoWClass)
+
+				// talentCalc.build.spec(hash)
+
+
+				setTimeout(() => { talentCalc.build.spec(hash) }, 100);
+
+				return
+			}
+
+			if (e.target.matches('.trashcan')) {
+				var data = {}
+				var parent = e.target.closest('div.spec-list-item')
+				var link = parent.querySelector('a.saved-list-link').href
+				var hash = new URL(href=link).search
+				data['hash'] = hash
+				data['name'] = parent.name
+				$.ajax({
+	                method: "POST",
+	                url: '/ajax/delete_list/',
+	                data: data,
+	                success: trashCanSuccess,
+	                error: trashCanError,
+	            })
+			}
+		});
+
 		var buttonCity = document.getElementById('buttonCity');
 
 		buttonCity.addEventListener('click', function(e) {
@@ -497,6 +562,8 @@ var talentCalc = {
 				lockButton.classList.add('lock')
 				lockButton.click()
 				talentCalc.reset.all()
+				updateURL("/talent_calc", talentCalc.selection)
+
 			} else if (e.target.matches('#copyLink')) {
 
 
@@ -623,6 +690,9 @@ var talentCalc = {
 		this.lock.talent(talent, tree, elem)
 		this.update.footer(tree)
 		this.update.header()
+		if (talentCalc.spent() == 51) {
+			talentCalc.lock.all()
+		}
 		return talent
 	},
 	maxed: function(talent, tree, talentElem) {
@@ -729,9 +799,13 @@ function addScript(WoWClass, src, loadedCallback = scriptLoaded, errorCallback =
 
 	var newScript = document.createElement("script");
 	newScript.onerror = errorCallback;
-	newScript.onload = function() {
+	newScript.addEventListener('load', function() {
 		loadedCallback(WoWClass);
-	}
+	})
+
+	// newScript.onload = function() {
+	// 	loadedCallback(WoWClass);
+	// }
 	document.body.appendChild(newScript);
 	newScript.src = src
 }
@@ -741,9 +815,35 @@ function loadError(oError) {
 }
 
 function scriptLoaded(WoWClass) {
-	talentCalc.CLASS_DATA = Object.assign(talentCalc.CLASS_DATA, classData)
+
+	talentCalc.CLASS_DATA = Object.assign(talentCalc.CLASS_DATA, cdata)
 	talentCalc.update.classSelection(WoWClass);
 	talentCalc.update.classData()
-	updateURL("/talent_calc", WoWClass, document.location.search)
+	// updateURL("/talent_calc", WoWClass, document.location.search)
 	talentCalc.build.main(talentCalc.CLASS_DATA[WoWClass])
+}
+
+function updateSelectedList() {
+
+	var currentSelection = document.querySelector('div.spec-list-item.selected')
+	if (currentSelection) {
+		currentSelection.classList.remove('selected')
+	}
+
+	var selectedList = checkLocalHashes()
+	if (selectedList) {
+		selectedList.classList.add('selected')
+	}
+}
+
+function getHash(href) {
+	var myURL = new URL(href=href, base=document.location)
+	return myURL.search
+}
+
+function checkLocalHashes() {
+	var savedListElems = document.querySelectorAll('div.spec-list-item')
+	var hashes = Array.from(savedListElems, x => getHash(x.querySelector('a').getAttribute('href')))
+	var index = hashes.findIndex(substring => document.location.href.includes(substring))
+	return (index) ? savedListElems[index] : false
 }

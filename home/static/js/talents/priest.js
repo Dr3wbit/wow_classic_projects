@@ -1,4 +1,4 @@
-var classData = {
+var cdata = {
     "priest": {
         "discipline": {
             "n": "Discipline",

@@ -1,4 +1,4 @@
-var classData = {
+var cdata = {
     "rogue": {
         "assassination": {
             "n": "Assassination",

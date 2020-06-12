@@ -1,4 +1,4 @@
-var classData = {
+var cdata = {
     "warrior": {
         "arms": {
             "n": "Arms",

@@ -14,32 +14,31 @@
 				<div id="saved_specs">
 				{% for spec in user.spec_set.all %}
 				<div class="spec-container">
+					<div class="saved-list-icon" style="background-image: url('{% static image_prefix|add:spec.img %}');"
+						data-ix="{{spec.id}}">
+					</div>
+					<div class="info-container">
+						<div class="spec-info">
+							<span class="{{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
+							<span style="font-size: 90%;">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
+						</div>
 
-				<div class="saved-list-icon" style="background-image: url('{% static image_prefix|add:spec.img %}');" data-ix="{{spec.id}}"></div>
-				<div class="info-container">
-					<div class="spec-info">
-						<span class="{{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
-						<span style="font-size: 90%;">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
+						<div class="spec-list-item">{{spec.name}}
+							<span class="saved-list-name">
+								{% if "talent_calc" in request.path %}
+								<a class="saved-list-link" href="{% url 'talent_helper' spec.wow_class.name|lower %}?{{spec.hash}}">
+								</a>
+								{% else %}
+								<a class="saved-list-link external" href="{% url 'talent_helper' spec.wow_class.name|lower %}?{{spec.hash}}">
+								</a>
+								{% endif %}
+							</span>
+							<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
+								value="{{spec.name}}" type="button">
+								<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
+							</button>
+						</div>
 					</div>
-					{% if "talent_calc" in request.path %}
-					<div data-ix="{{spec.id}}" class="spec-list-item" href="{% url 'talent_helper' spec.wow_class.name|lower spec.id %}?{{spec.hash}}" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name|sanitize}}" style="position: relative;">{{spec.name}}
-						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
-							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name|sanitize}}">
-							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
-						</button>
-					</div>
-					{% else %}
-					<div class="spec-list-item" name="{{spec.name}}" data-wowclass="{{spec.wow_class.name|sanitize}}" style="position:relative;">{{spec.name}}
-						<a href="{% url 'talent_builder' spec.id %}?{{spec.hash}}">
-							<span style="left: 0; top: 0; position: absolute; width: 80%; height: 100%;"></span>
-						</a>
-						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
-							value="{{spec.name}}" type="button" data-wowclass="{{spec.wow_class.name|sanitize}}">
-							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
-						</button>
-					</div>
-					{% endif %}
-				</div>
 				</div>
 				{% endfor %}
 			</div>
@@ -48,30 +47,31 @@
 				{% for consume_list in user.consumelist_set.all %}
 				<div class="spec-container">
 					<div class="saved-list-icon" data-ix="{{consume_list.id}}"
-						style="background-image: url('{% static image_prefix|add:consume_list.img %}');"></div>
+						style="background-image: url('{% static image_prefix|add:consume_list.img %}');">
+					</div>
 					<div class="info-container">
-					<div class="spec-info">
-						{% for shorthand in consume_list.profs_used.0 %}
-						{% if shorthand == consume_list.profs_used.0|first %}
-						<span>{{shorthand}}{% else %}, {{shorthand}}</span>
-						{% endif %}{% endfor %}
+						<div class="spec-info">
+							{% for shorthand in consume_list.profs_used.0 %}
+							{% if shorthand == consume_list.profs_used.0|first %}
+							<span>{{shorthand}}{% else %}, {{shorthand}}</span>
+							{% endif %}{% endfor %}
+						</div>
+						<div class="spec-list-item" name="{{consume_list.name}}">{{consume_list.name}}
+							<span class="saved-list-name">
+								{% if "profession_tool" in request.path %}
+								<a class="saved-list-link" href="{% url 'consume_helper' %}?{{consume_list.hash}}">
+								</a>
+								{% else %}
+								<a class="saved-list-link external" href="{% url 'consume_helper' %}?{{consume_list.hash}}">
+								</a>
+								{% endif %}
+							</span>
+							<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
+								value="{{consume_list.name}}" type="button">
+								<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
+							</button>
+						</div>
 					</div>
-					<div class="spec-list-item" name="{{consume_list.name}}">{{consume_list.name}}
-						<span class="saved-list-name">
-							{% if "profession_tool" in request.path %}
-							<a class="saved-list-link" href="{% url 'consume_helper' %}?{{consume_list.hash}}">
-							</a>
-							{% else %}
-							<a class="saved-list-link external" href="{% url 'consume_helper' %}?{{consume_list.hash}}">
-							</a>
-							{% endif %}
-						</span>
-						<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
-							value="{{consume_list.name}}" type="button">
-							<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
-						</button>
-					</div>
-				</div>
 				</div>
 				{% endfor %}
 			</div>

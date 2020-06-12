@@ -1,4 +1,4 @@
-var classData = {
+var cdata = {
     "warlock": {
         "affliction": {
             "n": "Affliction",
