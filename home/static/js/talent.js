@@ -1,9 +1,6 @@
-
 $(document).ready(function() {
-	classSelectionHandler()
 	tooltip.static = true
-
-	talentCalc.handlers()
+	talentCalc.handlers.all()
 
 	var selectedClass = talentCalc.CLASSES.filter(substring => document.location.pathname.includes(substring.toLowerCase()))
 	if (selectedClass.length) { // simulate click on said class
@@ -19,38 +16,6 @@ window.addEventListener('load', function(e) {
 		updateSelectedList()
 	}
 });
-
-function classSelectionHandler() {
-
-	var classSelection = document.getElementById('class_selection')
-	classSelection.addEventListener('click', function(e) {
-		if (e.target.matches('a.class-filter')) {
-
-			e.preventDefault()
-
-			var WoWClass = e.target.id
-			if (talentCalc.selection == WoWClass) {
-				return false
-			}
-
-			talentCalc.init()
-
-			// get talent architect and all talent data and add it to page as a script
-			if (Object.keys(talentCalc.CLASS_DATA).includes(WoWClass)) {
-				talentCalc.update.classSelection(WoWClass);
-				talentCalc.build.main(talentCalc.CLASS_DATA[WoWClass])
-
-			} else {
-				talentCalc.get.classData(WoWClass)
-			}
-
-			if (e.isTrusted) {
-				updateURL("/talent_calc", WoWClass, document.location.search)
-			}
-
-		}
-	})
-}
 
 var talentCalc = {
 	maxLevel: 60,
@@ -102,7 +67,225 @@ var talentCalc = {
 	init: function() {
 		if (talentCalc.selection) {
 			talentCalc.reset.all()
-			talentCalc.empty(talentCalc.container)
+			talentCalc.empty()
+		}
+	},
+	handlers: {
+		all: function() {
+			talentCalc.handlers.classSelection()
+			talentCalc.handlers.savedSpec()
+			talentCalc.handlers.header()
+			talentCalc.container.addEventListener('contextmenu', function(e) {
+				e.preventDefault()
+			});
+			talentCalc.handlers.talents()
+
+		},
+		classSelection: function() {
+			var classSelection = document.getElementById('class_selection')
+			classSelection.addEventListener('click', e => {
+				if (e.target.matches('a.class-filter')) {
+
+					e.preventDefault()
+					var WoWClass = e.target.id
+					if (talentCalc.selection) {
+						talentCalc.reset.all()
+					}
+					talentCalc.update.class.selection(WoWClass);
+
+					if (e.isTrusted) {
+						updateURL("/talent_calc", WoWClass)
+						if (document.querySelectorAll('div.spec-list-item').length) {
+							document.querySelectorAll('div.spec-list-item').forEach(x => x.classList.remove('selected'))
+						}
+					}
+
+				}
+			})
+		},
+		savedSpec: function() {
+			var savedSpecs = document.getElementById('saved_specs')
+			savedSpecs.addEventListener('click', function(e) {
+				if (e.target.matches('a.saved-list-link')) {
+					if (e.metaKey || e.target.matches('.external')) { // allows opening in new tab
+						return
+					}
+					e.preventDefault()
+
+					if (document.querySelectorAll('div.spec-list-item.selected').length) {
+						document.querySelectorAll('div.spec-list-item.selected').forEach(x => x.classList.remove('selected'))
+					}
+
+					var savedLists = Array.from(document.querySelectorAll('div.spec-list-item'))
+
+					savedLists.find(x => x.querySelector('a').getAttribute('href') == (e.target.pathname+e.target.search)).classList.add('selected')
+
+					var url = new URL(e.target.href)
+					hash = url.search
+					history.pushState(null, null, url)
+
+					var WoWClass = talentCalc.CLASSES.filter(substring => url.pathname.includes(substring))[0]
+
+					async function foo() {
+						await talentCalc.reset.all()
+						await talentCalc.update.class.selection(WoWClass)
+						await talentCalc.build.spec(hash)
+					}
+					foo()
+
+				}
+
+				if (e.target.matches('.trashcan')) {
+					var data = {}
+					var parent = e.target.closest('div.spec-list-item')
+					var link = parent.querySelector('a.saved-list-link').href
+					var hash = new URL(href = link).search
+					data['hash'] = hash
+					data['name'] = parent.name
+					$.ajax({
+						method: "POST",
+						url: '/ajax/delete_list/',
+						data: data,
+						success: trashCanSuccess,
+						error: trashCanError,
+					})
+				}
+			});
+		},
+
+		header: function() {
+			var buttonCity = document.getElementById('buttonCity');
+
+			buttonCity.addEventListener('click', function(e) {
+				if (e.target.matches('#talentLock')) {
+					e.target.classList.toggle('lock')
+					if (e.target.classList.contains('lock')) {
+						talentCalc.lock.all()
+					} else {
+						//unlock them
+						for (let [tree, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
+							talentCalc.grayed(tree)
+						}
+					}
+
+				// reset all talents
+				} else if (e.target.matches('#resetTalents')) {
+					var lockButton = document.getElementById('talentLock')
+					lockButton.classList.add('lock')
+					lockButton.click()
+					talentCalc.reset.all()
+					updateURL("/talent_calc", talentCalc.selection)
+
+				} else if (e.target.matches('#copyLink')) {
+
+					$('#copyLink').popover({
+						title: "Copied!",
+						container: "#copyLink",
+						template: '<div class="popover customPopover bg-dark text-white" role="tooltip"><div class="arrow text-white"></div><h3 class="popover-header bg-dark text-white"></h3><div class="popover-body bg-dark text-white"></div></div>'
+					}).attr('data-content', document.location.toString())
+
+					// not all browsers support navigator.clipboard.writeText()
+					navigator.clipboard.writeText(document.location.toString()).then(function() {
+						// clipboard successfully set
+						return
+					}, function() {
+						// clipboard write failed
+						let tempInput = document.createElement("input")
+						tempInput.style = "position: absolute; left: -1000px; top: -1000px"
+						tempInput.value = url.toString()
+						document.body.appendChild(tempInput)
+						tempInput.select()
+						document.execCommand("copy")
+						document.body.removeChild(tempInput)
+					});
+
+					$('#copyLink').popover('toggle')
+				}
+				return
+			}, true);
+
+			$('#copyLink').on({
+				'shown.bs.popover': e => {
+					setTimeout(function a() {
+						$('#copyLink').popover('hide')
+						$('#copyLink').popover('disable')
+					}, 1500)
+				},
+				'hidden.bs.popover': e => {
+					$('#copyLink').popover('enable')
+				},
+			})
+		},
+		talents: function() {
+
+			talentCalc.container.addEventListener('mouseenter', function(e) {
+
+				if (e.target.matches('img.talent') && e.isTrusted) {
+
+					tooltip.init(e)
+					var talent = talentCalc.get.talent.obj(e)
+					var data = Object.assign({}, talent)
+					delete data.img
+
+					var tree = talentCalc.get.tree.name(e)
+					data.treeName = tree
+					data.tree = Object.assign({}, talentCalc.CLASS_DATA[talentCalc.selection][tree])
+					data.tree.spent = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
+
+					tooltip.create(data)
+					tooltip.updateCoords(e)
+				}
+				return
+			}, true);
+
+			talentCalc.container.addEventListener('mouseleave', function(e) {
+				if (e.target.matches('img.talent')) {
+					tooltip.empty()
+				}
+				return
+			}, true);
+
+			talentCalc.container.addEventListener('mousedown', function(e) {
+				if (e.target.matches('img.talent')) {
+
+					var tree = talentCalc.get.tree.name(e)
+					var talent = talentCalc.get.talent.obj(e)
+					var data;
+
+					var amount = 1;
+					//TODO: add shift click functionality to spend all points in selected talent
+					if (e.which === 3 && talentCalc.canUnspend(talent, tree)) {
+						amount *= -1
+						talentCalc.spend(talent, e.target, amount, tree)
+					} else if (e.which === 1 && talentCalc.canSpend(talent, tree)) {
+						talentCalc.spend(talent, e.target, amount, tree)
+					}
+
+					// if event was generated by user action, update url & show tooltip
+					if (e.isTrusted) {
+						updateURL("/talent_calc", talentCalc.selection, `?${talentCalc.build.hash()}`)
+						data = Object.assign({}, talent)
+						data.treeName = tree
+						data.tree = Object.assign({}, talentCalc.CLASS_DATA[talentCalc.selection][tree])
+						data.tree.spent = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
+
+						delete data.img
+						tooltip.empty()
+						tooltip.create(data)
+						tooltip.updateCoords(e)
+						if (document.querySelectorAll('div.spec-list-item').length) {
+							document.querySelectorAll('div.spec-list-item').forEach(x => x.classList.remove('selected'))
+						}
+					}
+				}
+
+			});
+
+			talentCalc.container.addEventListener('click', function(e) {
+				if (e.target.matches('button.reset-tree')) {
+					talentCalc.reset.tree(e.target.dataset.reset)
+				}
+			});
 		}
 	},
 	reset: {
@@ -123,8 +306,10 @@ var talentCalc = {
 		},
 		all: function() {
 
-			for (let key of Object.keys(talentCalc.CLASS_DATA[talentCalc.selection])) {
-				talentCalc.reset.tree(key)
+			if (talentCalc.selection) {
+				for (let key of Object.keys(talentCalc.CLASS_DATA[talentCalc.selection])) {
+					talentCalc.reset.tree(key)
+				}
 			}
 
 		},
@@ -138,66 +323,63 @@ var talentCalc = {
 
 		},
 		header: function() {
-			var requiredLevel = (talentCalc.spent() > 0) ? talentCalc.spent()+9 : ''
+			var requiredLevel = (talentCalc.spent() > 0) ? talentCalc.spent() + 9 : ''
 			document.getElementById('requiredLevel').innerText = `Required level: ${requiredLevel}`
 			document.getElementById('pointsRemaining').innerText = `Points Left: ${51-talentCalc.spent()}`
 		},
+		class: {
+			selection: async function(WoWClass) {
+				if (talentCalc.selection == WoWClass) {
+					return
+				} else {
 
-		classSelection: function(WoWClass) {
+					talentCalc.selection = WoWClass
+					var prevSelected = document.querySelectorAll('a.class-filter.selected')
+					if (prevSelected.length) {
+						prevSelected[0].classList.remove('selected')
+					}
 
-			talentCalc.selection = WoWClass
-			var prevSelected = document.querySelectorAll('a.class-filter.selected')
-			if (prevSelected.length) {
-				prevSelected[0].classList.remove('selected')
-			}
+					var selectedElem = document.getElementById(`${WoWClass}`)
+					selectedElem.classList.add('selected')
 
-			var selectedElem = document.getElementById(`${WoWClass}`)
-			selectedElem.classList.add('selected')
-		},
-		classData: function() {
+					await talentCalc.empty()
 
-			for (let [treeName, tree] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
-				talentCalc.CLASS_DATA[talentCalc.selection][treeName].talents.forEach(tal => tal.spent = 0)
-				talentCalc.CLASS_DATA[talentCalc.selection][treeName].spent = function() {
-					var total = 0;
-					talentCalc.CLASS_DATA[talentCalc.selection][treeName].talents.forEach(tal => total += tal.spent)
-					return total
+					if (!Object.keys(talentCalc.CLASS_DATA).includes(WoWClass)) {
+						await load.js(`${static_url}js/talents/${WoWClass}.js`)
+						await talentCalc.update.class.data()
+					}
+					await talentCalc.build.main()
+				}
+				return true
+			},
+			data: function() {
+				talentCalc.CLASS_DATA = Object.assign(talentCalc.CLASS_DATA, cdata)
+				for (let [treeName, tree] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
+					talentCalc.CLASS_DATA[talentCalc.selection][treeName].talents.forEach(tal => tal.spent = 0)
+					talentCalc.CLASS_DATA[talentCalc.selection][treeName].spent = function() {
+						var total = 0;
+						talentCalc.CLASS_DATA[talentCalc.selection][treeName].talents.forEach(tal => total += tal.spent)
+						return total
+						}
+					}
+				return
 				}
 			}
 		},
-		tree: function(tree) {
-			var treeElem = document.getElementById(tree)
-			talentCalc.CLASS_DATA[selection][tree].talents.forEach(function(talent) {
-				var talentContainer = talentCalc.get.talent.elem(tree, talent.x, talent.y)
-				var spentContainer = talentContainer.querySelector('div.spent-points')
-				spentContainer.innerText = talent.spent
-
-				talentContainer.querySelector('div.spent-points')
-				talentCalc.lock.talent(talent, tree, talentContainer)
-			})
-
-		},
-		all: function() {
-			for (let [treeName, tree] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
-				talentCalc.update.tree(treeName)
-				talentCalc.grayed(treeName)
-			}
-		},
-	},
 	get: {
 		classData: function(WoWClass) {
 			var src = static_url + `js/talents/${WoWClass}.js`
 			addScript(WoWClass, src, scriptLoaded, loadError)
 		},
-		pointsSpent: function(tree, tier=7) {
+		pointsSpent: function(tree, tier = 7) {
 			// get sum of points spent for each elem array of talents where y is below the given tier
 			var filtered = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.filter(tal => tal.y < tier)
-			return talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.filter(tal => tal.y < tier).map(tal => tal.spent).reduce((total, cur) => (total+cur), 0)
+			return talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.filter(tal => tal.y < tier).map(tal => tal.spent).reduce((total, cur) => (total + cur), 0)
 
 		},
 		//gets nearest talent element
 		talent: {
-			// from event
+			// gets obj, from event
 			obj: function(e) {
 				var dataContainer = e.target.closest('div.talent-container');
 				var x = dataContainer.getAttribute('data-x'),
@@ -207,122 +389,134 @@ var talentCalc = {
 				var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(tal => tal.x == x && tal.y == y)
 				return talent
 			},
-			elem: function(tree, x, y, options={}) {
+			// gets element, based on coords
+			elem: function(tree, x, y, options = {}) {
 				var elem = document.getElementById(tree).querySelector(`div.talent-container[data-x="${x}"][data-y="${y}"]`)
 				if (options.img) {
 					elem = elem.querySelector('img.talent')
 				}
 				return elem
 			},
+			// from objs, based on name
 			byName: function(name, tree) {
 				return talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(x => x.n == name)
 			}
 		},
-
 		tree: {
-			//gets name of nearest tree element, requires event
+			//gets name of nearest tree element, from event
 			name: function(e) {
 				return e.target.closest('.talent-table').id
 			}
 		}
 	},
 	build: {
-		main: function(data) {
-			for (let [treeName, treeData] of Object.entries(data)) {
-				var treeElement = talentCalc.build.talentTree(treeName, treeData)
-				talentCalc.container.appendChild(treeElement)
-			}
-		},
-		talentTable: function(talents, blueprint = talentCalc.blueprint) {
-			talents.forEach(function(talent) {
-				blueprint[talent.x][talent.y] = talent
-			})
-		},
-		talentTree: function(treeName, data) {
-			var imagePathPrefix = (talentCalc.imageLocationOld) ? `${static_url}images/talent_spells/${talentCalc.selection}/${treeName}` : `${static_url}images/icons/large`
-			var backgroundImagePath = `${static_url}images/talent_spells/${talentCalc.selection}/${treeName}.jpg`
+		main: function(callback = '', hash = '') {
+			for (let [treeName, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
+				var imagePathPrefix = (talentCalc.imageLocationOld) ? `${static_url}images/talent_spells/${talentCalc.selection}/${treeName}` : `${static_url}images/icons/large`
+				var backgroundImagePath = `${static_url}images/talent_spells/${talentCalc.selection}/${treeName}.jpg`
 
-			var talentTable = create_element('div', 'talent-table', `background-image: url('${backgroundImagePath}')`)
-			talentTable.id = sanitize(data.n)
+				var talentTable = create_element('div', 'talent-table', `background-image: url('${backgroundImagePath}')`)
+				talentTable.id = sanitize(treeName)
 
-			var treeTitle = create_element('div', 'treeTitle col')
+				var treeTitle = create_element('div', 'treeTitle col')
 
-			talentTable.appendChild(treeTitle)
+				talentTable.appendChild(treeTitle)
 
-			var x = 0,
-				y = 0,
-				grayed = '';
+				var x = 0,
+					y = 0,
+					grayed = '';
 
-			data.blueprint.forEach(function(row) {
-				grayed = (y > 0) ? ' grayed' : grayed
-				var rowElem = create_element('div', 'row', '', '', {'data-y':y})
-				treeTitle.appendChild(rowElem)
-				row.forEach(function(item) {
-					if (item == 0) {
-						var slot = create_element('div', 'open-slot')
-						rowElem.appendChild(slot)
-						x++
-						return
-					} else {
-						var talent = data.talents.find(item => (item.x == x && item.y == y))
-						var locked = (talent.locked) ? ' locked' : ''
-						var dataAttrs = (talent.unlocks) ? {'data-unlocks':talent.unlocks, 'data-x':x, 'data-y':y} : {'data-x':x, 'data-y':y}
-
-						var arrowLocked = (talent.unlocks) ? ' locked' : ''
-						var slot = create_element('div', 'talent-slot')
-
-						rowElem.appendChild(slot)
-
-						var talentContainer = create_element('div', 'talent-container', '', '', dataAttrs)
-						slot.appendChild(talentContainer)
-
-						var talentImage = create_element('img', `talent${locked}${grayed}`, `background-image: url('${imagePathPrefix}/${talent.img}.jpg');`, '', dataAttrs)
-						talentImage.src = `${static_url}images/icon_border_2.png`
-
-						talentContainer.appendChild(talentImage)
-
-						var spentPoints = create_element('div', `spent-points${locked}${grayed}`, '', '0')
-						talentContainer.appendChild(spentPoints)
-
-					}
-					if (item > 1 || item.length) {
-
-						var itemArr = (item.length) ? item : Array.of(item)
-						var index = 0
-
-						var dataAttrs = {'data-x':x, 'data-y':y}
-						itemArr.forEach(function(N) {
-							dataAttrs = Object.assign(dataAttrs, {'data-unlocks':talent.unlocks[index]})
-							var arrow = create_element('div', `talentcalc-arrow ${talentCalc.arrowTypeSwitch(N)}${arrowLocked}${grayed}`, '', '', dataAttrs)
-							if (N == 7) {
-								var arrow2 = create_element('div', `talentcalc-arrow ${talentCalc.arrowTypeSwitch(N)}${arrowLocked}${grayed}`, '', '', dataAttrs)
-								arrow.appendChild(arrow2)
+				data.blueprint.forEach(function(row) {
+					grayed = (y > 0) ? ' grayed' : grayed
+					var rowElem = create_element('div', 'row', '', '', {
+						'data-y': y
+					})
+					treeTitle.appendChild(rowElem)
+					row.forEach(function(item) {
+						if (item == 0) {
+							var slot = create_element('div', 'open-slot')
+							rowElem.appendChild(slot)
+							x++
+							return
+						} else {
+							var talent = data.talents.find(item => (item.x == x && item.y == y))
+							var locked = (talent.locked) ? ' locked' : ''
+							var dataAttrs = (talent.unlocks) ? {
+								'data-unlocks': talent.unlocks,
+								'data-x': x,
+								'data-y': y
+							} : {
+								'data-x': x,
+								'data-y': y
 							}
-							slot.appendChild(arrow)
-							index++
-						})
-					}
 
-					x++
+							var arrowLocked = (talent.unlocks) ? ' locked' : ''
+							var slot = create_element('div', 'talent-slot')
+
+							rowElem.appendChild(slot)
+
+							var talentContainer = create_element('div', 'talent-container', '', '', dataAttrs)
+							slot.appendChild(talentContainer)
+
+							var talentImage = create_element('img', `talent${locked}${grayed}`, `background-image: url('${imagePathPrefix}/${talent.img}.jpg');`, '', dataAttrs)
+							talentImage.src = `${static_url}images/icon_border_2.png`
+
+							talentContainer.appendChild(talentImage)
+
+							var spentPoints = create_element('div', `spent-points${locked}${grayed}`, '', '0')
+							talentContainer.appendChild(spentPoints)
+
+						}
+						if (item > 1 || item.length) {
+
+							var itemArr = (item.length) ? item : Array.of(item)
+							var index = 0
+
+							var dataAttrs = {
+								'data-x': x,
+								'data-y': y
+							}
+							itemArr.forEach(function(N) {
+								dataAttrs = Object.assign(dataAttrs, {
+									'data-unlocks': talent.unlocks[index]
+								})
+								var arrow = create_element('div', `talentcalc-arrow ${talentCalc.arrowTypeSwitch(N)}${arrowLocked}${grayed}`, '', '', dataAttrs)
+								if (N == 7) {
+									var arrow2 = create_element('div', `talentcalc-arrow ${talentCalc.arrowTypeSwitch(N)}${arrowLocked}${grayed}`, '', '', dataAttrs)
+									arrow.appendChild(arrow2)
+								}
+								slot.appendChild(arrow)
+								index++
+							})
+						}
+
+						x++
+					});
+
+					x = 0
+					y++
 				});
 
-				x = 0
-				y++
-			});
+				var talentFooter = create_element('div', 'talent-footer'),
+					style = `background-image: url('${imagePathPrefix}/small_${treeName}_icon.jpg');`;
+				var treeNameElement = create_element('span', 'tree-name', style, data.n),
+					treeSpentSpan = create_element('span', 'spent', '', '(0)'),
+					resetTreeBtn = create_element('button', 'reset-tree', '', '', {
+						'type': 'button',
+						'data-reset': treeName,
+						'title': `Reset ${data.n}`
+					});
 
-			var talentFooter = create_element('div', 'talent-footer'),
-				style = `background-image: url('${imagePathPrefix}/small_${treeName}_icon.jpg');`;
-			var treeNameElement = create_element('span', 'tree-name', style, data.n),
-				treeSpentSpan = create_element('span', 'spent', '', '(0)'),
-				resetTreeBtn = create_element('button', 'reset-tree', '', '', {'type':'button', 'data-reset':treeName, 'title':`Reset ${data.n}`});
+				talentFooter.appendChild(treeNameElement)
+				talentFooter.appendChild(treeSpentSpan)
+				talentFooter.appendChild(resetTreeBtn)
+				talentTable.appendChild(talentFooter)
 
-			talentFooter.appendChild(treeNameElement)
-			talentFooter.appendChild(treeSpentSpan)
-			talentFooter.appendChild(resetTreeBtn)
-
-			talentTable.appendChild(talentFooter)
-
-			return talentTable
+				talentCalc.container.appendChild(talentTable)
+			}
+			if (callback && hash) {
+				callback(hash)
+			}
 		},
 		hash: function() {
 			const re = /a{2,}|b{2,}|c{2,}|d{2,}|e{2,}|m{2,}|J{2,}/g //only looks for repeats of a/b/c/d/e atm
@@ -350,7 +544,7 @@ var talentCalc = {
 				if (index < 2) {
 					str += (str.length % 2 == 0) ? '07' : '7'
 				}
-				for (var i=0; i < str.length; i += 2) {
+				for (var i = 0; i < str.length; i += 2) {
 					let subStr = str.substring(i, i + 2)
 					newURL += talentCalc.translationTable[parseInt(subStr)]
 				}
@@ -370,7 +564,7 @@ var talentCalc = {
 			url.hash = hash
 			return hash
 		},
-		spec: function(h='') {
+		spec: function(h = '') {
 			var hash = h
 
 			if (!hash) {
@@ -390,14 +584,16 @@ var talentCalc = {
 			for (let [tree, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
 				var arr = hashArr[index].split('')
 				data.talents.forEach(function(talent) {
-					var talentElem = talentCalc.get.talent.elem(tree, talent.x, talent.y, {'img': true})
+					var talentElem = talentCalc.get.talent.elem(tree, talent.x, talent.y, {
+						'img': true
+					})
 					if (arr[0] >= 1) {
 						let pointsSpent = [...Array(parseInt(arr.shift()))].fill(1)
 						pointsSpent.forEach(function(item2) {
 							talentElem.dispatchEvent(new MouseEvent('mousedown', {
-								which: 1, bubbles: true
-								})
-							)
+								which: 1,
+								bubbles: true
+							}))
 						})
 						return
 					} else {
@@ -407,9 +603,8 @@ var talentCalc = {
 				index++
 			}
 		},
-
 	},
-	empty: function(parent, options = {}) {
+	empty: function(parent = talentCalc.container, options = {}) {
 
 		while (parent.firstChild) {
 			parent.removeChild(parent.firstChild);
@@ -434,7 +629,7 @@ var talentCalc = {
 	},
 	canSpend: function(talent, tree) {
 		var total = talentCalc.spent()
-		return ( ( total < ( talentCalc.maxLevel - 9 ) ) && (talentCalc.CLASS_DATA[talentCalc.selection][tree].spent() >= (talent.y * 5) ) && (talentCalc.unlocked(talent, tree) ) && (talent.spent < talent.max) )
+		return ((total < (talentCalc.maxLevel - 9)) && (talentCalc.CLASS_DATA[talentCalc.selection][tree].spent() >= (talent.y * 5)) && (talentCalc.unlocked(talent, tree)) && (talent.spent < talent.max))
 	},
 
 	canUnspend: function(talent, tree) {
@@ -452,8 +647,8 @@ var talentCalc = {
 		var decision = true
 
 		while (decision && tier > 0) {
-			decision = (talentCalc.get.pointsSpent(tree, tier) > tier*5)
-		    tier--
+			decision = (talentCalc.get.pointsSpent(tree, tier) > tier * 5)
+			tier--
 		}
 
 		return decision
@@ -489,198 +684,6 @@ var talentCalc = {
 		}
 		return total
 	},
-	handlers: function() {
-
-		var savedSpecs = document.getElementById('saved_specs')
-
-		savedSpecs.addEventListener('click', function(e) {
-			if (e.target.matches('.saved-list-link')) {
-				if (e.metaKey || e.target.matches('.external')) { // allow opening in new tab
-					return
-				}
-				e.preventDefault()
-				var parent = e.target.closest('div.spec-list-item')
-				var currentSelection = document.querySelector('div.spec-list-item.selected')
-				if (parent == currentSelection) {
-					return
-				}
-
-
-
-				var url = new URL(e.target.href)
-				hash = url.search
-				history.pushState(null, null, url)
-				updateSelectedList()
-				
-				var WoWClass = talentCalc.CLASSES.filter(substring => url.pathname.includes(substring))[0]
-				document.querySelector(`#${WoWClass}.class-filter`).click()
-
-				// talentCalc.update.classSelection(WoWClass)
-
-				// talentCalc.build.spec(hash)
-
-
-				setTimeout(() => { talentCalc.build.spec(hash) }, 100);
-
-				return
-			}
-
-			if (e.target.matches('.trashcan')) {
-				var data = {}
-				var parent = e.target.closest('div.spec-list-item')
-				var link = parent.querySelector('a.saved-list-link').href
-				var hash = new URL(href=link).search
-				data['hash'] = hash
-				data['name'] = parent.name
-				$.ajax({
-	                method: "POST",
-	                url: '/ajax/delete_list/',
-	                data: data,
-	                success: trashCanSuccess,
-	                error: trashCanError,
-	            })
-			}
-		});
-
-		var buttonCity = document.getElementById('buttonCity');
-
-		buttonCity.addEventListener('click', function(e) {
-			if (e.target.matches('#talentLock')) {
-				e.target.classList.toggle('lock')
-				if (e.target.classList.contains('lock')) {
-					talentCalc.lock.all()
-				} else {
-					//unlock them
-					for (let [tree, data] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
-						talentCalc.grayed(tree)
-					}
-				}
-
-			// reset all talents
-			} else if (e.target.matches('#resetTalents')) {
-				var lockButton = document.getElementById('talentLock')
-				lockButton.classList.add('lock')
-				lockButton.click()
-				talentCalc.reset.all()
-				updateURL("/talent_calc", talentCalc.selection)
-
-			} else if (e.target.matches('#copyLink')) {
-
-
-				$('#copyLink').popover({
-					title: "Copied!",
-					container: "#copyLink",
-					template: '<div class="popover customPopover bg-dark text-white" role="tooltip"><div class="arrow text-white"></div><h3 class="popover-header bg-dark text-white"></h3><div class="popover-body bg-dark text-white"></div></div>'
-				}).attr('data-content', document.location.toString())
-
-
-				// not all browsers support navigator.clipboard.writeText()
-				navigator.clipboard.writeText(document.location.toString()).then(function() {
-					// clipboard successfully set
-					return
-				}, function() {
-					// clipboard write failed
-					let tempInput = document.createElement("input")
-					tempInput.style = "position: absolute; left: -1000px; top: -1000px"
-					tempInput.value = url.toString()
-					document.body.appendChild(tempInput)
-					tempInput.select()
-					document.execCommand("copy")
-					document.body.removeChild(tempInput)
-				});
-
-				$('#copyLink').popover('toggle')
-			}
-			return
-		}, true);
-
-		$('#copyLink').on({
-			'shown.bs.popover': e => {
-				setTimeout(function a() {
-					$('#copyLink').popover('hide')
-					$('#copyLink').popover('disable')
-				}, 1500)
-			},
-			'hidden.bs.popover': e => {
-				$('#copyLink').popover('enable')
-			},
-		})
-
-
-		talentCalc.container.addEventListener('contextmenu', function(e) {
-			e.preventDefault()
-		});
-
-		talentCalc.container.addEventListener('mouseenter', function(e) {
-
-			if (e.target.matches('img.talent') && e.isTrusted) {
-
-				tooltip.init(e)
-				var talent = talentCalc.get.talent.obj(e)
-				var data = Object.assign({}, talent)
-				delete data.img
-
-				var tree = talentCalc.get.tree.name(e)
-				data.treeName = tree
-				data.tree = Object.assign({}, talentCalc.CLASS_DATA[talentCalc.selection][tree])
-				data.tree.spent = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
-
-				tooltip.create(data)
-				tooltip.updateCoords(e)
-			}
-			return
-		}, true);
-
-		talentCalc.container.addEventListener('mouseleave', function(e) {
-			if (e.target.matches('img.talent')) {
-				tooltip.empty()
-			}
-			return
-		}, true);
-
-		talentCalc.container.addEventListener('mousedown', function(e) {
-			if (e.target.matches('img.talent')) {
-
-				var tree = talentCalc.get.tree.name(e)
-				var talent = talentCalc.get.talent.obj(e)
-				var data;
-
-				var amount = 1;
-				//TODO: add shift click functionality to spend all points in selected talent
-				if (e.which === 3 && talentCalc.canUnspend(talent, tree)) {
-					amount *= -1
-					talentCalc.spend(talent, e.target, amount, tree)
-				} else if (e.which === 1 && talentCalc.canSpend(talent, tree)) {
-					talentCalc.spend(talent, e.target, amount, tree)
-				} else {
-					return
-				}
-
-				// if event was generated by user action, update url & show tooltip
-				if (e.isTrusted) {
-					updateURL("/talent_calc", talentCalc.selection, `?${talentCalc.build.hash()}`)
-					data = Object.assign({}, talent)
-					data.treeName = tree
-					data.tree = Object.assign({}, talentCalc.CLASS_DATA[talentCalc.selection][tree])
-					data.tree.spent = talentCalc.CLASS_DATA[talentCalc.selection][tree].spent()
-
-					delete data.img
-					tooltip.empty()
-					tooltip.create(data)
-					tooltip.updateCoords(e)
-				}
-			}
-			return
-		});
-
-		talentCalc.container.addEventListener('click', function(e) {
-			if (e.target.matches('button.reset-tree')) {
-				talentCalc.reset.tree(e.target.dataset.reset)
-			}
-		});
-
-
-	},
 	spend: function(talent, talentElem, amount, tree) {
 		talent.spent += amount
 		var elem = talentElem.closest('div.talent-container')
@@ -708,7 +711,7 @@ var talentCalc = {
 		var treeSpent = this.CLASS_DATA[this.selection][treeName].spent()
 		for (var i = 0; i < 7; i++) {
 			var row = treeTable.querySelector(`div.row[data-y='${i}']`)
-			if ( treeSpent >= i*5 ) {
+			if (treeSpent >= i * 5) {
 				row.querySelectorAll('.grayed').forEach(x => x.classList.remove('grayed'))
 			} else {
 				row.querySelectorAll('img.talent,div.spent-points,div.talentcalc-arrow').forEach(x => x.classList.add('grayed'))
@@ -738,7 +741,7 @@ var talentCalc = {
 			}
 			return
 		},
-		tree: function(tree, data='') {
+		tree: function(tree, data = '') {
 
 			var treeData = (!Boolean(data)) ? talentCalc.CLASS_DATA[talentCalc.selection][tree] : data
 			var treeElement = document.getElementById(tree)
@@ -795,34 +798,6 @@ var talentCalc = {
 	}
 }
 
-function addScript(WoWClass, src, loadedCallback = scriptLoaded, errorCallback = loadError) {
-
-	var newScript = document.createElement("script");
-	newScript.onerror = errorCallback;
-	newScript.addEventListener('load', function() {
-		loadedCallback(WoWClass);
-	})
-
-	// newScript.onload = function() {
-	// 	loadedCallback(WoWClass);
-	// }
-	document.body.appendChild(newScript);
-	newScript.src = src
-}
-
-function loadError(oError) {
-	throw new URIError("The script " + oError.target.src + " didn't load correctly.");
-}
-
-function scriptLoaded(WoWClass) {
-
-	talentCalc.CLASS_DATA = Object.assign(talentCalc.CLASS_DATA, cdata)
-	talentCalc.update.classSelection(WoWClass);
-	talentCalc.update.classData()
-	// updateURL("/talent_calc", WoWClass, document.location.search)
-	talentCalc.build.main(talentCalc.CLASS_DATA[WoWClass])
-}
-
 function updateSelectedList() {
 
 	var currentSelection = document.querySelector('div.spec-list-item.selected')
@@ -837,7 +812,7 @@ function updateSelectedList() {
 }
 
 function getHash(href) {
-	var myURL = new URL(href=href, base=document.location)
+	var myURL = new URL(href = href, base = document.location)
 	return myURL.search
 }
 
@@ -847,3 +822,47 @@ function checkLocalHashes() {
 	var index = hashes.findIndex(substring => document.location.href.includes(substring))
 	return (index) ? savedListElems[index] : false
 }
+
+var load = (function() {
+	// Function which returns a function: https://davidwalsh.name/javascript-functions
+	function _load(tag) {
+		return function(url) {
+			// This promise will be used by Promise.all to determine success or failure
+			return new Promise(function(resolve, reject) {
+				var element = document.createElement(tag);
+				var parent = 'body';
+				var attr = 'src';
+
+				// Important success and error for the promise
+				element.onload = function() {
+					resolve(url);
+				};
+				element.onerror = function() {
+					reject(url);
+				};
+
+				// Need to set different attributes depending on tag type
+				switch (tag) {
+					case 'script':
+						element.async = true;
+						break;
+					case 'link':
+						element.type = 'text/css';
+						element.rel = 'stylesheet';
+						attr = 'href';
+						parent = 'head';
+				}
+
+				// Inject into document to kick off loading
+				element[attr] = url;
+				document[parent].appendChild(element);
+			});
+		};
+	}
+
+	return {
+		css: _load('link'),
+		js: _load('script'),
+		img: _load('img')
+	}
+})();

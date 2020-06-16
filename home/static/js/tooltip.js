@@ -35,7 +35,7 @@ var tooltip = {
     updateCoords: function(e) {
         tooltip.coords.x = tooltip.coords.x + e.movementX
         tooltip.coords.y = tooltip.coords.y + e.movementY
-        tooltip.checkDimensions()
+        // tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     },
     setPosition: function(x=this.coords.x, y=this.coords.y) {
@@ -68,11 +68,9 @@ var tooltip = {
     },
 
     create: function(response) {
-
+        var data = (response.responseJSON) ? response.responseJSON : response
         var container = create_element('div', 'tooltip-container', 'white-space: pre-wrap;')
         container.id = 'tooltip'
-
-        var data = (response.responseJSON) ? response.responseJSON : response
 
     	if (data.img) {
     		let image_name = static_url+`images/icons/large/${data.img}.jpg`
@@ -325,7 +323,7 @@ var tooltip = {
             tooltip.coords.y = tooltip.coords.y - (tooltip.dad.offsetHeight - 5)
 
         }
-        tooltip.checkDimensions()
+        // tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     }
 }
