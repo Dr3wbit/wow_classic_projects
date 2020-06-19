@@ -2,6 +2,19 @@ $(document).ready(function() {
 	global_event_handlers()
 });
 
+var global = {
+	static_url: "",
+	STORAGE_ITEMS: {},
+}
+
+function setStorageItems() {
+	if (storageAvailable('localStorage')) {
+		var keys = Object.keys(localStorage)
+		keys.forEach(function(ix) {
+			global.STORAGE_ITEMS[ix] = JSON.parse(localStorage.getItem(ix))
+		})
+	}
+}
 
 function info_display(id, caller) {
 	$.ajax({
@@ -24,7 +37,7 @@ function global_event_handlers() {
 
     if (window.innerWidth <= 992) {
         $('.mainBody').css({ 'padding-left': '15px' })
-        $('.saved').removeClass('side-min')
+        $('#saved_lists').removeClass('side-min')
         $('.custom-saves').css({ 'display': 'block' })
         $('.side-bar-toggle').removeClass('flip-background')
         $('.mainBody').append($('<div/>', {
@@ -33,12 +46,12 @@ function global_event_handlers() {
     }
     $(".side-bar-toggle").on({
         click: e => {
-            let bool = $('.saved').hasClass('side-min')
+            let bool = $('#saved_lists').hasClass('side-min')
             let windowWidth = window.innerWidth
             if (window.innerWidth <= 992) {
                 $('.mainBody').css({ 'padding-left': '15px' })
                 if (bool) {
-                    $('.saved').removeClass('side-min')
+                    $('#saved_lists').removeClass('side-min')
                     $('.custom-saves').css({ 'display': 'block' })
                     $('.side-bar-toggle').removeClass('flip-background')
                     $('.mainBody').append($('<div/>', {
@@ -46,21 +59,21 @@ function global_event_handlers() {
                     }))
 
                 } else {
-                    $('.saved').addClass('side-min')
+                    $('#saved_lists').addClass('side-min')
                     $('.custom-saves').css({ 'display': 'none' })
                     $('.side-bar-toggle').addClass('flip-background')
                     $('.black-out').remove()
                 }
             } else {
                 if (bool) {
-                    $('.saved').removeClass('side-min')
+                    $('#saved_lists').removeClass('side-min')
                     $('.mainBody').css({ 'padding-left': '265px' })
                     $('.custom-saves').css({ 'display': 'block' })
                     $('.side-bar-toggle').removeClass('flip-background')
                     $('.black-out').remove()
 
                 } else {
-                    $('.saved').addClass('side-min')
+                    $('#saved_lists').addClass('side-min')
                     $('.mainBody').css({ 'padding-left': '15px' })
                     $('.custom-saves').css({ 'display': 'none' })
                     $('.side-bar-toggle').addClass('flip-background')
@@ -70,87 +83,17 @@ function global_event_handlers() {
 
         }
     });
-
-	var savedConsumeLists = document.getElementById('saved_consume_lists')
-
-	savedConsumeLists.addEventListener('click', function(e) {
-		if (e.target.matches('.saved-list-link')) {
-			if (e.metaKey || e.target.matches('.external')) { // allow opening in new tab
-				return
-			}
-
-			e.preventDefault()
-			var parent = e.target.closest('div.spec-list-item')
-			var currentSelection = document.querySelector('div.spec-list-item.selected')
-			if (parent == currentSelection) {
-				return
-			}
-
-			var link = e.target.href
-			var tempurl = new URL(href=link, base=document.location)
-			var path = "/profession_tool"
-			var prof_elem = $('a.prof-filter.selected')
-
-			if (prof_elem.length){
-				path += "/"+prof_elem.attr('id')
-			}
-
-			tempurl.pathname = path
-			professionTool.remove.all()
-			professionTool.get.consumeList(tempurl)
-			history.pushState(null, null, tempurl)
-			return
-		}
-
-		if (e.target.matches('.trashcan')) {
-			var data = {}
-			var parent = e.target.closest('div.spec-list-item')
-			var link = parent.querySelector('a.saved-list-link').href
-			var hash = new URL(href=link).search
-			data['hash'] = hash
-			data['name'] = parent.name
-			$.ajax({
-                method: "POST",
-                url: '/ajax/delete_list/',
-                data: data,
-                success: trashCanSuccess,
-                error: trashCanError,
-            })
-		}
-	});
-
-
-    // $(".trashcan").on({
-    //     click: e => {
-    //         e.stopPropagation()
-    //         var $data = {}
-    //         if ($(e.target).attr("data-wowclass")) {
-    //             $data['wow_class'] = $(e.target).attr("data-wowclass")
-    //         }
-    //         var $name = $(e.target).val();
-    //         $data['name'] = $name
-    //         var $thisURL = '/ajax/delete_list/'
-	//
-    //         $.ajax({
-    //             method: "POST",
-    //             url: $thisURL,
-    //             data: $data,
-    //             success: trashCanSuccess,
-    //             error: trashCanError,
-    //         })
-    //     }
-    // });
 }
 
 function updateURL(path, subPath='', search='') {
-	this.path = path
 	this.path = (Boolean(subPath)) ? path + "/" + subPath : path
-	this.path = (Boolean(search)) ? subPath + search : subPath
+	this.path = (Boolean(search)) ? this.path + search : this.path
 	history.pushState(null, subPath, this.path)
 }
 
 //sidebar functionality
 function trashCanSuccess(data, textStatus, jqXHR) {
+	console.log('data: ', data)
 	let list_name = data.name.toString()
 	let list_item = $(`.spec-list-item[name="${list_name}"]`).closest(".spec-container");
 
@@ -395,10 +338,10 @@ function tooltip_v2(e, staticK=false, which=0) {
 			var thisObj = (allConsumes[name]) ? allConsumes[name] : allMaterials[name]
 			const properName = (thisObj.name) ? thisObj.name : titleCase(name)
 			const rarity = thisObj.rarity
-			let border_image = static_url+"images/icon_border_2.png"
+			let border_image = global.static_url+"images/icon_border_2.png"
 			let ench_img_name = ENCHANT_IMAGES[thisObj.name]
 
-			let image_name = static_url+`images/icons/large/${ench_img_name}.jpg`
+			let image_name = global.static_url+`images/icons/large/${ench_img_name}.jpg`
 
 			var image = (!staticK) ? $('<img/>', {
 				class: 'icon-medium',
@@ -477,8 +420,8 @@ function bigdaddytooltip(e, name, ...args) {
 		ench_img_name = (ENCHANT_IMAGES[name]) ? ENCHANT_IMAGES[name] : name
 	}
 
-	var image_name = static_url+`images/icons/large/${ench_img_name}.jpg`
-	var border_image = static_url+"images/icon_border_2.png"
+	var image_name = global.static_url+`images/icons/large/${ench_img_name}.jpg`
+	var border_image = global.static_url+"images/icon_border_2.png"
 	var staticK = elems.pop()
 	var image = (!staticK) ? $('<img/>', {
 		class: 'icon-medium',

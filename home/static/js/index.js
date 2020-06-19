@@ -136,7 +136,12 @@ var paginate = {
             currentPage = this.pages
             return false
         }
-        document.getElementsByClassName('page-nav active')[0].classList.remove('active')
+        var activeNavs = document.querySelectorAll('.page-nav.active')
+
+        if (activeNavs.length) {
+            activeNavs[0].classList.toggle('active')
+        }
+        
         var pageNumberNavs = document.querySelectorAll('a.page-nav:not(.prev-page):not(.next-page)')
         pageNumberNavs[currentPage-1].classList.add('active')
         var start = ( (currentPage - 1) * this.list.page ) + 1
@@ -495,16 +500,16 @@ var star = {
 }
 
 function loadSavedLists(data) {
-    var imagePrefix = static_url+'images/icons/large/'
+    var imagePrefix = `${global.static_url}images/icons/large/`
     var savedListContainer = document.getElementById("saved_list_container")
     var listContainer = document.getElementById("list_object")
 
-    var iconBorderPath = static_url+'images/icon_border_2.png'
+    var iconBorderPath = `${global.static_url}images/icon_border_2.png`
 
     data.saved_lists.forEach(function (savedList) {
         var hasWoWClass = (savedList.wow_class) ? true : false
         var savedListType = (hasWoWClass) ? 'spec' : 'cl'
-        var savedListURL = (hasWoWClass) ? `/tc/${savedList.ix}?${savedList.hash}` : `/profession_tool?${savedList.hash}`
+        var savedListURL = (hasWoWClass) ? `/talent_calc/${savedList.wow_class}?${savedList.hash}` : `/profession_tool?${savedList.hash}`
 
         var listItem = create_element('div', 'col-12 saved-list-item')
         listContainer.appendChild(listItem)
@@ -517,11 +522,11 @@ function loadSavedLists(data) {
         dataIX.value = savedList.ix
         listItem.setAttributeNode(dataIX)
 
-        if (hasWoWClass) {
-            var wowClass = document.createAttribute("data-wowclass");
-            wowClass.value = savedList.wow_class
-            listItem.setAttributeNode(wowClass)
-        }
+        // if (hasWoWClass) {
+        //     var wowClass = document.createAttribute("data-wowclass");
+        //     wowClass.value = savedList.wow_class
+        //     listItem.setAttributeNode(wowClass)
+        // }
 
         var feedItem = create_element('div', 'feed-item row mt-5')
         listItem.appendChild(feedItem)

@@ -125,6 +125,7 @@ if (!String.prototype.startsWith) {
     });
   });
 })([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
+// end node.remove()
 
 if (!Array.prototype.flat) {
 	Array.prototype.flat = function () {

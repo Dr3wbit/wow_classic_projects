@@ -4,6 +4,8 @@ $(document).ready(function() {
 	professionToolHandlers();
 });
 
+var wait = true;
+
 
 window.addEventListener('load', function(e) {
 	// figure out which profession(if any) is in the url
@@ -20,7 +22,8 @@ window.addEventListener('load', function(e) {
 	}
 
 	consumeHandlers();
-	recipeHandlers()
+	recipeHandlers();
+	sidebarHandlers();
 });
 
 
@@ -109,28 +112,48 @@ var professionTool = {
 				})
 			}
 
-			if (data.description) {
+			if (data.list_info.description) {
 				var description = create_element('h5', 'mt-3', '', data.list_info.description)
 				listInfoContainer.appendChild(description)
 			}
 
-			if (data.updated) {
-				var updateDate = create_element('div', 'mt-3', '', `Last updated: ${data.list_info.updated} by ${data.list_info.user}`)
-				listInfoContainer.appendChild(updateDate)
+			if (data.list_info.updated) {
+
+				var date = new Date(data.list_info.updated)
+				var lastUpdateContainer = create_element('div', 'mt-3', '', 'Last updated: '),
+					lastUpdate = create_element('span', 'fix-me last-update', '', date.toLocaleString()),
+					textContent = document.createTextNode(' by '),
+					userName = create_element('span', 'fix-me user-tag', '', data.list_info.user),
+					newLine = create_element('br')
+
+				lastUpdateContainer.appendChild(lastUpdate)
+				lastUpdateContainer.appendChild(textContent)
+				lastUpdateContainer.appendChild(userName)
+				lastUpdateContainer.appendChild(newLine)
+
+				listInfoContainer.appendChild(lastUpdateContainer)
+
 			}
 
+			var tow = create_element('div', 'row')
+			listInfoContainer.appendChild(tow)
+
+			var craftedTableContainer = create_element('div', 'col-md-6 col-sm-3')
 			var craftedTable = professionTool.createTable('Crafted Items', professionTool.CONSUMES)
 
-			listInfoContainer.appendChild(craftedTable)
+			tow.appendChild(craftedTableContainer)
+			craftedTableContainer.appendChild(craftedTable)
 
+			var materialTableContainer = create_element('div', 'col-md-6 col-sm-3')
 			var materialTable = professionTool.createTable('Total Materials', professionTool.MATERIALS)
 
-			listInfoContainer.appendChild(materialTable)
+			tow.appendChild(materialTableContainer)
+			materialTableContainer.appendChild(materialTable)
 
 		}
 	},
 	createTable: function(title, items) {
-		var table = create_element('table', 'table table-sm table-dark table-hover mx-auto mt-5 text-left', 'background-color:#1C1C1C'),
+		var table = create_element('table', 'table table-sm table-dark table-striped table-hover mx-auto text-left', 'background-color:#1C1C1C'),
 			thead = create_element('thead'),
 			tr = create_element('tr'),
 			th = create_element('th', '','','', {'colspan':3}),
@@ -151,11 +174,11 @@ var professionTool = {
 				td1 = create_element('td'),
 				td2 = create_element('td'),
 				td3 = create_element('td'),
-				img = create_element('img', 'icon-medium', `background-image: url('${static_url}images/icons/large/${item.img}.jpg');`),
+				img = create_element('img', 'icon-small', `background-image: url('${global.static_url}images/icons/large/${item.img}.jpg');`),
 				nameSpan = create_element('span', `q${item.q}`, '', item.n),
 				amountSpan = create_element('span', 'fix-me', '', amount);
 
-			img.src = static_url+'images/icon_border_2.png'
+			img.src = `${global.static_url}images/icon_border_2.png`
 
 			tbody.append(tRow)
 
@@ -191,8 +214,8 @@ var professionTool = {
 		},
 		toPage: function(ix, parent) {
 			var parentElem;
-			var iconBorderPath = static_url + 'images/icon_border_2.png',
-				imagePrefix = static_url + 'images/icons/large/';
+			var iconBorderPath = `${global.static_url}images/icon_border_2.png`,
+				imagePrefix = `${global.static_url}images/icons/large/`;
 
 			if (parent == 'consumes') {
 				var recipe = professionTool.ITEMS[ix]
@@ -244,7 +267,8 @@ var professionTool = {
 
 					var imagePath = `${imagePrefix}${material.img}`
 					var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
-					materialImage.src = static_url+'images/icons/small/icon_border.png'
+
+					materialImage.src = `${global.static_url}images/icons/small/icon_border.png`
 
 
 					var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
@@ -280,7 +304,7 @@ var professionTool = {
 				var imagePath = `${imagePrefix}${material.img}`
 				var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
 
-				materialImage.src = static_url+'images/icons/small/icon_border.png'
+				materialImage.src = `${global.static_url}images/icons/small/icon_border.png`
 				var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
 					amountSpan = create_element('span', 'amount', '', professionTool.MATERIALS[ix]);
 
@@ -325,8 +349,27 @@ var professionTool = {
 				error: notFoundError,
 			});
 		}
-	}
+	},
 
+	handlers: {
+		common: {
+			mouseover: function(e) {
+				tooltip.init(e)
+
+				var dataContainer = e.target.closest('div.data-container')
+				var ix = dataContainer.getAttribute("data-ix")
+				var data;
+
+				if (Object.keys(professionTool.ITEMS).includes(ix)) {
+					data = professionTool.ITEMS[ix]
+					tooltip.create(data)
+					tooltip.updateCoords(e)
+				} else {
+					getItemInfo(ix, tooltip.create)
+				}
+			},
+		}
+	}
 }
 
 function getItemInfo(ix, completeCallback=getItemInfoComplete) {
@@ -352,12 +395,12 @@ function getItemInfoComplete(response) {
 }
 
 function saveItemQuery(data) {
-	var prev_query_keys = Object.keys(STORAGE_ITEMS)
+	var prev_query_keys = Object.keys(global.STORAGE_ITEMS)
 	var item = data
     var ix = item.ix
 
     if (!prev_query_keys.includes(ix)) {
-        STORAGE_ITEMS[ix] = item
+        global.STORAGE_ITEMS[ix] = item
         if (storageAvailable('localStorage')) {
             localStorage.setItem(ix, JSON.stringify(item));
         }
@@ -368,7 +411,7 @@ function saveItemQuery(data) {
 
 
 function notFoundError(jqXHR, textStatus, errorThrown) {
-	notifyUser(errorThrown)
+	notifyUser(`ERROR retrieving saved list: ${errorThrown}`)
 	console.log('\n**error**\n')
 	console.log(jqXHR)
 	console.log(textStatus)
@@ -443,6 +486,7 @@ function professionToolHandlers() {
 			listObjUnhandlers()
 			updateSelectedProf(prof);
 			getRecipeList(prof);
+
 			updateURL("/profession_tool", prof, document.location.search)
 		}
 	})
@@ -452,20 +496,32 @@ function recipeHandlers() {
 
 	var recipeList = document.getElementById('recipe_list')
 
+
 	recipeList.addEventListener('mouseover', function(e) {
 		if (e.target.matches('.recipe-name, .recipe-image, .material-image')) {
-			// console.log(e.target)
-			tooltip.init(e)
-			e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
-		}
-		return
+			professionTool.handlers.common.mouseover(e)
+        }
 	})
+
+	recipeList.addEventListener('mousemove', function(e) {
+		if (e.target.matches('.recipe-name, .recipe-image, .material-image')) {
+			tooltip.updateCoords(e)
+		}
+	})
+
+	recipeList.addEventListener('mouseleave', function(e) {
+		tooltip.empty()
+	}, true)
 
 	recipeList.addEventListener('mousedown', function(e) {
 		if (e.target.matches('.recipe-container, .recipe-image, .recipe-name')) {
 			var multiple = (e.shiftKey) ? 5 : 1
 			multiple = (e.which === 3) ? multiple * (-1) : multiple
-			var ix = $(e.target).closest(".data-container").attr("data-ix")
+
+			var dataContainer = e.target.closest('div.data-container')
+			var ix = dataContainer.getAttribute("data-ix")
+			var data;
+
 			var step = professionTool.ITEMS[ix].step
 
 			var amount = step * multiple
@@ -501,37 +557,98 @@ function recipeHandlers() {
 }
 
 
+function sidebarHandlers() {
+	var savedConsumeLists = document.getElementById('saved_consume_lists')
+
+	if (savedConsumeLists) {
+		savedConsumeLists.addEventListener('click', function(e) {
+			if (e.target.matches('.saved-list-link')) {
+				if (e.metaKey || e.target.matches('.external')) { // allow opening in new tab
+					return
+				}
+
+				e.preventDefault()
+				var parent = e.target.closest('div.spec-list-item')
+				var currentSelection = document.querySelector('div.spec-list-item.selected')
+				if (parent == currentSelection) {
+					return
+				}
+
+				var link = e.target.href
+				var tempurl = new URL(href=link, base=document.location)
+				var path = "/profession_tool"
+				var prof_elem = $('a.prof-filter.selected')
+
+				if (prof_elem.length){
+					path += "/"+prof_elem.attr('id')
+				}
+
+				tempurl.pathname = path
+				professionTool.remove.all()
+				professionTool.get.consumeList(tempurl)
+				history.pushState(null, null, tempurl)
+				return
+			}
+
+			// if (e.target.matches('.trashcan')) {
+			// 	var data = {}
+			// 	var parent = e.target.closest('div.spec-list-item')
+			// 	var link = parent.querySelector('a.saved-list-link').href
+			// 	var hash = new URL(href=link).search
+			// 	data['hash'] = hash
+			// 	data['name'] = parent.getAttribute('name')
+			// 	$.ajax({
+	        //         method: "POST",
+	        //         url: '/ajax/delete_list/',
+	        //         data: data,
+	        //         success: trashCanSuccess,
+	        //         error: trashCanError,
+	        //     })
+			// }
+		});
+	}
+}
+
+
 function consumeHandlers() {
 
 	var totalsContainer = document.getElementById('totals_container')
 	totalsContainer.addEventListener('mouseover', function(e) {
 		if (e.target.matches('.consume-image, .material-image, .consume-name, .material-name')) {
-			// console.log(e.target)
-			tooltip.init(e)
-			e.target.addEventListener('mouseleave', tooltip.mouseleaveCleanup)
+			professionTool.handlers.common.mouseover(e)
 		}
-		return
 	})
+
+	totalsContainer.addEventListener('mouseleave', function(e) {
+		tooltip.empty()
+	}, true)
+
+
+	totalsContainer.addEventListener('mousemove', function(e) {
+		if (e.target.matches('.consume-image, .material-image, .consume-name, .material-name')) {
+			tooltip.updateCoords(e)
+		}
+	})
+
 
 	var consumesListContainer = document.getElementById('consumes')
 	consumesListContainer.addEventListener('click', function(e) {
 		if (e.target.matches('.add-button, .sub-button')) {
 			var multiple = (e.shiftKey) ? 5 : 1
-			var dataContainer = $(e.target).closest(".data-container")
-			var ix = dataContainer.attr("data-ix")
+
+			var dataContainer = e.target.closest('div.data-container')
+			var ix = dataContainer.getAttribute("data-ix")
 			var step = professionTool.ITEMS[ix].step
 
 			if (e.target.matches('.sub-button')) {
 				multiple = multiple * (-1)
 			}
+
 			var amount = step*multiple
 			amount = ((amount + professionTool.CONSUMES[ix]) >= 0) ? (amount) : (professionTool.CONSUMES[ix] * -1)
 
 			professionTool.update.item(ix, multiple, step)
-
-			console.log('amount: ', amount)
 			combatText(e, amount)
-			return
 		}
 		return
 
@@ -554,7 +671,7 @@ function consumeHandlers() {
 function getRecipeList(prof) {
 
 	if (!Object.keys(professionTool.RECIPES).includes(prof)) {
-		var src = static_url + `js/professions/${prof}.min.js`
+		var src = `${global.static_url}js/professions/${prof}.min.js`
 		addScript(prof, src, scriptLoaded, loadError)
 
 	} else {
@@ -574,7 +691,6 @@ function updateSelectedProf(prof) {
 function loadError(oError) {
 	throw new URIError("The script " + oError.target.src + " didn't load correctly.");
 }
-
 
 function scriptLoaded(prof) {
 
@@ -607,8 +723,9 @@ function buildRecipeList(recipes) {
     	threshold: 0.1
 	};
 	var recipeList = document.getElementById('list_container'),
-		iconBorderPath = static_url + 'images/icon_border_2.png',
-		imagePrefix = static_url + 'images/icons/large/',
+
+		iconBorderPath = `${global.static_url}images/icon_border_2.png`,
+		imagePrefix = `${global.static_url}images/icons/large/`,
 		index = 0;
 
 	for (let [ix, recipe] of Object.entries(recipes)) {

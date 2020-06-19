@@ -1,82 +1,170 @@
 var tooltip = {
     coords: {x:'', y:''},
     dimensions: {w: '', h:''},
-    tooltipContainer: document.getElementById("tooltip_container"),
+    static: false,
+    rectangle: '',
+    dad: document.getElementById("tooltip_container"),
+    container: {width: '', height:''},
     init: function(e) {
         tooltip.empty()
-        tooltip.addMousemove(e)
-        var dataContainer = e.target.closest('div.data-container')
-        var ix = dataContainer.getAttribute("data-ix")
-        tooltip.coords.x = e.pageX
-        tooltip.coords.y = e.pageY
 
-        if (Object.keys(professionTool.ITEMS).includes(ix)) {
-            var data = professionTool.ITEMS[ix]
-            tooltip.create(data)
-            tooltip.updateCoords(e)
+        if (tooltip.static) {
+            var recktangle = e.target.getBoundingClientRect()
+            tooltip.rectangle = recktangle
+
+            tooltip.coords.x = recktangle.right - 3
+            tooltip.coords.y = recktangle.top + 5 + window.scrollY
+
         } else {
-            getItemInfo(ix, tooltip.create)
+            tooltip.coords.x = e.pageX
+            tooltip.coords.y = e.pageY
         }
+    },
+    infobox: function(e) {
+        document.getElementById("offsetX").innerText = e.offsetX
+        document.getElementById("offsetY").innerText = e.offsetY
+        document.getElementById("pageX").innerText = e.pageX
+        document.getElementById("pageY").innerText = e.pageY
+        document.getElementById("screenX").innerText = e.screenX
+        document.getElementById("screenY").innerText = e.screenY
+        document.getElementById("clientX").innerText = e.clientX
+        document.getElementById("clientY").innerText = e.clientY
+        document.getElementById("coordsX").innerText = tooltip.coords.x.toFixed(2)
+        document.getElementById("coordsY").innerText = tooltip.coords.y.toFixed(2)
+        var rectangle = tooltip.dad.getBoundingClientRect()
+
+        document.getElementById("boundingX").innerText = rectangle.x.toFixed(2)
+        document.getElementById("boundingY").innerText = rectangle.y.toFixed(2)
+        document.getElementById("rectangleW").innerText = tooltip.dad.offsetWidth
+        document.getElementById("rectangleH").innerText = tooltip.dad.offsetHeight
+
     },
     empty: function() {
-        while (this.tooltipContainer.firstChild) {
-            this.tooltipContainer.removeChild(this.tooltipContainer.firstChild);
+        while (this.dad.firstChild) {
+            this.dad.removeChild(this.dad.firstChild);
         }
-        tooltip.tooltipContainer.style.cssText = `visibility: hidden;`
+        tooltip.dad.style.cssText = `visibility: hidden;`
     },
     hide: function() {
-        for (let i = 0; i < this.tooltipContainer.children.length; i++) {
-            this.tooltipContainer.children[i].hidden = true
+        for (let i = 0; i < this.dad.children.length; i++) {
+            this.dad.children[i].hidden = true
         }
     },
     addMousemove: function(e) {
         e.target.addEventListener('mousemove', tooltip.updateCoords)
     },
     updateCoords: function(e) {
-        tooltip.coords.x = tooltip.coords.x + e.movementX
-        tooltip.coords.y = tooltip.coords.y + e.movementY
+        // tooltip.coords.x += e.movementX
+        // tooltip.coords.y += e.movementY
+        tooltip.coords.x = e.pageX - (tooltip.dad.offsetWidth - tooltip.container.width) + 5
+        tooltip.coords.y = e.pageY - (tooltip.dad.offsetHeight - 5)
+        tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     },
     setPosition: function(x=this.coords.x, y=this.coords.y) {
-        tooltip.tooltipContainer.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible; white-space: pre-wrap`
+        tooltip.dad.style.cssText = `left: ${x}px; top: ${y}px; visibility: visible; white-space: pre-wrap`
     },
-
     getDimensions: function(element, msg='') {
-        var message = `offset Width:${element.offsetWidth}, Height:${element.offsetHeight}, Top:${element.offsetTop}, Left:${element.offsetLeft}`
-        console.log(msg+message)
-        message = `client  Width:${element.clientWidth}, Height:${element.clientHeight}`
-        console.log(msg+message)
-
+        var message = `${msg} offset Width:${element.offsetWidth}, Height:${element.offsetHeight}, Top:${element.offsetTop}, Left:${element.offsetLeft}`
+        console.log(message)
+        message = `${msg} client  Width:${element.clientWidth}, Height:${element.clientHeight}`
+        console.log(message)
     },
     checkDimensions: function() {
-        if (tooltip.tooltipContainer.offsetWidth + tooltip.coords.x > window.screen.availWidth) {
-            tooltip.coords.x -= tooltip.tooltipContainer.offsetWidth
+        var right = (tooltip.static) ? tooltip.rectangle.right : tooltip.coords.x
+
+        if ((tooltip.dad.offsetWidth + right) > window.screen.availWidth) {
+
+            if (tooltip.static) {
+                tooltip.coords.x = tooltip.rectangle.left + 5 - tooltip.dad.offsetWidth
+            } else {
+                tooltip.coords.x -= tooltip.dad.offsetWidth - 45
+            }
+        }
+
+        if (tooltip.dad.offsetHeight > tooltip.rectangle.top) {
+            tooltip.coords.y = tooltip.rectangle.bottom + window.scrollY
         }
     },
     mouseleaveCleanup: function(e) {
         tooltip.empty()
         e.target.removeEventListener('mousemove', tooltip.updateCoords)
     },
-    create: function(response) {
 
+    create: function(response, e='') {
+        var data = (response.responseJSON) ? response.responseJSON : response
         var container = create_element('div', 'tooltip-container', 'white-space: pre-wrap;')
-
         container.id = 'tooltip'
 
-        var data = (response.responseJSON) ? response.responseJSON : response
-
     	if (data.img) {
-    		let image_name = static_url+`images/icons/large/${data.img}.jpg`
+    		let image_name = `${global.static_url}images/icons/large/${data.img}.jpg`
             style = `pointer-events: none; background-image: url(${image_name})`
 
     		var img = create_element('img', 'icon-medium', style)
             img.id = 'tooltip_image'
-    		img.src = static_url+"images/icon_border_2.png"
-    		tooltip.tooltipContainer.appendChild(img)
+    		img.src = `${global.static_url}images/icon_border_2.png`
+    		tooltip.dad.appendChild(img)
     	}
 
-    	var title = create_element('div', `title q${data.q}`, 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
-    	container.appendChild(title)
+    	var title = create_element('div', 'title', 'clear: both; margin-right: 5px; padding-right: 5px; width: 100%;', `${data.n}`)
+        if (data.q) {
+            title.classList.add(`q${data.q}`)
+        }
+        container.appendChild(title)
+
+        if (data.spent >= 0) {
+
+
+            var descriptionText = '',
+                footerText = '',
+                footerClass = '';
+
+            var rank = create_element('div', 'rank', '', `Rank ${data.spent}/${data.max}`)
+            container.appendChild(rank)
+            if (data.locked) {
+                var lockedText = ''
+                var lockedTalent = data.tree.talents.find(x => x.n == data.locked)
+                if (lockedTalent.spent != lockedTalent.max) {
+                    var plural = (lockedTalent.max-lockedTalent.spent > 1) ? 's' : ''
+                    lockedText = `Requires ${lockedTalent.max-lockedTalent.spent} point${plural} in ${lockedTalent.n}`
+                    var lockedReq = create_element('div', 'req', '', lockedText)
+                    container.appendChild(lockedReq)
+                }
+            }
+
+            if (data.spent == 0) {
+                if (data.tree.spent < data.y*5) {
+                    data.tree.n
+                    var req = create_element('div', 'req', '', `Requires ${data.y*5} points spent in ${data.tree.n} Talents`)
+                    container.appendChild(req)
+                } else {
+                    footerText = 'Click to learn'
+                    footerClass = 'learn'
+                }
+                descriptionText = data.d[0]
+                var description = create_element('div', 'description', '', descriptionText)
+                container.appendChild(description)
+
+            } else {
+                descriptionText = data.d[data.spent-1]
+                var description = create_element('div', 'description', '', descriptionText)
+                container.appendChild(description)
+
+                if (data.spent == data.max) {
+                    footerText = 'Right-click to unlearn'
+                    footerClass = 'unlearn'
+                }
+
+                else if (data.max != 1) {
+                    var nextRank = create_element('div', 'next', '', '\nNext Rank:')
+                    var nextDescription = create_element('div', 'description', '', `${data.d[data.spent]}`)
+                    container.appendChild(nextRank)
+                    container.appendChild(nextDescription)
+                }
+            }
+            var tooltipFooter = create_element('div', footerClass, '', footerText)
+            container.appendChild(tooltipFooter)
+        }
 
     	if ((data.slot && data.q > 1) || (data.bop)) {
     		var bop_text = (data.bop) ? "Binds when picked up" : "Binds when equipped"
@@ -227,7 +315,12 @@ var tooltip = {
     	}
 
     	if (data.description) {
-    		var description = create_element('div', 'description', 'clear: both;', `"${data.description}"`)
+            var descriptionText = ''
+            if (data.spent) {
+                return
+            }
+            descriptionText = `"${data.description}"`
+    		var description = create_element('div', 'description', 'clear: both;', descriptionText)
     		container.appendChild(description)
     	}
 
@@ -245,10 +338,21 @@ var tooltip = {
     		container.appendChild(itemset_elem)
     	}
 
-    	tooltip.tooltipContainer.appendChild(container)
+    	tooltip.dad.appendChild(container)
 
+        tooltip.container.width = container.offsetWidth
+        tooltip.container.height = container.offsetHeight
+
+        if (tooltip.static) {
+            tooltip.coords.x = ((tooltip.rectangle.right) - 3) - (tooltip.dad.offsetWidth - container.offsetWidth) + 5
+            tooltip.coords.y = ((tooltip.rectangle.top) + 7 + window.scrollY - tooltip.dad.offsetHeight - 5)
+        } else {
+            tooltip.coords.x = tooltip.coords.x - (tooltip.dad.offsetWidth - container.offsetWidth) + 5
+            tooltip.coords.y = tooltip.coords.y - (tooltip.dad.offsetHeight - 5)
+
+        }
         tooltip.checkDimensions()
-
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
+
     }
 }

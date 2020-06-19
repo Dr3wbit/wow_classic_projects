@@ -1,80 +1,79 @@
 {% extends "base.html" %}
+{% block title %}Talent Calculator{% endblock title %}
 
-	{% block title %}- Talent Calculator{% endblock title %}
-
-	{% load static %}
-	{% block extra_head %}
-	<link rel="stylesheet" type="text/css" href="{% static "css/talent.css" %}">
-
-
-	{% endblock extra_head %}
+{% load static %}
+{% block extra_head %}
+{% csrf_token %}
+<link rel="stylesheet" type="text/css" href="{% static "css/talent.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
+{% endblock extra_head %}
 
 
-	{% block title_splash %}
-	<div class="container titleSplash">
-		<div class="page-title">
-			<div class="p-3 page-description"></div>
-		</div>
+{% block title_splash %}
+<div class="container titleSplash">
+	<div class="page-title">
+		<div class="p-3 page-description"></div>
 	</div>
-	{% endblock title_splash %}
+</div>
+{% endblock title_splash %}
 
-	{% block mainbody %}
+{% block mainbody %}
 
-	<div class="mainBody container">
-	{% block class_selection %}
-	<div class="row class-selection sticky-top" id="class_selection">
-		{% for class in classes %}
-		<a class="class-filter {% if class == selected %}selected{% endif %}" id="{{class}}">
-			{% with "images/icons/large/class/"|add:class|add:".jpg" as class_image %}
-			<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}" style="background-image: url('{% static class_image %}');">
-			{% endwith %}
-		</a>
-		{% endfor %}
-	</div>
-	{% endblock class_selection %}
-	<div class="mainContent">
+<div class="mainBody container">
+{% block class_selection %}
+<div class="row class-selection sticky-top" id="class_selection">
+	{% for class in classes %}
+	<a class="class-filter {% if class == selected %}selected{% endif %}" id="{{class}}">
+		{% with "images/icons/large/class/"|add:class|add:".jpg" as class_image %}
+		<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}" style="background-image: url('{% static class_image %}');">
+		{% endwith %}
+	</a>
+	{% endfor %}
+</div>
+{% endblock class_selection %}
+<div class="mainContent">
 	<div class="row justify-content-center">
 		<div id="talentHeader">
-			<span id="allottedTalentPoints" class="col-3 text-left">(0/0/0)</span>
+			<span id="talent_points_spent" class="col-3 text-left">
+				(<span class='spent'>0</span>/<span class='spent'>0</span>/<span class='spent'>0</span>)
+			</span>
 			<span id="requiredLevel" class="col-3">Required level:</span>
 			<span id="pointsRemaining" class="col-3 text-right">Points Left:</span>
 			<div id="buttonCity" class="col-3 btn-group">
 				<!-- <button type="button" id="resetTalents" class="talentcalc-button reset btn" title="Reset"></button> -->
-				<button id="resetTalents" class="btn btn-sm float-right" aria-label="Reset Talents" title="Reset"
-					style="font-size: 15px; margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				<button id="resetTalents" class="btn btn-sm float-right" aria-label="Reset Talents" title="Reset" type="button">
+					<span class="glyphicon glyphicon-remove glyphicon-custom" aria-hidden="true"></span>
 				</button>
-				<button id="talentLock" class="btn btn-sm float-right unlock" aria-label="Lock Talents" title="Lock"
-					style=" font-size: 14px; margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
-					<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+				<button id="talentLock" class="btn btn-sm float-right" aria-label="Lock Talents" title="Lock" type="button" role="button">
+					<span class="glyphicon glyphicon-lock glyphicon-custom" aria-hidden="true"></span>
 				</button>
 				<!-- <button class="btn btn-sm float-right" data-toggle="modal" data-target="#specSaverPrompt" aria-label="specSaverPrompt" title="Save"
 					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
 					<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
 				</button> -->
-				<button id="export" data-container="#export" data-toggle="popover" data-placement="right"
-					class="btn btn-sm float-right" role="button" aria-label="export spec" title="Export"
-					style=" font-size: 15px; margin: 0 2px 0 2px; padding: 0 2px 0 2px;">
-					<span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+				<button id="copyLink" data-container="#copyLink" data-toggle="popover" data-placement="right"
+					class="btn btn-sm float-right" role="button" aria-label="copy spec link" type="button">
+					<span class="glyphicon glyphicon-link glyphicon-custom" aria-hidden="true"></span>
 				</button>
 			</div>
 		</div>
 	</div>
-	<div class="row justify-content-center" id="talent_calc" align="center">
-		{% include "talent_builder.html" %}
-	</div>
+	<div class="row justify-content-center" id="talent_calc" align="center"></div>
 
-	<div id="saved_list_info">
-	{% include "info_display.html" %}
-	</div>
-	{% if user.is_authenticated %}
-	{% include "save_form.html" %}
-	{% endif %}
+<div id="saved_list_info">
+{% comment %}
+{% include "info_display.html" %}
+{% endcomment %}
+</div>
+
+{% if user.is_authenticated %}
+{% include "save_form.html" %}
+{% endif %}
 
 </div>
 
 </div>
-	{% endblock mainbody %}
+{% endblock mainbody %}
 
 <!-- Modal -->
 {% block modal %}
@@ -107,9 +106,7 @@
 	{% endblock modal %}
 
 	{% block javascript %}
-
-	<script src="{% static "js/utilities.js" %}"></script>
-	<script src="{% static "js/talent_data.js" %}"></script>
-	<script src="{% static "js/talent_table_data.js" %}"></script>
+	<script src="{% static "js/tooltip.js" %}"></script>
 	<script src="{% static "js/talent.js" %}"></script>
+	<script src="{% static "js/save_form.js" %}"></script>
 	{% endblock javascript %}

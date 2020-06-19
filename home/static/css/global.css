@@ -2,7 +2,7 @@
 html {
     position: relative;
     min-height: 100vh;
-  }
+}
 
 body {
     color: rgb(255, 255, 255);
@@ -754,24 +754,7 @@ ul {
     display: initial;
 }
 
-.trashcan {
-    padding: 1px;
-    position: absolute;
-    top: 0;
-    right: 2px;
-    border: 0;
-    color: rgba(231, 186, 0, 1);
-    -webkit-appearance: none;
-    background-color: transparent;
-}
 
-.trashcan:hover span{
-    color: rgba(187, 0, 0, 1) !important;
-}
-
-.trashcan:focus {
-    box-shadow:0 0 0;
-}
 a.crafted-item-list:hover{
     color: inherit;
 }
@@ -954,4 +937,14 @@ button:focus {
 .untouchable {
     user-select: none;
     pointer-events: none;
+}
+
+.feed-tag {
+    border: 1px solid black;
+    padding: 3px;
+    background-color: #222222;
+    border-radius: 5px;
+    margin: 2px;
+    font-size: 80%;
+    display: inline-block;
 }
