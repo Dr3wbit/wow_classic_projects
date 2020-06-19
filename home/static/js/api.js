@@ -1,6 +1,6 @@
 // var prev_query_keys = Object.keys(localStorage)
-var prev_query_keys = Object.keys(STORAGE_ITEMS)
-var ALL_ITEMS = Object.assign({}, STORAGE_ITEMS)
+var prev_query_keys = Object.keys(global.STORAGE_ITEMS)
+var ALL_ITEMS = Object.assign({}, global.STORAGE_ITEMS)
 
 $("#prof_loader").on({
     click: e=> {
@@ -42,11 +42,11 @@ function createTable(data) {
         var recipe_container = create_element('div', `recipe-container data-container q${recipe.quality}`, '', '', {'data-ix': recipe.ix})
         td.appendChild(recipe_container)
 
-        var image_name = static_url+`images/icons/large/${recipe.img}.jpg`
+        var image_name = global.static_url+`images/icons/large/${recipe.img}.jpg`
         var recipe_img_el = create_element('img', 'icon-medium recipe-image', `background-image: url(${image_name});`)
         recipe_container.appendChild(recipe_img_el)
 
-        recipe_img_el.src = static_url+"images/icon_border_2.png"
+        recipe_img_el.src = global.static_url+"images/icon_border_2.png"
         recipe_img_el.addEventListener("mouseover", tooltip.init)
         recipe_img_el.addEventListener("mouseleave", tooltip.mouseleaveCleanup)
 
@@ -63,14 +63,14 @@ function createTable(data) {
             var mat_container = create_element('div', 'data-container', 'display: inline-block;', '', {'data-ix': mat.ix})
             mats_td.appendChild(mat_container)
 
-            var mat_image_name = static_url+`images/icons/large/${mat.img}.jpg`
+            var mat_image_name = global.static_url+`images/icons/large/${mat.img}.jpg`
             var mat_img = create_element('img', 'icon-medium', `background-image: url(${mat_image_name});`)
             mat_container.appendChild(mat_img)
 
             mat_img.addEventListener("mouseover", tooltip.init)
             mat_img.addEventListener("mouseleave", tooltip.mouseleaveCleanup)
 
-            mat_img.src = static_url+"images/icon_border_2.png"
+            mat_img.src = global.static_url+"images/icon_border_2.png"
 
             if (mat.step > 1) {
                 var count_container = create_element('span', 'count-container')

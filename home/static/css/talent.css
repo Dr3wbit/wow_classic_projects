@@ -366,6 +366,7 @@
     right: 2px;
     top: 3px;
     position: absolute;
+    cursor: pointer;
 }
 
 svg.icon {

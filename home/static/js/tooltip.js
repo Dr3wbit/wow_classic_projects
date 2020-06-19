@@ -4,19 +4,40 @@ var tooltip = {
     static: false,
     rectangle: '',
     dad: document.getElementById("tooltip_container"),
+    container: {width: '', height:''},
     init: function(e) {
         tooltip.empty()
 
         if (tooltip.static) {
-            var rectangle = e.target.getBoundingClientRect()
-            tooltip.rectangle = rectangle
-            tooltip.coords.x = Math.ceil(rectangle.right) - 3
-            tooltip.coords.y = Math.ceil(rectangle.top) + 7 + window.scrollY
+            var recktangle = e.target.getBoundingClientRect()
+            tooltip.rectangle = recktangle
+
+            tooltip.coords.x = recktangle.right - 3
+            tooltip.coords.y = recktangle.top + 5 + window.scrollY
 
         } else {
             tooltip.coords.x = e.pageX
             tooltip.coords.y = e.pageY
         }
+    },
+    infobox: function(e) {
+        document.getElementById("offsetX").innerText = e.offsetX
+        document.getElementById("offsetY").innerText = e.offsetY
+        document.getElementById("pageX").innerText = e.pageX
+        document.getElementById("pageY").innerText = e.pageY
+        document.getElementById("screenX").innerText = e.screenX
+        document.getElementById("screenY").innerText = e.screenY
+        document.getElementById("clientX").innerText = e.clientX
+        document.getElementById("clientY").innerText = e.clientY
+        document.getElementById("coordsX").innerText = tooltip.coords.x.toFixed(2)
+        document.getElementById("coordsY").innerText = tooltip.coords.y.toFixed(2)
+        var rectangle = tooltip.dad.getBoundingClientRect()
+
+        document.getElementById("boundingX").innerText = rectangle.x.toFixed(2)
+        document.getElementById("boundingY").innerText = rectangle.y.toFixed(2)
+        document.getElementById("rectangleW").innerText = tooltip.dad.offsetWidth
+        document.getElementById("rectangleH").innerText = tooltip.dad.offsetHeight
+
     },
     empty: function() {
         while (this.dad.firstChild) {
@@ -33,9 +54,11 @@ var tooltip = {
         e.target.addEventListener('mousemove', tooltip.updateCoords)
     },
     updateCoords: function(e) {
-        tooltip.coords.x = tooltip.coords.x + e.movementX
-        tooltip.coords.y = tooltip.coords.y + e.movementY
-        // tooltip.checkDimensions()
+        // tooltip.coords.x += e.movementX
+        // tooltip.coords.y += e.movementY
+        tooltip.coords.x = e.pageX - (tooltip.dad.offsetWidth - tooltip.container.width) + 5
+        tooltip.coords.y = e.pageY - (tooltip.dad.offsetHeight - 5)
+        tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
     },
     setPosition: function(x=this.coords.x, y=this.coords.y) {
@@ -48,11 +71,12 @@ var tooltip = {
         console.log(message)
     },
     checkDimensions: function() {
+        var right = (tooltip.static) ? tooltip.rectangle.right : tooltip.coords.x
 
-        if ((tooltip.dad.offsetWidth + tooltip.coords.x) > window.screen.availWidth) {
+        if ((tooltip.dad.offsetWidth + right) > window.screen.availWidth) {
 
             if (tooltip.static) {
-                tooltip.coords.x = tooltip.rectangle.left + 3 - tooltip.dad.offsetWidth
+                tooltip.coords.x = tooltip.rectangle.left + 5 - tooltip.dad.offsetWidth
             } else {
                 tooltip.coords.x -= tooltip.dad.offsetWidth - 45
             }
@@ -67,18 +91,18 @@ var tooltip = {
         e.target.removeEventListener('mousemove', tooltip.updateCoords)
     },
 
-    create: function(response) {
+    create: function(response, e='') {
         var data = (response.responseJSON) ? response.responseJSON : response
         var container = create_element('div', 'tooltip-container', 'white-space: pre-wrap;')
         container.id = 'tooltip'
 
     	if (data.img) {
-    		let image_name = static_url+`images/icons/large/${data.img}.jpg`
+    		let image_name = `${global.static_url}images/icons/large/${data.img}.jpg`
             style = `pointer-events: none; background-image: url(${image_name})`
 
     		var img = create_element('img', 'icon-medium', style)
             img.id = 'tooltip_image'
-    		img.src = static_url+"images/icon_border_2.png"
+    		img.src = `${global.static_url}images/icon_border_2.png`
     		tooltip.dad.appendChild(img)
     	}
 
@@ -315,15 +339,20 @@ var tooltip = {
     	}
 
     	tooltip.dad.appendChild(container)
+
+        tooltip.container.width = container.offsetWidth
+        tooltip.container.height = container.offsetHeight
+
         if (tooltip.static) {
-            tooltip.coords.x = (Math.ceil(tooltip.rectangle.right) - 3) - (tooltip.dad.offsetWidth - container.offsetWidth) + 5
-            tooltip.coords.y = Math.ceil(tooltip.rectangle.top) + 7 + window.scrollY - tooltip.dad.offsetHeight - 5
+            tooltip.coords.x = ((tooltip.rectangle.right) - 3) - (tooltip.dad.offsetWidth - container.offsetWidth) + 5
+            tooltip.coords.y = ((tooltip.rectangle.top) + 7 + window.scrollY - tooltip.dad.offsetHeight - 5)
         } else {
             tooltip.coords.x = tooltip.coords.x - (tooltip.dad.offsetWidth - container.offsetWidth) + 5
             tooltip.coords.y = tooltip.coords.y - (tooltip.dad.offsetHeight - 5)
 
         }
-        // tooltip.checkDimensions()
+        tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
+
     }
 }

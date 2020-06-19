@@ -5,6 +5,7 @@ from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Ta
 from itertools import chain
 from operator import attrgetter
 from django.template.loader import render_to_string
+import os
 
 def consume_list_builder(request):
 	data = {}
@@ -50,6 +51,44 @@ def consume_list_builder(request):
 
 	if not consume_list:
 		response.status_code = 404
+
+	return response
+
+
+def get_spec_info(request):
+
+	data = {}
+	status_code = 404
+
+	data['hash'] = request.GET.get('hash', None)
+	qs = request.META.get('QUERY_STRING', None)
+	data['wow_class'] = request.GET.get('wow_class', None)
+
+	data['hash'] = data['hash'].replace("?", "")
+	list_info = {}
+
+	if data['hash'] and data['wow_class']:
+
+		wow_class = WoWClass.objects.filter(name=data['wow_class'].title())
+		if wow_class:
+			wow_class = wow_class.first()
+			spec = Spec.objects.filter(user=request.user, hash=data['hash'], wow_class=wow_class)
+
+
+			if spec:
+				spec = spec.first()
+				status_code = 200
+				list_info['name'] = spec.name
+				list_info['user'] = spec.user.disc_username
+				list_info['description'] = spec.description
+				list_info['updated'] = spec.updated
+				list_info['tags'] = [x.name for x in spec.tags.all()]
+
+
+	data['list_info'] = list_info
+
+	response = JsonResponse(data, safe=False)
+	response.status_code = status_code
 
 	return response
 
@@ -175,18 +214,19 @@ def update_icon(request):
 
 	data['id'] = id
 	data['img'] = img
-
 	if not img or not id:
 		status_code = 400
 
 	else:
+
 		data['queue_type'] = request.user.queue_type
 		if request.user.queue_type == 1:
-			saved_list = Spec.objects.filter(id=id, user=request.user).first()
+			saved_list = Spec.objects.filter(id=id, user=request.user)
 		else:
-			saved_list = ConsumeList.objects.filter(id=id, user=request.user).first()
+			saved_list = ConsumeList.objects.filter(id=id, user=request.user)
 
 		if saved_list:
+			saved_list = saved_list.first()
 			saved_list.img = img+".jpg"
 			saved_list.save()
 			data['message'] = "{} updated to use icon: {}".format(saved_list.name, img)
@@ -237,7 +277,6 @@ def icon_list(request):
 	if id and queue:
 		request.user.queue = int(id)
 		context['info']['id'] = int(id)
-
 		request.user.queue_type = int(queue)
 		request.user.save()
 
@@ -276,20 +315,17 @@ def icon_list(request):
 def flag_list(request):
 	uid = request.POST.get("uid", None)
 	ix = request.POST.get("ix", None)
-	print(request.POST)
-
 
 	wow_class = request.POST.get("wow_class", None)
 	data = {}
 	if wow_class:
-		print('wow_class')
-
-		saved_list = Spec.objects.filter(id=int(ix)).first()
+		saved_list = Spec.objects.filter(id=int(ix))
 
 	else:
-		saved_list = ConsumeList.objects.filter(id=(ix)).first()
+		saved_list = ConsumeList.objects.filter(id=(ix))
 
 	if saved_list:
+		saved_list = saved_list.first()
 		saved_list.visible = False
 		saved_list.flagged = True
 		saved_list.save()
@@ -342,13 +378,15 @@ def savedlist_info(request):
 	context = {}
 	if id:
 		if caller == 'tc':
-			saved_list = Spec.objects.filter(id=id).first()
+			saved_list = Spec.objects.filter(id=id)
 			if saved_list:
+				saved_list = saved_list.first()
 				context['spec'] = saved_list
 
 		elif caller == 'pt':
-			saved_list = ConsumeList.objects.filter(id=id).first()
+			saved_list = ConsumeList.objects.filter(id=id)
 			if saved_list:
+				saved_list = saved_list.first()
 				context['consume_list'] = saved_list
 				context['materials'] = get_materials(saved_list)
 
@@ -417,8 +455,6 @@ def query_saved_lists(request):
 		query_consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
 		query_specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
 
-		print('query_specs.count: ', query_specs.count())
-		print('query_consume_lists.count: ', query_consume_lists.count())
 
 		if specs:
 			specs = specs.union(query_specs)
@@ -436,7 +472,6 @@ def query_saved_lists(request):
 		sorting = sorting[0]
 
 		sorting = list(sorting)
-		print(sorting)
 		sign = sorting.pop(0)
 		sign = '' if sign == '+' else sign
 		sorting = ''.join(sorting)
@@ -507,11 +542,12 @@ def delete_rating(request):
 
 			if wow_class:
 				data['wow_class'] = wow_class
-				saved_list = Spec.objects.filter(id=id).first()
+				saved_list = Spec.objects.filter(id=id)
 			else:
-				saved_list = ConsumeList.objects.filter(id=id).first()
+				saved_list = ConsumeList.objects.filter(id=id)
 
 			if saved_list:
+				saved_list = saved_list.first()
 				data['uid'] = saved_list.user.uid
 				rating = saved_list.ratings.filter(user=request.user).first()
 				rating_value = rating.value
@@ -567,41 +603,41 @@ def save_rating(request):
 def delete_list(request):
 	name = request.POST.get('name', None)
 	wow_class = request.POST.get('wow_class', None)
+
 	data = {}
 
+	data['success'] = False
+	data['message'] = 'SAVED LIST {} NOT FOUND, UNABLE TO DELETE'.format(name)
+	status_code = 400
 	if request.is_ajax():
 		if request.user.is_authenticated:
 			user = request.user
 			if wow_class:
 				data['wow_class'] = wow_class
-				saved_list = Spec.objects.filter(name=name, user=user).first()
+				saved_list = Spec.objects.filter(name=name, user=user)
 			else:
-				saved_list = ConsumeList.objects.filter(name=name, user=user).first()
+				saved_list = ConsumeList.objects.filter(name=name, user=user)
+
+			data['name'] = name
 
 			if saved_list:
-				data['name'] = name
-				saved_list.delete()
+				saved_list.first().delete()
 				data['message'] = 'SUCCESSFULLY DELETED {}'.format(name)
 				data['success'] = True
-				response = JsonResponse(data)
+				status_code = 200
 
-			else:
-				data['name'] = name
-
-				data['success'] = False
-				data['message'] = 'SAVED LIST {} NOT FOUND, UNABLE TO DELETE'.format(name)
-				response = JsonResponse(data)
-
+	response = JsonResponse(data)
+	response.status_code = status_code
 	return response
 
 def load_spec(request):
 	data = {}
 	name = request.GET.get('spec_name', None)
 	id = request.GET.get('id', None)
-	print('id: ', id)
 	if id:
-		spec = Spec.objects.filter(id=id).first()
+		spec = Spec.objects.filter(id=id)
 		if spec:
+			spec = spec.first()
 			data['hash'] = spec.hash
 	#
 	# if name:

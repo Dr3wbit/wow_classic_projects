@@ -1,5 +1,5 @@
 {% load static %}
-<div class="saved">
+<div id='saved_lists'>
 	<div class="saved-container">
 		<div class="saved-title">
 			<div class="side-bar-toggle"></div>
@@ -16,14 +16,17 @@
 				<div class="spec-container">
 					<div class="saved-list-icon" style="background-image: url('{% static image_prefix|add:spec.img %}');"
 						data-ix="{{spec.id}}">
+						<a class="btn btn-sm edit-image untouchable">
+							<span class="glyphicon untouchable"></span>
+						</a>
 					</div>
 					<div class="info-container">
 						<div class="spec-info">
-							<span class="{{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
+							<span class="wow-class {{spec.wow_class.name|sanitize}}">{{spec.wow_class.name}}</span>
 							<span style="font-size: 90%;">({% with trees=spec.treeallotted_set.all %}{% for tree in trees %}{% if not tree == trees|first %}/{% else %}{% endif %}{{tree.invested}}{% endfor %}{% endwith %})</span>
 						</div>
 
-						<div class="spec-list-item">{{spec.name}}
+						<div class="spec-list-item" name="{{spec.name}}">{{spec.name}}
 							<span class="saved-list-name">
 								{% if "talent_calc" in request.path %}
 								<a class="saved-list-link" href="{% url 'talent_helper' spec.wow_class.name|lower %}?{{spec.hash}}">
@@ -48,6 +51,9 @@
 				<div class="spec-container">
 					<div class="saved-list-icon" data-ix="{{consume_list.id}}"
 						style="background-image: url('{% static image_prefix|add:consume_list.img %}');">
+						<a class="btn btn-sm edit-image untouchable">
+							<span class="glyphicon untouchable"></span>
+						</a>
 					</div>
 					<div class="info-container">
 						<div class="spec-info">
@@ -90,9 +96,65 @@
 					{% endif %}
 				</p>
 			</div>
+			{% comment %}
+			<div class='col'>
+				<table class='table table-sm table-striped table-dark' style='border: 1px solid white;'>
+					<thead>
+						<tr>
+							<th></th>
+							<th>x</th>
+							<th>y</th>
+						</tr>
+					</thead>
+
+
+					<tbody>
+						<tr>
+							<td>e.offset</td>
+							<td><span class="fix-me" id='offsetX'></span></td>
+							<td><span class="fix-me" id='offsetY'></span></td>
+						</tr>
+						<tr>
+							<td>e.screen</td>
+							<td><span class="fix-me" id='screenX'></span></td>
+							<td><span class="fix-me" id='screenY'></span></td>
+						</tr>
+						<tr>
+							<td>e.page</td>
+							<td><span class="fix-me" id='pageX'></span></td>
+							<td><span class="fix-me" id='pageY'></span></td>
+						</tr>
+						<tr>
+							<td>e.client</td>
+							<td><span class="fix-me" id='clientX'></span></td>
+							<td><span class="fix-me" id='clientY'></span></td>
+						</tr>
+						<tr>
+							<td>tooltip.coords.</td>
+							<td><span class="fix-me" id='coordsX'></span></td>
+							<td><span class="fix-me" id='coordsY'></span></td>
+						</tr>
+
+						<tr>
+							<td>tooltip.bounding</td>
+							<td><span class="fix-me" id='boundingX'></span></td>
+							<td><span class="fix-me" id='boundingY'></span></td>
+						</tr>
+						<tr>
+							<td>width/height</td>
+							<td><span class="fix-me" id='rectangleW'></span></td>
+							<td><span class="fix-me" id='rectangleH'></span></td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+			{% endcomment %}
 		</div>
+
 	</div>
 </div>
+
 <!-- Modal -->
 <div class="modal bg-transparent fade" id="icon_choice_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

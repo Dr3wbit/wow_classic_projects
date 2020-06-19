@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Ony Buff{% block title %}{% endblock title %}</title>
+    <title> {% block title %}Ony Buff{% endblock title %}</title>
     {% load static %}
     <link rel="icon" type="image/png" href="{% static "images/favicon.ico" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
@@ -54,7 +54,7 @@
 
     <div id="tooltip_container">
     </div>
-    
+
     <script src="{% static "js/jquery-3.4.1.min.js" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -66,14 +66,7 @@
     <script src="{% static "js/global.js" %}"></script>
     <script src="{% static "js/sidebar.js" %}"></script>
     <script>
-        var static_url = "{% get_static_prefix %}";
-        var STORAGE_ITEMS = {}
-        if (storageAvailable('localStorage')) {
-            var keys = Object.keys(localStorage)
-            keys.forEach(function(ix) {
-                STORAGE_ITEMS[ix] = JSON.parse(localStorage.getItem(ix))
-            })
-        }
+        global.static_url = "{% get_static_prefix %}";
     </script>
 
     {% block javascript %}

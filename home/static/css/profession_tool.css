@@ -131,14 +131,11 @@
     /* user-select: none; */
 }
 
-.material-container {
-}
-
-.material-container:hover > span {
+.material-name:hover {
     text-decoration: solid underline;
 }
 
-.consume-container:hover > span {
+.consume-name:hover{
     text-decoration: solid underline;
 }
 
@@ -240,10 +237,16 @@
     top: 15px;
 }
 
-.remove-carrat:after {
+.remove-carrat::after {
     content: none;
 }
 
 /* .list-link {
     pointer-events: none;
 } */
+
+.user-tag::after {
+    content: '\A';
+    white-space: pre;
+
+}

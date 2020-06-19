@@ -754,24 +754,7 @@ ul {
     display: initial;
 }
 
-.trashcan {
-    padding: 1px;
-    position: absolute;
-    top: 0;
-    right: 2px;
-    border: 0;
-    color: rgba(231, 186, 0, 1);
-    -webkit-appearance: none;
-    background-color: transparent;
-}
 
-.trashcan:hover span{
-    color: rgba(187, 0, 0, 1) !important;
-}
-
-.trashcan:focus {
-    box-shadow:0 0 0;
-}
 a.crafted-item-list:hover{
     color: inherit;
 }

@@ -495,11 +495,11 @@ var star = {
 }
 
 function loadSavedLists(data) {
-    var imagePrefix = static_url+'images/icons/large/'
+    var imagePrefix = `${global.static_url}images/icons/large/`
     var savedListContainer = document.getElementById("saved_list_container")
     var listContainer = document.getElementById("list_object")
 
-    var iconBorderPath = static_url+'images/icon_border_2.png'
+    var iconBorderPath = `${global.static_url}images/icon_border_2.png`
 
     data.saved_lists.forEach(function (savedList) {
         var hasWoWClass = (savedList.wow_class) ? true : false

@@ -8,7 +8,7 @@ function save_form_handlers() {
     	submit: e => {
             e.preventDefault()
     		if (window.location.pathname.includes("talent_calc")) {
-    			update_tree_inputs()
+    			// update_tree_inputs()
     		} else {
     			if (Object.keys(professionTool.CONSUMES) < 1) {
     				alert('cant save empty list idiot')
@@ -78,29 +78,22 @@ function oversized_words(max_length = 20) {
 	return violations
 }
 
-function update_tree_inputs() {
-	$("#tree0").val(`${talentPointsSpent.treeNames[0]},${talentPointsSpent[talentPointsSpent.treeNames[0]].total()}`)
-	$("#tree1").val(`${talentPointsSpent.treeNames[1]},${talentPointsSpent[talentPointsSpent.treeNames[1]].total()}`)
-	$("#tree2").val(`${talentPointsSpent.treeNames[2]},${talentPointsSpent[talentPointsSpent.treeNames[2]].total()}`)
-	$("#list_hash").val(urlBuilder())
-}
-
 
 function savedListSuccess(data, textStatus, jqXHR) {
+
 	if (data.created) {
-		appendSavedConsumeList(data)
+        appendSavedList(data)
 	}
-    var prof = ''
     var currentProfession = document.querySelector('a.prof-filter.selected')
     if (currentProfession) {
-        prof = currentProfession.id
+        var prof = currentProfession.id
+        if (data.hash) {
+            var hash = `?${data.hash}`
+            updateURL(prof, hash)
+        }
     }
 	var message = data['message']
 	notifyUser(message)
-    if (data.hash) {
-        var hash = `?${data.hash}`
-        updateURL(prof, hash)
-    }
 
 }
 
@@ -111,137 +104,62 @@ function savedListError(jqXHR, textStatus, errorThrown) {
 	console.log(errorThrown)
 }
 
+function appendSavedList(data) {
 
-//
-// function append_list_item(data) {
-//     console.log('data: ', data)
-// 	let path = document.location.pathname
-// 	let re = /^([^/]*\/[^/]*\/).*$/g;
-// 	let filtered_path = re.exec(path)
-// 	let wow_class = data.wow_class
-// 	let name = data.name
-// 	let icon = (wow_class) ? `class/${wow_class}.jpg` : `inv_misc_book_09.jpg`
-// 	let spec_cont = $("<div/>", {
-// 		class: "spec-container",
-// 	})
-// 	let spec_info = $("<div/>", {
-// 		class: "spec-info",
-// 	})
-// 	let info_cont = $("<div/>", {
-// 		class: "info-container",
-// 	})
-// 	let save_icon = $("<div/>", {
-// 		class: "saved-list-icon",
-// 		style: `background-image: url('/static/images/icons/large/${icon}')`
-// 	})
-//
-// 	let child_text = (wow_class) ? `${utilities.titleCase(wow_class)}` : `${name}`
-// 	let spec_info_child = $("<span/>", {
-// 		text: child_text,
-// 	})
-// 	if (wow_class) {
-// 		spec_info_child.addClass(`${wow_class}`)
-// 		spec_info.append(spec_info_child, ' ', $("<span/>", {
-// 			style: "font-size: 90%;",
-// 			text: `(${data.spent[3]}/${data.spent[4]}/${data.spent[5]})`,
-// 		}))
-// 	} else {
-// 		spec_info.append(spec_info_child)
-// 	}
-//
-// 	let spec_item = $("<div/>", {
-// 		class: "spec-list-item progress-bar-striped progress-bar-animated",
-// 		name: name,
-// 		text: name,
-// 		style: "position: relative;",
-// 		href: `${filtered_path[1]}${data.id}?${data.hash}`,
-// 		'data-ix': data.id
-// 	})
-// 	if (wow_class) {
-// 		spec_item.attr("data-wowclass", wow_class)
-// 	}
-//
-// 	let trashcan = ($("<button/>", {
-// 		class: "btn btn-sm float-right trashcan",
-// 		name: "delete",
-// 		value: name,
-// 		type: "button",
-// 		title: "Delete"
-// 	}))
-//
-// 	trashcan.append($("<span/>", {
-// 		class: "glyphicon glyphicon-trash glyphicon-custom"
-// 	}))
-//
-//
-// 	spec_item.append(trashcan)
-// 	info_cont.append(spec_info, spec_item)
-// 	spec_cont.append(save_icon, info_cont)
-//
-// 	if (wow_class) {
-// 		$("#saved_specs").append(spec_cont)
-// 	} else {
-// 		$("#saved_consume_lists").append(spec_cont)
-// 	}
-//
-// 	setTimeout(() => {
-// 		$(".selected.spec-list-item").removeClass("selected")
-// 		$(".progress-bar-striped.progress-bar-animated.spec-list-item").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
-// 		$(".selected.spec-list-item").click()
-// 	}, 2000)
-// }
-
-function appendSavedConsumeList(data) {
     var imagePrefix = "images/icons/large/"
 
-    var consumeList = document.getElementById('saved_consume_lists')
+    var container, infoSpan,
+        listContainer = create_element('div', 'spec-container'),
+        iconPath = `${global.static_url}${imagePrefix}${data.img}`;
+    var savedListIcon = create_element('div', 'saved-list-icon', `background-image: url('${iconPath}');`, '', {'data-ix': data.id}),
+        infoContainer = create_element('div', 'info-container'),
+        specInfo = create_element('div', 'spec-info'),
+        specListItem = create_element('div', 'spec-list-item progress-bar-striped progress-bar-animated', '', data.name, {'name': data.name}),
+        editImage = create_element('a', 'btn-sm edit-image untouchable'),
+        editGlyph = create_element('span', 'glyphicon untouchable'),
+        savedListName = create_element('span', 'saved-list-name'),
+        savedListLink = create_element('a', 'saved-list-link'),
+        trashCan = create_element('button', 'btn btn-sm float-right trashcan', '', '', {'name': 'delete', 'title':'Delete', 'value': data.name, 'type': 'button'}),
+        glyphIcon = create_element('span', 'glyphicon glyphicon-trash glyphicon-custom');
 
-    var listContainer = create_element('div', 'spec-container')
-    consumeList.appendChild(listContainer)
 
-    var iconPath = static_url + imagePrefix + data.img
+    if (data.wow_class) {
+        container = document.getElementById('saved_specs')
+        infoSpan = create_element('span', `wow-class ${data.wow_class}`, '', titleCase(data.wow_class))
 
-    var savedListIcon = create_element('div', 'saved-list-icon', `background-image: url('${iconPath}');`, '', {'data-ix': data.id})
+        var allottedTalents = create_element('span', '', 'font-size:90%;', ` (${data.spent[3]}/${data.spent[4]}/${data.spent[5]})`)
+        specInfo.appendChild(allottedTalents)
+        savedListLink.href = `/talent_calc/${data.wow_class}?${data.hash}`
+
+    } else {
+
+        container = document.getElementById('saved_consume_lists')
+        infoSpan = create_element('span', '', '', data.profs.join(', '))
+        savedListLink.href = `/profession_tool?${data.hash}`
+    }
+
+    specInfo.insertBefore(infoSpan, specInfo.firstChild)
+
+    container.appendChild(listContainer)
     listContainer.appendChild(savedListIcon)
-
-    var infoContainer = create_element('div', 'info-container')
+    savedListIcon.appendChild(editImage)
+    editImage.appendChild(editGlyph)
     listContainer.appendChild(infoContainer)
-
-    var specInfo = create_element('div', 'spec-info')
     infoContainer.appendChild(specInfo)
-
-    var profsUsedSpan = create_element('span', '', '', data.profs.join(', '))
-    specInfo.appendChild(profsUsedSpan)
-
-    var specListItem = create_element('div', 'spec-list-item progress-bar-striped progress-bar-animated', '', data.name)
-    specListItem.name = data.name
-
     infoContainer.appendChild(specListItem)
-
-
-    var savedListName = create_element('span', 'saved-list-name')
-
     specListItem.appendChild(savedListName)
-
-    var savedListLink = create_element('a', 'saved-list-link')
-    savedListLink.href = `/profession_tool?${data.hash}`
-
     savedListName.appendChild(savedListLink)
-
-
-    var trashCan = create_element('button', 'btn btn-sm float-right trashcan', '', '', {'name': 'delete', 'title':'Delete', 'value': data.name, 'type': 'button'})
-    var glyphIcon = create_element('span', 'glyphicon glyphicon-trash glyphicon-custom')
-
     trashCan.appendChild(glyphIcon)
-
     specListItem.appendChild(trashCan)
 
     setTimeout(() => {
-		$(".selected.spec-list-item").removeClass("selected")
-		$(".progress-bar-striped.progress-bar-animated.spec-list-item").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
-		// $(".selected.spec-list-item").click()
-	}, 2000)
+        $(".selected.spec-list-item").removeClass("selected")
+        $(".progress-bar-striped.progress-bar-animated.spec-list-item").addClass("selected").removeClass("progress-bar-striped progress-bar-animated")
+        // $(".selected.spec-list-item").click()
+    }, 2000)
 }
+
+
 
 var serialize = function (form) {
 

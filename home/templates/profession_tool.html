@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}- Profession Tool{% endblock title %}
+{% block title %}Profession Tool{% endblock title %}
 
 {% load static %}
 {% block extra_head %}
 {% csrf_token %}
 <link rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
-
+<link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
 {% endblock extra_head %}
 
 {% block mainbody %}

@@ -188,30 +188,23 @@ class IndexView(TemplateView):
 
 
 class TalentCalcTemplate(TemplateView):
-	nope = re.compile(r"[\-]")
-	forbidden = re.compile(r"[\:\'\(\)]")
-	def sanitize(self, s):
-		a = self.forbidden.sub('', str(s))
-		a = self.nope.sub(' ', a).strip().replace(' ', '_').lower()
-		return(a)
-
 	form_class = SpecForm
 
 
-	def setup(self, request, *args, **kwargs):
-		setup = super().setup(request, *args, **kwargs)
-		return setup
-
-	# @method_decorator(never_cache)
-	def dispatch(self, request, *args, **kwargs):
-		dispatch = super().dispatch(request, *args, **kwargs)
-		return dispatch
+	# def setup(self, request, *args, **kwargs):
+	# 	setup = super().setup(request, *args, **kwargs)
+	# 	return setup
+	#
+	# # @method_decorator(never_cache)
+	# def dispatch(self, request, *args, **kwargs):
+	# 	dispatch = super().dispatch(request, *args, **kwargs)
+	# 	return dispatch
 
 	def talent_architect(self, context):
 		class_name = context["selected"]
-		wow_class = WoWClass.objects.filter(name=class_name.title()).first()
+		wow_class = WoWClass.objects.filter(name=class_name.title())
 		if wow_class:
-
+			wow_class = wow_class.first()
 			talent_trees = wow_class.talenttree_set.all()
 			context["talent_trees"] = []
 			blueprints = {}
@@ -227,7 +220,7 @@ class TalentCalcTemplate(TemplateView):
 							next_tal = next(all_talents)
 							val = [inner_v] if type(inner_v) is not list else inner_v
 							val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
-							blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':self.sanitize(next_tal.name), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
+							blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':sanitize(next_tal.name), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
 
 			context["blueprints"] = blueprints
 			return(context)
@@ -235,21 +228,20 @@ class TalentCalcTemplate(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
+		id = ''
 		if 'id' in request.session:
 			id = request.session['id']
-			context['id'] = id
-			spec = Spec.objects.filter(id=id).first()
-			if spec:
-				context["spec"] = spec
-
 			del request.session['id']
 		else:
 			id = self.kwargs.get('id', None)
-			if id:
-				context['id'] = id
-				spec = Spec.objects.filter(id=id).first()
-				if spec:
-					context["spec"] = spec
+
+		if id:
+			context['id'] = id
+			spec = Spec.objects.filter(id=id)
+
+			if spec:
+				spec = spec.first()
+				context["spec"] = spec
 
 		context['form'] = self.form_class()
 		context["classes"] = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
@@ -272,9 +264,11 @@ class TalentCalcTemplate(TemplateView):
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
 		context = {}
-		context['form'] = form
+		print('request.POST: ', request.POST)
+		print('request.is_ajax: ', request.is_ajax())
 
 		if form.is_valid():
+			context['form'] = form
 			if request.is_ajax():
 				try:
 					form_data = self.save_list(request, form.cleaned_data)
@@ -288,7 +282,8 @@ class TalentCalcTemplate(TemplateView):
 						'spent': form_data['spent'],
 						'message': message,
 						'hash': form_data['hash'],
-						'id': form_data['id']
+						'id': form_data['id'],
+						'img': form_data['img']
 					}
 					response = JsonResponse(data)
 
@@ -303,23 +298,27 @@ class TalentCalcTemplate(TemplateView):
 					response.status_code = 400
 
 			else:
-				response = HttpResponseRedirect('talent_calc')
+				print('not ajax???')
+				response = HttpResponseRedirect('not_ajax')
 		else:
 			print('save failed, redirecting to previous page...')
-			response = HttpResponseRedirect('talent_calc')
+			response = HttpResponseRedirect('form_not_valid')
 
 		return response
 
 
 	def save_list(self, request, cleaned_data):
-		data['hash'] = request.POST.get('hash', None)
+		data = dict(request.POST)
+		data['hash'] = cleaned_data['hash']
+
+		data['private'] = cleaned_data['private']
+		data['description'] = cleaned_data['description']
+		data['name'] = cleaned_data['name']
+
 		data['wow_class'] = request.POST.get('wow_class', None)
-		private = cleaned_data['private']
-		description = cleaned_data['description']
-		name = cleaned_data['name']
+		print('data: ', data)
 		tags = request.POST.getlist('tags')
 		spnt = request.POST.getlist('spent')
-		data = dict(request.POST)
 		spent = {}
 		for x in spnt:
 			y = x.split(',')
@@ -328,17 +327,19 @@ class TalentCalcTemplate(TemplateView):
 
 		if request.user.is_authenticated:
 			user = request.user
-			if data['hash'] and data['wow_class'] and name:
+			if data['hash'] and data['wow_class'] and data['name']:
 				wow_class = WoWClass.objects.get(name=data['wow_class'].title())
 				spec,spec_created = Spec.objects.update_or_create(
-					name=name, user=user, wow_class=wow_class,
-					defaults={'name': name, 'user':user,
-						'wow_class':wow_class, 'hash': url, 'description':description, 'private':private
+					name=data['name'], user=user, wow_class=wow_class,
+					defaults={'name': data['name'], 'user':user,
+						'wow_class':wow_class, 'hash': data['hash'],
+						'description':data['description'], 'private':cleaned_data['private']
 					}
 				)
 				data['created'] = True if spec_created else False
 				data['id'] = spec.id
 
+				data['img'] = spec.img
 				for tag in tags:
 					t,tag_created = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
 
@@ -399,8 +400,9 @@ class ConsumeBuilderRedirectView(RedirectView):
 		# if id:
 			# new_url = new_url+"/{}".format(id)
 
-		cl = ConsumeList.objects.filter(id=id).first()
+		cl = ConsumeList.objects.filter(id=id)
 		if cl:
+			cl = cl.first()
 			self.request.session['id'] = id
 			cl = ConsumeList.objects.get(id=id)
 			qs = cl.hash
@@ -460,9 +462,10 @@ class ConsumeToolTemplate(TemplateView):
 			id = self.kwargs.get('id')
 
 		if id:
-			cl = ConsumeList.objects.filter(id=id).first()
+			cl = ConsumeList.objects.filter(id=id)
 
 		if cl:
+			cl = cl.first()
 			context['ix'] = id
 			context["consume_list"] = cl
 			context['materials'] = get_materials(context["consume_list"])
@@ -515,8 +518,9 @@ class ConsumeToolTemplate(TemplateView):
 		if data.keys() and qs:
 			# context['consumes'] = {}
 			context['materials'] = {}
-			cl = ConsumeList.objects.filter(hash=qs).first()
+			cl = ConsumeList.objects.filter(hash=qs)
 			if cl:
+				cl = cl.first()
 				context['consume_list'] = cl
 				context['materials'] = get_materials(cl)
 
@@ -598,9 +602,10 @@ class ConsumeToolTemplate(TemplateView):
 					id = self.kwargs.get('id')
 
 				if id:
-					cl = ConsumeList.objects.filter(id=id).first()
+					cl = ConsumeList.objects.filter(id=id)
 
 				if cl:
+					cl = cl.first()
 					context['ix'] = id
 					context["consume_list"] = cl
 					context['materials'] = get_materials(context["consume_list"])
@@ -651,8 +656,9 @@ class ConsumeToolTemplate(TemplateView):
 				if data.keys() and qs:
 					# context['consumes'] = {}
 					context['materials'] = {}
-					cl = ConsumeList.objects.filter(hash=qs).first()
+					cl = ConsumeList.objects.filter(hash=qs)
 					if cl:
+						cl = cl.first()
 						context['consume_list'] = cl
 						context['materials'] = get_materials(cl)
 
