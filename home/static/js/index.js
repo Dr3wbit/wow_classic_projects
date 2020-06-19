@@ -136,7 +136,12 @@ var paginate = {
             currentPage = this.pages
             return false
         }
-        document.getElementsByClassName('page-nav active')[0].classList.remove('active')
+        var activeNavs = document.querySelectorAll('.page-nav.active')
+
+        if (activeNavs.length) {
+            activeNavs[0].classList.toggle('active')
+        }
+        
         var pageNumberNavs = document.querySelectorAll('a.page-nav:not(.prev-page):not(.next-page)')
         pageNumberNavs[currentPage-1].classList.add('active')
         var start = ( (currentPage - 1) * this.list.page ) + 1
