@@ -136,22 +136,6 @@ var talentCalc = {
 						foo()
 
 					}
-
-					// if (e.target.matches('.trashcan')) {
-					// 	var data = {}
-					// 	var parent = e.target.closest('div.spec-list-item')
-					// 	var link = parent.querySelector('a.saved-list-link').href
-					// 	var hash = new URL(href = link).search
-					// 	data['hash'] = hash
-					// 	data['name'] = parent.name
-					// 	$.ajax({
-					// 		method: "POST",
-					// 		url: '/ajax/delete_list/',
-					// 		data: data,
-					// 		success: trashCanSuccess,
-					// 		error: trashCanError,
-					// 	})
-					// }
 				});
 			}
 
@@ -455,7 +439,6 @@ var talentCalc = {
 				success: talentCalc.update.listInfo,
 				error: trashCanError,
 			})
-
 
 		},
 		classData: function(WoWClass) {

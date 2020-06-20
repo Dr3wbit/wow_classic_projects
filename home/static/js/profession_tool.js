@@ -12,7 +12,6 @@ window.addEventListener('load', function(e) {
 	var selectedProfession = professionTool.PROFS.filter(substring => document.location.pathname.includes(substring))
 	if (selectedProfession.length) { // simulate click on said profession
 		document.querySelector(`#${selectedProfession[0]}.prof-filter`).click()
-		// $(`#${selectedProfession[0]}.prof-filter`).trigger("click")
 	}
 
 	// var matchedhref = checkLocalHashes()
@@ -58,11 +57,12 @@ var professionTool = {
 	update: {
 		item: function(ix, amount=1, step=1) {
 			var recipe = professionTool.ITEMS[ix]
-			professionTool.add.item(professionTool.CONSUMES, ix, amount, step, 'consumes')
+			professionTool.add.item(ix, amount, step, 'consumes')
 
 			for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
 				// var materialStep = (material.step) ? material.step : matStep.step
-				professionTool.add.item(professionTool.MATERIALS, matIX, amount, materialStep, 'materials')
+
+				professionTool.add.item(matIX, amount, materialStep, 'materials')
 			}
 		},
 		element: function(ix, parent) {
@@ -138,13 +138,13 @@ var professionTool = {
 			var tow = create_element('div', 'row')
 			listInfoContainer.appendChild(tow)
 
-			var craftedTableContainer = create_element('div', 'col-md-6 col-sm-3')
+			var craftedTableContainer = create_element('div', 'col-md-6 col-sm-6')
 			var craftedTable = professionTool.createTable('Crafted Items', professionTool.CONSUMES)
 
 			tow.appendChild(craftedTableContainer)
 			craftedTableContainer.appendChild(craftedTable)
 
-			var materialTableContainer = create_element('div', 'col-md-6 col-sm-3')
+			var materialTableContainer = create_element('div', 'col-md-6 col-sm-6')
 			var materialTable = professionTool.createTable('Total Materials', professionTool.MATERIALS)
 
 			tow.appendChild(materialTableContainer)
@@ -194,23 +194,30 @@ var professionTool = {
 		return table
 	},
 	add: {
-		item: function(itemObj, ix, amount=1, step=1, parent) {
+		// add (or remove) material or consume objs/elements
+		item: function(ix, amount=1, step=1, parent) {
+			var itemObj = (parent == 'consumes') ? professionTool.CONSUMES : professionTool.MATERIALS
 			if (!itemObj[ix]) {
 				itemObj[ix] = amount * step
 				professionTool.add.toPage(ix, parent)
 			} else {
 				itemObj[ix] += amount * step
-				professionTool.update.element(ix, parent)
+
+				if (itemObj[ix] <= 0) {
+					// var parentElem =
+					var elem = document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']:not(.part)`)
+					professionTool.empty(elem, {'includeParent':true})
+
+					// professionTool.remove.element(ix, parent)
+
+					delete itemObj[ix]
+				} else {
+					professionTool.update.element(ix, parent)
+				}
+
 			}
 
-			if (itemObj[ix] <= 0) {
-				var parentElem =
-				professionTool.empty(document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']`), {'includeParent':true})
 
-				// professionTool.remove.element(ix, parent)
-
-				delete itemObj[ix]
-			}
 		},
 		toPage: function(ix, parent) {
 			var parentElem;
@@ -262,7 +269,7 @@ var professionTool = {
 				for (let [matIX, matStep] of Object.entries(recipe.materials)) {
 					var materialAmount = (professionTool.CONSUMES[ix]/recipe.step)*matStep,
 						material = professionTool.ITEMS[matIX],
-						materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX}),
+						materialListItem = create_element('div', 'materials-list-item data-container part', '', '', {'data-ix': matIX}),
 						materialContainer = create_element('span', 'material-container');
 
 					var imagePath = `${imagePrefix}${material.img}`
@@ -325,14 +332,16 @@ var professionTool = {
 			}
 		}
 	},
-	empty: function(parent, options={}) {
+	empty: function(parent=false, options={}) {
+			if (parent) {
+				while (parent.firstChild) {
+					parent.removeChild(parent.firstChild);
+				}
+				if (options.includeParent) {
+					parent.remove()
+				}
+			}
 
-			while (parent.firstChild) {
-				parent.removeChild(parent.firstChild);
-			}
-			if (options.includeParent) {
-				parent.remove()
-			}
 	},
 	get: {
 		consumeList: function(url) {
