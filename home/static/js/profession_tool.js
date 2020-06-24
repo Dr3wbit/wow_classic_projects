@@ -197,14 +197,13 @@ var professionTool = {
 		// add (or remove) material or consume objs/elements
 		item: function(ix, amount=1, step=1, parent) {
 			var itemObj = (parent == 'consumes') ? professionTool.CONSUMES : professionTool.MATERIALS
-			if (!itemObj[ix]) {
+			if (!itemObj[ix] && amount >= 1) {
 				itemObj[ix] = amount * step
 				professionTool.add.toPage(ix, parent)
-			} else {
+			} else if (itemObj[ix]){
 				itemObj[ix] += amount * step
 
 				if (itemObj[ix] <= 0) {
-					// var parentElem =
 					var elem = document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']:not(.part)`)
 					professionTool.empty(elem, {'includeParent':true})
 
