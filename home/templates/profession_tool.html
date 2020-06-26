@@ -2,10 +2,15 @@
 {% block title %}Profession Tool{% endblock title %}
 
 {% load static %}
-{% block extra_head %}
 {% csrf_token %}
-<link rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
+
+{% block extra_head %}
+<link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
+<link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
+<script defer src="{% static "js/tooltip.js" %}" defer></script>
+<script defer src="{% static "js/list.min.js" %}"></script>
+<script defer src="{% static "js/profession_tool.js" %}"></script>
+<script defer src="{% static "js/save_form.js" %}"></script>
 {% endblock extra_head %}
 
 {% block mainbody %}
@@ -26,7 +31,7 @@
     </div>
     {% endblock class_selection %}
     <div class="mainContent container">
-    <div class="row justify-content-center prof-header">
+    <div class="row justify-content-center" id='prof_header'>
         <div class="col-xl-8 col-12 columnTitle row">
             <div class="col">
                 <span>Recipes</span>
@@ -34,14 +39,14 @@
             <div class="col">
                 <input id="search_bar" class="fuzzy-search" placeholder="search" size="15" aria-label="Search">
                 <div class="dropdown show d-inline-block float-right">
-                    <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" style="border-bottom: 1px solid white; border-radius: 0;"
+                    <a id="sorting" class="btn btn-sm dropdown-toggle" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id='current_sort'>Sort</span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
-                        <a class="dropdown-item sorting-item" data-sort="data-rating"><span>Level</span></a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item sorting-item" data-sort="data-created"><span>Rarity</span></a>
+                    <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" style="border-top: 1px solid azure;" aria-labelledby="sorting">
+                        <a class="dropdown-item sorting-item" data-sort="data-rating"><span class="untouchable">Level</span></a>
+                        <div class="dropdown-divider" style="border-top: 1px solid #adb5cd33;"></div>
+                        <a class="dropdown-item sorting-item" data-sort="data-created"><span class="untouchable">Rarity</span></a>
                     </div>
                     <a id="sorting_order" class="btn btn-sm untouchable hidden">
                         <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
@@ -53,7 +58,7 @@
         </div>
         <!-- <div class="col-lg-3 col-12 columnTitle d-none d-lg-block">Materials</div> -->
     </div>
-    <div class="row prof-header sticky-top" style="top: 15vh;">
+    <div class="row sticky-top" style="top: 15vh;">
         <div class="col-xl-8 col-12">
             <div class="row">
                     <div class="col columnTitle">Name</div>
@@ -108,8 +113,4 @@
 {% endblock mainbody %}
 
 {% block javascript %}
-<script src="{% static "js/tooltip.js" %}" defer></script>
-<script src="{% static "js/list.min.js" %}"></script>
-<script src="{% static "js/profession_tool.js" %}"></script>
-<script src="{% static "js/save_form.js" %}"></script>
 {% endblock javascript %}

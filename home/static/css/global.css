@@ -948,3 +948,7 @@ button:focus {
     font-size: 80%;
     display: inline-block;
 }
+
+.dropdown-menu {
+    min-width: 0;
+}

@@ -141,7 +141,7 @@ var paginate = {
         if (activeNavs.length) {
             activeNavs[0].classList.toggle('active')
         }
-        
+
         var pageNumberNavs = document.querySelectorAll('a.page-nav:not(.prev-page):not(.next-page)')
         pageNumberNavs[currentPage-1].classList.add('active')
         var start = ( (currentPage - 1) * this.list.page ) + 1
@@ -245,6 +245,7 @@ function tagListCorrector(listObj) {
          var itemsPerPage = parseInt(this.innerText)
          paginate.updateVars({perPage: itemsPerPage})
          paginate.resetPageNavs()
+         monkeyList.update()
      })
 
      $('.sorting-item').on('click', function() {
