@@ -1,6 +1,5 @@
 from django.test import TestCase
 
-# Create your tests here.
 ### site navigation ###
 # test if can navigate to index
 # test if can not navigate to index/?#

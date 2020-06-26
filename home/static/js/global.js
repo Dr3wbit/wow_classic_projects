@@ -201,3 +201,21 @@ function titleCase(str) {
 	})
 	return strArr.join(' ')
 }
+
+function pageLoadSpeed() {
+	var pageNav = performance.getEntriesByType("navigation")[0];
+
+	// Request time only (excluding unload, redirects, DNS, and connection time)
+	var requestTime = pageNav.responseStart - pageNav.requestStart;
+	console.log('Request time only: ', requestResponseTime)
+
+	// Response time only (download)
+	var responseTime = pageNav.responseEnd - pageNav.responseStart;
+
+	console.log('Response time only (download): ', responseTime)
+
+	// Request + response time
+	var requestResponseTime = pageNav.responseEnd - pageNav.requestStart;
+
+	console.log('Request + response time: ', requestResponseTime)
+}
