@@ -113,7 +113,8 @@ if LOCAL:
 			'PASSWORD': os.environ['DEV_DB_PASS'],
 			'HOST': os.environ['DEV_DB_HOST'],
 			'PORT': os.environ['DEV_DB_PORT'],
-			'CONN_MAX_AGE': 20,
+			# NOTE: if CONN_MAX_AGE setting is enabled and not set to 0, idled connection will remain open between tests, causing
+			# 'CONN_MAX_AGE': 20,
 		}
 	}
 else:
