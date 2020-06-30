@@ -1,40 +1,74 @@
-from .base import FunctionalTest
+from .base import FunctionalTest, sanitize
+# import re
+# from .layout_and_styling import LayoutAndStylingTest
 
 # TODO: create factory for LayoutAndStylingTest and loop through list of devices,
 #       where each device counts as a separate test
 
+# DEVICES = [
+# 	"iPhone X", "Moto G4", "Galaxy S5", "iPhone 6/7/8", "Pixel 2",
+# 	"Pixel 2 XL", "iPhone 6/7/8 Plus", "iPad", "iPad Pro"
+# ]
+
+
+def make_test_function(device):
+	def test(self):
+		# do stuff
+		self.browser.quit()
+		self.setUp({"mobileEmulation": {"deviceName": device}})
+		self.browser.get(self.server_url)
+		rect = self.browser.get_window_size()
+		self.assertEqual(self.browser.execute_script("return window.innerWidth"), rect['width'])
+		self.assertEqual(self.browser.execute_script("return window.innerHeight"), rect['height'])
+
+	return test
+
 class LayoutAndStylingTest(FunctionalTest):
 
-    SIZES = [[1024, 768], [360, 640], [1366, 768], [1280, 800]]
-    DEVICES = [
-        "iPhone X", "Moto G4", "Galaxy S5", "iPhone 6/7/8", "Pixel 2",
-        "Pixel 2 XL", "iPhone 6/7/8 Plus", "iPad", "iPad Pro"
-    ]
-    def test_layout_and_styling(self):
+	devices = ["iPhone X", "Pixel 2", "Galaxy S5"]
 
-        for width,height in self.SIZES:
-            self.browser.quit()
-            self.setUp({
-                "mobileEmulation": {"deviceMetrics": { "width": width, "height": height, "pixelRatio": 3.0 },
-                "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"
-            }})
-
-            self.browser.get(self.server_url)
-
-            self.assertEqual(self.browser.execute_script("return window.innerWidth"), width)
-            self.assertEqual(self.browser.execute_script("return window.innerHeight"), height)
-
-            # sidenav tests
-            # navbar tests
-            # saved list tests
-            # presence of discord login elements test
+	def setup_device_tests(self):
+		# print(dir(self))
+		for device in self.devices:
+			sanitized = sanitize(device)
+			test_func = make_test_function(device)
+			setattr(self, 'test_layout_and_styling_{0}'.format(sanitized), test_func)
 
 
-        # mobile_emulation = { "deviceName": "Nexus 5" }
-        # chrome_options = webdriver.ChromeOptions()
-        # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-        # driver = webdriver.Chrome(command_executor='http://127.0.0.1:4444/wd/hub', desired_capabilities=chrome_options.to_capabilities())
+
+LayoutAndStylingTest.setup_device_tests(LayoutAndStylingTest)
 
 
-    def get_sidenav(self):
-        return self.browser.find_element_by_id('saved_lists')
+# class DeviceLayoutAndStyling(FunctionalTest):
+#
+# 	SIZES = [[1024, 768], [360, 640], [1366, 768], [1280, 800]]
+# 	DEVICES = [
+# 		"iPhone X", "Moto G4", "Galaxy S5", "iPhone 6/7/8", "Pixel 2",
+# 		"Pixel 2 XL", "iPhone 6/7/8 Plus", "iPad", "iPad Pro"
+# 	]
+#
+#
+# 	def test_layout_and_styling_pixel2(self):
+#
+# 		self.browser.quit()
+# 		self.setUp({"mobileEmulation": {"deviceName": "Pixel 2"}})
+#
+# 		self.browser.get(self.server_url)
+# 		rect = self.browser.get_window_size()
+# 		self.assertEqual(self.browser.execute_script("return window.innerWidth"), rect['width'])
+# 		self.assertEqual(self.browser.execute_script("return window.innerHeight"), rect['height'])
+#
+#
+# 	def test_layout_and_styling_iphoneX(self):
+# 		self.browser.quit()
+#
+# 		self.setUp({"mobileEmulation": {"deviceName": "iPhone X"}})
+# 		self.browser.get(self.server_url)
+# 		rect = self.browser.get_window_size()
+#
+# 		self.assertEqual(self.browser.execute_script("return window.innerWidth"), rect['width'])
+# 		self.assertEqual(self.browser.execute_script("return window.innerHeight"), rect['height'])
+#
+#
+# 	def get_sidenav(self):
+# 		return self.browser.find_element_by_id('saved_lists')

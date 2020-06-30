@@ -9,3 +9,4 @@ tools/scraping/js
 home/templates/old
 db
 home/management/commands/data
+home/tests/screendumps

@@ -1,9 +1,9 @@
 from .base import FunctionalTest
 from django.urls import reverse, URLPattern
 
-class PageNavigationTest(FunctionalTest):
+class SiteNavigationTest(FunctionalTest):
 
-    def test_page_navigation(self):
+    def test_site_navigation(self):
 
         urls = self.get_urls()
 
