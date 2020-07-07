@@ -54,6 +54,7 @@
     height: 93vh;
     width: 250px;
     z-index: 1300;
+    overflow-y: scroll;
 }
 
 .saved-container {
@@ -63,7 +64,7 @@
 
 .custom-saves {
     padding: 8px;
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 82vh;
     margin-right: 10px;
 }

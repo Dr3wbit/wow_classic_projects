@@ -64,39 +64,31 @@ SCREEN_DUMP_LOCATION = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 
 
 class FunctionalTest(StaticLiveServerTestCase):
-	DEVICES = [
-		"iPhone X", "Moto G4", "Galaxy S5", "iPhone 6", "iPhone 7", "iPhone 8", "Pixel 2",
-		"Pixel 2 XL", "iPhone 6 Plus", "iPhone 7 Plus", "iPhone 8 Plus", "iPad", "iPad Pro"
-	]
+	# fixtures = ['home.json']
+	device = ''
 
+	## needs to somehow inherit deviceName
 	@classmethod
 	def setUpClass(cls):
-		for arg in sys.argv:
-			if 'liveserver' in arg:
-				cls.server_host = arg.split('=')[1]
-				cls.server_url = 'http://' + cls.server_host
-				cls.against_staging = True
-				return
 
 		super().setUpClass()
-		cls.against_staging = False
+		cls.chrome_options = Options()
+		if cls.device:
+			cls.chrome_options.add_experimental_option("mobileEmulation", {"deviceName": cls.device})
+
 		cls.server_url = cls.live_server_url
 
 
 	@close_db_connections
-	def setUp(self, options={}):
-		# self.browser.quit()
-		chrome_options = ''
-		print('options: ', options)
-		if options:
-			chrome_options = Options()
-			for key, val in options.items():
-				chrome_options.add_experimental_option(key, val)
+	def setUp(self):
+		# ContentType.objects.clear_cache()
 
-		self.browser = webdriver.Chrome(executable_path=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'drivers/chromedriver'), chrome_options=chrome_options)
+		self.browser = webdriver.Chrome(executable_path=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'drivers/chromedriver'), chrome_options=self.chrome_options)
+		self.browser.get(self.server_url)
 
 	@close_db_connections
 	def tearDown(self):
+		# ContentType.objects.clear_cache()
 		if self._test_has_failed():
 			if not os.path.exists(SCREEN_DUMP_LOCATION):
 				os.makedirs(SCREEN_DUMP_LOCATION)
@@ -116,13 +108,11 @@ class FunctionalTest(StaticLiveServerTestCase):
 
 	def take_screenshot(self):
 		filename = self._get_filename() + '.png'
-		print('screenshotting to', filename)
 		self.browser.get_screenshot_as_file(filename)
 
 
 	def dump_html(self):
 		filename = self._get_filename() + '.html'
-		print('dumping page HTML to', filename)
 		with open(filename, 'w') as f:
 			f.write(self.browser.page_source)
 

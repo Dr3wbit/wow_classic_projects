@@ -9,7 +9,6 @@ function sidebar_handlers() {
 	var savedLists = document.getElementById('saved_lists')
 	savedLists.addEventListener('click', function(e) {
 		if (e.target.matches('.trashcan')) {
-			console.log('trashcan')
 			var data = {}
 			var parent = e.target.closest('div.spec-list-item')
 			var href = parent.querySelector('a.saved-list-link').href

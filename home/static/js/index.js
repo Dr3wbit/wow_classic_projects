@@ -614,8 +614,8 @@ function loadSavedLists(data) {
         feedFooter.appendChild(dateCreatedContainer)
 
         if (hasWoWClass) {
-            var wowClassName = create_element('span', `wowclass ${savedList.wow_class.toLowerCase()}`, '', savedList.wow_class)
-            var talentPoints = create_element('span', '', '', savedList.spec)
+            var wowClassName = create_element('span', `wowclass ${savedList.wow_class.toLowerCase()}`, '', `${savedList.wow_class} `)
+            var talentPoints = create_element('span', '', 'font-size:90%;', savedList.spec)
 
             wowClassFooter.appendChild(wowClassName)
             wowClassFooter.appendChild(talentPoints)

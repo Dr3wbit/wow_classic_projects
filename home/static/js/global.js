@@ -2,6 +2,17 @@ $(document).ready(function() {
 	global_event_handlers()
 });
 
+window.addEventListener('load', function(e) {
+	var sidenavExpanded = parseInt(sessionStorage.getItem("sidenavToggle"))
+	if (Number.isInteger(sidenavExpanded)) {
+		var sidenav = document.querySelector('.side-bar-toggle')
+		if ((sidenav.classList.contains('shown') && sidenavExpanded == 0) || (!sidenav.classList.contains('shown') && sidenavExpanded == 1)) {
+			sidenav.click()
+		}
+	}
+});
+
+
 var global = {
 	static_url: "",
 	STORAGE_ITEMS: {},
@@ -40,12 +51,33 @@ function global_event_handlers() {
         $('#saved_lists').removeClass('side-min')
         $('.custom-saves').css({ 'display': 'block' })
         $('.side-bar-toggle').removeClass('flip-background')
+
         $('.mainBody').append($('<div/>', {
             class : "black-out"
         }))
     }
+
+	var sideNav = document.querySelector('.side-bar-toggle')
+
+
+	sideNav.addEventListener('click', e => {
+		e.target.classList.toggle('shown')
+		if (e.isTrusted) {
+			if (e.target.classList.contains('shown')) {
+				sessionStorage.setItem("sidenavToggle", 1)
+			} else {
+				sessionStorage.setItem("sidenavToggle", 0)
+			}
+		}
+	})
+
     $(".side-bar-toggle").on({
         click: e => {
+			// if (sessionStorage.getItem("sidenavToggle")) {
+			// 	sessionStorage.setItem("sidenavToggle", 0)
+			// } else {
+			// 	sessionStorage.setItem("sidenavToggle", 1)
+			// }
             let bool = $('#saved_lists').hasClass('side-min')
             let windowWidth = window.innerWidth
             if (window.innerWidth <= 992) {
@@ -83,6 +115,7 @@ function global_event_handlers() {
 
         }
     });
+
 }
 
 function updateURL(path, subPath='', search='') {

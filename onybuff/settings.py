@@ -21,7 +21,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-#DEBUG = bool(int(os.environ['DJANGO_DEBUG']))
 DEV = False
 DEBUG = bool(int(os.environ['DJANGO_DEBUG']))
 
@@ -40,7 +39,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Application definition
 
 INSTALLED_APPS = [
-	'home',
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
@@ -49,6 +47,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	'account',
 	'social_django',
+	'home',
 ]
 
 MIDDLEWARE = [
@@ -113,7 +112,8 @@ if LOCAL:
 			'PASSWORD': os.environ['DEV_DB_PASS'],
 			'HOST': os.environ['DEV_DB_HOST'],
 			'PORT': os.environ['DEV_DB_PORT'],
-			# NOTE: if CONN_MAX_AGE setting is enabled and not set to 0, idled connection will remain open between tests, causing
+			# NOTE: if CONN_MAX_AGE setting is enabled and not set to 0, idled connections will remain open between tests,
+			# causing issues with test database creation
 			# 'CONN_MAX_AGE': 20,
 		}
 	}

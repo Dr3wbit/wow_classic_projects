@@ -94,15 +94,15 @@ class Item(models.Model):
 	img = models.CharField(max_length=50)
 
 	ilvl = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(300)])
-	_slot = models.PositiveSmallIntegerField(default=0, choices=SLOT_CHOICES, validators=[MinValueValidator(0), MaxValueValidator(20)])
-	_proficiency = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
-	slot = models.CharField(max_length=20, default='')
-	proficiency = models.CharField(max_length=20, default='')
+	_slot = models.PositiveSmallIntegerField(blank=True, choices=SLOT_CHOICES, validators=[MinValueValidator(0), MaxValueValidator(20)])
+	_proficiency = models.PositiveSmallIntegerField(blank=True, validators=[MinValueValidator(0), MaxValueValidator(10)])
+	slot = models.CharField(max_length=20, default='', blank=True)
+	proficiency = models.CharField(max_length=20, default='', blank=True)
 
-	armor = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(20000)])
-	speed = models.DecimalField(default=0.0, max_digits=4, decimal_places=2, validators=[MinValueValidator(0.0), MaxValueValidator(4.0)])
+	armor = models.PositiveSmallIntegerField(blank=True, validators=[MinValueValidator(0), MaxValueValidator(20000)])
+	speed = models.DecimalField(blank=True, max_digits=4, decimal_places=2, validators=[MinValueValidator(0.0), MaxValueValidator(4.0)])
 
-	damage = models.ManyToManyField('Damage')
+	damage = models.ManyToManyField('Damage', blank=True)
 
 	unique = models.BooleanField(default=False)
 	bop = models.BooleanField(default=False)
@@ -113,8 +113,8 @@ class Item(models.Model):
 	requirements = postgres.JSONField(encoder=JSON.DjangoJSONEncoder, blank=True, null=True)
 	durability = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(400)])
 	use = models.ForeignKey('Spell', blank=True, null=True, on_delete=models.SET_NULL)
-	equips = models.ManyToManyField('Spell', related_name='equips')
-	procs = models.ManyToManyField('Spell', related_name='procs')
+	equips = models.ManyToManyField('Spell', related_name='equips', blank=True)
+	procs = models.ManyToManyField('Spell', related_name='procs', blank=True)
 	description = models.CharField(max_length=250, blank=True)
 	itemset = models.ForeignKey('ItemSet', blank=True, null=True, on_delete=models.SET_NULL)
 
