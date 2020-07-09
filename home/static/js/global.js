@@ -118,10 +118,10 @@ function global_event_handlers() {
 
 }
 
-function updateURL(path, subPath='', search='') {
+function updateURL(path, subPath='', search='', state=null) {
 	this.path = (Boolean(subPath)) ? path + "/" + subPath : path
 	this.path = (Boolean(search)) ? this.path + search : this.path
-	history.pushState(null, subPath, this.path)
+	history.pushState(state, subPath, this.path)
 }
 
 //sidebar functionality

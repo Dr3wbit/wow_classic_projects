@@ -511,7 +511,7 @@ function professionToolHandlers() {
 			professionTool.recipeInd = 0;
 			getRecipeList(prof);
 
-			updateURL("/profession_tool", prof, document.location.search)
+			updateURL("/profession_tool", prof, document.location.search, {prof:prof})
 		}
 	})
 }
