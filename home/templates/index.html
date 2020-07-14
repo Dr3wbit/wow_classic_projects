@@ -11,11 +11,10 @@
 {% endblock title_splash %}
 
 {% block mainbody %}
-<div class="mainBody container">
     <div class="row selection-header sticky-top">
-        <div class="col">
-            <form class="form-inline row selection-header">
-                <div class="d-none d-md-inline-block col-xl-4 col-md-6">
+        <!-- <div class="col"> -->
+            <!-- <form class="form-inline row selection-header"> -->
+                <div class="col-xl-4 col-md-6">
                     <div class="dropdown show d-inline-block">
                         <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,8 +88,8 @@
                     </div>
                     <input id="search_bar" class="fuzzy-search" placeholder="Search Keywords" size="30" aria-label="Search">
                 </div>
-            </form>
-        </div>
+            <!-- </form> -->
+        <!-- </div> -->
     </div>
 
     <div class="row content-container mt-4">
@@ -103,7 +102,7 @@
             {% endcomment %}
         </div>
     </div>
-</div>
+
 </div>
 
 {% endblock mainbody %}
@@ -114,7 +113,6 @@
 {% endblock footer %}
 
 {% block javascript %}
-
 <script type="text/javascript" src="{% static "js/list.min.js" %}"></script>
 <script src="{% static "js/index.js" %}"></script>
 {% endblock javascript %}

@@ -206,7 +206,7 @@
 }
 
 .recipe-container:hover {
-    box-shadow: -10px 0 5px -5px #ffc107;
+    box-shadow: -10px 0 5px -5px var(--merrigold);
     cursor: pointer;
 }
 
@@ -269,11 +269,11 @@
 }
 
 .dropdown-item{
-    color: #5985ba!important;
+    color: var(--pale-blue)!important;
 }
 
 .dropdown-item:hover{
-    color: #ffc107!important;
+    color: var(--merrigold)!important;
     background-color: #222222;
     cursor: pointer;
 }
@@ -286,5 +286,5 @@
 }
 
 #sorting_order:hover{
-    color: #ffc107;
+    color: var(--merrigold);
 }

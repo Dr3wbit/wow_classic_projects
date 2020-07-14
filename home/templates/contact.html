@@ -2,7 +2,6 @@
 {% load static %}
 {% block extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}">
-<script src="{% static "js/contact.js" %}"></script>
 {% endblock extra_head %}
 
 {% block title_splash %}
@@ -21,7 +20,7 @@
 {% endblock class_selection %}
 
 {% block mainbody %}
-    <div class="container mainBody">
+    <div id="mainBody" class="container">
         <div class="row ">
             <div class="col-2"></div>
             <div class="col-8 saveBlock">
@@ -68,3 +67,7 @@
     </div>
     <br>
 {% endblock mainbody %}
+
+{% block javascript %}
+<script src="{% static "js/contact.js" %}"></script>
+{% endblock javascript %}

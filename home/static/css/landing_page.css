@@ -69,9 +69,9 @@ tfoot {
 }
 
 .list-image:hover {
-    -webkit-box-shadow: 0 0 7px 4px #ffc107;
-    -moz-box-shadow: 0 0 7px 4px #ffc107;
-    box-shadow: 0 0 7px 4px #ffc107;
+    -webkit-box-shadow: 0 0 7px 4px var(--merrigold);
+    -moz-box-shadow: 0 0 7px 4px var(--merrigold);
+    box-shadow: 0 0 7px 4px var(--merrigold);
     cursor: pointer;
 }
 
@@ -100,11 +100,11 @@ tfoot {
 }
 
 a{
-    color: #5985ba;
+    color: var(--pale-blue);
 }
 
 a:hover{
-    color: #ffc107;
+    color: var(--merrigold);
 }
 
 .feed-footer {
@@ -122,11 +122,11 @@ a:hover{
 }
 
 .dropdown-item{
-    color: #5985ba!important;
+    color: var(--pale-blue)!important;
 }
 
 .dropdown-item:hover{
-    color: #ffc107!important;
+    color: var(--merrigold)!important;
     background-color: #222222;
 }
 
@@ -148,7 +148,7 @@ a:hover{
 }
 
 .filter-box{
-    color: #5985ba;
+    color: var(--pale-blue);
     display: block;
     border: 1px solid black;
     background-color: #272727;
@@ -156,19 +156,19 @@ a:hover{
 }
 
 .filter-box:hover{
-    border-color:#ffc107;
+    border-color:var(--merrigold);
     cursor: pointer;
 }
 
 .filter-box.filter-selected{
-    color: #ffc107;
+    color: var(--merrigold);
 }
 
 .flag-item:hover > span{
-    color: #ffc107;
+    color: var(--merrigold);
 }
 .applied-filter-container{
-    color: #ffc1078c;
+    color: var(--merrigold);
     font-size: 10px;
     font-style: italic
 }
@@ -177,7 +177,6 @@ a:hover{
     color: azure;
     margin: 5px;
     border-radius: 2px 2px 1px 1px;
-    border-bottom: 1px solid azure;
 }
 
 #sorting:focus{
@@ -190,7 +189,6 @@ a:hover{
 
 #dropdownFilterLink{
     color: azure;
-    border-bottom: 1px solid azure;
     border-radius: 0;
 }
 
@@ -244,7 +242,7 @@ a:hover{
 .sortby-dropdown {
     margin-top: 0;
     border-radius: 1px 1px 2px 2px;
-    border-top: 1px solid azure;
+    border-top: 1px solid black;
 }
 
 .sortby-dropdown > *{
@@ -259,15 +257,16 @@ a:hover{
     border-radius: 0;
     position: relative;
     left: -15px;
-    border-bottom: azure 1px solid;
-
 }
 
 #sorting_order:hover{
-    color: #ffc107;
+    color: var(--merrigold);
 }
 
 #paginator {
-    border-bottom: 1px solid azure;
     border-radius: 0;
+}
+
+.dropdown-divider {
+    border-color: var(--light-grey);
 }

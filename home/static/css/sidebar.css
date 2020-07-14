@@ -40,60 +40,160 @@
     border-bottom: #404040;
 }
 
-.saved-title {
-    background-color: #1C1C1C;
-    height: 8vh;
+.saved-list-divider {
+    background-color: var(--sidenav-bg-color);
+    height: 6vh;
     box-shadow: 0 4px 2px -4px #000000;
+
 }
 
 #saved_lists {
     color: rgb(255, 255, 255);
+
+    box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 20, 0.15),
+        inset -2px 0px 6px 2px rgba(218, 224, 229, 0.1),
+        inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+
     position: fixed;
-    background-color: #181818;
+    background-color: var(--sidenav-bg-color);
     display: inline-block;
     height: 93vh;
     width: 250px;
+    left: 0;
     z-index: 1300;
     overflow-y: scroll;
+    border-right: 1px solid #00000054;
+    animation: 0.75s ease-out forwards slideout;
+}
+
+@keyframes slidein {
+    0% {
+        background-color: #181818;
+        left: 0;
+        /* transform: translateX(0%) */
+    }
+    100% {
+        background-color: transparent;
+        left: -220px;
+        /* transform: translateX(-100%) */
+    }
+}
+
+@keyframes slideout {
+    0% {
+        background-color: transparent;
+        left: -220px;
+        /* transform: translateX(-100%) */
+    }
+    100% {
+        background-color: #181818;
+        left: 0;
+        /* transform: translateX(0%) */
+    }
+}
+
+@keyframes dissappear {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes appear {
+    100% {
+        visibility: visible;
+    }
+    0% {
+        visibility: hidden;
+    }
 }
 
 .saved-container {
     width: 100%;
     padding: 0;
+    border-bottom: 1px solid black;
 }
 
 .custom-saves {
     padding: 8px;
     /* overflow: hidden; */
     height: 82vh;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    overflow-y: scroll;
+    border-top: 1px solid black;
+
 }
 
-.custom-saves:hover {
+#saved_lists.minimized .custom-saves {
+    animation: 0.25s ease-out .5s forwards dissappear;
+}
+
+#saved_lists:not(.minimized) .custom-saves {
+    animation: 0.25s ease-out .5s forwards appear;
+}
+
+/* .custom-saves:hover {
     overflow-y: scroll;
     margin-right: 0;
+} */
+
+
+#saved_lists.minimized {
+    animation: 0.75s ease-out forwards slidein;
 }
 
-.side-min {
-    left: -220px;
-    background-color: transparent;
+#saved_lists.minimized .sidebar-toggle {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
-.side-bar-toggle {
-    position: absolute;
-    background-size: 100% 100%;
-    border: 1px solid black;
-    height: 8vh;
-    width: 30px;
+#saved_lists.minimized span.glyphicon:first-child {
     right: 0;
-    background-color: #272727;
-    background-image: url("../images/icons/double-chevron.png");
 }
 
-.side-bar-toggle:hover {
-    background-image: url("../images/icons/double-chevron-dark.png");
-    background-color: #333333;
+#saved_lists.minimized span.glyphicon:last-child {
+    right: 7.5vh;
 }
+
+.sidebar-toggle {
+    position: absolute;
+    /* background-size: 100% 100%; */
+    /* height: 8vh; */
+    right: 0;
+
+}
+
+.sidebar-toggle:hover a {
+    color: var(--merrigold);
+    /* background-image: url("../images/icons/double-chevron-dark.png");
+    background-color: #333333; */
+}
+
+.sidebar-toggle-button {
+    font-size: 5vh;
+    /* position: relative; */
+}
+
+.sidebar-toggle-button > span:first-child  {
+    right: -5vh;
+}
+
+.sidebar-toggle-button > span:last-child  {
+    right: 0;
+}
+
+.sidebar-toggle-button > span {
+    letter-spacing: 0;
+    word-spacing: 0;
+    position: relative;
+    /* display: table-cell; */
+    top: 0;
+}
+
 
 .flip-background {
     -moz-transform: scaleX(-1);
@@ -213,8 +313,9 @@ div.modal-footer {
     box-shadow: inset 0 0 5px 3px black;
     background-size: contain;
     background-repeat: no-repeat;
-    border: 1px solid black;
-    border-color: #1c1c1c #1c1c1c black black;
+    border: 1px solid transparent;
+    border-radius: 0;
+    /* border-color: #1c1c1c #1c1c1c black black; */
     position: relative;
     cursor: pointer;
     transition-property: border, box-shadow;
@@ -274,15 +375,7 @@ div.modal-footer {
 }
 
 .saved-list-icon:hover {
-    /* box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
-        inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
-        inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80); */
 
-    /* transition-property: border; */
-    /* -moz-transition: all 0.1s ease-in; */
-    /* -o-transition: all 0.1s ease-in; */
-    /* -webkit-transition: all 0.1s ease-in; */
-    /* transition: all 0.1s ease-in; */
     box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 20, 0.15),
         inset -2px 0px 6px 2px rgba(218, 224, 229, 0.1),
         inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
