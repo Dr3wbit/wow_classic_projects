@@ -3,7 +3,7 @@
 
 {% block extra_head %}
 
-<link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/stars.css" %}">
 {% endblock extra_head %}
 
@@ -14,7 +14,7 @@
     <div class="row selection-header sticky-top">
         <!-- <div class="col"> -->
             <!-- <form class="form-inline row selection-header"> -->
-                <div class="col-xl-4 col-md-6">
+                <div style="padding-top: 2vh;" class="col-xl-5 col-md-6">
                     <div class="dropdown show d-inline-block">
                         <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,12 +81,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-xl-8 col-md-7">
-                    <div class="pagination col-2" style="top:15px;">
-                        <div id="pagination_container">
-                        </div>
+                <div class="col-xl-2 col-md-3">
+                    <div class="pagination" id="pagination_container">
                     </div>
-                    <input id="search_bar" class="fuzzy-search" placeholder="Search Keywords" size="30" aria-label="Search">
+
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <div style="padding: 2vh 0 1vh 0;">
+                        <input id="search_bar" class="fuzzy-search" style="line-height: 4vh;" placeholder="Search Keywords" size="30" aria-label="Search">
+                    </div>
                 </div>
             <!-- </form> -->
         <!-- </div> -->

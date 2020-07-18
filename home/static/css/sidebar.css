@@ -42,7 +42,7 @@
 
 .saved-list-divider {
     background-color: var(--sidenav-bg-color);
-    height: 6vh;
+    height: 8vh;
     box-shadow: 0 4px 2px -4px #000000;
 
 }
@@ -134,64 +134,49 @@
     animation: 0.25s ease-out .5s forwards appear;
 }
 
-/* .custom-saves:hover {
-    overflow-y: scroll;
-    margin-right: 0;
-} */
-
 
 #saved_lists.minimized {
     animation: 0.75s ease-out forwards slidein;
 }
 
-#saved_lists.minimized .sidebar-toggle {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
+#saved_lists.minimized a.sidebar-toggle-button span.glyphicon {
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
-#saved_lists.minimized span.glyphicon:first-child {
-    right: 0;
-}
-
-#saved_lists.minimized span.glyphicon:last-child {
-    right: 7.5vh;
-}
 
 .sidebar-toggle {
     position: absolute;
-    /* background-size: 100% 100%; */
-    /* height: 8vh; */
+    height: 8vh;
     right: 0;
 
 }
 
-.sidebar-toggle:hover a {
+/* .sidebar-toggle:hover a, .sidebar-toggle:active a{
     color: var(--merrigold);
-    /* background-image: url("../images/icons/double-chevron-dark.png");
-    background-color: #333333; */
+} */
+
+.sidebar-toggle:active a{
+    color: var(--merrigold);
 }
 
 .sidebar-toggle-button {
     font-size: 5vh;
-    /* position: relative; */
 }
 
 .sidebar-toggle-button > span:first-child  {
-    right: -5vh;
+    right: -7vh;
 }
 
 .sidebar-toggle-button > span:last-child  {
-    right: 0;
+    right: 0.5vh;
 }
 
 .sidebar-toggle-button > span {
-    letter-spacing: 0;
-    word-spacing: 0;
-    position: relative;
-    /* display: table-cell; */
-    top: 0;
+
+    top: 1vh;
 }
 
 

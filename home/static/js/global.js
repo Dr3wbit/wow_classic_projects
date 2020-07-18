@@ -114,6 +114,15 @@ function global_event_handlers() {
         }
     });
 
+	document.addEventListener('keyup', e=>{
+		if (e.which == 27) {
+			var savedLists = document.getElementById('saved_lists')
+			if (!savedLists.classList.contains('minimized')) {
+				document.querySelector('.sidebar-toggle-button').click()
+			}
+		}
+	})
+
 }
 
 function updateURL(path, subPath='', search='', state=null) {
