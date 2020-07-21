@@ -14,9 +14,9 @@
     <div class="row selection-header sticky-top">
         <!-- <div class="col"> -->
             <!-- <form class="form-inline row selection-header"> -->
-                <div style="padding-top: 2vh;" class="col-xl-5 col-md-6">
-                    <div class="dropdown show d-inline-block">
-                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle" href="#" role="button"
+                <div style="padding-top: 1vh;" class="col-xl-5 col-md-6">
+                    <div class="dropdown d-inline-block">
+                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filters
                         </a>
@@ -53,26 +53,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="dropdown show d-inline-block">
-                        <a id="sorting" class="btn btn-sm dropdown-toggle" href="#" role="button"
+                    <div class="dropdown sorting-dropdown d-inline-block">
+                        <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" title='Sorting by'
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sort
                         </a>
                         <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
-                            <a class="dropdown-item sorting-item" data-sort="data-rating"><span>Rating</span></a>
+                            <a class="dropdown-item sorting-item" data-sort="data-rating">Rating</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item sorting-item" data-sort="data-created"><span>Created</span></a>
+                            <a class="dropdown-item sorting-item" data-sort="data-created">Created</a>
                         </div>
-                        <a id="sorting_order" class="btn btn-sm untouchable hidden">
+                        <a id="sorting_order" class="btn btn-sm untouchable hidden" title='Sorting order'>
                             <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
                         </a>
                     </div>
-                    <div class="dropdown show d-inline-block">
-                        <a id="paginator" class="btn btn-sm dropdown-toggle" role="button"
+                    <div class="dropdown d-inline-block">
+                        <a id="paginator" class="btn btn-sm dropdown-toggle" role="button" title='Items per page'
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>Show</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="show">
+                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="paginator">
                             <a class="dropdown-item items-per-page">5</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item items-per-page">10</a>

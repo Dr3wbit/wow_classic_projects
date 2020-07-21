@@ -154,16 +154,17 @@
 
 }
 
-/* .sidebar-toggle:hover a, .sidebar-toggle:active a{
-    color: var(--merrigold);
-} */
-
-.sidebar-toggle:active a{
+.sidebar-toggle:hover a, .sidebar-toggle:active a{
     color: var(--merrigold);
 }
 
+/* .sidebar-toggle:active a{
+    color: var(--merrigold);
+} */
+
 .sidebar-toggle-button {
     font-size: 5vh;
+    user-select: none;
 }
 
 .sidebar-toggle-button > span:first-child  {

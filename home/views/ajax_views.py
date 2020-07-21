@@ -318,11 +318,15 @@ def flag_list(request):
 
 	wow_class = request.POST.get("wow_class", None)
 	data = {}
-	if wow_class:
-		saved_list = Spec.objects.filter(id=int(ix))
+	saved_list = ''
 
+	print('ix: ', ix)
+	print('wow_class: ', wow_class)
+
+	if wow_class:
+		saved_list = Spec.objects.filter(id=ix)
 	else:
-		saved_list = ConsumeList.objects.filter(id=(ix))
+		saved_list = ConsumeList.objects.filter(id=ix)
 
 	if saved_list:
 		saved_list = saved_list.first()
@@ -337,7 +341,7 @@ def flag_list(request):
 
 	else:
 		response = JsonResponse(data)
-		response.status_code = 400
+		response.status_code = 404
 
 	return response
 
@@ -534,11 +538,11 @@ def delete_rating(request):
 
 	if (request.user.is_staff or request.user.is_superuser):
 
-		id = request.POST.get('id', None)
+		id = request.POST.get('ix', None)
 		wow_class = request.POST.get('wow_class', None)
-		data['ix'] = id
 		saved_list = ''
 		if (request.user.is_authenticated and id):
+			data['ix'] = id
 
 			if wow_class:
 				data['wow_class'] = wow_class
@@ -577,26 +581,29 @@ def delete_rating(request):
 
 def save_rating(request):
 	id = request.POST.get('id', None)
-	value = request.POST.get('value', None)
-	spec = bool(int(request.POST.get('spec', 0)))
-	type_of = 'spec' if spec else 'consume_list'
+	rating_value = request.POST.get('rating', None)
+	wow_class = request.POST.get('wow_class', None)
 	data = {}
-	if (request.user.is_authenticated and id and value):
-		user = request.user
-		if spec:
-			saved_list = Spec.objects.get(id=id)
-			data['wow_class'] = saved_list.wow_class.name
-		else:
-			saved_list = ConsumeList.objects.get(id=id)
+	saved_list = ''
 
-		rating = Rating(content_object=saved_list, value=value, user=user)
-		rating.save()
-		data['success'] = True
-		data['average_rating'] = saved_list.rating
-		data['num_ratings'] = saved_list.ratings.count()
-		data['message'] = "USER: {} SUCCESSFULLY RATED {}".format(user.email, saved_list.name)
-		data['id'] = id
-		data['spec'] = spec
+	if (request.user.is_authenticated and id and rating_value):
+		user = request.user
+
+		if wow_class:
+			saved_list = Spec.objects.filter(id=id)
+		else:
+			saved_list = ConsumeList.objects.filter(id=id)
+
+		if saved_list:
+			saved_list = saved_list.first()
+			rating = Rating(content_object=saved_list, value=rating_value, user=user)
+			rating.save()
+			data['success'] = True
+			data['average_rating'] = saved_list.rating
+			data['num_ratings'] = saved_list.ratings.count()
+			data['message'] = "USER: {} SUCCESSFULLY RATED {}".format(user.email, saved_list.name)
+			data['id'] = id
+			data['wow_class'] = wow_class
 
 	return JsonResponse(data)
 

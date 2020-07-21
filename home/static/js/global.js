@@ -71,9 +71,10 @@ function global_event_handlers() {
 	// 	}
 	// })
 
+
     $(".sidebar-toggle").on({
         click: e => {
-
+			e.stopPropagation()
             let bool = $('#saved_lists').hasClass('minimized')
             let windowWidth = window.innerWidth
             if (window.innerWidth <= 992) {
@@ -114,14 +115,32 @@ function global_event_handlers() {
         }
     });
 
+	// adds esc as hotkey to close sidebar
 	document.addEventListener('keyup', e=>{
 		if (e.which == 27) {
 			var savedLists = document.getElementById('saved_lists')
 			if (!savedLists.classList.contains('minimized')) {
 				document.querySelector('.sidebar-toggle-button').click()
 			}
+			e.stopPropagation()
 		}
-	})
+	});
+
+
+
+	// document.addEventListener('click', e=>{
+	// 	var savedLists = document.getElementById('saved_lists')
+	// 	if (!savedLists.classList.contains('minimized')) {
+	// 		document.querySelector('.sidebar-toggle-button').click()
+	// 	}
+	// });
+
+	// document.addEventListener('click', e=>{
+	// 	console.log(e)
+	//
+	// 	var savedLists = document.getElementById('saved_lists')
+	// });
+
 
 }
 
