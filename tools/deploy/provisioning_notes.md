@@ -56,13 +56,26 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 #### setup database
+* start the server and login
+    * linux
+    ```
+    $ sudo -u postgres psql
+    ```
+    * mac (assuming installation was via [homebrew](https://wiki.postgresql.org/wiki/Homebrew))
+    ```
+    $ brew services start postgresql
+    $ psql postgres
+    ```
+* create database/user with [optimal](https://docs.djangoproject.com/en/3.0/ref/databases/#optimizing-postgresql-s-configuration) settings
 ```
-$ sudo -u postgres psql
 postgres=# CREATE DATABASE $myproject;
 postgres=# CREATE USER $myprojectuser WITH PASSWORD 'password';
 postgres=# ALTER ROLE $myprojectuser SET client_encoding TO 'utf8';
 postgres=# ALTER ROLE $myprojectuser SET default_transaction_isolation TO 'read committed';
 postgres=# ALTER ROLE $myprojectuser SET timezone TO 'UTC';
+```
+* grant permissions, then quit
+```
 postgres=# GRANT ALL PRIVILEGES ON DATABASE $myproject TO $myprojectuser;
 postgres=# \q
 ```
@@ -98,6 +111,61 @@ $ pip install virtualenv
 $ cd ~/$SITENAME
 $ python3.6 -m venv venv
 ```
+
+#### activate virtualenv:
+1. navigate to folder where repo will live
+```
+$ cd \path\to\your\repo
+```
+
+2. clone repo into said folder
+```
+$ git clone repo_url
+```
+3. install virtual env via pip
+```
+$ pip install virtualenv
+```
+4. create the virtual environment
+    unix:
+```
+$ python3.6 -m venv venv
+```
+    windows:
+```
+$ python -m venv venv
+```
+5. activate virtual env
+    unix:
+```
+$ source venv/bin/activate
+```
+    windows:
+```
+$ source venv/scripts/activate
+```
+6. install requirements
+```
+(venv) $ pip install -r tools/deploy/requirements.txt
+```
+
+#### set up testing suite (recommended)
+
+1. get database username
+    either from `settings.py`, see: `'USER': username`
+    or
+    if using env vars, `$ echo $DB_USER` (must have virtual env activated)
+```
+(venv) $ echo $DB_USER
+username
+```
+2. give username found above CREATEDB permission (a test database is created and destroyed each time tests are ran)
+```
+$ psql postgres
+postgres=# ALTER USER username CREATEDB;
+postgres=# \q
+```
+
 #### import existing data into database (optional)
 ```
 (venv) $ python manage.py loaddata datadump.json --exclude=contenttypes --exclude=auth --exclude=home.ConsumeList --exclude=home.Spec --exclude=home.Rating --exclude=home.TreeAllotted --exclude=home.Consume

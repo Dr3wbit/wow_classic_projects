@@ -3,7 +3,7 @@
 
 {% block extra_head %}
 
-<link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/stars.css" %}">
 {% endblock extra_head %}
 
@@ -11,13 +11,12 @@
 {% endblock title_splash %}
 
 {% block mainbody %}
-<div class="mainBody container">
     <div class="row selection-header sticky-top">
-        <div class="col">
-            <form class="form-inline row selection-header">
-                <div class="d-none d-md-inline-block col-xl-4 col-md-6">
-                    <div class="dropdown show d-inline-block">
-                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle" href="#" role="button"
+        <!-- <div class="col"> -->
+            <!-- <form class="form-inline row selection-header"> -->
+                <div style="padding-top: 1vh;" class="col-xl-5 col-md-6">
+                    <div class="dropdown d-inline-block">
+                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filters
                         </a>
@@ -54,26 +53,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="dropdown show d-inline-block">
-                        <a id="sorting" class="btn btn-sm dropdown-toggle" href="#" role="button"
+                    <div class="dropdown sorting-dropdown d-inline-block">
+                        <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" title='Sorting by'
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sort
                         </a>
                         <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
-                            <a class="dropdown-item sorting-item" data-sort="data-rating"><span>Rating</span></a>
+                            <a class="dropdown-item sorting-item" data-sort="data-rating">Rating</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item sorting-item" data-sort="data-created"><span>Created</span></a>
+                            <a class="dropdown-item sorting-item" data-sort="data-created">Created</a>
                         </div>
-                        <a id="sorting_order" class="btn btn-sm untouchable hidden">
+                        <a id="sorting_order" class="btn btn-sm untouchable hidden" title='Sorting order'>
                             <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
                         </a>
                     </div>
-                    <div class="dropdown show d-inline-block">
-                        <a id="paginator" class="btn btn-sm dropdown-toggle" role="button"
+                    <div class="dropdown d-inline-block">
+                        <a id="paginator" class="btn btn-sm dropdown-toggle" role="button" title='Items per page'
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>Show</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="show">
+                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="paginator">
                             <a class="dropdown-item items-per-page">5</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item items-per-page">10</a>
@@ -82,15 +81,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-xl-8 col-md-7">
-                    <div class="pagination col-2" style="top:15px;">
-                        <div id="pagination_container">
-                        </div>
+                <div class="col-xl-2 col-md-3">
+                    <div class="pagination" id="pagination_container">
                     </div>
-                    <input id="search_bar" class="fuzzy-search" placeholder="Search Keywords" size="30" aria-label="Search">
+
                 </div>
-            </form>
-        </div>
+                <div class="col-xl-3 col-md-3">
+                    <div style="padding: 2vh 0 1vh 0;">
+                        <input id="search_bar" class="fuzzy-search" style="line-height: 4vh;" placeholder="Search Keywords" size="30" aria-label="Search">
+                    </div>
+                </div>
+            <!-- </form> -->
+        <!-- </div> -->
     </div>
 
     <div class="row content-container mt-4">
@@ -103,7 +105,7 @@
             {% endcomment %}
         </div>
     </div>
-</div>
+
 </div>
 
 {% endblock mainbody %}
@@ -114,7 +116,6 @@
 {% endblock footer %}
 
 {% block javascript %}
-
 <script type="text/javascript" src="{% static "js/list.min.js" %}"></script>
 <script src="{% static "js/index.js" %}"></script>
 {% endblock javascript %}

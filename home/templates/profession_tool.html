@@ -7,14 +7,9 @@
 {% block extra_head %}
 <link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
 <link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
-<script defer src="{% static "js/tooltip.js" %}" defer></script>
-<script defer src="{% static "js/list.min.js" %}"></script>
-<script defer src="{% static "js/profession_tool.js" %}"></script>
-<script defer src="{% static "js/save_form.js" %}"></script>
 {% endblock extra_head %}
 
 {% block mainbody %}
-<div class="mainBody container">
 
     {% block class_selection %}
     <div class="row prof-selection sticky-top" id="prof_selection">
@@ -108,9 +103,12 @@
     {% include "save_form.html" %}
     {% endif %}
 
-    </div>
 </div>
 {% endblock mainbody %}
 
 {% block javascript %}
+<script defer src="{% static "js/tooltip.js" %}" defer></script>
+<script defer src="{% static "js/list.min.js" %}"></script>
+<script defer src="{% static "js/profession_tool.js" %}"></script>
+<script defer src="{% static "js/save_form.js" %}"></script>
 {% endblock javascript %}

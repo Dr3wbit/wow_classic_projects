@@ -1,14 +1,9 @@
 .vscode
 venv
-__pycache__.DS_Store
-.DS_Store
-*/__pycache__
-*/*/__pycache__
-*/*/*/__pycache__
-db.sqlite3
-*.log
+*DS_Store
+*log
 keys
-ONY_BUFF_KEY.pem
+*pem
 *__pycache__
 /static*
 addondev

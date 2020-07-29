@@ -1,4 +1,10 @@
-
+:root {
+    --pale-blue: rgb(89, 133, 186); /* #5985ba */
+    --merrigold: rgb(255, 193, 7); /* #ffc107 */
+    --navbar-height: 7vh;
+    --light-grey: rgb(70, 78, 86); /* #464e56 */
+    --sidenav-bg-color: #181818;
+}
 html {
     position: relative;
     min-height: 100vh;
@@ -11,7 +17,7 @@ body {
     background-color: #121212;
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     margin-bottom: 3vh;
-    margin-top: 7vh;
+    margin-top: var(--navbar-height);
     width:100%
 }
 
@@ -20,9 +26,10 @@ body {
     position: absolute;
     height: 3vh;
     bottom: 0;
-    background-color: #1C1C1C;
+    background-color: var(--sidenav-bg-color);
     z-index: 1310;
-
+    box-shadow: inset 0px 1px 2px 3px rgba(0, 0, 20, 0.15), inset -2px 0px 6px 2px rgba(218, 224, 229, 0.1);
+    border-top: 1px solid black;
 }
 
 .custom-scroll-bar::-webkit-scrollbar {
@@ -37,13 +44,39 @@ body {
     max-width: none !important;
 }
 
-.mainBody {
+#mainBody {
     min-height: 100%;
     align-content: center;
     display: inline-block;
     vertical-align: top;
     padding-left: 265px;
-   }
+}
+
+.padleft {
+    animation: 0.75s ease-out forwards padleft;
+}
+
+.depad {
+    animation: 0.75s ease-out forwards depad;
+}
+
+@keyframes padleft {
+    0% {
+        padding-left: 45px;
+    }
+    100% {
+        padding-left: 265px;
+    }
+}
+
+@keyframes depad {
+    0% {
+        padding-left: 265px;
+    }
+    100% {
+        padding-left: 45px;
+    }
+}
 
 .mainContent {
     min-height: 100%;
@@ -142,21 +175,23 @@ body {
     z-index: 1030;
     transition: all .2s ease-in;
     background-color: #272727;
-    height: 7vh;
+    height: var(--navbar-height);
 }
 
 .navbar-nav{
     background-color: #272727;
+    max-height: var(--navbar-height);
 }
 
 .navbar-brand{
     padding-left: 20px;
     padding-right: 20px;
     border-right: solid 1px black;
+    box-shadow: 0 4px 2px -4px #000000;
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
-    height: 7vh;
+    height: var(--navbar-height);
 }
 
 .navbar-brand:hover {
@@ -184,7 +219,7 @@ body {
 
 .nav-item {
     min-width: 140px;
-    min-height: 7vh;
+    min-height: var(--navbar-height);
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
     border-right: 1px solid black;
     border-right: 1px solid black;
@@ -196,7 +231,7 @@ body {
     #navbarSupportedContent{
         z-index: 1310;
         background-color: #272727;
-        max-height: 7vh;
+        max-height: var(--navbar-height);
     }
 }
 
@@ -245,8 +280,8 @@ body {
 
 .class-selection, .prof-selection, .selection-header{
     user-select: none;
-    top: 7vh;
-    background-color: #1C1C1C;
+    top: var(--navbar-height);
+    background-color: var(--sidenav-bg-color);
     height: 8vh;
     box-shadow: 0 4px 2px -4px #000000;
     justify-content: center;
@@ -427,7 +462,7 @@ body {
 .class-filter:active img,
 .prof-filter.selected img,
 .prof-filter:focus img,
-.prof-filter:active img{
+.prof-filter:active img {
     border-color: inherit;
 }
 
@@ -872,7 +907,7 @@ button:focus {
 .notification-container{
     position: fixed;
     font-size: 250%;
-    color: #ffc107;
+    color: var(--merrigold);
     left:50%;
     top: 20vh;
     background-color: rgba(0, 0, 0, 0.600);
@@ -891,7 +926,7 @@ button:focus {
 .floating-container{
     position: absolute;
     font-size: 150%;
-    color: #ffc107;
+    color: var(--main-gold-color);
     user-select: none;
     pointer-events: none;
     animation-name: float-up;

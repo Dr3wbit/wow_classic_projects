@@ -40,59 +40,146 @@
     border-bottom: #404040;
 }
 
-.saved-title {
-    background-color: #1C1C1C;
+.saved-list-divider {
+    background-color: var(--sidenav-bg-color);
     height: 8vh;
     box-shadow: 0 4px 2px -4px #000000;
+
 }
 
 #saved_lists {
     color: rgb(255, 255, 255);
+
+    box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 20, 0.15),
+        inset -2px 0px 6px 2px rgba(218, 224, 229, 0.1),
+        inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+
     position: fixed;
-    background-color: #181818;
+    background-color: var(--sidenav-bg-color);
     display: inline-block;
     height: 93vh;
     width: 250px;
+    left: 0;
     z-index: 1300;
+    overflow-y: scroll;
+    border-right: 1px solid #00000054;
+    animation: 0.75s ease-out forwards slideout;
+}
+
+@keyframes slidein {
+    0% {
+        background-color: #181818;
+        left: 0;
+        /* transform: translateX(0%) */
+    }
+    100% {
+        background-color: transparent;
+        left: -220px;
+        /* transform: translateX(-100%) */
+    }
+}
+
+@keyframes slideout {
+    0% {
+        background-color: transparent;
+        left: -220px;
+        /* transform: translateX(-100%) */
+    }
+    100% {
+        background-color: #181818;
+        left: 0;
+        /* transform: translateX(0%) */
+    }
+}
+
+@keyframes dissappear {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes appear {
+    100% {
+        visibility: visible;
+    }
+    0% {
+        visibility: hidden;
+    }
 }
 
 .saved-container {
     width: 100%;
     padding: 0;
+    border-bottom: 1px solid black;
 }
 
 .custom-saves {
     padding: 8px;
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 82vh;
-    margin-right: 10px;
-}
-
-.custom-saves:hover {
+    /* margin-right: 10px; */
     overflow-y: scroll;
-    margin-right: 0;
+    border-top: 1px solid black;
+
 }
 
-.side-min {
-    left: -220px;
-    background-color: transparent;
+#saved_lists.minimized .custom-saves {
+    animation: 0.25s ease-out .5s forwards dissappear;
 }
 
-.side-bar-toggle {
+#saved_lists:not(.minimized) .custom-saves {
+    animation: 0.25s ease-out .5s forwards appear;
+}
+
+
+#saved_lists.minimized {
+    animation: 0.75s ease-out forwards slidein;
+}
+
+#saved_lists.minimized a.sidebar-toggle-button span.glyphicon {
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+.sidebar-toggle {
     position: absolute;
-    background-size: 100% 100%;
-    border: 1px solid black;
     height: 8vh;
-    width: 30px;
     right: 0;
-    background-color: #272727;
-    background-image: url("../images/icons/double-chevron.png");
+
 }
 
-.side-bar-toggle:hover {
-    background-image: url("../images/icons/double-chevron-dark.png");
-    background-color: #333333;
+.sidebar-toggle:hover a, .sidebar-toggle:active a{
+    color: var(--merrigold);
 }
+
+/* .sidebar-toggle:active a{
+    color: var(--merrigold);
+} */
+
+.sidebar-toggle-button {
+    font-size: 5vh;
+    user-select: none;
+}
+
+.sidebar-toggle-button > span:first-child  {
+    right: -7vh;
+}
+
+.sidebar-toggle-button > span:last-child  {
+    right: 0.5vh;
+}
+
+.sidebar-toggle-button > span {
+
+    top: 1vh;
+}
+
 
 .flip-background {
     -moz-transform: scaleX(-1);
@@ -212,8 +299,9 @@ div.modal-footer {
     box-shadow: inset 0 0 5px 3px black;
     background-size: contain;
     background-repeat: no-repeat;
-    border: 1px solid black;
-    border-color: #1c1c1c #1c1c1c black black;
+    border: 1px solid transparent;
+    border-radius: 0;
+    /* border-color: #1c1c1c #1c1c1c black black; */
     position: relative;
     cursor: pointer;
     transition-property: border, box-shadow;
@@ -273,15 +361,7 @@ div.modal-footer {
 }
 
 .saved-list-icon:hover {
-    /* box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
-        inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
-        inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80); */
 
-    /* transition-property: border; */
-    /* -moz-transition: all 0.1s ease-in; */
-    /* -o-transition: all 0.1s ease-in; */
-    /* -webkit-transition: all 0.1s ease-in; */
-    /* transition: all 0.1s ease-in; */
     box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 20, 0.15),
         inset -2px 0px 6px 2px rgba(218, 224, 229, 0.1),
         inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);

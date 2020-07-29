@@ -24,16 +24,9 @@
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/global.css"> -->
     <link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/global.css" %}">
     <link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/sidebar.css" %}">
-    <script src="{% static "js/jquery-3.4.1.min.js" %}"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="{% static "js/global.js" %}"></script>
-    <script defer src="{% static "js/sidebar.js" %}"></script>
+
     {% block extra_head %}
     {% endblock extra_head %}
-    <script defer src="{% static "js/polyfill.js" %}"></script>
 
 </head>
 
@@ -45,8 +38,10 @@
 
     {% include "sidebar.html" %}
 
+    <div id="mainBody" class="container-fluid">
     {% block mainbody %}
     {% endblock mainbody %}
+    </div>
 
     {% block modal %}
     {% endblock modal %}
@@ -62,17 +57,26 @@
 
     <div id="tooltip_container">
     </div>
+
+
+    <script src="{% static "js/jquery-3.4.1.min.js" %}"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="{% static "js/global.js" %}"></script>
+    <script defer src="{% static "js/sidebar.js" %}"></script>
+    <script defer src="{% static "js/polyfill.js" %}"></script>
     <script>
         global.static_url = "{% get_static_prefix %}";
     </script>
-
     {% block javascript %}
     {% endblock javascript %}
 
 
     {% if not request.user.context_menu %}
     <script>
-    $('.mainContent, .mainBody').on({
+    $('.mainContent, #mainBody').on({
         contextmenu: e => {
             e.preventDefault()
         },

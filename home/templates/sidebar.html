@@ -1,17 +1,21 @@
 {% load static %}
 <div id='saved_lists'>
 	<div class="saved-container">
-		<div class="saved-title">
-			<div class="side-bar-toggle"></div>
+		<div class="saved-list-divider">
+			<div class="sidebar-toggle shown">
+				<a class="sidebar-toggle-button" title="Minimize Sidebar">
+				<span class="glyphicon glyphicon-menu-left"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+				</a>
+			</div>
 		</div>
 		{% load sanitize from custom_filters %}
 		<div class="custom-saves custom-scroll-bar">
 			<div class="spec-list">
 			{% if user.is_authenticated %}
 			{% with "images/icons/large/" as image_prefix %}
-
-				<h5>SPECS</h5>
 				<div id="saved_specs">
+					<h5>SPECS</h5>
 				{% for spec in user.spec_set.all %}
 				<div class="spec-container">
 					<div class="saved-list-icon" style="background-image: url('{% static image_prefix|add:spec.img %}');"
