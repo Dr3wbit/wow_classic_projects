@@ -56,13 +56,26 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 #### setup database
+* start the server and login
+    * linux
+    ```
+    $ sudo -u postgres psql
+    ```
+    * mac (assuming installation was via [homebrew](https://wiki.postgresql.org/wiki/Homebrew))
+    ```
+    $ brew services start postgresql
+    $ psql postgres
+    ```
+* create database/user with [optimal](https://docs.djangoproject.com/en/3.0/ref/databases/#optimizing-postgresql-s-configuration) settings
 ```
-$ sudo -u postgres psql
 postgres=# CREATE DATABASE $myproject;
 postgres=# CREATE USER $myprojectuser WITH PASSWORD 'password';
 postgres=# ALTER ROLE $myprojectuser SET client_encoding TO 'utf8';
 postgres=# ALTER ROLE $myprojectuser SET default_transaction_isolation TO 'read committed';
 postgres=# ALTER ROLE $myprojectuser SET timezone TO 'UTC';
+```
+* grant permissions, then quit
+```
 postgres=# GRANT ALL PRIVILEGES ON DATABASE $myproject TO $myprojectuser;
 postgres=# \q
 ```

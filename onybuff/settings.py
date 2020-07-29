@@ -115,7 +115,21 @@ if LOCAL:
 			# NOTE: if CONN_MAX_AGE setting is enabled and not set to 0, idled connections will remain open between tests,
 			# causing issues with test database creation
 			# 'CONN_MAX_AGE': 20,
-		}
+			'TEST': {
+            	'MIRROR': 'default',
+        	}
+		},
+		# 'replica': {
+		# 	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+		# 	'NAME': 'devdevdjango_mirror',
+		# 	'USER': os.environ['DEV_DB_USER'],
+		# 	'PASSWORD': os.environ['DEV_DB_PASS'],
+		# 	'HOST': os.environ['DEV_DB_HOST'],
+		# 	'PORT': os.environ['DEV_DB_PORT'],
+		# 	'TEST': {
+		# 		'MIRROR': 'default'
+		# 	}
+		# }
 	}
 else:
 	AUTH_USER_MODEL = 'home.User'

@@ -133,7 +133,7 @@ a:hover{
 .dropdown-menu-custom{
     background-color: #1c1c1c;
     font-size: 12px;
-    border-top: 1px solid green;
+    border-top: 1px solid #0c4c0c;
     box-shadow: 1px 1px 2px -2px #000000, inset -1px -1px 2px -1px #efefef26;
 }
 
