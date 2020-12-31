@@ -11,12 +11,12 @@
 {% endblock title_splash %}
 
 {% block mainbody %}
-    <div class="row selection-header sticky-top">
+    <div class="row selection-header sticky-top justify-content-start">
         <!-- <div class="col"> -->
             <!-- <form class="form-inline row selection-header"> -->
-                <div style="padding-top: 1vh;" class="col-xl-5 col-md-6">
+                <div class="col-xl-5 col-md-6" style="line-height: 5vh; margin-top: 1vh;">
                     <div class="dropdown d-inline-block">
-                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle" role="button"
+                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle valign" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filters
                         </a>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="dropdown sorting-dropdown d-inline-block">
-                        <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" title='Sorting by'
+                        <a id="sorting" class="btn btn-sm dropdown-toggle valign" role="button" title='Sorting by'
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sort
                         </a>
@@ -63,12 +63,12 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item sorting-item" data-sort="data-created">Created</a>
                         </div>
-                        <a id="sorting_order" class="btn btn-sm untouchable hidden" title='Sorting order'>
+                        <a id="sorting_order" class="btn btn-sm untouchable hidden valign" title='Sorting order'>
                             <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
                         </a>
                     </div>
                     <div class="dropdown d-inline-block">
-                        <a id="paginator" class="btn btn-sm dropdown-toggle" role="button" title='Items per page'
+                        <a id="paginator" class="btn btn-sm dropdown-toggle valign" role="button" title='Items per page'
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>Show</span>
                         </a>
@@ -81,13 +81,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-md-3">
-                    <div class="pagination" id="pagination_container">
+                <div class="col-xl-2 col-md-3" style="line-height: 5vh; margin-top: 1vh;">
+                    <div class="pagination valign" id="pagination_container">
                     </div>
 
                 </div>
-                <div class="col-xl-3 col-md-3">
-                    <div style="padding: 2vh 0 1vh 0;">
+                <div class="col-xl-3 col-md-3" style="line-height: 5vh; margin-top: 1vh;">
+                    <div class="valign">
                         <input id="search_bar" class="fuzzy-search" style="line-height: 4vh;" placeholder="Search Keywords" size="30" aria-label="Search">
                     </div>
                 </div>

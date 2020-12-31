@@ -135,6 +135,7 @@ a:hover{
     font-size: 12px;
     border-top: 1px solid #0c4c0c;
     box-shadow: 1px 1px 2px -2px #000000, inset -1px -1px 2px -1px #efefef26;
+    margin: 0;
 }
 
 .filter-dropdown-container{
@@ -153,6 +154,7 @@ a:hover{
     border: 1px solid black;
     background-color: #272727;
     padding: 3px;
+    line-height: 23px;
 }
 
 .filter-box:hover{
@@ -177,7 +179,7 @@ a:hover{
     color: azure;
     position: relative;
     border-radius: 1px;
-    padding: 1vh 1vw;
+    /* padding: 1vh 1vw; */
     /* text-align: end; */
     min-width: 5.5vw;
 }
@@ -189,7 +191,6 @@ a:hover{
 #dropdownFilterLink{
     color: azure;
     border-radius: 1px;
-    padding: 1vh 1vw;
 }
 
 #dropdownFilterLink:focus{
@@ -251,6 +252,7 @@ a:hover{
     font-size: 12px;
     /* padding-top: unset; */
     text-align: center;
+    line-height: 15px;
 }
 
 #sorting_order {
@@ -258,8 +260,8 @@ a:hover{
     position: relative;
     /* font-size: 12px; */
     left: -0.75vw;
-    padding: 1vh 1vw 1vh 0;
-    vertical-align: bottom;
+    padding-left: 0;
+    /* vertical-align: bottom; */
 }
 
 #sorting_order:hover{
@@ -268,31 +270,32 @@ a:hover{
 
 #paginator {
     border-radius: 1px;
-    padding: 1vh 1vw;
+    /* padding: 1vh 1vw; */
 }
 
 .dropdown-divider {
     border-color: var(--light-grey);
+    margin: 2px 0;
 }
 
-#pagination_container {
+/* #pagination_container {
     line-height: 8vh;
-}
+} */
 #pagination_container > * {
     display: table-cell;
 }
 
-.selection-header .dropdown {
+/* .selection-header .dropdown {
     padding: 1vh 0;
     margin: 0 1vw;
-}
+} */
 
 .dropdown-toggle:hover {
     background-color: #222222;
 }
 
 .sorting-dropdown {
-    padding: initial 0;
+    /* padding: initial; */
 }
 
 .sorting-dropdown:hover > a {
@@ -301,4 +304,10 @@ a:hover{
 
 .dropdown-toggle::after {
     content: none;
+}
+
+.valign {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: inherit;
 }
