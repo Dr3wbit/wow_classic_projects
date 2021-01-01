@@ -136,6 +136,7 @@ a:hover{
     border-top: 1px solid #0c4c0c;
     box-shadow: 1px 1px 2px -2px #000000, inset -1px -1px 2px -1px #efefef26;
     margin: 0;
+    padding: 0.125rem 0;
 }
 
 .filter-dropdown-container{

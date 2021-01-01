@@ -5,11 +5,11 @@ $(document).ready(function() {
 var user = { auth: false,
 		staff: false,
 		super: false
-	},
+	}, // x
 	i = 1,
-	currentPage = 1,
 	monkeyList;
 
+// x
 function getUserInfo() {
 	var data = {}
 	$.ajax({
@@ -33,6 +33,7 @@ function getSavedLists() {
 	});
 }
 
+// x
 function setUserType(data) {
 	user.auth = data.auth
 	user.staff = data.staff
@@ -65,6 +66,7 @@ function initListObj(response) {
 var paginate = {
 	list: '',
 	container: '',
+	currentPage: 1,
 	perPage: '',
 	pages: '',
 	init: function(itemsPerPage = 5, listObj = monkeyList, container, options = {}) {
@@ -86,14 +88,16 @@ var paginate = {
 		this.list.update()
 	},
 	writePageNavs: function(options = {}) {
+		this.currentPage = 1
 		var self = this
 		for (var n = 0; n < this.pages; n++) {
+
 			var x = n + 1,
 				pageLink = create_element('a', 'page-nav', '', x);
 
 			pageLink.href = ""
 
-			if (x == currentPage) {
+			if (x == self.currentPage) {
 				pageLink.classList.add('active')
 			}
 			pageLink.addEventListener('click', function(e) {
@@ -103,20 +107,14 @@ var paginate = {
 			this.container.appendChild(pageLink)
 		}
 
-		if (document.getElementsByClassName('page-nav prev-page').length == 0) {
-			var prevPageLink = create_element('a', 'page-nav prev-page', '', "«"); //"&laquo;"
-			prevPageLink.href = ""
-			prevPageLink.addEventListener('click', function(e) {
-				e.preventDefault()
-				self.changePage(e, {
-					prevPage: true
-				})
-			});
-			this.container.insertBefore(prevPageLink, this.container.firstElementChild)
-		}
+		this.nextPageCheck()
+		this.prevPageCheck()
 
-
-		if (document.getElementsByClassName('page-nav next-page').length == 0) {
+	},
+	nextPageCheck: function() {
+		var elem = document.getElementsByClassName('page-nav next-page'),
+			self = this;
+		if ((elem.length == 0) && (this.currentPage != this.pages)) {
 			var nextPageLink = create_element('a', 'page-nav next-page', '', "»"); //"&raquo;"
 			nextPageLink.href = ""
 			nextPageLink.addEventListener('click', function(e) {
@@ -126,19 +124,31 @@ var paginate = {
 				})
 			});
 			this.container.appendChild(nextPageLink)
+		} else if ((elem.length) && (this.currentPage == this.pages)) {
+			elem.item(0).remove()
 		}
 	},
-
-	changePage: function(e, options = {}) {
-		currentPage = (options['nextPage']) ? currentPage + 1 : (options['prevPage']) ? currentPage - 1 : parseInt(e.target.innerText)
-
-		if (currentPage < 1) {
-			currentPage = 1
-			return false
-		} else if (currentPage > this.pages) {
-			currentPage = this.pages
-			return false
+	prevPageCheck: function() {
+		var elem = document.getElementsByClassName('page-nav prev-page'),
+			self = this;
+		if ((elem.length == 0) && (this.currentPage != 1)) {
+			var prevPageLink = create_element('a', 'page-nav prev-page', '', "«"); //"&laquo;"
+			prevPageLink.href = ""
+			prevPageLink.addEventListener('click', function(e) {
+				e.preventDefault()
+				self.changePage(e, {
+					prevPage: true
+				})
+			});
+			this.container.insertBefore(prevPageLink, this.container.firstElementChild)
+		} else if ((elem.length) && (this.currentPage == 1)) {
+			elem.item(0).remove()
 		}
+	},
+	changePage: function(e, options = {}) {
+		this.currentPage = (options['nextPage']) ? this.currentPage + 1 : (options['prevPage']) ? this.currentPage - 1 : parseInt(e.target.innerText)
+
+
 		var activeNavs = document.querySelectorAll('.page-nav.active')
 
 		if (activeNavs.length) {
@@ -146,9 +156,20 @@ var paginate = {
 		}
 
 		var pageNumberNavs = document.querySelectorAll('a.page-nav:not(.prev-page):not(.next-page)')
-		pageNumberNavs[currentPage - 1].classList.add('active')
-		var start = ((currentPage - 1) * this.list.page) + 1
+		pageNumberNavs[this.currentPage - 1].classList.add('active')
+		var start = ((this.currentPage - 1) * this.list.page) + 1
 		this.list.show(start, this.list.page)
+
+		this.prevPageCheck()
+		this.nextPageCheck()
+
+		if (this.currentPage <= 1) {
+			this.currentPage = 1
+			return false
+		} else if (this.currentPage >= this.pages) {
+			this.currentPage = this.pages
+			return false
+		}
 
 	},
 	removePageNavs: function(options = {}) {
@@ -401,6 +422,7 @@ function flagHandlers() {
     });
 }
 
+// x
 function ratingRemover(e) {
 	e.preventDefault()
 	var target = $(e.target)
@@ -415,11 +437,13 @@ function ratingRemover(e) {
 	deleteRating(data)
 }
 
+// x
 function ratingSubmitted(response) {
 	var msg = response.responseJSON.message
 	notifyUser(msg)
 }
 
+// x
 function updateRating(data) {
 	var container;
 	if (data.wow_class) {
@@ -450,10 +474,12 @@ function updateRating(data) {
 	}
 }
 
+// x
 function ratingError(data) {
 	notifyUser(data.message)
 }
 
+// x
 function starHandler() {
 	$(".glyphicon-star-empty").on({
 		mouseenter: star.mouseenter,
@@ -462,6 +488,7 @@ function starHandler() {
 	});
 }
 
+// x
 var star = {
 	mouseenter: function(e) {
 		var target = $(e.target)
@@ -715,6 +742,8 @@ function loadSavedLists(data) {
 
 
 	})
+
+	// x
 	if (user.auth) {
 		starHandler()
 		if (user.staff || user.super) {
