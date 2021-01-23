@@ -4,6 +4,7 @@
     --navbar-height: 7vh;
     --light-grey: rgb(70, 78, 86); /* #464e56 */
     --sidenav-bg-color: #181818;
+    --secondary-navbar-height: 6vh;
 }
 html {
     position: relative;
@@ -282,7 +283,7 @@ body {
     user-select: none;
     top: var(--navbar-height);
     background-color: var(--sidenav-bg-color);
-    height: 8vh;
+    height: var(--secondary-navbar-height);
     box-shadow: 0 4px 2px -4px #000000;
     justify-content: center;
 }
@@ -986,4 +987,22 @@ button:focus {
 
 .dropdown-menu {
     min-width: 0;
+}
+
+.h100 {
+    height: 100% !important;
+}
+
+.secondary-navbar-item {
+    display: inline-flex !important;
+    vertical-align: baseline;
+    flex-shrink: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.secondary-navbar-item > .navlink {
+    align-items: center;
+    display: flex;
+    padding: 0 12px;
 }

@@ -93,7 +93,7 @@ var paginate = {
 		for (var n = 0; n < this.pages; n++) {
 
 			var x = n + 1,
-				pageLink = create_element('a', 'page-nav', '', x);
+				pageLink = create_element('a', 'page-nav navlink', '', x);
 
 			pageLink.href = ""
 
@@ -115,7 +115,7 @@ var paginate = {
 		var elem = document.getElementsByClassName('page-nav next-page'),
 			self = this;
 		if ((elem.length == 0) && (this.currentPage != this.pages)) {
-			var nextPageLink = create_element('a', 'page-nav next-page', '', "»"); //"&raquo;"
+			var nextPageLink = create_element('a', 'page-nav next-page navlink', '', "»"); //"&raquo;"
 			nextPageLink.href = ""
 			nextPageLink.addEventListener('click', function(e) {
 				e.preventDefault()
@@ -132,7 +132,7 @@ var paginate = {
 		var elem = document.getElementsByClassName('page-nav prev-page'),
 			self = this;
 		if ((elem.length == 0) && (this.currentPage != 1)) {
-			var prevPageLink = create_element('a', 'page-nav prev-page', '', "«"); //"&laquo;"
+			var prevPageLink = create_element('a', 'page-nav prev-page navlink', '', "«"); //"&laquo;"
 			prevPageLink.href = ""
 			prevPageLink.addEventListener('click', function(e) {
 				e.preventDefault()
@@ -267,7 +267,10 @@ function indexHandlers() {
 
             sortOrder.classList.remove('hidden','untouchable')
 
-            var glyphicon = sortOrder.querySelector('span.glyphicon')
+            // var glyphicon = sortOrder.querySelector('span.glyphicon')
+            // glyphicon.classList.replace('glyphicon-triangle-top', 'glyphicon-triangle-bottom')
+
+			var glyphicon = sortOrder.closest('span.glyphicon')
             glyphicon.classList.replace('glyphicon-triangle-top', 'glyphicon-triangle-bottom')
 
             monkeyList.sort(sortBySelection.toLowerCase(), {
