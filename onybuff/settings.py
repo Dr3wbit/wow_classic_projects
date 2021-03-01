@@ -20,9 +20,9 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
-DEV = False
+# NOTE: Cancelling Discord login does not error when DEBUG = False
 DEBUG = bool(int(os.environ['DJANGO_DEBUG']))
+DEV = False
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', (os.environ['HOST_IP'])]

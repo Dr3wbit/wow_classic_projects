@@ -133,7 +133,7 @@ a:hover{
 .dropdown-menu-custom{
     background-color: #1c1c1c;
     font-size: 12px;
-    border-top: 1px solid #0c4c0c;
+    border-top: 2px solid #3f6388;
     box-shadow: 1px 1px 2px -2px #000000, inset -1px -1px 2px -1px #efefef26;
     margin: 0;
     padding: 0.125rem 0;
@@ -197,11 +197,6 @@ a:hover{
     top: 1px;
 } */
 
-/* #sorting:hover:after {
-    color: var(--merrigold)!important;
-} */
-
-
 #sorting:focus{
     box-shadow: none;
 }
@@ -260,9 +255,7 @@ a:hover{
 
 .sortby-dropdown {
     /* margin-top: 0; */
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    /* border-top: 1px solid black; */
+    border-radius: 2px;
 }
 
 .sortby-dropdown > *{
@@ -289,7 +282,7 @@ a:hover{
 }
 
 #sorting_order:hover{
-    color: var(--merrigold);
+    color: var(--merrigold) !important;
 }
 
 #paginator {
@@ -302,8 +295,7 @@ a:hover{
     margin: 2px 0;
 }
 
-
-.dropdown-toggle:hover {
+.bg-hover-gray:hover {
     background-color: #222222;
 }
 

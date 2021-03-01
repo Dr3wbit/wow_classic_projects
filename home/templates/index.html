@@ -12,84 +12,10 @@
 
 {% block mainbody %}
     <div class="row selection-header sticky-top justify-content-start">
-        <!-- <div class="col"> -->
-            <!-- <form class="form-inline row selection-header"> -->
-                <!-- old -->
-                <!-- <div class="col-xl-5 col-md-6" style="line-height: 5vh; margin-top: 1vh;">
-                    <div class="dropdown d-inline-block" style="border-right: 1px solid black; padding-right: 2px;">
-                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle valign" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filters
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownFilterLink">
-                            <div class="filter-dropdown-container container row">
-                                <div class="col-4">
-                                    <div class="filter-category-title">Classes</div>
-                                    <div name="wowclass" class="filter-container custom-scroll-bar">
-                                        {% for class in wowclasses %}
-                                        <div name="{{class.name}}" class="filter-box">{{class.name}}</div>
-                                        {%endfor%}
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="filter-category-title">Professions</div>
-                                    <div name="profession" class="filter-container custom-scroll-bar">
-                                        {% for profession in wowprofessions %}
-                                        <div name="{{profession.name}}" class="filter-box">{{profession.name}}</div>
-                                        {%endfor%}
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="filter-category-title">Tags</div>
-                                    <div name="tags" class="filter-container custom-scroll-bar">
-                                        {% for tag in tags %}
-                                        <div name="{{tag.name}}" class="filter-box">{{tag.name}}</div>
-                                        {%endfor%}
-                                    </div>
-                                </div>
-                                <div class="col-12 justify-content-around mt-2">
-                                    <button class="btn btn-sm btn-dark" id="reset_filters" type="button">Reset</button>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dropdown d-inline-block" style="border-right: 1px solid black; padding-right: 2px;">
-                        <a id="paginator" class="btn btn-sm dropdown-toggle valign" role="button" title='Items per page'
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span>Show</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="paginator">
-                            <a class="dropdown-item items-per-page">5</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item items-per-page">10</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item items-per-page">25</a>
-                        </div>
-                    </div>
-                    <div class="dropdown d-inline-block">
-                        <a id="sorting" class="btn btn-sm dropdown-toggle valign" role="button" title='Sorting by'
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sort
-
-                        </a>
-                        <a id="sorting_order" class="valign" role="button" title='Sorting order'>
-                            <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
-                            <a class="dropdown-item sorting-item" data-sort="data-rating">Rating</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item sorting-item" data-sort="data-created">Created</a>
-                        </div>
-                    </div>
-
-                </div> -->
-
-                <!-- NEW -->
                 <div class="col-xl-5 col-md-6 h100">
                     <div class="dropdown secondary-navbar-item h100" style="border-right: 1px solid black; padding-right: 2px;">
-                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle navlink h100" role="button"
+                        <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle bg-hover-gray navlink h100" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>Filters</span>
                         </a>
@@ -128,7 +54,7 @@
                     </div>
 
                     <div class="dropdown secondary-navbar-item h100" style="border-right: 1px solid black; padding-right: 2px;">
-                        <a id="paginator" class="btn btn-sm dropdown-toggle navlink h100" role="button" title='Items per page'
+                        <a id="paginator" class="btn btn-sm dropdown-toggle bg-hover-gray navlink h100" role="button" title='Items per page'
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>Show</span>
                         </a>
@@ -146,9 +72,9 @@
                             <span>Sort</span>
 
                         </a>
-                        <!-- <a id="sorting_order" class="valign" role="button" title='Sorting order'>
+                        <a id="sorting_order" class="valign" role="button" title='Sorting order'>
                             <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
-                        </a> -->
+                        </a>
                         <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" aria-labelledby="sorting">
                             <a class="dropdown-item sorting-item" data-sort="data-rating">Rating</a>
                             <div class="dropdown-divider"></div>
