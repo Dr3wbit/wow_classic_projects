@@ -2,24 +2,10 @@ $(document).ready(function() {
 	indexHandlers()
 });
 
-var user = { auth: false,
-		staff: false,
-		super: false
-	},
-	i = 1,
-	currentPage = 1,
+var i = 1,
 	monkeyList;
 
-function getUserInfo() {
-	var data = {}
-	$.ajax({
-		method: "GET",
-		url: '/ajax/user_info/',
-		data: data,
-		dataType: 'json',
-		success: setUserType,
-	});
-}
+
 
 function getSavedLists() {
 	var data = {}
@@ -33,11 +19,7 @@ function getSavedLists() {
 	});
 }
 
-function setUserType(data) {
-	user.auth = data.auth
-	user.staff = data.staff
-	user.super = data.super
-}
+
 
 function initListObj(response) {
 
@@ -65,6 +47,7 @@ function initListObj(response) {
 var paginate = {
 	list: '',
 	container: '',
+	currentPage: 1,
 	perPage: '',
 	pages: '',
 	init: function(itemsPerPage = 5, listObj = monkeyList, container, options = {}) {
@@ -86,14 +69,16 @@ var paginate = {
 		this.list.update()
 	},
 	writePageNavs: function(options = {}) {
+		this.currentPage = 1
 		var self = this
 		for (var n = 0; n < this.pages; n++) {
+
 			var x = n + 1,
-				pageLink = create_element('a', 'page-nav', '', x);
+				pageLink = create_element('a', 'page-nav navlink', '', x);
 
 			pageLink.href = ""
 
-			if (x == currentPage) {
+			if (x == self.currentPage) {
 				pageLink.classList.add('active')
 			}
 			pageLink.addEventListener('click', function(e) {
@@ -103,21 +88,15 @@ var paginate = {
 			this.container.appendChild(pageLink)
 		}
 
-		if (document.getElementsByClassName('page-nav prev-page').length == 0) {
-			var prevPageLink = create_element('a', 'page-nav prev-page', '', "«"); //"&laquo;"
-			prevPageLink.href = ""
-			prevPageLink.addEventListener('click', function(e) {
-				e.preventDefault()
-				self.changePage(e, {
-					prevPage: true
-				})
-			});
-			this.container.insertBefore(prevPageLink, this.container.firstElementChild)
-		}
+		this.nextPageCheck()
+		this.prevPageCheck()
 
-
-		if (document.getElementsByClassName('page-nav next-page').length == 0) {
-			var nextPageLink = create_element('a', 'page-nav next-page', '', "»"); //"&raquo;"
+	},
+	nextPageCheck: function() {
+		var elem = document.getElementsByClassName('page-nav next-page'),
+			self = this;
+		if ((elem.length == 0) && (this.currentPage != this.pages)) {
+			var nextPageLink = create_element('a', 'page-nav next-page navlink', '', "»"); //"&raquo;"
 			nextPageLink.href = ""
 			nextPageLink.addEventListener('click', function(e) {
 				e.preventDefault()
@@ -126,19 +105,31 @@ var paginate = {
 				})
 			});
 			this.container.appendChild(nextPageLink)
+		} else if ((elem.length) && (this.currentPage == this.pages)) {
+			elem.item(0).remove()
 		}
 	},
-
-	changePage: function(e, options = {}) {
-		currentPage = (options['nextPage']) ? currentPage + 1 : (options['prevPage']) ? currentPage - 1 : parseInt(e.target.innerText)
-
-		if (currentPage < 1) {
-			currentPage = 1
-			return false
-		} else if (currentPage > this.pages) {
-			currentPage = this.pages
-			return false
+	prevPageCheck: function() {
+		var elem = document.getElementsByClassName('page-nav prev-page'),
+			self = this;
+		if ((elem.length == 0) && (this.currentPage != 1)) {
+			var prevPageLink = create_element('a', 'page-nav prev-page navlink', '', "«"); //"&laquo;"
+			prevPageLink.href = ""
+			prevPageLink.addEventListener('click', function(e) {
+				e.preventDefault()
+				self.changePage(e, {
+					prevPage: true
+				})
+			});
+			this.container.insertBefore(prevPageLink, this.container.firstElementChild)
+		} else if ((elem.length) && (this.currentPage == 1)) {
+			elem.item(0).remove()
 		}
+	},
+	changePage: function(e, options = {}) {
+		this.currentPage = (options['nextPage']) ? this.currentPage + 1 : (options['prevPage']) ? this.currentPage - 1 : parseInt(e.target.innerText)
+
+
 		var activeNavs = document.querySelectorAll('.page-nav.active')
 
 		if (activeNavs.length) {
@@ -146,9 +137,20 @@ var paginate = {
 		}
 
 		var pageNumberNavs = document.querySelectorAll('a.page-nav:not(.prev-page):not(.next-page)')
-		pageNumberNavs[currentPage - 1].classList.add('active')
-		var start = ((currentPage - 1) * this.list.page) + 1
+		pageNumberNavs[this.currentPage - 1].classList.add('active')
+		var start = ((this.currentPage - 1) * this.list.page) + 1
 		this.list.show(start, this.list.page)
+
+		this.prevPageCheck()
+		this.nextPageCheck()
+
+		if (this.currentPage <= 1) {
+			this.currentPage = 1
+			return false
+		} else if (this.currentPage >= this.pages) {
+			this.currentPage = this.pages
+			return false
+		}
 
 	},
 	removePageNavs: function(options = {}) {
@@ -183,7 +185,6 @@ function tagListCorrector(listObj) {
 }
 
 function indexHandlers() {
-	getUserInfo()
 	getSavedLists()
 
 
@@ -242,12 +243,12 @@ function indexHandlers() {
                 sorting = document.getElementById('sorting'),
                 sortOrder = document.getElementById('sorting_order');
 
-            sorting.innerText = sortBySelection
+            sorting.innerText = sortBySelection;
 
-            sortOrder.classList.remove('hidden','untouchable')
+            sortOrder.classList.remove('hidden','untouchable');
 
-            var glyphicon = sortOrder.querySelector('span.glyphicon')
-            glyphicon.classList.replace('glyphicon-triangle-top', 'glyphicon-triangle-bottom')
+			var glyphicon = sortOrder.querySelector('span.glyphicon');
+            glyphicon.classList.replace('glyphicon-triangle-top', 'glyphicon-triangle-bottom');
 
             monkeyList.sort(sortBySelection.toLowerCase(), {
                 order: 'desc'
@@ -279,17 +280,52 @@ function indexHandlers() {
 
 	});
 
-
     var resetFilters = document.getElementById('reset_filters')
     resetFilters.addEventListener('submit', e=>{
         e.preventDefault()
     })
 
     var searchBar = document.getElementById('search_bar')
-
     searchBar.addEventListener('keyup', e=>{
         monkeyList.search(e.target.value);
-    })
+    });
+
+	var mouseEnterEvent = new MouseEvent('mouseenter', {
+		'view': window, 'bubbles': false, 'cancelable': true
+	});
+	var mouseLeaveEvent = new MouseEvent('mouseleave', {
+		'view': window, 'bubbles': false, 'cancelable': true
+	})
+
+	var sorting = document.getElementById('sorting')
+	var sortingOrder = document.getElementById('sorting_order')
+
+	sortingOrder.addEventListener('mouseenter', e=>{
+		// e.target.style.color = 'rgb(255, 193, 7)';
+		e.target.closest('.secondary-navbar-item').style.backgroundColor = '#222222'
+
+		// sorting.style.backgroundColor = '#222222';
+		// sortingOrder.style.backgroundColor = '#222222';
+
+	})
+
+	sortingOrder.addEventListener('mouseleave', e=>{
+		e.target.closest('.secondary-navbar-item').style.backgroundColor = 'initial'
+
+		// e.target.style.color = 'white';
+		// sorting.style.backgroundColor = 'initial';
+		// sortingOrder.style.backgroundColor = 'initial';
+
+	})
+
+
+	sorting.addEventListener('mouseenter', e=>{
+		sortingOrder.dispatchEvent(mouseEnterEvent)
+	})
+	sorting.addEventListener('mouseleave', e=>{
+		sortingOrder.dispatchEvent(mouseLeaveEvent)
+	})
+
 }
 
 function deleteRating(d) {
@@ -307,119 +343,14 @@ function deleteRating(d) {
 	});
 }
 
-function deleteRatingComplete(response) {
-	var data = response.responseJSON
-	var container = $(`.saved-list-item[data-ix='${data.ix}'][data-uid='${data.uid}']`);
-	var stars = container.find($('div.star-bg > div.longbar > span.glyphicon-star, div.star-limiter > div.longbar > span.glyphicon-star'))
-	stars.removeClass("glyphicon-star gold").addClass("glyphicon-star-empty")
 
-	stars.bind({
-		'mouseenter': star.mouseenter,
-		'mouseleave': star.mouseleave,
-		'mousedown': star.mousedown
-	});
-
-	var starLimiter = container.find($('div.star-limiter'))
-	starLimiter.css('width', `${data.average_rating}%`)
-	var ratingsCount = container.find($("span.ratings-count"))
-	ratingsCount.remove('a')
-	ratingsCount.text(`(${data.num_ratings})`)
-}
-
-function deleteRatingSuccess(data) {
-	notifyUser(data.message)
-}
-
-function flagSuccess(data, textStatus, jqXHR) {
-	let uid = data.uid.toString()
-	let ix = data.ix.toString()
-
-	let list_item = $(`.saved-list-item[data-ix='${ix}'][data-uid='${uid}']`);
-
-	list_item.hide(800, function() {
-		$(this).remove()
-	})
-
-	let message = data.message.toString()
-	notifyUser(message)
-	console.log('\n**success**\n')
-	console.log(data.message.toString())
-	console.log('data: ', data)
-	console.log('status: ', textStatus)
-	console.log(jqXHR)
-}
-
-function flagError(jqXHR, textStatus, errorThrown) {
-	notifyUser(errorThrown)
-	console.log('\n**error**\n')
-	console.log(jqXHR)
-	console.log(textStatus)
-	console.log(errorThrown)
-}
-
-function flagHandlers() {
-
-    var savedListContainer = document.getElementById('saved_list_container')
-
-    savedListContainer.addEventListener('click', e=>{
-        var target = e.target,
-            container = e.target.closest('.saved-list-item');
-
-        var wowClass = (container.getAttribute('data-wowclass')) ? container.getAttribute('data-wowclass') : '',
-            id = container.getAttribute('data-ix'),
-            uid = container.getAttribute('data-uid');
-
-        var data = {
-            ix: id,
-            uid: uid
-        }
-
-        if (wowClass) {
-            data['wow_class'] = wowClass
-        }
-
-        if (target.matches('.flag-item')) {
-            $.ajax({
-				method: "POST",
-				url: '/ajax/flag_list/',
-				data: data,
-                dataType: 'json',
-				success: flagSuccess,
-				error: flagError,
-			});
-
-        } else if (target.matches('a.remove-rating')) {
-            $.ajax({
-        		method: "POST",
-        		url: '/ajax/delete_rating/',
-        		data: data,
-        		dataType: 'json',
-        		success: deleteRatingSuccess,
-        		complete: deleteRatingComplete
-        	});
-        }
-    });
-}
-
-function ratingRemover(e) {
-	e.preventDefault()
-	var target = $(e.target)
-	var container = target.closest($(".saved-list-item"))
-	var id = container.attr("data-ix")
-	var wow_class = (container.attr("data-wowclass")) ? container.attr("data-wowclass") : ''
-
-	var data = {
-		wow_class: wow_class,
-		id: id,
-	}
-	deleteRating(data)
-}
-
+// x
 function ratingSubmitted(response) {
 	var msg = response.responseJSON.message
 	notifyUser(msg)
 }
 
+// x
 function updateRating(data) {
 	var container;
 	if (data.wow_class) {
@@ -435,25 +366,20 @@ function updateRating(data) {
 	var stars = container.find($(".glyphicon"))
 	stars.unbind()
 	stars.removeClass("glyphicon-star-empty").addClass("glyphicon-star")
-	container.find("div.star-box").removeClass("rating-vote")
-	container.find("div.star-bg").removeClass("rating-vote")
+	container.find("div.star-box").removeClass("can-vote")
+	container.find("div.star-bg").removeClass("can-vote")
 	var ratingsCount = container.find($("span.ratings-count"))
 
-	if (user.super || user.staff) {
-		ratingsCount.text('')
-		var ratingRemoverLink = create_element('a', "remove-rating", '', `(${data.num_ratings})`)
-		ratingRemoverLink.href = ''
-		ratingRemoverLink.addEventListener('click', ratingRemover)
-		ratingsCount.append(ratingRemoverLink)
-	} else {
-		ratingsCount.text(`(${data.num_ratings})`)
-	}
+	ratingsCount.text(`(${data.num_ratings})`)
+
 }
 
+// x
 function ratingError(data) {
 	notifyUser(data.message)
 }
 
+// x
 function starHandler() {
 	$(".glyphicon-star-empty").on({
 		mouseenter: star.mouseenter,
@@ -462,6 +388,7 @@ function starHandler() {
 	});
 }
 
+// x
 var star = {
 	mouseenter: function(e) {
 		var target = $(e.target)
@@ -529,21 +456,9 @@ function loadSavedLists(data) {
 		var listItem = create_element('div', 'col-12 saved-list-item')
 		listContainer.appendChild(listItem)
 
-        if (user.staff || user.super) {
-            var dataUID = document.createAttribute("data-uid");
-            dataUID.value = savedList.uid
-            listItem.setAttributeNode(dataUID)
-        }
-
 		var dataIX = document.createAttribute("data-ix");
 		dataIX.value = savedList.ix
 		listItem.setAttributeNode(dataIX)
-
-		// if (hasWoWClass) {
-		//     var wowClass = document.createAttribute("data-wowclass");
-		//     wowClass.value = savedList.wow_class
-		//     listItem.setAttributeNode(wowClass)
-		// }
 
 		var feedItem = create_element('div', 'feed-item row mt-5')
 		listItem.appendChild(feedItem)
@@ -641,7 +556,8 @@ function loadSavedLists(data) {
 		ratingContainer.appendChild(ratingContainerJr)
 
 		var starBoxRating = create_element('div', 'star-box rating')
-		var starBoxBackground = create_element('div', 'star-bg rating-vote')
+
+		var starBoxBackground = (savedList.can_vote) ? create_element('div', 'star-bg can-vote') : create_element('div', 'star-bg');
 		var ratingsCount = create_element('span', `ratings-count ${savedListType}`)
 
 		ratingContainerJr.append(starBoxRating)
@@ -674,12 +590,8 @@ function loadSavedLists(data) {
 		var longBarDupe = longBar.cloneNode(true)
 		starBoxBackground.appendChild(longBarDupe)
 
-		if (savedList.voted && (user.staff || user.super)) {
-			var ratingsCountElem = create_element('a', 'remove-rating', '', `(${savedList.ratings_count})`)
-			ratingsCountElem.href = ""
-		} else {
-			var ratingsCountElem = create_element('span', '', '', `(${savedList.ratings_count})`)
-		}
+
+		var ratingsCountElem = create_element('span', '', '', `(${savedList.ratings_count})`)
 
 		ratingsCount.append(ratingsCountElem)
 
@@ -701,24 +613,7 @@ function loadSavedLists(data) {
 		var dataCreated = document.createAttribute("data-created");
 		dataCreated.value = dateTime.valueOf()
 		createdOn.setAttributeNode(dataCreated)
-
-		if (user.staff || user.super) {
-			var flagButton = create_element('button', 'btn btn-sm float-right flag-item')
-			dateCreatedContainer.appendChild(flagButton)
-
-			flagButton.title = 'Flag'
-			flagButton.type = 'Button'
-
-			var spanGlyph = create_element('span', 'glyphicon glyphicon-flag untouchable')
-			flagButton.appendChild(spanGlyph)
-		}
-
-
 	})
-	if (user.auth) {
-		starHandler()
-		if (user.staff || user.super) {
-			flagHandlers()
-		}
-	}
+
+	starHandler()
 }
