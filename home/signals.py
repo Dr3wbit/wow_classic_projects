@@ -3,6 +3,8 @@ from django.core.exceptions import PermissionDenied, ValidationError
 from home.models import ConsumeList, Spec, User, Profession, School, Item
 from django.dispatch import receiver
 import re
+from django.core.cache import cache
+from django.core.cache.utils import make_template_fragment_key
 
 NAUGHTY_WORDS = ["nigger", "faggot", "shit", "fuck", "fag", "nlgger", "nigg3r", "nlgg3r", "n1gg3r"]
 
@@ -18,7 +20,16 @@ def savedspec_limit(sender, instance, **kwargs):
 
 
 @receiver(post_save, sender=Spec, weak=False)
-def spec_profanity_filter(sender, instance, created, **kwargs):
+@receiver(post_save, sender=ConsumeList, weak=False)
+def clear_sidebar_cache(sender, instance, created, **kwargs):
+	if created:
+		user = instance.user
+		key = make_template_fragment_key('sidebar', user.uid)
+		cache.delete(key)
+
+@receiver(post_save, sender=Spec, weak=False)
+@receiver(post_save, sender=ConsumeList, weak=False)
+def saved_list_profanity_filter(sender, instance, created, **kwargs):
 	if created:
 		naughty_words = [x.lower() for x in NAUGHTY_WORDS]
 		reggie = r"({})".format("|".join(naughty_words))
@@ -43,35 +54,11 @@ def spec_profanity_filter(sender, instance, created, **kwargs):
 			instance.flagged = True
 			instance.visible = False
 			instance.save()
-			
+
 	# if (any(x for x in NAUGHTY_WORDS if x in instance.description) or any()):
 
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
-@receiver(post_save, sender=ConsumeList, weak=False)
-def cl_profanity_filter(sender, instance, created, **kwargs):
-	if created:
-		naughty_words = [x.lower() for x in NAUGHTY_WORDS]
-		reggie = r"({})".format("|".join(naughty_words))
-		description = instance.description.lower().strip().split()
-		description = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in description])
 
-		match = False
-		for word in description:
-			if re.search(reggie, word):
-				match = True
-		if match:
-			instance.flagged = True
-			instance.visible = False
-
-		else:
-			title = instance.name.lower().strip().split()
-			title = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in title])
-			match = False
-			for word in title:
-				if re.search(reggie, word):
-					match = True
-					instance.flagged = True
-					instance.visible = False
 
 @receiver(pre_save, sender=ConsumeList, weak=False)
 def consumelist_limit(sender, instance, **kwargs):

@@ -1,4 +1,5 @@
 {% load static %}
+{% load cache %}
 <div id='saved_lists'>
 	<div class="saved-container">
 		<div class="saved-list-divider">
@@ -13,6 +14,8 @@
 		<div class="custom-saves custom-scroll-bar">
 			<div class="spec-list">
 			{% if user.is_authenticated %}
+			{% cache 300 sidebar user.uid %}
+
 			{% with "images/icons/large/" as image_prefix %}
 				<div id="saved_specs">
 					<h5>SPECS</h5>
@@ -86,6 +89,7 @@
 				{% endfor %}
 			</div>
 			{% endwith %}
+			{% endcache %}
 
 			{% else %}
 				<p>

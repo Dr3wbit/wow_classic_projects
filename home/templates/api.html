@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load cache %}
 {% block extra_head %}
 
 <link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
@@ -16,6 +16,7 @@
     </div>
     {% endblock title_splash %}
 
+    {% cache 14400 api %}
     {% block mainbody %}
     <div class="mainBody container">
         <div class="row selection-header sticky-top">
@@ -613,10 +614,10 @@
         </div>
     </div>
 
-    {% load titlecase from custom_filters %}
 
     {% endblock mainbody %}
-
+    {% endcache %}
+    
     {% block footer %}
     {# "not necessary, here to demonstrate block.super" #}
     {{block.super}}

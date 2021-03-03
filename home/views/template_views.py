@@ -1,16 +1,19 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.views.generic import ListView, RedirectView, TemplateView
 from django.core.cache import cache
 from django.db.models import Count, Q, Avg
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
+from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint fails
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 # from django.core.paginator import Paginator
 from django.conf import settings
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+
 
 from itertools import chain
 from operator import attrgetter
@@ -166,6 +169,7 @@ class APIView(TemplateView):
 		else:
 			return HttpResponseRedirect('denied')
 
+# @method_decorator(cache_page(60 * 5), name='dispatch') # NEW
 class IndexView(TemplateView):
 	template_name = "index.html"
 

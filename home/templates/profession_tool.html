@@ -2,6 +2,7 @@
 {% block title %}Profession Tool{% endblock title %}
 
 {% load static %}
+{% load cache %}
 {% csrf_token %}
 
 {% block extra_head %}
@@ -10,7 +11,7 @@
 {% endblock extra_head %}
 
 {% block mainbody %}
-
+    {% cache 1500 prof_list %}
     {% block class_selection %}
     <div class="row prof-selection sticky-top" id="prof_selection">
 
@@ -25,6 +26,7 @@
         {% endfor %}
     </div>
     {% endblock class_selection %}
+    {% endcache %}
     <div class="mainContent container">
     <div class="row justify-content-center" id='prof_header'>
         <div class="col-xl-8 col-12 columnTitle row">

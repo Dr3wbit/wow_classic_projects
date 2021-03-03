@@ -6,6 +6,8 @@ from itertools import chain
 from operator import attrgetter
 from django.template.loader import render_to_string
 import os
+from django.views.decorators.cache import cache_page
+
 
 def consume_list_builder(request):
 	data = {}
@@ -145,6 +147,7 @@ def recipe_list_builder(request):
 def set_pagination(request):
 	pass
 
+@cache_page(60*5) #cache for 15mins
 def get_saved_lists(request):
 	data = {}
 	specs = Spec.objects.exclude(visible=False)
@@ -242,6 +245,7 @@ def update_icon(request):
 
 	return response
 
+@cache_page(60*60*24*7) # cache for a week
 def icon_list(request):
 	context = {}
 	context['info'] = {}
