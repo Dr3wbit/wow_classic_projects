@@ -8,16 +8,15 @@ from django.core.cache.utils import make_template_fragment_key
 
 NAUGHTY_WORDS = ["nigger", "faggot", "shit", "fuck", "fag", "nlgger", "nigg3r", "nlgg3r", "n1gg3r"]
 
+@receiver(pre_save, sender=ConsumeList, weak=False)
 @receiver(pre_save, sender=Spec, weak=False)
-def savedspec_limit(sender, instance, **kwargs):
+def savedlist_limit(sender, instance, **kwargs):
 	user = User.objects.get(email=instance.user.email)
-
-	if user.spec_set.count() >= instance.user.max_lists:
-		raise PermissionDenied("Username: {} can only save {} specs".format(instance.user.email, instance.user.max_lists))
+	if sender.objects.filter(user=user).count() > instance.user.max_lists:
+		raise PermissionDenied("Username: {} can only save {} lists of type {}".format(instance.user.email, instance.user.max_lists, instance.__class__.__name__))
 
 	if instance.img == 'samwise':
-		instance.img = "class/"+instance.wow_class.name.lower()+".jpg"
-
+		instance.img = "class/"+instance.wow_class.name.lower()+".jpg" if sender == Spec else 'inv_misc_book_09.jpg'
 
 @receiver(post_save, sender=Spec, weak=False)
 @receiver(post_save, sender=ConsumeList, weak=False)
@@ -29,7 +28,7 @@ def clear_sidebar_cache(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=Spec, weak=False)
 @receiver(post_save, sender=ConsumeList, weak=False)
-def saved_list_profanity_filter(sender, instance, created, **kwargs):
+def savedlist_profanity_filter(sender, instance, created, **kwargs):
 	if created:
 		naughty_words = [x.lower() for x in NAUGHTY_WORDS]
 		reggie = r"({})".format("|".join(naughty_words))
@@ -59,15 +58,6 @@ def saved_list_profanity_filter(sender, instance, created, **kwargs):
 
 		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
 
-
-@receiver(pre_save, sender=ConsumeList, weak=False)
-def consumelist_limit(sender, instance, **kwargs):
-	user = User.objects.get(email=instance.user.email)
-	if user.consumelist_set.count() > instance.user.max_lists:
-		raise PermissionDenied("Username: {} can only save {} consume lists".format(instance.user.email, instance.user.max_lists))
-		# raise ValidationError("Can only create 1 %s instance" % model.__name__)
-	if instance.img == 'samwise':
-		instance.img = 'inv_misc_book_09.jpg'
 
 
 @receiver(post_init, sender=Profession)
@@ -140,5 +130,3 @@ def set_proficiency(sender, instance, *args, **kwargs):
 
 			elif instance._slot in Item.MELEE_SLOTS:
 				instance.proficiency = Item.MELEE_CHOICES[instance._proficiency]
-
-		# print("({}) {}".format(instance.ix, instance.proficiency))
