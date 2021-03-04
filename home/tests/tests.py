@@ -1,6 +1,7 @@
 from django.test import TestCase
-
+#######################
 ### site navigation ###
+#######################
 
 ## test site navigation after logging in as normal user ##
 ## test site navigation after logging in as superuser ##
@@ -34,13 +35,16 @@ from django.test import TestCase
 # test if can navigate directly to saved consume list via profession_tool?HASH
 # test if can navigate directly to saved consume list via profession_tool/PROFESSION?HASH
 
-
+###################
 ### social auth ###
+###################
 
 # test can login via discord #
 # test canceling logout redirects to previous page#
 
+###################
 ### saved lists ###
+###################
 
 # test if can save consume list
 # test if can save saved spec
@@ -64,8 +68,15 @@ from django.test import TestCase
 # test if can delete saved consume list from talent_calc page
 # test if can delete saved spec from profession_tool page
 
+
+# test if can save > 10 specs
+# test if can save > 10 consume lists
+
+##############
 ### voting ###
+##############
 
 # test can vote if logged in
+    # test if stars clickable while logged in
 # test if cannot vote while logged out
-# test cannot vote more than once per item
+# test cannot vote more than once per saved list

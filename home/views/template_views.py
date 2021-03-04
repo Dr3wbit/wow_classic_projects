@@ -113,6 +113,7 @@ def handler404(request, exception):
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
 
+@method_decorator(cache_page(60 * 1440), name='dispatch')
 class APIView(TemplateView):
 	template_name = "api.html"
 

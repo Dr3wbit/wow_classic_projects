@@ -68,11 +68,7 @@
     <div class="row">
         <div id="recipe_list" class="col pageColumn custom-scroll-bar">
             <div id="list_container" class="list">
-			{% comment %}
-            {% if whole_page %}
-            {% include "recipe_helper.html" %}
-            {% endif %}
-			{% endcomment %}
+
             </div>
         </div>
         <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
@@ -83,20 +79,12 @@
                 <div id="materials" class="col-12">
                 </div>
             </div>
-            {% comment %}
-            {% if whole_page %}
-            {% include "consume_helper.html" %}
-            {% endif %}
-            {% endcomment %}
+
         </div>
     </div>
 
     <div id="saved_list_info">
-        {% comment %}
-        {% if whole_page %}
-        {% include "info_display.html" %}
-        {% endif %}
-        {% endcomment %}
+
     </div>
 </div>
 
