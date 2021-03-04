@@ -192,6 +192,7 @@ class IndexView(TemplateView):
 		# NOTE: saved-list ratings
 
 
+# @method_decorator(cache_page(60 * 300), name='dispatch')
 class TalentCalcTemplate(TemplateView):
 	form_class = SpecForm
 
@@ -207,28 +208,36 @@ class TalentCalcTemplate(TemplateView):
 
 	def talent_architect(self, context):
 		class_name = context["selected"]
+		blueprints = {}
 		wow_class = WoWClass.objects.filter(name=class_name.title())
-		if wow_class:
-			wow_class = wow_class.first()
-			talent_trees = wow_class.talenttree_set.all()
-			context["talent_trees"] = []
-			blueprints = {}
+		cache_key = 'tc_{}'.format(class_name)
+		tc_cache_item = cache.get(cache_key)
 
-			for tree in talent_trees:
-				context["talent_trees"].append({'name':tree.name})
-				tree_name = tree.name
-				all_talents = iter(tree.talent_set.all())
-				blueprints[tree_name] = tree.architect
-				for outer_i, outer_v in enumerate(blueprints[tree_name]):
-					for inner_i, inner_v in enumerate(outer_v):
-						if inner_v:
-							next_tal = next(all_talents)
-							val = [inner_v] if type(inner_v) is not list else inner_v
-							val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
-							blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':sanitize(next_tal.name), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
+		if tc_cache_item:
+			blueprints = tc_cache_item
+		else:
+			if wow_class:
+				wow_class = wow_class.first()
+				talent_trees = wow_class.talenttree_set.all()
+				context["talent_trees"] = []
 
-			context["blueprints"] = blueprints
-			return(context)
+				for tree in talent_trees:
+					context["talent_trees"].append({'name':tree.name})
+					tree_name = tree.name
+					all_talents = iter(tree.talent_set.all())
+					blueprints[tree_name] = tree.architect
+					for outer_i, outer_v in enumerate(blueprints[tree_name]):
+						for inner_i, inner_v in enumerate(outer_v):
+							if inner_v:
+								next_tal = next(all_talents)
+								val = [inner_v] if type(inner_v) is not list else inner_v
+								val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
+								blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':sanitize(next_tal.name), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
+
+				cache.add(cache_key, blueprints, 86400)
+
+		context["blueprints"] = blueprints
+		return(context)
 
 
 	def get(self, request, *args, **kwargs):
@@ -257,11 +266,10 @@ class TalentCalcTemplate(TemplateView):
 			context["selected"] = class_name.lower()
 			context = self.talent_architect(context)
 
-		if request.is_ajax():
-			response = render(request, "talent_builder.html", context=context)
+		# if request.is_ajax():
+		# 	response = render(request, "talent_builder.html", context=context)
 
-		else:
-			response = render(request, "talent.html", context=context)
+		response = render(request, "talent.html", context=context)
 
 		return response
 
