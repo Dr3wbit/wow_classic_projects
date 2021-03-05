@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse, HttpResponse
 from django.db.models import Count, Q, Avg
+from django.template.loader import render_to_string
+from django.views.decorators.cache import cache_page
 from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Tag, WoWClass
+
 from itertools import chain
 from operator import attrgetter
-from django.template.loader import render_to_string
 import os
-from django.views.decorators.cache import cache_page
 
 
 def consume_list_builder(request):
@@ -104,50 +105,10 @@ def get_basic_item_info(item):
 
 	return info
 
-
-def recipe_list_builder(request):
-
-	data = {}
-	prof = request.GET.get('prof', None)
-	data['prof'] = prof
-
-	all_recipes = {}
-	recipe_list = {}
-
-	if prof == 'other':
-		all_recipes = Crafted.objects.filter(profession=None).order_by('item')
-
-	elif prof:
-		all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
-	else:
-		all_recipes = {}
-
-	for recipe in all_recipes:
-		ix = recipe.item.ix
-		recipe_list[ix] = {}
-		recipe_list[ix]['name'] = recipe.item.name
-		recipe_list[ix]['quality'] = recipe.item.quality
-		recipe_list[ix]['img'] = recipe.item.img
-		recipe_list[ix]['step'] = recipe.step
-		recipe_list[ix]['mats'] = {}
-		for mat in recipe.materials.all():
-			matIX = mat.item.ix
-			recipe_list[ix]['mats'][matIX] = {}
-			recipe_list[ix]['mats'][matIX]['name'] = mat.name
-			recipe_list[ix]['mats'][matIX]['quality'] = mat.quality
-			recipe_list[ix]['mats'][matIX]['img'] = mat.img
-			recipe_list[ix]['mats'][matIX]['step'] = mat.amount
-
-	data['recipes'] = recipe_list
-
-	response = JsonResponse(data, safe=False)
-	return response
-
-
 def set_pagination(request):
 	pass
 
-@cache_page(60*5) #cache for 15mins
+@cache_page(60*5) #cache for 5mins
 def get_saved_lists(request):
 	data = {}
 	specs = Spec.objects.exclude(visible=False)
@@ -348,6 +309,55 @@ def flag_list(request):
 		response.status_code = 404
 
 	return response
+
+
+def recipe_list_builder(request):
+
+	data = {}
+	prof = request.GET.get('prof', None)
+	cache_key = 'recipelist_{}'.format(prof)
+	rl_cache_item = cache.get(cache_key)
+
+	if rl_cache_item:
+		data['recipes'] = rl_cache_item
+
+	else:
+
+		data['prof'] = prof
+
+		all_recipes = {}
+		recipe_list = {}
+
+		if prof == 'other':
+			all_recipes = Crafted.objects.filter(profession=None).order_by('item')
+
+		elif prof:
+			all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
+		else:
+			all_recipes = {}
+
+		for recipe in all_recipes:
+			ix = recipe.item.ix
+			recipe_list[ix] = {}
+			recipe_list[ix]['name'] = recipe.item.name
+			recipe_list[ix]['quality'] = recipe.item.quality
+			recipe_list[ix]['img'] = recipe.item.img
+			recipe_list[ix]['step'] = recipe.step
+			recipe_list[ix]['mats'] = {}
+			for mat in recipe.materials.all():
+				matIX = mat.item.ix
+				recipe_list[ix]['mats'][matIX] = {}
+				recipe_list[ix]['mats'][matIX]['name'] = mat.name
+				recipe_list[ix]['mats'][matIX]['quality'] = mat.quality
+				recipe_list[ix]['mats'][matIX]['img'] = mat.img
+				recipe_list[ix]['mats'][matIX]['step'] = mat.amount
+
+		data['recipes'] = recipe_list
+		cache.add(cache_key, recipe_list, 604800)
+
+	response = JsonResponse(data, safe=False)
+	return response
+
 
 def prof_loader(request):
 	data = {}

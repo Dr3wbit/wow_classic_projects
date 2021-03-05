@@ -19,7 +19,6 @@
 {% endblock title_splash %}
 
 {% block mainbody %}
-{% cache 86400 classselection %}
 {% block class_selection %}
 <div class="row class-selection sticky-top" id="class_selection">
 	{% for class in classes %}
@@ -31,7 +30,6 @@
 	{% endfor %}
 </div>
 {% endblock class_selection %}
-{% endcache %}
 
 <div class="mainContent">
 	<div class="row justify-content-center">

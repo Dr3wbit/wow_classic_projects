@@ -192,19 +192,8 @@ class IndexView(TemplateView):
 		# NOTE: saved-list ratings
 
 
-# @method_decorator(cache_page(60 * 300), name='dispatch')
 class TalentCalcTemplate(TemplateView):
 	form_class = SpecForm
-
-
-	# def setup(self, request, *args, **kwargs):
-	# 	setup = super().setup(request, *args, **kwargs)
-	# 	return setup
-	#
-	# # @method_decorator(never_cache)
-	# def dispatch(self, request, *args, **kwargs):
-	# 	dispatch = super().dispatch(request, *args, **kwargs)
-	# 	return dispatch
 
 	def talent_architect(self, context):
 		class_name = context["selected"]
@@ -445,9 +434,7 @@ class ConsumeToolTemplate(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		context = {}
-
 		context['form'] = self.form_class()
-
 		context["professions"] = [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
@@ -527,15 +514,8 @@ class ConsumeToolTemplate(TemplateView):
 				context['materials'] = get_materials(cl)
 
 
-		if request.is_ajax():
-			if 'prof' in data.keys():
-				response = render(request, "recipe_helper.html", context=context)
-			else:
-				response = render(request, "consume_helper.html", context=context)
-		else:
-			context["whole_page"] = True
-			response = render(request, "profession_tool.html", context=context)
 
+		response = render(request, "profession_tool.html", context=context)
 		return response
 
 	def post(self, request, *args, **kwargs):

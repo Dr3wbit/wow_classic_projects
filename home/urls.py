@@ -1,6 +1,5 @@
 from django.urls import path, re_path
 from . import views
-from django.views.decorators.cache import cache_page
 import re
 
 # TODO: make class/profession based url coersion case insensitive
