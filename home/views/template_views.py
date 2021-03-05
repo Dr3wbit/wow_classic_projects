@@ -86,29 +86,6 @@ def handler404(request, exception):
 	response.status_code = 404
 	return response
 
-# class Pagination:
-#
-# 	def __init__(self, total_items, per_page):
-# 		self.total_items = total_items
-# 		self.per_page = per_page
-# 		self.page_number = 0
-# 		self.max_pages = round(self.total_items/self.per_page)
-#
-# 	def has_next(self, page_number, max_pages):
-# 		if self.page_number < self.max_pages:
-# 			return True
-# 		else:
-# 			return False
-#
-# 	def has_previous(self, page_number):
-# 		return True if self.page_number > 1 else False
-#
-# 	def plus_n(self, max_pages, n):
-# 		return self.has_next(self.page_number+self.n, self.max_pages)
-
-
-
-
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
@@ -121,68 +98,49 @@ class APIView(TemplateView):
 
 		if request.user.groups.filter(name='admins').exists():
 
-			context = {}
-			context['recipes'] = Crafted.objects.filter(profession__name='Enchanting')
-			context['consume_lists'] = ConsumeList.objects.all()
-			context['rangen'] = range(5)
-			context['specs'] = {}
+			context = {'recipes': Crafted.objects.filter(profession__name='Enchanting'),
+				'consume_lists': ConsumeList.objects.all(), 'rangen': range(5),
+				'specs': {}, 'saved_lists': {}
+			}
 
 			for spec in Spec.objects.all():
-				context['specs'][spec.name] = {}
-				context['specs'][spec.name]['obj'] = spec
-				context['specs'][spec.name]['has_voted'] = False
+				context['specs'][spec.name] = {'obj': spec, 'has_voted': False}
 
 				if request.user.is_authenticated:
 					if spec.ratings.filter(user=request.user).exists():
 						context['specs'][spec.name]['has_voted'] = True
 
-			context['saved_lists'] = {}
 			for cl in context['consume_lists']:
-				name = cl.name
-				context['saved_lists'][name] = {}
-				context['saved_lists'][name]['user'] = cl.user
-				context['saved_lists'][name]['hash'] = cl.hash
-				context['saved_lists'][name]['consumes'] = {}
-				context['saved_lists'][name]['materials'] = {}
+				context['saved_lists'][cl.name] = {
+					'user': cl.user, 'hash': cl.hash, 'consumes': {}, 'materials': {}
+				}
 
 				for consume in cl.consumes.all():
-					if not consume.item.profession:
-						prof_name = 'other'
-					else:
-						prof_name = consume.item.profession.name
+					prof_name = consume.item.profession.name if consume.item.profession else 'other'
+					if prof_name not in context['saved_lists'][cl.name]['consumes'].keys():
+						context['saved_lists'][cl.name]['consumes'][prof_name] = {}
 
-					if prof_name not in context['saved_lists'][name]['consumes'].keys():
-						context['saved_lists'][name]['consumes'][prof_name] = {}
-
-					context['saved_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
-
+					context['saved_lists'][cl.name]['consumes'][prof_name][consume.name] = consume.amount
 					for mat in consume.item.materials.all():
-						if mat.name not in context['saved_lists'][name]['materials'].keys():
-							context['saved_lists'][name]['materials'][mat.name] = {}
-							context['saved_lists'][name]['materials'][mat.name]['value'] = 0
-							context['saved_lists'][name]['materials'][mat.name]['quality'] = mat.quality
-							context['saved_lists'][name]['materials'][mat.name]['img'] = mat.img
+						if mat.name not in context['saved_lists'][cl.name]['materials'].keys():
+							context['saved_lists'][cl.name]['materials'][mat.name] = {
+								'value': 0, 'quality': mat.quality, 'img': mat.img
+							}
 
-						context['saved_lists'][name]['materials'][mat.name]['value'] = int(consume.amount * mat.amount)
-
+						context['saved_lists'][cl.name]['materials'][mat.name]['value'] = int(consume.amount * mat.amount)
 
 			return render(request, self.template_name, context)
 		else:
 			return HttpResponseRedirect('denied')
 
-# @method_decorator(cache_page(60 * 5), name='dispatch') # NEW
 class IndexView(TemplateView):
 	template_name = "index.html"
 
 	def get(self, request, *args, **kwargs):
-		context = {}
-		context['rangen'] = range(5) # 5 stars
-		context['specs'] = {}
-		context['wowclasses'] = WoWClass.objects.all()
-		context['wowprofessions'] = Profession.objects.all()
-		context['tags'] = Tag.objects.all()
-		context['specs'] = Spec.objects.all()
-		context['consume_lists'] = ConsumeList.objects.all()
+		context = {'rangen': range(5), 'specs': Spec.objects.all(),
+			'wowclasses': WoWClass.objects.all(), 'tags': Tag.objects.all(),
+			'consume_lists': ConsumeList.objects.all()
+		}
 
 		return render(request, self.template_name, context)
 
@@ -198,15 +156,14 @@ class TalentCalcTemplate(TemplateView):
 	def talent_architect(self, context):
 		class_name = context["selected"]
 		blueprints = {}
-		wow_class = WoWClass.objects.filter(name=class_name.title())
 		cache_key = 'tc_{}'.format(class_name)
-		tc_cache_item = cache.get(cache_key)
+		cache_item = cache.get(cache_key)
 
-		if tc_cache_item:
-			blueprints = tc_cache_item
+		if cache_item:
+			blueprints = cache_item
 		else:
-			if wow_class:
-				wow_class = wow_class.first()
+			if WoWClass.objects.filter(name=class_name.title()):
+				wow_class = WoWClass.objects.filter(name=class_name.title()).first()
 				talent_trees = wow_class.talenttree_set.all()
 				context["talent_trees"] = []
 
@@ -308,13 +265,10 @@ class TalentCalcTemplate(TemplateView):
 
 	def save_list(self, request, cleaned_data):
 		data = dict(request.POST)
-		data['hash'] = cleaned_data['hash']
+		data.update({'hash': cleaned_data['hash'], 'private': cleaned_data['private'],
+			'name': cleaned_data['name'], 'wow_class': request.POST.get('wow_class', None)
+		})
 
-		data['private'] = cleaned_data['private']
-		data['description'] = cleaned_data['description']
-		data['name'] = cleaned_data['name']
-
-		data['wow_class'] = request.POST.get('wow_class', None)
 		tags = request.POST.getlist('tags')
 		spnt = request.POST.getlist('spent')
 		spent = {}
@@ -433,13 +387,11 @@ class ConsumeToolTemplate(TemplateView):
 		return pagination
 
 	def get(self, request, *args, **kwargs):
-		context = {}
-		context['form'] = self.form_class()
-		context["professions"] = [
+		context = {'form': self.form_class(), 'professions': [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
 			"skinning", "mining", "herbalism", "fishing"
-		]
+		]}
 
 		id,cl = False,False
 
@@ -457,7 +409,7 @@ class ConsumeToolTemplate(TemplateView):
 			cl = cl.first()
 			context['ix'] = id
 			context["consume_list"] = cl
-			context['materials'] = get_materials(context["consume_list"])
+			context['materials'] = self.get_materials(context["consume_list"])
 			context['consumes'] = {}
 
 			for consume in cl.consumes.all():
@@ -471,15 +423,13 @@ class ConsumeToolTemplate(TemplateView):
 		context["recipes"] = {}
 		context["selected"] = prof
 
+		all_recipes = []
+
 		if prof=='other':
 			all_recipes = Crafted.objects.filter(profession=None).order_by('item')
 			# context["recipes"] = Crafted.objects.filter(prof=None)
 		elif prof:
 			all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
-
-		else:
-			all_recipes = []
-
 
 		if all_recipes:
 
@@ -511,7 +461,7 @@ class ConsumeToolTemplate(TemplateView):
 			if cl:
 				cl = cl.first()
 				context['consume_list'] = cl
-				context['materials'] = get_materials(cl)
+				context['materials'] = self.get_materials(cl)
 
 
 
@@ -529,7 +479,6 @@ class ConsumeToolTemplate(TemplateView):
 				if request.is_ajax():
 					try:
 						form_data = self.save_list(request, form.cleaned_data)
-
 
 						name = form_data['name']
 						created = form_data['created']
@@ -590,7 +539,7 @@ class ConsumeToolTemplate(TemplateView):
 					cl = cl.first()
 					context['ix'] = id
 					context["consume_list"] = cl
-					context['materials'] = get_materials(context["consume_list"])
+					context['materials'] = self.get_materials(context["consume_list"])
 					context['consumes'] = {}
 
 					for consume in cl.consumes.all():
@@ -641,7 +590,7 @@ class ConsumeToolTemplate(TemplateView):
 					if cl:
 						cl = cl.first()
 						context['consume_list'] = cl
-						context['materials'] = get_materials(cl)
+						context['materials'] = self.get_materials(cl)
 
 
 				if request.is_ajax():
@@ -660,7 +609,6 @@ class ConsumeToolTemplate(TemplateView):
 
 			return response
 
-
 	def has_next(self, page_number, max_pages):
 		if page_number < max_pages:
 			return True
@@ -669,7 +617,6 @@ class ConsumeToolTemplate(TemplateView):
 
 	def has_previous(self, page_number):
 		return True if page_number > 1 else False
-
 
 	def save_list(self, request, cleaned_data):
 
@@ -737,6 +684,20 @@ class ConsumeToolTemplate(TemplateView):
 		# return JsonResponse(data)
 
 
+	def get_materials(self, cl):
+		materials = {}
+		for consume in cl.consumes.all():
+			for mat in consume.mats:
+				if mat.name not in materials.keys():
+					materials[mat.name] = {'value': 0, 'quality': mat.quality,
+						'img': mat.img, 'ix': mat.item.ix
+					}
+
+				materials[mat.name]['value'] += int(consume.amount * mat.amount)
+
+		return materials
+
+
 class EnchantToolView(TemplateView):
 	template_name = "enchant_tool.html"
 
@@ -792,44 +753,6 @@ class SuccessView(TemplateView):
 
 class DeniedView(TemplateView):
 	template_name = "denied.html"
-
-
-
-def build_consume_list(cl):
-	consume_list = {}
-	for consume in cl.consumes.all():
-		consume_list[consume.ix] = {}
-		consume_list[consume.ix]['n'] = consume.name
-		consume_list[consume.ix]['q'] = consume.quality
-		consume_list[consume.ix]['img'] = consume.img
-		consume_list[consume.ix]['amount'] = consume.amount
-
-		consume_list[consume.ix]['mats'] = {}
-		for mat in consume.mats:
-			consume_list[consume.ix]['mats'][mat.item.ix] = {}
-			consume_list[consume.ix]['mats'][mat.item.ix]['amount'] = mat.amount*consume.amount
-			consume_list[consume.ix]['mats'][mat.item.ix]['n'] = mat.name
-			consume_list[consume.ix]['mats'][mat.item.ix]['q'] = mat.quality
-			consume_list[consume.ix]['mats'][mat.item.ix]['img'] = mat.img
-
-	return consume_list
-
-
-def get_materials(cl):
-	materials = {}
-	for consume in cl.consumes.all():
-		for mat in consume.mats:
-			if mat.name not in materials.keys():
-				materials[mat.name] = {}
-				materials[mat.name]['value'] = 0
-				materials[mat.name]['quality'] = mat.quality
-				materials[mat.name]['img'] = mat.img
-				materials[mat.name]['ix'] = mat.item.ix
-
-			materials[mat.name]['value'] += int(consume.amount * mat.amount)
-
-	return materials
-
 
 
 
