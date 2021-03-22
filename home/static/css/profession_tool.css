@@ -288,3 +288,7 @@
 #sorting_order:hover{
     color: var(--merrigold);
 }
+
+#search_bar {
+    font-size: 12px;
+}

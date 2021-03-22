@@ -9,7 +9,7 @@ from itertools import chain
 from operator import attrgetter
 import os
 
-
+# @cache_page(60*5)
 def consume_list_builder(request):
 	status_code = 404
 	data = {'consume_list':{}, 'material_list':{}, 'list_info':{}}
@@ -77,7 +77,7 @@ def get_basic_item_info(item):
 def set_pagination(request):
 	pass
 
-# @cache_page(60*5) #cache for 5mins
+@cache_page(60*5) #cache for 5mins
 def get_saved_lists(request):
 	data = {'saved_lists': []}
 	specs = Spec.objects.exclude(visible=False)

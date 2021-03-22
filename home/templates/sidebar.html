@@ -91,9 +91,17 @@
 			{% endwith %}
 			{% endcache %}
 
+
 			{% else %}
 				<p>
-					To save a spec, fill out your talents then fill out the save form at the bottom of the page. <br> (login required:
+				{% if "profession_tool" in request.path %}
+				To create a list of crafted items, click one of the profession icons near the top and add items to your list by clicking anywhere in the item's 'Name' column.
+				<br>
+				To save your list, fill out the save form at the bottom of the page and click 'Save'
+				{% else %}
+				To save a spec, fill out your talents then fill out the save form at the bottom of the page
+				{% endif %}
+				 (login required:
 					<a id="discord-login" href="{% url 'social:begin' 'discord' %}?next={{ request.path }}">
 						<span class="login discord"></span>
 							<svg id="Layer_1" height="20" width="40"
