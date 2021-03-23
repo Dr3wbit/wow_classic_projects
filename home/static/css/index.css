@@ -310,3 +310,9 @@ a:hover{
     vertical-align: unset;
     border: unset;
 }
+
+@media only screen and (max-width: 992px) {
+    #search_bar {
+        width: 150px;
+    }
+}

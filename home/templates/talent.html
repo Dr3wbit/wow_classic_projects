@@ -24,7 +24,7 @@
 	{% for class in classes %}
 	<a class="class-filter {% if class == selected %}selected{% endif %}" id="{{class}}">
 		{% with "images/icons/large/class/"|add:class|add:".jpg" as class_image %}
-		<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}" style="background-image: url('{% static class_image %}');">
+		<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}">
 		{% endwith %}
 	</a>
 	{% endfor %}

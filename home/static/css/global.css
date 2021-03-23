@@ -216,7 +216,7 @@ body {
 .nav-link:hover {
     outline: none;
     background-color: transparent;
-   }
+}
 
 .nav-item {
     min-width: 140px;
@@ -227,22 +227,7 @@ body {
     transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
 }
 
-@media only screen and (max-width: 1400px) {
 
-    #navbarSupportedContent{
-        z-index: 1310;
-        background-color: #272727;
-        max-height: var(--navbar-height);
-    }
-}
-
-@media only screen and (min-width: 1400px) {
-
-    #navbarSupportedContent{
-        z-index: 1310;
-        background-color: #272727;
-    }
-}
 
 
 .nav-item:hover {
@@ -288,162 +273,145 @@ body {
     justify-content: center;
 }
 
-@media only screen and (max-width: 992px) {
 
-    .navbar-brand{
-        padding-left: 15px;
-        padding-right: 20px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-
-    #warrior {
-        background-image: url("../images/icons/medium/warrior.jpg");
-        color: #C79C6E;
-    }
-
-    #mage {
-        background-image: url("../images/icons/medium/class_mage.jpg");
-        color: #40C7EB
-    }
-
-    #druid {
-        background-image: url("../images/icons/medium/class_druid.jpg");
-        color: #FF7D0A
-    }
-
-    #paladin {
-        background-image: url("../images/icons/medium/class_paladin.jpg");
-        color: #F58CBA
-    }
-
-    #shaman {
-        background-image: url("../images/icons/medium/class_shaman.jpg");
-        color: #0070DE
-    }
-
-    #warlock {
-        background-image: url("../images/icons/medium/class_warlock.jpg");
-        color: #8787ED
-    }
-
-    #priest {
-        background-image: url("../images/icons/medium/class_priest.jpg");
-        color: #FFFFFF
-    }
-
-    #hunter {
-        background-image: url("../images/icons/medium/class_hunter.jpg");
-        color: #ABD473
-    }
-
-    #rogue {
-        background-image: url("../images/icons/medium/class_rogue.jpg");
-        color: #FFF569
-    }
-  }
 
 
 
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
 
-#warrior {
-    color: #C79C6E;
-    border-color: #C79C6E !important;
-
-}
-
-#mage {
-    color: #40C7EB;
-    border-color: #40C7EB;
-
-}
-
-#druid {
-    color: #FF7D0A;
-    border-color: #FF7D0A;
-}
-
-#paladin {
-    color: #F58CBA;
-    border-color: #F58CBA;
-}
-
-#shaman {
-    color: #0070DE;
-    border-color: #0070DE;
-}
-
-#warlock {
-    color: #8787ED;
-    border-color: #8787ED;
-
-}
-
-#priest {
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-
-}
-
-#hunter {
-    color: #ABD473;
-    border-color: #ABD473;
-}
-
-#rogue {
-    color: #FFF569;
-    border-color: #FFF569;
-
-}
-
-.warrior {
+#warrior, .warrior {
     color: #C79C6E;
     border-color: #C79C6E;
-
 }
-
-.mage {
+#warrior > img {
+    background-image: url("../images/icons/large/class/warrior.jpg");
+}
+#mage, .mage {
     color: #40C7EB;
     border-color: #40C7EB;
 }
+#mage > img {
+    background-image: url("../images/icons/large/class/mage.jpg");
+}
 
-.druid {
+#druid, .druid {
     color: #FF7D0A;
     border-color: #FF7D0A;
 }
+#druid > img {
+    background-image: url("../images/icons/large/class/druid.jpg");
+}
 
-.paladin {
+#paladin > img{
+    background-image: url("../images/icons/large/class/paladin.jpg");
+}
+#paladin, .paladin {
     color: #F58CBA;
     border-color: #F58CBA;
 }
 
-.shaman {
+#shaman, .shaman {
     color: #0070DE;
     border-color: #0070DE;
 }
+#shaman > img {
+    background-image: url("../images/icons/large/class/shaman.jpg");
 
-.warlock {
+}
+
+#warlock, .warlock {
     color: #8787ED;
     border-color: #8787ED;
 }
+#warlock > img {
+    background-image: url("../images/icons/large/class/warlock.jpg");
 
-.priest {
+}
+
+#priest, .priest {
     color: #FFFFFF;
     border-color: #FFFFFF;
 }
 
-.hunter {
+#priest > img {
+    background-image: url("../images/icons/large/class/priest.jpg");
+}
+
+#hunter, .hunter {
     color: #ABD473;
     border-color: #ABD473;
 }
 
-.rogue {
+#hunter > img {
+    background-image: url("../images/icons/large/class/hunter.jpg");
+}
+
+#rogue, .rogue {
     color: #FFF569;
     border-color: #FFF569;
 }
 
+#rogue > img {
+    background-image: url("../images/icons/large/class/rogue.jpg");
+}
+
+#alchemy > img{
+    background-image: url("../images/icons/large/professions/alchemy.jpg");
+
+}
+
+#blacksmithing > img{
+    background-image: url("../images/icons/large/professions/blacksmithing.jpg");
+
+}
+
+#cooking > img{
+    background-image: url("../images/icons/large/professions/cooking.jpg");
+
+}
+
+#enchanting > img{
+    background-image: url("../images/icons/large/professions/enchanting.jpg");
+
+}
+#engineering > img{
+    background-image: url("../images/icons/large/professions/engineering.jpg");
+
+}
+
+#leatherworking > img{
+    background-image: url("../images/icons/large/professions/leatherworking.jpg");
+
+}
+
+#first_aid > img{
+    background-image: url("../images/icons/large/professions/first_aid.jpg");
+}
+
+#mining > img{
+    background-image: url("../images/icons/large/professions/mining.jpg");
+}
+
+#tailoring > img{
+    background-image: url("../images/icons/large/professions/tailoring.jpg");
+}
+
+
+#other > img{
+    background-image: url("../images/icons/large/professions/other.jpg");
+}
+
+#skinning > img{
+    background-image: url("../images/icons/large/professions/skinning.jpg");
+}
+
+#herbalism > img{
+    background-image: url("../images/icons/large/professions/herbalism.jpg");
+}
+
+#fishing > img{
+    background-image: url("../images/icons/large/professions/fishing.jpg");
+}
 
 .class-icon, .prof-icon {
     height: 42px;
@@ -724,12 +692,7 @@ ul {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 992px) {
-    .discordLink {
-        margin: auto
-    }
 
-}
 
 .discordLink:hover{
     filter: invert(100%)
@@ -1005,4 +968,198 @@ button:focus {
     align-items: center;
     display: flex;
     padding: 0 12px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .class-filter, .prof-filter {
+        margin: 1px;
+    }
+
+    /* professions */
+    #alchemy > img{
+        background-image: url("../images/icons/medium/professions/alchemy.jpg");
+
+    }
+
+    #blacksmithing > img{
+        background-image: url("../images/icons/medium/professions/blacksmithing.jpg");
+
+    }
+
+    #cooking > img{
+        background-image: url("../images/icons/medium/professions/cooking.jpg");
+
+    }
+
+    #enchanting > img{
+        background-image: url("../images/icons/medium/professions/enchanting.jpg");
+
+    }
+    #engineering > img{
+        background-image: url("../images/icons/medium/professions/engineering.jpg");
+
+    }
+
+    #leatherworking > img{
+        background-image: url("../images/icons/medium/professions/leatherworking.jpg");
+
+    }
+
+    #tailoring > img{
+        background-image: url("../images/icons/medium/professions/tailoring.jpg");
+    }
+
+    #first_aid > img{
+        background-image: url("../images/icons/medium/professions/first_aid.jpg");
+    }
+
+    #mining > img{
+        background-image: url("../images/icons/medium/professions/mining.jpg");
+    }
+
+    #other > img{
+        background-image: url("../images/icons/medium/professions/other.jpg");
+    }
+
+    #skinning > img{
+        background-image: url("../images/icons/medium/professions/skinning.jpg");
+    }
+
+    #herbalism > img{
+        background-image: url("../images/icons/medium/professions/herbalism.jpg");
+    }
+
+    #fishing > img{
+        background-image: url("../images/icons/medium/professions/fishing.jpg");
+    }
+
+    #herbalism, #fishing, #skinning {
+        display: none;
+    }
+
+
+    #warrior > img{
+        background-image: url("../images/icons/medium/class/warrior.jpg");
+    }
+
+    #mage > img {
+        background-image: url("../images/icons/medium/class/mage.jpg");
+    }
+
+    #druid > img {
+        background-image: url("../images/icons/medium/class/druid.jpg");
+    }
+
+    #paladin > img {
+        background-image: url("../images/icons/medium/class/paladin.jpg");
+    }
+
+    #shaman > img {
+        background-image: url("../images/icons/medium/class/shaman.jpg");
+    }
+
+    #warlock > img {
+        background-image: url("../images/icons/medium/class/warlock.jpg");
+    }
+
+    #priest > img {
+        background-image: url("../images/icons/medium/class/priest.jpg");
+    }
+
+    #hunter > img {
+        background-image: url("../images/icons/medium/class/hunter.jpg");
+    }
+
+    #rogue > img {
+        background-image: url("../images/icons/medium/class/rogue.jpg");
+    }
+}
+
+
+#discord-avatar {
+    background-color: transparent;
+}
+
+#discord-avatar > img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 0.5vh;
+    border: 1px solid white;
+}
+
+#discord-avatar > img:hover {
+    border: 1px solid var(--merrigold);
+}
+
+.nav-item:last-of-type {
+    border-right: none;
+    width: 100%;
+    display: flex;
+}
+
+.nav-link:last-of-type {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@media only screen and (max-width: 992px) {
+
+    #discord-avatar {
+        background-color: transparent;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    
+
+    .nav-link:last-of-type {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .nav-item:last-of-type {
+        border-right: 1px solid black;
+        display: list-item;
+    }
+
+    .navbar-brand{
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+
+    .discordLink {
+        margin: auto
+    }
+
+    .nav-item {
+        min-width: initial ;
+        min-height: initial;
+    }
+
+    .nav-link:hover {
+        /* outline: none; */
+        color: var(--merrigold) !important;
+        background-color: #3a3e42;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+
+    #navbarSupportedContent{
+        z-index: 1310;
+        background-color: #272727;
+        max-height: var(--navbar-height);
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+
+    #navbarSupportedContent{
+        z-index: 1310;
+        background-color: #272727;
+    }
 }
