@@ -27,7 +27,7 @@
 			</li>
 			{% endfor %}
 			<li class="nav-item">
-				<div style="margin-left: auto; position: relative; background-color: #272727; cursor: pointer; height: var(--navbar-height);">
+				<div>
 					{% if user.is_authenticated %}
 					{% cache 500 userauth user.uid %}
 					<div class="dropdown show">
