@@ -293,6 +293,11 @@
   /* text-shadow: -0.02rem -0.02rem 0.02rem black; */
 }
 
+@media only screen and (min-width: 1200px) {
+    #mainBody {
+        padding-left: 15px !important;
+    }
+}
 
 @media only screen and (max-width: 992px) {
     #talentHeader {
