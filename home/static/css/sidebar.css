@@ -40,11 +40,10 @@
     border-bottom: #404040;
 }
 
-.saved-list-divider {
+#sidebar_toggle {
     background-color: var(--sidenav-bg-color);
     height: var(--secondary-navbar-height);
     box-shadow: 0 4px 2px -4px #000000;
-
 }
 
 #saved_lists {
@@ -160,13 +159,7 @@
 }
 
 
-.sidebar-toggle {
-    height: var(--secondary-navbar-height);
-    right: 0;
-
-}
-
-.sidebar-toggle:hover a, .sidebar-toggle:active a{
+#sidebar_toggle:hover a, #sidebar_toggle:active a{
     color: var(--merrigold);
 }
 

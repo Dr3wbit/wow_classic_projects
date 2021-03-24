@@ -1,14 +1,14 @@
 {% load static %}
 {% load cache %}
-<div id='saved_lists'>
+<div id="saved_lists" class="minimized">
 	<div class="saved-container">
-		<div class="saved-list-divider">
-			<div class="sidebar-toggle shown">
+		<div id="sidebar_toggle">
+			<!-- <div class="sidebar-toggle shown"> -->
 				<a class="sidebar-toggle-button" title="Minimize Sidebar">
 				<!-- <span class="glyphicon glyphicon-menu-left"></span> -->
 				<span class="glyphicon glyphicon-menu-left"></span>
 				</a>
-			</div>
+			<!-- </div> -->
 		</div>
 		{% load sanitize from custom_filters %}
 		<div class="custom-saves custom-scroll-bar">
@@ -172,11 +172,11 @@
 </div>
 
 <!-- Modal -->
-<div class="modal bg-transparent fade" id="icon_choice_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal bg-transparent fade" id="icon_choice_modal" tabindex="-1" role="dialog" aria-labelledby="icon_choice_modal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content bg-dark">
       <div class="modal-header">
-        <h5 class="modal-title fix-me" id="exampleModalLongTitle">CHANGE IMAGE</h5>
+        <h5 class="modal-title fix-me">CHANGE IMAGE</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

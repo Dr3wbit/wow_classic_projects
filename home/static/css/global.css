@@ -290,6 +290,7 @@ body {
     height: var(--secondary-navbar-height);
     box-shadow: 0 4px 2px -4px #000000;
     justify-content: center;
+    z-index: 1020;
 }
 
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
@@ -1177,7 +1178,7 @@ button:focus {
     }
 
     .navbar {
-        z-index: 1400;
+        z-index: 1310;
     }
 
     ul.navbar-nav {
