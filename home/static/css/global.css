@@ -1,11 +1,30 @@
 :root {
-    --pale-blue: rgb(89, 133, 186); /* #5985ba */
-    --merrigold: rgb(255, 193, 7); /* #ffc107 */
-    --navbar-height: 7vh;
-    --light-grey: rgb(70, 78, 86); /* #464e56 */
+    --pale-blue: rgb(89, 133, 186);
+    /* #5985ba */
+    --merrigold: rgb(255, 193, 7);
+    /* #ffc107 */
+    --navbar-height: 6vh;
+    --light-grey: rgb(70, 78, 86);
+    /* #464e56 */
     --sidenav-bg-color: #181818;
-    --secondary-navbar-height: 6vh;
+    --secondary-navbar-height: calc(var(--navbar-height) - 1vh);
 }
+
+@media only screen and (min-aspect-ratio: 1.6) {
+    :root {
+        --navbar-height: 7vh;
+        --secondary-navbar-height: calc(var(--navbar-height) - 1vh);
+
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    :root {
+        --navbar-height: 7vmax;
+        --secondary-navbar-height: calc(var(--navbar-height) - 1vmax);
+    }
+}
+
 html {
     position: relative;
     min-height: 100vh;
@@ -19,7 +38,7 @@ body {
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     margin-bottom: 3vh;
     margin-top: var(--navbar-height);
-    width:100%
+    width: 100%
 }
 
 .footer {
@@ -51,7 +70,9 @@ body {
     display: inline-block;
     vertical-align: top;
     padding-left: 265px;
+    /* transition: padding-left 0.5s ease; */
 }
+
 
 .padleft {
     animation: 0.75s ease-out forwards padleft;
@@ -65,6 +86,7 @@ body {
     0% {
         padding-left: 45px;
     }
+
     100% {
         padding-left: 265px;
     }
@@ -74,6 +96,7 @@ body {
     0% {
         padding-left: 265px;
     }
+
     100% {
         padding-left: 45px;
     }
@@ -88,6 +111,7 @@ body {
     font-family: OpenSans, Arial, Helvetica, sans-serif;
     font-size: 300%;
 }
+
 .page-description {
     font-size: 12px;
 }
@@ -151,8 +175,8 @@ body {
     font-family: 'morpheus';
     src: url('../fonts/morpheus.ttf')
 }
-/* ````````````````````````NAV`````````````````` */
 
+/* ````````````````````````NAV`````````````````` */
 .navbar-logo-text {
     font-family: Aeio, lifecraft, morpheus;
     font-size: 25px;
@@ -166,7 +190,7 @@ body {
 
 .navbar-toggler {
     background-color: black;
-    border: 1px gray solid !important
+    border: 1px gray solid;
 }
 
 .navbar {
@@ -179,12 +203,12 @@ body {
     height: var(--navbar-height);
 }
 
-.navbar-nav{
+.navbar-nav {
     background-color: #272727;
     max-height: var(--navbar-height);
 }
 
-.navbar-brand{
+.navbar-brand {
     padding-left: 20px;
     padding-right: 20px;
     border-right: solid 1px black;
@@ -199,7 +223,7 @@ body {
     box-shadow: inset 4px 0 4px -4px black, inset -4px 0 4px -4px black;
 }
 
-.navbar-brand img{
+.navbar-brand img {
     position: relative;
 }
 
@@ -209,44 +233,29 @@ body {
     height: 100%;
     background-color: #272727;
     display: flex;
-    align-items :center;
+    align-items: center;
     justify-content: center;
-   }
+}
 
 .nav-link:hover {
     outline: none;
     background-color: transparent;
-   }
+}
 
 .nav-item {
     min-width: 140px;
     min-height: var(--navbar-height);
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
     border-right: 1px solid black;
-    border-right: 1px solid black;
-    transition: all .1s cubic-bezier(0.57, 0.1, 0.55, 0.95);
+    transition: all 0.5s cubic-bezier(0.57, 0.1, 0.55, 0.95);
 }
-
-@media only screen and (max-width: 1400px) {
-
-    #navbarSupportedContent{
-        z-index: 1310;
-        background-color: #272727;
-        max-height: var(--navbar-height);
-    }
-}
-
-@media only screen and (min-width: 1400px) {
-
-    #navbarSupportedContent{
-        z-index: 1310;
-        background-color: #272727;
-    }
-}
-
 
 .nav-item:hover {
     box-shadow: inset 4px 0 4px -4px black, inset -4px 0 4px -4px black;
+}
+
+.nav-item:last-of-type:hover {
+    box-shadow: none;
 }
 
 .nav-item.selected, .navbar-brand.selected {
@@ -258,8 +267,6 @@ body {
 }
 
 /* ``````````````````CLASS SELECTION````````````````````` */
-
-
 .class-filter, .prof-filter {
     cursor: pointer;
     /* transition: all 0.1s cubic-bezier(0.57, 0.1, 0.55, 0.95); */
@@ -273,177 +280,154 @@ body {
     transition: all 0.1s ease-in;
 }
 
-
 .prof-filter.selected {
     border-color: rgb(231, 186, 0);
     color: rgb(231, 186, 0);
 }
 
-.class-selection, .prof-selection, .selection-header{
+.class-selection, .prof-selection, .selection-header {
     user-select: none;
     top: var(--navbar-height);
     background-color: var(--sidenav-bg-color);
     height: var(--secondary-navbar-height);
     box-shadow: 0 4px 2px -4px #000000;
     justify-content: center;
+    z-index: 1020;
 }
-
-@media only screen and (max-width: 992px) {
-
-    .navbar-brand{
-        padding-left: 15px;
-        padding-right: 20px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-
-    #warrior {
-        background-image: url("../images/icons/medium/warrior.jpg");
-        color: #C79C6E;
-    }
-
-    #mage {
-        background-image: url("../images/icons/medium/class_mage.jpg");
-        color: #40C7EB
-    }
-
-    #druid {
-        background-image: url("../images/icons/medium/class_druid.jpg");
-        color: #FF7D0A
-    }
-
-    #paladin {
-        background-image: url("../images/icons/medium/class_paladin.jpg");
-        color: #F58CBA
-    }
-
-    #shaman {
-        background-image: url("../images/icons/medium/class_shaman.jpg");
-        color: #0070DE
-    }
-
-    #warlock {
-        background-image: url("../images/icons/medium/class_warlock.jpg");
-        color: #8787ED
-    }
-
-    #priest {
-        background-image: url("../images/icons/medium/class_priest.jpg");
-        color: #FFFFFF
-    }
-
-    #hunter {
-        background-image: url("../images/icons/medium/class_hunter.jpg");
-        color: #ABD473
-    }
-
-    #rogue {
-        background-image: url("../images/icons/medium/class_rogue.jpg");
-        color: #FFF569
-    }
-  }
-
-
 
 /* ~~~~~~~~~~~~~~~ Class Colors ~~~~~~~~~~~~~~~~~~ */
-
-#warrior {
-    color: #C79C6E;
-    border-color: #C79C6E !important;
-
-}
-
-#mage {
-    color: #40C7EB;
-    border-color: #40C7EB;
-
-}
-
-#druid {
-    color: #FF7D0A;
-    border-color: #FF7D0A;
-}
-
-#paladin {
-    color: #F58CBA;
-    border-color: #F58CBA;
-}
-
-#shaman {
-    color: #0070DE;
-    border-color: #0070DE;
-}
-
-#warlock {
-    color: #8787ED;
-    border-color: #8787ED;
-
-}
-
-#priest {
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-
-}
-
-#hunter {
-    color: #ABD473;
-    border-color: #ABD473;
-}
-
-#rogue {
-    color: #FFF569;
-    border-color: #FFF569;
-
-}
-
-.warrior {
+#warrior, .warrior {
     color: #C79C6E;
     border-color: #C79C6E;
-
 }
 
-.mage {
+#warrior>img {
+    background-image: url("../images/icons/large/class/warrior.jpg");
+}
+
+#mage, .mage {
     color: #40C7EB;
     border-color: #40C7EB;
 }
 
-.druid {
+#mage>img {
+    background-image: url("../images/icons/large/class/mage.jpg");
+}
+
+#druid, .druid {
     color: #FF7D0A;
     border-color: #FF7D0A;
 }
 
-.paladin {
+#druid>img {
+    background-image: url("../images/icons/large/class/druid.jpg");
+}
+
+#paladin>img {
+    background-image: url("../images/icons/large/class/paladin.jpg");
+}
+
+#paladin, .paladin {
     color: #F58CBA;
     border-color: #F58CBA;
 }
 
-.shaman {
+#shaman, .shaman {
     color: #0070DE;
     border-color: #0070DE;
 }
 
-.warlock {
+#shaman>img {
+    background-image: url("../images/icons/large/class/shaman.jpg");
+}
+
+#warlock, .warlock {
     color: #8787ED;
     border-color: #8787ED;
 }
 
-.priest {
+#warlock>img {
+    background-image: url("../images/icons/large/class/warlock.jpg");
+}
+
+#priest, .priest {
     color: #FFFFFF;
     border-color: #FFFFFF;
 }
 
-.hunter {
+#priest>img {
+    background-image: url("../images/icons/large/class/priest.jpg");
+}
+
+#hunter, .hunter {
     color: #ABD473;
     border-color: #ABD473;
 }
 
-.rogue {
+#hunter>img {
+    background-image: url("../images/icons/large/class/hunter.jpg");
+}
+
+#rogue, .rogue {
     color: #FFF569;
     border-color: #FFF569;
 }
 
+#rogue>img {
+    background-image: url("../images/icons/large/class/rogue.jpg");
+}
+
+#alchemy>img {
+    background-image: url("../images/icons/large/professions/alchemy.jpg");
+}
+
+#blacksmithing>img {
+    background-image: url("../images/icons/large/professions/blacksmithing.jpg");
+}
+
+#cooking>img {
+    background-image: url("../images/icons/large/professions/cooking.jpg");
+}
+
+#enchanting>img {
+    background-image: url("../images/icons/large/professions/enchanting.jpg");
+}
+
+#engineering>img {
+    background-image: url("../images/icons/large/professions/engineering.jpg");
+}
+
+#leatherworking>img {
+    background-image: url("../images/icons/large/professions/leatherworking.jpg");
+}
+
+#first_aid>img {
+    background-image: url("../images/icons/large/professions/first_aid.jpg");
+}
+
+#mining>img {
+    background-image: url("../images/icons/large/professions/mining.jpg");
+}
+
+#tailoring>img {
+    background-image: url("../images/icons/large/professions/tailoring.jpg");
+}
+
+#other>img {
+    background-image: url("../images/icons/large/professions/other.jpg");
+}
+
+#skinning>img {
+    background-image: url("../images/icons/large/professions/skinning.jpg");
+}
+
+#herbalism>img {
+    background-image: url("../images/icons/large/professions/herbalism.jpg");
+}
+
+#fishing>img {
+    background-image: url("../images/icons/large/professions/fishing.jpg");
+}
 
 .class-icon, .prof-icon {
     height: 42px;
@@ -455,7 +439,7 @@ body {
     border-radius: 6px;
     border-color: rgba(0, 0, 0, 1);
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-     pointer-events: none;
+    pointer-events: none;
 }
 
 .class-filter.selected img,
@@ -467,21 +451,19 @@ body {
     border-color: inherit;
 }
 
-.class-filter:hover img, .prof-filter:hover img{
-
+.class-filter:hover img, .prof-filter:hover img {
     border-color: inherit;
     box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
-                inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
-                inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
+        inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
+        inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
     -webkit-filter: grayscale(10%);
     -moz-filter: grayscale(10%);
-      -o-filter: grayscale(10%);
-     -ms-filter: grayscale(10%);
-         filter: grayscale(10%);
-
+    -o-filter: grayscale(10%);
+    -ms-filter: grayscale(10%);
+    filter: grayscale(10%);
 }
 
-.class-filter:active img, .prof-filter:active img{
+.class-filter:active img, .prof-filter:active img {
     transform: scale(0.97);
 }
 
@@ -500,7 +482,6 @@ ul {
     text-align: left;
     color: rgb(255, 255, 255);
 }
-
 
 .icon-container:active {
     transform: scale(.98);
@@ -521,21 +502,21 @@ ul {
     background-color: transparent;
     -webkit-filter: grayscale(60%);
     -moz-filter: grayscale(60%);
-      -o-filter: grayscale(60%);
-     -ms-filter: grayscale(60%);
-         filter: grayscale(60%);
+    -o-filter: grayscale(60%);
+    -ms-filter: grayscale(60%);
+    filter: grayscale(60%);
 }
 
 .delete:focus {
-    outline:0;
+    outline: 0;
 }
 
 .delete:hover {
     -webkit-filter: grayscale(0%);
     -moz-filter: grayscale(0%);
-      -o-filter: grayscale(0%);
-     -ms-filter: grayscale(0%);
-         filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    filter: grayscale(0%);
 }
 
 .rarity {
@@ -543,15 +524,15 @@ ul {
 }
 
 .junk, .q0 {
-	color: rgba(157,157,157,1);
+    color: rgba(157, 157, 157, 1);
 }
 
 .common, .q1 {
-    color: rgba(240,255,255,0.95);
+    color: rgba(240, 255, 255, 0.95);
 }
 
 .uncommon, .q2 {
-    color: rgba(30,255,0,0.95);
+    color: rgba(30, 255, 0, 0.95);
 }
 
 .rare, .q3 {
@@ -562,16 +543,16 @@ ul {
     color: rgba(163, 53, 238, 1);
 }
 
-.legendary, .q5{
+.legendary, .q5 {
     color: rgba(255, 128, 0, 0.95);
 }
 
-.gm, .q6{
+.gm, .q6 {
     color: rgba(229, 204, 128, 1);
 }
 
 .req, .unlearn {
-    color: rgba(245,33,45,0.95);
+    color: rgba(245, 33, 45, 0.95);
     white-space: pre-line;
 }
 
@@ -583,7 +564,7 @@ ul {
     white-space: pre-line;
 }
 
-.description{
+.description {
     color: rgba(255, 205, 85, 1);
     white-space: pre-line;
     padding-right: 5px;
@@ -597,7 +578,7 @@ ul {
 }
 
 #tooltip_image {
-/*     margin-top: 3px; */
+    /*     margin-top: 3px; */
     /* padding: 3px; */
     flex: none;
     position: relative;
@@ -610,23 +591,23 @@ ul {
     text-align: left;
     line-height: 17px;
     max-width: 320px;
-/*     display: block; */
+    /*     display: block; */
     background-color: rgba(0, 0, 30, 0.85) !important;
-    color: rgba(240,255,255,0.98);
+    color: rgba(240, 255, 255, 0.98);
     pointer-events: none;
     user-select: none;
     border: 1px solid #85888c;
     padding: 5px;
     margin: 5px;
     /* margin-left: 1px; */
-/*     margin-bottom: 2px; */
+    /*     margin-bottom: 2px; */
     padding-bottom: 2px;
     border-radius: 3px;
-    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61),  0px 0px 1px 1px rgba(64, 64, 104, 0.4);
+    box-shadow: inset 0px 0px 1px 1px rgba(64, 64, 104, 0.61), 0px 0px 1px 1px rgba(64, 64, 104, 0.4);
     text-shadow: -0.01rem -0.01rem 0.01rem black;
 }
 
-#tooltip > * {
+#tooltip>* {
     pointer-events: none;
     user-select: none;
 }
@@ -647,19 +628,18 @@ ul {
 }
 
 .use {
-    color: rgba(30,255,0,0.95);
+    color: rgba(30, 255, 0, 0.95);
     font-size: 95%;
 }
 
-
 .unique, .bop, .requiredLevel, .rank {
     font-size: 100%;
-    color: rgba(240,255,255,0.95);
+    color: rgba(240, 255, 255, 0.95);
     white-space: pre;
 }
 
 .spell {
-    color: rgba(127,172,244,1);
+    color: rgba(127, 172, 244, 1);
 }
 
 .icon-small {
@@ -699,7 +679,6 @@ ul {
     text-decoration: underline;
 }
 
-
 .results {
     font-size: 100%;
     text-align: left;
@@ -712,7 +691,7 @@ ul {
     background: -moz-linear-gradient(360deg, rgba(0, 0, 0, 0.85) 20%, rgba(196, 202, 208, 0.5) 360%), url(../images/brushedsteel.jpg);
     background-size: 100%, cover;
     background-repeat: no-repeat, repeat;
-    box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128,128,128,0.25);
+    box-shadow: inset -0.01rem -0.01rem 1px 0.01rem rgba(128, 128, 128, 0.25);
 }
 
 .fancy {
@@ -724,14 +703,7 @@ ul {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 992px) {
-    .discordLink {
-        margin: auto
-    }
-
-}
-
-.discordLink:hover{
+.discordLink:hover {
     filter: invert(100%)
 }
 
@@ -742,13 +714,24 @@ ul {
     top: 0;
     position: absolute;
     z-index: 1;
-  }
+}
 
 @keyframes glowing-text {
-    0% { text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15); }
-    40% { text-shadow: 0 0 2px rgba(165, 165, 243, 0.15); }
-    60% { text-shadow: 0 0 2px rgba(165, 165, 243, 0.15); }
-    100% { text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15); }
+    0% {
+        text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15);
+    }
+
+    40% {
+        text-shadow: 0 0 2px rgba(165, 165, 243, 0.15);
+    }
+
+    60% {
+        text-shadow: 0 0 2px rgba(165, 165, 243, 0.15);
+    }
+
+    100% {
+        text-shadow: 0 0 -1px rgba(165, 165, 243, 0.15);
+    }
 }
 
 .columnTitle {
@@ -759,15 +742,15 @@ ul {
     line-height: normal;
     background-color: #272727;
     box-shadow: 0 4px 2px -4px #000000;
+    z-index: 1019;
 }
 
-.pageColumn{
+.pageColumn {
     min-height: 65vh;
     max-height: 65vh;
     background-color: #1C1C1C;
     box-shadow: 0 4px 2px -4px #000000;
 }
-
 
 .plus {
     font-size: 95%;
@@ -790,30 +773,29 @@ ul {
     display: initial;
 }
 
-
-a.crafted-item-list:hover{
+a.crafted-item-list:hover {
     color: inherit;
 }
 
-.login.discord{
+.login.discord {
     font-family: UniSans;
     color: #7289DA;
     font-size: 8px;
 }
 
-#discord-login{
+#discord-login {
     transition: all .17s ease-out;
     -webkit-transition: all .17s ease-out;
-
 }
-#discord-login path{
+
+#discord-login path {
     fill: #7289DA;
     /* text-decoration: none; */
 }
 
 a#discord-login:hover svg path,
-a#discord-login:hover > span,
-a#discord-login:hover{
+a#discord-login:hover>span,
+a#discord-login:hover {
     color: rgb(231, 186, 0);
     fill: rgb(231, 186, 0);
     text-decoration: none;
@@ -822,8 +804,6 @@ a#discord-login:hover{
 /* #discord-login:hover path {
 
 } */
-
-
 .login-dropdown {
     background: #18191c;
     border-radius: 3px;
@@ -840,14 +820,13 @@ button:focus {
     outline: none !important;
 }
 
-.btn:focus,.btn:active {
+.btn:focus, .btn:active {
     outline: none !important;
     box-shadow: none;
- }
+}
 
-
-.login-dropdown > div:first-child{
-    color: inherit!important;
+.login-dropdown>div:first-child {
+    color: inherit !important;
     text-decoration: none;
     background-color: inherit !important;
 }
@@ -855,8 +834,8 @@ button:focus {
 #logout-button {
     -webkit-appearance: none;
     background-color: transparent;
-    color:#f04747;
-    border:none;
+    color: #f04747;
+    border: none;
     line-height: 18px;
     -webkit-transition: all .17s ease-out;
     transition: all .17s ease-out;
@@ -865,11 +844,11 @@ button:focus {
     font-weight: 500;
 }
 
-#logout-button:focus{
+#logout-button:focus {
     outline: 0;
 }
 
-#logout-button:hover{
+#logout-button:hover {
     text-decoration: underline;
 }
 
@@ -880,36 +859,32 @@ button:focus {
     border: 0;
     line-height: 1.5;
     text-rendering: optimizeLegibility;
-
 }
-
 
 .login-div {
     margin: 0 20px 0 0;
     padding: 0 20px 0 0;
 }
 
-
-.glyphicon-custom{
+.glyphicon-custom {
     user-select: none;
     pointer-events: none;
 }
 
-.glyphicon-custom{
+.glyphicon-custom {
     user-select: none;
     pointer-events: none;
 }
-
 
 .fix-me {
     color: orange;
 }
 
-.notification-container{
+.notification-container {
     position: fixed;
     font-size: 250%;
     color: var(--merrigold);
-    left:50%;
+    left: 50%;
     top: 20vh;
     background-color: rgba(0, 0, 0, 0.600);
     border-radius: 10px;
@@ -924,7 +899,7 @@ button:focus {
     animation-direction: normal;
 }
 
-.floating-container{
+.floating-container {
     position: absolute;
     font-size: 150%;
     color: var(--main-gold-color);
@@ -937,31 +912,33 @@ button:focus {
 }
 
 @keyframes fade-out {
-	0% {
+    0% {
         opacity: 1;
     }
-	50% {
-		opacity: 0.6;
+
+    50% {
+        opacity: 0.6;
     }
-	100% {
+
+    100% {
         opacity: 0;
-	}
+    }
 }
 
 @keyframes float-up {
-	0% {
+    0% {
         transform: translate(-30px, -10px);
         opacity: 1;
     }
 
-	50% {
-		opacity: 1;
+    50% {
+        opacity: 1;
     }
 
-	100% {
-        transform: translate(-30px,-130px);
+    100% {
+        transform: translate(-30px, -130px);
         opacity: 0;
-	}
+    }
 }
 
 .hidden {
@@ -1001,8 +978,265 @@ button:focus {
     margin: 0;
 }
 
-.secondary-navbar-item > .navlink {
+.secondary-navbar-item>.navlink {
     align-items: center;
     display: flex;
     padding: 0 12px;
+}
+
+@media only screen and (max-width: 562px) {
+    .recipe-name {
+        font-size: 10px;
+    }
+
+    .count-container {
+        right: 1px;
+        top: 13px;
+    }
+
+    .count-container>* {
+        font-size: 10px;
+    }
+
+    .prof-filter>img,.class-filter>img {
+        width: 30px;
+        height: 30px;
+        background-size: 26px 26px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .icon-medium {
+        width: 30px;
+        height: 30px;
+        background-size: 26px 26px;
+    }
+
+    .class-filter, .prof-filter {
+        margin: 1px;
+    }
+
+    /* professions */
+    #alchemy>img {
+        background-image: url("../images/icons/medium/professions/alchemy.jpg");
+    }
+
+    #blacksmithing>img {
+        background-image: url("../images/icons/medium/professions/blacksmithing.jpg");
+    }
+
+    #cooking>img {
+        background-image: url("../images/icons/medium/professions/cooking.jpg");
+    }
+
+    #enchanting>img {
+        background-image: url("../images/icons/medium/professions/enchanting.jpg");
+    }
+
+    #engineering>img {
+        background-image: url("../images/icons/medium/professions/engineering.jpg");
+    }
+
+    #leatherworking>img {
+        background-image: url("../images/icons/medium/professions/leatherworking.jpg");
+    }
+
+    #tailoring>img {
+        background-image: url("../images/icons/medium/professions/tailoring.jpg");
+    }
+
+    #first_aid>img {
+        background-image: url("../images/icons/medium/professions/first_aid.jpg");
+    }
+
+    #mining>img {
+        background-image: url("../images/icons/medium/professions/mining.jpg");
+    }
+
+    #other>img {
+        background-image: url("../images/icons/medium/professions/other.jpg");
+    }
+
+    #skinning>img {
+        background-image: url("../images/icons/medium/professions/skinning.jpg");
+    }
+
+    #herbalism>img {
+        background-image: url("../images/icons/medium/professions/herbalism.jpg");
+    }
+
+    #fishing>img {
+        background-image: url("../images/icons/medium/professions/fishing.jpg");
+    }
+
+    #herbalism, #fishing, #skinning {
+        display: none;
+    }
+
+    #warrior>img {
+        background-image: url("../images/icons/medium/class/warrior.jpg");
+    }
+
+    #mage>img {
+        background-image: url("../images/icons/medium/class/mage.jpg");
+    }
+
+    #druid>img {
+        background-image: url("../images/icons/medium/class/druid.jpg");
+    }
+
+    #paladin>img {
+        background-image: url("../images/icons/medium/class/paladin.jpg");
+    }
+
+    #shaman>img {
+        background-image: url("../images/icons/medium/class/shaman.jpg");
+    }
+
+    #warlock>img {
+        background-image: url("../images/icons/medium/class/warlock.jpg");
+    }
+
+    #priest>img {
+        background-image: url("../images/icons/medium/class/priest.jpg");
+    }
+
+    #hunter>img {
+        background-image: url("../images/icons/medium/class/hunter.jpg");
+    }
+
+    #rogue>img {
+        background-image: url("../images/icons/medium/class/rogue.jpg");
+    }
+}
+
+#discord-avatar {
+    background-color: transparent;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#discord-avatar>img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: calc(var(--secondary-navbar-height) - 1vh);
+    height: calc(var(--secondary-navbar-height) - 1vh);
+    border-radius: 50%;
+    /* margin-top: 0.5vh; */
+    border: 1px solid white;
+}
+
+#discord-avatar>img:hover {
+    border: 1px solid var(--merrigold);
+}
+
+.nav-item:last-child {
+    border-right: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:last-child>div:first-of-type {
+    margin-left: auto;
+}
+
+/* .nav-link:last-of-type {
+    padding-top: 0;
+    padding-bottom: 0;
+} */
+@media only screen and (max-width: 992px) {
+    #mainBody {
+        padding-left: 15px !important;
+    }
+    .navbar-toggler {
+        padding-top: 1vmax;
+        padding-bottom: 1vmax;
+        border: none;
+        border-radius: 1px;
+        line-height: normal;
+        transition: 0.5s ease all;
+    }
+
+    .navbar-toggler-icon {
+        width: 3.5vmax;
+        height: 4.5vmax;
+    }
+
+    .navbar-toggler:hover {
+        background-color: rgb(68 68 68);
+        /* filter: invert(1); */
+    }
+
+    #discord-avatar {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+
+    #discord-avatar:hover {
+        background-color: rgb(68 68 68);
+    }
+
+    #discord-avatar>img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .navbar {
+        z-index: 1310;
+    }
+
+    ul.navbar-nav {
+        border-top: 2px solid var(--merrigold);
+    }
+
+    a.nav-link {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .nav-item:last-child {
+        border-right: 1px solid black;
+        display: list-item;
+        background-color: #272727;
+    }
+
+    .navbar-brand {
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+
+    .discordLink {
+        margin: auto
+    }
+
+    .nav-item {
+        min-width: initial;
+        min-height: initial;
+        border-bottom: 2px solid black;
+    }
+
+    .nav-link {
+        transition: 0.5s ease all;
+    }
+
+    .nav-link:hover {
+        color: var(--merrigold) !important;
+        background-color: rgb(68 68 68);
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    #navbarSupportedContent {
+        z-index: 1310;
+        background-color: #272727;
+        max-height: var(--navbar-height);
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    #navbarSupportedContent {
+        z-index: 1310;
+        background-color: #272727;
+    }
 }

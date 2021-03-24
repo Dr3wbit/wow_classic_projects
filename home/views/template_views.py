@@ -1,16 +1,19 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.views.generic import ListView, RedirectView, TemplateView
 from django.core.cache import cache
 from django.db.models import Count, Q, Avg
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, QueryDict
 from django.core import serializers, mail
 from home.forms import ContactForm, SpecForm, ConsumeListForm
+from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession, Spec, TreeAllotted, Tag, Consume, ConsumeList, Rating
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint fails
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 # from django.core.paginator import Paginator
 from django.conf import settings
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+
 
 from itertools import chain
 from operator import attrgetter
@@ -83,33 +86,11 @@ def handler404(request, exception):
 	response.status_code = 404
 	return response
 
-# class Pagination:
-#
-# 	def __init__(self, total_items, per_page):
-# 		self.total_items = total_items
-# 		self.per_page = per_page
-# 		self.page_number = 0
-# 		self.max_pages = round(self.total_items/self.per_page)
-#
-# 	def has_next(self, page_number, max_pages):
-# 		if self.page_number < self.max_pages:
-# 			return True
-# 		else:
-# 			return False
-#
-# 	def has_previous(self, page_number):
-# 		return True if self.page_number > 1 else False
-#
-# 	def plus_n(self, max_pages, n):
-# 		return self.has_next(self.page_number+self.n, self.max_pages)
-
-
-
-
 
 class ThanksView(TemplateView):
 	template_name = "thanks.html"
 
+@method_decorator(cache_page(60 * 1440), name='dispatch')
 class APIView(TemplateView):
 	template_name = "api.html"
 
@@ -117,50 +98,36 @@ class APIView(TemplateView):
 
 		if request.user.groups.filter(name='admins').exists():
 
-			context = {}
-			context['recipes'] = Crafted.objects.filter(profession__name='Enchanting')
-			context['consume_lists'] = ConsumeList.objects.all()
-			context['rangen'] = range(5)
-			context['specs'] = {}
+			context = {'recipes': Crafted.objects.filter(profession__name='Enchanting'),
+				'consume_lists': ConsumeList.objects.all(), 'rangen': range(5),
+				'specs': {}, 'saved_lists': {}
+			}
 
 			for spec in Spec.objects.all():
-				context['specs'][spec.name] = {}
-				context['specs'][spec.name]['obj'] = spec
-				context['specs'][spec.name]['has_voted'] = False
+				context['specs'][spec.name] = {'obj': spec, 'has_voted': False}
 
 				if request.user.is_authenticated:
 					if spec.ratings.filter(user=request.user).exists():
 						context['specs'][spec.name]['has_voted'] = True
 
-			context['saved_lists'] = {}
 			for cl in context['consume_lists']:
-				name = cl.name
-				context['saved_lists'][name] = {}
-				context['saved_lists'][name]['user'] = cl.user
-				context['saved_lists'][name]['hash'] = cl.hash
-				context['saved_lists'][name]['consumes'] = {}
-				context['saved_lists'][name]['materials'] = {}
+				context['saved_lists'][cl.name] = {
+					'user': cl.user, 'hash': cl.hash, 'consumes': {}, 'materials': {}
+				}
 
 				for consume in cl.consumes.all():
-					if not consume.item.profession:
-						prof_name = 'other'
-					else:
-						prof_name = consume.item.profession.name
+					prof_name = consume.item.profession.name if consume.item.profession else 'other'
+					if prof_name not in context['saved_lists'][cl.name]['consumes'].keys():
+						context['saved_lists'][cl.name]['consumes'][prof_name] = {}
 
-					if prof_name not in context['saved_lists'][name]['consumes'].keys():
-						context['saved_lists'][name]['consumes'][prof_name] = {}
-
-					context['saved_lists'][name]['consumes'][prof_name][consume.name] = consume.amount
-
+					context['saved_lists'][cl.name]['consumes'][prof_name][consume.name] = consume.amount
 					for mat in consume.item.materials.all():
-						if mat.name not in context['saved_lists'][name]['materials'].keys():
-							context['saved_lists'][name]['materials'][mat.name] = {}
-							context['saved_lists'][name]['materials'][mat.name]['value'] = 0
-							context['saved_lists'][name]['materials'][mat.name]['quality'] = mat.quality
-							context['saved_lists'][name]['materials'][mat.name]['img'] = mat.img
+						if mat.name not in context['saved_lists'][cl.name]['materials'].keys():
+							context['saved_lists'][cl.name]['materials'][mat.name] = {
+								'value': 0, 'quality': mat.quality, 'img': mat.img
+							}
 
-						context['saved_lists'][name]['materials'][mat.name]['value'] = int(consume.amount * mat.amount)
-
+						context['saved_lists'][cl.name]['materials'][mat.name]['value'] = int(consume.amount * mat.amount)
 
 			return render(request, self.template_name, context)
 		else:
@@ -170,14 +137,10 @@ class IndexView(TemplateView):
 	template_name = "index.html"
 
 	def get(self, request, *args, **kwargs):
-		context = {}
-		context['rangen'] = range(5) # 5 stars
-		context['specs'] = {}
-		context['wowclasses'] = WoWClass.objects.all()
-		context['wowprofessions'] = Profession.objects.all()
-		context['tags'] = Tag.objects.all()
-		context['specs'] = Spec.objects.all()
-		context['consume_lists'] = ConsumeList.objects.all()
+		context = {'rangen': range(5), 'specs': Spec.objects.all(),
+			'wowclasses': WoWClass.objects.all(), 'tags': Tag.objects.all(),
+			'consume_lists': ConsumeList.objects.all()
+		}
 
 		return render(request, self.template_name, context)
 
@@ -190,40 +153,37 @@ class IndexView(TemplateView):
 class TalentCalcTemplate(TemplateView):
 	form_class = SpecForm
 
-
-	# def setup(self, request, *args, **kwargs):
-	# 	setup = super().setup(request, *args, **kwargs)
-	# 	return setup
-	#
-	# # @method_decorator(never_cache)
-	# def dispatch(self, request, *args, **kwargs):
-	# 	dispatch = super().dispatch(request, *args, **kwargs)
-	# 	return dispatch
-
 	def talent_architect(self, context):
 		class_name = context["selected"]
-		wow_class = WoWClass.objects.filter(name=class_name.title())
-		if wow_class:
-			wow_class = wow_class.first()
-			talent_trees = wow_class.talenttree_set.all()
-			context["talent_trees"] = []
-			blueprints = {}
+		blueprints = {}
+		cache_key = 'tc_{}'.format(class_name)
+		cache_item = cache.get(cache_key)
 
-			for tree in talent_trees:
-				context["talent_trees"].append({'name':tree.name})
-				tree_name = tree.name
-				all_talents = iter(tree.talent_set.all())
-				blueprints[tree_name] = tree.architect
-				for outer_i, outer_v in enumerate(blueprints[tree_name]):
-					for inner_i, inner_v in enumerate(outer_v):
-						if inner_v:
-							next_tal = next(all_talents)
-							val = [inner_v] if type(inner_v) is not list else inner_v
-							val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
-							blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':sanitize(next_tal.name), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
+		if cache_item:
+			blueprints = cache_item
+		else:
+			if WoWClass.objects.filter(name=class_name.title()):
+				wow_class = WoWClass.objects.filter(name=class_name.title()).first()
+				talent_trees = wow_class.talenttree_set.all()
+				context["talent_trees"] = []
 
-			context["blueprints"] = blueprints
-			return(context)
+				for tree in talent_trees:
+					context["talent_trees"].append({'name':tree.name})
+					tree_name = tree.name
+					all_talents = iter(tree.talent_set.all())
+					blueprints[tree_name] = tree.architect
+					for outer_i, outer_v in enumerate(blueprints[tree_name]):
+						for inner_i, inner_v in enumerate(outer_v):
+							if inner_v:
+								next_tal = next(all_talents)
+								val = [inner_v] if type(inner_v) is not list else inner_v
+								val = zip(val, next_tal.unlocks) if next_tal.unlocks else val
+								blueprints[tree_name][outer_i][inner_i] = (val, {'name':str(next_tal.name), 'sanitized':sanitize(next_tal.name), 'locked':next_tal.locked, 'unlocks':next_tal.unlocks}, 0)
+
+				cache.add(cache_key, blueprints, 86400)
+
+		context["blueprints"] = blueprints
+		return(context)
 
 
 	def get(self, request, *args, **kwargs):
@@ -252,11 +212,10 @@ class TalentCalcTemplate(TemplateView):
 			context["selected"] = class_name.lower()
 			context = self.talent_architect(context)
 
-		if request.is_ajax():
-			response = render(request, "talent_builder.html", context=context)
+		# if request.is_ajax():
+		# 	response = render(request, "talent_builder.html", context=context)
 
-		else:
-			response = render(request, "talent.html", context=context)
+		response = render(request, "talent.html", context=context)
 
 		return response
 
@@ -264,8 +223,6 @@ class TalentCalcTemplate(TemplateView):
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
 		context = {}
-		print('request.POST: ', request.POST)
-		print('request.is_ajax: ', request.is_ajax())
 
 		if form.is_valid():
 			context['form'] = form
@@ -298,7 +255,6 @@ class TalentCalcTemplate(TemplateView):
 					response.status_code = 400
 
 			else:
-				print('not ajax???')
 				response = HttpResponseRedirect('not_ajax')
 		else:
 			print('save failed, redirecting to previous page...')
@@ -309,14 +265,10 @@ class TalentCalcTemplate(TemplateView):
 
 	def save_list(self, request, cleaned_data):
 		data = dict(request.POST)
-		data['hash'] = cleaned_data['hash']
+		data.update({'hash': cleaned_data['hash'], 'private': cleaned_data['private'],
+			'name': cleaned_data['name'], 'wow_class': request.POST.get('wow_class', None)
+		})
 
-		data['private'] = cleaned_data['private']
-		data['description'] = cleaned_data['description']
-		data['name'] = cleaned_data['name']
-
-		data['wow_class'] = request.POST.get('wow_class', None)
-		print('data: ', data)
 		tags = request.POST.getlist('tags')
 		spnt = request.POST.getlist('spent')
 		spent = {}
@@ -389,7 +341,6 @@ class ConsumeBuilderRedirectView(RedirectView):
 	def get_redirect_url(self, *args, **kwargs):
 
 		qd = list((self.request.GET).keys())[0]
-		print('qs: ', qd)
 
 		new_url = "{}://{}/profession_tool".format(self.request.scheme, self.request.get_host())
 
@@ -436,21 +387,11 @@ class ConsumeToolTemplate(TemplateView):
 		return pagination
 
 	def get(self, request, *args, **kwargs):
-		context = {}
-
-		context['form'] = self.form_class()
-
-		# context["form"] = self.form_class()
-
-		# form = self.form_class()
-		# if form.is_valid():
-			# context["form"] = self.form_class()
-
-		context["professions"] = [
+		context = {'form': self.form_class(), 'professions': [
 			"engineering", "alchemy", "blacksmithing", "cooking",
 			"tailoring", "other", "leatherworking", "enchanting", "first_aid",
 			"skinning", "mining", "herbalism", "fishing"
-		]
+		]}
 
 		id,cl = False,False
 
@@ -468,7 +409,7 @@ class ConsumeToolTemplate(TemplateView):
 			cl = cl.first()
 			context['ix'] = id
 			context["consume_list"] = cl
-			context['materials'] = get_materials(context["consume_list"])
+			context['materials'] = self.get_materials(context["consume_list"])
 			context['consumes'] = {}
 
 			for consume in cl.consumes.all():
@@ -482,15 +423,13 @@ class ConsumeToolTemplate(TemplateView):
 		context["recipes"] = {}
 		context["selected"] = prof
 
+		all_recipes = []
+
 		if prof=='other':
 			all_recipes = Crafted.objects.filter(profession=None).order_by('item')
 			# context["recipes"] = Crafted.objects.filter(prof=None)
 		elif prof:
 			all_recipes = Crafted.objects.filter(profession__name=titlecase(prof)).order_by('item')
-
-		else:
-			all_recipes = []
-
 
 		if all_recipes:
 
@@ -522,18 +461,11 @@ class ConsumeToolTemplate(TemplateView):
 			if cl:
 				cl = cl.first()
 				context['consume_list'] = cl
-				context['materials'] = get_materials(cl)
+				context['materials'] = self.get_materials(cl)
 
 
-		if request.is_ajax():
-			if 'prof' in data.keys():
-				response = render(request, "recipe_helper.html", context=context)
-			else:
-				response = render(request, "consume_helper.html", context=context)
-		else:
-			context["whole_page"] = True
-			response = render(request, "profession_tool.html", context=context)
 
+		response = render(request, "profession_tool.html", context=context)
 		return response
 
 	def post(self, request, *args, **kwargs):
@@ -547,7 +479,6 @@ class ConsumeToolTemplate(TemplateView):
 				if request.is_ajax():
 					try:
 						form_data = self.save_list(request, form.cleaned_data)
-
 
 						name = form_data['name']
 						created = form_data['created']
@@ -608,7 +539,7 @@ class ConsumeToolTemplate(TemplateView):
 					cl = cl.first()
 					context['ix'] = id
 					context["consume_list"] = cl
-					context['materials'] = get_materials(context["consume_list"])
+					context['materials'] = self.get_materials(context["consume_list"])
 					context['consumes'] = {}
 
 					for consume in cl.consumes.all():
@@ -648,7 +579,6 @@ class ConsumeToolTemplate(TemplateView):
 					else:
 						context["recipes"] = all_recipes
 
-				# context["recipes"] = recipes
 				qs = request.META.get('QUERY_STRING', None)
 
 				data = dict(request.POST)
@@ -660,7 +590,7 @@ class ConsumeToolTemplate(TemplateView):
 					if cl:
 						cl = cl.first()
 						context['consume_list'] = cl
-						context['materials'] = get_materials(cl)
+						context['materials'] = self.get_materials(cl)
 
 
 				if request.is_ajax():
@@ -679,53 +609,6 @@ class ConsumeToolTemplate(TemplateView):
 
 			return response
 
-
-	#####################################################################
-	## with the addition of all items/recipes, no longer a viable method
-	## of generating meaningful CL hashes; decommissioned
-	#####################################################################
-	def old_consume_list_builder(self, query_str):
-
-		print('query_str: ', query_str)
-		qd = QueryDict(query_str).dict()
-		my_consumes = {}
-		translator = {}
-
-		rle_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-		prof_str = {
-			'alchemy': 'AL', 'blacksmithing':'BS', 'cooking':'CK', 'engineering':'EN',
-			'enchanting': 'EC', 'first_aid':'FA', 'fishing':'FI', 'leatherworking': 'LW', 'other':'OT',
-			'tailoring': 'TL', 'skinning':'SK'
-		}
-
-		prof_trans = {}
-		for k,v in prof_str.items():
-			prof_trans[v] = k
-
-		for x,y in qd.items():
-			prof_name = prof_trans[x]
-			my_consumes[prof_name] = {}
-			translator[prof_name] = {}
-
-			if prof_name == 'other':
-				prof = None
-			else:
-				prof = Profession.objects.get(name=prof_name)
-
-			all_crafted = Crafted.objects.filter(prof=prof, end_game=True)
-
-			for k,crafted in zip(rle_str[:all_crafted.count()], all_crafted):
-				translator[prof_name][k] = crafted.name
-
-			splitted = re.split(r'([a-zA-Z]{1}[\d]{1,2})', y)
-			item_str_list = list(filter(None, splitted))
-			for str_item in item_str_list:
-				item_name = translator[prof_name][str_item[:1]]
-				quantity = str_item[1:]
-				my_consumes[prof_name][item_name] = int(quantity)
-
-		return my_consumes
-
 	def has_next(self, page_number, max_pages):
 		if page_number < max_pages:
 			return True
@@ -734,7 +617,6 @@ class ConsumeToolTemplate(TemplateView):
 
 	def has_previous(self, page_number):
 		return True if page_number > 1 else False
-
 
 	def save_list(self, request, cleaned_data):
 
@@ -802,6 +684,20 @@ class ConsumeToolTemplate(TemplateView):
 		# return JsonResponse(data)
 
 
+	def get_materials(self, cl):
+		materials = {}
+		for consume in cl.consumes.all():
+			for mat in consume.mats:
+				if mat.name not in materials.keys():
+					materials[mat.name] = {'value': 0, 'quality': mat.quality,
+						'img': mat.img, 'ix': mat.item.ix
+					}
+
+				materials[mat.name]['value'] += int(consume.amount * mat.amount)
+
+		return materials
+
+
 class EnchantToolView(TemplateView):
 	template_name = "enchant_tool.html"
 
@@ -857,107 +753,6 @@ class SuccessView(TemplateView):
 
 class DeniedView(TemplateView):
 	template_name = "denied.html"
-
-
-
-def build_consume_list(cl):
-	consume_list = {}
-	for consume in cl.consumes.all():
-		consume_list[consume.ix] = {}
-		consume_list[consume.ix]['n'] = consume.name
-		consume_list[consume.ix]['q'] = consume.quality
-		consume_list[consume.ix]['img'] = consume.img
-		consume_list[consume.ix]['amount'] = consume.amount
-
-		consume_list[consume.ix]['mats'] = {}
-		for mat in consume.mats:
-			consume_list[consume.ix]['mats'][mat.item.ix] = {}
-			consume_list[consume.ix]['mats'][mat.item.ix]['amount'] = mat.amount*consume.amount
-			consume_list[consume.ix]['mats'][mat.item.ix]['n'] = mat.name
-			consume_list[consume.ix]['mats'][mat.item.ix]['q'] = mat.quality
-			consume_list[consume.ix]['mats'][mat.item.ix]['img'] = mat.img
-
-	return consume_list
-
-
-def get_materials(cl):
-	materials = {}
-	for consume in cl.consumes.all():
-		for mat in consume.mats:
-			if mat.name not in materials.keys():
-				materials[mat.name] = {}
-				materials[mat.name]['value'] = 0
-				materials[mat.name]['quality'] = mat.quality
-				materials[mat.name]['img'] = mat.img
-				materials[mat.name]['ix'] = mat.item.ix
-
-			materials[mat.name]['value'] += int(consume.amount * mat.amount)
-
-	return materials
-#
-# def search_query(request):
-# 	context = {}
-# 	context['message'] = 'ok'
-#
-# 	class_names = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warrior", "warlock"]
-# 	tag_names = [x.name.lower() for x in Tag.objects.all()]
-#
-# 	qd = dict(request.GET)
-# 	qs = qd.get('query', None)
-#
-# 	search_re = ''
-# 	for i,term in enumerate(qs):
-# 		if term != qs[-1]:
-# 			search_re = search_re+"{}|".format(term)
-# 		else:
-# 			search_re = search_re+"{}".format(term)
-#
-# 	search_regex = r"({})+".format(search_re)
-#
-# 	# qs = [x.lower() for x in qs]
-# 	print("qs: ", qs)
-# 	print("search_regex: ", search_regex)
-#
-# 	if qs:
-# 		class_ix = [class_names.index(x) for x in qs if x in class_names]
-# 		if class_ix:
-# 			wow_classes = [class_names[x] for x in class_ix]
-# 			print('wow_classes: ', wow_classes)
-#
-# 		tag_ix = [tag_names.index(x) for x in qs if x in tag_names]
-# 		if tag_ix:
-# 			tags = [tag_names[x] for x in tag_ix]
-# 			tags = [x for x in tags if x not in class_names]
-#
-# 			print('tags present: ', wow_classes)
-#
-# 		# consumelists = ConsumeList.objects.filter(Q(description__icontains__in=qs) | Q(name__icontains__in=qs))
-# 		consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
-# 		specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
-#
-# 		context['consume_lists'] = consume_lists
-# 		context['specs'] = specs
-#
-# 		# saved_lists = consume_lists.union(specs)
-# 		print('consume_lists: ', consume_lists)
-# 		print('specs: ', specs)
-#
-# 		print('num consume_lists: ', consume_lists.count())
-# 		print('num specs: ', specs.count())
-#
-#
-#
-# 	if (specs.count==0) and (consume_lists.count==0):
-# 		# context['status_code'] = 400
-# 		context['message'] = 'not ok'
-# 		print('no ok')
-# 		return HttpResponse('No matches', status=400)
-# 	else:
-# 		return render(request, "index_helper.html", context=context)
-
-	# response = JsonResponse(context)
-
-	# return response
 
 
 

@@ -91,7 +91,19 @@ $ sudo mv nginx.template.conf $SITENAME
 $ sudo ln -s /etc/nginx/sites-available/$SITENAME /etc/nginx/sites-enabled/$SITENAME
 ```
 
+#### setup nginx
+```
+$ cd ~/$SITENAME/tools/deploy
+$ sudo cp nginx.template.conf /etc/nginx/sites-available/nginx.template.conf
+$ cd /etc/nginx/sites-available
+$ sed -i "s/SITENAME/$SITENAME/g" nginx.template.conf
+$ sed -i "s/USERNAME/$USERNAME/g" nginx.template.conf
+$ sudo mv nginx.template.conf $SITENAME
+$ sudo ln -s /etc/nginx/sites-available/$SITENAME /etc/nginx/sites-enabled/$SITENAME
+```
+
 #### setup fail2ban
+*...to do...*
 
 #### Getting an SSL certificate
 ```

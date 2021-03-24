@@ -24,8 +24,11 @@ urlpatterns = [
     path('success', views.SuccessView.as_view(), name='success'),
     path('thanks', views.ThanksView.as_view(), name='thanks'),
     path('denied', views.DeniedView.as_view(), name='denied'),
+    ###############
+    ## ajax urls ##
+    ###############
     path('ajax/delete_list/', views.delete_list, name='delete_list'),
-    path('ajax/load_spec/', views.load_spec, name='load_spec'),
+    # path('ajax/load_spec/', views.load_spec, name='load_spec'),
     path('ajax/save_rating/', views.save_rating, name='save_rating'),
     path('ajax/delete_rating/', views.delete_rating, name='delete_rating'),
     path('ajax/savedlist_info/', views.savedlist_info, name='savedlist_info'),

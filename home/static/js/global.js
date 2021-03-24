@@ -3,13 +3,13 @@ $(document).ready(function() {
 });
 
 window.addEventListener('load', function(e) {
-	var sidenavExpanded = parseInt(sessionStorage.getItem("sidenavToggle"))
-	if (Number.isInteger(sidenavExpanded)) {
-		var sidenav = document.querySelector('.sidebar-toggle')
-		if ((sidenav.classList.contains('shown') && sidenavExpanded == 0) || (!sidenav.classList.contains('shown') && sidenavExpanded == 1)) {
-			sidenav.click()
-		}
+	var sidebarState = sessionStorage.getItem("sidebarState")
+	sidebarState = parseInt(sidebarState)
+
+	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
+		blackOut.add()
 	}
+
 });
 
 
@@ -35,7 +35,6 @@ function info_display(id, caller) {
 			'id':id,
 			'caller': caller
 		},
-		// dataType: 'html',
 		success: function (data) {
 			$("#saved_list_info").html(data);
 		}
@@ -45,104 +44,48 @@ function info_display(id, caller) {
 
 function global_event_handlers() {
 
+	var sidebarToggle = document.getElementById("sidebar_toggle");
 
-    if (window.innerWidth <= 992) {
-        $('#mainBody').css({ 'padding-left': '15px' })
-        $('#saved_lists').removeClass('minimized')
-        // $('.custom-saves').css({ 'display': 'block' })
-        $('.sidebar-toggle').removeClass('flip-background')
+	sidebarToggle.addEventListener("click", e => {
+		var sidebarState = toggleSidebar()
+		if (!sidebarState) {
+			if (window.innerWidth <= 992) {
+				blackOut.add()
+			} else {
+			}
+		} else {
+			blackOut.remove()
+		}
 
-        $('#mainBody').append($('<div/>', {
-            class : "black-out"
-        }))
-    }
+		sidebarState = (sidebarState) ? 1 : 0; //convert to int for easier storage
+		sessionStorage.setItem("sidebarState", sidebarState)
 
-	var sideNav = document.querySelector('.sidebar-toggle')
-
-
-	// sideNav.addEventListener('click', e => {
-	// 	e.target.classList.toggle('shown')
-	// 	if (e.isTrusted) {
-	// 		if (e.target.classList.contains('shown')) {
-	// 			sessionStorage.setItem("sidenavToggle", 1)
-	// 		} else {
-	// 			sessionStorage.setItem("sidenavToggle", 0)
-	// 		}
-	// 	}
-	// })
-
-
-    $(".sidebar-toggle").on({
-        click: e => {
-			e.stopPropagation()
-            let bool = $('#saved_lists').hasClass('minimized')
-            let windowWidth = window.innerWidth
-            if (window.innerWidth <= 992) {
-                $('.mainBody').css({ 'padding-left': '15px' })
-                if (bool) {
-                    $('#saved_lists').removeClass('minimized')
-                    // $('.custom-saves').css({ 'display': 'block' })
-                    // $('.sidebar-toggle').removeClass('flip-background')
-                    $('#mainBody').append($('<div/>', {
-                        class : "black-out"
-                    }))
-
-                } else {
-                    $('#saved_lists').addClass('minimized')
-                    // $('.custom-saves').css({ 'display': 'none' })
-                    // $('.sidebar-toggle').addClass('flip-background')
-                    $('.black-out').remove()
-                }
-            } else {
-                if (bool) {
-                    $('#saved_lists').removeClass('minimized')
-					$('#mainBody').removeClass('depad').addClass('padleft')
-                    // $('.mainBody').css({ 'padding-left': '265px' })
-                    // $('.custom-saves').css({ 'display': 'block' })
-                    // $('.sidebar-toggle').removeClass('flip-background')
-                    $('.black-out').remove()
-
-                } else {
-                    $('#saved_lists').addClass('minimized')
-					$('#mainBody').removeClass('padleft').addClass('depad')
-                    // $('.mainBody').css({ 'padding-left': '15px' })
-                    // $('.custom-saves').css({ 'display': 'none' })
-                    // $('.sidebar-toggle').addClass('flip-background')
-                    $('.black-out').remove()
-                }
-            }
-
-        }
-    });
+	});
 
 	// adds esc as hotkey to close sidebar
 	document.addEventListener('keyup', e=>{
 		if (e.which == 27) {
-			var savedLists = document.getElementById('saved_lists')
-			if (!savedLists.classList.contains('minimized')) {
-				document.querySelector('.sidebar-toggle-button').click()
-			}
+			toggleSidebar(true)
+			blackOut.remove()
 			e.stopPropagation()
 		}
 	});
 
-
-
-	// document.addEventListener('click', e=>{
-	// 	var savedLists = document.getElementById('saved_lists')
-	// 	if (!savedLists.classList.contains('minimized')) {
-	// 		document.querySelector('.sidebar-toggle-button').click()
-	// 	}
-	// });
-
-	// document.addEventListener('click', e=>{
-	// 	console.log(e)
-	//
-	// 	var savedLists = document.getElementById('saved_lists')
-	// });
-
-
 }
+
+function toggleSidebar(forceMin=undefined) {
+	var savedLists = document.getElementById("saved_lists")
+	var toggled = savedLists.classList.toggle("minimized", forceMin);
+
+	if (window.window.innerWidth > 992) {
+		document.getElementById("mainBody").classList.toggle("depad", toggled)
+		document.getElementById("mainBody").classList.toggle("padleft", !toggled)
+	}
+
+	return toggled
+}
+
+
 
 function updateURL(path, subPath='', search='', state=null) {
 	this.path = (Boolean(subPath)) ? path + "/" + subPath : path
@@ -207,7 +150,6 @@ $.ajaxSetup({
 	}
 });
 
-// convenience function, used everywhere as callback
 function notifyUser(message) {
 	let notificationContainer = ($("<div/>", {
 		class: "notification-container",
@@ -217,7 +159,6 @@ function notifyUser(message) {
 	setTimeout(() => { $(".notification-container").remove() }, 4500);
 }
 
-// convenience function, used everywhere
 // creates element, textnodes, and attributes, attaches textnode/attributes, returns created element
 function create_element(tag, class_name, style, text, dataAttrs={}) {
 	var elem = document.createElement(`${tag}`)
@@ -277,4 +218,22 @@ function pageLoadSpeed() {
 	var requestResponseTime = pageNav.responseEnd - pageNav.requestStart;
 
 	console.log('Request + response time: ', requestResponseTime)
+}
+
+
+var blackOut = {
+	add: ()=> {
+		var mainBody = document.getElementById("mainBody")
+		var elem = create_element("div", "black-out")
+		elem.addEventListener("click", e=> {
+			toggleSidebar(true)
+			e.target.remove()
+		});
+		mainBody.appendChild(elem);
+	},
+	remove: ()=> {
+		document.querySelectorAll('.black-out').forEach(elem=>{
+			elem.remove();
+		})
+	}
 }

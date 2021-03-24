@@ -2,6 +2,7 @@
 {% block title %}Talent Calculator{% endblock title %}
 
 {% load static %}
+{% load cache %}
 {% block extra_head %}
 {% csrf_token %}
 <link rel="stylesheet" type="text/css" href="{% static "css/talent.css" %}">
@@ -23,12 +24,13 @@
 	{% for class in classes %}
 	<a class="class-filter {% if class == selected %}selected{% endif %}" id="{{class}}">
 		{% with "images/icons/large/class/"|add:class|add:".jpg" as class_image %}
-		<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}" style="background-image: url('{% static class_image %}');">
+		<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}">
 		{% endwith %}
 	</a>
 	{% endfor %}
 </div>
 {% endblock class_selection %}
+
 <div class="mainContent">
 	<div class="row justify-content-center">
 		<div id="talentHeader">

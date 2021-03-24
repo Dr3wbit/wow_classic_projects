@@ -124,11 +124,13 @@
 
 
 #recipe_list {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     text-align: left;
-    height: 100%;
+    /* height: 100%; */
     border-right: 1px solid black;
     /* user-select: none; */
+    /* min-height: 65vh;
+    max-height: 65vh; */
 }
 
 .material-name:hover {
@@ -181,6 +183,7 @@
     margin-right: 0;
     z-index: auto;
 }
+
 .recipe-container {
     margin-top: 4px;
     cursor: pointer;
@@ -189,15 +192,15 @@
     text-overflow: ellipsis;
     border-radius: 1px;
     padding-left: 5px;
-    margin-left: 10px;
+    /* margin-left: 10px;
     margin-right: -10px;
-    min-width: 262px;
+    min-width: 262px; */
 }
 
 .reagent-list {
     margin-top: 4px;
     background-color: #101010;
-    min-width: 313px;
+    /* min-width: 313px; */
 }
 
 .reagent-list-container {
@@ -288,3 +291,28 @@
 #sorting_order:hover{
     color: var(--merrigold);
 }
+
+#search_bar {
+    font-size: 12px;
+    width: 100%;
+}
+
+/* @media only screen and (max-width: 992px) {
+    #search_bar {
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #search_bar {
+        width: 120px;
+    }
+}
+
+*/
+
+/* @media only screen and (max-width: 576px) {
+    #search_bar {
+        width: 90%;
+    }
+} */

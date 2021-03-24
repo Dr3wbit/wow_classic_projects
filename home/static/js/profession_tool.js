@@ -723,7 +723,7 @@ function createRecipe(recipe, ix) {
 
 	var row = create_element('div', 'row')
 	var levelReq = (recipe.requirements) ? recipe.requirements.level : 1
-	var dataContainer = create_element('div', 'col recipe-container data-container rarity level', '', '', {'data-ix': ix, 'data-quality': recipe.q, 'data-level': levelReq})
+	var dataContainer = create_element('div', 'col-7 recipe-container data-container rarity level', '', '', {'data-ix': ix, 'data-quality': recipe.q, 'data-level': levelReq})
 	dataContainer.name = recipe.n
 
 	row.appendChild(dataContainer)
@@ -754,7 +754,7 @@ function createRecipe(recipe, ix) {
 	}
 
 	var recipeNameSpan = create_element('span', `recipe-name q${recipe.q}`, '', recipe.n)
-	var reagantList = create_element('div', 'reagent-list d-none d-md-block')
+	var reagantList = create_element('div', 'col-5 reagent-list')
 
 	dataContainer.appendChild(recipeNameSpan)
 	row.appendChild(reagantList)

@@ -603,8 +603,8 @@ class Zone(models.Model):
 		return self.name
 
 
-from home.signals import savedspec_limit, consumelist_limit, set_profession_name, set_school_name, set_slot, set_proficiency
-from home.signals import spec_profanity_filter, cl_profanity_filter
+from home.signals import set_profession_name, set_school_name, set_slot, set_proficiency
+from home.signals import savedlist_profanity_filter, clear_sidebar_cache, savedlist_limit
 # class Faction(models.Model):
 # 	ALLY,HORDE,NEUTRAL = 1,2,3
 # 	FACTION_CHOICES = (

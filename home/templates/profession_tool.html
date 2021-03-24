@@ -10,98 +10,80 @@
 {% endblock extra_head %}
 
 {% block mainbody %}
+{% block class_selection %}
+<div class="row prof-selection sticky-top" id="prof_selection">
 
-    {% block class_selection %}
-    <div class="row prof-selection sticky-top" id="prof_selection">
-
-        {% for prof in professions %}
-        <a class="prof-filter {% comment %}{% if prof == selected %}selected{% endif %}{% endcomment %} {% if prof == 'herbalism' or prof == 'fishing' or prof == 'skinning' %}disabled{% endif %}"  id="{{prof}}"
-            href="{% url 'recipes' prof|default:"alchemy" %}">
-            {% with "images/icons/large/professions/"|add:prof|add:".jpg" as prof_image %}
-            <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}"
-                style="background-image: url('{% static prof_image %}');">
-            {% endwith %}
-        </a>
-        {% endfor %}
-    </div>
-    {% endblock class_selection %}
-    <div class="mainContent container">
+    {% for prof in professions %}
+    <a class="prof-filter{% comment %}{% if prof == selected %} selected{% endif %}{% endcomment %}{% if prof == 'herbalism' or prof == 'fishing' or prof == 'skinning' %} disabled{% endif %}" id="{{prof}}"
+        href="{% url 'recipes' prof|default:"alchemy" %}">
+        {% with "images/icons/large/professions/"|add:prof|add:".jpg" as prof_image %}
+        <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}">
+        {% endwith %}
+    </a>
+    {% endfor %}
+</div>
+{% endblock class_selection %}
+<div class="mainContent container">
     <div class="row justify-content-center" id='prof_header'>
-        <div class="col-xl-8 col-12 columnTitle row">
-            <div class="col">
-                <span>Recipes</span>
-            </div>
-            <div class="col">
-                <input id="search_bar" class="fuzzy-search" placeholder="search" size="15" aria-label="Search">
-                <div class="dropdown show d-inline-block float-right">
-                    <a id="sorting" class="btn btn-sm dropdown-toggle" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span id='current_sort'>Sort</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" style="border-top: 1px solid azure;" aria-labelledby="sorting">
-                        <a class="dropdown-item sorting-item" data-sort="data-rating"><span class="untouchable">Level</span></a>
-                        <div class="dropdown-divider" style="border-top: 1px solid #adb5cd33;"></div>
-                        <a class="dropdown-item sorting-item" data-sort="data-created"><span class="untouchable">Rarity</span></a>
+        <div class="col-lg-8 col-12">
+            <div class="row columnTitle">
+                <div class="col-lg-6 col-5">Recipes</div>
+                <div class="col-lg-3 col-4">
+                    <input id="search_bar" class="fuzzy-search" placeholder="search recipes" aria-label="Search">
+                </div>
+                <div class="col-lg-3 col-3">
+                    <div class="dropdown show">
+                        <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id='current_sort'>Sort</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" style="border-top: 1px solid azure;" aria-labelledby="sorting">
+                            <a class="dropdown-item sorting-item" data-sort="data-rating"><span class="untouchable">Level</span></a>
+                            <div class="dropdown-divider" style="border-top: 1px solid #adb5cd33;"></div>
+                            <a class="dropdown-item sorting-item" data-sort="data-created"><span class="untouchable">Rarity</span></a>
+                        </div>
+                        <a id="sorting_order" class="btn btn-sm untouchable hidden">
+                            <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
+                        </a>
                     </div>
-                    <a id="sorting_order" class="btn btn-sm untouchable hidden">
-                        <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
-                    </a>
+                </div>
+            </div>
+            <div class="row sticky-top columnTitle">
+                <div class="col-7" style="border-right: 2px solid black;">Name</div>
+                <div class="col-5">Reagents</div>
+            </div>
+            <div id="recipe_list" class="row">
+                <div id="list_container" style="overflow-y: scroll" class="list col-12 pageColumn custom-scroll-bar">
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-12 columnTitle d-none d-xl-block">
-        </div>
-        <!-- <div class="col-lg-3 col-12 columnTitle d-none d-lg-block">Materials</div> -->
-    </div>
-    <div class="row sticky-top" style="top: 15vh;">
-        <div class="col-xl-8 col-12">
-            <div class="row">
-                    <div class="col columnTitle">Name</div>
-                    <div class="columnTitle" style="min-width: 323px">Reagents</div>
-            </div>
-        </div>
-        <div class="col d-none d-xl-block columnTitle">Items</div>
-    </div>
 
-    <div class="row">
-        <div id="recipe_list" class="col pageColumn custom-scroll-bar">
-            <div id="list_container" class="list">
-			{% comment %}
-            {% if whole_page %}
-            {% include "recipe_helper.html" %}
-            {% endif %}
-			{% endcomment %}
-            </div>
-        </div>
-        <div id="totals_container" class="col-xl-4 col-12 pageColumn custom-scroll-bar">
+        <div class="col-lg-4 col-12">
             <div class="row">
-                <div id="consumes" class="col-12">
+                <div class="col-12 columnTitle">Your List</div>
+            </div>
+            <div class="row">
+                <div id="totals_container" class="col-12 pageColumn custom-scroll-bar">
+                    <div class="row">
+                        <div id="consumes" class="col-12"></div>
+                        <span id="separator" class="col-12">Totals</span>
+                        <div id="materials" class="col-12"></div>
+                    </div>
                 </div>
-                <span id="separator" class="col-12">Totals</span>
-                <div id="materials" class="col-12">
+
+
                 </div>
             </div>
-            {% comment %}
-            {% if whole_page %}
-            {% include "consume_helper.html" %}
-            {% endif %}
-            {% endcomment %}
         </div>
-    </div>
 
     <div id="saved_list_info">
-        {% comment %}
-        {% if whole_page %}
-        {% include "info_display.html" %}
-        {% endif %}
-        {% endcomment %}
+
     </div>
 </div>
 
 
-    {% if user.is_authenticated %}
-    {% include "save_form.html" %}
-    {% endif %}
+{% if user.is_authenticated %}
+{% include "save_form.html" %}
+{% endif %}
 
 </div>
 {% endblock mainbody %}

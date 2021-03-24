@@ -74,6 +74,7 @@
     {% endblock javascript %}
 
 
+    {% comment %}
     {% if not request.user.context_menu %}
     <script>
     $('.mainContent, #mainBody').on({
@@ -83,6 +84,7 @@
     })
     </script>
     {% endif %}
+    {% endcomment %}
 
 </body>
 

@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_head %}
 
 <link rel="stylesheet" type="text/css" href="{% static "css/landing_page.css" %}">
@@ -613,10 +612,9 @@
         </div>
     </div>
 
-    {% load titlecase from custom_filters %}
 
     {% endblock mainbody %}
-
+    
     {% block footer %}
     {# "not necessary, here to demonstrate block.super" #}
     {{block.super}}
