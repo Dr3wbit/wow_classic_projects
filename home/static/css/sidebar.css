@@ -64,6 +64,7 @@
     overflow-y: scroll;
     border-right: 1px solid #00000054;
     animation: 0.75s ease-out forwards slideout;
+    transition: height 0.5s ease;
 }
 
 @keyframes slidein {
@@ -123,20 +124,32 @@
     /* margin-right: 10px; */
     overflow-y: scroll;
     border-top: 1px solid black;
-
+    transition: height 0.5s ease, display 0.5s ease 1.5s;
 }
 
-#saved_lists.minimized .custom-saves {
+.custom-saves.minimized {
+    height: unset;
+    display: none;
+}
+
+/* #saved_lists.minimized {
+    height: unset;
+} */
+/* #saved_lists.minimized .custom-saves {
     animation: 0.25s ease-out .5s forwards dissappear;
-}
+} */
 
-#saved_lists:not(.minimized) .custom-saves {
+/* #saved_lists:not(.minimized) .custom-saves {
     animation: 0.25s ease-out .5s forwards appear;
-}
+} */
 
+/* #saved_lists.minimized .custom-saves * {
+    background-color: transparent;
+} */
 
 #saved_lists.minimized {
     animation: 0.75s ease-out forwards slidein;
+    height: unset;
 }
 
 #saved_lists.minimized a.sidebar-toggle-button span.glyphicon {
@@ -148,9 +161,8 @@
 
 
 .sidebar-toggle {
-    position: absolute;
     height: var(--secondary-navbar-height);
-    right: -5px;
+    right: 0;
 
 }
 
