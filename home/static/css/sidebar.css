@@ -1,3 +1,90 @@
+@keyframes dissappear {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes appear {
+    100% {
+        visibility: visible;
+    }
+    0% {
+        visibility: hidden;
+    }
+}
+
+@keyframes savedListHeightCollapse {
+    0% {
+        height: 93vh;
+    }
+    100% {
+        height: unset;
+    }
+}
+
+@keyframes savedListHeightExpand {
+    0% {
+        height: initial;
+    }
+    100% {
+        height: 93vh;
+    }
+}
+
+@keyframes collapse {
+    0% {
+        max-height: 100vh;
+        /* max-width: 100vw; */
+        border-top: initial;
+    }
+    100% {
+        padding: 0;
+        max-height: 0;
+        border-top: 0;
+        /* max-width: 0; */
+    }
+}
+
+@keyframes expand {
+    0% {
+        max-height: 0;
+        max-width: 0;
+    }
+    10% {
+        max-width: 100vw;
+    }
+    25% {
+        max-height: 0;
+    }
+    100% {
+        max-height: 100vh;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        background-color: #181818;
+        left: 0;
+    }
+    100% {
+        left: -220px;
+    }
+}
+
+@keyframes slideout {
+    0% {
+        background-color: transparent;
+        left: -220px;
+    }
+    100% {
+        background-color: #181818;
+        left: 0;
+    }
+}
+
 .spec-list-item {
     overflow: hidden;
     white-space: nowrap;
@@ -62,53 +149,15 @@
     z-index: 1300;
     overflow-y: scroll;
     border-right: 1px solid #00000054;
-    animation: 0.75s ease-out forwards slideout;
-    transition: height 0.5s ease;
+    animation: 0.75s ease-out forwards slideout, 0.5s ease-out 0.75s backwards savedListHeightExpand;
 }
 
-@keyframes slidein {
-    0% {
-        background-color: #181818;
-        left: 0;
-        /* transform: translateX(0%) */
-    }
-    100% {
-        background-color: transparent;
-        left: -220px;
-        /* transform: translateX(-100%) */
-    }
+#saved_lists.minimized {
+    animation: 0.75s ease-out forwards slidein, 0.5s ease-out 0.75s forwards savedListHeightCollapse;
 }
 
-@keyframes slideout {
-    0% {
-        background-color: transparent;
-        left: -220px;
-        /* transform: translateX(-100%) */
-    }
-    100% {
-        background-color: #181818;
-        left: 0;
-        /* transform: translateX(0%) */
-    }
-}
 
-@keyframes dissappear {
-    0% {
-        visibility: visible;
-    }
-    100% {
-        visibility: hidden;
-    }
-}
 
-@keyframes appear {
-    100% {
-        visibility: visible;
-    }
-    0% {
-        visibility: hidden;
-    }
-}
 
 .saved-container {
     width: 100%;
@@ -118,38 +167,24 @@
 
 .custom-saves {
     padding: 8px;
-    /* overflow: hidden; */
+    display: block;
     height: 82vh;
-    /* margin-right: 10px; */
     overflow-y: scroll;
     border-top: 1px solid black;
-    transition: height 0.5s ease, display 0.5s ease 1.5s;
 }
 
-.custom-saves.minimized {
-    height: unset;
-    display: none;
+#saved_lists:not(.minimized) .custom-saves,
+#saved_lists:not(.minimized) #saved_specs,
+#saved_lists:not(.minimized) #saved_consume_lists {
+    animation: 0.5s ease-out 0.5s backwards expand;
 }
 
-/* #saved_lists.minimized {
-    height: unset;
-} */
-/* #saved_lists.minimized .custom-saves {
-    animation: 0.25s ease-out .5s forwards dissappear;
-} */
-
-/* #saved_lists:not(.minimized) .custom-saves {
-    animation: 0.25s ease-out .5s forwards appear;
-} */
-
-/* #saved_lists.minimized .custom-saves * {
-    background-color: transparent;
-} */
-
-#saved_lists.minimized {
-    animation: 0.75s ease-out forwards slidein;
-    height: unset;
+#saved_lists.minimized .custom-saves,
+#saved_lists.minimized #saved_specs,
+#saved_lists.minimized #saved_consume_lists {
+    animation: 0.5s ease-out 0.5s forwards collapse;
 }
+
 
 #saved_lists.minimized a.sidebar-toggle-button span.glyphicon {
     -moz-transform: rotate(180deg);
@@ -297,7 +332,6 @@ div.modal-footer {
     background-repeat: no-repeat;
     border: 1px solid transparent;
     border-radius: 0;
-    /* border-color: #1c1c1c #1c1c1c black black; */
     position: relative;
     cursor: pointer;
     transition-property: border, box-shadow;
@@ -326,12 +360,8 @@ div.modal-footer {
     box-shadow: inset 0px 0px 2px 3px rgba(0, 0, 255, 0.15),
         inset -2px 0px 6px 2px rgba(218, 224, 229, .45),
         inset 0px 0px 1px 1px rgba(0, 0, 0, 0.80);
-    /* -moz-transition: all 0.1s ease-in;
-  -o-transition: all 0.1s ease-in;
-  -webkit-transition: all 0.1s ease-in;
-  transition: all 0.1s ease-in; */
+
     border: 1px solid rgba(5, 118, 241, .95);
-    /* border: 2px solid #0056b3; */
 }
 
 .icon-selection.selected {
@@ -371,9 +401,7 @@ div.modal-footer {
 }
 
 @media only screen and (max-width: 992px) {
-    #mainBody {
-        padding-left: 20px !important;
-    }
+
     .sidebar-toggle-button {
         font-size: 4.5vmax;
         user-select: none;

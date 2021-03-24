@@ -4,9 +4,7 @@ $(document).ready(function() {
 
 window.addEventListener('load', function(e) {
 	var sidebarState = sessionStorage.getItem("sidebarState")
-	console.log(sidebarState)
 	sidebarState = parseInt(sidebarState)
-	console.log(sidebarState)
 
 	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
 		blackOut.add()
@@ -37,7 +35,6 @@ function info_display(id, caller) {
 			'id':id,
 			'caller': caller
 		},
-		// dataType: 'html',
 		success: function (data) {
 			$("#saved_list_info").html(data);
 		}
@@ -47,40 +44,14 @@ function info_display(id, caller) {
 
 function global_event_handlers() {
 
-
-    if (window.innerWidth <= 992) {
-        // $('#mainBody').css({ 'padding-left': '15px' })
-        // $('#saved_lists').removeClass('minimized')
-        // $('.custom-saves').css({ 'display': 'block' })
-        // $('.sidebar-toggle').removeClass('flip-background')
-
-        // blackOut.add()
-    }
-
-	// var sideNav = document.querySelector('.sidebar-toggle')
-
-
-	// sideNav.addEventListener('click', e => {
-	// 	e.target.classList.toggle('shown')
-	// 	if (e.isTrusted) {
-	// 		if (e.target.classList.contains('shown')) {
-	// 			sessionStorage.setItem("sidebarState", 1)
-	// 		} else {
-	// 			sessionStorage.setItem("sidebarState", 0)
-	// 		}
-	// 	}
-	// })
-
-
 	var sidebarToggle = document.getElementById("sidebar_toggle");
-
 
 	sidebarToggle.addEventListener("click", e => {
 		var sidebarState = toggleSidebar()
-
 		if (!sidebarState) {
 			if (window.innerWidth <= 992) {
 				blackOut.add()
+			} else {
 			}
 		} else {
 			blackOut.remove()
@@ -99,11 +70,19 @@ function global_event_handlers() {
 			e.stopPropagation()
 		}
 	});
+
 }
 
 function toggleSidebar(forceMin=undefined) {
 	var savedLists = document.getElementById("saved_lists")
-	return savedLists.classList.toggle("minimized", forceMin)
+	var toggled = savedLists.classList.toggle("minimized", forceMin);
+
+	if (window.window.innerWidth > 992) {
+		document.getElementById("mainBody").classList.toggle("depad", toggled)
+		document.getElementById("mainBody").classList.toggle("padleft", !toggled)
+	}
+
+	return toggled
 }
 
 
@@ -171,7 +150,6 @@ $.ajaxSetup({
 	}
 });
 
-// convenience function, used everywhere as callback
 function notifyUser(message) {
 	let notificationContainer = ($("<div/>", {
 		class: "notification-container",
@@ -181,7 +159,6 @@ function notifyUser(message) {
 	setTimeout(() => { $(".notification-container").remove() }, 4500);
 }
 
-// convenience function, used everywhere
 // creates element, textnodes, and attributes, attaches textnode/attributes, returns created element
 function create_element(tag, class_name, style, text, dataAttrs={}) {
 	var elem = document.createElement(`${tag}`)

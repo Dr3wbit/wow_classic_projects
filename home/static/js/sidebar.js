@@ -13,7 +13,7 @@ function sidebar_handlers() {
 			var parent = e.target.closest('div.spec-list-item')
 			var href = parent.querySelector('a.saved-list-link').href
 
-			var link = new URL(href=href)
+			var link = new URL(href = href)
 			var hash = link.search
 
 			data['hash'] = hash
@@ -24,13 +24,13 @@ function sidebar_handlers() {
 			}
 
 			$.ajax({
-                method: "POST",
-                url: '/ajax/delete_list/',
-                data: data,
-                success: trashCanSuccess,
-                error: trashCanError,
-            })
-		} else if (e.target.matches('.saved-list-icon')){
+				method: "POST",
+				url: '/ajax/delete_list/',
+				data: data,
+				success: trashCanSuccess,
+				error: trashCanError,
+			})
+		} else if (e.target.matches('.saved-list-icon')) {
 
 			$('#icon_choice_modal').modal('toggle')
 
@@ -52,29 +52,10 @@ function sidebar_handlers() {
 			}
 		}
 	})
-	// savedLists.addEventListener('mouseenter', function(e) {
-	// 	if (e.target.matches('.saved-list-icon')) {
-	// 		$(e.target).append($('<a/>', {
-	// 			class: "btn btn-sm edit-image untouchable",
-	// 		}).append($('<span/>', {
-	// 			class: "glyphicon glyphicon-pencil untouchable",
-	// 		})))
-	// 	}
-	// })
-	//
-	// savedLists.addEventListener('mouseleave', function(e) {
-	// 	if (e.target.matches('.saved-list-icon')) {
-	// 		var editElements = document.querySelectorAll('.edit-image')
-	// 		if (editElements) {
-	// 			Array.from(editElements).forEach(function(item) {
-	// 				item.remove()
-	// 			})
-	// 		}
-	// 	}
-	// })
+
 }
 
-function load_icons(page=1, ix=null, queue=null) {
+function load_icons(page = 1, ix = null, queue = null) {
 	var data = {}
 
 	if (ix) {
@@ -87,32 +68,32 @@ function load_icons(page=1, ix=null, queue=null) {
 	data['page'] = page
 
 	$.ajax({
-        method: "GET",
-        url: "/ajax/icon_list/",
+		method: "GET",
+		url: "/ajax/icon_list/",
 		// dataType: 'html',
-        data: data,
-        success: function(data) {
+		data: data,
+		success: function(data) {
 			$("#modal_body").html(data)
 		},
-    })
+	})
 }
 
 function update_icon(img) {
-    var data = {}
-    if (img) {
-        data['img'] = img
-    } else {
-        return false
-    }
+	var data = {}
+	if (img) {
+		data['img'] = img
+	} else {
+		return false
+	}
 
-    $.ajax({
-        method: "POST",
-        url: "/ajax/update_icon/",
-        dataType: 'json',
-        data: data,
-        success: update_icon_success,
+	$.ajax({
+		method: "POST",
+		url: "/ajax/update_icon/",
+		dataType: 'json',
+		data: data,
+		success: update_icon_success,
 		error: update_icon_error,
-    })
+	})
 }
 
 function update_icon_success(data) {

@@ -70,7 +70,9 @@ body {
     display: inline-block;
     vertical-align: top;
     padding-left: 265px;
+    /* transition: padding-left 0.5s ease; */
 }
+
 
 .padleft {
     animation: 0.75s ease-out forwards padleft;
@@ -1144,6 +1146,9 @@ button:focus {
     padding-bottom: 0;
 } */
 @media only screen and (max-width: 992px) {
+    #mainBody {
+        padding-left: 15px !important;
+    }
     .navbar-toggler {
         padding-top: 1vmax;
         padding-bottom: 1vmax;
