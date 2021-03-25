@@ -1,4 +1,4 @@
-from django.db.models.signals import pre_save, post_save, post_init
+from django.db.models.signals import pre_save, post_save, post_init, post_delete
 from django.core.exceptions import PermissionDenied, ValidationError
 from home.models import ConsumeList, Spec, User, Profession, School, Item
 from django.dispatch import receiver
@@ -18,9 +18,11 @@ def savedlist_limit(sender, instance, **kwargs):
 	if instance.img == 'samwise':
 		instance.img = "class/"+instance.wow_class.name.lower()+".jpg" if sender == Spec else 'inv_misc_book_09.jpg'
 
+@receiver(post_delete, sender=Spec, weak=False)
+@receiver(post_delete, sender=ConsumeList, weak=False)
 @receiver(post_save, sender=Spec, weak=False)
 @receiver(post_save, sender=ConsumeList, weak=False)
-def clear_sidebar_cache(sender, instance, created, **kwargs):
+def clear_sidebar_cache(sender, instance, created=True, **kwargs):
 	if created:
 		user = instance.user
 		key = make_template_fragment_key('sidebar', [user.uid])
