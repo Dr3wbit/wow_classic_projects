@@ -786,6 +786,7 @@ a.crafted-item-list:hover {
 #discord-login {
     transition: all .17s ease-out;
     -webkit-transition: all .17s ease-out;
+    background-color: transparent;
 }
 
 #discord-login path {

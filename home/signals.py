@@ -23,7 +23,7 @@ def savedlist_limit(sender, instance, **kwargs):
 def clear_sidebar_cache(sender, instance, created, **kwargs):
 	if created:
 		user = instance.user
-		key = make_template_fragment_key('sidebar', user.uid)
+		key = make_template_fragment_key('sidebar', [user.uid])
 		cache.delete(key)
 
 @receiver(post_save, sender=Spec, weak=False)
@@ -32,7 +32,8 @@ def savedlist_profanity_filter(sender, instance, created, **kwargs):
 	if created:
 		naughty_words = [x.lower() for x in NAUGHTY_WORDS]
 		reggie = r"({})".format("|".join(naughty_words))
-		description = instance.description.lower().strip().split()
+		description = instance.description[0] if type(instance.description) == list else instance.description
+		description = description.lower().strip().split()
 		description = set([x.strip("!#.*&^-=@`~{\/?[]}|><,;:_%()").strip() for x in description])
 
 		match = False

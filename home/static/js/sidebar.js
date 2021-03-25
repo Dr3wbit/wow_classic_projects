@@ -10,14 +10,13 @@ function sidebar_handlers() {
 	savedLists.addEventListener('click', function(e) {
 		if (e.target.matches('.trashcan')) {
 			var data = {}
-			var parent = e.target.closest('div.spec-list-item')
-			var href = parent.querySelector('a.saved-list-link').href
+			var infoContainer = e.target.closest("div.info-container")
+			var href = infoContainer.querySelector('a.saved-list-link').href
 
-			var link = new URL(href = href)
-			var hash = link.search
 
-			data['hash'] = hash
-			data['name'] = parent.getAttribute('name')
+			var link = new URL(href = infoContainer.querySelector('a.saved-list-link').href)
+			data["hash"] = link.search
+			data["name"] = infoContainer.querySelector("div.spec-list-item").getAttribute("name")
 
 			if (link.pathname.includes("talent_calc")) {
 				data['wow_class'] = true

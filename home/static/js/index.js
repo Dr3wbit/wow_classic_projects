@@ -451,7 +451,7 @@ function loadSavedLists(data) {
 	data.saved_lists.forEach(function(savedList) {
 		var hasWoWClass = (savedList.wow_class) ? true : false
 		var savedListType = (hasWoWClass) ? 'spec' : 'cl'
-		var savedListURL = (hasWoWClass) ? `/talent_calc/${savedList.wow_class}?${savedList.hash}` : `/profession_tool?${savedList.hash}`
+		var savedListURL = (hasWoWClass) ? `/talent_calc/${savedList.wow_class.toLowerCase()}?${savedList.hash}` : `/profession_tool?${savedList.hash}`
 
 		var listItem = create_element('div', 'col-12 saved-list-item')
 		listContainer.appendChild(listItem)

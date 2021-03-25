@@ -9,6 +9,10 @@ from itertools import chain
 from operator import attrgetter
 import os
 
+def clear_cache_item(request):
+	status_code = 404
+	pass
+	#
 # @cache_page(60*5)
 def consume_list_builder(request):
 	status_code = 404
@@ -35,7 +39,6 @@ def consume_list_builder(request):
 					data['material_list'][mat.item.ix] = get_item_info('', mat.item.ix)
 					data['material_list'][mat.item.ix]['per'] = mat.amount
 
-	print('data: ', data)
 	response = JsonResponse(data, safe=False)
 	response.status_code = status_code
 
@@ -524,13 +527,12 @@ def save_rating(request):
 def delete_list(request):
 	status_code = 400
 	data = {'name': request.POST.get('name', None), 'wow_class': request.POST.get('wow_class', None)}
-
 	if request.is_ajax():
 		if request.user.is_authenticated:
 			saved_list = Spec.objects.filter(name=data['name'], user=request.user) if data['wow_class'] else ConsumeList.objects.filter(name=data['name'], user=request.user)
 			if saved_list:
 				saved_list.first().delete()
-				data.update({'message': 'SUCCESSFULLY DELETED {}'.format(name),
+				data.update({'message': 'SUCCESSFULLY DELETED {}'.format(data['name']),
 					'success': True
 				})
 				status_code = 200

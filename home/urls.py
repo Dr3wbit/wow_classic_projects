@@ -4,7 +4,7 @@ import re
 
 # TODO: make class/profession based url coersion case insensitive
 profession_re = r'^profession_tool/(?P<prof>(alchemy|blacksmithing|first_aid|enchanting|engineering|cooking|skinning|mining|other|tailoring|leatherworking|riding|fishing|herbalism))'
-class_re = r'^talent_calc/(?P<class>(paladin|priest|(H|h)unter|mage|rogue|shaman|warrior|warlock|druid))'
+class_re = r'^talent_calc/(?P<class>(paladin|priest|hunter|mage|rogue|shaman|warrior|warlock|druid))'
 id_re = r'/?(?P<id>[\d]+)?'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
@@ -24,9 +24,9 @@ urlpatterns = [
     path('success', views.SuccessView.as_view(), name='success'),
     path('thanks', views.ThanksView.as_view(), name='thanks'),
     path('denied', views.DeniedView.as_view(), name='denied'),
-    ###############
-    ## ajax urls ##
-    ###############
+    ###########################################################################
+    ############################# ajax urls ###################################
+    ###########################################################################
     path('ajax/delete_list/', views.delete_list, name='delete_list'),
     # path('ajax/load_spec/', views.load_spec, name='load_spec'),
     path('ajax/save_rating/', views.save_rating, name='save_rating'),
@@ -43,5 +43,5 @@ urlpatterns = [
     path('ajax/build_recipe_list/', views.recipe_list_builder, name='recipe_list_builder'),
     path('ajax/consume_list_builder/', views.consume_list_builder, name='consume_list_builder'),
     path('ajax/get_spec_info/', views.get_spec_info, name='get_spec_info'),
-
+    # path('ajax/clear_cache_item/', views.clear_cache_item, name='clear_cache_item'),
 ]

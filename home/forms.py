@@ -12,6 +12,7 @@ class SpecForm(forms.ModelForm):
         }
 
 
+
 class ConsumeListForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Tag.objects.all(), to_field_name="name", required=False)
     class Meta:
