@@ -9,7 +9,6 @@ from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession,
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint fails
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
-# from django.core.paginator import Paginator
 from django.conf import settings
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
@@ -229,12 +228,11 @@ class TalentCalcTemplate(TemplateView):
 			if request.is_ajax():
 				try:
 					form_data = self.save_list(request, form.cleaned_data)
-					created = form_data['created']
-					saved_or_updated = 'created' if created else 'updated'
+					saved_or_updated = 'created' if form_data['created'] else 'updated'
 					message = "Successfully {} spec!".format(saved_or_updated)
 					data = {
 						'name': form_data['name'],
-						'created': created,
+						'created': form_data['created'],
 						'wow_class': form_data['wow_class'],
 						'spent': form_data['spent'],
 						'message': message,
@@ -480,15 +478,13 @@ class ConsumeToolTemplate(TemplateView):
 					try:
 						form_data = self.save_list(request, form.cleaned_data)
 
-						name = form_data['name']
-						created = form_data['created']
-						update_or_create = 'created' if created else 'updated'
-						message = "Successfully {} list: {}".format(update_or_create, name)
+						update_or_create = 'created' if form_data['created'] else 'updated'
+						message = "Successfully {} list: {}".format(update_or_create, form_data['name'])
 						data = {
-							'name': name,
+							'name': form_data['name'],
 							'spent': form_data['spent'],
 							'hash': form_data['hash'],
-							'created': created,
+							'created': form_data['created'],
 							'message': message,
 							'id': form_data['id']
 						}

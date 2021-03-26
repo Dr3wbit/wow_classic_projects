@@ -51,8 +51,7 @@
 					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
 					<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
 				</button> -->
-				<button id="copyLink" data-container="#copyLink" data-toggle="popover" data-placement="right"
-					class="btn btn-sm float-right" role="button" aria-label="copy spec link" type="button">
+				<button id="copyLink" data-container="#copyLink" data-toggle="popover" data-placement="right" class="btn btn-sm float-right" role="button" aria-label="copy spec link" type="button">
 					<span class="glyphicon glyphicon-link glyphicon-custom" aria-hidden="true"></span>
 				</button>
 			</div>
@@ -60,52 +59,22 @@
 	</div>
 	<div class="row justify-content-center" id="talent_calc" align="center"></div>
 
-<div id="saved_list_info">
-{% comment %}
-{% include "info_display.html" %}
-{% endcomment %}
-</div>
+	<div id="saved_list_info">
+		{% comment %}
+		{% include "info_display.html" %}
+		{% endcomment %}
+	</div>
 
-{% if user.is_authenticated %}
-{% include "save_form.html" %}
-{% endif %}
+	{% if user.is_authenticated %}
+	{% include "save_form.html" %}
+	{% endif %}
 
 </div>
 
 {% endblock mainbody %}
 
-<!-- Modal -->
-{% block modal %}
-<div class="modal fade" id="specSaverPrompt" tabindex="-1" role="dialog" aria-labelledby="specSaver" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-	<div class="modal-content bg-dark text-white" style="box-shadow: rgba(0,0,0,.8) 0 1px 3px 0 inset; border-radius:2px;">
-	  <div class="modal-body">
-		  <button type="button" class="close" aria-label="Close" data-dismiss="modal">
-			  <span aria-hidden="true">&times;</span>
-		  </button>
-		  <form method="post" id="save-spec">
-			  {% csrf_token %}
-		<div class="form-group row">
-		  <div class="input-group input-group-sm">
-			<div class="input-group-prepend">
-			  <div class="input-group-text" style="border-radius: 2px 0 0 2px;">name</div>
-			</div>
-			<input type="text" id="spec-name" class="form-control-sm" placeholder="spec name" aria-label="Text..." aria-describedby="basic-addon1" autocomplete="off" required=True>
-			<div class="input-group-append">
-			  <button type="submit" class="input-group-text btn-sm btn-primary" id="confirmSpecName" style="border-radius: 0 2px 2px 0;">Confirm</button>
-			</div>
-			<div id="specNameValidation" class="form-text"></div>
-		  </div>
-	   </div>
-	</form>
-	</div>
-	</div>
-	</div>
-	</div>
-	{% endblock modal %}
-
-	{% block javascript %}
-	<script src="{% static "js/tooltip.js" %}"></script>
-	<script src="{% static "js/talent.js" %}"></script>
-	<script src="{% static "js/save_form.js" %}"></script>
-	{% endblock javascript %}
+{% block javascript %}
+<script src="{% static "js/tooltip.js" %}"></script>
+<script src="{% static "js/talent.js" %}"></script>
+<script src="{% static "js/save_form.js" %}"></script>
+{% endblock javascript %}

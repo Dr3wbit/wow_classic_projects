@@ -1,17 +1,23 @@
 $(document).ready(function() {
 	global_event_handlers()
+
 });
 
 window.addEventListener('load', function(e) {
 	var sidebarState = sessionStorage.getItem("sidebarState")
 	sidebarState = parseInt(sidebarState)
+	// var mainBody = document.getElementById("mainBody");
+	setTimeout(()=> {
+		if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
+			blackOut.add()
+		}
+	}, 500)
 
-	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
-		blackOut.add()
-	}
 
+	// if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
+	// 	blackOut.add()
+	// }
 });
-
 
 var global = {
 	static_url: "",
@@ -47,6 +53,12 @@ function global_event_handlers() {
 	var sidebarToggle = document.getElementById("sidebar_toggle");
 
 	sidebarToggle.addEventListener("click", e => {
+		var savedLists = document.getElementById("saved_lists");
+		savedLists.classList.toggle("animated", true);
+		
+		var customSaves = document.getElementById("custom-saves")
+		customSaves.classList.toggle("animated", true);
+
 		var sidebarState = toggleSidebar()
 		if (!sidebarState) {
 			if (window.innerWidth <= 992) {
@@ -74,12 +86,19 @@ function global_event_handlers() {
 }
 
 function toggleSidebar(forceMin=undefined) {
-	var savedLists = document.getElementById("saved_lists")
+	document.body.classList.toggle("preload", false);
+
+	var savedLists = document.getElementById("saved_lists");
 	var toggled = savedLists.classList.toggle("minimized", forceMin);
 
+	savedLists.classList.toggle("expanded", !toggled);
+
+	var customSaves = document.getElementById("custom-saves")
+	customSaves.classList.toggle("expanded", !toggled);
+
 	if (window.window.innerWidth > 992) {
-		document.getElementById("mainBody").classList.toggle("depad", toggled)
-		document.getElementById("mainBody").classList.toggle("padleft", !toggled)
+		// document.getElementById("mainBody").classList.toggle("depad", toggled)
+		// document.getElementById("mainBody").classList.toggle("padleft", !toggled)
 	}
 
 	return toggled

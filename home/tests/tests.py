@@ -68,9 +68,10 @@ from django.test import TestCase
 # test if can delete saved consume list from talent_calc page
 # test if can delete saved spec from profession_tool page
 
-
 # test if can save > 10 specs
 # test if can save > 10 consume lists
+
+# test if anonymous list creation works
 
 ##############
 ### voting ###
