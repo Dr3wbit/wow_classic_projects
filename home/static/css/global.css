@@ -41,10 +41,16 @@ body {
     width: 100%
 }
 
+body.preload *{
+    animation-duration: 0s !important;
+    -webkit-animation-duration: 0s !important;
+    transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+
 .footer {
     width: 100%;
     position: absolute;
-    height: 3vh;
+    height: 4vh;
     bottom: 0;
     background-color: var(--sidenav-bg-color);
     z-index: 1310;
@@ -69,7 +75,7 @@ body {
     align-content: center;
     display: inline-block;
     vertical-align: top;
-    padding-left: 265px;
+    /* padding-left: 265px; */
     /* transition: padding-left 0.5s ease; */
 }
 

@@ -9,7 +9,6 @@ from home.models import Item, WoWClass, Talent, TalentTree, Crafted, Profession,
 from django.db.utils import IntegrityError # use this in try except when unique_together constraint fails
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
-# from django.core.paginator import Paginator
 from django.conf import settings
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page

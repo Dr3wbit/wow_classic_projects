@@ -9,7 +9,6 @@ window.addEventListener('load', function(e) {
 	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
 		blackOut.add()
 	}
-
 });
 
 
@@ -47,6 +46,7 @@ function global_event_handlers() {
 	var sidebarToggle = document.getElementById("sidebar_toggle");
 
 	sidebarToggle.addEventListener("click", e => {
+
 		var sidebarState = toggleSidebar()
 		if (!sidebarState) {
 			if (window.innerWidth <= 992) {
@@ -78,8 +78,8 @@ function toggleSidebar(forceMin=undefined) {
 	var toggled = savedLists.classList.toggle("minimized", forceMin);
 
 	if (window.window.innerWidth > 992) {
-		document.getElementById("mainBody").classList.toggle("depad", toggled)
-		document.getElementById("mainBody").classList.toggle("padleft", !toggled)
+		// document.getElementById("mainBody").classList.toggle("depad", toggled)
+		// document.getElementById("mainBody").classList.toggle("padleft", !toggled)
 	}
 
 	return toggled
