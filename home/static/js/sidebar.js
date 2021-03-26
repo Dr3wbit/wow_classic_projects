@@ -2,6 +2,7 @@ $(document).ready(function() {
 	sidebar_handlers()
 });
 
+
 var selectedList;
 
 function sidebar_handlers() {

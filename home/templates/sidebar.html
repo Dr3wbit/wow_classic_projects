@@ -8,7 +8,7 @@
 				</a>
 		</div>
 		{% load sanitize from custom_filters %}
-		<div class="custom-saves custom-scroll-bar">
+		<div id="custom-saves" class="custom-scroll-bar">
 			<div class="spec-list">
 			{% if user.is_authenticated %}
 			{% cache 300 sidebar user.uid %}
