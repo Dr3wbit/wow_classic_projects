@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from django.db.models import Count, Q, Avg
 from django.template.loader import render_to_string
 from django.views.decorators.cache import cache_page
-from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Tag, WoWClass
+from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Tag, WoWClass, User
 
 from itertools import chain
 from operator import attrgetter
@@ -48,7 +48,7 @@ def consume_list_builder(request):
 def get_spec_info(request):
 	status_code = 404
 	data = {'hash': request.GET.get('hash', None), 'wow_class': request.GET.get('wow_class', None),
-		'list_info': {}
+		'list_info': {}, 'uid': request.GET.get('uid', None)
 	}
 
 	if data['hash'] and data['wow_class']:
@@ -56,14 +56,17 @@ def get_spec_info(request):
 
 		if WoWClass.objects.filter(name=data['wow_class'].title()):
 			wow_class = WoWClass.objects.filter(name=data['wow_class'].title()).first()
-			if Spec.objects.filter(user=request.user, hash=data['hash'], wow_class=wow_class):
-				spec = Spec.objects.filter(user=request.user, hash=data['hash'], wow_class=wow_class).first()
-				status_code = 200
 
-				data['list_info'] = {'name': spec.name, 'user': spec.user.disc_username,
-					'description': spec.description, 'updated': spec.updated,
-					'tags': [x.name for x in spec.tags.all()]
-				}
+			if User.objects.filter(id=data['uid']):
+				user = User.objects.filter(id=data['uid']).first()
+				if Spec.objects.filter(user=user, hash=data['hash'], wow_class=wow_class):
+					spec = Spec.objects.filter(user=user, hash=data['hash'], wow_class=wow_class).first()
+					status_code = 200
+
+					data['list_info'] = {'name': spec.name, 'user': spec.user.disc_username,
+						'description': spec.description, 'updated': spec.updated,
+						'tags': [x.name for x in spec.tags.all()]
+					}
 
 	response = JsonResponse(data, safe=False)
 	response.status_code = status_code
@@ -88,7 +91,7 @@ def get_saved_lists(request):
 	all_lists = sorted(chain(specs, consume_lists), key=attrgetter('created'))
 	for list_item in all_lists:
 
-		list_info = {'ix': list_item.id, 'uid': list_item.user.uid, 'img': list_item.img,
+		list_info = {'ix': list_item.id, 'uid': list_item.user.id, 'img': list_item.img,
 			'description': list_item.description, 'name': list_item.name,
 			'rating': list_item.rating, 'created': list_item.created,
 			'private': list_item.private, 'hash': list_item.hash,

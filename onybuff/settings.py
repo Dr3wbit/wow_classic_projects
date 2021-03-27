@@ -22,7 +22,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURITY WARNING: don't run with debug turned on in production!
 # NOTE: Cancelling Discord login does not error when DEBUG = False
 DEBUG = bool(int(os.environ['DJANGO_DEBUG']))
-DEV = False
+DEV = True
 
 #SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['dev.onybuff.com', 'localhost', '127.0.0.1', (os.environ['HOST_IP'])]
@@ -146,13 +146,15 @@ else:
 	}
 
 
-CACHES = {
-	'default': {
-		'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-		'LOCATION': '127.0.0.1:11211',
-		# 'LOCATION': "{}:{}".format(os.environ['HOST_IP'], '11211') if LOCAL else '127.0.0.1:11211',
+if not DEV:
+
+	CACHES = {
+		'default': {
+			'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+			'LOCATION': '127.0.0.1:11211',
+			# 'LOCATION': "{}:{}".format(os.environ['HOST_IP'], '11211') if LOCAL else '127.0.0.1:11211',
+		}
 	}
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

@@ -12,7 +12,13 @@ $(document).ready(function() {
 window.addEventListener('load', function(e) {
 	if (document.location.search) {
 		// predefined talent spec, fill in the talents
-		talentCalc.build.spec(document.location.search)
+		if ((new URL(document.location.href)).searchParams.has('u')) {
+			talentCalc.get.savedSpec()
+		} else {
+			talentCalc.build.spec(document.location.search.replace(/u=\d+\&/, ""))
+
+		}
+
 		updateSelectedList()
 	}
 });
@@ -108,32 +114,12 @@ var talentCalc = {
 			if (savedSpecs) {
 				savedSpecs.addEventListener('click', function(e) {
 					if (e.target.matches('a.saved-list-link')) {
-						if (e.metaKey || e.target.matches('.external')) { // allows opening in new tab
+						if (e.metaKey) { // allows opening in new tab
 							return
 						}
 						e.preventDefault()
 
-						if (document.querySelectorAll('div.spec-list-item.selected').length) {
-							document.querySelectorAll('div.spec-list-item.selected').forEach(x => x.classList.remove('selected'))
-						}
-
-						var savedLists = Array.from(document.querySelectorAll('div.spec-list-item'))
-
-						savedLists.find(x => x.querySelector('a').getAttribute('href') == (e.target.pathname+e.target.search)).classList.add('selected')
-
-						var url = new URL(e.target.href)
-						hash = url.search
-						history.pushState(null, null, url)
-
-						var WoWClass = talentCalc.CLASSES.filter(substring => url.pathname.includes(substring))[0]
-						talentCalc.get.specInfo(hash, WoWClass)
-
-						async function foo() {
-							await talentCalc.reset.all()
-							await talentCalc.update.class.selection(WoWClass)
-							await talentCalc.build.spec(hash)
-						}
-						foo()
+						talentCalc.get.savedSpec(e.target.href)
 
 					}
 				});
@@ -142,9 +128,9 @@ var talentCalc = {
 		},
 
 		header: function() {
-			var buttonCity = document.getElementById('buttonCity');
+			var talentHeaderControlCenter = document.getElementById('talentHeaderControlCenter');
 
-			buttonCity.addEventListener('click', function(e) {
+			talentHeaderControlCenter.addEventListener('click', function(e) {
 				if (e.target.matches('#talentLock')) {
 					e.target.classList.toggle('lock')
 					if (e.target.classList.contains('lock')) {
@@ -426,11 +412,38 @@ var talentCalc = {
 			}
 		},
 	get: {
-		specInfo: function(hash='', WoWClass='') {
-			console.log('get.specInfo')
-			var data = {}
-			data['hash'] = hash
-			data['wow_class'] = WoWClass
+		savedSpec: function(href=document.location.href) {
+			var url = new URL(href)
+
+			if (document.querySelectorAll('div.spec-list-item.selected').length) {
+				document.querySelectorAll('div.spec-list-item.selected').forEach(x => x.classList.remove('selected'))
+			}
+
+			var savedLists = Array.from(document.querySelectorAll('div.spec-list-item'))
+			var selectedSpec = savedLists.find(x => x.querySelector('a').getAttribute('href') == (url.pathname+url.search))
+			if (selectedSpec) {
+				selectedSpec.classList.add('selected')
+			}
+
+
+			var uid = url.searchParams.get('u')
+			var hash = url.search.replace(/u=\d+\&/, "")
+
+			history.pushState(null, null, url)
+
+			var WoWClass = talentCalc.CLASSES.filter(substring => url.pathname.includes(substring))[0]
+			talentCalc.get.specInfo(hash, WoWClass, uid)
+
+			async function foo() {
+				await talentCalc.reset.all()
+				await talentCalc.update.class.selection(WoWClass)
+				await talentCalc.build.spec(hash)
+			}
+			foo()
+
+		},
+		specInfo: function(hash='', WoWClass='', uid) {
+			var data = {"hash": hash, "wow_class": WoWClass, "uid": uid}
 			$.ajax({
 				method: "GET",
 				url: '/ajax/get_spec_info/',
@@ -631,6 +644,7 @@ var talentCalc = {
 			for (var y = 0; y < matchArr.length; y++) {
 				newURL = newURL.replace(matchArr[y], matchArr[y][0] + (matchArr[y].length).toString())
 			}
+
 
 			let hash = newURL.slice(0, newURL.indexOf('Z'))
 			let url = new URL(location.origin + location.pathname)

@@ -6,17 +6,15 @@ $(document).ready(function() {
 window.addEventListener('load', function(e) {
 	var sidebarState = sessionStorage.getItem("sidebarState")
 	sidebarState = parseInt(sidebarState)
-	// var mainBody = document.getElementById("mainBody");
-	setTimeout(()=> {
-		if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
-			blackOut.add()
-		}
-	}, 500)
+	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
+		blackOut.add()
+	}
+	// setTimeout(()=> {
+	// 	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
+	// 		blackOut.add()
+	// 	}
+	// }, 500)
 
-
-	// if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
-	// 	blackOut.add()
-	// }
 });
 
 var global = {
@@ -55,7 +53,7 @@ function global_event_handlers() {
 	sidebarToggle.addEventListener("click", e => {
 		var savedLists = document.getElementById("saved_lists");
 		savedLists.classList.toggle("animated", true);
-		
+
 		var customSaves = document.getElementById("custom-saves")
 		customSaves.classList.toggle("animated", true);
 

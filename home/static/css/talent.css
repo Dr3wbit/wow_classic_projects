@@ -236,11 +236,11 @@
 }
 
 
-#buttonCity > *:hover {
+#talentHeaderControlCenter > *:hover {
     color: rgba(231, 186, 0, 1)!important;
 }
 
-#buttonCity > *:focus {
+#talentHeaderControlCenter > *:focus {
   outline: none;
 }
 
@@ -253,13 +253,13 @@
 }
 
 
-#buttonCity {
+#talentHeaderControlCenter {
     width: 100%;
     display: block;
     padding-right: 0;
 }
 
-#buttonCity > button {
+#talentHeaderControlCenter > button {
     padding: 0 3px 0 3px;
     margin: 0 2px 0 1px;
     font-size: 15px;
@@ -318,7 +318,7 @@
 
     }
 
-    #buttonCity {
+    #talentHeaderControlCenter {
       padding-left: 5px;
     }
 }
@@ -347,7 +347,7 @@
     flex: 0 0 0%;
   }
 
-  #buttonCity {
+  #talentHeaderControlCenter {
     padding-left: 0px;
     min-width: 120px;
     left: 140px;
@@ -355,7 +355,7 @@
 }
 
 @media only screen and (max-width: 576px) {
-  #buttonCity {
+  #talentHeaderControlCenter {
     padding-left: 0px;
     min-width: 120px;
     left: 40px;
