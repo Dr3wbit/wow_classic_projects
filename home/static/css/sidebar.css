@@ -69,7 +69,6 @@
 
 @keyframes slidein {
     0% {
-        /* background-color: #181818; */
         left: 0;
     }
     100% {
@@ -79,11 +78,9 @@
 
 @keyframes slideout {
     0% {
-        /* background-color: transparent; */
         left: -220px;
     }
     100% {
-        /* background-color: #181818; */
         left: 0;
     }
 }
@@ -159,37 +156,18 @@
     left: 0;
 }
 
-/* #saved_lists.animated #saved_specs,
-#saved_lists.animated #saved_consume_lists {
-    transition: height 0.5s ease 1s;
-}
-
-#saved_specs, #saved_consume_lists {
-    height: 0;
-    width: 0;
-}
-
-#saved_lists.expanded #saved_specs,
-#saved_lists.expanded #saved_consume_lists {
-    height: 100%;
-    width: 100%;
-} */
-
 #saved_lists.animated {
     transition: height 0.5s ease 0.75s;
 }
 
 #saved_lists.animated.expanded {
-    /* animation: 0.75s ease-out forwards slideout, 0.5s ease-out 0.75s backwards savedListHeightExpand; */
     animation: 0.75s ease-out forwards slideout;
 
 }
 
 
 #saved_lists.animated.minimized {
-    /* animation: 0.75s ease-out forwards slidein, 0.5s ease-out 0.75s forwards savedListHeightCollapse; */
     animation: 0.75s ease-out forwards slidein;
-
 }
 
 .saved-container {
@@ -219,19 +197,6 @@
 #saved_lists.minimized #custom-saves.animated {
     animation: 0.5s ease-out 0.75s forwards collapse;
 }
-
-/* #saved_lists.expanded #custom-saves,
-#saved_lists.expanded #saved_specs,
-#saved_lists.expanded #saved_consume_lists {
-    animation: 0.5s ease-out 0.75s backwards expand;
-}
-
-#saved_lists.minimized #custom-saves,
-#saved_lists.minimized #saved_specs,
-#saved_lists.minimized #saved_consume_lists {
-    overflow-y: hidden;
-    animation: 0.5s ease-out 0.75s forwards collapse;
-} */
 
 
 #saved_lists.minimized a.sidebar-toggle-button span.glyphicon {
