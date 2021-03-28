@@ -17,12 +17,13 @@ def clear_cache_item(request):
 def consume_list_builder(request):
 	status_code = 404
 	data = {'consume_list':{}, 'material_list':{}, 'list_info':{}}
-
 	hash = request.GET.get('hash', None)
 	qs = request.META.get('QUERY_STRING', None)
 	if hash:
+
 		hash = hash.replace("?", "")
 		if ConsumeList.objects.filter(hash=hash):
+
 			status_code = 200
 			cl = ConsumeList.objects.filter(hash=hash).first()
 			data['list_info'] = {'name': cl.name, 'user': cl.user.disc_username,
@@ -30,20 +31,43 @@ def consume_list_builder(request):
 				'tags': [x.name for x in cl.tags.all()]
 			}
 
-			for consume in cl.consumes.all():
-				data['consume_list'][consume.ix] = get_item_info('', consume.ix)
-				data['consume_list'][consume.ix]['amount'] = consume.amount/data['consume_list'][consume.ix]['step']
-				data['consume_list'][consume.ix]['materials'] = {}
-				for mat in consume.mats:
-					data['consume_list'][consume.ix]['materials'][mat.item.ix] = mat.amount
-					data['material_list'][mat.item.ix] = get_item_info('', mat.item.ix)
-					data['material_list'][mat.item.ix]['per'] = mat.amount
+		for consume in cl.consumes.all():
+			crafted = Crafted.objects.get(item__ix=consume.ix)
+
+			data['consume_list'][consume.ix] = get_item_info(consume.ix, True)
+
+			data['consume_list'][consume.ix].update({
+				'amount': consume.amount/crafted.step, 'step': crafted.step,
+				'materials': get_materials(consume.ix)
+			})
+
+			for mat in consume.mats:
+				data['material_list'][mat.item.ix] = get_item_info(mat.item.ix, True)
+				data['material_list'][mat.item.ix]['per'] = mat.amount
+
+				if Crafted.objects.filter(item=mat.item):
+					data['material_list'][mat.item.ix]['materials'] = get_materials(mat.item.ix, True)
 
 	response = JsonResponse(data, safe=False)
 	response.status_code = status_code
 
 	return response
 
+
+# receives crafted item ix, returns ALL required materials as a dictionary
+def get_materials(ix, recursive=False):
+	crafted = Crafted.objects.get(item=Item.objects.get(ix=ix))
+	materials = {}
+
+	for mat in crafted.materials.all():
+		materials[mat.item.ix] = get_item_info(mat.item.ix)
+		materials[mat.item.ix]['per'] = mat.amount
+
+		if recursive and Crafted.objects.filter(item__ix=mat.item.ix):
+			materials[mat.item.ix]['step'] = Crafted.objects.get(item__ix=mat.item.ix).step
+			materials[mat.item.ix]['materials'] = get_materials(mat.item.ix)
+
+	return materials
 
 def get_spec_info(request):
 	status_code = 404
@@ -322,19 +346,7 @@ def savedlist_info(request):
 		html = render_to_string("info_display.html", context)
 		return HttpResponse(html)
 
-def get_materials(cl):
-	materials = {}
 
-	for consume in cl.consumes.all():
-		for mat in consume.mats:
-			if mat.name not in materials.keys():
-				materials[mat.name] = {'value': 0, 'quality': mat.quality,
-					'img': mat.img, 'ix': mat.item.ix
-				}
-
-			materials[mat.name]['value'] += int(consume.amount * mat.amount)
-
-	return materials
 
 def query_saved_lists(request):
 
@@ -546,9 +558,11 @@ def delete_list(request):
 	return response
 
 
-def get_item_info(request, ix=None):
+def get_item_info(ix=None, advanced=False, request=None):
 	status_code = 404
-	data = {'ix': ix or request.GET.get('ix', None)}
+	data = {}
+
+	data['ix'] = request.GET.get('ix', None) if request else ix
 
 	if Item.objects.filter(ix=data['ix']):
 		status_code = 200
@@ -558,32 +572,35 @@ def get_item_info(request, ix=None):
 
 	data.update({'img': item.img, 'q':item.quality, 'n': item.name})
 
-	if Crafted.objects.filter(item=item):
-		recipe = Crafted.objects.filter(item=item).first()
-		data['step'] = recipe.step
-		data['materials'] = {}
-		for mat in recipe.materials.all():
-			data['materials'][mat.item.ix] = mat.amount
+	#
+	# if Crafted.objects.filter(item=item):
+	# 	recipe = Crafted.objects.filter(item=item).first()
+	# 	data['step'] = recipe.step
+	# 	data['materials'] = {}
+	# 	for mat in recipe.materials.all():
+	# 		data['materials'][mat.item.ix] = mat.amount
 
-	data['bop'] = item.bop if item.bop else None
-	data['unique'] = item.unique if item.unique else None
-	data['slot'] = item.slot if item.slot else None
-	data['proficiency'] = item.proficiency if item.proficiency else None
-	data['damage'] = [str(x) for x in item.damage.all()] if item.damage else None
-	data['speed'] = item.speed if item.speed else None
-	data['dps'] = item.dps if (item.speed and item.damage) else None
-	data['armor'] = item.armor if item.armor else None
-	data['stats'] = item.stats if item.stats else None
-	data['resists'] = item.resists if item.resists else None
-	data['durability'] = item.durability if item.durability else None
-	data['requirements'] = item.requirements if item.requirements else None
-	data['equips'] = [x.t for x in item.equips.all()] if item.equips else None
-	data['procs'] = [x.t for x in item.procs.all()] if item.procs else None
-	data['use'] = item.use.t if item.use else None
-	data['description'] = item.description if item.description else None
+	if advanced:
 
-	filtered = {k:v for k, v in data.items() if v is not None and v != []}
-	data = filtered
+		data['bop'] = item.bop if item.bop else None
+		data['unique'] = item.unique if item.unique else None
+		data['slot'] = item.slot if item.slot else None
+		data['proficiency'] = item.proficiency if item.proficiency else None
+		data['damage'] = [str(x) for x in item.damage.all()] if item.damage else None
+		data['speed'] = item.speed if item.speed else None
+		data['dps'] = item.dps if (item.speed and item.damage) else None
+		data['armor'] = item.armor if item.armor else None
+		data['stats'] = item.stats if item.stats else None
+		data['resists'] = item.resists if item.resists else None
+		data['durability'] = item.durability if item.durability else None
+		data['requirements'] = item.requirements if item.requirements else None
+		data['equips'] = [x.t for x in item.equips.all()] if item.equips else None
+		data['procs'] = [x.t for x in item.procs.all()] if item.procs else None
+		data['use'] = item.use.t if item.use else None
+		data['description'] = item.description if item.description else None
+
+		filtered = {k:v for k, v in data.items() if v is not None and v != []}
+		data = filtered
 
 	if request:
 		response = JsonResponse(data, safe=False)

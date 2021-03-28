@@ -270,9 +270,9 @@
 
                 {% endfor %} {# endspecs #}
 
-                {% for consumelist in consume_lists %}
+                {% for craftedlist in crafted_lists %}
                 <div class="card-body text-light">
-                    <h5 class="card-title text-center"><a href="{% url 'profession_tool' %}?{{consumelist.hash}}">{{consumelist.name}}</a></h5>
+                    <h5 class="card-title text-center"><a href="{% url 'profession_tool' %}?{{craftedlist.hash}}">{{craftedlist.name}}</a></h5>
                 {% for n in rangen %}
                     {% if n == rangen|first %}
                     <a class="btn btn-sm float-right"
@@ -288,24 +288,24 @@
                 {% endfor %}
                 <div class="clearfix"></div>
                 <p>By:
-                {% if consumelist.user.email == request.user.email %}
+                {% if craftedlist.user.email == request.user.email %}
                     <a href="">me</a>
-                {% elif not consumelist.private %}
-                    <a href="">{{consumelist.user.disc_username}}</a>
+                {% elif not craftedlist.private %}
+                    <a href="">{{craftedlist.user.disc_username}}</a>
                 {% else %}
                     anonymous
                 {% endif %}
                 </p>
                 <span> -------------------- </span>
-                <p><span style="text-decoration: underline;">Description</span>: {{consumelist.description}}</p>
-                <p><span style="text-decoration: underline;"> Added</span>:<span class="text-muted"> {{consumelist.created}}</span></p>
+                <p><span style="text-decoration: underline;">Description</span>: {{craftedlist.description}}</p>
+                <p><span style="text-decoration: underline;"> Added</span>:<span class="text-muted"> {{craftedlist.created}}</span></p>
 
-                {% for tag in consumelist.tags.all %}
+                {% for tag in craftedlist.tags.all %}
                     <span><a href="#{{tag.name}}">#{{tag.name}}</a></span>
                 {% endfor %}
-                {% if consumelist.user.email == request.user.email %}
+                {% if craftedlist.user.email == request.user.email %}
                     <a class="btn btn-sm float-right" style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; -webkit-appearance: unset;"
-                    type="button" role="button" {% comment %} href="{% url 'profession_tool' %}?{{consumelist.hash}}" {% endcomment %}>
+                    type="button" role="button" {% comment %} href="{% url 'profession_tool' %}?{{craftedlist.hash}}" {% endcomment %}>
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit"></span>
                     </a>
                     <div class="clearfix"></div>
@@ -326,53 +326,53 @@
                     <tbody>
                         <tr>
                             <td><span>list name</span></td>
-                            <td><span class="fix-me">{{consumelist.name}}</span></td>
-                            <td><code>{% verbatim %}{{consumelist.name}}{% endverbatim %}</code></td>
+                            <td><span class="fix-me">{{craftedlist.name}}</span></td>
+                            <td><code>{% verbatim %}{{craftedlist.name}}{% endverbatim %}</code></td>
                         </tr>
                         <tr>
                             <td><span>created</span></td>
-                            <td><span class="fix-me">{{consumelist.created}}</span></td>
-                            <td><code>{% verbatim %}{{consumelist.created}}{% endverbatim %}</code></td>
+                            <td><span class="fix-me">{{craftedlist.created}}</span></td>
+                            <td><code>{% verbatim %}{{craftedlist.created}}{% endverbatim %}</code></td>
 
                         </tr>
                         <tr>
                             <td><span>last updated</span></td>
-                            <td><span class="fix-me">{{consumelist.updated}}</span></td>
-                            <td><code>{% verbatim %}{{consumelist.updated}}{% endverbatim %}</code></td>
+                            <td><span class="fix-me">{{craftedlist.updated}}</span></td>
+                            <td><code>{% verbatim %}{{craftedlist.updated}}{% endverbatim %}</code></td>
 
                         </tr>
                         <tr>
                             <td><span>num ratings</span></td>
-                            <td><span class="fix-me">{{consumelist.ratings.count}}</span></td>
-                            <td><code>{% verbatim %}{{consumelist.ratings.count}}{% endverbatim %}</code></td>
+                            <td><span class="fix-me">{{craftedlist.ratings.count}}</span></td>
+                            <td><code>{% verbatim %}{{craftedlist.ratings.count}}{% endverbatim %}</code></td>
 
                         </tr>
                         <tr>
                             <td><span>avg rating</span></td>
-                            <td><span class="fix-me">{{consumelist.rating}}</span></td>
-                            <td><code>{% verbatim %}{{consumelist.rating}}{% endverbatim %}</code></td>
+                            <td><span class="fix-me">{{craftedlist.rating}}</span></td>
+                            <td><code>{% verbatim %}{{craftedlist.rating}}{% endverbatim %}</code></td>
 
                         </tr>
                         <tr>
                             <td><span>hash</span></td>
-                            <td><span class="fix-me">{{consumelist.hash}}</span></td>
-                            <td><code>{% verbatim %}{{consumelist.hash}}{% endverbatim %}</code></td>
+                            <td><span class="fix-me">{{craftedlist.hash}}</span></td>
+                            <td><code>{% verbatim %}{{craftedlist.hash}}{% endverbatim %}</code></td>
 
                         </tr>
                         <tr>
                             <td><span>private?</span></td>
-                            <td><span class="fix-me">{{consumelist.private}}</span></td>
-                            <td><code>{% verbatim %}{{consumelist.private}}{% endverbatim %}</code></td>
+                            <td><span class="fix-me">{{craftedlist.private}}</span></td>
+                            <td><code>{% verbatim %}{{craftedlist.private}}{% endverbatim %}</code></td>
                         </tr>
                     </tbody>
                     <thead>
                         <tr>
                             <th style="color: #96c6f5" colspan="1">USER</th>
-                            <th colspan="2"><code>{% verbatim %}{% with user=consumelist.user %}{% endverbatim %}</code></th>
+                            <th colspan="2"><code>{% verbatim %}{% with user=craftedlist.user %}{% endverbatim %}</code></th>
 
                         </tr>
                     </thead>
-                    {% with user=consumelist.user %}
+                    {% with user=craftedlist.user %}
                     <tbody>
                         <tr>
                             <td><span>discord uid</span></td>
@@ -430,7 +430,7 @@
                         </tr>
                     </thead>
                     {% for listname,y in saved_lists.items %}
-                    {% if listname == consumelist.name %}
+                    {% if listname == craftedlist.name %}
                     <thead>
                         <tr>
                             <th style="color: #96c6f5" colspan="1">listname</th>
@@ -440,10 +440,10 @@
                     </thead>
                     <thead>
                         <tr>
-                            <th colspan="3"><code>{% verbatim %}{% for profname,b in y.consumes.items %}{% endverbatim %}</code></th>
+                            <th colspan="3"><code>{% verbatim %}{% for profname,b in y.crafteds.items %}{% endverbatim %}</code></th>
                         </tr>
                     </thead>
-                    {% for profname,b in y.consumes.items %}
+                    {% for profname,b in y.crafteds.items %}
                     <thead>
                         <tr>
                             <th style="color: #96c6f5" scope="col">profession</th>
@@ -454,16 +454,16 @@
 
                     <tbody>
                         <tr colspan="3">
-                            <td colspan="3"><code>{% verbatim %}{% for consume_name,quantity in b.items %}{% endverbatim %}</code></td>
+                            <td colspan="3"><code>{% verbatim %}{% for crafted_name,quantity in b.items %}{% endverbatim %}</code></td>
 
                         </tr>
                         <tr colspan="3">
-                            <td colspan="2"><code>{% verbatim %}{{consume_name}}{% endverbatim %}</code></td>
+                            <td colspan="2"><code>{% verbatim %}{{crafted_name}}{% endverbatim %}</code></td>
                             <td><code>{% verbatim %}{{quantity}}{% endverbatim %}</code></td>
                         </tr>
-                        {% for consume_name,quantity in b.items %}
+                        {% for crafted_name,quantity in b.items %}
                             <tr>
-                                <td colspan="2">{{consume_name}}</td>
+                                <td colspan="2">{{crafted_name}}</td>
                                 <td class="fix-me">{{quantity}}</td>
                             </tr>
                         {% endfor %}
@@ -478,13 +478,13 @@
                             <th colspan="3">TAGS</th>
                         </tr>
                         <tr>
-                            <th colspan="3"><code>{% verbatim %}{% for tag in consumelist.tags.all %}{% endverbatim %}</code></th>
+                            <th colspan="3"><code>{% verbatim %}{% for tag in craftedlist.tags.all %}{% endverbatim %}</code></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td colspan="3">
-                                {% for tag in consumelist.tags.all %}
+                                {% for tag in craftedlist.tags.all %}
                                 <span class="fix-me">{{tag.name}}</span>,
 
                                 {% endfor %}
@@ -496,7 +496,7 @@
 
                 <hr style="border: 1px solid white; width: 100%;"></hr>
                 </div>
-                {% endfor %} {# endconsumelists #}
+                {% endfor %} {# endcraftedlists #}
 
                 </div>
 
@@ -518,7 +518,7 @@
 
                             </tr>
                             <tr>
-                                <th class="sort" data-sort="consume-name" scope="col">
+                                <th class="sort" data-sort="crafted-name" scope="col">
                                     <span> recipe</span>
                                     <a class="btn btn-sm float-left" title="Sort"
                 					    style="margin: 0 2px 0 1px; padding: 0 3px 0 3px;
@@ -572,7 +572,7 @@
                             <p class="card-text text-left">07/14/2019</p>
                             <ul class="card-text text-left" style="list-style-type:disc;">
                                 <li>
-                                    Implemented ability to save and view saved consume lists
+                                    Implemented ability to save and view saved crafted lists
                                 </li>
                             </ul>
                             <p class="card-text text-left">07/1/2019</p>
@@ -599,7 +599,7 @@
                             <p class="card-text text-left">01/5/2019</p>
                             <ul class="card-text text-left" style="list-style-type:disc;">
                                 <li>
-                                    Initial Launch with consume tool and enchant tool.
+                                    Initial Launch with crafted tool and enchant tool.
                                 </li>
                             </ul>
                         </div>
@@ -723,7 +723,7 @@ function delete_rating(d) {
     });
 }
 
-// $(".consume-name, .recipe-image").on({
+// $(".crafted-name, .recipe-image").on({
 //     mouseenter: e=> {
 //         clear_tooltip()
 //         // get_tooltip_info(e)

@@ -56,7 +56,7 @@ var professionTool = {
 	    	// If the image gets within 200px in the Y axis, start the download.
 			// TODO: adjust and make dependent on screensize
 			root: document.querySelector('#recipe_list'),
-	    	rootMargin: '0px',
+	    	rootMargin: '400px',
 	    	threshold: 0.8
 		}
 	},
@@ -66,10 +66,10 @@ var professionTool = {
 			var recipe = professionTool.ITEMS[ix]
 			professionTool.add.item(ix, amount, step, 'consumes')
 
-			for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
+			for (let [matIX, material] of Object.entries(recipe.materials)) {
 				// var materialStep = (material.step) ? material.step : matStep.step
 
-				professionTool.add.item(matIX, amount, materialStep, 'materials')
+				professionTool.add.item(matIX, amount, material.per, 'materials')
 			}
 		},
 		element: function(ix, parent) {
@@ -94,6 +94,8 @@ var professionTool = {
 		},
 		consumes: function(d) {
 			var data = (d.responseJSON) ? d.responseJSON : d
+			console.log("DATA:\n", data)
+
 			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.consume_list)
 			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.material_list)
 
@@ -164,12 +166,17 @@ var professionTool = {
 			thead = create_element('thead'),
 			tr = create_element('tr'),
 			th = create_element('th', '','','', {'colspan':3}),
-			h5 = create_element('h5', 'fix-me text-center', '', title);
+			th2 = create_element('th', '','','', {'colspan':1}),
+			h5 = create_element('h5', 'fix-me text-center', '', title),
+			checkAll = create_element('input', '', '', '', {"type": "checkbox"});
 
 		table.appendChild(thead)
 		thead.appendChild(tr)
 		tr.appendChild(th)
+		tr.appendChild(th2)
+
 		th.appendChild(h5)
+		th2.appendChild(checkAll)
 
 		var tbody = create_element('tbody')
 		table.append(tbody)
@@ -181,9 +188,12 @@ var professionTool = {
 				td1 = create_element('td'),
 				td2 = create_element('td'),
 				td3 = create_element('td'),
+				td4 = create_element('td'),
+
 				img = create_element('img', 'icon-small', `background-image: url('${global.static_url}images/icons/large/${item.img}.jpg');`),
 				nameSpan = create_element('span', `q${item.q}`, '', item.n),
-				amountSpan = create_element('span', 'fix-me', '', amount);
+				amountSpan = create_element('span', 'fix-me', '', amount),
+				checkbox = create_element('input', '', '', '', {"type": "checkbox"});
 
 			img.src = `${global.static_url}images/icon_border_2.png`
 
@@ -192,10 +202,14 @@ var professionTool = {
 			td1.appendChild(img)
 			td2.appendChild(nameSpan)
 			td3.appendChild(amountSpan)
+			td4.appendChild(checkbox)
+
 
 			tRow.appendChild(td1)
 			tRow.appendChild(td2)
 			tRow.appendChild(td3)
+			tRow.appendChild(td4)
+
 		}
 
 		return table
@@ -203,7 +217,7 @@ var professionTool = {
 	add: {
 		// add (or remove) material or consume objs/elements
 		item: function(ix, amount=1, step=1, parent) {
-			var itemObj = (parent == 'consumes') ? professionTool.CONSUMES : professionTool.MATERIALS
+			var itemObj = (parent == 'consumes') ? professionTool.CONSUMES : professionTool.MATERIALS;
 			if (!itemObj[ix] && amount >= 1) {
 				itemObj[ix] = amount * step
 				professionTool.add.toPage(ix, parent)
@@ -347,6 +361,15 @@ var professionTool = {
 
 	},
 	get: {
+		// materials: function(ix) {
+		// 	var mats = {}
+		// 	for (let [ix, amount] of Object.entries(professionTool.CONSUMES) {
+		//
+		// 		if (professionTool.ITEMS[ix])
+		// 		mats[ix] = (professionTool.ITEMS[ix].materials) ?  {amount: amount, materials: } : amount
+		//
+		// 	})
+		// },
 		consumeList: function(url) {
 			var data = {}
 			data['hash'] = url.search
