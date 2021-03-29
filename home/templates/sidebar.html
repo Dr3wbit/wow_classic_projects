@@ -43,30 +43,30 @@
 				</div>
 				{% endfor %}
 			</div>
-			<div id="saved_crafted_lists">
+			<div id="saved_consume_lists">
 				<h5>CONSUME LISTS</h5>
-				{% for crafted_list in user.craftedlist_set.all %}
+				{% for consume_list in user.consumelist_set.all %}
 				<div class="spec-container">
-					<div class="saved-list-icon" data-ix="{{crafted_list.id}}"
-						style="background-image: url('{% static image_prefix|add:crafted_list.img %}');">
+					<div class="saved-list-icon" data-ix="{{consume_list.id}}"
+						style="background-image: url('{% static image_prefix|add:consume_list.img %}');">
 						<a class="btn btn-sm edit-image untouchable">
 							<span class="glyphicon untouchable"></span>
 						</a>
 					</div>
 					<div class="info-container">
 						<div class="spec-info">
-							{% for shorthand in crafted_list.profs_used.0 %}
-							{% if shorthand == crafted_list.profs_used.0|first %}
+							{% for shorthand in consume_list.profs_used.0 %}
+							{% if shorthand == consume_list.profs_used.0|first %}
 							<span>{{shorthand}}{% else %}, {{shorthand}}</span>
 							{% endif %}{% endfor %}
 						</div>
-						<div class="spec-list-item" name="{{crafted_list.name}}">{{crafted_list.name}}
+						<div class="spec-list-item" name="{{consume_list.name}}">{{consume_list.name}}
 							<span class="saved-list-name">
-								<a class="saved-list-link" href="{% url 'crafted_helper' %}?{{crafted_list.hash}}"></a>
+								<a class="saved-list-link" href="{% url 'consume_helper' %}?{{consume_list.hash}}"></a>
 
 							</span>
 							<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
-								value="{{crafted_list.name}}" type="button">
+								value="{{consume_list.name}}" type="button">
 								<span class="glyphicon glyphicon-trash glyphicon-custom"></span>
 							</button>
 						</div>

@@ -12,13 +12,72 @@ import os
 def clear_cache_item(request):
 	status_code = 404
 	pass
-	#
+
+# OLD
 # @cache_page(60*5)
+# def consume_list_builder(request):
+# 	status_code = 404
+# 	data = {'consume_list':{}, 'material_list':{}, 'list_info':{}}
+# 	hash = request.GET.get('hash', None)
+# 	qs = request.META.get('QUERY_STRING', None)
+# 	if hash:
+#
+# 		hash = hash.replace("?", "")
+# 		if ConsumeList.objects.filter(hash=hash):
+#
+# 			status_code = 200
+# 			cl = ConsumeList.objects.filter(hash=hash).first()
+# 			data['list_info'] = {'name': cl.name, 'user': cl.user.disc_username,
+# 				'description': cl.description, 'updated':cl.updated,
+# 				'tags': [x.name for x in cl.tags.all()]
+# 			}
+#
+# 			for consume in cl.consumes.all():
+# 				crafted = Crafted.objects.get(item__ix=consume.ix)
+#
+# 				data['consume_list'][consume.ix] = get_item_info(consume.ix, True)
+#
+# 				data['consume_list'][consume.ix].update({
+# 					'amount': consume.amount/crafted.step, 'step': crafted.step,
+# 					'materials': get_materials(consume.ix)
+# 				})
+#
+# 				for mat in consume.mats:
+# 					if mat.item.ix not in data['material_list'].keys():
+#
+# 						data['material_list'][mat.item.ix] = get_item_info(mat.item.ix, True)
+#
+# 						data['material_list'][mat.item.ix]['amount'] = consume.amount*mat.amount
+#
+# 						if Crafted.objects.filter(item__ix=mat.item.ix):
+# 							data['material_list'][mat.item.ix]['materials'] = get_materials(mat.item.ix)
+#
+# 					else:
+# 						data['material_list'][mat.item.ix]['amount'] += consume.amount*mat.amount
+
+
+
+
+	# response = JsonResponse(data, safe=False)
+	# response.status_code = status_code
+
+	# return response
+
+# NEW
 def consume_list_builder(request):
 	status_code = 404
-	data = {'consume_list':{}, 'material_list':{}, 'list_info':{}}
+	data = {'recipes':{}, 'crafted':{}, 'items': {}, 'list_info':{}}
 	hash = request.GET.get('hash', None)
 	qs = request.META.get('QUERY_STRING', None)
+
+	def add_recipes_and_items(mats):
+		for mat_ix in mats:
+			if mat_ix not in data['items'].keys():
+				data['items'][mat_ix] = get_item_info(mat_ix, True)
+				if Crafted.objects.filter(item__ix=mat_ix) and mat_ix not in data['recipes'].keys():
+					data['recipes'][mat_ix] = get_materials(mat_ix)
+					add_recipes_and_items(list(data['recipes'][mat_ix].keys()))
+
 	if hash:
 
 		hash = hash.replace("?", "")
@@ -31,22 +90,30 @@ def consume_list_builder(request):
 				'tags': [x.name for x in cl.tags.all()]
 			}
 
-		for consume in cl.consumes.all():
-			crafted = Crafted.objects.get(item__ix=consume.ix)
+			for consume in cl.consumes.all():
+				crafted = Crafted.objects.get(item__ix=consume.ix)
+				data['crafted'][consume.ix] = consume.amount
 
-			data['consume_list'][consume.ix] = get_item_info(consume.ix, True)
+				data['items'][consume.ix] = get_item_info(consume.ix, True)
+				data['recipes'][consume.ix] = get_materials(consume.ix)
 
-			data['consume_list'][consume.ix].update({
-				'amount': consume.amount/crafted.step, 'step': crafted.step,
-				'materials': get_materials(consume.ix)
-			})
+				add_recipes_and_items([x for x in consume.mats.values_list('item__ix', flat=True)])
 
-			for mat in consume.mats:
-				data['material_list'][mat.item.ix] = get_item_info(mat.item.ix, True)
-				data['material_list'][mat.item.ix]['per'] = mat.amount
+				# mats = [x for x in consume.mats.values_list('item__ix', flat=True)]
+				# for mat_ix in mats:
+				# 	if mat_ix not in data['items'].keys():
+				# 		data['items'][mat_ix] = get_item_info(mat_ix, True)
+				#
+				# 		if Crafted.objects.filter(item__ix=mat_ix) and mat_ix not in data['recipes'].keys():
+				# 			data['recipes'][mat_ix] = get_materials(mat_ix)
+				#
+				# 			for ix in data['recipes'][mat_ix].keys():
+				# 				if ix not in data['items'].keys():
+				# 					data['items'][ix] = get_item_info(ix, True)
+				# 					if Crafted.objects.filter(item__ix=ix) and ix not in data['recipes'].keys():
+				# 						data['recipes'][ix] = get_materials(ix)
 
-				if Crafted.objects.filter(item=mat.item):
-					data['material_list'][mat.item.ix]['materials'] = get_materials(mat.item.ix, True)
+
 
 	response = JsonResponse(data, safe=False)
 	response.status_code = status_code
@@ -54,18 +121,14 @@ def consume_list_builder(request):
 	return response
 
 
-# receives crafted item ix, returns ALL required materials as a dictionary
-def get_materials(ix, recursive=False):
+# receives crafted item ix, returns required materials as a dictionary {ix1: amount, ix2: amount}
+def get_materials(ix):
 	crafted = Crafted.objects.get(item=Item.objects.get(ix=ix))
 	materials = {}
 
 	for mat in crafted.materials.all():
-		materials[mat.item.ix] = get_item_info(mat.item.ix)
-		materials[mat.item.ix]['per'] = mat.amount
+		materials[mat.item.ix] = mat.amount
 
-		if recursive and Crafted.objects.filter(item__ix=mat.item.ix):
-			materials[mat.item.ix]['step'] = Crafted.objects.get(item__ix=mat.item.ix).step
-			materials[mat.item.ix]['materials'] = get_materials(mat.item.ix)
 
 	return materials
 
@@ -572,16 +635,10 @@ def get_item_info(ix=None, advanced=False, request=None):
 
 	data.update({'img': item.img, 'q':item.quality, 'n': item.name})
 
-	#
-	# if Crafted.objects.filter(item=item):
-	# 	recipe = Crafted.objects.filter(item=item).first()
-	# 	data['step'] = recipe.step
-	# 	data['materials'] = {}
-	# 	for mat in recipe.materials.all():
-	# 		data['materials'][mat.item.ix] = mat.amount
+	if Crafted.objects.filter(item__ix=ix):
+		data['step'] = Crafted.objects.filter(item__ix=ix).first().step
 
 	if advanced:
-
 		data['bop'] = item.bop if item.bop else None
 		data['unique'] = item.unique if item.unique else None
 		data['slot'] = item.slot if item.slot else None

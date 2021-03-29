@@ -50,7 +50,7 @@ function checkLocalHashes() {
 
 var professionTool = {
 	PROFS: ['alchemy', 'blacksmithing', 'cooking', 'enchanting', 'engineering', 'first_aid', 'leatherworking', 'mining', 'other', 'skinning', 'tailoring'],
-	RECIPES: {}, ITEMS: {}, ITEMSETS: {}, CONSUMES: {}, MATERIALS: {}, recipeInd: 0,
+	RECIPES: {ALL: {}}, ITEMS: {}, ITEMSETS: {}, CONSUMES: {}, MATERIALS: {}, recipeInd: 0,
 	observer: {
 		config:{
 	    	// If the image gets within 200px in the Y axis, start the download.
@@ -69,7 +69,7 @@ var professionTool = {
 			for (let [matIX, material] of Object.entries(recipe.materials)) {
 				// var materialStep = (material.step) ? material.step : matStep.step
 
-				professionTool.add.item(matIX, amount, material.per, 'materials')
+				professionTool.add.item(matIX, amount, material.amount, 'materials')
 			}
 		},
 		element: function(ix, parent) {
@@ -96,12 +96,22 @@ var professionTool = {
 			var data = (d.responseJSON) ? d.responseJSON : d
 			console.log("DATA:\n", data)
 
-			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.consume_list)
-			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.material_list)
+			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.items)
+			professionTool.CONSUMES = Object.assign(professionTool.CONSUMES, data.crafted)
 
-			for (let [ix, consume] of Object.entries(data.consume_list)) {
-				professionTool.update.item(ix, consume.amount, consume.step)
+			professionTool.RECIPES.ALL =  Object.assign(professionTool.RECIPES.ALL, data.recipes)
+			// professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.material_list)
+
+			for (let [ix, amount] of Object.entries(data.crafted)) {
+				updateMaterialsAmount(ix, amount)
+				addOrUpdateElements(ix, amount)
 			}
+
+			//
+			// for (let [ix, consume] of Object.entries(data.crafted)) {
+			// 	professionTool.update.item(ix, consume.amount, consume.step)
+			// }
+
 			if (data.list_info) {
 				professionTool.update.listInfo(data)
 			}
@@ -231,10 +241,29 @@ var professionTool = {
 				} else {
 					professionTool.update.element(ix, parent)
 				}
-
 			}
+		},
+		addMaterials: function() {
 
+			parentElem = document.getElementById('materials')
 
+			var material = professionTool.ITEMS[ix],
+				dataContainer = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': ix}),
+				materialContainer = create_element('span', 'material-container');
+			var imagePath = `${imagePrefix}${material.img}`
+			var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
+
+			materialImage.src = `${global.static_url}images/icons/small/icon_border.png`
+			var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
+				amountSpan = create_element('span', 'amount', '', professionTool.MATERIALS[ix]);
+
+			parentElem.appendChild(dataContainer)
+			dataContainer.appendChild(materialContainer)
+			materialContainer.appendChild(materialImage)
+			materialContainer.appendChild(materialName)
+			materialContainer.appendChild(document.createTextNode(' ['))
+			materialContainer.appendChild(amountSpan)
+			materialContainer.appendChild(document.createTextNode(']'))
 		},
 		toPage: function(ix, parent) {
 			var parentElem;
@@ -286,7 +315,7 @@ var professionTool = {
 				for (let [matIX, matStep] of Object.entries(recipe.materials)) {
 					var materialAmount = (professionTool.CONSUMES[ix]/recipe.step)*matStep,
 						material = professionTool.ITEMS[matIX],
-						materialListItem = create_element('div', 'materials-list-item data-container part', '', '', {'data-ix': matIX}),
+						materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX}),
 						materialContainer = create_element('span', 'material-container');
 
 					var imagePath = `${imagePrefix}${material.img}`
@@ -405,6 +434,149 @@ var professionTool = {
 			},
 		}
 	}
+}
+
+function updateConsumeAmount(ix, amount) {
+
+	professionTool.CONSUMES[ix] = (professionTool.CONSUMES[ix]) ? professionTool.CONSUMES[ix]+amount : amount
+
+	updateMaterialsAmount(ix, amount)
+
+	if (professionTool.CONSUMES[ix] <= 0) {
+		removeElement("consumes", ix)
+	} else {
+		addOrUpdateElements(ix, amount)
+	}
+}
+
+//
+function updateMaterialsAmount(ix, amount) {
+	var recipe = professionTool.RECIPES.ALL[ix];
+	for (let [matIX, matAmount] of Object.entries(recipe)) {
+		professionTool.MATERIALS[matIX] = (professionTool.MATERIALS[matIX]) ? ((professionTool.CONSUMES[ix]/professionTool.ITEMS[ix].step)*matAmount)+professionTool.MATERIALS[matIX] : (professionTool.CONSUMES[ix]/professionTool.ITEMS[ix].step)*matAmount
+		if (professionTool.MATERIALS[matIX] <= 0) {
+			removeElement("materials", matIX)
+		}
+	}
+}
+
+function removeElement(parent, ix) {
+
+	var ele = document.querySelector(`#${parent} > .data-container[data-ix='${matIX}']`)
+	while (ele.firstChild) {
+		ele.removeChild(ele.firstChild)
+	}
+	ele.remove()
+}
+
+// adds or updates consume elements and materials elements on page
+// DOES NOT perform quantitative updates
+function addOrUpdateElements(consumeIX, consumeAmount) {
+
+	var iconBorderPath = `${global.static_url}images/icon_border_2.png`,
+		imagePrefix = `${global.static_url}images/icons/large/`;
+		var item = professionTool.ITEMS[consumeIX],
+			recipe = professionTool.RECIPES.ALL[consumeIX];
+
+		// check if consume already on page
+		if (document.querySelector(`.consume-list-item.data-container[data-ix='${consumeIX}']`)) {
+			var consumeContainer = document.querySelector(`.consume-list-item.data-container[data-ix='${consumeIX}']`)
+			var consumeAmountText = consumeContainer.querySelector("span.amount")
+			consumeAmountText.innerText = consumeAmount
+
+			for (let [matIX, matAmount] of Object.entries(recipe)) {
+				consumeContainer.querySelector(`.materials-list-item.data-container[data-ix='${matIX}'] span.amount`).innerText = (consumeAmount/item.step)*matAmount
+				document.querySelector(`#materials > .materials-list-item.data-container[data-ix='${matIX}'] span.amount`).innerText = professionTool.MATERIALS[matIX]
+			}
+		} else {
+
+			parentElem = document.getElementById('consumes')
+			var dataContainer = create_element('div', 'consume-list-item data-container', '', '', {'data-ix': consumeIX}),
+				expandButton = create_element('span', 'consume-container collapsed', '', '', {'data-toggle': 'collapse', 'href': `#${sanitize(item.n)}_collapse`, 'role':'button'}),
+				btnSm = create_element('a', 'btn btn-sm plus'),
+				glyphiconTriangle = create_element('span', 'glyphicon glyphicon-triangle-right', 'color: azure;'),
+				imagePath = `${imagePrefix}${item.img}`;
+
+			var consumeImage = create_element('img', 'consume-image icon-small', `background-image: url('${imagePath}.jpg')`)
+			consumeImage.src = iconBorderPath
+
+			var consumeName = create_element('span', `consume-name q${item.q}`, '', item.n),
+				consumeAmountSpan = create_element('span', 'amount', '', consumeAmount),
+				materialCollapse = create_element('div', 'materials-list collapse');
+
+
+			materialCollapse.id = sanitize(item.n)+"_collapse"
+
+			$(materialCollapse).on({
+				'shown.bs.collapse': function(e) {
+					glyphiconTriangle.classList.remove('glyphicon-triangle-right')
+					glyphiconTriangle.classList.add('glyphicon-triangle-bottom')
+				},
+				'hidden.bs.collapse': function(e) {
+					glyphiconTriangle.classList.remove('glyphicon-triangle-bottom')
+					glyphiconTriangle.classList.add('glyphicon-triangle-right')
+				}
+			});
+
+
+			parentElem.appendChild(dataContainer)
+			dataContainer.appendChild(expandButton)
+			expandButton.appendChild(btnSm)
+			btnSm.appendChild(glyphiconTriangle)
+			expandButton.appendChild(consumeImage)
+			expandButton.appendChild(consumeName)
+			expandButton.appendChild(document.createTextNode(' ['))
+			expandButton.appendChild(consumeAmountSpan)
+			expandButton.appendChild(document.createTextNode(']'))
+			dataContainer.appendChild(materialCollapse)
+
+			for (let [matIX, matAmount] of Object.entries(professionTool.RECIPES.ALL[consumeIX])) {
+
+				var materialAmount = (professionTool.CONSUMES[consumeIX]/item.step)*matAmount,
+					material = professionTool.ITEMS[matIX],
+					materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX}),
+					materialContainer = create_element('span', 'material-container');
+
+				var imagePath = `${imagePrefix}${material.img}`
+				var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
+
+				materialImage.src = `${global.static_url}images/icons/small/icon_border.png`
+
+
+				var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
+					materialAmountSpan = create_element('span', 'amount', '', materialAmount);
+
+				materialCollapse.appendChild(materialListItem)
+
+				materialListItem.appendChild(materialContainer)
+				materialContainer.appendChild(materialImage)
+				materialContainer.appendChild(materialName)
+				materialContainer.appendChild(document.createTextNode(' ['))
+				materialContainer.appendChild(materialAmountSpan)
+				materialContainer.appendChild(document.createTextNode(']'))
+
+				if (document.querySelector(`#materials > .data-container[data-ix='${matIX}']`)) {
+					document.querySelector(`#materials > .data-container[data-ix='${matIX}'] span.amount`).innerText = professionTool.MATERIALS[matIX]
+				} else {
+					var materialListCopy = materialListItem.cloneNode(true)
+					materialListCopy.querySelector("span.amount").innerText = professionTool.MATERIALS[matIX]
+					document.getElementById("materials").appendChild(materialListCopy)
+				}
+			}
+
+			var addSubtractContainer = create_element('div', 'add-subtract-button-container'),
+				addButton = create_element('button', 'btn btn-sm adjustment-button add-button', 'background-color:transparent; padding:1px;'),
+				glyphiconPlus = create_element('span', 'glyphicon glyphicon-plus untouchable', 'color:azure; font-size:12px;'),
+				subtractButton = create_element('button', 'btn btn-sm adjustment-button sub-button', 'background-color:transparent; padding:1px; padding-right:2px;'),
+				glyphiconMinus = create_element('span', 'glyphicon glyphicon-minus untouchable', 'color:azure; font-size:12px;')
+
+			dataContainer.appendChild(addSubtractContainer)
+			addSubtractContainer.appendChild(addButton)
+			addButton.appendChild(glyphiconPlus)
+			addSubtractContainer.appendChild(subtractButton)
+			subtractButton.appendChild(glyphiconMinus)
+		}
+
 }
 
 function getItemInfo(ix, completeCallback=getItemInfoComplete) {
@@ -817,7 +989,7 @@ function createRecipe(recipe, ix) {
 }
 
 
-// adds 'n' recipes elements to the page
+// adds recipes elements to the page
 function addRecipes(n) {
 
 	var i = professionTool.recipeInd + n;
