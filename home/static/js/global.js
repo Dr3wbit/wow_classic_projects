@@ -9,11 +9,6 @@ window.addEventListener('load', function(e) {
 	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
 		blackOut.add()
 	}
-	// setTimeout(()=> {
-	// 	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
-	// 		blackOut.add()
-	// 	}
-	// }, 500)
 
 });
 

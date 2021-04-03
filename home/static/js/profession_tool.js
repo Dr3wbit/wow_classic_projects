@@ -10,12 +10,10 @@ window.addEventListener('load', function(e) {
 		document.querySelector(`#${selectedProfession[0]}.prof-filter`).click()
 	}
 
-	// var matchedhref = checkLocalHashes()
 	if (document.location.search) {
-		professionTool.remove.all()
-		professionTool.get.consumeList(document.location)
+		clearCraftedList()
+		getCraftedList(document.location)
 	}
-
 	consumeHandlers();
 	recipeHandlers();
 	sidebarHandlers();
@@ -53,426 +51,268 @@ var professionTool = {
 	RECIPES: {ALL: {}}, ITEMS: {}, ITEMSETS: {}, CONSUMES: {}, MATERIALS: {}, recipeInd: 0,
 	observer: {
 		config:{
-	    	// If the image gets within 200px in the Y axis, start the download.
+	    	// If the image gets within rootMargin px in the Y axis, start the download.
 			// TODO: adjust and make dependent on screensize
 			root: document.querySelector('#recipe_list'),
-	    	rootMargin: '400px',
-	    	threshold: 0.8
+	    	rootMargin: '200px',
+	    	threshold: 0.5
 		}
 	},
 	selected: '',
-	update: {
-		item: function(ix, amount=1, step=1) {
-			var recipe = professionTool.ITEMS[ix]
-			professionTool.add.item(ix, amount, step, 'consumes')
-
-			for (let [matIX, material] of Object.entries(recipe.materials)) {
-				// var materialStep = (material.step) ? material.step : matStep.step
-
-				professionTool.add.item(matIX, amount, material.amount, 'materials')
-			}
-		},
-		element: function(ix, parent) {
-
-			var parentElem;
-			if (parent == 'consumes') {
-				parentElem = document.getElementById('consumes')
-				var dataContainer = parentElem.querySelector(`div.consume-list-item.data-container[data-ix="${ix}"]`)
-				dataContainer.querySelector('span.consume-container > span.amount').innerText = professionTool.CONSUMES[ix]
-
-				var recipe = professionTool.ITEMS[ix]
-				var materialsList = dataContainer.querySelector('div.materials-list')
-
-				for (let [matIX, materialStep] of Object.entries(recipe.materials)) {
-					var materialElem = materialsList.querySelector(`div.data-container.materials-list-item[data-ix="${matIX}"] > span.material-container > span.amount`)
-					materialElem.innerText = (professionTool.CONSUMES[ix]/recipe.step)*materialStep
-				}
-			} else {
-				parentElem = document.getElementById('materials')
-				parentElem.querySelector(`div.materials-list-item.data-container[data-ix="${ix}"] > span.material-container > span.amount`).innerText = professionTool.MATERIALS[ix]
-			}
-		},
-		consumes: function(d) {
-			var data = (d.responseJSON) ? d.responseJSON : d
-			console.log("DATA:\n", data)
-
-			professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.items)
-			professionTool.CONSUMES = Object.assign(professionTool.CONSUMES, data.crafted)
-
-			professionTool.RECIPES.ALL =  Object.assign(professionTool.RECIPES.ALL, data.recipes)
-			// professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.material_list)
-
-			for (let [ix, amount] of Object.entries(data.crafted)) {
-				updateMaterialsAmount(ix, amount)
-				addOrUpdateElements(ix, amount)
-			}
-
-			//
-			// for (let [ix, consume] of Object.entries(data.crafted)) {
-			// 	professionTool.update.item(ix, consume.amount, consume.step)
-			// }
-
-			if (data.list_info) {
-				professionTool.update.listInfo(data)
-			}
-		},
-		listInfo: function(data) {
-			var listInfoContainer = document.getElementById('saved_list_info')
-
-			professionTool.empty(listInfoContainer)
-
-			var title = create_element('h1', 'mt-5', '', data.list_info.name)
-			listInfoContainer.appendChild(title)
-
-			if (data.list_info.tags) {
-				data.list_info.tags.forEach(function(tag) {
-					var tagElem = create_element('div', 'feed-tag', '', tag)
-					listInfoContainer.appendChild(tagElem)
-				})
-			}
-
-			if (data.list_info.description) {
-				var description = create_element('h5', 'mt-3', '', data.list_info.description)
-				listInfoContainer.appendChild(description)
-			}
-
-			if (data.list_info.updated) {
-
-				var date = new Date(data.list_info.updated)
-				var lastUpdateContainer = create_element('div', 'mt-3', '', 'Last updated: '),
-					lastUpdate = create_element('span', 'fix-me last-update', '', date.toLocaleString()),
-					textContent = document.createTextNode(' by '),
-					userName = create_element('span', 'fix-me user-tag', '', data.list_info.user),
-					newLine = create_element('br')
-
-				lastUpdateContainer.appendChild(lastUpdate)
-				lastUpdateContainer.appendChild(textContent)
-				lastUpdateContainer.appendChild(userName)
-				lastUpdateContainer.appendChild(newLine)
-
-				listInfoContainer.appendChild(lastUpdateContainer)
-
-			}
-
-			var tow = create_element('div', 'row')
-			listInfoContainer.appendChild(tow)
-
-			var craftedTableContainer = create_element('div', 'col-md-6 col-sm-6')
-			var craftedTable = professionTool.createTable('Crafted Items', professionTool.CONSUMES)
-
-			tow.appendChild(craftedTableContainer)
-			craftedTableContainer.appendChild(craftedTable)
-
-			var materialTableContainer = create_element('div', 'col-md-6 col-sm-6')
-			var materialTable = professionTool.createTable('Total Materials', professionTool.MATERIALS)
-
-			tow.appendChild(materialTableContainer)
-			materialTableContainer.appendChild(materialTable)
-
-		}
-	},
 	createTable: function(title, items) {
-		var table = create_element('table', 'table table-sm table-dark table-striped table-hover mx-auto text-left', 'background-color:#1C1C1C'),
+		var isMaterialsList = title.toLowerCase().includes("material");
+		var tableId = `${sanitize(title.toLowerCase())}_table`
+
+		var table = create_element('table', 'table table-sm table-dark table-hover mx-auto text-left', 'background-color:#1C1C1C', '', {"id": tableId}),
 			thead = create_element('thead'),
-			tr = create_element('tr'),
-			th = create_element('th', '','','', {'colspan':3}),
-			th2 = create_element('th', '','','', {'colspan':1}),
+			trTop = create_element('tr'),
+			trBottom = create_element('tr'),
+			thMain = create_element('th', '','','', {'colspan':5}),
+			thEmpty = create_element('th','','','', {"scope": "col"})
+			th2 = create_element('th', '','','', {"scope": "col", 'colspan':1}),
+			th3 = create_element('th', '', '', '', {"scope": "col", 'colspan':1}),
+			thspan = create_element('span', 'fix-me text-center', '', '#'),
 			h5 = create_element('h5', 'fix-me text-center', '', title),
-			checkAll = create_element('input', '', '', '', {"type": "checkbox"});
+			checkAll = create_element('input', 'check-list master', '', '', {"type": "checkbox"});
+
 
 		table.appendChild(thead)
-		thead.appendChild(tr)
-		tr.appendChild(th)
-		tr.appendChild(th2)
+		thead.append(trTop, trBottom)
+		trTop.appendChild(thMain)
+		trBottom.append(thEmpty, thEmpty.cloneNode(true), thEmpty.cloneNode(true), th2, th3)
 
-		th.appendChild(h5)
-		th2.appendChild(checkAll)
+		thMain.appendChild(h5)
+		th2.appendChild(thspan)
+		th3.appendChild(checkAll)
 
 		var tbody = create_element('tbody')
 		table.append(tbody)
 
 		for (let [ix, amount] of Object.entries(items)) {
 			var item = professionTool.ITEMS[ix]
-
-			var tRow = create_element('tr'),
-				td1 = create_element('td'),
-				td2 = create_element('td'),
-				td3 = create_element('td'),
-				td4 = create_element('td'),
-
-				img = create_element('img', 'icon-small', `background-image: url('${global.static_url}images/icons/large/${item.img}.jpg');`),
-				nameSpan = create_element('span', `q${item.q}`, '', item.n),
-				amountSpan = create_element('span', 'fix-me', '', amount),
-				checkbox = create_element('input', '', '', '', {"type": "checkbox"});
-
-			img.src = `${global.static_url}images/icon_border_2.png`
+			var tRow = create_element('tr', 't1', '', '', {"data-ix": ix})
 
 			tbody.append(tRow)
 
+			let td1 = create_element('td'),
+				td2 = create_element('td'),
+				td3 = create_element('td'),
+				td4 = create_element('td', '', 'margin:0; padding:0;'),
+				td5 = create_element('td'),
+				img = create_element('img', 'icon-small', `background-image: url('${global.static_url}images/icons/large/${item.img}.jpg');`),
+				nameSpan = create_element('span', `q${item.q} untouchable`, '', item.n),
+				numInput = create_element('input', 'amount-input', "display:block; padding:0; margin:0;", '', {"max": amount, "min":0, "type": "number", "size": 7}),
+				amountSpan = create_element('span', 'fix-me', '', amount),
+				checkbox = create_element('input', 'check-list', '', '', {"type": "checkbox"});
+
+			img.src = `${global.static_url}images/icon_border_2.png`
+
+			if (isMaterialsList && professionTool.RECIPES.ALL[ix]) {
+				tRow.classList.add("collapse-toggle")
+
+				var recipe = professionTool.RECIPES.ALL[ix]
+				tRow.setAttribute("data-target", Object.keys(recipe).join(","))
+
+				for (let [matIX, recipeAmount] of Object.entries(recipe) ) {
+					let trCollapse = create_element('tr', `row-collapsed table-dark sub-material mat-table-collapse${ix}`, '', '', {"data-ix": matIX, "data-parent":ix});
+
+					let matItem = professionTool.ITEMS[matIX]
+					let matAmount = recipeAmount * (professionTool.MATERIALS[ix]/professionTool.ITEMS[ix].step)
+
+					let td1 = create_element('td'),
+						td2 = create_element('td'),
+						td3 = create_element('td'),
+						td4 = create_element('td', '', 'margin:0; padding:0;'),
+						td5 = create_element('td'),
+						img = create_element('img', 'icon-small', `background-image: url('${global.static_url}images/icons/large/${matItem.img}.jpg');`),
+						nameSpan = create_element('span', `q${matItem.q} untouchable`, '', matItem.n),
+						numInput = create_element('input', 'amount-input', "display:block; padding:0; margin:0;", '', {"max": matAmount, "min":0, "type": "number", "size": 7}),
+						amountSpan = create_element('span', 'fix-me', '', matAmount),
+						checkbox = create_element('input', 'check-list', '', '', {"type": "checkbox"});
+
+					img.src = `${global.static_url}images/icon_border_2.png`
+
+					trCollapse.append(td1, td2, td3, td4, td5)
+
+					td1.appendChild(img)
+					td2.appendChild(nameSpan)
+					td3.appendChild(amountSpan)
+					td4.appendChild(numInput)
+					td5.appendChild(checkbox)
+
+					tbody.append(trCollapse)
+				}
+
+			}
+
+			tRow.append(td1, td2, td3, td4, td5)
 			td1.appendChild(img)
 			td2.appendChild(nameSpan)
 			td3.appendChild(amountSpan)
-			td4.appendChild(checkbox)
-
-
-			tRow.appendChild(td1)
-			tRow.appendChild(td2)
-			tRow.appendChild(td3)
-			tRow.appendChild(td4)
-
+			td4.appendChild(numInput)
+			td5.appendChild(checkbox)
 		}
-
 		return table
 	},
-	add: {
-		// add (or remove) material or consume objs/elements
-		item: function(ix, amount=1, step=1, parent) {
-			var itemObj = (parent == 'consumes') ? professionTool.CONSUMES : professionTool.MATERIALS;
-			if (!itemObj[ix] && amount >= 1) {
-				itemObj[ix] = amount * step
-				professionTool.add.toPage(ix, parent)
-			} else if (itemObj[ix]){
-				itemObj[ix] += amount * step
+}
 
-				if (itemObj[ix] <= 0) {
-					var elem = document.getElementById(parent).querySelector(`div.data-container[data-ix='${ix}']:not(.part)`)
-					professionTool.empty(elem, {'includeParent':true})
-					delete itemObj[ix]
-				} else {
-					professionTool.update.element(ix, parent)
-				}
-			}
-		},
-		addMaterials: function() {
+function toolTipMouseover(e) {
+	tooltip.init(e)
 
-			parentElem = document.getElementById('materials')
+	var dataContainer = e.target.closest('div.data-container')
+	var ix = dataContainer.getAttribute("data-ix")
+	var data;
 
-			var material = professionTool.ITEMS[ix],
-				dataContainer = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': ix}),
-				materialContainer = create_element('span', 'material-container');
-			var imagePath = `${imagePrefix}${material.img}`
-			var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
-
-			materialImage.src = `${global.static_url}images/icons/small/icon_border.png`
-			var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
-				amountSpan = create_element('span', 'amount', '', professionTool.MATERIALS[ix]);
-
-			parentElem.appendChild(dataContainer)
-			dataContainer.appendChild(materialContainer)
-			materialContainer.appendChild(materialImage)
-			materialContainer.appendChild(materialName)
-			materialContainer.appendChild(document.createTextNode(' ['))
-			materialContainer.appendChild(amountSpan)
-			materialContainer.appendChild(document.createTextNode(']'))
-		},
-		toPage: function(ix, parent) {
-			var parentElem;
-			var iconBorderPath = `${global.static_url}images/icon_border_2.png`,
-				imagePrefix = `${global.static_url}images/icons/large/`;
-
-			if (parent == 'consumes') {
-				var recipe = professionTool.ITEMS[ix]
-				parentElem = document.getElementById('consumes')
-				var dataContainer = create_element('div', 'consume-list-item data-container', '', '', {'data-ix': ix}),
-					expandButton = create_element('span', 'consume-container collapsed', '', '', {'data-toggle': 'collapse', 'href': `#${sanitize(recipe.n)}_collapse`, 'role':'button'}),
-					btnSm = create_element('a', 'btn btn-sm plus'),
-					glyphiconTriangle = create_element('span', 'glyphicon glyphicon-triangle-right', 'color: azure;'),
-					imagePath = `${imagePrefix}${recipe.img}`;
-
-				var consumeImage = create_element('img', 'consume-image icon-small', `background-image: url('${imagePath}.jpg')`)
-				consumeImage.src = iconBorderPath
-
-				var consumeName = create_element('span', `consume-name q${recipe.q}`, '', recipe.n),
-					consumeAmount = create_element('span', 'amount', '', professionTool.CONSUMES[ix]),
-					materialCollapse = create_element('div', 'materials-list collapse');
-
-
-				materialCollapse.id = sanitize(recipe.n)+"_collapse"
-
-				$(materialCollapse).on({
-					'shown.bs.collapse': function(e) {
-						glyphiconTriangle.classList.remove('glyphicon-triangle-right')
-						glyphiconTriangle.classList.add('glyphicon-triangle-bottom')
-					},
-					'hidden.bs.collapse': function(e) {
-						glyphiconTriangle.classList.remove('glyphicon-triangle-bottom')
-						glyphiconTriangle.classList.add('glyphicon-triangle-right')
-					}
-				});
-
-
-				parentElem.appendChild(dataContainer)
-				dataContainer.appendChild(expandButton)
-				expandButton.appendChild(btnSm)
-				btnSm.appendChild(glyphiconTriangle)
-				expandButton.appendChild(consumeImage)
-				expandButton.appendChild(consumeName)
-				expandButton.appendChild(document.createTextNode(' ['))
-				expandButton.appendChild(consumeAmount)
-				expandButton.appendChild(document.createTextNode(']'))
-				dataContainer.appendChild(materialCollapse)
-
-				for (let [matIX, matStep] of Object.entries(recipe.materials)) {
-					var materialAmount = (professionTool.CONSUMES[ix]/recipe.step)*matStep,
-						material = professionTool.ITEMS[matIX],
-						materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX}),
-						materialContainer = create_element('span', 'material-container');
-
-					var imagePath = `${imagePrefix}${material.img}`
-					var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
-
-					materialImage.src = `${global.static_url}images/icons/small/icon_border.png`
-
-
-					var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
-						materialAmountSpan = create_element('span', 'amount', '', materialAmount);
-
-					materialCollapse.appendChild(materialListItem)
-					materialListItem.appendChild(materialContainer)
-					materialContainer.appendChild(materialImage)
-					materialContainer.appendChild(materialName)
-					materialContainer.appendChild(document.createTextNode(' ['))
-					materialContainer.appendChild(materialAmountSpan)
-					materialContainer.appendChild(document.createTextNode(']'))
-				}
-
-				var addSubtractContainer = create_element('div', 'add-subtract-button-container'),
-					addButton = create_element('button', 'btn btn-sm adjustment-button add-button', 'background-color:transparent; padding:1px;'),
-					glyphiconPlus = create_element('span', 'glyphicon glyphicon-plus untouchable', 'color:azure; font-size:12px;'),
-					subtractButton = create_element('button', 'btn btn-sm adjustment-button sub-button', 'background-color:transparent; padding:1px; padding-right:2px;'),
-					glyphiconMinus = create_element('span', 'glyphicon glyphicon-minus untouchable', 'color:azure; font-size:12px;')
-
-				dataContainer.appendChild(addSubtractContainer)
-				addSubtractContainer.appendChild(addButton)
-				addButton.appendChild(glyphiconPlus)
-				addSubtractContainer.appendChild(subtractButton)
-				subtractButton.appendChild(glyphiconMinus)
-
-			} else {
-				parentElem = document.getElementById('materials')
-
-				var material = professionTool.ITEMS[ix],
-					dataContainer = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': ix}),
-					materialContainer = create_element('span', 'material-container');
-				var imagePath = `${imagePrefix}${material.img}`
-				var materialImage = create_element('img', 'material-image icon-small', `background-image: url('${imagePath}.jpg')`)
-
-				materialImage.src = `${global.static_url}images/icons/small/icon_border.png`
-				var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
-					amountSpan = create_element('span', 'amount', '', professionTool.MATERIALS[ix]);
-
-				parentElem.appendChild(dataContainer)
-				dataContainer.appendChild(materialContainer)
-				materialContainer.appendChild(materialImage)
-				materialContainer.appendChild(materialName)
-				materialContainer.appendChild(document.createTextNode(' ['))
-				materialContainer.appendChild(amountSpan)
-				materialContainer.appendChild(document.createTextNode(']'))
-			}
-		}
-	},
-	remove: {
-		all: function() {
-			for (let [ix, amount] of Object.entries(professionTool.CONSUMES)) {
-				professionTool.update.item(ix, amount*-1)
-			}
-		}
-	},
-	empty: function(parent=false, options={}) {
-			if (parent) {
-				while (parent.firstChild) {
-					parent.removeChild(parent.firstChild);
-				}
-				if (options.includeParent) {
-					parent.remove()
-				}
-			}
-
-	},
-	get: {
-		// materials: function(ix) {
-		// 	var mats = {}
-		// 	for (let [ix, amount] of Object.entries(professionTool.CONSUMES) {
-		//
-		// 		if (professionTool.ITEMS[ix])
-		// 		mats[ix] = (professionTool.ITEMS[ix].materials) ?  {amount: amount, materials: } : amount
-		//
-		// 	})
-		// },
-		consumeList: function(url) {
-			var data = {}
-			data['hash'] = url.search
-
-			$.ajax({
-				method: "GET",
-				url: '/ajax/consume_list_builder/',
-				data: data,
-				dataType: 'json',
-				success: professionTool.update.consumes,
-				complete: updateSelectedList,
-				error: notFoundError,
-			});
-		}
-	},
-
-	handlers: {
-		common: {
-			mouseover: function(e) {
-				tooltip.init(e)
-
-				var dataContainer = e.target.closest('div.data-container')
-				var ix = dataContainer.getAttribute("data-ix")
-				var data;
-
-				if (Object.keys(professionTool.ITEMS).includes(ix)) {
-					data = professionTool.ITEMS[ix]
-					tooltip.create(data)
-					tooltip.updateCoords(e)
-				} else {
-					getItemInfo(ix, tooltip.create)
-				}
-			},
-		}
+	if (Object.keys(professionTool.ITEMS).includes(ix)) {
+		data = professionTool.ITEMS[ix]
+		tooltip.create(data)
+		tooltip.updateCoords(e)
+	} else {
+		getItemInfo(ix, tooltip.create)
 	}
 }
 
-function updateConsumeAmount(ix, amount) {
+function removeElements(parent, options={}) {
 
-	professionTool.CONSUMES[ix] = (professionTool.CONSUMES[ix]) ? professionTool.CONSUMES[ix]+amount : amount
+	while (parent.firstChild) {
+		parent.removeChild(parent.firstChild);
+	}
 
-	updateMaterialsAmount(ix, amount)
+	if (options.includeParent) {
+		parent.remove()
+	}
+}
 
-	if (professionTool.CONSUMES[ix] <= 0) {
-		removeElement("consumes", ix)
+function clearCraftedList() {
+	for (let [ix, amount] of Object.entries(professionTool.CONSUMES)) {
+		updateCraftedAmount(ix, amount*-1)
+	}
+}
+
+function updateListInfo(data={}) {
+	var listInfoContainer = document.getElementById('saved_list_info')
+	removeElements(listInfoContainer)
+
+	if (data.list_info) {
+
+		if (data.list_info.name) {
+			var title = create_element('h1', '', '', data.list_info.name)
+			listInfoContainer.appendChild(title)
+		}
+
+		if (data.list_info.tags) {
+			data.list_info.tags.forEach(function(tag) {
+				var tagElem = create_element('div', 'feed-tag', '', tag)
+				listInfoContainer.appendChild(tagElem)
+			})
+		}
+
+		if (data.list_info.description) {
+			var description = create_element('h5', 'mt-3', '', data.list_info.description)
+			listInfoContainer.appendChild(description)
+		}
+
+		if (data.list_info.updated) {
+
+			var date = new Date(data.list_info.updated)
+			var lastUpdateContainer = create_element('div', 'mt-3', '', 'Last updated: '),
+				lastUpdate = create_element('span', 'fix-me last-update', '', date.toLocaleString()),
+				textContent = document.createTextNode(' by '),
+				userName = create_element('span', 'fix-me user-tag', '', data.list_info.user),
+				newLine = create_element('br')
+
+			lastUpdateContainer.append(lastUpdate, textContent, userName, newLine)
+			listInfoContainer.appendChild(lastUpdateContainer)
+		}
 	} else {
-		addOrUpdateElements(ix, amount)
+		var descriptionText = "Want to share this list with others? Save it using the form below and a link will be generated"
+		var description = create_element('h5', 'mt-3', 'margin-bottom: 1rem', descriptionText)
+		listInfoContainer.appendChild(description)
+	}
+
+	var row = create_element('div', 'row')
+	listInfoContainer.appendChild(row)
+
+	var craftedTableContainer = create_element('div', 'col-md-6 col-sm-6')
+	var craftedTable = professionTool.createTable('Crafted Items', professionTool.CONSUMES)
+
+	row.appendChild(craftedTableContainer)
+	craftedTableContainer.appendChild(craftedTable)
+
+	var materialTableContainer = create_element('div', 'col-md-6 col-sm-6')
+	var materialTable = professionTool.createTable('Total Materials', professionTool.MATERIALS)
+
+	row.appendChild(materialTableContainer)
+	materialTableContainer.appendChild(materialTable)
+	listInfoHandlers()
+}
+
+function getCraftedList(url) {
+	var data = {}
+	data['hash'] = url.search
+
+	$.ajax({
+		method: "GET",
+		url: '/ajax/consume_list_builder/',
+		data: data,
+		dataType: 'json',
+		success: getCraftedListSuccess,
+		complete: updateSelectedList,
+		error: notFoundError,
+	});
+}
+
+function getCraftedListSuccess(d) {
+	var data = (d.responseJSON) ? d.responseJSON : d
+
+	professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.items)
+	professionTool.RECIPES.ALL =  Object.assign(professionTool.RECIPES.ALL, data.recipes)
+
+	for (let [ix, amount] of Object.entries(data.crafted)) {
+		updateCraftedAmount(ix, amount)
+	}
+
+	if (data.list_info) {
+		updateListInfo(data)
+	}
+}
+
+function updateCraftedAmount(ix, consumeAmount) {
+
+	if (!professionTool.CONSUMES[ix] && (consumeAmount <= 0)) {
+		return
+	}
+	professionTool.CONSUMES[ix] = (professionTool.CONSUMES[ix]) ? professionTool.CONSUMES[ix] + consumeAmount : consumeAmount
+	updateMaterialsAmount(ix, consumeAmount)
+	if (professionTool.CONSUMES[ix] <= 0) {
+		delete professionTool.CONSUMES[ix]
+		removeElements(document.querySelector(`#consumes > .data-container[data-ix='${ix}']`), {"includeParent": true})
+
+	} else {
+		addOrUpdateElements(ix)
 	}
 }
 
 //
-function updateMaterialsAmount(ix, amount) {
-	var recipe = professionTool.RECIPES.ALL[ix];
-	for (let [matIX, matAmount] of Object.entries(recipe)) {
-		professionTool.MATERIALS[matIX] = (professionTool.MATERIALS[matIX]) ? ((professionTool.CONSUMES[ix]/professionTool.ITEMS[ix].step)*matAmount)+professionTool.MATERIALS[matIX] : (professionTool.CONSUMES[ix]/professionTool.ITEMS[ix].step)*matAmount
+function updateMaterialsAmount(consumeIX, consumeAmount) {
+
+	var recipe = professionTool.RECIPES.ALL[consumeIX] || professionTool.RECIPES[professionTool.selected]
+	for (let [matIX, matAmountPer] of Object.entries(recipe)) {
+		var matAmountAdded =  matAmountPer * consumeAmount/professionTool.ITEMS[consumeIX].step
+		professionTool.MATERIALS[matIX] = (!professionTool.MATERIALS[matIX]) ? matAmountAdded : matAmountAdded+professionTool.MATERIALS[matIX]
 		if (professionTool.MATERIALS[matIX] <= 0) {
-			removeElement("materials", matIX)
+			delete professionTool.MATERIALS[matIX]
+
+			removeElements(document.querySelector(`#materials > .data-container[data-ix='${matIX}']`), {"includeParent": true})
 		}
 	}
 }
 
-function removeElement(parent, ix) {
 
-	var ele = document.querySelector(`#${parent} > .data-container[data-ix='${matIX}']`)
-	while (ele.firstChild) {
-		ele.removeChild(ele.firstChild)
-	}
-	ele.remove()
-}
 
 // adds or updates consume elements and materials elements on page
-// DOES NOT perform quantitative updates
-function addOrUpdateElements(consumeIX, consumeAmount) {
-
+function addOrUpdateElements(consumeIX) {
+	var consumeAmount = professionTool.CONSUMES[consumeIX]
 	var iconBorderPath = `${global.static_url}images/icon_border_2.png`,
 		imagePrefix = `${global.static_url}images/icons/large/`;
 		var item = professionTool.ITEMS[consumeIX],
@@ -484,8 +324,9 @@ function addOrUpdateElements(consumeIX, consumeAmount) {
 			var consumeAmountText = consumeContainer.querySelector("span.amount")
 			consumeAmountText.innerText = consumeAmount
 
-			for (let [matIX, matAmount] of Object.entries(recipe)) {
-				consumeContainer.querySelector(`.materials-list-item.data-container[data-ix='${matIX}'] span.amount`).innerText = (consumeAmount/item.step)*matAmount
+			for (let [matIX, matAmountPer] of Object.entries(recipe)) {
+				var matAmount = (consumeAmount/item.step)*matAmountPer
+				consumeContainer.querySelector(`.materials-list-item.data-container[data-ix='${matIX}'] span.amount`).innerText = matAmount
 				document.querySelector(`#materials > .materials-list-item.data-container[data-ix='${matIX}'] span.amount`).innerText = professionTool.MATERIALS[matIX]
 			}
 		} else {
@@ -523,16 +364,12 @@ function addOrUpdateElements(consumeIX, consumeAmount) {
 			dataContainer.appendChild(expandButton)
 			expandButton.appendChild(btnSm)
 			btnSm.appendChild(glyphiconTriangle)
-			expandButton.appendChild(consumeImage)
-			expandButton.appendChild(consumeName)
-			expandButton.appendChild(document.createTextNode(' ['))
-			expandButton.appendChild(consumeAmountSpan)
-			expandButton.appendChild(document.createTextNode(']'))
+			expandButton.append(consumeImage, consumeName, document.createTextNode(' ['), consumeAmountSpan, document.createTextNode(']'))
 			dataContainer.appendChild(materialCollapse)
 
-			for (let [matIX, matAmount] of Object.entries(professionTool.RECIPES.ALL[consumeIX])) {
+			for (let [matIX, matAmountPer] of Object.entries(professionTool.RECIPES.ALL[consumeIX])) {
 
-				var materialAmount = (professionTool.CONSUMES[consumeIX]/item.step)*matAmount,
+				var matAmount = (professionTool.CONSUMES[consumeIX]/item.step)*matAmountPer,
 					material = professionTool.ITEMS[matIX],
 					materialListItem = create_element('div', 'materials-list-item data-container', '', '', {'data-ix': matIX}),
 					materialContainer = create_element('span', 'material-container');
@@ -544,16 +381,12 @@ function addOrUpdateElements(consumeIX, consumeAmount) {
 
 
 				var materialName = create_element('span', `material-name q${material.q}`, '', material.n),
-					materialAmountSpan = create_element('span', 'amount', '', materialAmount);
+					materialAmountSpan = create_element('span', 'amount', '', matAmount);
 
 				materialCollapse.appendChild(materialListItem)
 
 				materialListItem.appendChild(materialContainer)
-				materialContainer.appendChild(materialImage)
-				materialContainer.appendChild(materialName)
-				materialContainer.appendChild(document.createTextNode(' ['))
-				materialContainer.appendChild(materialAmountSpan)
-				materialContainer.appendChild(document.createTextNode(']'))
+				materialContainer.append(materialImage, materialName, document.createTextNode(' ['), materialAmountSpan, document.createTextNode(']'))
 
 				if (document.querySelector(`#materials > .data-container[data-ix='${matIX}']`)) {
 					document.querySelector(`#materials > .data-container[data-ix='${matIX}'] span.amount`).innerText = professionTool.MATERIALS[matIX]
@@ -643,12 +476,14 @@ var monkeyList = {
 
 		$('.sorting-item').on('click', function(e) {
 
-			var sortBySelection = e.target.innerText
-			$('#current_sort').text(sortBySelection)
+			var sortBySelection = (e.target.innerText=="Name") ? "recipe-name" : (e.target.innerText.includes("Level")) ? "Level" : e.target.innerText
+			var selectionText = (sortBySelection.includes("name")) ? "Name" : (sortBySelection.includes("Level")) ? "iLevel" : sortBySelection
+			$('#current_sort').text(selectionText)
 			var sortingOrder = $("#sorting_order")
 			sortingOrder.removeClass('hidden').removeClass('untouchable')
 			$('#sorting').addClass("remove-carrat")
 			sortingOrder.find("span.glyphicon").removeClass("glyphicon-triangle-top").addClass("glyphicon-triangle-bottom")
+
 			monkeyList.monkeyList.sort(sortBySelection.toLowerCase(), {
 				order: 'desc'
 			});
@@ -699,7 +534,7 @@ function professionToolHandlers() {
 					return false
 				}
 			}
-			professionTool.empty(document.getElementById('list_container'));
+			removeElements(document.getElementById('list_container'));
 			monkeyList.unhandlers()
 			updateSelectedProf(prof);
 			professionTool.recipeInd = 0;
@@ -710,13 +545,133 @@ function professionToolHandlers() {
 	})
 }
 
+function listInfoHandlers() {
+
+	function checkBoxHandler(e) {
+		if (e.target.matches(".check-list")) {
+			var table = e.target.closest("table")
+			var checked = e.target.checked
+
+			if (e.target.matches(".master")) {
+
+				table.querySelectorAll("tr.t1 .check-list").forEach(elem => {
+					if (elem.checked != checked) {
+						elem.click()
+					}
+				})
+				return
+			}
+
+			var tr = e.target.closest("tr")
+			var amountInput = tr.querySelector(".amount-input")
+			amountInput.value = (checked) ? amountInput.max : 0
+			tr.classList.toggle("obtained", checked)
+
+			if (tr.getAttribute("data-target")) {
+				tr.getAttribute("data-target").split(",").forEach(matIX => {
+					var elem = table.querySelector(`tr[data-parent="${tr.getAttribute("data-ix")}"][data-ix="${matIX}"] .check-list`)
+					if (elem.checked != checked) {
+						elem.click()
+					}
+				})
+			}
+
+			if (tr.getAttribute("data-parent")) {
+				var parentIX = tr.getAttribute("data-parent")
+				var parentRow = tr.closest("table").querySelector(`tr.t1[data-ix="${parentIX}"][data-target]`)
+				parentRow.querySelector(".amount-input").value = calculateCrafted(parentIX)
+
+				if (checked == false) {
+					e.target.closest("table").querySelector(".master.check-list").checked = false
+					table.querySelector(`tr.t1[data-ix="${parentIX}"] .check-list`).checked = false
+				} else if (parentRow.querySelector(".check-list").checked != Array.from(table.querySelectorAll(`[data-parent="${parentIX}"]`)).every(elem=>{ return elem.querySelector(".check-list").checked})) {
+					parentRow.querySelector(".check-list").click()
+				}
+			}
+		}
+		return
+	}
+
+	function inputAmountHandler(e) {
+		if (e.target.matches(".amount-input")) {
+			var table = e.target.closest("table"),
+				tr = e.target.closest("tr");
+
+			var checkBox = tr.querySelector(".check-list"),
+				ix = tr.getAttribute("data-ix");
+
+			if (e.isTrusted) { //no endless loops pls
+				// if child recalc parent
+				if (tr.getAttribute("data-parent")) {
+                    var parentIX = tr.getAttribute("data-parent")
+					var parentElem = table.querySelector(`tr.t1[data-ix="${parentIX}"][data-target] .amount-input`)
+					parentElem.value = calculateCrafted(parentIX)
+					parentElem.dispatchEvent(new Event('input', { bubbles: true }));
+				}
+
+				// if parent recalc children
+				if (tr.getAttribute("data-target")) {
+					var recipe = professionTool.RECIPES.ALL[ix]
+
+					tr.getAttribute("data-target").split(",").forEach(matIX=>{
+						let elem = table.querySelector(`tr[data-parent="${tr.getAttribute("data-ix")}"][data-ix="${matIX}"] .amount-input`)
+						elem.value = e.target.value * recipe[matIX] / professionTool.ITEMS[ix].step
+						elem.dispatchEvent(new Event('input', { bubbles: true }));
+					})
+
+				}
+			}
+
+			if (e.target.value == e.target.max) {
+				tr.classList.toggle("obtained", true);
+				checkBox.checked = true
+			} else {
+				tr.classList.toggle("obtained", false)
+				checkBox.checked = false
+			}
+		}
+		return
+	}
+
+	function collapseToggle(e) {
+		if (e.target.matches(".check-list, .amount-input")) {
+			return
+		}
+
+		let tr = e.target.closest("tr")
+		tr.classList.toggle("toggled");
+		document.querySelectorAll(`.sub-material[data-parent="${tr.getAttribute("data-ix")}"]`).forEach(elem=>{
+			elem.classList.toggle("row-collapsed")
+		})
+	}
+
+	var craftedItemsTable = document.getElementById("crafted_items_table")
+	craftedItemsTable.addEventListener("change", checkBoxHandler);
+	craftedItemsTable.addEventListener("input", inputAmountHandler);
+
+	var totalMaterialsTable = document.getElementById("total_materials_table")
+
+	totalMaterialsTable.addEventListener("change", checkBoxHandler);
+	totalMaterialsTable.addEventListener("input", inputAmountHandler);
+
+	document.querySelectorAll(".collapse-toggle").forEach(elem => {
+		elem.addEventListener("click", collapseToggle)
+	})
+
+}
+
+function calculateCrafted(ix) {
+	var recipe = professionTool.RECIPES.ALL[ix]
+	return Math.min(...Array.from(Object.entries(recipe), (item)=>{ return Math.floor(document.querySelector(`tr[data-parent="${ix}"][data-ix="${item[0]}"] .amount-input`).value/item[1])}));
+}
+
 function recipeHandlers() {
 
 	var recipeList = document.getElementById('recipe_list')
 
 	recipeList.addEventListener('mouseover', function(e) {
 		if (e.target.matches('.recipe-name, .recipe-image, .material-image')) {
-			professionTool.handlers.common.mouseover(e)
+			toolTipMouseover(e)
         }
 	})
 
@@ -732,8 +687,8 @@ function recipeHandlers() {
 
 	recipeList.addEventListener('mousedown', function(e) {
 		if (e.target.matches('.recipe-container, .recipe-image, .recipe-name')) {
-			var multiple = (e.shiftKey) ? 5 : 1
-			multiple = (e.which === 3) ? multiple * (-1) : multiple
+			var multiplier = (e.shiftKey) ? 5 : 1
+			multiplier = (e.which === 3) ? multiplier * (-1) : multiplier
 
 			var dataContainer = e.target.closest('div.data-container')
 			var ix = dataContainer.getAttribute("data-ix")
@@ -741,11 +696,10 @@ function recipeHandlers() {
 
 			var step = professionTool.ITEMS[ix].step
 
-			var amount = step * multiple
-			amount = ((amount + professionTool.CONSUMES[ix]) >= 0) ? (amount) : (professionTool.CONSUMES[ix] * -1)
-			professionTool.update.item(ix, multiple, step)
-
-			combatText(e, amount)
+			var amount = step * multiplier
+			var textAmount = (!professionTool.CONSUMES[ix] && amount <= 0) ? 0 : amount
+			updateCraftedAmount(ix, amount)
+			combatText(e, textAmount)
 		}
 		return
 	})
@@ -798,8 +752,9 @@ function sidebarHandlers() {
 				}
 
 				tempurl.pathname = path
-				professionTool.remove.all()
-				professionTool.get.consumeList(tempurl)
+				clearCraftedList()
+				getCraftedList(tempurl)
+				// professionTool.get.consumeList(tempurl)
 				history.pushState(null, null, tempurl)
 				return
 			}
@@ -808,10 +763,18 @@ function sidebarHandlers() {
 }
 
 function consumeHandlers() {
+
+	var generateChecklistButton = document.getElementById("generate_checklist")
+	generateChecklistButton.addEventListener("click", e=> {
+		if (Object.keys(professionTool.CONSUMES).length) {
+			updateListInfo()
+		}
+	})
+
 	var totalsContainer = document.getElementById('totals_container')
 	totalsContainer.addEventListener('mouseover', function(e) {
 		if (e.target.matches('.consume-image, .material-image, .consume-name, .material-name')) {
-			professionTool.handlers.common.mouseover(e)
+			toolTipMouseover(e)
 		}
 	})
 
@@ -840,10 +803,12 @@ function consumeHandlers() {
 				multiple = multiple * (-1)
 			}
 
-			var amount = step*multiple
-			amount = ((amount + professionTool.CONSUMES[ix]) >= 0) ? (amount) : (professionTool.CONSUMES[ix] * -1)
 
-			professionTool.update.item(ix, multiple, step)
+			var amount = step*multiple
+			// amount = ((amount + professionTool.CONSUMES[ix]) >= 0) ? (amount) : (professionTool.CONSUMES[ix] * -1)
+
+			updateCraftedAmount(ix, amount)
+			// professionTool.update.item(ix, multiple, step)
 			combatText(e, amount)
 		}
 		return
@@ -894,6 +859,14 @@ function scriptLoaded(prof) {
 	professionTool.ITEMS = Object.assign(professionTool.ITEMS, materials)
 	professionTool.ITEMS = Object.assign(professionTool.ITEMS, recipes)
 
+	for (let [ix, item] of Object.entries(recipes)) {
+		if (item.materials) {
+			var newRecipe = Object.fromEntries([[ix, item.materials]]);
+			professionTool.RECIPES.ALL = Object.assign(professionTool.RECIPES.ALL, newRecipe)
+			// professionTool.RECIPES[prof] = Object.assign(professionTool.RECIPES[prof], newRecipe)
+		}
+	}
+
 	professionTool.RECIPES[prof] = recipes
 	professionTool.ITEMSETS = Object.assign(professionTool.ITEMSETS, itemsets)
 
@@ -912,8 +885,7 @@ function addScript(loadedVar, src, loadedCallback=scriptLoaded, errorCallback=lo
 	newScript.src = src
 }
 
-function createRecipe(recipe, ix) {
-
+function createRecipeElement(recipe, ix) {
 
 	var row = create_element('div', 'row')
 	var levelReq = (recipe.requirements) ? recipe.requirements.level : 1
@@ -939,10 +911,7 @@ function createRecipe(recipe, ix) {
 			div3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', recipe.step),
 			div4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', recipe.step);
 
-		stepContainer.appendChild(div1)
-		stepContainer.appendChild(div2)
-		stepContainer.appendChild(div3)
-		stepContainer.appendChild(div4)
+		stepContainer.append(div1, div2, div3, div4)
 		dataContainer.appendChild(stepContainer)
 
 	}
@@ -977,10 +946,7 @@ function createRecipe(recipe, ix) {
 				amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', step),
 				amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', step);
 
-			countContainer.appendChild(amountDiv1)
-			countContainer.appendChild(amountDiv2)
-			countContainer.appendChild(amountDiv3)
-			countContainer.appendChild(amountDiv4)
+			countContainer.append(amountDiv1, amountDiv2, amountDiv3, amountDiv4)
 			matDataContainer.appendChild(countContainer)
 		}
 	}
@@ -1002,7 +968,7 @@ function addRecipes(n) {
 		var recipe = professionTool.recipeArr[professionTool.recipeInd][1],
 			ix = professionTool.recipeArr[professionTool.recipeInd][0];
 
-		var row = createRecipe(recipe, ix)
+		var row = createRecipeElement(recipe, ix)
 
 		if (professionTool.recipeInd == i-1) {
 			var elemObserver = new IntersectionObserver(showElements, professionTool.observer.config);
@@ -1026,7 +992,6 @@ function buildRecipeList() {
 }
 
 function showImage(entries, observer) {
-
 
 	for (var i = 0; i < entries.length; i++) {
 		var io = entries[i];
@@ -1055,6 +1020,8 @@ function showImage(entries, observer) {
 	}
 }
 
+var testIO;
+
 function showElements(entries, observer) {
 
 
@@ -1062,10 +1029,8 @@ function showElements(entries, observer) {
 		var io = entries[i];
 		if (io.isIntersecting && io.intersectionRatio > 0) {
 			addRecipes(15)
-
 			// Stop watching
 			observer.unobserve(io.target);
-
 		}
 	}
 }
@@ -1073,7 +1038,7 @@ function showElements(entries, observer) {
 function combatText(e, t){
 	let color = null
 	var text = t
-	if (t >= 0) {
+	if (t > 0) {
 		text = "+" + text
 		color = "rgba(30,255,0,0.95)"
 	} else {

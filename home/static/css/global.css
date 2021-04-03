@@ -18,6 +18,13 @@
     }
 }
 
+@media only screen and (min-width: 1600) {
+    #mainBody {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
 @media only screen and (max-width: 992px) {
     :root {
         --navbar-height: 7vmax;
@@ -1246,4 +1253,12 @@ button:focus {
         z-index: 1310;
         background-color: #272727;
     }
+}
+
+#saved_list_info {
+    margin-top: 3em;
+}
+
+button {
+    border-radius: 1px;
 }

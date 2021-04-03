@@ -37,9 +37,11 @@
                             <span id='current_sort'>Sort</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" style="border-top: 1px solid azure;" aria-labelledby="sorting">
-                            <a class="dropdown-item sorting-item" data-sort="data-rating"><span class="untouchable">Level</span></a>
+                            <a class="dropdown-item sorting-item" data-sort="data-rating"><span class="untouchable">iLevel</span></a>
                             <div class="dropdown-divider" style="border-top: 1px solid #adb5cd33;"></div>
                             <a class="dropdown-item sorting-item" data-sort="data-created"><span class="untouchable">Rarity</span></a>
+                            <div class="dropdown-divider" style="border-top: 1px solid #adb5cd33;"></div>
+                            <a class="dropdown-item sorting-item" data-sort="data-created"><span class="untouchable">Name</span></a>
                         </div>
                         <a id="sorting_order" class="btn btn-sm untouchable hidden">
                             <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
@@ -60,6 +62,7 @@
         <div class="col-lg-4 col-12">
             <div class="row">
                 <div class="col-12 columnTitle">Your List</div>
+
             </div>
             <div class="row">
                 <div id="totals_container" class="col-12 pageColumn custom-scroll-bar">
@@ -67,6 +70,11 @@
                         <div id="consumes" class="col-12"></div>
                         <span id="separator" class="col-12">Totals</span>
                         <div id="materials" class="col-12"></div>
+                    </div>
+                </div>
+                <div class="col-12 columnTitle">
+                    <div>
+                        <button id="generate_checklist" type="button" class="btn btn-sm btn-primary">Generate Checklist</button>
                     </div>
                 </div>
 

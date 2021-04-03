@@ -206,7 +206,7 @@ class Crafted(models.Model):
 	@property
 	def ix(self):
 		return self.item.ix
-	
+
 
 	def __str__(self):
 		return self.item.__str__()
@@ -605,6 +605,8 @@ class Zone(models.Model):
 
 from home.signals import set_profession_name, set_school_name, set_slot, set_proficiency
 from home.signals import savedlist_profanity_filter, clear_sidebar_cache, savedlist_limit
+from home.signals import no_empty_consumes
+
 # class Faction(models.Model):
 # 	ALLY,HORDE,NEUTRAL = 1,2,3
 # 	FACTION_CHOICES = (

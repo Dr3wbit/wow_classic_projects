@@ -294,7 +294,15 @@
 
 #search_bar {
     font-size: 12px;
-    width: 100%;
+    /* width: 100%; */
+    margin-top: 0.3em;
+    border-radius: 1px;
+}
+
+#generate_checklist {
+    float: left;
+    padding: 2px;
+    font-size: 14px;
 }
 
 /* @media only screen and (max-width: 992px) {
@@ -316,3 +324,42 @@
         width: 90%;
     }
 } */
+
+tr.sub-material {
+    border-left: 2px solid rgb(0 123 255 / 50%);
+    background-color: #343a40;
+}
+
+#total_materials_table tr[data-target] + tr {
+    /* border-top: 3px solid brown; */
+}
+
+tr.sub-material td{
+    background-color: #007bff2b;
+}
+
+
+.obtained {
+    background-color: #0d0042 !important;
+    font-style: italic;
+}
+
+.row-collapsed {
+    visibility: collapse;
+}
+
+.test-striped:nth-child(even){
+    /* background-color: green; */
+}
+.test-striped:nth-child(odd){
+    background-color: rgba(255,255,255,.05);
+}
+
+.amount-input {
+    width: 40px;
+}
+
+.collapse-toggle.toggled {
+    border: 2px solid var(--merrigold);
+    border-radius: 1px;
+}

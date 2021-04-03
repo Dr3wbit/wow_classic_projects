@@ -18,6 +18,12 @@ def savedlist_limit(sender, instance, **kwargs):
 	if instance.img == 'samwise':
 		instance.img = "class/"+instance.wow_class.name.lower()+".jpg" if sender == Spec else 'inv_misc_book_09.jpg'
 
+@receiver(pre_save, sender=ConsumeList, weak=False)
+def no_empty_consumes(sender, instance, **kwargs):
+	for consume in instance.consumes.all():
+		if consume.amount <= 0:
+			consume.delete()
+
 @receiver(post_delete, sender=Spec, weak=False)
 @receiver(post_delete, sender=ConsumeList, weak=False)
 @receiver(post_save, sender=Spec, weak=False)
