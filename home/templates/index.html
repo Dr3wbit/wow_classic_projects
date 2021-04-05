@@ -12,8 +12,8 @@
 {% block mainbody %}
     <div class="row selection-header sticky-top justify-content-start">
 
-                {% cache 86400 index_dropdown_filters %}
-                <div class="col-xl-5 col-md-6 h100">
+                {# cache 1 index_dropdown_filters #}
+                <div class="col-xl-5 col-md-5 col-12 h100">
                     <div class="dropdown secondary-navbar-item h100" style="border-right: 1px solid black; padding-right: 2px;">
                         <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle bg-hover-gray navlink h100" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,8 +32,8 @@
                                 <div class="col-4">
                                     <div class="filter-category-title">Professions</div>
                                     <div name="profession" class="filter-container custom-scroll-bar">
-                                        {% for profession in wowprofessions %}
-                                        <div name="{{profession.name}}" class="filter-box">{{profession.name}}</div>
+                                        {% for prof in professions %}
+                                        <div name="{{prof}}" class="filter-box">{{prof}}</div>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </div>
-                    {% endcache %}
+                    {# endcache #}
 
                     <div class="dropdown secondary-navbar-item h100" style="border-right: 1px solid black; padding-right: 2px;">
                         <a id="paginator" class="btn btn-sm dropdown-toggle bg-hover-gray navlink h100" role="button" title='Items per page'
@@ -84,12 +84,12 @@
                     </div>
 
                 </div>
-                <div class="col-xl-2 col-md-3 h100">
+                <div class="col-xl-2 col-md-3 col-6 h100">
                     <div class="pagination h100 secondary-navbar-item" id="pagination_container">
                     </div>
 
                 </div>
-                <div class="col-xl-3 col-md-3 h100">
+                <div class="col-md-3 col-6 h100">
                     <div class="valign h100">
                         <input id="search_bar" class="fuzzy-search" placeholder="Search Keywords" size="30" aria-label="Search">
                     </div>

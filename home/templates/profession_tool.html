@@ -25,13 +25,12 @@
 {% endblock class_selection %}
 <div class="mainContent container">
     <div class="row justify-content-center" id='prof_header'>
-        <div class="col-lg-8 col-12">
-            <div class="row columnTitle">
-                <div class="col-lg-6 col-5">Recipes</div>
-                <div class="col-lg-3 col-4">
+        <div class="col-lg-7 offset-lg-1 col-12">
+            <div class="row" style="height: 32px;">
+                <div class="col-lg-3 col-4" style="flex-basis: 0; padding-left: 0; margin-bottom: 0.5rem">
                     <input id="search_bar" class="fuzzy-search" placeholder="search recipes" aria-label="Search">
                 </div>
-                <div class="col-lg-3 col-3">
+                <!-- <div class="col-lg-3 col-3">
                     <div class="dropdown show">
                         <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span id='current_sort'>Sort</span>
@@ -47,19 +46,19 @@
                             <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="row sticky-top columnTitle">
-                <div class="col-7" style="border-right: 2px solid black;">Name</div>
+                <div id="recipe_name_header" class="col-7">Name</div>
                 <div class="col-5">Reagents</div>
             </div>
             <div id="recipe_list" class="row">
-                <div id="list_container" style="overflow-y: scroll" class="list col-12 pageColumn custom-scroll-bar">
+                <div id="list_container" class="list col-12 pageColumn custom-scroll-bar">
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-4 col-12">
+        <div class="col-xl-3 col-lg-4 offset-lg-1 col-12" style="padding-top: 32px;">
             <div class="row">
                 <div class="col-12 columnTitle">Your List</div>
 
@@ -72,7 +71,7 @@
                         <div id="materials" class="col-12"></div>
                     </div>
                 </div>
-                <div class="col-12 columnTitle">
+                <div class="col-12" style="height: 40px; border-top: 1px solid #000000d6; background-color: #404040ab;">
                     <div>
                         <button id="generate_checklist" type="button" class="btn btn-sm btn-primary">Generate Checklist</button>
                     </div>

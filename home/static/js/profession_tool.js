@@ -233,13 +233,13 @@ function updateListInfo(data={}) {
 	var row = create_element('div', 'row')
 	listInfoContainer.appendChild(row)
 
-	var craftedTableContainer = create_element('div', 'col-md-6 col-sm-6')
+	var craftedTableContainer = create_element('div', 'col-lg-4 offset-lg-2 col-md-6 col-sm-6')
 	var craftedTable = professionTool.createTable('Crafted Items', professionTool.CONSUMES)
 
 	row.appendChild(craftedTableContainer)
 	craftedTableContainer.appendChild(craftedTable)
 
-	var materialTableContainer = create_element('div', 'col-md-6 col-sm-6')
+	var materialTableContainer = create_element('div', 'col-lg-4 col-md-6 col-sm-6')
 	var materialTable = professionTool.createTable('Total Materials', professionTool.MATERIALS)
 
 	row.appendChild(materialTableContainer)
@@ -457,7 +457,15 @@ function notFoundError(jqXHR, textStatus, errorThrown) {
 	console.log(textStatus)
 	console.log(errorThrown)
 }
+function toggleSort(e) {
+	var desc = e.target.classList.toggle("desc")
+	e.target.classList.toggle("asc", !desc)
+	var order = (desc) ? "desc" : "asc"
 
+	monkeyList.monkeyList.sort("recipe-name", {
+		order: order
+	});
+}
 var monkeyList = {
 	monkeyList: '',
 	options: '',
@@ -465,7 +473,7 @@ var monkeyList = {
 		this.options = {
 			valueNames: [
 	            'recipe-name',
-				{attr: 'data-level', name: 'level'},
+				{attr: 'data-ilevel', name: 'ilevel'},
 				{attr: 'data-quality', name: 'rarity'},
 			],
 		};
@@ -476,9 +484,9 @@ var monkeyList = {
 
 		$('.sorting-item').on('click', function(e) {
 
-			var sortBySelection = (e.target.innerText=="Name") ? "recipe-name" : (e.target.innerText.includes("Level")) ? "Level" : e.target.innerText
-			var selectionText = (sortBySelection.includes("name")) ? "Name" : (sortBySelection.includes("Level")) ? "iLevel" : sortBySelection
-			$('#current_sort').text(selectionText)
+			var sortBySelection = (e.target.innerText == "Name") ? "recipe-name" : e.target.innerText
+			// var selectionText = (sortBySelection.includes("name")) ? "Name" : (sortBySelection.includes("Level")) ? "iLevel" : sortBySelection
+			$('#current_sort').text(e.target.innerText)
 			var sortingOrder = $("#sorting_order")
 			sortingOrder.removeClass('hidden').removeClass('untouchable')
 			$('#sorting').addClass("remove-carrat")
@@ -488,6 +496,12 @@ var monkeyList = {
 				order: 'desc'
 			});
 		});
+
+		var recipe_name_header = document.getElementById("recipe_name_header")
+
+		recipe_name_header.addEventListener("click", toggleSort)
+
+
 
 		$('#sorting_order').on('click', function(e) {
 
@@ -518,6 +532,7 @@ var monkeyList = {
 		$('#sorting').removeClass('remove-carrat')
 		$('#sorting_order').addClass('hidden').addClass('untouchable')
 		$('#current_sort').text('Sort')
+		document.getElementById("recipe_name_header").removeEventListener("click", toggleSort)
 	}
 }
 
@@ -703,27 +718,6 @@ function recipeHandlers() {
 		}
 		return
 	})
-
-	$(".change-page").on({
-		click: e => {
-			e.preventDefault()
-			let target = $(e.target)
-			var page = 1
-			if (target.text() == "»") {
-				page = parseInt($("span.current-page").text()) + 1
-			} else if (target.text() == "last »") {
-				page = $("span.last-page").text()
-			} else if (target.text() == "previous") {
-				page = parseInt($("span.current-page").text()) - 1
-			} else if (target.text() == "«") {
-				page = parseInt($("span.current-page").text()) - 1
-			} else {
-				page = target.text()
-			}
-			let selected = $(".prof-filter.selected").attr("id");
-			build_recipe_list(selected, '', page)
-		}
-	})
 }
 
 function sidebarHandlers() {
@@ -836,7 +830,7 @@ function getRecipeList(prof) {
 		addScript(prof, src, scriptLoaded, loadError)
 
 	} else {
-		buildRecipeList()
+		buildRecipeListNew()
 	}
 }
 
@@ -870,7 +864,7 @@ function scriptLoaded(prof) {
 	professionTool.RECIPES[prof] = recipes
 	professionTool.ITEMSETS = Object.assign(professionTool.ITEMSETS, itemsets)
 
-	buildRecipeList()
+	buildRecipeListNew()
 }
 
 function addScript(loadedVar, src, loadedCallback=scriptLoaded, errorCallback=loadError) {
@@ -885,11 +879,13 @@ function addScript(loadedVar, src, loadedCallback=scriptLoaded, errorCallback=lo
 	newScript.src = src
 }
 
+
+// NOTE: OLD
 function createRecipeElement(recipe, ix) {
 
 	var row = create_element('div', 'row')
 	var levelReq = (recipe.requirements) ? recipe.requirements.level : 1
-	var dataContainer = create_element('div', 'col-7 recipe-container data-container rarity level', '', '', {'data-ix': ix, 'data-quality': recipe.q, 'data-level': levelReq})
+	var dataContainer = create_element('div', 'col-7 recipe-container data-container rarity ilevel', '', '', {'data-ix': ix, 'data-quality': recipe.q, 'data-ilevel': levelReq})
 	dataContainer.name = recipe.n
 
 	row.appendChild(dataContainer)
@@ -954,8 +950,71 @@ function createRecipeElement(recipe, ix) {
 	return row
 }
 
+// NOTE: NEW
+function createRecipeElementNew(recipe, ix) {
+
+	var row = create_element('div', 'row')
+	var levelReq = (recipe.requirements) ? recipe.requirements.level : 1
+	var dataContainer = create_element('div', 'col-7 recipe-container data-container rarity ilevel', '', '', {'data-ix': ix, 'data-quality': recipe.q, 'data-ilevel': levelReq})
+	dataContainer.name = recipe.n
+
+	row.appendChild(dataContainer)
+
+	let imagePath = `${global.static_url}images/icons/large/${recipe.img}`
+
+	recipeImage = create_element('img', 'icon-medium recipe-image', '', '', {"data-src": imagePath})
+
+	dataContainer.appendChild(recipeImage)
+
+	if (recipe.step > 1) {
+		var stepContainer = create_element('span', 'count-container'),
+			div1 = create_element('span', 'step-amount', '', `${recipe.step}`),
+			div2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', recipe.step),
+			div3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', recipe.step),
+			div4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', recipe.step);
+
+		stepContainer.append(div1, div2, div3, div4)
+		dataContainer.appendChild(stepContainer)
+
+	}
+
+	var recipeNameSpan = create_element('span', `recipe-name q${recipe.q}`, '', recipe.n)
+	var reagantList = create_element('div', 'col-5 reagent-list')
+
+	dataContainer.appendChild(recipeNameSpan)
+	row.appendChild(reagantList)
+
+	for (let [matIX, matStep] of Object.entries(recipe.materials)) {
+
+		var mat = professionTool.ITEMS[matIX]
+		var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}`, '', '', {'data-ix': matIX})
+		matDataContainer.name = mat.n
+
+		reagantList.appendChild(matDataContainer)
+
+		let imagePath = `${global.static_url}images/icons/large/${mat.img}`;
+
+		matImage = create_element('img', 'icon-medium material-image', '', '', {"data-src": imagePath})
+
+		matDataContainer.appendChild(matImage)
+
+		if (matStep > 1) {
+			var countContainer = create_element('span', 'count-container'),
+				amountDiv1 = create_element('span', 'step-amount', '', matStep),
+				amountDiv2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', matStep),
+				amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', matStep),
+				amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', matStep);
+
+			countContainer.append(amountDiv1, amountDiv2, amountDiv3, amountDiv4)
+			matDataContainer.appendChild(countContainer)
+		}
+	}
+
+	return row
+}
 
 // adds recipes elements to the page
+// NOTE: OLD
 function addRecipes(n) {
 
 	var i = professionTool.recipeInd + n;
@@ -982,6 +1041,22 @@ function addRecipes(n) {
 	monkeyList.monkeyList.update()
 }
 
+//NOTE: NEW
+function addRecipesNew() {
+
+	var recipeListContainer = document.getElementById('list_container');
+	for (let [ix, recipe] of Object.entries(professionTool.RECIPES[professionTool.selected])) {
+		var row = createRecipeElementNew(recipe, ix)
+		var elemObserver = new IntersectionObserver(showImage, professionTool.observer.config);
+		elemObserver.observe(row);
+		recipeListContainer.appendChild(row)
+	}
+
+	monkeyList.monkeyList.reIndex()
+	monkeyList.monkeyList.update()
+}
+
+// NOTE: OLD
 function buildRecipeList() {
 	professionTool.recipeArr = Array.from(Object.entries(professionTool.RECIPES[professionTool.selected]))
 
@@ -991,36 +1066,41 @@ function buildRecipeList() {
 	addRecipes(viewportSize)
 }
 
-function showImage(entries, observer) {
+// NOTE: NEW
+function buildRecipeListNew() {
+	professionTool.recipeArr = Array.from(Object.entries(professionTool.RECIPES[professionTool.selected]))
 
-	for (var i = 0; i < entries.length; i++) {
-		var io = entries[i];
-		if (io.isIntersecting && io.intersectionRatio > 0) {
-			var image = io.target,
-				src = image.getAttribute("data-src"),
-				bg = image.getAttribute("data-bgimage"),
-				srcSet = image.getAttribute("data-srcset");
-
-			if (srcSet) {
-				image.setAttribute("srcset", srcSet);
-			}
-
-			if (src) {
-				image.setAttribute("src", src);
-			}
-
-			if (bg) {
-				image.style.backgroundImage = `url('${bg}.jpg')`
-			}
-
-			// Stop watching and load the image
-			observer.unobserve(io.target);
-
-		}
-	}
+	monkeyList.init()
+	// TODO: calculate how many recipe elements would fit into the viewport (use dynamic value)
+	var viewportSize = 15;
+	addRecipesNew()
 }
 
-var testIO;
+
+function showImage(entries, observer) {
+
+	entries.forEach(entry => {
+		if (entry.isIntersecting && entry.intersectionRatio > 0) {
+			var row = entry.target,
+				src = `${global.static_url}images/icon_border_2.png`;
+
+			// load the images
+			row.querySelectorAll("img").forEach(image => {
+				image.setAttribute("src", src);
+
+				bg = image.getAttribute("data-src");
+
+				if (bg) {
+					image.style.backgroundImage = `url('${bg}.jpg')`
+				}
+			})
+
+
+			// Stop watching
+			observer.unobserve(row);
+		}
+	})
+}
 
 function showElements(entries, observer) {
 

@@ -3,11 +3,6 @@
     color: azure;
 }
 
-.sidebar-header{
-    background-color: rgba(0, 0, 0, 0.6);
-    color: azure;
-}
-
 .sidebar-content{
     background-color: rgba(0, 0, 0, 0.4);
     text-align: left;
@@ -19,6 +14,7 @@
     font-size: 14px;
     color: #ff3604;
 }
+
 .sidebar-ref:hover{
     color: #FFCD55;
 }
@@ -314,5 +310,39 @@ a:hover{
 @media only screen and (max-width: 992px) {
     #search_bar {
         width: 150px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .selection-header>div:first-child {
+        padding-right: 0;
+    }
+
+    .selection-header>div:nth-child(2) {
+        flex-basis: 0;
+        padding-left: 0;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .h100 {
+        height: auto !important;
+    }
+
+    .filter-dropdown-container {
+        max-width: 300px;
+        width: 300px;
+    }
+    .filter-dropdown-container > div{
+        padding: 2px;
+    }
+    .filter-box {
+        padding: 0 3px;
+        overflow-x: hidden;
+    }
+    .selection-header>div:nth-child(2) {
+        flex-basis: 10%;
+        padding-left: 35px;
     }
 }

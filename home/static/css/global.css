@@ -20,8 +20,8 @@
 
 @media only screen and (min-width: 1600) {
     #mainBody {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 45px;
+        padding-right: 45px;
     }
 }
 
@@ -228,7 +228,6 @@ body.preload *{
     box-shadow: 0 4px 2px -4px #000000;
     margin: 0;
     padding-top: 0;
-    padding-bottom: 0;
     height: var(--navbar-height);
 }
 
@@ -1257,8 +1256,16 @@ button:focus {
 
 #saved_list_info {
     margin-top: 3em;
+    padding-top: 3em;
 }
 
-button {
+button, input {
     border-radius: 1px;
+}
+
+@media only screen and (min-width: 1600) {
+    #mainBody {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
 }

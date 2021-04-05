@@ -136,9 +136,10 @@ class IndexView(TemplateView):
 	template_name = "index.html"
 
 	def get(self, request, *args, **kwargs):
+		profs = [item.name for item in Profession.objects.only("name")]
 		context = {'rangen': range(5), 'specs': Spec.objects.all(),
 			'wowclasses': WoWClass.objects.all(), 'tags': Tag.objects.all(),
-			'consume_lists': ConsumeList.objects.all()
+			'consume_lists': ConsumeList.objects.all(), 'professions': profs
 		}
 
 		return render(request, self.template_name, context)
