@@ -15,9 +15,9 @@
 
     {% for prof in professions %}
     <a class="prof-filter{% comment %}{% if prof == selected %} selected{% endif %}{% endcomment %}{% if prof == 'herbalism' or prof == 'fishing' or prof == 'skinning' %} disabled{% endif %}" id="{{prof}}"
-        href="{% url 'recipes' prof|default:"alchemy" %}">
+        href="{% url 'recipes' prof|default:"alchemy" %}" role="button" aria-label="{{prof}} recipes">
         {% with "images/icons/large/professions/"|add:prof|add:".jpg" as prof_image %}
-        <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}">
+        <img class="prof-icon {{prof}}" src="{% static "images/icon_border_2.png" %}" alt="World of Warcraft Classic, {{prof}}">
         {% endwith %}
     </a>
     {% endfor %}

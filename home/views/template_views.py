@@ -233,6 +233,7 @@ class TalentCalcTemplate(TemplateView):
 					message = "Successfully {} spec!".format(saved_or_updated)
 					data = {
 						'name': form_data['name'],
+						'uid': request.user.uid,
 						'created': form_data['created'],
 						'wow_class': form_data['wow_class'],
 						'spent': form_data['spent'],
@@ -481,21 +482,17 @@ class ConsumeToolTemplate(TemplateView):
 
 						update_or_create = 'created' if form_data['created'] else 'updated'
 						message = "Successfully {} list: {}".format(update_or_create, form_data['name'])
+						username = request.user.disc_username if not form_data['private'] else 'anonymous'
 						data = {
-							'name': form_data['name'],
-							'spent': form_data['spent'],
-							'hash': form_data['hash'],
-							'created': form_data['created'],
-							'message': message,
-							'id': form_data['id']
+							'name': form_data['name'], 'uid': request.user.uid,
+							'description': form_data['description'], 'spent': form_data['spent'],
+							'updated': form_data['updated'], 'hash': form_data['hash'],
+							'created': form_data['created'], 'message': message,
+							'id': form_data['id'], 'img': form_data['img'],
+							'profs': form_data['profs'], 'tags': form_data['tags'],
+							'username': username
 						}
-						consume_list = ConsumeList.objects.filter(id=form_data['id'], hash=form_data['hash'])
-						if consume_list:
-							consume_list = consume_list.first()
-							data['img'] = consume_list.img
-							profs_used = consume_list.profs_used[0]
 
-							data['profs'] = profs_used
 
 						response = JsonResponse(data)
 					except IntegrityError as e:
@@ -627,10 +624,7 @@ class ConsumeToolTemplate(TemplateView):
 
 		for x in spent:
 			y = x.split(',')
-
-			ix = y[0]
-			amount = y[1]
-			consumes[ix] = amount
+			consumes[y[0]] = y[1]
 
 
 		data['name'] = name
@@ -644,36 +638,27 @@ class ConsumeToolTemplate(TemplateView):
 			}
 		)
 
-		data['id'] = c_list.id
-		hash = secrets.token_hex(5)
+		data.update({'updated': c_list.updated, 'id': c_list.id, 'img': c_list.img,
+			'profs':c_list.profs_used[0], 'hash': c_list.hash, 'created': cl_created,
+			'tags': [x.name for x in c_list.tags.all()], 'private': c_list.private
+		})
 
-		if cl_created:
-
-			while hash in ConsumeList.objects.all().values_list('hash', flat=True):
-				hash = secrets.token_hex(5)
-
-			c_list.hash = hash
-
-		data['hash'] = c_list.hash
-
-		data['created'] = True if cl_created else False
-
+		c_list.tags.clear()
 		for tag in tags:
 			t,tag_created = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
-			if tag_created or t not in c_list.tags.all():
-				c_list.tags.add(t)
-				c_list.save()
+			c_list.tags.add(t)
+			c_list.save()
 
 
+		c_list.consumes.clear()
 		for ix,amount in consumes.items():
 			crafted = Crafted.objects.get(item__ix=ix)
 			c,cons_created = Consume.objects.update_or_create(
-				amount=amount, consume_list=c_list, item=crafted,
-				defaults={'amount':amount, 'consume_list':c_list, 'item':crafted}
+				consume_list=c_list, item=crafted,
+				defaults={'amount':amount}
 			)
-			if cons_created:
-				c_list.consumes.add(c)
 
+			c_list.consumes.add(c)
 			c_list.save()
 
 

@@ -595,16 +595,10 @@ function loadSavedLists(data) {
 
 		ratingsCount.append(ratingsCountElem)
 
-		var createdBy = create_element('span', '', '', 'Created by ')
-		dateCreatedContainer.appendChild(createdBy)
+		var createdBy = create_element('span', '', '', "Created by ")
+		var userNameSpan = create_element('span', 'fix-me', '', savedList.username)
 
-		var createdByUser = create_element('a', '', '', savedList.disc_username)
-		createdByUser.href = ''
-		createdByUser.addEventListener('click', function(e) {
-			e.preventDefault()
-		})
-
-		dateCreatedContainer.appendChild(createdByUser)
+		dateCreatedContainer.append(createdBy, userNameSpan)
 		var dateTime = new Date(savedList.created)
 
 		var createdOn = create_element('span', 'created', '', ` on ${dateTime.toLocaleString()}`)

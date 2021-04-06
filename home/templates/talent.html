@@ -22,9 +22,9 @@
 {% block class_selection %}
 <div class="row class-selection sticky-top" id="class_selection">
 	{% for class in classes %}
-	<a class="class-filter {% if class == selected %}selected{% endif %}" id="{{class}}">
+	<a class="class-filter {% if class == selected %}selected{% endif %}" id="{{class}}" aria-label="{{class}} talent trees" role="button">
 		{% with "images/icons/large/class/"|add:class|add:".jpg" as class_image %}
-		<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}">
+		<img class="class-icon {{class}}" src="{% static "images/icon_border_2.png" %}" alt="World of Warcraft Classic, {{class}} talent trees">
 		{% endwith %}
 	</a>
 	{% endfor %}

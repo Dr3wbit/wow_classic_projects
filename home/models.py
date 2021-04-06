@@ -605,7 +605,7 @@ class Zone(models.Model):
 
 from home.signals import set_profession_name, set_school_name, set_slot, set_proficiency
 from home.signals import savedlist_profanity_filter, clear_sidebar_cache, savedlist_limit
-from home.signals import no_empty_consumes
+from home.signals import no_empty_consumes, generate_hash
 
 # class Faction(models.Model):
 # 	ALLY,HORDE,NEUTRAL = 1,2,3

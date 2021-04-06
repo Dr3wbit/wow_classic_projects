@@ -89,11 +89,6 @@ function toggleSidebar(forceMin=undefined) {
 	var customSaves = document.getElementById("custom-saves")
 	customSaves.classList.toggle("expanded", !toggled);
 
-	if (window.window.innerWidth > 992) {
-		// document.getElementById("mainBody").classList.toggle("depad", toggled)
-		// document.getElementById("mainBody").classList.toggle("padleft", !toggled)
-	}
-
 	return toggled
 }
 

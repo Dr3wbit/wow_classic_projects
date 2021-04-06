@@ -13,57 +13,7 @@ def clear_cache_item(request):
 	status_code = 404
 	pass
 
-# OLD
-# @cache_page(60*5)
-# def consume_list_builder(request):
-# 	status_code = 404
-# 	data = {'consume_list':{}, 'material_list':{}, 'list_info':{}}
-# 	hash = request.GET.get('hash', None)
-# 	qs = request.META.get('QUERY_STRING', None)
-# 	if hash:
-#
-# 		hash = hash.replace("?", "")
-# 		if ConsumeList.objects.filter(hash=hash):
-#
-# 			status_code = 200
-# 			cl = ConsumeList.objects.filter(hash=hash).first()
-# 			data['list_info'] = {'name': cl.name, 'user': cl.user.disc_username,
-# 				'description': cl.description, 'updated':cl.updated,
-# 				'tags': [x.name for x in cl.tags.all()]
-# 			}
-#
-# 			for consume in cl.consumes.all():
-# 				crafted = Crafted.objects.get(item__ix=consume.ix)
-#
-# 				data['consume_list'][consume.ix] = get_item_info(consume.ix, True)
-#
-# 				data['consume_list'][consume.ix].update({
-# 					'amount': consume.amount/crafted.step, 'step': crafted.step,
-# 					'materials': get_materials(consume.ix)
-# 				})
-#
-# 				for mat in consume.mats:
-# 					if mat.item.ix not in data['material_list'].keys():
-#
-# 						data['material_list'][mat.item.ix] = get_item_info(mat.item.ix, True)
-#
-# 						data['material_list'][mat.item.ix]['amount'] = consume.amount*mat.amount
-#
-# 						if Crafted.objects.filter(item__ix=mat.item.ix):
-# 							data['material_list'][mat.item.ix]['materials'] = get_materials(mat.item.ix)
-#
-# 					else:
-# 						data['material_list'][mat.item.ix]['amount'] += consume.amount*mat.amount
 
-
-
-
-	# response = JsonResponse(data, safe=False)
-	# response.status_code = status_code
-
-	# return response
-
-# NEW
 def consume_list_builder(request):
 	status_code = 404
 	data = {'recipes':{}, 'crafted':{}, 'items': {}, 'list_info':{}}
@@ -85,7 +35,7 @@ def consume_list_builder(request):
 
 			status_code = 200
 			cl = ConsumeList.objects.filter(hash=hash).first()
-			data['list_info'] = {'name': cl.name, 'user': cl.user.disc_username,
+			data['list_info'] = {'name': cl.name, 'user': cl.user.disc_username if not cl.private else 'anonymous',
 				'description': cl.description, 'updated':cl.updated,
 				'tags': [x.name for x in cl.tags.all()]
 			}
@@ -98,20 +48,6 @@ def consume_list_builder(request):
 				data['recipes'][consume.ix] = get_materials(consume.ix)
 
 				add_recipes_and_items([x for x in consume.mats.values_list('item__ix', flat=True)])
-
-				# mats = [x for x in consume.mats.values_list('item__ix', flat=True)]
-				# for mat_ix in mats:
-				# 	if mat_ix not in data['items'].keys():
-				# 		data['items'][mat_ix] = get_item_info(mat_ix, True)
-				#
-				# 		if Crafted.objects.filter(item__ix=mat_ix) and mat_ix not in data['recipes'].keys():
-				# 			data['recipes'][mat_ix] = get_materials(mat_ix)
-				#
-				# 			for ix in data['recipes'][mat_ix].keys():
-				# 				if ix not in data['items'].keys():
-				# 					data['items'][ix] = get_item_info(ix, True)
-				# 					if Crafted.objects.filter(item__ix=ix) and ix not in data['recipes'].keys():
-				# 						data['recipes'][ix] = get_materials(ix)
 
 
 
@@ -134,6 +70,7 @@ def get_materials(ix):
 
 def get_spec_info(request):
 	status_code = 404
+	print(request.GET)
 	data = {'hash': request.GET.get('hash', None), 'wow_class': request.GET.get('wow_class', None),
 		'list_info': {}, 'uid': request.GET.get('uid', None)
 	}
@@ -182,7 +119,7 @@ def get_saved_lists(request):
 			'description': list_item.description, 'name': list_item.name,
 			'rating': list_item.rating, 'created': list_item.created,
 			'private': list_item.private, 'hash': list_item.hash,
-			'disc_username': list_item.user.disc_username,
+			'username': list_item.user.disc_username if not list_item.private else 'anonymous',
 			'voted': (list_item.has_voted(request.user.email)) if hasattr(request.user, 'email') else False,
 			'can_vote': True if (request.user.is_authenticated and ((not list_item.has_voted(request.user.email)) and (list_item.user != request.user))) else False,
 			'ratings_count': list_item.ratings.count(), 'tags': [x.name for x in list_item.tags.all()]

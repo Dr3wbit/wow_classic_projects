@@ -2,7 +2,7 @@ from django.db.models.signals import pre_save, post_save, post_init, post_delete
 from django.core.exceptions import PermissionDenied, ValidationError
 from home.models import ConsumeList, Spec, User, Profession, School, Item
 from django.dispatch import receiver
-import re
+import re, secrets
 from django.core.cache import cache
 from django.core.cache.utils import make_template_fragment_key
 
@@ -18,11 +18,21 @@ def savedlist_limit(sender, instance, **kwargs):
 	if instance.img == 'samwise':
 		instance.img = "class/"+instance.wow_class.name.lower()+".jpg" if sender == Spec else 'inv_misc_book_09.jpg'
 
-@receiver(pre_save, sender=ConsumeList, weak=False)
-def no_empty_consumes(sender, instance, **kwargs):
+@receiver(post_save, sender=ConsumeList, weak=False)
+def no_empty_consumes(sender, instance, created, **kwargs):
 	for consume in instance.consumes.all():
 		if consume.amount <= 0:
 			consume.delete()
+
+@receiver(post_save, sender=ConsumeList, weak=False)
+def generate_hash(sender, instance, created, **kwargs):
+	if created:
+		hash = secrets.token_hex(5)
+		while hash in ConsumeList.objects.all().values_list('hash', flat=True):
+			hash = secrets.token_hex(5)
+		instance.hash = hash
+
+
 
 @receiver(post_delete, sender=Spec, weak=False)
 @receiver(post_delete, sender=ConsumeList, weak=False)

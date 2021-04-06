@@ -5,9 +5,9 @@ $(document).ready(function() {
 
 window.addEventListener('load', function(e) {
 	// figure out which profession(if any) is in the url
-	var selectedProfession = professionTool.PROFS.filter(substring => document.location.pathname.includes(substring))
-	if (selectedProfession.length) { // simulate click on said profession
-		document.querySelector(`#${selectedProfession[0]}.prof-filter`).click()
+	var selectedProfession = professionTool.PROFS.find(substring => document.location.pathname.includes(substring))
+	if (selectedProfession) { // simulate click on said profession
+		document.querySelector(`#${selectedProfession}.prof-filter`).click()
 	}
 
 	if (document.location.search) {
@@ -55,7 +55,7 @@ var professionTool = {
 			// TODO: adjust and make dependent on screensize
 			root: document.querySelector('#recipe_list'),
 	    	rootMargin: '200px',
-	    	threshold: 0.5
+	    	threshold: 0.1
 		}
 	},
 	selected: '',
@@ -105,6 +105,7 @@ var professionTool = {
 				amountSpan = create_element('span', 'fix-me', '', amount),
 				checkbox = create_element('input', 'check-list', '', '', {"type": "checkbox"});
 
+			img.alt = item.n
 			img.src = `${global.static_url}images/icon_border_2.png`
 
 			if (isMaterialsList && professionTool.RECIPES.ALL[ix]) {
@@ -131,6 +132,7 @@ var professionTool = {
 						checkbox = create_element('input', 'check-list', '', '', {"type": "checkbox"});
 
 					img.src = `${global.static_url}images/icon_border_2.png`
+					img.alt = matItem.n
 
 					trCollapse.append(td1, td2, td3, td4, td5)
 
@@ -196,32 +198,47 @@ function updateListInfo(data={}) {
 	if (data.list_info) {
 
 		if (data.list_info.name) {
+			if (document.querySelector("#id_name")) {
+				document.querySelector("#id_name").value = data.list_info.name
+			}
 			var title = create_element('h1', '', '', data.list_info.name)
 			listInfoContainer.appendChild(title)
 		}
 
 		if (data.list_info.tags) {
 			data.list_info.tags.forEach(function(tag) {
+				var checkBox = document.querySelector(`input[value='${tag}'][type='checkbox']`)
+				if (checkBox) {
+					checkBox.checked = true
+				}
+
 				var tagElem = create_element('div', 'feed-tag', '', tag)
 				listInfoContainer.appendChild(tagElem)
 			})
 		}
 
 		if (data.list_info.description) {
+
 			var description = create_element('h5', 'mt-3', '', data.list_info.description)
 			listInfoContainer.appendChild(description)
+			if (document.querySelector("#id_description")) {
+				document.querySelector("#id_description").value = data.list_info.description
+			}
 		}
 
 		if (data.list_info.updated) {
-
 			var date = new Date(data.list_info.updated)
 			var lastUpdateContainer = create_element('div', 'mt-3', '', 'Last updated: '),
 				lastUpdate = create_element('span', 'fix-me last-update', '', date.toLocaleString()),
 				textContent = document.createTextNode(' by '),
-				userName = create_element('span', 'fix-me user-tag', '', data.list_info.user),
+				userNameSpan = create_element('span', 'fix-me user-tag', '', data.list_info.user),
 				newLine = create_element('br')
 
-			lastUpdateContainer.append(lastUpdate, textContent, userName, newLine)
+			if (document.querySelector("#id_private")) {
+				document.querySelector("#id_private").checked = (data.list_info.user == 'anonymous')
+			}
+
+			lastUpdateContainer.append(lastUpdate, textContent, userNameSpan, newLine)
 			listInfoContainer.appendChild(lastUpdateContainer)
 		}
 	} else {
@@ -880,78 +897,7 @@ function addScript(loadedVar, src, loadedCallback=scriptLoaded, errorCallback=lo
 }
 
 
-// NOTE: OLD
 function createRecipeElement(recipe, ix) {
-
-	var row = create_element('div', 'row')
-	var levelReq = (recipe.requirements) ? recipe.requirements.level : 1
-	var dataContainer = create_element('div', 'col-7 recipe-container data-container rarity ilevel', '', '', {'data-ix': ix, 'data-quality': recipe.q, 'data-ilevel': levelReq})
-	dataContainer.name = recipe.n
-
-	row.appendChild(dataContainer)
-
-	var imagePath = `${global.static_url}images/icons/large/${recipe.img}`,
-		recipeImage;
-
-	recipeImage = create_element('img', 'icon-medium recipe-image', `background-image: url('${imagePath}.jpg')`)
-	// recipeImage = create_element('img', 'icon-medium recipe-image', `background-image: url('${imagePath}.jpg')`, '', {'loading':'lazy'})
-
-	recipeImage.src = `${global.static_url}images/icon_border_2.png`
-
-	dataContainer.appendChild(recipeImage)
-
-	if (recipe.step > 1) {
-		var stepContainer = create_element('span', 'count-container'),
-			div1 = create_element('span', 'step-amount', '', `${recipe.step}`),
-			div2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', recipe.step),
-			div3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', recipe.step),
-			div4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', recipe.step);
-
-		stepContainer.append(div1, div2, div3, div4)
-		dataContainer.appendChild(stepContainer)
-
-	}
-
-	var recipeNameSpan = create_element('span', `recipe-name q${recipe.q}`, '', recipe.n)
-	var reagantList = create_element('div', 'col-5 reagent-list')
-
-	dataContainer.appendChild(recipeNameSpan)
-	row.appendChild(reagantList)
-
-	for (let [matIX, step] of Object.entries(recipe.materials)) {
-
-		var mat = professionTool.ITEMS[matIX]
-		var matDataContainer = create_element('div', `reagent-list-container data-container q${mat.q}`, '', '', {'data-ix': matIX})
-		matDataContainer.name = mat.n
-
-		reagantList.appendChild(matDataContainer)
-
-		var imagePath = `${global.static_url}images/icons/large/${mat.img}`,
-			matImage;
-
-		// matImage = create_element('img', 'icon-medium material-image', `background-image: url('${imagePath}.jpg')`, '', {'loading':'lazy'})
-		matImage = create_element('img', 'icon-medium material-image', `background-image: url('${imagePath}.jpg')`)
-
-		matImage.src = `${global.static_url}images/icon_border_2.png`
-		matDataContainer.appendChild(matImage)
-
-		if (step > 1) {
-			var countContainer = create_element('span', 'count-container'),
-				amountDiv1 = create_element('span', 'step-amount', '', step),
-				amountDiv2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', step),
-				amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', step),
-				amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', step);
-
-			countContainer.append(amountDiv1, amountDiv2, amountDiv3, amountDiv4)
-			matDataContainer.appendChild(countContainer)
-		}
-	}
-
-	return row
-}
-
-// NOTE: NEW
-function createRecipeElementNew(recipe, ix) {
 
 	var row = create_element('div', 'row')
 	var levelReq = (recipe.requirements) ? recipe.requirements.level : 1
@@ -963,17 +909,14 @@ function createRecipeElementNew(recipe, ix) {
 	let imagePath = `${global.static_url}images/icons/large/${recipe.img}`
 
 	recipeImage = create_element('img', 'icon-medium recipe-image', '', '', {"data-src": imagePath})
+	recipeImage.alt = recipe.n
 
 	dataContainer.appendChild(recipeImage)
 
 	if (recipe.step > 1) {
-		var stepContainer = create_element('span', 'count-container'),
-			div1 = create_element('span', 'step-amount', '', `${recipe.step}`),
-			div2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', recipe.step),
-			div3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', recipe.step),
-			div4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', recipe.step);
 
-		stepContainer.append(div1, div2, div3, div4)
+
+		let stepContainer = stepCreator(recipe.step)
 		dataContainer.appendChild(stepContainer)
 
 	}
@@ -996,57 +939,35 @@ function createRecipeElementNew(recipe, ix) {
 
 		matImage = create_element('img', 'icon-medium material-image', '', '', {"data-src": imagePath})
 
+		matImage.alt = mat.n
 		matDataContainer.appendChild(matImage)
 
 		if (matStep > 1) {
-			var countContainer = create_element('span', 'count-container'),
-				amountDiv1 = create_element('span', 'step-amount', '', matStep),
-				amountDiv2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', matStep),
-				amountDiv3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', matStep),
-				amountDiv4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', matStep);
-
-			countContainer.append(amountDiv1, amountDiv2, amountDiv3, amountDiv4)
-			matDataContainer.appendChild(countContainer)
+			let stepContainer = stepCreator(matStep)
+			matDataContainer.appendChild(stepContainer)
 		}
 	}
 
 	return row
 }
 
-// adds recipes elements to the page
-// NOTE: OLD
-function addRecipes(n) {
+function stepCreator(step) {
+	var stepContainer = create_element('span', 'count-container'),
+		div1 = create_element('span', 'step-amount', '', `${step}`),
+		div2 = create_element('span', 'step-amount', 'color:black; bottom:1px; z-index:4;', step),
+		div3 = create_element('span', 'step-amount', 'rgba(0,0,0,.9); bottom:2px; z-index:4;', step),
+		div4 = create_element('span', 'step-amount', 'color:black; right:2px; z-index:4;', step);
 
-	var i = professionTool.recipeInd + n;
-	var recipeListContainer = document.getElementById('list_container');
+	stepContainer.append(div1, div2, div3, div4)
+	return stepContainer
 
-	for (professionTool.recipeInd; professionTool.recipeInd < i; professionTool.recipeInd++) {
-		if (professionTool.recipeInd >= professionTool.recipeArr.length) {
-			break
-		}
-		var recipe = professionTool.recipeArr[professionTool.recipeInd][1],
-			ix = professionTool.recipeArr[professionTool.recipeInd][0];
-
-		var row = createRecipeElement(recipe, ix)
-
-		if (professionTool.recipeInd == i-1) {
-			var elemObserver = new IntersectionObserver(showElements, professionTool.observer.config);
-			elemObserver.observe(row);
-		}
-
-		recipeListContainer.appendChild(row)
-	}
-
-	monkeyList.monkeyList.reIndex()
-	monkeyList.monkeyList.update()
 }
-
-//NOTE: NEW
-function addRecipesNew() {
+// adds recipes elements to the page
+function addRecipes() {
 
 	var recipeListContainer = document.getElementById('list_container');
 	for (let [ix, recipe] of Object.entries(professionTool.RECIPES[professionTool.selected])) {
-		var row = createRecipeElementNew(recipe, ix)
+		var row = createRecipeElement(recipe, ix)
 		var elemObserver = new IntersectionObserver(showImage, professionTool.observer.config);
 		elemObserver.observe(row);
 		recipeListContainer.appendChild(row)
@@ -1072,8 +993,7 @@ function buildRecipeListNew() {
 
 	monkeyList.init()
 	// TODO: calculate how many recipe elements would fit into the viewport (use dynamic value)
-	var viewportSize = 15;
-	addRecipesNew()
+	addRecipes()
 }
 
 
