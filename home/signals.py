@@ -39,10 +39,10 @@ def generate_hash(sender, instance, created, **kwargs):
 @receiver(post_save, sender=Spec, weak=False)
 @receiver(post_save, sender=ConsumeList, weak=False)
 def clear_sidebar_cache(sender, instance, created=True, **kwargs):
-	if created:
-		user = instance.user
-		key = make_template_fragment_key('sidebar', [user.uid])
-		cache.delete(key)
+
+	user = instance.user
+	key = make_template_fragment_key('sidebar', [user.uid])
+	cache.delete(key)
 
 @receiver(post_save, sender=Spec, weak=False)
 @receiver(post_save, sender=ConsumeList, weak=False)

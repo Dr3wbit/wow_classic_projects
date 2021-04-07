@@ -174,94 +174,10 @@ function toolTipMouseover(e) {
 	}
 }
 
-function removeElements(parent, options={}) {
-
-	while (parent.firstChild) {
-		parent.removeChild(parent.firstChild);
-	}
-
-	if (options.includeParent) {
-		parent.remove()
-	}
-}
-
 function clearCraftedList() {
 	for (let [ix, amount] of Object.entries(professionTool.CONSUMES)) {
 		updateCraftedAmount(ix, amount*-1)
 	}
-}
-
-function updateListInfo(data={}) {
-	var listInfoContainer = document.getElementById('saved_list_info')
-	removeElements(listInfoContainer)
-
-	if (data.list_info) {
-
-		if (data.list_info.name) {
-			if (document.querySelector("#id_name")) {
-				document.querySelector("#id_name").value = data.list_info.name
-			}
-			var title = create_element('h1', '', '', data.list_info.name)
-			listInfoContainer.appendChild(title)
-		}
-
-		if (data.list_info.tags) {
-			data.list_info.tags.forEach(function(tag) {
-				var checkBox = document.querySelector(`input[value='${tag}'][type='checkbox']`)
-				if (checkBox) {
-					checkBox.checked = true
-				}
-
-				var tagElem = create_element('div', 'feed-tag', '', tag)
-				listInfoContainer.appendChild(tagElem)
-			})
-		}
-
-		if (data.list_info.description) {
-
-			var description = create_element('h5', 'mt-3', '', data.list_info.description)
-			listInfoContainer.appendChild(description)
-			if (document.querySelector("#id_description")) {
-				document.querySelector("#id_description").value = data.list_info.description
-			}
-		}
-
-		if (data.list_info.updated) {
-			var date = new Date(data.list_info.updated)
-			var lastUpdateContainer = create_element('div', 'mt-3', '', 'Last updated: '),
-				lastUpdate = create_element('span', 'fix-me last-update', '', date.toLocaleString()),
-				textContent = document.createTextNode(' by '),
-				userNameSpan = create_element('span', 'fix-me user-tag', '', data.list_info.user),
-				newLine = create_element('br')
-
-			if (document.querySelector("#id_private")) {
-				document.querySelector("#id_private").checked = (data.list_info.user == 'anonymous')
-			}
-
-			lastUpdateContainer.append(lastUpdate, textContent, userNameSpan, newLine)
-			listInfoContainer.appendChild(lastUpdateContainer)
-		}
-	} else {
-		var descriptionText = "Want to share this list with others? Save it using the form below and a link will be generated"
-		var description = create_element('h5', 'mt-3', 'margin-bottom: 1rem', descriptionText)
-		listInfoContainer.appendChild(description)
-	}
-
-	var row = create_element('div', 'row')
-	listInfoContainer.appendChild(row)
-
-	var craftedTableContainer = create_element('div', 'col-lg-4 offset-lg-2 col-md-6 col-sm-6')
-	var craftedTable = professionTool.createTable('Crafted Items', professionTool.CONSUMES)
-
-	row.appendChild(craftedTableContainer)
-	craftedTableContainer.appendChild(craftedTable)
-
-	var materialTableContainer = create_element('div', 'col-lg-4 col-md-6 col-sm-6')
-	var materialTable = professionTool.createTable('Total Materials', professionTool.MATERIALS)
-
-	row.appendChild(materialTableContainer)
-	materialTableContainer.appendChild(materialTable)
-	listInfoHandlers()
 }
 
 function getCraftedList(url) {
@@ -324,8 +240,6 @@ function updateMaterialsAmount(consumeIX, consumeAmount) {
 		}
 	}
 }
-
-
 
 // adds or updates consume elements and materials elements on page
 function addOrUpdateElements(consumeIX) {
@@ -577,7 +491,7 @@ function professionToolHandlers() {
 	})
 }
 
-function listInfoHandlers() {
+function itemChecklistHandlers() {
 
 	function checkBoxHandler(e) {
 		if (e.target.matches(".check-list")) {

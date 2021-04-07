@@ -9,6 +9,7 @@ function saveFormHandlers() {
     	submit: e => {
             e.preventDefault()
     		if (window.location.pathname.includes("talent_calc")) {
+                //
     		} else {
     			if (Object.keys(professionTool.CONSUMES) < 1) {
     				alert('cant save empty list idiot')
@@ -20,7 +21,6 @@ function saveFormHandlers() {
     		var violations = oversized_words()
 
     		if (violations.length) {
-    			//NOTE DO A MESSAGE
     			var message = (violations.length > 1) ? `Unable to save list, the following ${violations.length} words are too long:\n` : `Unable to save list, the following word is too long:\n`
 
     			message += violations.join('\n')
@@ -33,7 +33,7 @@ function saveFormHandlers() {
             var description = form.querySelector('#id_description').value
             var name = form.querySelector('#id_name').value
 
-            name = name.split(/\s+/).join(' ').trim() //removes excess white space
+            name = name.split(/\s+/).join(' ').trim()
             description = description.split(/\s+/).join(' ').trim()
 
             form.querySelector('#id_description').value = description
@@ -78,11 +78,27 @@ function oversized_words(max_length = 20) {
 function savedListSuccess(data, textStatus, jqXHR) {
     console.log("DATA: \n", data)
 
-	if (data.created) {
+	if (data.created || !data.list_info) {
         data.list_info = {'name': data.name, 'tags': data.tags, 'description':data.description,
             'updated': data.updated, 'user': data.username
         }
-        appendSavedList(data)
+
+        // check if savedList exists on page via name
+        let savedList = document.querySelector(`.spec-list-item[name='${data.name}']`)
+        if (savedList && data.wow_class) {
+            // edit if so
+            savedList.classList.toggle("selected", true);
+            let savedListLink = savedList.querySelector("a.saved-list-link")
+            savedListLink.href = `/talent_calc/${data.wow_class}?u=${data.uid}&${data.hash}`
+            let specInfo = savedList.closest(".spec-container").querySelector(".spec-info")
+            specInfo.querySelectorAll('span')[0].className = `wow-class ${data.wow_class.toLowerCase()}`
+            specInfo.querySelectorAll('span')[0].innerText = titleCase(data.wow_class)
+            specInfo.querySelectorAll('span')[1].innerText = pointsSpentTotal()
+        } else {
+            // else add it
+            appendSavedList(data)
+        }
+
 	}
 
     updateListInfo(data)
@@ -93,6 +109,9 @@ function savedListSuccess(data, textStatus, jqXHR) {
             var hash = `?${data.hash}`
             updateURL("/profession_tool", prof, hash, {prof:prof})
         }
+    } else {
+        let search = `?u=${data.uid}&${data.hash}`
+        updateURL("/talent_calc", data.wow_class, search)
     }
 	var message = data['message']
 	notifyUser(message)

@@ -29,8 +29,13 @@
 					{% if user.is_authenticated %}
 					{% cache 500 userauth user.uid %}
 					<div class="dropdown show">
-						  <a class="nav-link" id="discord-avatar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <a class="nav-link" id="discord-avatar" role="button" title="Logged in as {{user.disc_username}}{{user.tag}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							  {% if user.avatar %}
 							  <img style="background-image: url(https://cdn.discordapp.com/avatars/{{user.uid}}/{{user.avatar}}.jpg?size=128);">
+							  {% else %}
+							  {% load modulo_5 from custom_filters %}
+							  <img style="background-image: url(https://cdn.discordapp.com/embed/avatars/{% modulo_5 user.tag %}.png?size=128);">
+							  {% endif %}
 						  </a>
 						  <div class="dropdown-menu menu-left login-dropdown" aria-labelledby="discord-avatar">
 						    <div class="dropdown-item d-inline-flex flex-row" style="padding:0;">

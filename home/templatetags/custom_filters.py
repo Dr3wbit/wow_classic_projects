@@ -38,3 +38,7 @@ def has_voted(id, email, spec):
 		saved_list = ConsumeList.objects.get(id=id)
 
 	return saved_list.has_voted(email)
+
+@register.simple_tag
+def modulo_5(num):
+	return str(int(num) % 5)

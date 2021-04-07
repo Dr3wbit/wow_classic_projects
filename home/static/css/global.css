@@ -84,6 +84,7 @@ body.preload *{
     vertical-align: top;
     /* padding-left: 265px; */
     /* transition: padding-left 0.5s ease; */
+    margin-bottom: 50px;
 }
 
 
@@ -1136,11 +1137,11 @@ button:focus {
     height: calc(var(--secondary-navbar-height) - 1vh);
     border-radius: 50%;
     /* margin-top: 0.5vh; */
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 #discord-avatar>img:hover {
-    border: 1px solid var(--merrigold);
+    border: 2px solid var(--merrigold);
 }
 
 .nav-item:last-child {
@@ -1261,11 +1262,4 @@ button:focus {
 
 button, input {
     border-radius: 1px;
-}
-
-@media only screen and (min-width: 1600) {
-    #mainBody {
-        padding-left: 45px;
-        padding-right: 45px;
-    }
 }

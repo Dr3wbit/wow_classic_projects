@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block extra_head %}
-{% load cache %}
 <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/stars.css" %}">
 {% endblock extra_head %}
@@ -12,7 +11,6 @@
 {% block mainbody %}
     <div class="row selection-header sticky-top justify-content-start">
 
-                {# cache 1 index_dropdown_filters #}
                 <div class="col-xl-5 col-md-5 col-12 h100">
                     <div class="dropdown secondary-navbar-item h100" style="border-right: 1px solid black; padding-right: 2px;">
                         <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle bg-hover-gray navlink h100" role="button"
@@ -52,7 +50,6 @@
                             </div>
                         </div>
                     </div>
-                    {# endcache #}
 
                     <div class="dropdown secondary-navbar-item h100" style="border-right: 1px solid black; padding-right: 2px;">
                         <a id="paginator" class="btn btn-sm dropdown-toggle bg-hover-gray navlink h100" role="button" title='Items per page'

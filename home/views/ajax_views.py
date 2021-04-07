@@ -107,7 +107,7 @@ def get_basic_item_info(item):
 def set_pagination(request):
 	pass
 
-@cache_page(60*5) #cache for 5mins
+@cache_page(60) #cache for 1min
 def get_saved_lists(request):
 	data = {'saved_lists': []}
 	specs = Spec.objects.exclude(visible=False)
@@ -346,128 +346,6 @@ def savedlist_info(request):
 		html = render_to_string("info_display.html", context)
 		return HttpResponse(html)
 
-
-
-def query_saved_lists(request):
-
-	context = {}
-	context['rangen'] = range(5)
-	# specs = Spec.objects.all()
-	# consume_lists = ConsumeList.objects.all()
-
-	data = dict(request.GET)
-	reverse = data.get('reverse', False)
-	# prof_filters = request.GET.get('prof_filters', None)
-	# class_filters = request.GET.get('class_filters', None)
-	tags = data.get('tags', None)
-	sorting = data.get('sorting', None)
-	combined = data.get('combined', None)
-	query = data.get('query', None)
-	specs = ''
-	consume_lists = ''
-	if tags:
-		# NOTE: and(&&):
-		# print('tags: ', tags)
-		# specs = set(specs.filter(tags__name__in=tags).filter(wow_class__name__in=tags))
-		# consume_lists = set(consume_lists.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
-
-		# NOTE: or(||):
-		# filtering specs in the database by tag name
-		specs = Spec.objects.filter(Q(tags__name__in=tags) | Q(wow_class__name__in=tags))
-
-		consume_lists = ConsumeList.objects.filter(Q(tags__name__in=tags) | Q(consume__item__profession__name__in=tags))
-		# consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__profession__name__in=tags))
-
-
-	if query:
-		search_re = ''
-		for i,term in enumerate(query):
-			if term != query[-1]:
-				search_re = search_re+"{}|".format(term)
-			else:
-				search_re = search_re+"{}".format(term)
-
-		search_regex = r"({})+".format(search_re)
-
-		# qs = [x.lower() for x in qs]
-		# print("qs: ", query)
-		# print("search_regex: ", search_regex)
-		query_consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
-		query_specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
-
-
-		if specs:
-			specs = specs.union(query_specs)
-		else:
-			specs = query_specs
-
-		if consume_lists:
-			consume_lists = consume_lists.union(query_consume_lists)
-		else:
-			consume_lists = query_consume_lists
-
-
-	# print("SORTING IS MANUALLY SET TO FALSE #YEET_CANNON")
-	if sorting:
-		sorting = sorting[0]
-
-		sorting = list(sorting)
-		sign = sorting.pop(0)
-		sign = '' if sign == '+' else sign
-		sorting = ''.join(sorting)
-		reverse = True if sign=="-" else False
-		if not specs and not consume_lists:
-			specs = Spec.objects.all()
-			consume_lists = ConsumeList.objects.all()
-
-		if sorting == 'rating':
-			how_order = '{}avg_rating'.format(sign)
-
-			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by(how_order)
-			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by(how_order)
-
-		elif sorting == 'created':
-			specs = specs.distinct().order_by('{}created'.format(sign))
-			consume_lists = consume_lists.distinct().order_by('{}created'.format(sign))
-
-		# combining specs and consume lists
-		# if combined:
-		# 	#created, ascending(oldest):
-		# 	# context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'))
-		#
-		# 	#created, descending(newest):
-		# 	context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=reverse)
-		#
-		# 	#top rated (excludes any saved list not yet rated):
-		# 	specs = specs.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
-		# 	consume_lists = consume_lists.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
-		#
-		# 	context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('rating'), reverse=True)
-		#
-		# # individual sorting
-		# madeup = False
-		# if madeup:
-		# 	# top rated
-		#
-		# 	specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
-		# 	consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
-
-			# context['result_list'] = list(chain(specs, consume_lists))
-
-	if not specs and not consume_lists:
-		context['specs'] = Spec.objects.all()
-		context['consume_lists'] = ConsumeList.objects.all()
-
-
-	else:
-		context['specs'] = specs
-		context['consume_lists'] = consume_lists
-	# context['specs'] = Spec.objects.all() if not specs else specs
-	# context['consume_lists'] = ConsumeList.objects.all() if not consume_lists else consume_lists
-
-	response = render(request, "index_helper.html", context=context)
-	return response
-
 def delete_rating(request):
 	data = {}
 	status_code = 200
@@ -517,21 +395,22 @@ def save_rating(request):
 	status_code = 400
 	data = {
 		'wow_class': request.POST.get('wow_class', None),
-		'id': request.POST.get('id', None)
+		'id': int(request.POST.get('id', None))
 	}
 	rating_value = request.POST.get('rating', None)
 
-	if (request.user.is_authenticated and id and rating_value):
+	if (request.user.is_authenticated and data['id'] and rating_value):
 		saved_list = Spec.objects.filter(id=data['id']) if data['wow_class'] else ConsumeList.objects.filter(id=data['id'])
 
 		if saved_list:
+
 			saved_list = saved_list.first()
 			rating = Rating(content_object=saved_list, value=rating_value, user=request.user)
 			rating.save()
 			status_code = 200
-			data.update({'success': True, 'average_rating': saved_list.rating, 'id': id,
+			data.update({'success': True, 'average_rating': saved_list.rating,
 				'num_ratings': saved_list.ratings.count(),
-				'message': "USER: {} SUCCESSFULLY RATED {}".format(request.user.email, saved_list.name)
+				'message': "USER: {}#{} SUCCESSFULLY RATED {}".format(request.user.disc_username, request.user.tag, saved_list.name)
 			})
 
 	response = JsonResponse(data)

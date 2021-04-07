@@ -223,7 +223,6 @@ class TalentCalcTemplate(TemplateView):
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
 		context = {}
-
 		if form.is_valid():
 			context['form'] = form
 			if request.is_ajax():
@@ -231,16 +230,21 @@ class TalentCalcTemplate(TemplateView):
 					form_data = self.save_list(request, form.cleaned_data)
 					saved_or_updated = 'created' if form_data['created'] else 'updated'
 					message = "Successfully {} spec!".format(saved_or_updated)
+					username = request.user.disc_username if not form_data['private'] else 'anonymous'
 					data = {
 						'name': form_data['name'],
-						'uid': request.user.uid,
+						'description': form_data['description'],
+						'uid': request.user.id,
 						'created': form_data['created'],
 						'wow_class': form_data['wow_class'],
 						'spent': form_data['spent'],
 						'message': message,
 						'hash': form_data['hash'],
 						'id': form_data['id'],
-						'img': form_data['img']
+						'img': form_data['img'],
+						'tags': form_data['tags'],
+						'username': username,
+						'updated': form_data['updated']
 					}
 					response = JsonResponse(data)
 
@@ -266,8 +270,10 @@ class TalentCalcTemplate(TemplateView):
 	def save_list(self, request, cleaned_data):
 		data = dict(request.POST)
 		data.update({'hash': cleaned_data['hash'], 'private': cleaned_data['private'],
-			'name': cleaned_data['name'], 'wow_class': request.POST.get('wow_class', None)
+			'name': cleaned_data['name'], 'wow_class': request.POST.get('wow_class', None),
+			'description': request.POST.get('description')
 		})
+
 
 		tags = request.POST.getlist('tags')
 		spnt = request.POST.getlist('spent')
@@ -280,7 +286,9 @@ class TalentCalcTemplate(TemplateView):
 		if request.user.is_authenticated:
 			user = request.user
 			if data['hash'] and data['wow_class'] and data['name']:
+
 				wow_class = WoWClass.objects.get(name=data['wow_class'].title())
+
 				spec,spec_created = Spec.objects.update_or_create(
 					name=data['name'], user=user, wow_class=wow_class,
 					defaults={'name': data['name'], 'user':user,
@@ -288,16 +296,17 @@ class TalentCalcTemplate(TemplateView):
 						'description':data['description'], 'private':cleaned_data['private']
 					}
 				)
-				data['created'] = True if spec_created else False
-				data['id'] = spec.id
 
-				data['img'] = spec.img
+				data.update({'created': spec_created, 'id': spec.id, 'img':spec.img})
+
+				spec.tags.clear()
 				for tag in tags:
 					t,tag_created = Tag.objects.get_or_create(name=tag, defaults={'name':tag})
+					spec.tags.add(t)
+					spec.save()
 
-					if tag_created or t not in spec.tags.all():
-						spec.tags.add(t)
-						spec.save()
+				data['tags'] = [x.name for x in spec.tags.all()]
+				data['updated'] = spec.updated
 
 				for k,v in spent.items():
 					tree_name = k
@@ -479,7 +488,6 @@ class ConsumeToolTemplate(TemplateView):
 				if request.is_ajax():
 					try:
 						form_data = self.save_list(request, form.cleaned_data)
-
 						update_or_create = 'created' if form_data['created'] else 'updated'
 						message = "Successfully {} list: {}".format(update_or_create, form_data['name'])
 						username = request.user.disc_username if not form_data['private'] else 'anonymous'
@@ -614,6 +622,7 @@ class ConsumeToolTemplate(TemplateView):
 
 	def save_list(self, request, cleaned_data):
 
+
 		private = cleaned_data['private']
 		tags = request.POST.getlist('tags')
 		name = request.POST.get('name', None)
@@ -640,7 +649,7 @@ class ConsumeToolTemplate(TemplateView):
 
 		data.update({'updated': c_list.updated, 'id': c_list.id, 'img': c_list.img,
 			'profs':c_list.profs_used[0], 'hash': c_list.hash, 'created': cl_created,
-			'tags': [x.name for x in c_list.tags.all()], 'private': c_list.private
+			'private': c_list.private
 		})
 
 		c_list.tags.clear()
@@ -649,6 +658,7 @@ class ConsumeToolTemplate(TemplateView):
 			c_list.tags.add(t)
 			c_list.save()
 
+		data['tags'] = [x.name for x in c_list.tags.all()]
 
 		c_list.consumes.clear()
 		for ix,amount in consumes.items():

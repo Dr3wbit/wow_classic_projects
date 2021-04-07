@@ -339,19 +339,14 @@ var talentCalc = {
 				var classInput = document.getElementById('wow_class')
 				classInput.value = talentCalc.selection
 
-				var talentSummary = document.getElementById('talents_spent')
-
-				var allotted = [],
-					i = 0;
+				var i = 0;
 				for (let [name,tree] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
 					var treeInput = document.getElementById(`tree${i}`)
-					let spent = tree.spent()
-					treeInput.value = `${tree.n},${spent}`
-    				allotted.push(spent)
+					treeInput.value = `${tree.n},${tree.spent()}`
 					i++
 				}
 
-				talentSummary.innerText = `(${allotted[0]}/${allotted[1]}/${allotted[2]})`
+				document.getElementById('talents_spent').innerText = pointsSpentTotal()
 				var hashElem = document.getElementById('list_hash')
 				hashElem.value = talentCalc.build.hash()
 			}
@@ -431,7 +426,7 @@ var talentCalc = {
 
 			history.pushState(null, null, url)
 
-			var WoWClass = talentCalc.CLASSES.filter(substring => url.pathname.includes(substring))[0]
+			var WoWClass = talentCalc.CLASSES.find(substring => url.pathname.includes(substring))
 			talentCalc.get.specInfo(hash, WoWClass, uid)
 
 			async function foo() {
@@ -449,7 +444,7 @@ var talentCalc = {
 				url: '/ajax/get_spec_info/',
 				data: data,
 				dataType: 'json',
-				success: talentCalc.update.listInfo,
+				success: updateListInfo,
 				error: trashCanError,
 			})
 
@@ -466,7 +461,7 @@ var talentCalc = {
 		},
 		//gets nearest talent element
 		talent: {
-			// gets obj, from event
+			// returns talent obj, from data attrs
 			obj: function(e) {
 				var dataContainer = e.target.closest('div.talent-container');
 				var x = dataContainer.getAttribute('data-x'),
@@ -476,7 +471,7 @@ var talentCalc = {
 				var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(tal => tal.x == x && tal.y == y)
 				return talent
 			},
-			// gets element, based on coords
+			// returns element, coordinate based
 			elem: function(tree, x, y, options = {}) {
 				var elem = document.getElementById(tree).querySelector(`div.talent-container[data-x="${x}"][data-y="${y}"]`)
 				if (options.img) {
@@ -736,7 +731,7 @@ var talentCalc = {
 		var tier = maxTier
 		var decision = true
 
-		while (decision && tier > 0) {
+		while (decision && tier > talent.y) {
 			decision = (talentCalc.get.pointsSpent(tree, tier) > tier * 5)
 			tier--
 		}
@@ -783,8 +778,12 @@ var talentCalc = {
 		this.lock.talent(talent, tree, elem)
 		this.update.footer(tree)
 		this.update.header()
-		if (talentCalc.spent() == 51) {
+		if (talentCalc.spent() == (talentCalc.maxLevel - 9)) {
 			talentCalc.lock.all()
+		} else {
+			Object.keys(talentCalc.CLASS_DATA[talentCalc.selection]).forEach(treeName => {
+				talentCalc.grayed(treeName)
+			})
 		}
 		talentCalc.update.form()
 		return talent
@@ -887,6 +886,15 @@ var talentCalc = {
 		})
 		return reversedTable
 	}
+}
+
+function pointsSpentTotal() {
+
+	let allotted = Object.keys(talentCalc.CLASS_DATA[talentCalc.selection]).map(tree => {
+		return talentCalc.get.pointsSpent(tree)
+	})
+
+	return `(${allotted[0]}/${allotted[1]}/${allotted[2]})`
 }
 
 function updateSelectedList() {
