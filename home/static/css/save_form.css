@@ -20,6 +20,8 @@
     background-color: #272727;
     margin-top: 2px;
     display: inline-block;
+    padding: 2px;
+    border-radius: 1px;
 }
 
 input[type="text"], textarea {

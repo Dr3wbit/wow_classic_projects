@@ -32,13 +32,7 @@
 
 						<div class="spec-list-item" name="{{spec.name}}">{{spec.name}}
 							<span class="saved-list-name">
-								{% if "talent_calc" in request.path %}
-								<a class="saved-list-link" href="{% url 'talent_helper' spec.wow_class.name|lower %}?{{spec.hash}}">
-								</a>
-								{% else %}
-								<a class="saved-list-link external" href="{% url 'talent_helper' spec.wow_class.name|lower %}?{{spec.hash}}">
-								</a>
-								{% endif %}
+								<a class="saved-list-link" href="{% url 'talent_helper' spec.wow_class.name|lower %}?u={{spec.user.id}}&#38;{{spec.hash}}"></a>
 							</span>
 							<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 								value="{{spec.name}}" type="button">
@@ -68,13 +62,8 @@
 						</div>
 						<div class="spec-list-item" name="{{consume_list.name}}">{{consume_list.name}}
 							<span class="saved-list-name">
-								{% if "profession_tool" in request.path %}
-								<a class="saved-list-link" href="{% url 'consume_helper' %}?{{consume_list.hash}}">
-								</a>
-								{% else %}
-								<a class="saved-list-link external" href="{% url 'consume_helper' %}?{{consume_list.hash}}">
-								</a>
-								{% endif %}
+								<a class="saved-list-link" href="{% url 'consume_helper' %}?{{consume_list.hash}}"></a>
+
 							</span>
 							<button class="btn btn-sm float-right trashcan" name="delete" title="Delete"
 								value="{{consume_list.name}}" type="button">

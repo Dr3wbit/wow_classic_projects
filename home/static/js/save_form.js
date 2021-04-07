@@ -1,26 +1,26 @@
 $(document).ready(function() {
-    save_form_handlers()
+    saveFormHandlers()
 })
 
-function save_form_handlers() {
+function saveFormHandlers() {
+
 
     $(".saved-list-form").on({
     	submit: e => {
             e.preventDefault()
     		if (window.location.pathname.includes("talent_calc")) {
-    			// update_tree_inputs()
+                //
     		} else {
     			if (Object.keys(professionTool.CONSUMES) < 1) {
     				alert('cant save empty list idiot')
     				return false
     			} else {
-    				update_consume_inputs()
+    				updateConsumeInputs()
     			}
     		}
     		var violations = oversized_words()
 
     		if (violations.length) {
-    			//NOTE DO A MESSAGE
     			var message = (violations.length > 1) ? `Unable to save list, the following ${violations.length} words are too long:\n` : `Unable to save list, the following word is too long:\n`
 
     			message += violations.join('\n')
@@ -39,13 +39,11 @@ function save_form_handlers() {
             form.querySelector('#id_description').value = description
             form.querySelector('#id_name').value = name
 
-    		var myURL = window.location.href
-
             var data = serialize(form)
 
     		$.ajax({
     			method: "POST",
-    			url: myURL,
+    			url: window.location.href,
     			data: data,
     			success: savedListSuccess,
     			error: savedListError,
@@ -54,15 +52,13 @@ function save_form_handlers() {
     })
 }
 
-function update_consume_inputs() {
+function updateConsumeInputs() {
+    var allConsumes = document.getElementById("all_consumes")
+    removeElements(allConsumes)
 
-	var all_consumes = $("#all_consumes")
     for (let [consume, amount] of Object.entries(professionTool.CONSUMES)) {
-        all_consumes.append($('<input/>', {
-            name: "spent",
-            value: `${consume},${amount}`,
-            type: 'hidden'
-        }))
+        let consumeInput = create_element("input", '', '', '', {"name":"spent", "value": `${consume},${amount}`, "type": "hidden"})
+        allConsumes.append(consumeInput)
     }
 }
 
@@ -80,17 +76,42 @@ function oversized_words(max_length = 20) {
 
 
 function savedListSuccess(data, textStatus, jqXHR) {
+    console.log("DATA: \n", data)
 
-	if (data.created) {
-        appendSavedList(data)
+	if (data.created || !data.list_info) {
+        data.list_info = {'name': data.name, 'tags': data.tags, 'description':data.description,
+            'updated': data.updated, 'user': data.username
+        }
+
+        // check if savedList exists on page via name
+        let savedList = document.querySelector(`.spec-list-item[name='${data.name}']`)
+        if (savedList && data.wow_class) {
+            // edit if so
+            savedList.classList.toggle("selected", true);
+            let savedListLink = savedList.querySelector("a.saved-list-link")
+            savedListLink.href = `/talent_calc/${data.wow_class}?u=${data.uid}&${data.hash}`
+            let specInfo = savedList.closest(".spec-container").querySelector(".spec-info")
+            specInfo.querySelectorAll('span')[0].className = `wow-class ${data.wow_class.toLowerCase()}`
+            specInfo.querySelectorAll('span')[0].innerText = titleCase(data.wow_class)
+            specInfo.querySelectorAll('span')[1].innerText = pointsSpentTotal()
+        } else {
+            // else add it
+            appendSavedList(data)
+        }
+
 	}
+
+    updateListInfo(data)
     var currentProfession = document.querySelector('a.prof-filter.selected')
     if (currentProfession) {
         var prof = currentProfession.id
         if (data.hash) {
             var hash = `?${data.hash}`
-            updateURL(prof, hash)
+            updateURL("/profession_tool", prof, hash, {prof:prof})
         }
+    } else {
+        let search = `?u=${data.uid}&${data.hash}`
+        updateURL("/talent_calc", data.wow_class, search)
     }
 	var message = data['message']
 	notifyUser(message)
@@ -104,6 +125,7 @@ function savedListError(jqXHR, textStatus, errorThrown) {
 	console.log(errorThrown)
 }
 
+// appends saved list to sidebar
 function appendSavedList(data) {
 
     var imagePrefix = "images/icons/large/"
@@ -129,7 +151,7 @@ function appendSavedList(data) {
 
         var allottedTalents = create_element('span', '', 'font-size:90%;', ` (${data.spent[3]}/${data.spent[4]}/${data.spent[5]})`)
         specInfo.appendChild(allottedTalents)
-        savedListLink.href = `/talent_calc/${data.wow_class}?${data.hash}`
+        savedListLink.href = `/talent_calc/${data.wow_class}?u=${data.uid}&${data.hash}`
 
     } else {
 

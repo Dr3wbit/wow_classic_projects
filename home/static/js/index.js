@@ -2,10 +2,7 @@ $(document).ready(function() {
 	indexHandlers()
 });
 
-var i = 1,
-	monkeyList;
-
-
+var monkeyList;
 
 function getSavedLists() {
 	var data = {}
@@ -18,8 +15,6 @@ function getSavedLists() {
 		complete: initListObj,
 	});
 }
-
-
 
 function initListObj(response) {
 
@@ -360,15 +355,15 @@ function updateRating(data) {
 	}
 	let width = data.average_rating * 20
 
-	var star_limiter = container.find("div.star-limiter")
+	let star_limiter = container.find("div.star-limiter")
 	star_limiter.css('width', `${width}%`)
 
-	var stars = container.find($(".glyphicon"))
+	let stars = container.find($(".glyphicon"))
 	stars.unbind()
 	stars.removeClass("glyphicon-star-empty").addClass("glyphicon-star")
 	container.find("div.star-box").removeClass("can-vote")
 	container.find("div.star-bg").removeClass("can-vote")
-	var ratingsCount = container.find($("span.ratings-count"))
+	let ratingsCount = container.find($("span.ratings-count"))
 
 	ratingsCount.text(`(${data.num_ratings})`)
 
@@ -451,14 +446,14 @@ function loadSavedLists(data) {
 	data.saved_lists.forEach(function(savedList) {
 		var hasWoWClass = (savedList.wow_class) ? true : false
 		var savedListType = (hasWoWClass) ? 'spec' : 'cl'
-		var savedListURL = (hasWoWClass) ? `/talent_calc/${savedList.wow_class.toLowerCase()}?${savedList.hash}` : `/profession_tool?${savedList.hash}`
+		var savedListURL = (hasWoWClass) ? `/talent_calc/${savedList.wow_class.toLowerCase()}?u=${savedList.uid}&${savedList.hash}` : `/profession_tool?${savedList.hash}`
 
-		var listItem = create_element('div', 'col-12 saved-list-item')
+		var listItem = create_element('div', 'col-12 saved-list-item', '', '', {"data-ix":savedList.ix})
+		if (hasWoWClass) {
+			listItem.setAttribute("data-wowclass", savedList.wow_class)
+		}
 		listContainer.appendChild(listItem)
 
-		var dataIX = document.createAttribute("data-ix");
-		dataIX.value = savedList.ix
-		listItem.setAttributeNode(dataIX)
 
 		var feedItem = create_element('div', 'feed-item row mt-5')
 		listItem.appendChild(feedItem)
@@ -595,16 +590,10 @@ function loadSavedLists(data) {
 
 		ratingsCount.append(ratingsCountElem)
 
-		var createdBy = create_element('span', '', '', 'Created by ')
-		dateCreatedContainer.appendChild(createdBy)
+		var createdBy = create_element('span', '', '', "Created by ")
+		var userNameSpan = create_element('span', 'fix-me', '', savedList.username)
 
-		var createdByUser = create_element('a', '', '', savedList.disc_username)
-		createdByUser.href = ''
-		createdByUser.addEventListener('click', function(e) {
-			e.preventDefault()
-		})
-
-		dateCreatedContainer.appendChild(createdByUser)
+		dateCreatedContainer.append(createdBy, userNameSpan)
 		var dateTime = new Date(savedList.created)
 
 		var createdOn = create_element('span', 'created', '', ` on ${dateTime.toLocaleString()}`)

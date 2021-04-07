@@ -18,6 +18,13 @@
     }
 }
 
+@media only screen and (min-width: 1600) {
+    #mainBody {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+}
+
 @media only screen and (max-width: 992px) {
     :root {
         --navbar-height: 7vmax;
@@ -77,6 +84,7 @@ body.preload *{
     vertical-align: top;
     /* padding-left: 265px; */
     /* transition: padding-left 0.5s ease; */
+    margin-bottom: 50px;
 }
 
 
@@ -221,7 +229,6 @@ body.preload *{
     box-shadow: 0 4px 2px -4px #000000;
     margin: 0;
     padding-top: 0;
-    padding-bottom: 0;
     height: var(--navbar-height);
 }
 
@@ -1130,11 +1137,11 @@ button:focus {
     height: calc(var(--secondary-navbar-height) - 1vh);
     border-radius: 50%;
     /* margin-top: 0.5vh; */
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 #discord-avatar>img:hover {
-    border: 1px solid var(--merrigold);
+    border: 2px solid var(--merrigold);
 }
 
 .nav-item:last-child {
@@ -1246,4 +1253,13 @@ button:focus {
         z-index: 1310;
         background-color: #272727;
     }
+}
+
+#saved_list_info {
+    margin-top: 3em;
+    padding-top: 3em;
+}
+
+button, input {
+    border-radius: 1px;
 }

@@ -12,7 +12,13 @@ $(document).ready(function() {
 window.addEventListener('load', function(e) {
 	if (document.location.search) {
 		// predefined talent spec, fill in the talents
-		talentCalc.build.spec(document.location.search)
+		if ((new URL(document.location.href)).searchParams.has('u')) {
+			talentCalc.get.savedSpec()
+		} else {
+			talentCalc.build.spec(document.location.search.replace(/u=\d+\&/, ""))
+
+		}
+
 		updateSelectedList()
 	}
 });
@@ -108,32 +114,12 @@ var talentCalc = {
 			if (savedSpecs) {
 				savedSpecs.addEventListener('click', function(e) {
 					if (e.target.matches('a.saved-list-link')) {
-						if (e.metaKey || e.target.matches('.external')) { // allows opening in new tab
+						if (e.metaKey) { // allows opening in new tab
 							return
 						}
 						e.preventDefault()
 
-						if (document.querySelectorAll('div.spec-list-item.selected').length) {
-							document.querySelectorAll('div.spec-list-item.selected').forEach(x => x.classList.remove('selected'))
-						}
-
-						var savedLists = Array.from(document.querySelectorAll('div.spec-list-item'))
-
-						savedLists.find(x => x.querySelector('a').getAttribute('href') == (e.target.pathname+e.target.search)).classList.add('selected')
-
-						var url = new URL(e.target.href)
-						hash = url.search
-						history.pushState(null, null, url)
-
-						var WoWClass = talentCalc.CLASSES.filter(substring => url.pathname.includes(substring))[0]
-						talentCalc.get.specInfo(hash, WoWClass)
-
-						async function foo() {
-							await talentCalc.reset.all()
-							await talentCalc.update.class.selection(WoWClass)
-							await talentCalc.build.spec(hash)
-						}
-						foo()
+						talentCalc.get.savedSpec(e.target.href)
 
 					}
 				});
@@ -142,9 +128,9 @@ var talentCalc = {
 		},
 
 		header: function() {
-			var buttonCity = document.getElementById('buttonCity');
+			var talentHeaderControlCenter = document.getElementById('talentHeaderControlCenter');
 
-			buttonCity.addEventListener('click', function(e) {
+			talentHeaderControlCenter.addEventListener('click', function(e) {
 				if (e.target.matches('#talentLock')) {
 					e.target.classList.toggle('lock')
 					if (e.target.classList.contains('lock')) {
@@ -353,19 +339,14 @@ var talentCalc = {
 				var classInput = document.getElementById('wow_class')
 				classInput.value = talentCalc.selection
 
-				var talentSummary = document.getElementById('talents_spent')
-
-				var allotted = [],
-					i = 0;
+				var i = 0;
 				for (let [name,tree] of Object.entries(talentCalc.CLASS_DATA[talentCalc.selection])) {
 					var treeInput = document.getElementById(`tree${i}`)
-					let spent = tree.spent()
-					treeInput.value = `${tree.n},${spent}`
-    				allotted.push(spent)
+					treeInput.value = `${tree.n},${tree.spent()}`
 					i++
 				}
 
-				talentSummary.innerText = `(${allotted[0]}/${allotted[1]}/${allotted[2]})`
+				document.getElementById('talents_spent').innerText = pointsSpentTotal()
 				var hashElem = document.getElementById('list_hash')
 				hashElem.value = talentCalc.build.hash()
 			}
@@ -426,17 +407,44 @@ var talentCalc = {
 			}
 		},
 	get: {
-		specInfo: function(hash='', WoWClass='') {
-			console.log('get.specInfo')
-			var data = {}
-			data['hash'] = hash
-			data['wow_class'] = WoWClass
+		savedSpec: function(href=document.location.href) {
+			var url = new URL(href)
+
+			if (document.querySelectorAll('div.spec-list-item.selected').length) {
+				document.querySelectorAll('div.spec-list-item.selected').forEach(x => x.classList.remove('selected'))
+			}
+
+			var savedLists = Array.from(document.querySelectorAll('div.spec-list-item'))
+			var selectedSpec = savedLists.find(x => x.querySelector('a').getAttribute('href') == (url.pathname+url.search))
+			if (selectedSpec) {
+				selectedSpec.classList.add('selected')
+			}
+
+
+			var uid = url.searchParams.get('u')
+			var hash = url.search.replace(/u=\d+\&/, "")
+
+			history.pushState(null, null, url)
+
+			var WoWClass = talentCalc.CLASSES.find(substring => url.pathname.includes(substring))
+			talentCalc.get.specInfo(hash, WoWClass, uid)
+
+			async function foo() {
+				await talentCalc.reset.all()
+				await talentCalc.update.class.selection(WoWClass)
+				await talentCalc.build.spec(hash)
+			}
+			foo()
+
+		},
+		specInfo: function(hash='', WoWClass='', uid) {
+			var data = {"hash": hash, "wow_class": WoWClass, "uid": uid}
 			$.ajax({
 				method: "GET",
 				url: '/ajax/get_spec_info/',
 				data: data,
 				dataType: 'json',
-				success: talentCalc.update.listInfo,
+				success: updateListInfo,
 				error: trashCanError,
 			})
 
@@ -453,7 +461,7 @@ var talentCalc = {
 		},
 		//gets nearest talent element
 		talent: {
-			// gets obj, from event
+			// returns talent obj, from data attrs
 			obj: function(e) {
 				var dataContainer = e.target.closest('div.talent-container');
 				var x = dataContainer.getAttribute('data-x'),
@@ -463,7 +471,7 @@ var talentCalc = {
 				var talent = talentCalc.CLASS_DATA[talentCalc.selection][tree].talents.find(tal => tal.x == x && tal.y == y)
 				return talent
 			},
-			// gets element, based on coords
+			// returns element, coordinate based
 			elem: function(tree, x, y, options = {}) {
 				var elem = document.getElementById(tree).querySelector(`div.talent-container[data-x="${x}"][data-y="${y}"]`)
 				if (options.img) {
@@ -632,6 +640,7 @@ var talentCalc = {
 				newURL = newURL.replace(matchArr[y], matchArr[y][0] + (matchArr[y].length).toString())
 			}
 
+
 			let hash = newURL.slice(0, newURL.indexOf('Z'))
 			let url = new URL(location.origin + location.pathname)
 			let params = url.searchParams
@@ -722,7 +731,7 @@ var talentCalc = {
 		var tier = maxTier
 		var decision = true
 
-		while (decision && tier > 0) {
+		while (decision && tier > talent.y) {
 			decision = (talentCalc.get.pointsSpent(tree, tier) > tier * 5)
 			tier--
 		}
@@ -769,8 +778,12 @@ var talentCalc = {
 		this.lock.talent(talent, tree, elem)
 		this.update.footer(tree)
 		this.update.header()
-		if (talentCalc.spent() == 51) {
+		if (talentCalc.spent() == (talentCalc.maxLevel - 9)) {
 			talentCalc.lock.all()
+		} else {
+			Object.keys(talentCalc.CLASS_DATA[talentCalc.selection]).forEach(treeName => {
+				talentCalc.grayed(treeName)
+			})
 		}
 		talentCalc.update.form()
 		return talent
@@ -873,6 +886,15 @@ var talentCalc = {
 		})
 		return reversedTable
 	}
+}
+
+function pointsSpentTotal() {
+
+	let allotted = Object.keys(talentCalc.CLASS_DATA[talentCalc.selection]).map(tree => {
+		return talentCalc.get.pointsSpent(tree)
+	})
+
+	return `(${allotted[0]}/${allotted[1]}/${allotted[2]})`
 }
 
 function updateSelectedList() {

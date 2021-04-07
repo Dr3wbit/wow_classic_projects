@@ -6,17 +6,10 @@ $(document).ready(function() {
 window.addEventListener('load', function(e) {
 	var sidebarState = sessionStorage.getItem("sidebarState")
 	sidebarState = parseInt(sidebarState)
-	// var mainBody = document.getElementById("mainBody");
-	setTimeout(()=> {
-		if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
-			blackOut.add()
-		}
-	}, 500)
+	if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
+		blackOut.add()
+	}
 
-
-	// if (!toggleSidebar(Boolean(sidebarState)) && (window.innerWidth <= 992)) {
-	// 	blackOut.add()
-	// }
 });
 
 var global = {
@@ -55,7 +48,7 @@ function global_event_handlers() {
 	sidebarToggle.addEventListener("click", e => {
 		var savedLists = document.getElementById("saved_lists");
 		savedLists.classList.toggle("animated", true);
-		
+
 		var customSaves = document.getElementById("custom-saves")
 		customSaves.classList.toggle("animated", true);
 
@@ -87,23 +80,13 @@ function global_event_handlers() {
 
 function toggleSidebar(forceMin=undefined) {
 	document.body.classList.toggle("preload", false);
-
 	var savedLists = document.getElementById("saved_lists");
 	var toggled = savedLists.classList.toggle("minimized", forceMin);
-
 	savedLists.classList.toggle("expanded", !toggled);
-
 	var customSaves = document.getElementById("custom-saves")
 	customSaves.classList.toggle("expanded", !toggled);
-
-	if (window.window.innerWidth > 992) {
-		// document.getElementById("mainBody").classList.toggle("depad", toggled)
-		// document.getElementById("mainBody").classList.toggle("padleft", !toggled)
-	}
-
 	return toggled
 }
-
 
 
 function updateURL(path, subPath='', search='', state=null) {
@@ -201,7 +184,6 @@ function create_element(tag, class_name, style, text, dataAttrs={}) {
 			elem.setAttributeNode(dataItem)
         }
 	}
-
 	return elem
 }
 
@@ -254,5 +236,132 @@ var blackOut = {
 		document.querySelectorAll('.black-out').forEach(elem=>{
 			elem.remove();
 		})
+	}
+}
+
+function updateListInfo(data={}) {
+	var listInfoContainer = document.getElementById('saved_list_info')
+	removeElements(listInfoContainer)
+
+	var listInfoRow = create_element("div", "row justify-content-center"),
+		listInfoCol = create_element("div", "col-lg-8 col-10");
+
+	listInfoContainer.append(listInfoRow)
+	listInfoRow.append(listInfoCol)
+
+
+	if (data.list_info) {
+
+		if (data.list_info.name) {
+			if (document.querySelector("#id_name")) {
+				document.querySelector("#id_name").value = data.list_info.name
+			}
+
+			let row = create_element("div", "row justify-content-center"),
+				col = create_element("div", "col-8"),
+				title = create_element('h1', '', '', data.list_info.name);
+
+			row.append(col)
+			col.append(title)
+			listInfoCol.append(row)
+
+		}
+
+		if (data.list_info.description) {
+
+			let row = create_element("div", "row justify-content-center"),
+				col = create_element("div", "col-8"),
+				description = create_element('p', 'mt-3', '', data.list_info.description);
+
+			col.append(description)
+			row.append(col)
+			listInfoCol.append(row)
+
+			if (document.querySelector("#id_description")) {
+				document.querySelector("#id_description").value = data.list_info.description
+			}
+		}
+
+		if (data.list_info.tags) {
+			let row = create_element("div", "row"),
+				col = create_element("div", "col-12");
+
+			row.append(col)
+
+			data.list_info.tags.forEach(function(tag) {
+				let checkBox = document.querySelector(`input[value='${tag}'][type='checkbox']`)
+				if (checkBox) {
+					checkBox.checked = true
+				}
+
+				let tagElem = create_element('div', 'feed-tag', '', tag)
+				col.append(tagElem)
+			})
+			listInfoCol.append(row)
+		}
+
+		if (data.list_info.updated) {
+
+			let row = create_element("div", "row"),
+				col = create_element("div", "col-12");
+
+			row.append(col)
+			listInfoCol.append(row)
+
+			let date = new Date(data.list_info.updated)
+			let lastUpdateContainer = create_element('div', 'mt-3', '', 'Last updated: '),
+				lastUpdate = create_element('span', 'fix-me last-update', '', date.toLocaleString()),
+				textContent = document.createTextNode(' by '),
+				userNameSpan = create_element('span', 'fix-me user-tag', '', data.list_info.user),
+				newLine = create_element('br')
+
+
+			lastUpdateContainer.append(lastUpdate, textContent, userNameSpan, newLine)
+			col.append(lastUpdateContainer)
+
+			if (document.querySelector("#id_private")) {
+				document.querySelector("#id_private").checked = (data.list_info.user == 'anonymous')
+			}
+
+		}
+	} else {
+		let row = create_element("div", "row"),
+			col = create_element("div", "col-10"),
+			descriptionText = "Want to share this list with others? Save it using the form below and a link will be generated";
+
+		let description = create_element('h5', 'mt-3', 'margin-bottom: 1rem', descriptionText)
+
+		col.append(description)
+		row.append(col)
+		listInfoCol.append(row)
+	}
+
+	let row = create_element('div', 'row')
+	listInfoContainer.appendChild(row)
+
+	if (typeof(professionTool) !== 'undefined') {
+		let craftedTableContainer = create_element('div', 'col-lg-4 offset-lg-2 col-md-6 col-sm-6'),
+			craftedTable = professionTool.createTable('Crafted Items', professionTool.CONSUMES),
+			materialTableContainer = create_element('div', 'col-lg-4 col-md-6 col-sm-6'),
+			materialTable = professionTool.createTable('Total Materials', professionTool.MATERIALS);
+
+		row.append(craftedTableContainer, materialTableContainer)
+
+		craftedTableContainer.append(craftedTable)
+		materialTableContainer.append(materialTable)
+
+		itemChecklistHandlers()
+	}
+
+}
+
+function removeElements(parent, options={}) {
+
+	while (parent.firstChild) {
+		parent.removeChild(parent.firstChild);
+	}
+
+	if (options.includeParent) {
+		parent.remove()
 	}
 }

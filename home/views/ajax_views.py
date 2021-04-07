@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from django.db.models import Count, Q, Avg
 from django.template.loader import render_to_string
 from django.views.decorators.cache import cache_page
-from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Tag, WoWClass
+from home.models import Crafted, ConsumeList, Item, Profession, Rating, Spec, Tag, WoWClass, User
 
 from itertools import chain
 from operator import attrgetter
@@ -12,32 +12,44 @@ import os
 def clear_cache_item(request):
 	status_code = 404
 	pass
-	#
-# @cache_page(60*5)
+
+
 def consume_list_builder(request):
 	status_code = 404
-	data = {'consume_list':{}, 'material_list':{}, 'list_info':{}}
-
+	data = {'recipes':{}, 'crafted':{}, 'items': {}, 'list_info':{}}
 	hash = request.GET.get('hash', None)
 	qs = request.META.get('QUERY_STRING', None)
+
+	def add_recipes_and_items(mats):
+		for mat_ix in mats:
+			if mat_ix not in data['items'].keys():
+				data['items'][mat_ix] = get_item_info(mat_ix, True)
+				if Crafted.objects.filter(item__ix=mat_ix) and mat_ix not in data['recipes'].keys():
+					data['recipes'][mat_ix] = get_materials(mat_ix)
+					add_recipes_and_items(list(data['recipes'][mat_ix].keys()))
+
 	if hash:
+
 		hash = hash.replace("?", "")
 		if ConsumeList.objects.filter(hash=hash):
+
 			status_code = 200
 			cl = ConsumeList.objects.filter(hash=hash).first()
-			data['list_info'] = {'name': cl.name, 'user': cl.user.disc_username,
+			data['list_info'] = {'name': cl.name, 'user': cl.user.disc_username if not cl.private else 'anonymous',
 				'description': cl.description, 'updated':cl.updated,
 				'tags': [x.name for x in cl.tags.all()]
 			}
 
 			for consume in cl.consumes.all():
-				data['consume_list'][consume.ix] = get_item_info('', consume.ix)
-				data['consume_list'][consume.ix]['amount'] = consume.amount/data['consume_list'][consume.ix]['step']
-				data['consume_list'][consume.ix]['materials'] = {}
-				for mat in consume.mats:
-					data['consume_list'][consume.ix]['materials'][mat.item.ix] = mat.amount
-					data['material_list'][mat.item.ix] = get_item_info('', mat.item.ix)
-					data['material_list'][mat.item.ix]['per'] = mat.amount
+				crafted = Crafted.objects.get(item__ix=consume.ix)
+				data['crafted'][consume.ix] = consume.amount
+
+				data['items'][consume.ix] = get_item_info(consume.ix, True)
+				data['recipes'][consume.ix] = get_materials(consume.ix)
+
+				add_recipes_and_items([x for x in consume.mats.values_list('item__ix', flat=True)])
+
+
 
 	response = JsonResponse(data, safe=False)
 	response.status_code = status_code
@@ -45,10 +57,22 @@ def consume_list_builder(request):
 	return response
 
 
+# receives crafted item ix, returns required materials as a dictionary {ix1: amount, ix2: amount}
+def get_materials(ix):
+	crafted = Crafted.objects.get(item=Item.objects.get(ix=ix))
+	materials = {}
+
+	for mat in crafted.materials.all():
+		materials[mat.item.ix] = mat.amount
+
+
+	return materials
+
 def get_spec_info(request):
 	status_code = 404
+	print(request.GET)
 	data = {'hash': request.GET.get('hash', None), 'wow_class': request.GET.get('wow_class', None),
-		'list_info': {}
+		'list_info': {}, 'uid': request.GET.get('uid', None)
 	}
 
 	if data['hash'] and data['wow_class']:
@@ -56,14 +80,17 @@ def get_spec_info(request):
 
 		if WoWClass.objects.filter(name=data['wow_class'].title()):
 			wow_class = WoWClass.objects.filter(name=data['wow_class'].title()).first()
-			if Spec.objects.filter(user=request.user, hash=data['hash'], wow_class=wow_class):
-				spec = Spec.objects.filter(user=request.user, hash=data['hash'], wow_class=wow_class).first()
-				status_code = 200
 
-				data['list_info'] = {'name': spec.name, 'user': spec.user.disc_username,
-					'description': spec.description, 'updated': spec.updated,
-					'tags': [x.name for x in spec.tags.all()]
-				}
+			if User.objects.filter(id=data['uid']):
+				user = User.objects.filter(id=data['uid']).first()
+				if Spec.objects.filter(user=user, hash=data['hash'], wow_class=wow_class):
+					spec = Spec.objects.filter(user=user, hash=data['hash'], wow_class=wow_class).first()
+					status_code = 200
+
+					data['list_info'] = {'name': spec.name, 'user': spec.user.disc_username,
+						'description': spec.description, 'updated': spec.updated,
+						'tags': [x.name for x in spec.tags.all()]
+					}
 
 	response = JsonResponse(data, safe=False)
 	response.status_code = status_code
@@ -80,7 +107,7 @@ def get_basic_item_info(item):
 def set_pagination(request):
 	pass
 
-@cache_page(60*5) #cache for 5mins
+@cache_page(60) #cache for 1min
 def get_saved_lists(request):
 	data = {'saved_lists': []}
 	specs = Spec.objects.exclude(visible=False)
@@ -88,11 +115,11 @@ def get_saved_lists(request):
 	all_lists = sorted(chain(specs, consume_lists), key=attrgetter('created'))
 	for list_item in all_lists:
 
-		list_info = {'ix': list_item.id, 'uid': list_item.user.uid, 'img': list_item.img,
+		list_info = {'ix': list_item.id, 'uid': list_item.user.id, 'img': list_item.img,
 			'description': list_item.description, 'name': list_item.name,
 			'rating': list_item.rating, 'created': list_item.created,
 			'private': list_item.private, 'hash': list_item.hash,
-			'disc_username': list_item.user.disc_username,
+			'username': list_item.user.disc_username if not list_item.private else 'anonymous',
 			'voted': (list_item.has_voted(request.user.email)) if hasattr(request.user, 'email') else False,
 			'can_vote': True if (request.user.is_authenticated and ((not list_item.has_voted(request.user.email)) and (list_item.user != request.user))) else False,
 			'ratings_count': list_item.ratings.count(), 'tags': [x.name for x in list_item.tags.all()]
@@ -319,140 +346,6 @@ def savedlist_info(request):
 		html = render_to_string("info_display.html", context)
 		return HttpResponse(html)
 
-def get_materials(cl):
-	materials = {}
-
-	for consume in cl.consumes.all():
-		for mat in consume.mats:
-			if mat.name not in materials.keys():
-				materials[mat.name] = {'value': 0, 'quality': mat.quality,
-					'img': mat.img, 'ix': mat.item.ix
-				}
-
-			materials[mat.name]['value'] += int(consume.amount * mat.amount)
-
-	return materials
-
-def query_saved_lists(request):
-
-	context = {}
-	context['rangen'] = range(5)
-	# specs = Spec.objects.all()
-	# consume_lists = ConsumeList.objects.all()
-
-	data = dict(request.GET)
-	reverse = data.get('reverse', False)
-	# prof_filters = request.GET.get('prof_filters', None)
-	# class_filters = request.GET.get('class_filters', None)
-	tags = data.get('tags', None)
-	sorting = data.get('sorting', None)
-	combined = data.get('combined', None)
-	query = data.get('query', None)
-	specs = ''
-	consume_lists = ''
-	if tags:
-		# NOTE: and(&&):
-		# print('tags: ', tags)
-		# specs = set(specs.filter(tags__name__in=tags).filter(wow_class__name__in=tags))
-		# consume_lists = set(consume_lists.filter(tags__name__in=tags).filter(consume__item__prof__name__in=tags))
-
-		# NOTE: or(||):
-		# filtering specs in the database by tag name
-		specs = Spec.objects.filter(Q(tags__name__in=tags) | Q(wow_class__name__in=tags))
-
-		consume_lists = ConsumeList.objects.filter(Q(tags__name__in=tags) | Q(consume__item__profession__name__in=tags))
-		# consume_lists = set(ConsumeList.objects.filter(tags__name__in=tags) | ConsumeList.objects.filter(consume__item__profession__name__in=tags))
-
-
-	if query:
-		search_re = ''
-		for i,term in enumerate(query):
-			if term != query[-1]:
-				search_re = search_re+"{}|".format(term)
-			else:
-				search_re = search_re+"{}".format(term)
-
-		search_regex = r"({})+".format(search_re)
-
-		# qs = [x.lower() for x in qs]
-		# print("qs: ", query)
-		# print("search_regex: ", search_regex)
-		query_consume_lists = ConsumeList.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
-		query_specs = Spec.objects.exclude(Q(visible=False) | Q(flagged=True)).filter(Q(name__iregex=search_regex) | Q(description__iregex=search_regex))
-
-
-		if specs:
-			specs = specs.union(query_specs)
-		else:
-			specs = query_specs
-
-		if consume_lists:
-			consume_lists = consume_lists.union(query_consume_lists)
-		else:
-			consume_lists = query_consume_lists
-
-
-	# print("SORTING IS MANUALLY SET TO FALSE #YEET_CANNON")
-	if sorting:
-		sorting = sorting[0]
-
-		sorting = list(sorting)
-		sign = sorting.pop(0)
-		sign = '' if sign == '+' else sign
-		sorting = ''.join(sorting)
-		reverse = True if sign=="-" else False
-		if not specs and not consume_lists:
-			specs = Spec.objects.all()
-			consume_lists = ConsumeList.objects.all()
-
-		if sorting == 'rating':
-			how_order = '{}avg_rating'.format(sign)
-
-			specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by(how_order)
-			consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).distinct().order_by(how_order)
-
-		elif sorting == 'created':
-			specs = specs.distinct().order_by('{}created'.format(sign))
-			consume_lists = consume_lists.distinct().order_by('{}created'.format(sign))
-
-		# combining specs and consume lists
-		# if combined:
-		# 	#created, ascending(oldest):
-		# 	# context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'))
-		#
-		# 	#created, descending(newest):
-		# 	context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('created'), reverse=reverse)
-		#
-		# 	#top rated (excludes any saved list not yet rated):
-		# 	specs = specs.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
-		# 	consume_lists = consume_lists.annotate(num_ratings=Count('ratings')).filter(num_ratings__gt=0)
-		#
-		# 	context['result_list'] = sorted(chain(specs, consume_lists), key=attrgetter('rating'), reverse=True)
-		#
-		# # individual sorting
-		# madeup = False
-		# if madeup:
-		# 	# top rated
-		#
-		# 	specs = specs.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
-		# 	consume_lists = consume_lists.annotate(num_ratings=Count('ratings'), avg_rating=Avg('ratings__value')).filter(num_ratings__gt=0).order_by('-avg_rating')
-
-			# context['result_list'] = list(chain(specs, consume_lists))
-
-	if not specs and not consume_lists:
-		context['specs'] = Spec.objects.all()
-		context['consume_lists'] = ConsumeList.objects.all()
-
-
-	else:
-		context['specs'] = specs
-		context['consume_lists'] = consume_lists
-	# context['specs'] = Spec.objects.all() if not specs else specs
-	# context['consume_lists'] = ConsumeList.objects.all() if not consume_lists else consume_lists
-
-	response = render(request, "index_helper.html", context=context)
-	return response
-
 def delete_rating(request):
 	data = {}
 	status_code = 200
@@ -502,21 +395,22 @@ def save_rating(request):
 	status_code = 400
 	data = {
 		'wow_class': request.POST.get('wow_class', None),
-		'id': request.POST.get('id', None)
+		'id': int(request.POST.get('id', None))
 	}
 	rating_value = request.POST.get('rating', None)
 
-	if (request.user.is_authenticated and id and rating_value):
+	if (request.user.is_authenticated and data['id'] and rating_value):
 		saved_list = Spec.objects.filter(id=data['id']) if data['wow_class'] else ConsumeList.objects.filter(id=data['id'])
 
 		if saved_list:
+
 			saved_list = saved_list.first()
 			rating = Rating(content_object=saved_list, value=rating_value, user=request.user)
 			rating.save()
 			status_code = 200
-			data.update({'success': True, 'average_rating': saved_list.rating, 'id': id,
+			data.update({'success': True, 'average_rating': saved_list.rating,
 				'num_ratings': saved_list.ratings.count(),
-				'message': "USER: {} SUCCESSFULLY RATED {}".format(request.user.email, saved_list.name)
+				'message': "USER: {}#{} SUCCESSFULLY RATED {}".format(request.user.disc_username, request.user.tag, saved_list.name)
 			})
 
 	response = JsonResponse(data)
@@ -543,9 +437,11 @@ def delete_list(request):
 	return response
 
 
-def get_item_info(request, ix=None):
+def get_item_info(ix=None, advanced=False, request=None):
 	status_code = 404
-	data = {'ix': ix or request.GET.get('ix', None)}
+	data = {}
+
+	data['ix'] = request.GET.get('ix', None) if request else ix
 
 	if Item.objects.filter(ix=data['ix']):
 		status_code = 200
@@ -555,32 +451,29 @@ def get_item_info(request, ix=None):
 
 	data.update({'img': item.img, 'q':item.quality, 'n': item.name})
 
-	if Crafted.objects.filter(item=item):
-		recipe = Crafted.objects.filter(item=item).first()
-		data['step'] = recipe.step
-		data['materials'] = {}
-		for mat in recipe.materials.all():
-			data['materials'][mat.item.ix] = mat.amount
+	if Crafted.objects.filter(item__ix=ix):
+		data['step'] = Crafted.objects.filter(item__ix=ix).first().step
 
-	data['bop'] = item.bop if item.bop else None
-	data['unique'] = item.unique if item.unique else None
-	data['slot'] = item.slot if item.slot else None
-	data['proficiency'] = item.proficiency if item.proficiency else None
-	data['damage'] = [str(x) for x in item.damage.all()] if item.damage else None
-	data['speed'] = item.speed if item.speed else None
-	data['dps'] = item.dps if (item.speed and item.damage) else None
-	data['armor'] = item.armor if item.armor else None
-	data['stats'] = item.stats if item.stats else None
-	data['resists'] = item.resists if item.resists else None
-	data['durability'] = item.durability if item.durability else None
-	data['requirements'] = item.requirements if item.requirements else None
-	data['equips'] = [x.t for x in item.equips.all()] if item.equips else None
-	data['procs'] = [x.t for x in item.procs.all()] if item.procs else None
-	data['use'] = item.use.t if item.use else None
-	data['description'] = item.description if item.description else None
+	if advanced:
+		data['bop'] = item.bop if item.bop else None
+		data['unique'] = item.unique if item.unique else None
+		data['slot'] = item.slot if item.slot else None
+		data['proficiency'] = item.proficiency if item.proficiency else None
+		data['damage'] = [str(x) for x in item.damage.all()] if item.damage else None
+		data['speed'] = item.speed if item.speed else None
+		data['dps'] = item.dps if (item.speed and item.damage) else None
+		data['armor'] = item.armor if item.armor else None
+		data['stats'] = item.stats if item.stats else None
+		data['resists'] = item.resists if item.resists else None
+		data['durability'] = item.durability if item.durability else None
+		data['requirements'] = item.requirements if item.requirements else None
+		data['equips'] = [x.t for x in item.equips.all()] if item.equips else None
+		data['procs'] = [x.t for x in item.procs.all()] if item.procs else None
+		data['use'] = item.use.t if item.use else None
+		data['description'] = item.description if item.description else None
 
-	filtered = {k:v for k, v in data.items() if v is not None and v != []}
-	data = filtered
+		filtered = {k:v for k, v in data.items() if v is not None and v != []}
+		data = filtered
 
 	if request:
 		response = JsonResponse(data, safe=False)

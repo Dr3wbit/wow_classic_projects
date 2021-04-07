@@ -23,27 +23,53 @@
     background-color: inherit;
 }
 
+#list_container {
+    overflow-y: scroll;
+    border-bottom: 1px solid #000000d6;
+    padding-bottom: 5px;
+}
+
+#list_container > .row:hover > .recipe-container,
+#list_container > .row:hover > .reagent-list {
+    background-color: #000000c7;
+}
+
 #materials {
-    text-align: left;
     padding:0;
+    text-align: left;
+    border-right: 1px solid #000000d6;
+
 }
 
 #consumes {
     padding:0;
     text-align: left;
+    border-right: 1px solid #000000d6;
 }
 
 #totals_container {
     overflow-y: scroll;
-    padding-top: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-left: 1px solid #000000d6;
+    border-right: 1px solid #000000d6;
 }
 
+#recipe_list {
+    text-align: left;
+    border-right: 1px solid #000000d6;
+    border-left: 1px solid #000000d6;
+    background-color: #404040ab;
+    padding-bottom: 40px;
+    /* user-select: none; */
+    /* min-height: 65vh;
+    max-height: 65vh; */
+}
 .consume-list-item {
     font-size: 95%;
     margin-top: 1px;
     padding: 1px;
-    cursor: pointer;
-    border: 2px black solid;
+    border-bottom: 1px solid #404040ab;
     background-color: #101010;
     display: block;
     text-overflow: ellipsis;
@@ -58,8 +84,9 @@
     background-color: #101010;
     display: block;
     text-overflow: ellipsis;
+    border-top: 2px solid #404040ab;
     border-radius: 1px;
-    text-indent: 22px;
+    text-indent: 15px;
 }
 
 .materials-list *{
@@ -122,17 +149,6 @@
 } */
 
 
-
-#recipe_list {
-    /* overflow-y: scroll; */
-    text-align: left;
-    /* height: 100%; */
-    border-right: 1px solid black;
-    /* user-select: none; */
-    /* min-height: 65vh;
-    max-height: 65vh; */
-}
-
 .material-name:hover {
     text-decoration: solid underline;
 }
@@ -191,7 +207,7 @@
     display: block;
     text-overflow: ellipsis;
     border-radius: 1px;
-    padding-left: 5px;
+    padding-left: 10px;
     /* margin-left: 10px;
     margin-right: -10px;
     min-width: 262px; */
@@ -294,9 +310,28 @@
 
 #search_bar {
     font-size: 12px;
-    width: 100%;
+    /* width: 100%; */
+    margin-top: 0.3em;
+    border-radius: 1px;
 }
 
+#generate_checklist {
+    top: 5px;
+    background-color: transparent;
+    float: left;
+    position: relative;
+    padding: 2px;
+    font-size: 14px;
+    color: whitesmoke;
+    border: 1px solid white;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+#generate_checklist:hover {
+    background-color: white;
+    color: black;
+}
 /* @media only screen and (max-width: 992px) {
     #search_bar {
         width: 150px;
@@ -316,3 +351,72 @@
         width: 90%;
     }
 } */
+
+tr.sub-material {
+    border-left: 2px solid rgb(0 123 255 / 50%);
+    background-color: #343a40;
+}
+
+#total_materials_table tr[data-target] + tr {
+    /* border-top: 3px solid brown; */
+}
+
+tr.sub-material td{
+    background-color: #007bff2b;
+}
+
+
+.obtained {
+    background-color: #0d0042 !important;
+    font-style: italic;
+}
+
+.row-collapsed {
+    visibility: collapse;
+}
+
+.test-striped:nth-child(even){
+    /* background-color: green; */
+}
+.test-striped:nth-child(odd){
+    background-color: rgba(255,255,255,.05);
+}
+
+.amount-input {
+    width: 40px;
+}
+
+.collapse-toggle.toggled {
+    border: 2px solid var(--merrigold);
+    border-radius: 1px;
+}
+
+#recipe_name_header {
+    border-right: 2px solid black;
+    text-align: left;
+    text-indent: 10px;
+}
+
+#recipe_name_header.desc::before {
+    content: "\e252";
+    font-family: 'Glyphicons Halflings';
+    font-size: 12px;
+    padding-right: 2px;
+}
+
+#recipe_name_header.asc::before {
+    content: "\e253";
+    font-family: 'Glyphicons Halflings';
+    font-size: 12px;
+    padding-right: 2px;
+}
+
+#recipe_name_header:hover {
+    background-color: #000000c7;
+}
+
+@media (min-width: 992px){
+    .offset-lg-1 {
+        margin-left: 4%;
+    }
+}

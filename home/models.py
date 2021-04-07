@@ -207,26 +207,10 @@ class Crafted(models.Model):
 	def ix(self):
 		return self.item.ix
 
+
 	def __str__(self):
 		return self.item.__str__()
 
-
-
-class Damage(models.Model):
-	i = models.ForeignKey('Item', on_delete=models.CASCADE, related_name='+')
-	school = models.ForeignKey('School', on_delete=models.CASCADE)
-	high = models.PositiveSmallIntegerField(default=2)
-	low = models.PositiveSmallIntegerField(default=1)
-
-	def __str__(self):
-		added = "+" if self.i.proficiency != "Wand" else ""
-		if self.school.ix <= 1:
-			return "{}  -  {} Damage".format(self.low, self.high)
-		else:
-			return "{}{}  -  {} {} Damage".format(added, self.low, self.high, self.school.name)
-
-	class Meta:
-		unique_together = ['i', 'school']
 
 class Material(models.Model):
 	item = models.ForeignKey('Item', on_delete=models.CASCADE)
@@ -252,6 +236,22 @@ class Material(models.Model):
 	class Meta:
 		unique_together = ['item', 'creates']
 
+
+class Damage(models.Model):
+	i = models.ForeignKey('Item', on_delete=models.CASCADE, related_name='+')
+	school = models.ForeignKey('School', on_delete=models.CASCADE)
+	high = models.PositiveSmallIntegerField(default=2)
+	low = models.PositiveSmallIntegerField(default=1)
+
+	def __str__(self):
+		added = "+" if self.i.proficiency != "Wand" else ""
+		if self.school.ix <= 1:
+			return "{}  -  {} Damage".format(self.low, self.high)
+		else:
+			return "{}{}  -  {} {} Damage".format(added, self.low, self.high, self.school.name)
+
+	class Meta:
+		unique_together = ['i', 'school']
 
 class WoWClass(models.Model):
 	CLASS_CHOICES = (
@@ -605,6 +605,8 @@ class Zone(models.Model):
 
 from home.signals import set_profession_name, set_school_name, set_slot, set_proficiency
 from home.signals import savedlist_profanity_filter, clear_sidebar_cache, savedlist_limit
+from home.signals import no_empty_consumes, generate_hash
+
 # class Faction(models.Model):
 # 	ALLY,HORDE,NEUTRAL = 1,2,3
 # 	FACTION_CHOICES = (

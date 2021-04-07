@@ -8,7 +8,9 @@ class SpecForm(forms.ModelForm):
         model = Spec
         fields = ['name', 'description', 'private', 'tags', 'hash']
         widgets = {
+            'name': forms.TextInput(attrs={'title': 'What will you name your spec?'}),
             'description': forms.Textarea(attrs={'cols': 60, 'rows': 20}),
+            'private': forms.CheckboxInput(attrs={'title':'Check to have your username removed from list when published'})
         }
 
 
@@ -19,7 +21,9 @@ class ConsumeListForm(forms.ModelForm):
         model = ConsumeList
         fields = ['name', 'description', 'private', 'tags', 'hash']
         widgets = {
+            'name': forms.TextInput(attrs={'title': 'What will you name your list?'}),
             'description': forms.Textarea(attrs={'cols': 60, 'rows': 20}),
+            'private': forms.CheckboxInput(attrs={'title':'Check to have your username removed from list when published'})
         }
 
     def full_clean(self):
