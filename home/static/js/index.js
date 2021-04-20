@@ -43,10 +43,13 @@ var paginate = {
 	list: '',
 	container: '',
 	currentPage: 1,
-	perPage: '',
+	navsShown: 5,
 	pages: '',
+	pageRange: {start:0, end:0},
+	perPage: '',
 	init: function(itemsPerPage = 5, listObj = monkeyList, container, options = {}) {
 		// TODO: store per-page preference in localStorage
+		this.removePageNavs()
 		this.list = listObj
 		this.container = container
 		this.perPage = itemsPerPage
@@ -61,111 +64,126 @@ var paginate = {
 		}
 		this.list.page = this.perPage
 		this.pages = Math.ceil(this.list.matchingItems.length / this.perPage)
+
+		let navsPer = Math.floor((this.container.offsetWidth - 48) / 11)
+		this.navsShown = (navsPer <= this.pages) ? navsPer : this.pages;
+
+		this.pageRange.start = this.currentPage
+		this.pageRange.end = (this.pageRange.start + this.navsShown <= this.pages) ? this.pageRange.start + this.navsShown : this.pages;
+
 		this.list.update()
 	},
 	writePageNavs: function(options = {}) {
-		this.currentPage = 1
-		var self = this
-		for (var n = 0; n < this.pages; n++) {
 
-			var x = n + 1,
-				pageLink = create_element('a', 'page-nav navlink', '', x);
+		let firstPageLink = create_element('a', 'page-nav first-page navlink', '', "«"), //"&laquo;"
+			prevPageLink = create_element('a', 'page-nav prev-page navlink', '', "❮"),
+			nextPageLink = create_element('a', 'page-nav prev-page navlink', '', "❯"),
+			lastPageLink = create_element('a', 'page-nav last-page navlink', '', "»"); //"&raquo;"
 
-			pageLink.href = ""
+		firstPageLink.addEventListener('click', function(e) {
+			e.preventDefault()
+			paginate.changePage(e, 'firstPage')
+		});
+		prevPageLink.addEventListener('click', function(e) {
+			e.preventDefault()
+			paginate.changePage(e, 'prevPage')
+		});
+		nextPageLink.addEventListener('click', function(e) {
+			e.preventDefault()
+			paginate.changePage(e,'nextPage')
+		});
+		lastPageLink.addEventListener('click', function(e) {
+			e.preventDefault()
+			paginate.changePage(e, 'lastPage')
+		});
 
-			if (x == self.currentPage) {
-				pageLink.classList.add('active')
+		this.container.append(firstPageLink, prevPageLink)
+
+		let i = this.pageRange.start,
+			end = this.pageRange.end;
+
+		for (i; i <= end; i++) {
+
+			let pageLink = create_element('a', 'page-nav navlink', '', i);
+			if (i == paginate.currentPage) {
+				pageLink.classList.toggle('active', true)
 			}
 			pageLink.addEventListener('click', function(e) {
 				e.preventDefault()
-				self.changePage(e)
+				if (!e.target.matches(".active")) {
+					paginate.changePage(e)
+				}
 			});
-			this.container.appendChild(pageLink)
+			this.container.append(pageLink)
 		}
-
-		this.nextPageCheck()
-		this.prevPageCheck()
-
+		this.container.append(nextPageLink, lastPageLink)
 	},
-	nextPageCheck: function() {
-		var elem = document.getElementsByClassName('page-nav next-page'),
-			self = this;
-		if ((elem.length == 0) && (this.currentPage != this.pages)) {
-			var nextPageLink = create_element('a', 'page-nav next-page navlink', '', "»"); //"&raquo;"
-			nextPageLink.href = ""
-			nextPageLink.addEventListener('click', function(e) {
-				e.preventDefault()
-				self.changePage(e, {
-					nextPage: true
-				})
-			});
-			this.container.appendChild(nextPageLink)
-		} else if ((elem.length) && (this.currentPage == this.pages)) {
-			elem.item(0).remove()
+	updatePageRange: function() {
+		let width = this.container.offsetWidth
+		let navsPer = Math.floor((width - 48) / 11);
+		this.navsShown = (navsPer <= this.pages) ? navsPer : this.pages;
+		let pageNavShownMedian = Math.floor(this.navsShown / 2)
+
+		if (this.currentPage >= this.pageRange.end) {
+			this.pageRange.end = (this.currentPage + pageNavShownMedian <= this.pages) ? this.pageRange.end + pageNavShownMedian : this.pages;
+			this.pageRange.start = (this.pageRange.end - this.navsShown > 0) ? this.pageRange.end - this.navsShown : 1
+		}
+		else if (this.currentPage <= this.pageRange.start) {
+			this.pageRange.start = (this.currentPage - pageNavShownMedian >= 1) ? this.currentPage - pageNavShownMedian : 1;
+			this.pageRange.end = (this.pageRange.start + this.navsShown <= this.pages) ? this.pageRange.start + this.navsShown : this.pages
 		}
 	},
-	prevPageCheck: function() {
-		var elem = document.getElementsByClassName('page-nav prev-page'),
-			self = this;
-		if ((elem.length == 0) && (this.currentPage != 1)) {
-			var prevPageLink = create_element('a', 'page-nav prev-page navlink', '', "«"); //"&laquo;"
-			prevPageLink.href = ""
-			prevPageLink.addEventListener('click', function(e) {
-				e.preventDefault()
-				self.changePage(e, {
-					prevPage: true
-				})
-			});
-			this.container.insertBefore(prevPageLink, this.container.firstElementChild)
-		} else if ((elem.length) && (this.currentPage == 1)) {
-			elem.item(0).remove()
-		}
-	},
-	changePage: function(e, options = {}) {
-		this.currentPage = (options['nextPage']) ? this.currentPage + 1 : (options['prevPage']) ? this.currentPage - 1 : parseInt(e.target.innerText)
 
+	changePage: function(e, option = '') {
 
-		var activeNavs = document.querySelectorAll('.page-nav.active')
-
-		if (activeNavs.length) {
-			activeNavs[0].classList.toggle('active')
+		switch (option) {
+			case 'prevPage':
+				paginate.currentPage = (paginate.currentPage > 1) ? paginate.currentPage - 1 : 1
+				break;
+			case 'nextPage':
+				paginate.currentPage = (paginate.currentPage < paginate.pages) ? paginate.currentPage + 1 : paginate.pages
+				break;
+			case 'lastPage':
+				paginate.currentPage = paginate.pages;
+				break;
+			case 'firstPage':
+				paginate.currentPage = 1;
+				break;
+			default:
+				paginate.currentPage = parseInt(e.target.innerText)
 		}
 
-		var pageNumberNavs = document.querySelectorAll('a.page-nav:not(.prev-page):not(.next-page)')
-		pageNumberNavs[this.currentPage - 1].classList.add('active')
-		var start = ((this.currentPage - 1) * this.list.page) + 1
+		paginate.updatePageRange()
+
+		document.querySelectorAll('.page-nav.active').forEach(nav=>{
+			nav.classList.toggle('active', false)
+		})
+
+		let start = ((this.currentPage - 1) * this.list.page) + 1
 		this.list.show(start, this.list.page)
 
-		this.prevPageCheck()
-		this.nextPageCheck()
-
-		if (this.currentPage <= 1) {
-			this.currentPage = 1
-			return false
-		} else if (this.currentPage >= this.pages) {
-			this.currentPage = this.pages
-			return false
-		}
+		this.resetPageNavs()
 
 	},
 	removePageNavs: function(options = {}) {
 		this.list.i = 1
-		var pageNavs = document.querySelectorAll('a.page-nav')
-		for (var i = 0; i < pageNavs.length; i++) {
-			pageNavs[i].remove()
-		}
+		document.querySelectorAll('#pagination_container > a.page-nav').forEach(pageNav => {
+			pageNav.remove()
+		})
 	},
 	resetPageNavs: function(options = {}) { //for convenience
 		this.removePageNavs()
 		this.writePageNavs()
 	},
 	postFilter: function(options = {}) {
+		paginate.currentPage = 1
 		paginate.updateVars()
+		paginate.updatePageRange()
 		paginate.resetPageNavs()
 	}
 }
 
-// hacky function to allow list.js to store an array of tags as values
+// hack fix for storing array of tags as values for list.js lookups
 function tagListCorrector(listObj) {
 	listObj.items.forEach(function(item) {
 		item._values.tags = []
@@ -175,7 +193,6 @@ function tagListCorrector(listObj) {
 		tags.each(function(index) {
 			item._values.tags.push($(this).text())
 		})
-
 	})
 }
 
@@ -186,7 +203,6 @@ function indexHandlers() {
 	var selectionHeader = document.querySelector('.selection-header')
 
 	selectionHeader.addEventListener('click', e=>{
-		// e.stopPropagation()
         var target = e.target
 		if (target.matches('.filter-box')) {
 
@@ -227,6 +243,7 @@ function indexHandlers() {
             e.stopPropagation()
 		} else if (target.matches('.items-per-page')){
             var itemsPerPage = parseInt(target.innerText)
+			paginate.currentPage = 1
             paginate.updateVars({
                 perPage: itemsPerPage
             })
@@ -296,20 +313,12 @@ function indexHandlers() {
 	var sortingOrder = document.getElementById('sorting_order')
 
 	sortingOrder.addEventListener('mouseenter', e=>{
-		// e.target.style.color = 'rgb(255, 193, 7)';
 		e.target.closest('.secondary-navbar-item').style.backgroundColor = '#222222'
-
-		// sorting.style.backgroundColor = '#222222';
-		// sortingOrder.style.backgroundColor = '#222222';
 
 	})
 
 	sortingOrder.addEventListener('mouseleave', e=>{
 		e.target.closest('.secondary-navbar-item').style.backgroundColor = 'initial'
-
-		// e.target.style.color = 'white';
-		// sorting.style.backgroundColor = 'initial';
-		// sortingOrder.style.backgroundColor = 'initial';
 
 	})
 
@@ -319,6 +328,25 @@ function indexHandlers() {
 	})
 	sorting.addEventListener('mouseleave', e=>{
 		sortingOrder.dispatchEvent(mouseLeaveEvent)
+	})
+
+	window.addEventListener("orientationchange", e=>{
+		window.setTimeout(function() {
+			paginate.updateVars()
+			paginate.updatePageRange()
+	  		paginate.resetPageNavs()
+		}, 250);
+	});
+
+	searchBar.addEventListener("blur", e=> {
+		if (!e.target.value) {
+			searchBar.classList.toggle("show", false)
+		}
+	})
+
+	document.getElementById("search_bar_trigger").addEventListener("click", e=>{
+		document.getElementById("search_bar").classList.toggle("show", true)
+		document.getElementById("search_bar").focus()
 	})
 
 }

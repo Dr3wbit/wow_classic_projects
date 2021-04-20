@@ -7,13 +7,11 @@ var tooltip = {
     container: {width: '', height:''},
     init: function(e) {
         tooltip.empty()
-
+        tooltip.rectangle = e.target.getBoundingClientRect()
         if (tooltip.static) {
-            var recktangle = e.target.getBoundingClientRect()
-            tooltip.rectangle = recktangle
 
-            tooltip.coords.x = recktangle.right - 3
-            tooltip.coords.y = recktangle.top + 5 + window.scrollY
+            tooltip.coords.x = tooltip.rectangle.right - 3
+            tooltip.coords.y = tooltip.rectangle.top + 5 + window.scrollY
 
         } else {
             tooltip.coords.x = e.pageX
@@ -31,7 +29,7 @@ var tooltip = {
         document.getElementById("clientY").innerText = e.clientY
         document.getElementById("coordsX").innerText = tooltip.coords.x.toFixed(2)
         document.getElementById("coordsY").innerText = tooltip.coords.y.toFixed(2)
-        var rectangle = tooltip.dad.getBoundingClientRect()
+        let rectangle = tooltip.dad.getBoundingClientRect()
 
         document.getElementById("boundingX").innerText = rectangle.x.toFixed(2)
         document.getElementById("boundingY").innerText = rectangle.y.toFixed(2)
@@ -73,6 +71,7 @@ var tooltip = {
     checkDimensions: function() {
         var right = (tooltip.static) ? tooltip.rectangle.right : tooltip.coords.x
 
+
         if ((tooltip.dad.offsetWidth + right) > window.screen.availWidth) {
 
             if (tooltip.static) {
@@ -85,6 +84,11 @@ var tooltip = {
         if (tooltip.dad.offsetHeight > tooltip.rectangle.top) {
             tooltip.coords.y = tooltip.rectangle.bottom + window.scrollY
         }
+
+        if (tooltip.coords.x <= 0) {
+            tooltip.coords.x = 5
+        }
+
     },
     mouseleaveCleanup: function(e) {
         tooltip.empty()
@@ -351,6 +355,7 @@ var tooltip = {
             tooltip.coords.y = tooltip.coords.y - (tooltip.dad.offsetHeight - 5)
 
         }
+
         tooltip.checkDimensions()
         tooltip.setPosition(tooltip.coords.x, tooltip.coords.y)
 

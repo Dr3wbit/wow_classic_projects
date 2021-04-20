@@ -193,6 +193,28 @@ a:hover{
     top: 1px;
 } */
 
+#pagination_container {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#pagination_container > a.page-nav {
+    margin: 0 1px;
+    padding: 0 1px !important;
+    color: var(--pale-blue);
+}
+
+#pagination_container > a.page-nav.active {
+    pointer-events: none;
+    cursor: default;
+    color: azure;
+}
+#pagination_container > a.page-nav:hover {
+    cursor: pointer;
+    color: var(--merrigold);
+}
+
+
 #sorting:focus{
     box-shadow: none;
 }
@@ -237,17 +259,7 @@ a:hover{
     background-color: transparent;
 }
 
-.page-nav {
-    margin: 2px;
-    padding: 0 !important;
-}
 
-.page-nav.active {
-    margin: 2px;
-    pointer-events: none;
-    cursor: default;
-    color: azure;
-}
 
 .sortby-dropdown {
     /* margin-top: 0; */
@@ -286,6 +298,10 @@ a:hover{
     /* padding: 0 1vw; */
 }
 
+#reset_filters {
+    margin-bottom: 5px;
+}
+
 .dropdown-divider {
     border-color: var(--light-grey);
     margin: 2px 0;
@@ -306,6 +322,14 @@ a:hover{
     vertical-align: unset;
     border: unset;
 }
+.search-container > a,
+.search-container > span {
+    display: none;
+}
+
+.search-container > div:first-child {
+    flex-direction: row-reverse;
+}
 
 @media only screen and (max-width: 992px) {
     #search_bar {
@@ -314,22 +338,58 @@ a:hover{
 }
 
 
+
 @media only screen and (max-width: 768px) {
-    .selection-header>div:first-child {
-        padding-right: 0;
+
+    .secondary-navbar-item>.navlink {
+        padding: 0.25rem 0.5rem;
+    }
+    #search_bar {
+        position: absolute;
+        width: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        right: 38px;
+        transition: all 0.5s ease;
     }
 
-    .selection-header>div:nth-child(2) {
-        flex-basis: 0;
-        padding-left: 0;
+    #search_bar.show {
+
+        width: 150px;
+        padding: revert;
+        border: revert;
+        outline: 1px solid white;
+        z-index: 1050;
     }
+
+    .search-container {
+        padding-right: 10px;
+    }
+    .search-container > a,
+    .search-container > span {
+        display: unset;
+    }
+
 }
 
 @media only screen and (max-width: 576px) {
-    .h100 {
-        height: auto !important;
+
+    .selection-header>div:first-child {
+        padding-right: 0;
+        margin-left: 3%;
+    }
+    .secondary-navbar-item > .navlink {
+        padding: 0.15rem 0.25rem
     }
 
+    .pagination {
+        padding-right: 0;
+    }
+
+    .search-container {
+        padding: 0 5px 0 0;
+    }
     .filter-dropdown-container {
         max-width: 300px;
         width: 300px;
@@ -341,8 +401,10 @@ a:hover{
         padding: 0 3px;
         overflow-x: hidden;
     }
-    .selection-header>div:nth-child(2) {
-        flex-basis: 10%;
-        padding-left: 35px;
+}
+
+@media only screen and (min-width: 350px) and (max-width: 576px) {
+    .search-container {
+        margin-left: 5%;
     }
 }

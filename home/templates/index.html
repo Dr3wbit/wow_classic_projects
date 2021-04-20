@@ -11,7 +11,7 @@
 {% block mainbody %}
     <div class="row selection-header sticky-top justify-content-start">
 
-                <div class="col-xl-5 col-md-5 col-12 h100">
+                <div class="col-xl-5 offset-md-1 col-md-5 col-sm-6 col-7 h100">
                     <div class="dropdown secondary-navbar-item h100" style="border-right: 1px solid black; padding-right: 2px;">
                         <a id="dropdownFilterLink" class="btn btn-sm dropdown-toggle bg-hover-gray navlink h100" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,14 +81,15 @@
                     </div>
 
                 </div>
-                <div class="col-xl-2 col-md-3 col-6 h100">
-                    <div class="pagination h100 secondary-navbar-item" id="pagination_container">
+                <div class="col-xl-2 col-3 h100 pagination">
+                    <div class="h100 secondary-navbar-item" id="pagination_container">
                     </div>
 
                 </div>
-                <div class="col-md-3 col-6 h100">
+                <div class="offset-xl-1 col-sm-2 col-1 h100 search-container">
                     <div class="valign h100">
-                        <input id="search_bar" class="fuzzy-search" placeholder="Search Keywords" size="30" aria-label="Search">
+                        <a id="search_bar_trigger" role="button" title="Search Saved Lists" class="btn btn-sm"><span class="glyphicon glyphicon-search"></span></a>
+                        <input id="search_bar" class="fuzzy-search" type="text" placeholder=" Search Keywords" size="30" aria-label="Search">
                     </div>
                 </div>
             <!-- </form> -->

@@ -6,7 +6,7 @@
 
 {% block extra_head %}
 <link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/profession_tool.css" %}">
-<link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
+<link media='screen, print' rel="stylesheet" type="text/css" href="{% static "css/forms.css" %}">
 {% endblock extra_head %}
 
 {% block mainbody %}
@@ -27,26 +27,10 @@
     <div class="row justify-content-center" id='prof_header'>
         <div class="col-lg-7 offset-lg-1 col-12">
             <div class="row" style="height: 32px;">
-                <div class="col-lg-3 col-4" style="flex-basis: 0; padding-left: 0; margin-bottom: 0.5rem">
-                    <input id="search_bar" class="fuzzy-search" placeholder="search recipes" aria-label="Search">
+                <div class="col-lg-5 col-6 search-container" style="padding-left: 0;">
+                    <input id="search_bar" class="fuzzy-search" type="text" placeholder=" Search Recipes" size="30" aria-label="Search">
+                    <span title="Search Recipes" class="glyphicon glyphicon-search"></span>
                 </div>
-                <!-- <div class="col-lg-3 col-3">
-                    <div class="dropdown show">
-                        <a id="sorting" class="btn btn-sm dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span id='current_sort'>Sort</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-custom sortby-dropdown" style="border-top: 1px solid azure;" aria-labelledby="sorting">
-                            <a class="dropdown-item sorting-item" data-sort="data-rating"><span class="untouchable">iLevel</span></a>
-                            <div class="dropdown-divider" style="border-top: 1px solid #adb5cd33;"></div>
-                            <a class="dropdown-item sorting-item" data-sort="data-created"><span class="untouchable">Rarity</span></a>
-                            <div class="dropdown-divider" style="border-top: 1px solid #adb5cd33;"></div>
-                            <a class="dropdown-item sorting-item" data-sort="data-created"><span class="untouchable">Name</span></a>
-                        </div>
-                        <a id="sorting_order" class="btn btn-sm untouchable hidden">
-                            <span class="glyphicon glyphicon-triangle-bottom untouchable"></span>
-                        </a>
-                    </div>
-                </div> -->
             </div>
             <div class="row sticky-top columnTitle">
                 <div id="recipe_name_header" class="col-7">Name</div>
@@ -73,7 +57,7 @@
                 </div>
                 <div class="col-12" style="height: 40px; border-top: 1px solid #000000d6; background-color: #404040ab;">
                     <div>
-                        <button id="generate_checklist" type="button" class="btn btn-sm btn-primary">Generate Checklist</button>
+                        <button id="generate_checklist" type="button" class="btn btn-sm btn-dark btn-primary">Generate Checklist</button>
                     </div>
                 </div>
 

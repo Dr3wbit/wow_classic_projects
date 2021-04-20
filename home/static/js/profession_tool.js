@@ -4,20 +4,22 @@ $(document).ready(function() {
 });
 
 window.addEventListener('load', function(e) {
+	window.setTimeout(function() {
+		var selectedProfession = professionTool.PROFS.find(substring => document.location.pathname.includes(substring))
+		if (selectedProfession) { // simulate click on said profession
+			document.querySelector(`#${selectedProfession}.prof-filter`).click()
+		}
+		console.log('load')
+
+		if (document.location.search) {
+			clearCraftedList()
+			getCraftedList(document.location)
+		}
+		consumeHandlers();
+		recipeHandlers();
+		sidebarHandlers();
+	}, 250)
 	// figure out which profession(if any) is in the url
-	var selectedProfession = professionTool.PROFS.find(substring => document.location.pathname.includes(substring))
-	if (selectedProfession) { // simulate click on said profession
-		document.querySelector(`#${selectedProfession}.prof-filter`).click()
-	}
-
-	if (document.location.search) {
-		clearCraftedList()
-		getCraftedList(document.location)
-	}
-	consumeHandlers();
-	recipeHandlers();
-	sidebarHandlers();
-
 });
 
 
@@ -55,7 +57,7 @@ var professionTool = {
 			// TODO: adjust and make dependent on screensize
 			root: document.querySelector('#recipe_list'),
 	    	rootMargin: '200px',
-	    	threshold: 0.1
+	    	threshold: 0.1,
 		}
 	},
 	selected: '',
@@ -199,7 +201,7 @@ function getCraftedListSuccess(d) {
 	var data = (d.responseJSON) ? d.responseJSON : d
 
 	professionTool.ITEMS = Object.assign(professionTool.ITEMS, data.items)
-	professionTool.RECIPES.ALL =  Object.assign(professionTool.RECIPES.ALL, data.recipes)
+	professionTool.RECIPES.ALL = Object.assign(professionTool.RECIPES.ALL, data.recipes)
 
 	for (let [ix, amount] of Object.entries(data.crafted)) {
 		updateCraftedAmount(ix, amount)
@@ -761,7 +763,7 @@ function getRecipeList(prof) {
 		addScript(prof, src, scriptLoaded, loadError)
 
 	} else {
-		buildRecipeListNew()
+		buildRecipeList()
 	}
 }
 
@@ -795,7 +797,7 @@ function scriptLoaded(prof) {
 	professionTool.RECIPES[prof] = recipes
 	professionTool.ITEMSETS = Object.assign(professionTool.ITEMSETS, itemsets)
 
-	buildRecipeListNew()
+	buildRecipeList()
 }
 
 function addScript(loadedVar, src, loadedCallback=scriptLoaded, errorCallback=loadError) {
@@ -880,73 +882,54 @@ function stepCreator(step) {
 function addRecipes() {
 
 	var recipeListContainer = document.getElementById('list_container');
+	var delay = 1500
 	for (let [ix, recipe] of Object.entries(professionTool.RECIPES[professionTool.selected])) {
 		var row = createRecipeElement(recipe, ix)
-		var elemObserver = new IntersectionObserver(showImage, professionTool.observer.config);
+		var elemObserver = new IntersectionObserver(showRow, professionTool.observer.config);
+		elemObserver.loadDelay = delay
 		elemObserver.observe(row);
 		recipeListContainer.appendChild(row)
+		delay += 250
 	}
 
 	monkeyList.monkeyList.reIndex()
 	monkeyList.monkeyList.update()
 }
 
-// NOTE: OLD
 function buildRecipeList() {
 	professionTool.recipeArr = Array.from(Object.entries(professionTool.RECIPES[professionTool.selected]))
-
 	monkeyList.init()
-	// TODO: calculate how many recipe elements would fit into the viewport (use dynamic value)
-	var viewportSize = 15;
-	addRecipes(viewportSize)
-}
-
-// NOTE: NEW
-function buildRecipeListNew() {
-	professionTool.recipeArr = Array.from(Object.entries(professionTool.RECIPES[professionTool.selected]))
-
-	monkeyList.init()
-	// TODO: calculate how many recipe elements would fit into the viewport (use dynamic value)
 	addRecipes()
 }
 
-
-function showImage(entries, observer) {
-
+function showRow(entries, observer) {
+	// console.log('observer: ', observer)
 	entries.forEach(entry => {
+		var timeoutID = window.setTimeout(showImage, observer.loadDelay, entry, observer);
 		if (entry.isIntersecting && entry.intersectionRatio > 0) {
-			var row = entry.target,
-				src = `${global.static_url}images/icon_border_2.png`;
-
-			// load the images
-			row.querySelectorAll("img").forEach(image => {
-				image.setAttribute("src", src);
-
-				bg = image.getAttribute("data-src");
-
-				if (bg) {
-					image.style.backgroundImage = `url('${bg}.jpg')`
-				}
-			})
-
-
-			// Stop watching
-			observer.unobserve(row);
+			window.clearTimeout(timeoutID)
+			professionTool.observer.config.loadDelay -= (professionTool.observer.config.loadDelay - 250 >= 0) ? 250 : 0
+			showImage(entry, observer);
 		}
 	})
 }
 
-function showElements(entries, observer) {
+function showImage(entry, observer) {
+	var row = entry.target,
+		src = `${global.static_url}images/icon_border_2.png`;
 
+	// load the images
+	row.querySelectorAll("img").forEach(image => {
+		image.setAttribute("src", src);
 
-	for (var i = 0; i < entries.length; i++) {
-		var io = entries[i];
-		if (io.isIntersecting && io.intersectionRatio > 0) {
-			addRecipes(15)
-			// Stop watching
-			observer.unobserve(io.target);
+		bg = image.getAttribute("data-src");
+
+		if (bg) {
+			image.style.backgroundImage = `url('${bg}.jpg')`
 		}
-	}
+	})
+	// Stop watching
+	observer.unobserve(row);
 }
 
 function combatText(e, t){

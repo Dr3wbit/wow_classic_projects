@@ -252,32 +252,8 @@
    border: 0;
 }
 
-
-#talentHeaderControlCenter {
-    width: 100%;
-    display: block;
-    padding-right: 0;
-}
-
-#talentHeaderControlCenter > button {
-    padding: 0 3px 0 3px;
-    margin: 0 2px 0 1px;
-    font-size: 15px;
-    border: 0;
-    background-color: transparent;
-    color: #3d7e9a;
-}
-
-#copyLink {
-    margin: 0 2px 0 2px;
-    padding: 0 2px 0 2px;
-}
-
-#requiredLevel {
-  max-width: 30%;
-}
-
 #talentHeader {
+  padding: 0;
   height: 25px;
   margin-left: 5px;
   width:100%;
@@ -286,41 +262,44 @@
   border-top: 1px solid black;
   color: white;
   background-color: #272727;
-
   display: flex;
   font-size: 14px;
   position: relative;
   /* text-shadow: -0.02rem -0.02rem 0.02rem black; */
 }
 
-@media only screen and (min-width: 1200px) {
-    #mainBody {
-        padding-left: 15px !important;
-    }
+#talentHeader * {
+    padding: 0;
 }
+
+#talentHeaderControlCenter {
+    /* width: 100%; */
+    /* display: block; */
+}
+
+#talentHeaderControlCenter > button {
+    position: absolute;
+    padding: 0 3px;
+    margin: 0 2px 0 1px;
+    font-size: 15px;
+    border: 0;
+    background-color: transparent;
+    color: #3d7e9a;
+    top: 1px;
+}
+
+#requiredLevel {
+}
+
+#pointsRemaining {
+}
+
+
 
 @media only screen and (max-width: 992px) {
     /* #talentHeader {
       max-width: 477px;
     } */
-
-    #allottedTalentPoints {
-      padding-right: 5px;
-    }
-    #requiredLevel {
-      padding-right: 0px;
-      padding-left: 0px;
-    }
-
-    #pointsRemaining {
-      padding-left: 5px;
-      padding-right: 5px;
-
-    }
-
-    #talentHeaderControlCenter {
-      padding-left: 5px;
-    }
 }
 
 
@@ -329,11 +308,11 @@
       width: 477px;
     max-width: 477px;
   }
+}
 
-  #allottedTalentPoints {
-    padding-right: 15px;
-    padding-left: 15px;
-    text-align: center!important;
+@media only screen and (max-width: 576px) {
+  #talentHeaderControlCenter {
+
   }
   #requiredLevel {
     visibility: hidden;
@@ -341,25 +320,6 @@
     flex: 0 0 0%;
   }
 
-  #pointsRemaining {
-    visibility: hidden;
-    width: 0px;
-    flex: 0 0 0%;
-  }
-
-  #talentHeaderControlCenter {
-    padding-left: 0px;
-    min-width: 120px;
-    left: 140px;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  #talentHeaderControlCenter {
-    padding-left: 0px;
-    min-width: 120px;
-    left: 40px;
-  }
 }
 
 .reset-tree {
@@ -388,9 +348,15 @@ svg.icon:hover path{
 }
 
 #talentLock {
-    margin-bottom: 1px;
+    right: 18px;
+    top: -1px;
 }
 
 #resetTalents {
-    margin-bottom: 1px;
+    top: -1px;
+    right: -3px;
+}
+
+#copyLink {
+    right: 40px;
 }

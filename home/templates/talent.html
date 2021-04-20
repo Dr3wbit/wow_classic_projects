@@ -6,7 +6,7 @@
 {% block extra_head %}
 {% csrf_token %}
 <link rel="stylesheet" type="text/css" href="{% static "css/talent.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "css/save_form.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/forms.css" %}">
 {% endblock extra_head %}
 
 
@@ -33,25 +33,27 @@
 
 <div class="mainContent">
 	<div class="row justify-content-center">
-		<div id="talentHeader">
-			<span id="talent_points_spent" class="col-3 text-left">
+		<div class="col-12" id="talentHeader" >
+			<div class="col-2 text-left" style="text-indent:5px;">
+			<span id="talent_points_spent">
 				(<span class='spent'>0</span>/<span class='spent'>0</span>/<span class='spent'>0</span>)
 			</span>
-			<span id="requiredLevel" class="col-3">Required level:</span>
-			<span id="pointsRemaining" class="col-3 text-right">Points Left:</span>
-			<div id="talentHeaderControlCenter" class="col-3 btn-group">
+		</div>
+			<span id="requiredLevel" class="col-sm-3 d-none d-sm-block">Required level:</span>
+			<span id="pointsRemaining" class="col-sm-3 col-5 text-right">Points Left: 51</span>
+			<div id="talentHeaderControlCenter" class="col-3 offset-sm-1 offset-2 btn-group">
 				<!-- <button type="button" id="resetTalents" class="talentcalc-button reset btn" title="Reset"></button> -->
-				<button id="resetTalents" class="btn btn-sm float-right" aria-label="Reset Talents" title="Reset" type="button">
+				<button id="resetTalents" class="btn btn-sm" aria-label="Reset Talents" title="Reset" type="button">
 					<span class="glyphicon glyphicon-remove glyphicon-custom" aria-hidden="true"></span>
 				</button>
-				<button id="talentLock" class="btn btn-sm float-right" aria-label="Lock Talents" title="Lock" type="button" role="button">
+				<button id="talentLock" class="btn btn-sm" aria-label="Lock Talents" title="Lock" type="button" role="button">
 					<span class="glyphicon glyphicon-lock glyphicon-custom" aria-hidden="true"></span>
 				</button>
 				<!-- <button class="btn btn-sm float-right" data-toggle="modal" data-target="#specSaverPrompt" aria-label="specSaverPrompt" title="Save"
 					style="margin: 0 2px 0 1px; padding: 0 3px 0 3px; color: #3d7e9a; border: 0; background-color: transparent;" type="button">
 					<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
 				</button> -->
-				<button id="copyLink" data-container="#copyLink" data-toggle="popover" data-placement="right" class="btn btn-sm float-right" role="button" aria-label="copy spec link" type="button">
+				<button id="copyLink" data-container="#copyLink" data-toggle="popover" data-placement="right" class="btn btn-sm" role="button" aria-label="copy spec link" type="button">
 					<span class="glyphicon glyphicon-link glyphicon-custom" aria-hidden="true"></span>
 				</button>
 			</div>

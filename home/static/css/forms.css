@@ -10,21 +10,24 @@
 }
 
 .saveTitle{
-    background-color: #272727;
+    border: 1px solid black;
+    border-bottom: none;
     margin: 0;
-    box-shadow: 0 4px 2px -4px #000000;
 }
+
 
 .checkbox{
     border: 1px solid black;
     background-color: #272727;
     margin-top: 2px;
     display: inline-block;
-    padding: 2px;
+    padding: 5px 2px;
     border-radius: 1px;
 }
 
-input[type="text"], textarea {
+form input[type="text"],
+form input[type="email"],
+form textarea {
     background-color : #383838;
     border: none;
     color: white;
@@ -32,6 +35,7 @@ input[type="text"], textarea {
     height: 100%;
     padding: 0;
     padding-left: 5px;
+    outline: none;
   }
 
 .fieldWrapper > *, .form-actions{
@@ -46,4 +50,29 @@ label {
 
 #id_description{
     height: 200px;
+}
+
+#id_cc_myself {
+    margin-top: 10px;
+    float: left;
+    margin-left: 10px;
+}
+
+form .d-sm-block {
+    border: none;
+    border-right: 1px solid black;
+}
+
+
+#id_name, label[for=id_name],
+#id_subject, label[for=id_subject] {
+    border-top: 1px solid black;
+}
+
+.privateSelect {
+    border-bottom: none;
+}
+
+.col-1 {
+    border: none
 }

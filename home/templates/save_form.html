@@ -16,11 +16,11 @@
 
         {% if "talent_calc" in request.path %}
         <div class="fieldWrapper row">
-            <span class="col-6">
+            <span class="col-1 offset-2" style="text-align: right">
                 <label id="wow_class_label" class="{{selected}}" for="id_wow_class">{{selected|title}}</label>
                 <input id="wow_class" type="hidden" value="{{selected}}" name="wow_class" aria-labelledby="#wow_class_label">
             </span>
-            <span class="col-6">
+            <span class="col-1" style="text-align: left">
                 <label id="talents_spent" for="id_spent">(0/0/0)</label>
                 <input class="tree-input" id="tree0" type="hidden" value="Arms,10" name="spent">
             </span>
@@ -39,23 +39,23 @@
 
         <div class="fieldWrapper row">
             {{ form.name.errors }}
-            <label class="col-2" for="{{ form.name.id_for_label }}">Title:</label>
-            <div class="col-8 p-0">
+            <label class="col-sm-2 col-3" for="{{ form.name.id_for_label }}">Title:</label>
+            <div class="col-sm-8 col-9 p-0">
                     {{ form.name }}
             </div>
-            <div class="col-2"></div>
+            <div class="d-none d-sm-block col-2"></div>
         </div>
         <div class="fieldWrapper row">
             {{ form.description.errors }}
-            <label class="col-2" for="{{ form.description.id_for_label }}">Notes:</label>
-            <div class="col-8 p-0">
+            <label class="col-sm-2 col-3" for="{{ form.description.id_for_label }}">Notes:</label>
+            <div class="col-sm-8 col-9 p-0">
                     {{ form.description }}
             </div>
-            <div class="col-2"></div>
+            <div class="d-none d-sm-block col-2"></div>
         </div>
         <div class="fieldWrapper row">
             {{ form.tags.errors }}
-            <label class="col-2"for="{{ form.tags.id_for_label }}">Tags:</label>
+            <label class="col-sm-2"for="{{ form.tags.id_for_label }}">Tags:</label>
             <div class="col-10 left-align">
                     {% for checkbox in form.tags %}
                     <div class="checkbox">{{checkbox}}</div>

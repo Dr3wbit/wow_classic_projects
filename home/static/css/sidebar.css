@@ -129,8 +129,8 @@
     background-color: var(--sidenav-bg-color);
     height: var(--secondary-navbar-height);
     box-shadow: 0 4px 2px -4px #000000;
-    border-top: 1px solid black;
     border-right: 1px solid black;
+    border-top: 1px solid #00000078;
 }
 
 #saved_lists {
@@ -147,7 +147,7 @@
     width: 250px;
     left: -220px;
     z-index: 1300;
-    border-right: 1px solid #00000054;
+    /* border-right: 1px solid #00000054; */
 }
 
 
@@ -162,12 +162,15 @@
 
 #saved_lists.animated.expanded {
     animation: 0.75s ease-out forwards slideout;
-
 }
 
 
 #saved_lists.animated.minimized {
     animation: 0.75s ease-out forwards slidein;
+}
+
+#saved_lists.expanded #sidebar_toggle {
+    border-bottom: 1px solid black;
 }
 
 .saved-container {
@@ -178,7 +181,8 @@
     height: 0;
     display: block;
     overflow-y: scroll;
-    border-top: 1px solid black;
+    /* border-top: 1px solid black; */
+    border-right: 1px solid #00000069;
 }
 
 #custom-saves.expanded {
@@ -198,6 +202,9 @@
     animation: 0.5s ease-out 0.75s forwards collapse;
 }
 
+#saved_lists.minimized > .saved-container {
+    border-bottom: 0;
+}
 
 #saved_lists.minimized a.sidebar-toggle-button span.glyphicon {
     -moz-transform: rotate(180deg);
@@ -220,7 +227,7 @@
 
 .sidebar-toggle-button > span {
     position: absolute;
-    top: 1vh;
+    top: 0.75vh;
     right: 0;
 }
 
@@ -416,11 +423,10 @@ div.modal-footer {
 @media only screen and (max-width: 992px) {
 
     .sidebar-toggle-button {
-        font-size: 4.5vmax;
-        user-select: none;
+        font-size: calc(var(--secondary-navbar-height) - 1.5vmax);
     }
 
     .sidebar-toggle-button > span {
-        top: 1vmax;
+        top: 0.5vmax;
     }
 }

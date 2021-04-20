@@ -3,38 +3,32 @@
     /* #5985ba */
     --merrigold: rgb(255, 193, 7);
     /* #ffc107 */
-    --navbar-height: 6vh;
+    --secondary-navbar-height: 6vh;
+    --navbar-height: calc(var(--secondary-navbar-height) - 0.5vh);
     --light-grey: rgb(70, 78, 86);
     /* #464e56 */
     --sidenav-bg-color: #181818;
-    --secondary-navbar-height: calc(var(--navbar-height) - 1vh);
 }
-
-@media only screen and (min-aspect-ratio: 1.6) {
-    :root {
-        --navbar-height: 7vh;
-        --secondary-navbar-height: calc(var(--navbar-height) - 1vh);
-
-    }
-}
-
-@media only screen and (min-width: 1600) {
-    #mainBody {
-        padding-left: 45px;
-        padding-right: 45px;
-    }
-}
-
 @media only screen and (max-width: 992px) {
     :root {
-        --navbar-height: 7vmax;
-        --secondary-navbar-height: calc(var(--navbar-height) - 1vmax);
+        --secondary-navbar-height: 6vmax;
+        --navbar-height: calc(var(--secondary-navbar-height) - 0.5vmax);
+        --navbar-toggler-width: calc(var(--navbar-height) - 3vmax);
+        --navbar-toggler-height: calc(var(--navbar-height) - 2vmax);
+    }
+}
+
+@media only screen and (max-width: 576px) and (max-aspect-ratio: 1/2){
+    :root {
+        --secondary-navbar-height: 5vmax;
     }
 }
 
 html {
     position: relative;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    transition: all 0.3s ease;
 }
 
 body {
@@ -48,11 +42,11 @@ body {
     width: 100%
 }
 
-body.preload *{
+/* body.preload *{
     animation-duration: 0s !important;
     -webkit-animation-duration: 0s !important;
     transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
-}
+} */
 
 .footer {
     width: 100%;
@@ -82,8 +76,6 @@ body.preload *{
     align-content: center;
     display: inline-block;
     vertical-align: top;
-    /* padding-left: 265px; */
-    /* transition: padding-left 0.5s ease; */
     margin-bottom: 50px;
 }
 
@@ -95,6 +87,23 @@ body.preload *{
 .depad {
     animation: 0.75s ease-out forwards depad;
 }
+
+
+@media only screen and (min-aspect-ratio: 1.6) {
+    :root {
+        --navbar-height: 7vh;
+        --secondary-navbar-height: calc(var(--navbar-height) - 1vh);
+
+    }
+}
+
+@media (min-width: 1600) {
+    #mainBody {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+}
+
 
 @keyframes padleft {
     0% {
@@ -236,8 +245,10 @@ body.preload *{
     box-shadow: inset 4px 0 4px -4px black, inset -4px 0 4px -4px black;
 }
 
-.navbar-brand img {
+.navbar-brand > img {
     position: relative;
+    width: calc(var(--navbar-height) * 0.9);
+    height: calc(var(--navbar-height) * 0.95);
 }
 
 .nav-link {
@@ -267,9 +278,9 @@ body.preload *{
     box-shadow: inset 4px 0 4px -4px black, inset -4px 0 4px -4px black;
 }
 
-.nav-item:last-of-type:hover {
+/* .nav-item:last-of-type:hover {
     box-shadow: none;
-}
+} */
 
 .nav-item.selected, .navbar-brand.selected {
     box-shadow: inset 4px 0 4px -4px black, inset -4px 0 4px -4px black;
@@ -282,15 +293,14 @@ body.preload *{
 /* ``````````````````CLASS SELECTION````````````````````` */
 .class-filter, .prof-filter {
     cursor: pointer;
-    /* transition: all 0.1s cubic-bezier(0.57, 0.1, 0.55, 0.95); */
     position: relative;
     box-shadow: inset 0 0 1px rgb(40, 40, 40);
     margin: auto 5px;
     border-radius: 5px;
-    -moz-transition: all 0.1s ease-in;
-    -o-transition: all 0.1s ease-in;
-    -webkit-transition: all 0.1s ease-in;
-    transition: all 0.1s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .prof-filter.selected {
@@ -443,17 +453,19 @@ body.preload *{
 }
 
 .class-icon, .prof-icon {
-    height: 42px;
-    width: 42px;
+    height: calc(var(--secondary-navbar-height) * 0.95);
+    width: calc(var(--secondary-navbar-height) * 0.95);
     background-size: contain;
     background-repeat: no-repeat;
     border-width: 2px;
     border-style: ridge;
     border-radius: 6px;
-    border-color: rgba(0, 0, 0, 1);
+    border-color: rgba(1, 1, 1, 1);
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
     pointer-events: none;
 }
+
+
 
 .class-filter.selected img,
 .class-filter:focus img,
@@ -668,7 +680,7 @@ ul {
 .icon-medium {
     width: 42px;
     height: 42px;
-    border: 1px black ridge;
+    border: 1px rgba(1, 1, 1, 1) ridge;
     border-radius: 5px;
     background-size: 36px 36px;
     background-position: left 1px top 1px;
@@ -795,6 +807,8 @@ a.crafted-item-list:hover {
     color: #7289DA;
     font-size: 8px;
 }
+
+
 
 #discord-login {
     transition: all .17s ease-out;
@@ -998,28 +1012,125 @@ button:focus {
     padding: 0 12px;
 }
 
-@media only screen and (max-width: 562px) {
-    .recipe-name {
-        font-size: 10px;
-    }
+.discord-container {
+    position: relative;
+    right: 5px;
+    z-index: 1320;
+}
 
-    .count-container {
-        right: 1px;
-        top: 13px;
+/* @media (min-aspect-ratio: 8/5) {
+    body {
+        background-color: blue;
     }
+} */
 
-    .count-container>* {
-        font-size: 10px;
-    }
-
-    .prof-filter>img,.class-filter>img {
-        width: 30px;
-        height: 30px;
-        background-size: 26px 26px;
+@media only screen and (max-width: 1400px) {
+    #navbarSupportedContent {
+        z-index: 1310;
+        background-color: #272727;
+        max-height: var(--navbar-height);
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 1400px) {
+    #navbarSupportedContent {
+        z-index: 1310;
+        background-color: #272727;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .prof-filter.disabled {
+        display: none;
+    }
+}
+@media only screen and (max-width: 992px) {
+
+    .discord-container {
+        position: absolute;
+        right: 0;
+        margin-right: calc(var(--navbar-toggler-width) + 1.75rem);
+        z-index: 1320;
+    }
+
+    #mainBody {
+        padding-left: 15px !important;
+    }
+
+    .navbar-toggler {
+        font-size: unset;
+        padding-top: 1vmax;
+        padding-bottom: 1vmax;
+        border: none;
+        border-radius: 1px;
+        line-height: normal;
+        transition: 0.5s ease all;
+    }
+
+    .navbar-toggler-icon {
+        width: var(--navbar-toggler-width);
+        height: var(--navbar-toggler-height);
+    }
+
+    .navbar-toggler:hover {
+        background-color: rgb(68 68 68);
+        /* filter: invert(1); */
+    }
+
+    #discord-avatar:hover {
+        background-color: rgb(68 68 68);
+    }
+
+    .navbar {
+        z-index: 1310;
+        /* background-color: transparent; */
+    }
+
+    ul.navbar-nav {
+        border-top: 2px solid var(--merrigold);
+    }
+
+    a.nav-link {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* .nav-item:last-child {
+        border-right: 1px solid black;
+        display: list-item;
+        background-color: #272727;
+    } */
+
+    .navbar-brand {
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+
+    .discordLink {
+        margin: auto
+    }
+
+    .nav-item {
+        min-width: initial;
+        min-height: initial;
+        border-bottom: 2px solid black;
+    }
+
+    .nav-link {
+        transition: 0.5s ease all;
+    }
+
+    .nav-link:hover {
+        color: var(--merrigold) !important;
+        background-color: rgb(68 68 68);
+    }
+    /* .class-selection, .prof-selection, .selection-header {
+        top: unset;
+    } */
+}
+
+
+@media only screen and (max-width: 800px) {
     .icon-medium {
         width: 30px;
         height: 30px;
@@ -1028,6 +1139,13 @@ button:focus {
 
     .class-filter, .prof-filter {
         margin: 1px;
+    }
+
+    @media (max-aspect-ratio: 2/3){
+        .class-filter:first-child, .prof-filter:first-child {
+            padding-left: 15px;
+            margin-left: 10px;
+        }
     }
 
     /* professions */
@@ -1083,10 +1201,6 @@ button:focus {
         background-image: url("../images/icons/medium/professions/fishing.jpg");
     }
 
-    #herbalism, #fishing, #skinning {
-        display: none;
-    }
-
     #warrior>img {
         background-image: url("../images/icons/medium/class/warrior.jpg");
     }
@@ -1124,6 +1238,28 @@ button:focus {
     }
 }
 
+@media only screen and (max-width: 562px) {
+    .recipe-name {
+        font-size: 10px;
+    }
+
+    .count-container {
+        right: 1px;
+        top: 13px;
+    }
+
+    .count-container>* {
+        font-size: 10px;
+    }
+
+    .prof-filter>img,.class-filter>img {
+        width: calc(var(--secondary-navbar-height) * 0.8);
+        height: calc(var(--secondary-navbar-height) * 0.8);
+        margin-top: calc(var(--secondary-navbar-height) * 0.1)
+    }
+}
+
+
 #discord-avatar {
     background-color: transparent;
     padding-top: 0;
@@ -1133,133 +1269,59 @@ button:focus {
 #discord-avatar>img {
     background-repeat: no-repeat;
     background-size: contain;
-    width: calc(var(--secondary-navbar-height) - 1vh);
-    height: calc(var(--secondary-navbar-height) - 1vh);
+    width: calc(var(--navbar-height) - 0.5vh);
+    height: calc(var(--navbar-height) - 0.5vh);
     border-radius: 50%;
-    /* margin-top: 0.5vh; */
-    border: 2px solid white;
+    border: 2px solid rgb(47 108 181);
 }
 
 #discord-avatar>img:hover {
     border: 2px solid var(--merrigold);
 }
 
-.nav-item:last-child {
+/* .nav-item:last-child {
     border-right: none;
     width: 100%;
     display: flex;
     align-items: center;
-}
+} */
 
 .nav-item:last-child>div:first-of-type {
     margin-left: auto;
 }
 
-/* .nav-link:last-of-type {
-    padding-top: 0;
-    padding-bottom: 0;
-} */
-@media only screen and (max-width: 992px) {
-    #mainBody {
-        padding-left: 15px !important;
-    }
-    .navbar-toggler {
-        padding-top: 1vmax;
-        padding-bottom: 1vmax;
-        border: none;
-        border-radius: 1px;
-        line-height: normal;
-        transition: 0.5s ease all;
-    }
-
-    .navbar-toggler-icon {
-        width: 3.5vmax;
-        height: 4.5vmax;
-    }
-
-    .navbar-toggler:hover {
-        background-color: rgb(68 68 68);
-        /* filter: invert(1); */
-    }
-
-    #discord-avatar {
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-    }
-
-    #discord-avatar:hover {
-        background-color: rgb(68 68 68);
-    }
-
-    #discord-avatar>img {
-        width: 36px;
-        height: 36px;
-    }
-
-    .navbar {
-        z-index: 1310;
-    }
-
-    ul.navbar-nav {
-        border-top: 2px solid var(--merrigold);
-    }
-
-    a.nav-link {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-    }
-
-    .nav-item:last-child {
-        border-right: 1px solid black;
-        display: list-item;
-        background-color: #272727;
-    }
-
-    .navbar-brand {
-        padding-left: 15px;
-        padding-right: 20px;
-    }
-
-    .discordLink {
-        margin: auto
-    }
-
-    .nav-item {
-        min-width: initial;
-        min-height: initial;
-        border-bottom: 2px solid black;
-    }
-
-    .nav-link {
-        transition: 0.5s ease all;
-    }
-
-    .nav-link:hover {
-        color: var(--merrigold) !important;
-        background-color: rgb(68 68 68);
-    }
-}
-
-@media only screen and (max-width: 1400px) {
-    #navbarSupportedContent {
-        z-index: 1310;
-        background-color: #272727;
-        max-height: var(--navbar-height);
-    }
-}
-
-@media only screen and (min-width: 1400px) {
-    #navbarSupportedContent {
-        z-index: 1310;
-        background-color: #272727;
-    }
-}
 
 #saved_list_info {
     margin-top: 3em;
     padding-top: 3em;
 }
 
+button:active,
+button:focus {
+    transform: scale(.97);
+}
 button, input {
-    border-radius: 1px;
+    border-radius: 1px !important;
+}
+
+input:focus,textarea:focus {
+    outline: none;
+}
+
+.btn-dark {
+    border: 0.2em outset whitesmoke !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease;
+    color: whitesmoke !important;
+}
+
+.btn-dark:hover {
+    background-color: white !important;
+    color: black !important;
+    box-shadow: 0 0 3px 1px #ffffff42;
+}
+
+input[type=text] {
+    outline: 1px solid white;
+    border: 2px inset rgba(128, 128, 128, 1);
 }
