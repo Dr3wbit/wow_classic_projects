@@ -4,51 +4,50 @@ $(document).ready(function() {
 
 function saveFormHandlers() {
 
+    var savedListForm = document.querySelector(".saved-list-form")
+    savedListForm.addEventListener("submit", e=> {
+        e.preventDefault()
+        if (!window.location.pathname.includes("talent_calc")) {
+            if (Object.keys(professionTool.CONSUMES) < 1) {
+                alert('cant save empty list idiot!')
+                return false
+            } else {
+                updateConsumeInputs()
+            }
+        }
 
-    $(".saved-list-form").on({
-    	submit: e => {
-            e.preventDefault()
-    		if (window.location.pathname.includes("talent_calc")) {
-                //
-    		} else {
-    			if (Object.keys(professionTool.CONSUMES) < 1) {
-    				alert('cant save empty list idiot')
-    				return false
-    			} else {
-    				updateConsumeInputs()
-    			}
-    		}
-    		var violations = oversized_words()
+        var violations = oversizedWords()
 
-    		if (violations.length) {
-    			var message = (violations.length > 1) ? `Unable to save list, the following ${violations.length} words are too long:\n` : `Unable to save list, the following word is too long:\n`
+        if (violations.length) {
+            var message = (violations.length > 1) ? `Unable to save list, the following ${violations.length} words are too long:\n` : `Unable to save list, the following word is too long:\n`
 
-    			message += violations.join('\n')
-    			notifyUser(message)
-    			return false
-    		}
+            message += violations.join('\n')
+            notifyUser(message)
+            return false
+        }
 
-            var form = document.querySelector('.saved-list-form')
+        var form = document.querySelector('.saved-list-form')
 
-            var description = form.querySelector('#id_description').value
-            var name = form.querySelector('#id_name').value
+        var description = form.querySelector('#id_description').value
+        var name = form.querySelector('#id_name').value
 
-            name = name.split(/\s+/).join(' ').trim()
-            description = description.split(/\s+/).join(' ').trim()
+        name = name.split(/\s+/).join(' ').trim() //remove excess whitespace
+        description = description.split(/\s+/).join(' ').trim()
 
-            form.querySelector('#id_description').value = description
-            form.querySelector('#id_name').value = name
+        form.querySelector('#id_description').value = description
+        form.querySelector('#id_name').value = name
 
-            var data = serialize(form)
+        console.log('form data: ', form)
+        var data = serialize(form)
+        console.log('serialized form data: ', data);
 
-    		$.ajax({
-    			method: "POST",
-    			url: window.location.href,
-    			data: data,
-    			success: savedListSuccess,
-    			error: savedListError,
-    		})
-    	}
+        $.ajax({
+            method: "POST",
+            url: window.location.href,
+            data: data,
+            success: savedListSuccess,
+            error: savedListError,
+        })
     })
 }
 
@@ -62,7 +61,7 @@ function updateConsumeInputs() {
     }
 }
 
-function oversized_words(max_length = 20) {
+function oversizedWords(max_length = 20) {
 	var description = $("#id_description").val().split(/\s/)
 	var violations = []
 

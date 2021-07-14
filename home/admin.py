@@ -34,10 +34,6 @@ class OnybuffAdminSite(admin.AdminSite):
 		return context
 
 admin_site = OnybuffAdminSite(name='admin')
-# admin.site.site_header = 'Onybuff Admin'
-# OnybuffAdminSite.register(model_or_iterable=WoWClass)
-# admin.site.register(Spec)
-# admin.site.register(ConsumeList)
 
 class ItemAdmin(admin.ModelAdmin):
 	model = Item
@@ -117,7 +113,7 @@ class FlaggedSpecsAdmin(admin.ModelAdmin):
 	list_editable = ('visible', )
 	readonly_fields = ('user',)
 
-
+# Custom List approval form
 class CLApprovalForm(forms.ModelForm):
 
 	def has_changed(self, *args, **kwargs):

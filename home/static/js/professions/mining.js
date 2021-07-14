@@ -1,9 +1,45 @@
 var recipes = {
+    "2835": {
+        "n": "Rough Stone",
+        "q": 1,
+        "img": "inv_stone_06",
+        "step": 1,
+        "materials": {
+            "2835": 1
+        }
+    },
+    "2840": {
+        "n": "Copper Bar",
+        "q": 1,
+        "img": "inv_ingot_02",
+        "step": 1,
+        "materials": {
+            "2770": 1
+        }
+    },
+    "2836": {
+        "n": "Coarse Stone",
+        "q": 1,
+        "img": "inv_stone_09",
+        "step": 1,
+        "materials": {
+            "2836":1
+        }
+    },
+    "3576": {
+        "n": "Tin Bar",
+        "q": 1,
+        "img": "inv_ingot_05",
+        "step": 1,
+        "materials": {
+            "2771": 1
+        }
+    },
     "2841": {
         "n": "Bronze Bar",
         "q": 1,
         "img": "inv_ingot_bronze",
-        "step": 1,
+        "step": 2,
         "materials": {
             "3576": 1,
             "2840": 1
@@ -18,6 +54,15 @@ var recipes = {
             "2775": 1
         }
     },
+    "2838": {
+        "n": "Heavy Stone",
+        "q": 1,
+        "img": "inv_stone_12",
+        "step": 1,
+        "materials": {
+            "2838": 1
+        }
+    },
     "3575": {
         "n": "Iron Bar",
         "q": 1,
@@ -25,15 +70,6 @@ var recipes = {
         "step": 1,
         "materials": {
             "2772": 1
-        }
-    },
-    "3576": {
-        "n": "Tin Bar",
-        "q": 1,
-        "img": "inv_ingot_05",
-        "step": 1,
-        "materials": {
-            "2771": 1
         }
     },
     "3577": {
@@ -53,6 +89,15 @@ var recipes = {
         "materials": {
             "3857": 1,
             "3575": 1
+        }
+    },
+    "7912": {
+        "n": "Solid Stone",
+        "q": 1,
+        "img": "inv_stone_10",
+        "step": 1,
+        "materials": {
+            "7912": 1
         }
     },
     "3860": {
@@ -82,6 +127,15 @@ var recipes = {
             "11370": 8
         }
     },
+    "12365": {
+        "n": "Dense Stone",
+        "q": 1,
+        "img": "inv_misc_stonetablet_07",
+        "step": 1,
+        "materials": {
+            "12365": 1
+        }
+    },
     "12359": {
         "n": "Thorium Bar",
         "q": 1,
@@ -105,6 +159,36 @@ var recipes = {
     }
 }
 var materials = {
+    "2770": {
+        "n": "Copper Ore",
+        "q": 1,
+        "img": "inv_ore_copper_01"
+    },
+    "2835": {
+        "n": "Rough Stone",
+        "q": 1,
+        "img": "inv_stone_06"
+    },
+    "2836": {
+        "n": "Coarse Stone",
+        "q": 1,
+        "img": "inv_stone_09"
+    },
+    "2838": {
+        "n": "Heavy Stone",
+        "q": 1,
+        "img": "inv_stone_12"
+    },
+    "7912": {
+        "n": "Solid Stone",
+        "q": 1,
+        "img": "inv_stone_10"
+    },
+    "12365": {
+        "n": "Dense Stone",
+        "q": 1,
+        "img": "inv_misc_stonetablet_07"
+    },
     "3576": {
         "n": "Tin Bar",
         "q": 1,

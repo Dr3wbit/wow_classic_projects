@@ -367,13 +367,11 @@ function deleteRating(d) {
 }
 
 
-// x
 function ratingSubmitted(response) {
 	var msg = response.responseJSON.message
 	notifyUser(msg)
 }
 
-// x
 function updateRating(data) {
 	var container;
 	if (data.wow_class) {
@@ -480,14 +478,15 @@ function loadSavedLists(data) {
 		if (hasWoWClass) {
 			listItem.setAttribute("data-wowclass", savedList.wow_class)
 		}
-		listContainer.appendChild(listItem)
+		listContainer.append(listItem)
 
 
 		var feedItem = create_element('div', 'feed-item row mt-5')
-		listItem.appendChild(feedItem)
+
+		listItem.append(feedItem)
 
 		var col = create_element('div', 'col')
-		feedItem.appendChild(col)
+		feedItem.append(col)
 
 		var imageSuffix = (hasWoWClass) ? (savedList.wow_class).toLowerCase() : 'profession_tool_image'
 		var imagePath = `${imagePrefix}mini_spec/${imageSuffix}.png`

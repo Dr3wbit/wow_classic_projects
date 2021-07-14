@@ -9,7 +9,6 @@ window.addEventListener('load', function(e) {
 		if (selectedProfession) { // simulate click on said profession
 			document.querySelector(`#${selectedProfession}.prof-filter`).click()
 		}
-		console.log('load')
 
 		if (document.location.search) {
 			clearCraftedList()
@@ -19,7 +18,6 @@ window.addEventListener('load', function(e) {
 		recipeHandlers();
 		sidebarHandlers();
 	}, 250)
-	// figure out which profession(if any) is in the url
 });
 
 
